@@ -1,0 +1,56 @@
+!!!
+%html{ :lang => "en" }
+
+    %head
+
+        -# Encoding
+
+        %meta{ :charset => "utf-8" }
+
+        -# Meta tag for IE Comapatability
+
+        %meta{ :content => "IE=edge,chrome=1", :"http-equiv" => "X-UA-Compatible" }
+
+        -# Mobile Phone Meta Data
+
+        %meta{ :name => "viewport",                              :content => "initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" }
+        %meta{ :name => "apple-mobile-web-app-capable",          :content => "yes"   }
+        %meta{ :name => "apple-mobile-web-app-status-bar-style", :content => "black" }
+
+        -# Page Title
+
+        %title= data.page.title
+
+        -# Main Stylesheet include
+
+        = gzip_css_on_build "site", "all"
+
+    -# Body with Page Class
+
+    %body{ :class => "#{page_classes}" }
+
+        #wrap
+
+            = partial "#{pathPartials}/mobile/navbar"
+
+            / .container
+
+            -# Yield
+
+            = yield
+
+            #push
+
+        -# Footer
+
+        = partial "#{pathPartials}/mobile/footer"
+
+        -# Javascript
+
+        = gzip_js_on_build :all
+
+        -# PhoneGap JS If in Build mode
+
+        - if build?
+
+            %script{:src => "phonegap.js"}

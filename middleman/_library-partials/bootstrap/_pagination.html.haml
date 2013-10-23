@@ -1,0 +1,48 @@
+-# Bootstrap Pagination
+-# http://getbootstrap.com/2.3.2/components.html#pagination
+
+-# Locals
+-# pageNo    - String - Required -
+-# pages     - String - Required -
+-# prevPage  - String - Required -
+-# nextPage  - String - Required -
+
+-# active    - String - Optional -
+-# disabled  - String - Optional -
+-# size      - String - Optional - large, small or mini sizes - Default: none
+-# alignment - String - Optional - centered or right
+
+-# Usage
+-# = partial "#{pathPartials}/bootstrap/pagination",
+-#            :locals => { pageNo => "1",
+-#                         pages  => "5" }
+
+-# Pagination
+.pagination.pagination-small.pagination-centered
+
+    %ul
+
+        -# Previous Page
+        - if prevPage
+
+            %li
+                = link_to 'Prev', prevPage
+
+        -# Loop through the number of pages
+        - (1..pages).to_a.each do |page|
+
+            - if page == 1
+
+                %li
+                    = link_to page, "/blog/articles"
+
+            - else
+
+                %li
+                    = link_to page, "/blog/articles/page/#{page}"
+
+        -# Next Page
+        - if nextPage
+
+            %li
+                = link_to 'Next', nextPage

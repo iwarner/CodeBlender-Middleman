@@ -1,0 +1,59 @@
+-# Dublin Core Meta Tags
+-# http://en.wikipedia.org/wiki/Meta_element
+-# http://schema.org
+
+-# Locals
+-#
+
+-# Usage
+-# = partial "#{pathPartials}/site/meta_tags_dublic_core"
+-#
+-# Tags can be set via the data.page elements or through content yield
+-# the latter is especially useful for localized pages where the front
+-# matter will change dynamically for the language.
+
+-# Dublin Core
+-# http://dublincore.org/documents/dces/
+-# http://www.dublincoregenerator.com/generator.html
+-# http://www.dublincoregenerator.com/generator_nq.html
+
+-# Description
+- if !yield_content( :metaDescription ).blank?
+    - description = yield_content :metaDescription
+- elsif current_page.data.description.is_a?( Symbol )
+    - description = t( current_page.data.description )
+- else
+    - description = current_page.data.description
+
+-# Author
+- if !yield_content( :metaAuthor ).blank?
+    - author = yield_content :metaAuthor
+- else
+    - author = current_page.data.author
+
+-# Subject
+- if !yield_content( :metaSubject ).blank?
+    - subject = yield_content :metaSubject
+- elsif current_page.data.subject.is_a?( Symbol )
+    - subject = t( current_page.data.subject )
+- else
+    - subject = current_page.data.subject
+
+%link{ :rel => "schema.DC",      :href => "http://purl.org/dc/elements/1.1/" }
+%link{ :rel => "schema.DCTERMS", :href => "http://purl.org/dc/terms/" }
+
+%meta{ :name => "DC.Title",       :"xml:lang" => "en",                  :content => title }
+%meta{ :name => "DC.Identifier",  :schema => "DCterms:URI",             :content => data.config.url + request.path }
+%meta{ :name => "DC.Format",      :schema => "DCterms:IMT",             :content => "text/html" }
+%meta{ :name => "DC.Creator",                                           :content => author }
+%meta{ :name => "DC.Subject",     :"xml:lang" => "en",                  :content => subject }
+%meta{ :name => "DC.Publisher",                                         :content => data.config.publisher }
+%meta{ :name => "DC.Publisher.Address",                                 :content => data.config.publisherAddress }
+%meta{ :name => "DC.Contributor",                                       :content => author }
+%meta{ :name => "DC.Date",        :scheme => "ISO8601",                 :content => data.page.date }
+%meta{ :name => "DC.Type",                                              :content => "text/html" }
+%meta{ :name => "DC.Description", :"xml:lang" => "en",                  :content => description }
+%meta{ :name => "DC.Coverage",                                          :content => data.config.publisher }
+%meta{ :name => "DC.Rights",                                            :content => data.config.rights }
+%meta{ :name => "DC.Date.X-MetadataLastModified", :scheme => "ISO8601", :content => current_page.data.dateModified }
+%meta{ :name => "DC.Language",    :scheme => "dcterms:RFC1766",         :content => "EN" }

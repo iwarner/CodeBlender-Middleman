@@ -1,0 +1,32 @@
+---
+author      : DryKISS
+description : "Latest articles blog"
+published   : true
+title       : Latest Articles
+---
+
+-### CodeBlender Examples - Blog
+-# http://middlemanapp.com/blogging/
+
+-# Locals
+-#
+
+-# Usage
+-# Creates some common code elements we may use inside a Middleman Blog
+
+/ <% article.tags.each do |tag| %>
+/     <a href="/tags/#{tag}.html">tag</a>
+/ <% end %>
+
+/ <section class="article-index music">
+/     <% data.blog.articles.each_with_index do |article, i| %>
+/         <% if article.category == 'music' %>
+/             <article>
+/             <h2><a href="<%= article.url.sub('.html','') %>"><%= article.title %></a></h2>
+/             <time pubdate><%= article.date.strftime('%b %e') %></time>
+/             <span class="categories"><%= article.tags %></span>
+/             <%= article.summary %>
+/             </article>
+/         <% end %>
+/     <% end %>
+/ </section>

@@ -1,0 +1,26 @@
+-# Bootstrap Blockquote
+-# http://getbootstrap.com/css/#type-blockquotes
+
+-# Locals
+-# text  - String - Required - Main text
+-# small - String - Optional - Small description
+
+-# Usage
+-# = partial "#{pathPartials}/bootstrap/blockquote",
+-#            :locals => { :text  => "Blockquote",
+-#                         :small => "Small description" }
+
+-# Abort if text is not defined or Blank
+- if !defined? text or text.blank?
+    - p "Blockquote - no text defined"
+    - abort
+
+-# Blockquote
+%blockquote
+
+    -# Main headline text
+    %h2= text
+
+    -# Add the small text if required
+    -if small
+        %small= small

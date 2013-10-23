@@ -1,0 +1,70 @@
+-# Facebook Like Box
+-# https://developers.facebook.com/docs/reference/plugins/like-box
+-# https://developers.facebook.com/docs/opengraph/using-objects/#creating
+-# https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/
+
+-# Locals
+-# type        - The version of the Like Box to use - html5, xfbml, iframe, url
+-# href        - the URL of the Facebook Page for this Like Box.
+-# width       - the width of the plugin in pixels. Default width: 300px.
+-# height      - the height of the plugin in pixels. The default height varies based on number of faces to display, and whether the stream is displayed. With the stream displayed, and 10 faces the default height is 556px. With no faces, and no stream the default height is 63px.
+-# colorscheme - the color scheme for the plugin. Options: 'light', 'dark'
+-# show_faces  - specifies whether or not to display profile photos in the plugin. Default value: true.
+-# stream      - specifies whether to display a stream of the latest posts from the Page's wall
+-# header      - specifies whether to display the Facebook header at the top of the plugin.
+-# show_border - specifies whether or not to show a border around the plugin, default true. Set to false to style the iframe with your custom CSS.
+-# force_wall  - for Places, specifies whether the stream contains posts from the Place's wall or just checkins from friends. Default value: false.
+
+-# Usage
+-# = partial "#{pathPartials}/facebook/like_box",
+-#            :locals => { :type   => "html5",
+-#                         :href   => "",
+-#                         :width  => "300",
+-#                         :height => "500" }
+
+-# Type - default to HTML5
+- if !defined? type or type.blank?
+    - type = "html5"
+
+-# HREF default to data.config.facebookPageUrl
+- if !defined? href or href.blank?
+    - href = data.config.facebookPageUrl
+
+-# Width default to 300 - span4
+- if !defined? width or width.blank?
+    - width = 300
+
+-# Height default to 540
+- if !defined? height or height.blank?
+    - height = 238
+
+-# Stream - default to true
+- if !defined? stream or stream.blank?
+    - stream = "true"
+
+-# HTML5
+-# <div class="fb-like-box" data-href="https://www.facebook.com/AskHanuman" data-width="300" data-height="540" data-show-faces="true" data-stream="true" data-show-border="true" data-header="false"></div>
+- if type == "html5"
+
+    .fb-like-box{ :data => { :href          => href,
+                             :width         => width,
+                             :height        => height,
+                             :"show-faces"  => :true,
+                             :stream        => stream,
+                             :"show-border" => :false,
+                             :header        => :false } }
+
+    -# XFBML
+    -# <fb:like-box href="https://www.facebook.com/AskHanuman" width="300" height="540" show_faces="true" stream="true" show_border="true" header="false"></fb:like-box>
+- elsif type == "xfbml"
+    XFBML
+
+    -# iFrame
+    -# <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FAskHanuman&amp;width=300&amp;height=558&amp;show_faces=true&amp;colorscheme=light&amp;stream=true&amp;show_border=true&amp;header=false&amp;appId=496424710413528" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:300px; height:558px;" allowTransparency="true"></iframe>
+- elsif type == "iframe"
+    iFrame
+
+    -# URL
+    -# http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FAskHanuman&width=300&height=558&show_faces=true&colorscheme=light&stream=true&show_border=true&header=false&appId=496424710413528
+- elsif type == "url"
+    URL

@@ -1,0 +1,51 @@
+-# Bootstrap Thumbnails
+-# http://twitter.github.io/bootstrap/components.html#thumbnails
+
+-# Locals
+-# array - Array  - Required - Array of the Thumbnails to show
+
+-# Usage
+-# = partial "#{pathPartials}/bootstrap/thumbnails",
+-#            :locals => { :array => [ { "src"     => "holder.js/690x200",
+-#                                       "caption" => "Caption1",
+-#                                       "button"  => "Click Me",
+-#                                       "link"    => "#" },
+-#                                     { "src"     => "holder.js/690x200",
+-#                                       "caption" => "Caption2",
+-#                                       "button"  => "Click Me",
+-#                                       "link"    => "#" },
+-#                                     { "src"     => "holder.js/690x200",
+-#                                       "caption" => "Caption3",
+-#                                       "button"  => "Click Me",
+-#                                       "link"    => "#" } ] }
+
+-# Abort if array not defined or Blank
+- if !defined? array or array.blank?
+    - p "Thumbnails - no array defined"
+    - abort
+
+-# Thumbnails
+.row-fluid
+
+    -# Thumbnails List
+    %ul.thumbnails
+
+        -# Loop through the array
+        - array.each do |value|
+
+            %li.span4
+
+                .thumbnail
+
+                    -# Image
+                    %img{ :alt => "Partners", :src => value["src"] }
+
+                    -# Caption
+                    .caption
+
+                        %h3
+                            %p= value["caption"]
+
+                            %p
+                                %a.btn.btn-primary{ :href => value["link"], :title => value["button"] }
+                                    = value["button"]

@@ -1,0 +1,52 @@
+-# Meta Tags
+-# http://en.wikipedia.org/wiki/Meta_element
+-# http://schema.org
+
+-# Locals
+-#
+
+-# Usage
+-# = partial "#{pathPartials}/site/meta_tags"
+-#
+-# Tags can be set via the data.page elements or through content yield
+-# the latter is especially useful for localized pages where the front
+-# matter will change dynamically for the language.
+
+-# Standard Meta Tags
+
+-# Title
+- if !yield_content( :metaTitle ).blank?
+    - title = yield_content :metaTitle
+- elsif current_page.data.title.is_a?( Symbol )
+    - title = t( current_page.data.title )
+- else
+    - title = current_page.data.title
+
+-# Description
+- if !yield_content( :metaDescription ).blank?
+    - description = yield_content :metaDescription
+- elsif current_page.data.description.is_a?( Symbol )
+    - description = t( current_page.data.description )
+- else
+    - description = current_page.data.description
+
+-# Author
+- if !yield_content( :metaAuthor ).blank?
+    - author = yield_content :metaAuthor
+- else
+    - author = current_page.data.author
+
+-# Subject
+- if !yield_content( :metaSubject ).blank?
+    - subject = yield_content :metaSubject
+- elsif current_page.data.subject.is_a?( Symbol )
+    - subject = t( current_page.data.subject )
+- else
+    - subject = current_page.data.subject
+
+-# Tags
+%title= title
+%meta{ :name => "description", :content => description  }
+%meta{ :name => "keywords",    :content => description  }
+%meta{ :name => "author",      :content => author }
+%meta{ :name => "robots",      :content => "index,follow,archive" }

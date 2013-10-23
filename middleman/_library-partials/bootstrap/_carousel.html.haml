@@ -1,0 +1,75 @@
+-# Bootstrap Carousel
+-# http://getbootstrap.com/javascript/#carousel
+
+-# Locals
+-# id         - String - Required - ID of the carousel element
+-# array      - Array  - Required - Image names and extensions to pass into the Carousel
+-# indicators - Bool   - Optional - Whether to show the dot indicators - default: true
+-# scrollBox  - bool   - Optional - Whether to allow vertical scrolling on touch devices
+
+-# Usage
+-# = partial "#{pathPartials}/bootstrap/carousel",
+-#            :locals => { :id         => "carousel1",
+-#                         :array      => [ "holder.js/690x200",
+-#                                          "holder.js/690x200" ],
+-#                         :indicators => :true }
+
+-# Abort if ID is not defined or Blank
+- if !defined? id or id.blank?
+    - p "Carousel - no ID defined"
+    - abort
+
+-# Abort if array not defined or Blank
+- if !defined? array or array.blank?
+    - p "Carousel - no array defined"
+    - abort
+
+-# Set Indicators to true if not defined as false
+- if !defined? indicators or indicators.blank?
+    - indicators = true
+
+-# Carousel
+.carousel.slide{ :id => id }
+
+    -# If Indicators are required
+    - if indicators == "always" or (indicators and array.count > 1)
+
+        %ol.carousel-indicators
+
+            -# Create a integer to increment
+            - i = 0
+
+            -# Loop through the array
+            - array.each do |value|
+
+                -# If this is the first one make it active
+                %li{ :class => ( i == 0 ) ? "active" : false,
+                     :data  => { :target => "#" + id, :"slide-to" => "#{i}" } }
+
+                -# Increment the integer
+                - i += 1
+
+    -# Carousel Inner
+    .carousel-inner
+
+        -# Create a integer to increment
+        - i = 0
+
+        -# Loop through the array
+        - array.each do |value|
+
+            -# If this is the first one make it active
+            .item{ :class => ( i == 0 ) ? "active" : false }
+                = value
+
+            -# Increment the integer
+            - i += 1
+
+    -# Carousel Controls
+    - if indicators == "always" or (indicators and array.count > 1)
+
+        %a.carousel-control.left{  :href => "#" + id, :data => { :slide => "prev" } }
+            %span.icon-prev
+
+        %a.carousel-control.right{ :href => "#" + id, :data => { :slide => "next" } }
+            %span.icon-next

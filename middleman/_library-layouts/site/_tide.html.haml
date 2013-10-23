@@ -1,0 +1,34 @@
+-# Doctype HTML5 - English language default
+
+!!!
+%html{ :lang => "en" }
+
+    %head
+
+        -# Encoding
+
+        %meta{ :charset => "utf-8" }
+
+        -# Page Title
+
+        %title= data.page.title
+
+        -# Main Stylesheet include
+
+        = stylesheet_link_tag :site, :media => "all"
+
+    -# Body with Page Class
+
+    %body{ :class => "#{page_classes}" }
+
+        -# Navbar Partial
+
+        = partial "#{pathPartials}/bootstrap/navbar"
+
+        -# Yield
+
+        = yield
+
+        -# JavaScript
+
+        = javascript_include_tag :all

@@ -1,0 +1,65 @@
+---
+author      : DryKISS
+description : "Latest articles blog"
+published   : true
+title       : Latest Articles
+---
+
+-### CodeBlender Examples - Site
+-# http://codeblender.net
+
+-# Locals
+-#
+
+-# Usage
+-#
+
+.row
+
+    .span3
+
+        -# Nav List
+
+        = partial "#{pathPartials}/bootstrap/navlist"
+
+    .span9
+
+        -# Favicon
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Favicon",
+                         :small => "" }
+
+        = partial "#{pathPartials}/site/favicons"
+
+        -# Feed
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Feed",
+                         :small => "" }
+
+        = partial "#{pathPartials}/site/feed_tags"
+
+        -# Footer
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Footer",
+                         :small => "" }
+
+        = partial "#{pathPartials}/site/footer"
+
+        -# Header
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Header",
+                         :small => "" }
+
+        = partial "#{pathPartials}/site/header"
+
+        -# Meta Tags
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Meta Tags",
+                         :small => "" }
+
+        = partial "#{pathPartials}/site/meta_tags"

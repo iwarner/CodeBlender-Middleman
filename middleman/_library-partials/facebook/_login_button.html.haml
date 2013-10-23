@@ -1,0 +1,35 @@
+-# Facebook Login Button
+-# https://developers.facebook.com/docs/reference/plugins/login/
+
+-# Locals
+-# show-faces        - specifies whether to show faces underneath the Login button.
+-#                     You must not enable this on child-directed sites.
+-# autologoutlink    - if true and the user is already connected and has a session,
+-#                     then the button image changes to indicate the user can log out.
+-#                     Clicking the button logs the user out of Facebook and all
+-#                     connected sessions. The default is false.
+-# onlogin           - a callback to fire after the user logs in, for example:
+-#                     onlogin="submitLoginForm();"
+-# max-rows          - the maximum number of rows of profile pictures to display.
+-#                     Default value: 1.
+-# width             - the width of the plugin in pixels. Default width: 200px.
+-# max-rows          - the maximum number of rows of profile pictures to display.
+-#                     Default value: 1.
+-# scope             - a comma separated list of extended permissions. By default
+-#                     the Login button prompts users for their public information.
+-#                     If your application needs to access other parts of the user's
+-#                     profile that may be private, your application can request
+-#                     extended permissions. A complete list of extended permissions
+-#                     can be found here.
+-# registration-url  - registration page url. If the user has not registered for your site, they will be redirected to the URL you specify in the registration-url parameter.
+-# size              - Different sized buttons: small, medium, large, xlarge - the default is medium.
+-# kid_directed_site - If your web site or online service, or a portion of your service, is directed to children under 13 you must enable this.
+
+-# Usage
+-# = partial "#{pathPartials}/facebook/login_button",
+-#            :locals => { :type   => "html5",
+-#                         :href   => "",
+-#                         :width  => "300",
+-#                         :height => "500" }
+
+<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>

@@ -1,0 +1,35 @@
+-# Bootstrap Jumbotron
+-# http://getbootstrap.com/components/#jumbotron
+
+-# Locals
+-# title       - String - Required - H1 tag for the Jumbotron
+-# small       - String - Optional - Caption for the header
+-# description - String - Optional - Main description text
+
+-# Usage
+-# = partial "#{pathPartials}/bootstrap/jumbotron",
+-#            :locals => { :title       => "Title",
+-#                         :small       => "Small Text",
+-#                         :description => "Description" }
+
+-# Abort if Title is not defined or Blank
+- if !defined? title or title.blank?
+    - p "Jumbotron No Title Defined"
+    - abort
+
+-# jumbotron
+.jumbotron
+
+    .container
+
+        -# Title
+        %h1
+            = title
+
+            -# Small Text
+            - if defined? small and ! small.blank?
+                %small= small
+
+        -# Description
+        - if defined? description
+            %p= description

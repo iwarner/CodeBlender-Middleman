@@ -1,0 +1,73 @@
+-# Footer Partial
+
+-# Locals
+-#
+
+-# Usage
+-# = partial "#{pathPartials}/site/footer"
+-#
+-# Requires a /data/footer.yaml file to be present
+
+-# Localization
+-# Call in a file based on the language
+
+-# Check and warn if empty
+- if data.footer.blank?
+    - p "Footer Data not found"
+
+-# Footer
+%footer
+
+    -# Footer Section
+    - if data.config.footer
+
+        .footer
+
+            .container
+
+                .row
+
+                    -# Loop through the Footer Yaml
+                    - data.footer.each do |entry|
+
+                        -# Section
+                        .col-md-3.footerSection{ :class => ( entry.extraClass ) ? entry.extraClass : false }
+
+                            %span.title
+                                %i{ :class => "icon-#{entry.icon}" }
+
+                                - if entry.title.is_a? Symbol
+                                    = t entry.title
+                                - else
+                                    = entry.title
+
+                            %p
+                                - if entry.description.is_a? Symbol
+                                    = t entry.description
+                                - else
+                                    :markdown
+                                        #{entry.description}
+
+    -# Copyright Section
+    - if data.config.copyright
+
+        .copyright
+
+            .container
+
+                %p
+
+                    = t :footerCopyright
+
+                    &copy;
+
+                    %time{ :datetime => Time.now.strftime('%Y') }
+                        = Time.now.strftime('%Y')
+
+                    = data.config.brand
+
+                    = t :footerStatement
+
+                    %span.totop.pull-right
+
+                        %i.icon-circle-arrow-up

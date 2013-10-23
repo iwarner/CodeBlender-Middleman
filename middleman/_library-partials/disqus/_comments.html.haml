@@ -1,0 +1,30 @@
+-# Disqus Comments
+-# http://disqus.com/
+-# http://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables
+
+-# Locals
+-# data.config.disqusShortName - String - Required - Given by Disqus
+
+-# Usage
+-# = partial "#{pathPartials}/disqus/comments"
+
+-# Abort if disqusShortName is not defined or Blank
+- disqusShortName = data.config.disqusShortName
+
+- if !defined? disqusShortName or disqusShortName.blank?
+    - p "disqusShortName - not defined"
+    - abort
+
+-# Disqus
+#disqus_thread
+
+-# Render In-line JavaScript
+:coffee
+
+    (->
+        dsq       = document.createElement("script")
+        dsq.type  = "text/javascript"
+        dsq.async = true
+        dsq.src   = "//#{disqusShortName}.disqus.com/embed.js"
+        (document.getElementsByTagName("head")[0] or document.getElementsByTagName("body")[0]).appendChild dsq
+    )()

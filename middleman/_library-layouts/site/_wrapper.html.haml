@@ -1,0 +1,81 @@
+-### Site Wrapper
+-#
+
+-# Usage
+-# - wrap_layout "_library-layouts/site/wrapper" do
+-#
+-# Doctype HTML5 - English language default
+
+-# Locals
+-#
+
+-# Variables
+- locale = I18n.locale.to_s
+
+-# Wrapper
+!!!
+%html{ :lang     => "en",
+       :manifest => "/offline.manifest",
+       :xml      => "lang=en",
+       :xmlns    => "fb='http://ogp.me/ns/fb#'",
+       :xmlns    => "'og='http://ogp.me/ns#'",
+       :xmlns    => "'http://www.w3.org/1999/xhtml'"}
+
+    %head
+
+        -# Encoding
+        %meta{ :charset => "utf-8" }
+
+        -# Meta Tags for IE
+        %meta{ :content      => "IE=edge,chrome=1",
+               :"http-equiv" => "X-UA-Compatible" }
+
+        -# Meta Tags
+        = partial "#{pathPartials}/site/meta_tags"
+
+        -# Mobile Meta Tags
+        - if data.config.metaTagsMobile
+            = partial "#{pathPartials}/site/meta_tags_mobile"
+
+        -# Dublin Core Meta Tags
+        - if data.config.metaTagsDublinCore
+            = partial "#{pathPartials}/site/meta_tags_dublin_core"
+
+        -# Social Meta Tags - Facebook / Twitter
+        - if data.config.facebookMetaTags
+            = partial "#{pathPartials}/facebook/meta_tags"
+
+        - if data.config.twitterMetaTags
+            = partial "#{pathPartials}/twitter/meta_tags"
+
+        - if data.config.googleWebmasterTools
+            = partial "#{pathPartials}/google/meta_tags"
+
+        -# Stylesheet
+        = stylesheet_link_tag :site, :media => "all"
+
+        -# Favicon and Touch Icons
+        = partial "#{pathPartials}/site/favicons"
+        = partial "#{pathPartials}/site/touchicons"
+
+        -# Feed XML
+        - if data.config.feedLinks
+            = partial "#{pathPartials}/site/feed_links"
+
+        -# Google Analytics - Build Mode
+        - if data.config.googleAnalytics
+            = partial "#{pathPartials}/google/analytics"
+
+    -# Body with Page Class
+    %body{ :class => "#{page_classes} #{current_page.data.bodyClass}",
+           :data  => { :lang   => locale,
+                       :locale => ( defined? data.config.facebookLocale ) ? data.config.facebookLocale[locale] : false } }
+
+        -# Main Overlay provides a means to show something over the entire document
+        .mainOverlay
+
+        -# Yield
+        = yield
+
+        -# JavaScript
+        = javascript_include_tag :all

@@ -1,0 +1,41 @@
+---
+author      : DryKISS
+description : "Latest articles blog"
+published   : true
+title       : Latest Articles
+---
+
+-### CodeBlender Examples - Twitter
+-# http://codeblender.net
+
+-# Locals
+-#
+
+-# Usage
+-#
+
+.row
+
+    .span3
+
+        -# Nav List
+
+        = partial "#{pathPartials}/bootstrap/navlist"
+
+    .span9
+
+        -# Meta Tags
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Meta Tags",
+                         :small => "" }
+
+        = partial "#{pathPartials}/twitter/meta_tags"
+
+        -# Tweet Button
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Tweet Button",
+                         :small => "" }
+
+        = partial "#{pathPartials}/twitter/tweet_button"

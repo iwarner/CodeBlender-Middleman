@@ -1,0 +1,21 @@
+- # Sidebar Right - Calls Layout
+
+- wrap_layout "_library-layouts/site/_layout" do
+
+    .row
+
+        .span9
+
+            %article
+
+                -# Yield
+
+                = yield
+
+        .span3
+
+            %aside
+
+                -# Sidebar
+
+                = partial "#{pathPartials}/bootstrap/sidebar"

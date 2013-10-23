@@ -1,0 +1,21 @@
+-# Google Search Input
+-# https://
+
+-# Locals
+-#
+
+-# Usage
+-# = partial "#{pathPartials}/google/search"
+
+-# Search
+%form.navbar-form.navbar-right{ :action => "/pages/search", :role => :search }
+
+    .form-group
+
+        %input.form-control{ :type => :text, :placeholder => :Search, :name => :q }
+
+        %input{ :type => :hidden, :name => :cx,  :value => "#{data.config.googleSearch}" }
+        %input{ :type => :hidden, :name => :cof, :value => "FORID:10" }
+        %input{ :type => :hidden, :name => :ie,  :value => "UTF-8" }
+
+    %input.btn.btn-default{ :type => :submit }

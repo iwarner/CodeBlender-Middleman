@@ -1,0 +1,154 @@
+---
+author      : DryKISS
+description : "Latest articles blog"
+published   : true
+title       : Latest Articles
+---
+
+-### CodeBlender Examples - Bootstrap
+-# http://codeblender.net
+
+-# Locals
+-#
+
+-# Usage
+-#
+
+/ .row
+
+/     .span3
+
+/         -# Nav List
+
+/         = partial "#{pathPartials}/bootstrap/navlist"
+
+/     .span9
+
+/         -# Carousel
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Carousel",
+/                          :small => "Standard Carousel for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/carousel",
+/                    :locals => { :id         => "carousel1",
+/                                 :array      => [ "holder.js/690x200",
+/                                                  "holder.js/690x200" ],
+/                                 :indicators => :true }
+
+/         -# Hero
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Hero",
+/                          :small => "Standard Hero for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/jumbotron",
+/                    :locals => { :title       => "Title",
+/                                 :small       => "Small Text",
+/                                 :description => "Description" }
+
+/         -# Login
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Login",
+/                          :small => "Standard Login for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/login"
+
+/         -# Media List
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Media List",
+/                          :small => "Standard Media List for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/media-list"
+
+/         -# Modal
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Modal Dialog",
+/                          :small => "" }
+
+/         = partial "#{pathPartials}/bootstrap/modal"
+
+/         -# Navbar
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Navbar",
+/                          :small => "Standard Navbar for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/navbar"
+
+/         -# Navlist
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Navlist",
+/                          :small => "Standard Navlist for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/navlist"
+
+/         -# Navtabs
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Navtabs",
+/                          :small => "Standard Navtabs for Bootstrap" }
+
+/         = partial("#{pathPartials}/bootstrap/navtabs",
+/                    :locals => { :active => "Download",
+/                                 :array  => [ "Details", "Download" ] } )
+
+/         -# Progress Bar
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Progress Bar",
+/                          :small => "Standard Progress Bar for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/progress-bar",
+/                    :locals => { :width   => "33",
+/                                 :colour  => "success",
+/                                 :striped => :true,
+/                                 :active  => :true }
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Progress Bar Stacked",
+/                          :small => "Standard Progress Bar Stacked for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/progress-bar",
+/                    :locals => { :array   => [ { "width" => "30", "colour" => "info" },
+/                                               { "width" => "15", "colour" => "danger" } ]}
+
+/         -# Show Grid
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Show Grid",
+/                          :small => "Standard Show Grid for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/showgrid"
+
+/         -# SideBar
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Sidebar",
+/                          :small => "Standard Sidebar for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/sidebar"
+
+/         -# Thumbnails
+
+/         = partial "#{pathPartials}/bootstrap/blockquote",
+/             :locals => { :text  => "Thumbnails",
+/                          :small => "Standard Thumbnails for Bootstrap" }
+
+/         = partial "#{pathPartials}/bootstrap/thumbnails",
+/                    :locals => { :array => [ { "src"     => "holder.js/300x200",
+/                                               "caption" => "Caption1",
+/                                               "button"  => "Click Me",
+/                                               "link"    => "#" },
+/                                             { "src"     => "holder.js/300x200",
+/                                               "caption" => "Caption2",
+/                                               "button"  => "Click Me",
+/                                               "link"    => "#" },
+/                                             { "src"     => "holder.js/300x200",
+/                                               "caption" => "Caption3",
+/                                               "button"  => "Click Me",
+/                                               "link"    => "#" }] }

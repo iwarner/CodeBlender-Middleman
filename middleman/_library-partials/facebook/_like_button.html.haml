@@ -1,0 +1,45 @@
+-# Facebook Like Button
+-# https://developers.facebook.com/docs/reference/plugins/like/
+-# https://developers.facebook.com/docs/opengraph/using-objects/#creating
+-# https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/
+
+-# Locals
+-# href         : The URL to like. The XFBML version defaults to the current page. HREF should be an absolute URL
+-# send         : Specifies whether to include a Send button with the Like button. This only works with the XFBML version.
+-# layout       : There are three options - renamed to template
+    -# standard     : Displays social text to the right of the button and friends' profile photos below. Minimum width: 225 pixels. Minimum increases by 40px if action is 'recommend' by and increases by 60px if send is 'true'. Default width: 450 pixels. Height: 35 pixels (without photos) or 80 pixels (with photos).
+    -# button_count : Displays the total number of likes to the right of the button. Minimum width: 90 pixels. Default width: 90 pixels. Height: 20 pixels.
+    -# box_count    : Displays the total number of likes above the button. Minimum width: 55 pixels. Default width: 55 pixels. Height: 65 pixels.
+-# show_faces   : Specifies whether to display profile photos below the button (standard layout only)
+-# width        : The width of the Like button.
+-# action       : The verb to display on the button. Options: 'like', 'recommend'
+-# font         : The font to display in the button. Options: 'arial', 'lucida grande', 'segoe ui', 'tahoma', 'trebuchet ms', 'verdana'
+-# colorscheme  : The colour scheme for the like button. Options: 'light', 'dark'
+-# ref          : A label for tracking referrals; must be less than 50 characters and can contain alphanumeric characters and some punctuation (currently +/=-.:_). The ref attribute causes two parameters to be added to the referrer URL when a person clicks a link from a stream story about a Like action:
+    -# fb_ref       : The ref parameter
+    -# fb_source    : The stream type ('home', 'profile', 'search', 'ticker', 'tickerdialog' or 'other') in which the click occurred and the story type ('oneline' or 'multiline'), concatenated with an underscore.
+
+-# Usage
+-# = partial "#{pathPartials}/facebook/like_button"
+
+-# HREF - default to Config URL
+- if !defined? href or href.blank?
+    - href = "http://www.domain.com/"
+
+-# Send
+- if !defined? send or send.blank?
+    - send = "false"
+
+-# Layout
+- if !defined? template or template.blank?
+    - template = "standard"
+
+-# Like Button
+.fb-like{ :data => { :href         => href,
+                     :send         => send,
+                     :template     => template,
+                     :"show-faces" => "false",
+                     :width        => "450",
+                     :action       => "like",
+                     :font         => "tahoma",
+                     :colorscheme  => "light" } }

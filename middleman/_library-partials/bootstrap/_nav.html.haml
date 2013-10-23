@@ -1,0 +1,53 @@
+-# Bootstrap Nav
+-# http://getbootstrap.com/2.3.2/components.html#navs
+
+-# Locals
+-# active  - String - Required - Tab which is active
+-# array   - Array  - Required - Tab Names - [ { "path" => "", "name" => "" } ]
+-# pills   - Bool   - Optional - Whether to pills or tabs  - Default : false
+-# stacked - Bool   - Optional - Whether to Stack the Tabs - Default : false
+-# toggle  - Bool   - Optional - Whether this should toggle tab sections
+
+-# Usage
+-# = partial("#{pathPartials}/bootstrap/nav",
+-#            :locals => { :active  => "Download",
+-#                         :array   => [ { "path" => "#", "name" => "Details" },
+-#                                       { "path" => "#", "name" => "Download"} ],
+-#                         :stacked => false } )
+
+-# Array - check existence
+- if !defined? array or array.blank?
+    - p "No array Defined in nav"
+    - abort
+
+-# Active - which tab should be active
+- if !defined? active or active.blank?
+    - active = array[0]['name']
+
+-# Pills - default value
+- if !defined? pills or pills.blank?
+    - extraClass = "nav-tabs"
+- else
+    - extraClass = "nav-pills"
+
+-# Stacked - default value
+- if defined? stacked and !stacked.blank?
+    - extraClass += " nav-stacked"
+
+-# Nav
+%ul.nav{ :class => extraClass }
+
+    -# Create a integer to increment
+    - i = 0
+
+    -# Loop through the Array
+    - array.each do |value|
+
+        -# Increment the integer
+        - i += 1
+
+        -# Produce the list
+        %li{ :class => ( active == value["name"] ) ? "active" : false }
+
+            %a{ :href => value["path"], :"data-toggle" => ( defined? toggle) ? "tab" : false }
+                = value["name"]

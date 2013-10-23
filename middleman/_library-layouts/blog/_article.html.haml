@@ -1,0 +1,78 @@
+-### Blog Article Layout
+-#
+
+-# Locals
+-#
+
+-# Usage
+-#
+
+-# Article
+
+- wrap_layout "_library-layouts/site/_layout" do
+
+    .row.articleTemplate
+
+        .span3
+
+            %aside
+
+                .feedLink
+                    RSS Feeds
+                    %br
+
+                .tags
+                    Tags
+                    %br
+
+                    = tagCloud()
+
+                .archive
+                    Latest Posts
+                    %br
+
+                    - blog.articles[0...10].each do |article|
+                        %li
+                            = link_to article.title, article
+                            %span
+                                = article.date.strftime('%b %e')
+
+                .tweets
+                    Latest Tweets
+                    %br
+
+        .span6
+
+            %article
+
+                -# Title
+
+                %h1= current_page.data.title
+
+                -# Blog Footer
+
+                = partial "#{pathPartials}/blog/footer",
+                           :locals => { :article => current_page,
+                                        :more    => false }
+
+                -# Yield
+
+                = yield
+
+                -# Pager
+
+                = partial "#{pathPartials}/bootstrap/pager"
+
+                -# Discus Comments
+
+                = partial "#{pathPartials}/disqus/comments"
+
+        .span3
+
+            %aside
+
+                Archive
+
+                - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+                    %li
+                        = link_to year, blog_year_path(year)

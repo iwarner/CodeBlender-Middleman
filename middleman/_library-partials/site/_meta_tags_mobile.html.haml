@@ -1,0 +1,34 @@
+-# Mobile Meta Tags
+-#
+
+-# Locals
+-#
+
+-# Usage
+-# = partial "#{pathPartials}/site/meta_tags_mobile"
+
+-# <meta name="viewport"
+-#       content="
+-#           height = [pixel_value | device-height] ,
+-#           width = [pixel_value | device-width ] ,
+-#           initial-scale = float_value ,
+-#           minimum-scale = float_value ,
+-#           maximum-scale = float_value ,
+-#           user-scalable = [yes | no] ,
+-#           target-densitydpi = [dpi_value | device-dpi |
+-#                                high-dpi | medium-dpi | low-dpi]
+-#           " />
+
+-# Mobile Meta Tags
+%meta{ :name    => "viewport",
+       :content => "width=device-width, initial-scale=1.0, user-scalable=0" }
+
+-# Browser Chrome
+%meta{ :name    => "apple-mobile-web-app-capable",
+       :content => "yes" }
+
+%meta{ :name    => "apple-mobile-web-app-status-bar-style",
+       :content => "black" }
+
+%meta{ :name    => "mobile-web-app-capable",
+       :content => "yes" }

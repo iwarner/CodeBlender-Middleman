@@ -1,0 +1,52 @@
+---
+author      : DryKISS
+description : "Latest articles blog"
+published   : true
+title       : Latest Articles
+---
+
+-### CodeBlender Examples - Facebook
+-# http://codeblender.net
+
+-# Locals
+-#
+
+-# Usage
+-#
+
+.row
+
+    .span3
+
+        -# Nav List
+
+        = partial "#{pathPartials}/bootstrap/navlist"
+
+    .span9
+
+        -# Like Box
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Like Box",
+                         :small => "" }
+
+        = partial "#{pathPartials}/facebook/like_box",
+            :locals => { :type   => "html5",
+                         :width  => "300",
+                         :height => "500" }
+
+        -# Like Button
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Like Button",
+                         :small => "" }
+
+        -#= partial "#{pathPartials}/facebook/like_button"
+
+        -# Meta Tags
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Meta Tags",
+                         :small => "" }
+
+        = partial "#{pathPartials}/facebook/meta_tags"

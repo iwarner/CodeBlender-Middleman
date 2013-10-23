@@ -1,0 +1,50 @@
+-# Blog - Footer
+-# Displays the
+
+-# Locals
+-# article - Object -
+-# more    - Bool   - Whether to show more details2
+
+-# Usage
+-# = partial "#{pathPartials}/blog/footer",
+-#            :locals => { :article => article }
+
+-# Variables
+- if ! defined? more
+    - more = true
+
+-# Blog Footer
+.blogFooter
+
+    -# Date
+    %i.icon-calendar
+    = article.date.strftime('%Y-%m-%d')
+
+    -# Author
+    |
+    %i.icon-user
+    = article.data.author
+
+    -# Comments
+    |
+    %i.icon-comment
+    X Comments
+
+    %hr
+
+    -# Loop through the Tags and display
+    .tags.pull-left{ :style => "width:65%;"}
+
+        - article.tags.each do | tag |
+
+            %a.label.label-info{ :href => tag_path(tag), :title => tag }
+                = tag
+
+    -# Display Read More Button
+    - if defined? more and ! more.blank?
+
+        .pull-right
+            %a.btn.btn-primary.btn-mini{ :href => article.url }
+                Read More
+
+.clearfix

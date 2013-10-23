@@ -1,0 +1,25 @@
+-# Google Adsense Advert
+-# http://.com/
+
+-# Locals
+-# googleAdsense - string - required -
+-# slot          - string -
+-# width         - int    -
+-# height        - int    -
+
+-# Usage
+-# = partial "#{pathPartials}/google/adsense"
+
+-# Abort if googleAdsense is not defined or Blank
+- if !defined data.config.googleAdsense or data.config.googleAdsense.blank?
+    - p "Google Adsense - no googleAdsense defined"
+
+-# Adsense
+:javascript
+
+    google_ad_client = "#{data.config.googleAdsense}";
+    google_ad_slot   = "#{slot}";
+    google_ad_width  = #{width};
+    google_ad_height = #{height};
+
+%script{ :src => "http://pagead2.googlesyndication.com/pagead/show_ads.js" }

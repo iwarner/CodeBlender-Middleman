@@ -1,0 +1,121 @@
+-# Doctype HTML5 - English language default
+
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+
+    %head
+
+        -# Encoding
+
+        %meta{ :content => "text/html; charset=UTF-8", :"http-equiv" => "Content-Type" }
+
+        -# Mobile Phone Meta Data
+
+        %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0, maximum-scale=1.0" }
+
+        -# Page Title
+
+        %title= data.page.title
+
+        :css
+
+            /* iPad Text Smoother */
+            div, p, a, li, td { -webkit-text-size-adjust:none; }
+
+            /* This is the color to change the links #e00c2ce; */
+
+            .ReadMsgBody
+            {width: 100%; background-color: #ffffff;}
+            .ExternalClass
+            {width: 100%; background-color: #ffffff;}
+            body
+            {width: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;}
+            html
+            {width: 100%; }
+
+            table[class=fullWidth]          {width: 100%!important;}
+            img[class=imageScale]           {width: 100%!important; height: auto;}
+
+            @media only screen and (max-width: 640px)
+                       {
+                    body{width:auto!important;}
+
+
+                    table[class=scaleForMobile]     {width: 100%!important; padding-left: 30px!important; padding-right: 30px!important;}
+                    table[class=fullWidth]          {width: 100%!important;}
+                    table[class=mobileCenter]       {width: 100%!important; text-align: center!important; }
+                    td[class=mobileCenter]          {width: 440px !important; text-align: center!important; }
+                    span[class=eraseForMobile]      {width: 0; display:none !important;}
+                    td[class=eraseForMobile]        {width: 0; display:none !important;}
+                    table[class=eraseForMobile]     {width: 0; display:none !important;}
+                    img[class=headerScale]          {width: 100%!important; height: auto!important;}
+                    table[class=headerScale]        {width: 100%!important; height: auto!important;}
+                    td[class=scaleHeadlineTop]      {font-size: 28px!important; line-height: 32px!important;}
+                    table[class=buttonScale]        {margin-top: 20px!important;}
+                    table[class=scaleText]          {width: 100%!important; padding-right: 10px;}
+                    table[class=iconScale1]         {height: 100px; width: 100%!important; padding-left: 30px!important; padding-right: 30px!important;}
+                    img[class=imageScale]           {width: 100%!important;}
+                    td[class=scaleHeight1]          {display: none;}
+                    table[class=columnScale]        {width: 100%!important;}
+                    img[class=images2Scale]         {width: 100%!important;}
+                    table[class=tableScale]         {width: 46%!important;}
+                    table[class=FooterScale1]       {width: 33%!important; text-align: left!important; margin-bottom: 40px!important; padding-left: 30px!important;}
+                    table[class=FooterScale2]       {width: 33%!important; text-align: center!important; margin-bottom: 40px!important;}
+                    table[class=FooterScale3]       {width: 33%!important; text-align: right!important; margin-bottom: 40px!important; padding-right: 30px!important;}
+                    td[class=footerCenter]          {text-align: center!important; }
+                    td[class=mobilePad]             {width: 40px!important;}
+
+                    a[class=navPadLeft]             {margin-right: 45px!important; margin-left: 0px;}
+                    a[class=navPadMiddle]           {margin-right: 45px!important; margin-left: 45px; }
+                    a[class=navPadRight]            {margin-right: 0px!important; margin-left: 45px; }
+
+                    }
+
+            @media only screen and (max-width: 479px)
+                       {
+                    body{width:auto!important;}
+
+                    table[class=scaleForMobile]     {width: 100%!important; padding-left: 30px!important; padding-right: 30px!important; }
+                    table[class=fullWidth]          {width: 100%!important;}
+                    table[class=mobileCenter]       {width: 100%!important; text-align: center!important; }
+                    td[class=mobileCenter]          {width: 280px!important; text-align: center!important; }
+                    span[class=eraseForMobile]      {width: 0; display:none !important;}
+                    td[class=eraseForMobile]        {width: 0; display:none !important;}
+                    table[class=eraseForMobile]     {width: 0; display:none !important;}
+                    img[class=headerScale]          {width: 100%!important; height: auto!important;}
+                    table[class=headerScale]        {width: 100%!important; height: auto!important;}
+                    td[class=scaleHeadlineTop]      {font-size: 24px!important; line-height: 30px!important;}
+                    table[class=scaleText]          {width: 100%!important; padding-right: 10px;}
+                    td[class=scaleHeight1]          {display: none;}
+                    td[class=scaleHeight2]          {display: none;}
+                    table[class=iconScale1]         {height: 70px; width: 100%!important; padding-left: 30px!important; padding-right: 30px!important;}
+                    img[class=images2Scale]         {width: 100%!important; }
+                    table[class=tableScale]         {width: 100%!important;}
+                    table[class=columnScale]        {width: 80%!important;}
+                    table[class=FooterScale1]       {width: 33%!important; text-align: left!important; margin-bottom: 40px!important; padding-left: 0px!important;}
+                    table[class=FooterScale2]       {width: 33%!important; text-align: center!important; margin-bottom: 40px!important;}
+                    table[class=FooterScale3]       {width: 33%!important; text-align: right!important; margin-bottom: 40px!important; padding-right: 0px!important;}
+                    td[class=footerCenter]          {text-align: center!important;  }
+                    td[class=iconScale]             {width: 22%!important;}
+                    td[class=procentForIcon]        {width: 10px!important;}
+                    img[class=button2]              {width: 80px!important;}
+                    td[class=mobilePad]             {width: 40px!important;}
+
+                    a[class=navPadLeft]             {margin-right: 25px!important; margin-left: 0px; font-size: 14px!important; }
+                    a[class=navPadMiddle]           {margin-right: 25px!important; margin-left: 25px; font-size: 14px!important; }
+                    a[class=navPadRight]            {margin-right: 0px!important; margin-left: 25px; font-size: 14px!important; }
+
+                    }
+
+    %body{ :leftmargin => "0", :topmargin => "0", :marginwidth => "0", :marginheight => "0" }
+
+        -# Wrapper
+
+        %table{ :width => "100%", :border => "0", :cellpadding => "0", :cellspacing => "0", :align => "center" }
+            %tbody
+                %tr
+                    %td{ :width => "100%", :valign => "top", :bgcolor => "#e9e9e9" }
+
+                        -# Yield
+
+                        = yield

@@ -1,0 +1,24 @@
+##
+# This is the Global Middleman Gemfile
+# bundle install
+##
+
+## Source
+source 'https://rubygems.org'
+
+## Middleman
+gem "middleman", "~> 3.1.5"
+gem "middleman-livereload"
+gem "middleman-minify-html"
+gem "middleman-deploy"
+gem "middleman-blog"
+gem "middleman-syntax"
+gem "middleman-favicon-maker"
+
+## Tools
+gem "kramdown"
+gem "builder"
+gem "thor"
+gem "stringex"
+gem "nokogiri"
+gem "bourbon"

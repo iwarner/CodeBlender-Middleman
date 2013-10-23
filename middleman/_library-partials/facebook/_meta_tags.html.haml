@@ -1,0 +1,41 @@
+-# Facebook Meta Tags
+-# https://developers.facebook.com/docs/opengraph/
+-# https://developers.facebook.com/docs/opengraph/using-objects/
+-# http://ogp.me/
+
+-# Usage
+-# = partial "#{pathPartials}/facebook/meta_tags"
+
+-# Config
+-# brand
+-# url
+-# facebookPageId
+
+-# Frontmatter
+-# type
+-# image
+-# title
+-# description
+
+-# Title
+- if !yield_content(:metaTitle).blank?
+    - title = yield_content :metaTitle
+- else
+    - title = data.page.title
+
+-# Description
+- if !yield_content(:metaDescription).blank?
+    - description = yield_content :metaDescription
+- else
+    - description = data.page.description
+
+-# Meta Tags
+%meta{ :property => "og:site_name",   :content => data.config.brand }
+%meta{ :property => "og:title",       :content => title }
+%meta{ :property => "og:description", :content => description }
+%meta{ :property => "og:type",        :content => data.page.type }
+%meta{ :property => "og:url",         :content => data.config.url + request.path }
+%meta{ :property => "og:image",       :content => data.page.image }
+
+%meta{ :property => "fb:page_id",     :content => data.config.facebookPageId }
+%meta{ :property => "fb:app_id",      :content => data.config.facebookAppId }

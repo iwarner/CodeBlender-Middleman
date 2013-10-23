@@ -1,0 +1,32 @@
+/*          Footer
+-------------------------------------------------- */
+
+$colorText : #7B7F80;
+$colorBold : #373F41;
+$colorBg   : #ededed;
+
+.footer {
+
+    background : $colorBg url( /assets/images/site/footer/white-leather.png );
+    border-top : 2px solid $colorBold;
+    color      : $colorText;
+    margin-top : 20px;
+    padding    : 40px 0;
+
+    p i {
+        color      : $colorBold;
+        display    : inline-block;
+        width      : 18px;
+        text-align : center;
+    }
+
+    .title {
+        font-size     : 18px;
+        line-height   : 32px;
+        padding       : 2px 0;
+        margin-bottom : 10px;
+        color         : $colorBold;
+        display       : block;
+    }
+
+}

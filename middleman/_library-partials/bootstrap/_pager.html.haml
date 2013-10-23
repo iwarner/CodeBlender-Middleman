@@ -1,0 +1,31 @@
+-# Bootstrap Pager
+-# http://getbootstrap.com/2.3.2/components.html#pagination
+
+-# Locals
+-# pageNo    - String - Required -
+-# pages     - String - Required -
+-# prevPage  - String - Required -
+-# nextPage  - String - Required -
+
+-# active    - String - Optional -
+-# disabled  - String - Optional -
+-# size      - String - Optional - large, small or mini sizes - Default: none
+-# alignment - String - Optional - centered or right
+
+-# Usage
+-# = partial "#{pathPartials}/bootstrap/pager",
+-#            :locals => { pageNo => "1",
+-#                         pages  => "5" }
+
+-# Pagination
+%ul.pager
+
+    %li.previous
+
+        %a{ :href => "#" }
+            &larr; Older
+
+    %li.next
+
+        %a{ :href => "#" }
+            Newer &rarr;

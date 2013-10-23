@@ -1,0 +1,17 @@
+-# Feed Links
+-# http://en.wikipedia.org/wiki/Atom_(standard)
+-# http://atomenabled.org/developers/syndication/
+-# http://www.syndic8.com/
+-# http://feedburner.google.com/fb/a/myfeeds
+
+-# Locals
+-#
+
+-# Usage
+-# = partial "#{pathPartials}/site/feed_links"
+
+-# Feed Links
+%link{ :href  => "feed.xml",
+       :rel   => "alternate",
+       :title => data.config.atomTitle,
+       :type  => "application/atom+xml" }

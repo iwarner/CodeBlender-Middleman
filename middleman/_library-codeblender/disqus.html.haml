@@ -1,0 +1,33 @@
+---
+author      : DryKISS
+description : "Latest articles blog"
+published   : true
+title       : Latest Articles
+---
+
+-### CodeBlender Examples - Disqus
+-# http://codeblender.net
+
+-# Locals
+-#
+
+-# Usage
+-#
+
+.row
+
+    .span3
+
+        -# Nav List
+
+        = partial "#{pathPartials}/bootstrap/navlist"
+
+    .span9
+
+        -# Comments
+
+        = partial "#{pathPartials}/bootstrap/blockquote",
+            :locals => { :text  => "Comments",
+                         :small => "Standard Disqus Comments" }
+
+        = partial "#{pathPartials}/disqus/comments"

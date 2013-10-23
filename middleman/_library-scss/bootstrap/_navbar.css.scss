@@ -1,0 +1,27 @@
+/*          Navbar
+--------------------------------------------------- */
+
+$colorBorder : #ed293b;
+
+// brand
+// -------------------------
+
+.navbar  {
+
+    border-bottom : 2px solid $colorBorder;
+
+    .brand {
+        padding  : 7px 20px 10px;
+        position : relative;
+        top      : 2px;
+
+        img {
+            padding-bottom : 3px;
+        }
+    }
+
+}
+
+.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+    @include box-shadow( 0 5px 15px rgba(0,0,0,0.1) );
+}

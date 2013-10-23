@@ -1,0 +1,16 @@
+-# Google Meta Tags
+
+-# Locals
+-# googleWebmasterTools - string - required -
+
+-# Usage
+-# = partial "#{pathPartials}/google/meta_tags"
+
+-# Abort if googleWebmasterTools is not defined or Blank
+- if data.config.googleWebmasterTools.blank?
+    - p "Google Meta Tags - no googleWebmasterTools defined"
+    - abort
+
+-# Meta Tag
+%meta{ :name    => "google-site-verification",
+       :content => data.config.googleWebmasterTools }

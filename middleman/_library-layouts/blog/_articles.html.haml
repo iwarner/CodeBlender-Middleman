@@ -1,0 +1,64 @@
+-### Blog Articles Layout
+-#
+
+-# Locals
+-#
+
+-# Usage
+-#
+
+-# Articles
+
+- wrap_layout "_library-layouts/site/_layout" do
+
+    .row
+
+        .span3
+
+            %aside
+
+                .feedLink
+                    RSS Feeds
+                    %br
+
+                .tags
+                    Tags
+                    %br
+
+                    = tagCloud()
+
+                .archive
+                    Latest Posts
+                    %br
+
+                    - blog.articles[0...10].each do |article|
+                        %li
+                            = link_to article.title, article
+                            %span
+                                = article.date.strftime('%b %e')
+
+                .tweets
+                    Latest Tweets
+                    %br
+
+        .span6
+
+            %article
+
+                -# Title
+
+                %h1= current_page.data.title
+
+                -# Yield
+
+                = yield
+
+        .span3
+
+            %aside
+
+                Archive
+
+                - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+                    %li
+                        = link_to year, blog_year_path(year)
