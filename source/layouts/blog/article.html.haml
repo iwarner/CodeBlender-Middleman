@@ -1,0 +1,58 @@
+-##
+-# Blog Article
+-#
+-# Usage
+-# - wrap_layout "blog/article" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Article
+- wrap_layout "site/layout" do
+
+    .row
+
+        .col-md-3
+
+            %aside
+
+                -# Tags
+                .tagCloud
+
+                    -# Tag Cloud
+                    = partial "blog/tags"
+
+                .blogLatest
+
+                    -# Recent Articles
+                    = partial "blog/recent"
+
+        .col-md-6
+
+            %article
+
+                -# Heading
+                = partial "bootstrap/type/heading",
+                           :locals => { :small => current_page.data.small,
+                                        :text  => current_page.data.title,
+                                        :type  => "h1" }
+
+                -# Blog Footer
+                = partial "blog/details",
+                           :locals => { :more => false }
+
+                -# Yield
+                = yield
+
+                -# Pager
+                = partial "bootstrap/components/pager"
+
+                -# Discus Comments
+                = partial "social/disqus/comments"
+
+        .col-md-3
+
+            %aside
+
+                -# Archive
+                = partial "blog/archive"

@@ -1,0 +1,48 @@
+-##
+-# Bootstrap List Group
+-#
+-# Locals
+-# :array - Array - Required - Array of the list required
+-#
+-# Usage
+-# = partial "bootstrap/components/list-group",
+-#            :locals => { :array => data.page.navList }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# List Group
+.list-group
+
+    -# Check that array is defined
+    - if locals[ :array ]
+
+        -# Loop through the array
+        - array.each_with_index do | value, index |
+
+            -# If there is a contextual class add it
+            - if value[ :contextual ]
+                - extraClass = "list-group-item-#{ value[ :contextual ] } "
+
+            -# Loop through the array
+            %a.list-group-item{ :href  => value[ :url ],
+                                :class => ( value[ :active ] ) ? "#{extraClass} active" : extraClass }
+
+                -# Badge
+                - if value[ :badge ]
+                    %span.badge
+                        = value [ :badge ]
+
+                -# Heading
+                - if value [ :heading ]
+                    %h4
+                        = value[ :heading ]
+
+                -# Heading
+                - if value [ :text ]
+                    %p
+                        = value[ :text ]
+
+                -# Title
+                - if value [ :title ]
+                    = value[ :title ]

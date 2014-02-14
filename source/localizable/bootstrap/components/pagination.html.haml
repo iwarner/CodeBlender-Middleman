@@ -1,0 +1,40 @@
+---
+author       : "Ian Warner"
+description  : "Provide pagination links for your site or app with the multi-page
+                pagination component."
+layout       : "site/page"
+pageable     : true
+per_page     : 5
+small        : "http://getbootstrap.com/components/#pagination"
+title        : "Bootstrap Pagination Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+see :
+    - - "Bootstrap Pagination"
+      - "http://getbootstrap.com/components/#pagination"
+    - - "Pagination Tutorial"
+      - "http://www.slevenbits.com/blog/2013/01/middleman-blog-pagination.html"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Pagination
+= partial "bootstrap/components/pagination",
+           :locals => { :nextPage => next_page,
+                        :prevPage => prev_page,
+                        :pageNo   => page_number,
+                        :pages    => num_pages }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/pagination"

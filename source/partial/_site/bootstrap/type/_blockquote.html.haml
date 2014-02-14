@@ -1,0 +1,34 @@
+-##
+-# Bootstrap Blockquote
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/css/#type-blockquotes
+-#
+-# Locals
+-# :right - Bool   - Optional - Whether to pull the quote right
+-# :small - String - Optional - Small description
+-# :text  - String - Required - Main text
+-#
+-# Usage
+-# = partial "bootstrap/type/blockquote",
+-#            :locals => { :right => true,
+-#                         :small => "Small description",
+-#                         :text  => "Blockquote" }
+-#
+-# Todo
+-# @todo Add the Pull Right option
+-##
+
+-# Right
+- if ! defined? right
+    - right = false
+
+-# Blockquote
+%blockquote{ :class => ( right ) ? "pull-right" : false }
+
+    -# Main headline text
+    %p= text
+
+    -# Add the small text if required
+    -if defined? small
+        %small= small

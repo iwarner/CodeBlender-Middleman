@@ -1,0 +1,38 @@
+-##
+-# Image
+-#
+-# Responsive images
+-# Images in Bootstrap 3 can be made responsive-friendly via the addition of
+-# the .img-responsive class. This applies max-width: 100%; and height: auto;
+-# to the image so that it scales to the parent element.
+-#
+-# Locals
+-# alt        - String - Required - Alternative text of the images
+-# id         - String - Optional - ID of the image
+-# src        - String - Required - Source of the image
+-# extraClass - String - Optional - Rounded, Circle, and Responsive i.e. img-circle
+-#
+-# Usage
+-# -# Image
+-# = partial "bootstrap/css/image",
+-#            :locals => { :alt        => "Image",
+-#                         :src        => "holder.js/200x200",
+-#                         :extraClass => "img-circle" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Alt Default
+- if ! locals[ :alt ]
+    - alt = "Image"
+
+-# Src Default
+- if ! locals[ :src ]
+    - src = "holder.js/200x200"
+
+-# Image
+%img{ :src   => images_dir + "/" + src,
+      :alt   => alt,
+      :class => locals[ :extraClass ] ? locals[ :extraClass ] : false,
+      :id    => locals[ :id ]         ? locals[ :id ]         : false,
+      :width => locals[ :width ]      ? locals[ :width ]      : false }

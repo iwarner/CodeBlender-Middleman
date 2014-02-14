@@ -1,0 +1,60 @@
+-##
+-# Bootstrap Navs
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/components/#nav
+-#
+-# Locals
+-# active  - String - Required - Active Element
+-# array   - Array  - Required - Tab Names - [ { "path" => "", "name" => "" } ]
+-# pills   - Bool   - Optional - Pills or tabs  - Default : false
+-# stacked - Bool   - Optional - Stack - Default : false
+-# toggle  - Bool   - Optional - Toggle tab sections - used in Javascript Tabs
+-#
+-# Usage
+-# = partial "bootstrap/components/navs",
+-#            :locals => { :active  => "Download",
+-#                         :array   => [ { "path" => "#", "name" => "Details" },
+-#                                       { "path" => "#", "name" => "Download"} ],
+-#                         :stacked => false }
+-#
+-# Todo
+-# @todo
+-##
+
+-# Pills - default value
+- if !defined? pills or pills.blank?
+    - extraClass = "nav-tabs"
+- else
+    - extraClass = "nav-pills"
+
+-# Stacked - default value
+- if defined? stacked and !stacked.blank?
+    - extraClass += " nav-stacked"
+
+-# Nav
+%ul.nav{ :class => extraClass }
+
+    -# Array
+    - if locals[ :array ]
+
+        -# Active - which tab should be active
+        - if !defined? active or active.blank?
+            - active = array[0]['name']
+
+        -# Create a integer to increment
+        - i = 0
+
+        -# Loop through the Array
+        - array.each do |value|
+
+            -# Increment the integer
+            - i += 1
+
+            -# Produce the list
+            %li{ :class => ( active == value[ "name" ] ) ? "active" : false }
+
+                %a{ :href          => value["path"],
+                    :"data-toggle" => ( defined? toggle ) ? "tab" : false }
+
+                    = value[ "name" ]

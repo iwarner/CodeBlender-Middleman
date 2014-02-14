@@ -1,0 +1,36 @@
+---
+author      : "DryKISS"
+description : "The Follow button lets people subscribe to the public updates of
+               others on Facebook."
+layout      : "site/page"
+small       : "https://developers.facebook.com/docs/plugins/follow-button"
+title       : "Facebook Follow Button Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/social/facebook"
+---
+
+-##
+-# CodeBlender Follow Button Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/follow-button/
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text  => "Follow Button",
+                 :type  => "h2" }
+
+-# Follow Button
+= partial "social/facebook/follow-button"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "social/facebook/follow-button"

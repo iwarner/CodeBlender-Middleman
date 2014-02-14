@@ -1,0 +1,44 @@
+-##
+-# Bootstrap Collapse
+-# Collapse requires the transitions plugin
+-#
+-# Locals
+-# array - Array  - Required - Array of panels
+-# id    - String - Optional - Accordion ID defaults to "accordion"
+-#
+-# Usage
+-# = partial "bootstrap/collapse"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Debug Array
+- if ! locals[ :array ]
+    - array = [ { :title => "Heading 1", :body => "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua" },
+                { :title => "Heading 2", :body => "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua" },
+                { :title => "Heading 3", :body => "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua" } ]
+
+-# If no ID is passed in
+- if ! locals[ :id ]
+    - id = "accordion"
+
+-# Collapse
+.panel-group{ :id => id }
+
+    - array.each_with_index do | value, index |
+
+        .panel.panel-default
+
+            .panel-heading
+
+                %h4.panel-title
+
+                    %a{ :href => "#collapse#{index}",
+                        :data => { :toggle => "collapse",
+                                   :parent => "##{id}" } }
+                        = value[ :title ]
+
+            .panel-collapse.collapse{ :id    => "collapse#{index}",
+                                      :class => ( index === 0 ) ? "in" : false }
+                .panel-body
+                    = value[ :body ]

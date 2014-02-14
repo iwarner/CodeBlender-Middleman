@@ -1,0 +1,36 @@
+---
+author      : "DryKISS"
+description : "The Facepile plugin displays the Facebook profile photos of people
+               who have connected with your Facebook page or app."
+layout      : "site/page"
+small       : "https://developers.facebook.com/docs/plugins/facepile"
+title       : "Facebook Facepile Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/social/facebook"
+---
+
+-##
+-# CodeBlender Facepile Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/facepile
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text => "Facepile",
+                 :type => "h2" }
+
+-# Like Button
+= partial "social/facebook/facepile"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "social/facebook/facepile"

@@ -1,0 +1,80 @@
+##
+# Config YAML
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+# @see
+#
+# Usage
+#
+# Todo
+# @todo Can also get the rights from the copyright statement in the locale
+# @todo Use the correct URL for Build
+##
+
+---
+
+# Content
+:brand : CodeBlender
+:url   : http://codeblender.net/
+
+# Scaffolding
+:navbar    : true
+:footer    : true
+:copyright : true
+:manifest  : false
+:lang      : en
+
+# Meta
+:metaCore     : true
+:metaMobile   : false
+:metaDublin   : false
+:metaFacebook : true
+:metaTwitter  : false
+:metaGoogle   : false
+
+# RSS Feed
+:feed         : false
+
+# Products
+:productColumns   : 3
+
+# Dublin Core Meta Data
+:publisher        : "CodeBlender"
+:publisherAddress : "ian.warner@drykiss.com"
+:rights           : "Copyright 2013, DryKISS Ltd. All rights reserved."
+
+# Navigation
+:navBrand      : true
+:navULClass    : navbar-right
+:navIcon       : false
+:navLogoWidth  :
+:navLogoHeight :
+:navSearch     : false
+:navType       : false
+
+# Facebook
+:facebookAppId     : 253027968192447
+:facebookAppSecret : 09627a7f101b7225459d95357b80114e
+:facebookPageId    :
+:facebookPageUrl   : https://www.facebook.com/onlyasmile
+:facebookLocale    :
+    en : en_GB
+
+
+# Disqus
+:disqusShortName : classicpcgamescom
+
+# Google
+:googleAnalytics      : UA-26476358-11
+:googleAnalyticsURL   : codeblender.net
+:googleAdsense        : ca-pub-4390370568784157
+:googleSearch         : partner-pub-4390370568784157:5919031289
+:googleWebmasterTools :
+
+# MailChimp
+:mailChimpPath : "http://drykiss.us7.list-manage2.com/subscribe/post-json"
+:mailChimpU    : "4862895059f8ff67d43123d97"
+:mailChimpID   : "ee87b73461"
+
+# Twitter
+:twitterMetaTags : false

@@ -1,0 +1,36 @@
+-##
+-# Bootstrap Heading
+-# All HTML headings, h1 through h6, are available. .h1 through .h6 classes
+-# are also available, for when you want to match the font styling of a heading
+-# but still want your text to be displayed inline.
+-#
+-# Locals
+-# :small - String - Optional - Small description
+-# :text  - String - Required - Main text
+-# :type  - String - Required - Heading Tag H1 - H6 - Default H6
+-#
+-# Usage
+-# -# Heading
+-# = partial "bootstrap/type/heading",
+-#            :locals => { :small => "Secondary text",
+-#                         :text  => "Heading",
+-#                         :type  => "h1" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/css/#type-headings
+-# @todo
+-##
+
+-# Type Default
+- if ! locals[ :type ]
+    - type = "h1"
+
+-# Heading
+- haml_tag type do
+
+    -# Main Text
+    = text
+
+    -# Add the secondary text if required
+    - if locals[ :small ]
+        %small= small

@@ -1,0 +1,83 @@
+-##
+-# Site Wrapper
+-#
+-# Usage
+-# - wrap_layout "site/bootstrap" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- locale = I18n.locale.to_s
+
+-# Wrapper
+!!!
+%html{ :lang       => locale,
+       :itemscope  => true,
+       :itemtype   => "http://schema.org/WebPage",
+       :manifest   => ( data.config.manifest )     ? "/offline.manifest"    : false,
+       :"xmlns:fb" => ( data.config.metaFacebook ) ? "http://ogp.me/ns/fb#" : false,
+       :"xmlns:og" => ( data.config.metaFacebook ) ? "http://ogp.me/ns#"    : false }
+
+    %head
+
+        -# Core Meta Tags
+        - if data.config.metaCore
+            = partial "meta/core"
+
+        -# Mobile Meta Tags
+        - if data.config.metaMobile
+            = partial "meta/mobile"
+
+        -# Dublin Core Meta Tags
+        - if data.config.metaDublin
+            = partial "meta/dublin"
+
+        -# Facebook Meta Tags
+        - if data.config.metaFacebook
+            = partial "meta/facebook"
+
+        -# Twitter Meta Tags
+        - if data.config.metaTwitter
+            = partial "meta/twitter"
+
+        -# Google Meta Tags
+        - if data.config.metaGoogle
+            = partial "meta/google"
+
+        -# Main Stylesheet
+        = stylesheet_link_tag :site, :media => "all"
+
+        -# Favicon and Touch Icons
+        = partial "meta/icon-fav"
+        = partial "meta/icon-touch"
+
+        -# Feed XML
+        - if data.config.feed
+            = partial "meta/feed"
+
+        -# Google Analytics
+        - if data.config.googleAnalytics
+            = partial "./google/analytics"
+
+    -# Body with Page Class
+    %body{ :class => "#{page_classes} #{current_page.data.bodyClass}",
+           :data  => { :lang   => locale,
+                       :locale => ( ! data.config.facebookLocale.blank? ) ? data.config.facebookLocale[locale] : false } }
+
+        -# Facebook Root - Requires an AppID
+        - if data.config.facebookAppId
+            #fb-root
+
+        -# Main Overlay provides a means to show something over the entire document
+        .mainOverlay
+
+            -# Yield
+            = yield
+
+        -# JavaScript
+        = javascript_include_tag :all
+
+        -# Initialize JS
+        :coffee
+            App.initialize()

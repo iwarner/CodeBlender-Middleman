@@ -1,0 +1,31 @@
+{
+    "name"     : "togetherbank.com",
+    "version"  : "0.0.1",
+    "homepage" : "http://togetherbank.com",
+    "authors"  : [
+        "Ian Warner <ian.warner@drykiss.com>"
+    ],
+
+    "dependencies" : {
+        "backbone"                : "",
+        "bootstrap-sass-official" : "",
+        "dropzone"                : "",
+        "font-awesome"            : "",
+        "holderjs"                : "",
+        "jcrop"                   : "",
+        "jquery"                  : "",
+        "notify.js"               : "",
+        "simplecart-js"           : "",
+        "underscore"              : ""
+    },
+
+    "license" : "MIT",
+
+    "ignore" : [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ]
+}

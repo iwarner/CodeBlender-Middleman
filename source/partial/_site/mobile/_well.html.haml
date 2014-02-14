@@ -1,0 +1,35 @@
+-##
+-# Well
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see
+-#
+-# Use the well as a simple effect on an element to give it an inset effect.
+-#
+-# Optional classes
+-# Control padding and rounded corners with two optional modifier classes.
+-#
+-# Locals
+-# content    - String - (Required) - Content of the Well
+-# size       - String - (Optional) - Either : sm, lg - Default: normal
+-# extraClass - String - (Optional) - Extra Classes
+-#
+-# Usage
+-# = partial "mobile/well",
+-#            :locals => { :content => "This is a Mobile Well" }
+-#
+-# Todo
+-# @todo
+-##
+
+-# Size
+- if defined? size and ! size.empty?
+    - sized = "w-#{size}"
+
+-# Type Default to default if not defined
+- if defined? extraClass and ! extraClass.empty?
+    - extraClass = extraClass
+
+-# Well
+.w{ :class => "#{sized} #{extraClass}" }
+    = content

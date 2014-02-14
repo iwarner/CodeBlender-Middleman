@@ -1,0 +1,58 @@
+-##
+-# Bootstrap Thumbnails
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/components/#thumbnails
+-#
+-# Locals
+-# :array      - Array  - Required - Array of the Thumbnails to show
+-# :thumbClass - String - Optional - String of classes to appened to Thumbnail
+-#
+-# Usage
+-# = partial "bootstrap/thumbnails",
+-#            :locals => { :array      => [ { "button"  => "Click Me",
+-#                                            "caption" => "Caption 1",
+-#                                            "link"    => "#",
+-#                                            "src"     => "holder.js/690x200",
+-#                                            "title"   => "Product 1" } ],
+-#                         :thumbClass => "noBorder" }
+-#
+-# Todo
+-# @todo Button should not show
+-# @todo Need a way to link whole image
+-# @todo Add Ribbon to image area
+-# @todo Ability to remove thumbnail border etc
+-##
+
+-# Thumbnails
+.row
+
+    - if locals[ :array ]
+
+        -# Loop through the array
+        - array.each do | entry |
+
+            .col-xs-12.col-sm-6.col-md-4
+
+                .thumbnail{ :class => ( locals[ :thumbClass ] ) ? locals[ :thumbClass ] : false }
+
+                    -# Image
+                    %img{ :alt => "Partners",
+                          :src => entry[ "src" ] }
+
+                    -# Caption
+                    - if entry[ "caption" ]
+
+                        .caption
+
+                            %h3= entry[ "title" ]
+                            %p= entry[ "caption" ]
+
+                            -# Whether to show a button
+                            - if entry[ "button" ]
+                                %p
+                                    %a.btn.btn-primary{ :id    => entry[ "id" ],
+                                                        :class => entry[ "extraClass" ],
+                                                        :href  => entry[ "link" ],
+                                                        :title => entry[ "button" ] }
+                                        = entry[ "button" ]

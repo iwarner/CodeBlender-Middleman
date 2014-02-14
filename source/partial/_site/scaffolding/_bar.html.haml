@@ -1,0 +1,53 @@
+-##
+-# Scaffolding Bar
+-#
+-# Locals
+-# array - Array - Optional - Local array
+-#
+-# Usage
+-# -# Bar
+-# = partial "scaffolding/bar",
+-#            :locals => { :array => data.page.bar }
+-#
+-# YAML
+-# bar         :
+-#     - sup   : Expires
+-#       text  : 485 Days
+-#     - sup   : Offer Type
+-#       text  : Cashback
+-#     - icon  : bookmark
+-#       href  : "#bookmark"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Bar
+.bar.text-center
+
+    -# Loop through the elements to display
+    - if locals[ :array ]
+
+        -# Loop through the Footer Yaml
+        - array.each do | entry |
+
+            -# Title
+            - if entry.text
+                .element.text
+
+                    -# Suplementary
+                    - if entry.sup
+                        .sup
+                            = entry.sup
+
+                    -# Text
+                    = entry.text
+
+            -# If an Icon is required
+            - if entry.icon
+
+                -# Icon
+                %a{ :href => entry.href, :title => entry.icon }
+                    %i.fa.fa-bookmark-o
+
+-# Clear Fix
+.clearfix

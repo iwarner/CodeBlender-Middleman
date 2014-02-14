@@ -1,0 +1,64 @@
+-##
+-# Scaffolding Copyright
+-#
+-# Locals
+-# array     - Array  - Optional - Array of extra links
+-# copyright - String - Optional - Main text for the copyright string or symbol to use
+-# showYear  - Bool   - Optional - Flag to show the year or not
+-# showArrow - Bool   - Optional - Flag to show the up arrow
+-# center    - Bool   - Optional - Whether to center the text for the copyright
+-#
+-# Usage
+-# -# Copyright
+-# = partial "scaffolding/copyright",
+-#            :locals => { :copyright => :copyright }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Show Year Default
+- if ! defined? showYear
+    - showYear = true
+
+- if ! defined? showArrow
+    - showArrow = true
+
+-# Copyright Section
+.copyright{ :class => ( locals[ :center ] ) ? "text-center" : false }
+
+    .container
+
+        %p
+
+            -# Top Arrow
+            - if showArrow
+                %span.toTop.pull-right
+                    %i.fa.fa-arrow-circle-up
+
+            -# Copyright Statement
+            - if ! locals[ :copyright ]
+                = t :copyright
+
+            - else
+                - if copyright.is_a?( Symbol )
+                    = t copyright
+                - else
+                    = copyright
+
+            -# Year
+            - if showYear
+
+                -# Year Variable
+                - year = Time.now.strftime( '%Y' )
+
+                %time{ :datetime => year }
+                    = year
+
+        -# Show any required links
+        - if locals[ :array ]
+
+            -# Horizontal list of links
+            = partial "bootstrap/type/list",
+                       :locals => { :array      => array,
+                                    :extraClass => "list-inline list-unstyled" }
+

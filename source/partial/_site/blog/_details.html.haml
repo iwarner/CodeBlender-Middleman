@@ -1,0 +1,64 @@
+-##
+-# Blog Details Partial
+-#
+-# Locals
+-# more - Bool - Whether to show more details
+-#
+-# Usage
+-# = partial "blog/details",
+-#            :locals => { :more => false }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- if ! locals[ :more ]
+    - more = false
+
+-# Blog Footer
+.blogDetails
+
+    -# Date
+    %i.glyphicon.glyphicon-calendar
+    = current_page.data.date.strftime( '%Y-%m-%d' )
+
+    -# Author
+    |
+    %i.glyphicon.glyphicon-user
+    by
+    = current_page.data.author
+
+    -# Comments
+    |
+    %i.glyphicon.glyphicon-comment
+    X Comments
+
+    -# Like Button
+    = partial "social/facebook/like-button",
+               :locals => { :extraClass => "pull-right",
+                            :layout     => "button_count",
+                            :share      => "false" }
+
+    %hr
+
+    -# Read More Button
+    - if ! locals[ :more ]
+
+        .pull-right
+            %a.btn.btn-primary.btn-mini{ :href => current_page.url }
+                Read More
+
+    -# Tags
+    .tags
+
+        -# Loop through tags
+        - current_page.data.tags.each do | tag |
+
+            -# Label
+            = partial "bootstrap/components/label",
+                       :locals => { :color   => "primary",
+                                    :content => tag,
+                                    :href    => tag_path( tag ),
+                                    :icon    => "glyphicon-tag" }
+
+.clearfix

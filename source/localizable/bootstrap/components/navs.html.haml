@@ -1,0 +1,67 @@
+---
+author       : "Ian Warner"
+description  : "Navs available in Bootstrap have shared markup, starting with the
+                base .nav class, as well as shared states. Swap modifier classes
+                to switch between each style."
+layout       : "site/page"
+small        : "http://getbootstrap.com/components/#nav"
+title        : "Bootstrap Navs Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+see :
+    - - "Bootstrap Navs"
+      - "http://getbootstrap.com/components/#nav"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Navs
+= partial "bootstrap/components/navs",
+           :locals => { :array => [ { "path" => "#",
+                                      "name" => "Details" },
+                                    { "path" => "#",
+                                      "name" => "Download"} ] }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/navs"
+               :locals => { :array => [ { "path" => "#",
+                                          "name" => "Details" },
+                                        { "path" => "#",
+                                          "name" => "Download"} ] }
+
+-# Pills
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Use Pills",
+                        :type => "h2" }
+
+-# Navs
+= partial "bootstrap/components/navs",
+           :locals => { :pills => true,
+                        :array => [ { "path" => "#",
+                                      "name" => "Details" },
+                                    { "path" => "#",
+                                      "name" => "Download"} ] }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/navs"
+               :locals => { :pills => true,
+                            :array => [ { "path" => "#",
+                                          "name" => "Details" },
+                                        { "path" => "#",
+                                          "name" => "Download"} ] }

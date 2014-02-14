@@ -1,0 +1,44 @@
+-##
+-# Bootstrap Labels
+-#
+-# Locals
+-# color   - String - Optional - Variations colour of the label, default, primary,
+-#                             - success, info, warning, danger
+-# content - String - Required - Label text
+-# href    - String - Optional - Whether this is a link
+-# icon    - String - Optional - Whether to include an icon
+-#
+-# Usage
+-# -# Label
+-# = partial "bootstrap/components/label",
+-#            :locals => { :color   => "default",
+-#                         :content => "Label",
+-#                         :icon    => "glyphicon-tag" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- extraClass = "label"
+- tag        = "span"
+
+-# Color
+- if locals[ :color ]
+    - extraClass += " label-" + color
+- else
+    - extraClass += " label-default"
+
+-# href
+- if locals[ :href ]
+    - tag = "a"
+
+-# Label
+- haml_tag tag, { :class => extraClass ? extraClass : false,
+                  :href  => locals[ :href ] ? locals[ :href ] : false } do
+
+    -# Icon
+    - if locals[ :icon ]
+        %span.glyphicon{ :class => icon }
+
+    -# Content
+    = content

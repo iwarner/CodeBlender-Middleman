@@ -1,0 +1,19 @@
+-##
+-# Bootstrap Badges
+-# Badges won't self collapse in Internet Explorer 8 because it lacks support
+-# for the :empty selector.
+-#
+-# Locals
+-# content - String - Required - Text content for the badge
+-#
+-# Usage
+-# -# Badge
+-# = partial "bootstrap/components/badges",
+-#            :locals => { :content => "88" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Badge
+%span.badge
+    = locals[ :content ]

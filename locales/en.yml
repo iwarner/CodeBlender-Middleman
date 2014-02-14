@@ -1,0 +1,18 @@
+##
+# English Locale File
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+en:
+
+# Home
+
+    homeMetaTitle : "DryKISS"
+    homeMetaDesc  : "DryKISS"
+
+# Copyright
+
+    copyright : "&copy; Copyright DryKISS Ltd"

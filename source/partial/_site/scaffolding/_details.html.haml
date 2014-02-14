@@ -1,0 +1,23 @@
+-##
+-# Scaffolding Details
+-#
+-# Locals
+-# summary - String - Required - Summary Text
+-# content - String - Required - Content Text
+-#
+-# Usage
+-# -# Details
+-# = partial "scaffolding/details",
+-#            :locals => { :summary => "Summary",
+-#                         :content => "Content" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Details
+%details
+
+    %summary
+        = summary
+    %p
+        = content

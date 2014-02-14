@@ -1,0 +1,19 @@
+-##
+-# Google Meta Tags
+-#
+-# Locals
+-# googleWebmasterTools - string - required -
+-#
+-# Usage
+-# = partial "meta/google"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.google.com/+/web/snippet/?hl=en
+-# @see    http://diveintohtml5.info/extensibility.html
+-# @see    http://schema.org/docs/gs.html
+-# @todo   Check the definition and abort
+-##
+
+-# Webmasters Tools Site Verification
+%meta{ :name    => "google-site-verification",
+       :content => data.config.googleWebmasterTools }

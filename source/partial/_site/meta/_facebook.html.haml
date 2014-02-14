@@ -1,0 +1,78 @@
+-##
+-# Facebook Meta Tags
+-#
+-# Locals
+-#
+-# Usage
+-# = partial "meta/facebook"
+-#
+-# Site Config
+-#     brand
+-#     url
+-#     facebookPageId
+-#
+-# Page Frontmatter
+-#     type
+-#     image
+-#     title
+-#     description
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/opengraph/
+-# @see    https://developers.facebook.com/docs/opengraph/using-objects/
+-# @see    http://ogp.me/
+-# @todo   Document the elements for this partial - i.e. what frontmatter is required
+-# @todo   Sort out the Canonical URL element
+-##
+
+-# Title
+- if ! yield_content( :metaTitle ).blank?
+    - title = yield_content :metaTitle
+- else
+    - title = data.page.title
+
+-# Description
+- if ! yield_content( :metaDescription ).blank?
+    - description = yield_content :metaDescription
+- else
+    - description = data.page.description
+
+-# Site Name
+%meta{ :content  => data.config.brand,
+       :property => "og:site_name" }
+
+-# Title
+%meta{ :content  => title,
+       :itemprop => "name",
+       :property => "og:title" }
+
+-# Description
+%meta{ :content  => description,
+       :itemprop => "name",
+       :name     => "description",
+       :property => "og:description" }
+
+-# Type
+%meta{ :content  => data.page.type,
+       :property => "og:type" }
+
+-# URL
+%meta{ :content  => data.config.url + request.path,
+       :itemprop => "url",
+       :property => "og:url" }
+
+-# Image
+%meta{ :content  => data.page.image,
+       :itemprop => "image",
+       :property => "og:image" }
+
+-# Facebook Page ID
+%meta{ :content  => data.config.facebookPageId,
+       :property => "fb:page_id" }
+
+-# Facebook App ID
+%meta{ :content  => data.config.facebookAppId,
+       :property => "fb:app_id" }
+
+-# Canonical URL
+/ <link rel="canonical" href="http://www.example.com/permalink" />

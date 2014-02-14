@@ -1,0 +1,66 @@
+-##
+-# Button / Link
+-#
+-# Locals
+-# active     - Bool   - Optional - Whether button is in active state
+-# block      - Bool   - Optional - true or false Default: false
+-# color      - String - Optional - default, primary, success, info,
+-#                                  warning, danger, link
+-# content    - String - Required - Content of the button
+-# disabled   - Bool   - Optional - Whether button is in disabled state
+-# extraClass - String - Optional - Extra Classes
+-# href       - String - Optional - HREF for an A Tag
+-# size       - String - Optional - Either : xs, sm, lg or blank
+-#
+-# Usage
+-# -# Button
+-# = partial "bootstrap/css/button",
+-#            :locals => { :block   => true
+-#                         :colour  => "primary",
+-#                         :content => "Redeem this offer",
+-#                         :size    => "lg" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Main class
+- classes = 'btn'
+
+-# Color
+- ! locals[ :color ] ? classes += " btn-default" : classes += " btn-" + color
+
+-# Size
+- if locals[ :size ]
+    - classes += " btn-#{size}"
+
+-# Active
+- if locals[ :active ]
+    - classes += " active"
+
+-# Disabled
+- if locals[ :disabled ]
+    - classes += " disabled"
+
+-# Tag
+- if locals[ :href ]
+    - tag = "a"
+- else
+    - tag = "button"
+
+-# Block Level
+- if locals[ :block ]
+    - classes += " " + "btn-block"
+
+-# Extra Class
+- if locals[ :extraClass ]
+    - classes += " " + extraClass
+
+-# Submit Type
+- if tag == "button"
+    - locals[ :type ] = "submit"
+
+-# Button
+- haml_tag tag, { :class => classes,
+                  :href  => locals[ :href ],
+                  :type  => locals[ :type ] } do
+    = content

@@ -1,0 +1,62 @@
+-##
+-# Scaffolding Footer
+-#
+-# Locals
+-# array       - Array  - Optional - Local array
+-# footerClass - String - Optional - Footer extra classes
+-#
+-# Usage
+-# = partial "scaffolding/footer",
+-#            :locals => { :array => array }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Footer
+.footer{ :class => ( locals[ :footerClass ] ) ? footerClass : false }
+
+    .container
+
+        .row
+
+            -# Check Footer YAML is not blank
+            - if data.footer or locals[ :array ]
+
+                -# Local array takes precedent
+                - if locals[ :array ]
+                    - array = locals[ :array ]
+                - else
+                    - array = data.footer
+
+                -# Count for columns
+                - count      = 12 / array.count
+                - extraClass = "col-md-#{ count } "
+
+                -# Loop through the Footer Yaml
+                - array.each do | entry |
+
+                    -# Add Extra Classese required
+                    - if entry.extraClass
+                        - extraClass += entry.extraClass
+
+                    -# Section
+                    .footerSection{ :class => extraClass }
+
+                        -# Title
+                        .title
+
+                            -# Icon in the header
+                            %i{ :class => "fa fa-#{ entry.icon }" }
+
+                            - if entry.title.is_a? Symbol
+                                = t entry.title
+                            - else
+                                = entry.title
+
+                        -# Text
+                        %p
+                            - if entry.description.is_a? Symbol
+                                = t entry.description
+                            - else
+                                :markdown
+                                    #{ entry.description }

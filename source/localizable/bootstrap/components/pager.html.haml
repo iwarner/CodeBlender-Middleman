@@ -1,0 +1,33 @@
+---
+author       : "Ian Warner"
+description  : "Quick previous and next links for simple pagination implementations
+                with light markup and styles. It's great for simple sites like blogs
+                or magazines."
+layout       : "site/page"
+small        : "http://getbootstrap.com/components/#pager"
+title        : "Bootstrap Pager Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+see :
+    - - "Bootstrap Pager"
+      - "http://getbootstrap.com/components/#pager"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Pager
+= partial "bootstrap/components/pager"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/pager"

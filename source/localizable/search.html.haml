@@ -1,0 +1,37 @@
+---
+author       : "Ian Warner"
+description  : "Google Search"
+layout       : "site/page"
+small        : ""
+title        : "Google Search"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/"
+
+see :
+    - - "Custom Search"
+      - "https://www.google.com/cse/all"
+---
+
+-# Search Results DIV
+#cse-search-results
+
+-# Script Variables
+:javascript
+    var googleSearchIframeName = "cse-search-results";
+    var googleSearchFormName   = "cse-search-box";
+    var googleSearchFrameWidth = 1130;
+    var googleSearchDomain     = "www.google.co.uk";
+    var googleSearchPath       = "/cse";
+
+-# Javascript
+%script{ :src => "http://www.google.com/afsonline/show_afs_search.js" }
+
+-# Popular Queries
+%script{ :src => "http://www.google.com/cse/query_renderer.js" }
+#queries
+%script{ :src => "http://www.google.com/cse/api/#{data.config.googleSearch}/cse/5919031289/queries/js?oe=UTF-8&amp;callback=(new+PopularQueryRenderer(document.getElementById(%22queries%22))).render" }

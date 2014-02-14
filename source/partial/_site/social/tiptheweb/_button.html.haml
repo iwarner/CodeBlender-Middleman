@@ -1,0 +1,25 @@
+-##
+-# Tip the Web Button
+-#
+-# Usage
+-# -# Tip the Web Button
+-# = partial "social/tiptheweb/button"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Tip the Web Button
+%a.ttw-button.ttw-button-large{ :href => "http://tiptheweb.org/tip/" }
+    Tip
+
+-# JavaScript
+:javascript
+    (function (window, document) {
+        var ref = document.getElementsByTagName('script')[0],
+            script = document.createElement('script'),
+            secure = window.location.protocol === 'https:';
+        script.async = true;
+        script.src = secure ? 'https://secure-platform.tiptheweb.org/tip/button.js'
+                            : 'http://platform.tiptheweb.org/tip/button.js';
+        ref.parentNode.insertBefore(script, ref);
+    }(this, this.document));

@@ -1,0 +1,227 @@
+-##
+-# Bootstrap NavBar Element
+-# Javascript is required for the Nav Collaspe
+-# Be sure to add a role="navigation" to every navbar to help with accessibility.
+-#
+-# Requires a /data/navigation.yaml file to be present. Basically checks the
+-# YAML for Divider, Dropdown or Menu Item then displays according to the YAML.
+-#
+-# Locals
+-# array    - Array  - Optional - Either define in a YAML or pass in as a local
+-# brand    - String - Optional - Will default to using the config
+-# logo     - Bool   - Optional - Whether to show a logo instead of the brand name
+-# position - String - Optional - Either fixed-top, fixed-bottom, static-top
+-# type     - String - Optional - inverse or false for default
+-# ulClass  - String - OPtional - Class such as navbar-right
+-#
+-# Usage
+-# -# Navbar
+-# = partial "bootstrap/components/navbar",
+-#            :locals => { :position => "fixed-top",
+-#                         :type     => "inverse" }
+-#
+-# YAML Required
+-# -   :name   : Who We Are
+-#     :status : active
+-#     :url    : /who-we-are
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/components/#navbar
+-# @todo   Text should be translated - Toggle Navigation
+-# @todo   Need the ability to add images as placeholders.
+-##
+
+-# Navbar Type
+- if data.config.navType == "inverse" or locals[ :type ] == "inverse"
+    - extraClass = " navbar-inverse"
+- else
+    - extraClass = " navbar-default"
+
+-# Position of the Navbar Fixed Top or Bottom
+- if data.config.navPosition or locals[ :position ]
+    - position    = data.config.navPosition = locals[ :position ]
+    - extraClass += " navbar-#{position}"
+
+-# Sort out the Brand name, check it is required
+- if locals[ :brand ] != false
+    - if locals[ :brand ]
+        - brand = locals[ :brand ]
+    - else
+        - brand = data.config.brand
+
+-# Navbar
+%nav.navbar{ :class => extraClass,
+             :role  => "navigation" }
+
+    .container
+
+        .navbar-header
+
+            -# Create the Nav Collapse Menu
+            %button.navbar-toggle{ :type => :button,
+                                   :data => { :toggle => :collapse,
+                                              :target => ".navbar-collapse" } }
+                %span.sr-only Toggle Navigation
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+
+            -# Display the Logo or Brand Name and optional Icon
+            - if brand
+
+                %a.navbar-brand{ :href  => "/",
+                                 :data  => { :url => "/" },
+                                 :title => brand }
+
+                    -# Whether to show a logo instead
+                    - if locals[ :logo ]
+
+                        %img{ :src => "/#{images_dir}/site/logo/logo.png",
+                              :alt => brand }
+
+                        -# Whether to show Brand name
+                    - elsif brand
+
+                        -# Whether to show Brand Icon with the name
+                        - if data.config.navIcon
+
+                            %img{ :src => "/#{images_dir}/site/logo/logo.png",
+                                  :alt => brand }
+
+                        -# Brand Text
+                        = brand
+
+        -# Check that data.navigation is not empty
+        - if data.navigation or locals[ :array ]
+
+            -# Local array takes precedent
+            - if locals[ :array ]
+                - array = locals[ :array ]
+            - else
+                - array = data.navigation
+
+            -# Create the collapse area
+            .navbar-collapse.collapse.navbar-collapse
+
+                -# navbar-right
+                -# Sort out extra class for the UL
+                - if locals[ :ulClass ]
+                    - ulClass = locals[ :ulClass ]
+                - elsif data.config.navULClass
+                    - ulClass = data.config.navULClass
+
+                -# Navigation
+                %ul.nav.navbar-nav{ :class => ulClass }
+
+                    -# Loop through the Navigation Yaml
+                    - array.each do | entry |
+
+                        -# Check for presence of divider
+                        - if entry.name === "divider-vertical"
+                            %li.divider-vertical
+
+                            -# Process any Dropdowns found
+                        - elsif entry.name === "dropdown" and entry.status === "active"
+
+                            -# Dropdown
+                            %li.dropdown
+
+                                %a.dropdown-toggle{ :href  => "#",
+                                                    :title => entry.items[0].title,
+                                                    :data  => { :toggle => "dropdown" } }
+
+                                    -# Check to see if this should be an icon
+                                    -if entry.items[0].title.include? "icon-"
+                                        %i{ :class => entry.items[0].title }
+
+                                    -else
+                                        - if entry.items[0].title.is_a? Symbol
+                                            = t entry.items[0].title
+                                        - else
+                                            = entry.items[0].title
+
+                                    %b.caret
+
+                                %ul.dropdown-menu
+
+                                    - entry.items.each do |dropdown|
+
+                                        - if ! dropdown.title
+
+                                            - if dropdown.name === "divider"
+                                                %li.divider
+
+                                            - elsif dropdown.name === "navheader"
+                                                %li.nav-header
+                                                    = dropdown.header
+
+                                            - else
+                                                %li
+                                                    %a{ :href  => "#{dropdown.url}",
+                                                        :title => dropdown.name,
+                                                        :data  => { :url => "#{dropdown.url}" } }
+
+                                                        - if dropdown.name.is_a? Symbol
+                                                            = t dropdown.name
+                                                        - else
+                                                            = dropdown.name
+
+                            -# Process Normal Links
+                        - elsif entry.status === "active"
+
+                            -# Check if an Extra Class exists
+                            - extraClass = ''
+
+                            -if entry.class
+                                - extraClass += entry.extraClass.to_s
+
+                            -# Remove slashes
+                            - if current_page.url.length > 1
+                                - url = current_page.url[ 0...-1 ]
+                            - else
+                                - url = current_page.url
+
+                            -# Create the Active Navigation
+                            - if url == entry.url
+                                - extraClass += " active"
+
+                            %li{ :class => "#{extraClass}" }
+
+                                -# HREF if URL is present
+                                - if entry.url
+
+                                    %a{ :href   => "#{entry.url}",
+                                        :title  => entry.title,
+                                        :target => entry.target,
+                                        :data   => { :url => "#{entry.url}" } }
+
+                                        -# If an Icon is required
+                                        - if entry.icon
+                                            %i{ :class => entry.icon }
+
+                                        -# If an Image is required
+                                        - if entry.image
+                                            %img{ :src => "/#{images_dir}/#{entry.image}",
+                                                  :alt => "Icon" }
+
+                                        = entry.name
+
+                                - else
+
+                                    -# If an Icon is required
+                                    - if entry.icon
+                                        %i{ :class => entry.icon }
+
+                                    -# If an Image is required
+                                    - if entry.image
+
+                                        %img{ :src => "/#{images_dir}/#{entry.image}",
+                                              :alt => brand }
+
+                                    -# Entry Name
+                                    - if entry.name
+                                        = entry.name
+
+                -# Google Search Bar
+                - if ! data.config.navSearch.blank?
+                    = partial "google/search"

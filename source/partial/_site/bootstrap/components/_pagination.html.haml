@@ -1,0 +1,59 @@
+-##
+-# Bootstrap Pagination
+-#
+-# Locals
+-# pageNo    - String - Required -
+-# pages     - String - Required -
+-# prevPage  - String - Required -
+-# nextPage  - String - Required -
+-# active    - String - Optional -
+-# disabled  - String - Optional -
+-# size      - String - Optional - large, small or mini sizes - Default: none
+-# alignment - String - Optional - centered or right
+-#
+-# Usage
+-# = partial "bootstrap/pagination",
+-#            :locals => { :pageNo   => "1",
+-#                         :pages    => "5",
+-#                         :prevPage =>  "" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# .pagination-sm.pagination-centered
+-##
+
+-# Pagination
+%ul.pagination
+
+    -# Previous Page
+    - if prevPage
+        %li
+            = link_to "Prev", prevPage.url
+
+    -# Loop through the number of pages
+    - ( 1..pages ).to_a.each do | page |
+
+        -# Active
+        - if pageNo == page
+
+            %li.active
+                %span= page
+
+        - else
+
+            %li
+
+                - url    = current_page.url
+                - newStr = url.sub( /\d+\/$/, "#{page}" )
+
+                - if page == 1
+                    - newStr = url.sub( /page\/\d\/$/, "" )
+
+                - if ! url.match( /page\/\d+\/$/ )
+                    - newStr = "#{url}page/#{page}"
+
+                = link_to page, newStr
+
+    -# Next Page
+    - if nextPage
+        %li
+            = link_to "Next", nextPage.url

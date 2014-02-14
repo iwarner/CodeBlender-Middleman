@@ -1,0 +1,47 @@
+##
+# Footer
+#
+# Usage
+# Description content must be written in markdown
+# As these sections are rendered in HAML with the :markdown filter
+# Make sure Kramdown is set at the default engine in cofig.rb
+# set :markdown_engine, :kramdown
+#
+# Todo
+# @todo
+##
+
+---
+
+# Column One
+
+-   :title       : About
+    :icon        : info
+    :description : |
+        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+        consectetur, adipisci velit...
+
+# Column Two
+
+-   :title       : What We Do
+    :icon        : cogs
+    :description : |
+        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+        consectetur, adipisci velit...
+
+# Column Three
+
+-   :title       : Social
+    :icon        : facebook
+    :extraClass  : social
+    :description : |
+        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+        consectetur, adipisci velit...
+
+# Column Four
+
+-   :title       : Contact
+    :icon        : phone
+    :description : |
+        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+        consectetur, adipisci velit...

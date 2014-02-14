@@ -1,0 +1,74 @@
+-##
+-# Core Meta Tags
+-#
+-# Tags can be set via the data.page elements or through content yield the
+-# latter is especially useful for localized pages where the front matter will
+-# change dynamically for the language.
+-#
+-# Locals
+-#
+-# Usage
+-# = partial "meta/core"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://en.wikipedia.org/wiki/Meta_element
+-# @see    http://schema.org
+-# @see    http://moz.com/blog/meta-data-templates-123
+-# @see    http://www.iacquire.com/blog/18-meta-tags-every-webpage-should-have-in-2013/
+-##
+
+-# Title
+- if ! yield_content( :metaTitle ).blank?
+    - title = yield_content :metaTitle
+- elsif current_page.data.title.is_a?( Symbol )
+    - title = t( current_page.data.title )
+- else
+    - title = current_page.data.title
+
+-# Description
+- if ! yield_content( :metaDescription ).blank?
+    - description = yield_content :metaDescription
+- elsif current_page.data.description.is_a?( Symbol )
+    - description = t( current_page.data.description )
+- else
+    - description = current_page.data.description
+
+-# Author
+- if ! yield_content( :metaAuthor ).blank?
+    - author = yield_content :metaAuthor
+- else
+    - author = current_page.data.author
+
+-# Subject
+- if ! yield_content( :metaSubject ).blank?
+    - subject = yield_content :metaSubject
+- elsif current_page.data.subject.is_a?( Symbol )
+    - subject = t( current_page.data.subject )
+- else
+    - subject = current_page.data.subject
+
+-# Tags
+%title= title
+
+-# Encoding
+%meta{ :charset => "utf-8" }
+
+-# Meta Tags for IE
+%meta{ :content      => "IE=edge,chrome=1",
+       :"http-equiv" => "X-UA-Compatible" }
+
+-# Description
+%meta{ :name    => "description",
+       :content => description  }
+
+-# Keywords
+%meta{ :name    => "keywords",
+       :content => description  }
+
+-# Author
+%meta{ :name    => "author",
+       :content => author }
+
+-# Robots
+%meta{ :name    => "robots",
+       :content => "index,follow,archive" }

@@ -1,0 +1,19 @@
+-##
+-# Blog - Tags
+-#
+-# Locals
+-#
+-# Usage
+-# -# Tag Cloud
+-# = partial "blog/tags"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Heading
+= partial "./bootstrap/type/heading",
+           :locals => { :text => "Tags",
+                        :type => "h4" }
+
+-# Tag Cloud
+= tagCloud()

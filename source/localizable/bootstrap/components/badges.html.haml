@@ -1,0 +1,37 @@
+---
+author       : "Ian Warner"
+description  : "Easily highlight new or unread items by adding a to links,
+                Bootstrap navs, and more."
+layout       : "site/page"
+small        : "http://getbootstrap.com/components/#badges"
+title        : "Bootstrap Badges Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+see :
+    - - "Bootstrap Badges"
+      - "http://getbootstrap.com/components/#badges"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Badges
+= partial "bootstrap/components/badges",
+           :locals => { :content => "88" }
+
+%br
+%br
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/badges",
+               :locals => { :content => "88" }

@@ -1,0 +1,57 @@
+-##
+-# Form Select
+-# Supports HTML5 elements, such as Placeholder, Autofocus.
+-#
+-# Locals
+-# array          - Array  - Required - Array of options to include
+-# autofocus      - Bool   - Optional - Whether this input should be autofocussed
+-# autocorrect    - Bool   - Optional - Autocorrect
+-# autocapitalize - Bool   - Optional - Autocapitalize
+-# disabled       - Bool   - Optional - Disabled
+-# id             - String - Required - ID of the form element
+-# help           - String - Optional - Help text
+-# label          - Array  - Optional - Text and Flag for Screen Reader for the label
+-# multiple       - Bool   - Optional - Multiple select box
+-# pattern        - String - Optional - Pattern
+-# placeholder    - String - Optional - Placeholder text
+-# required       - Bool   - Optional - Whether the validation is required
+-# value          - String - Optional - Value for the input
+-#
+-# Usage
+-# = partial "bootstrap/css/forms/select",
+-#            :locals => { :array       => [ [ "United Kingdom", "44" ], [ "USA", "1" ] ],
+-#                         :id          => "ID",
+-#                         :label       => "Label",
+-#                         :placeholder => "Placeholder" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/css/#forms
+-# @todo
+-##
+
+-# Form Group
+.form-group
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label{ :for => id, :class => ( locals[ :label ] && label[ 1 ] ) ? "sr-only" : false }
+
+        -# Show label text
+        - if locals[ :label ]
+            = label[ 0 ]
+
+    -# Select
+    %select.form-control{ :multiple => ( locals[ :multiple ] ) ? true : false, }
+
+        -# Check that array is defined
+        - if locals[ :array ]
+
+            -# Loop through the array
+            - array.each do | value |
+
+                %option{ :value => value[1] }
+                    = value[0]
+
+    -# Help Block
+    - if locals[ :help ]
+        %p.help-block
+            = help

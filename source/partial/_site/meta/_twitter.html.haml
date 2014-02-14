@@ -1,0 +1,31 @@
+-##
+-# Twitter Meta Tags
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://dev.twitter.com/docs/cards
+-# @see    http://davidwalsh.name/twitter-cards
+-#
+-# Locals
+-#
+-# Usage
+-# = partial "meta/twitter"
+-##
+
+-# Site
+%meta{ :name    => "twitter:site",
+       :content => config.twitter.account }
+
+%meta{ :name    => "twitter:card",
+       :content => "summary" }
+
+%meta{ :name    => "twitter:creator",
+       :content => config.twitter.account }
+
+%meta{ :name    => "twitter:title",
+       :content => data.page.title }
+
+%meta{ :name    => "twitter:description",
+       :content => "data.page.description }
+
+%meta{ :name    => "twitter:image",
+       :content => "" }

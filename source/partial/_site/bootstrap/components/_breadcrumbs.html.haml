@@ -1,0 +1,19 @@
+-##
+-# Bootstrap Breadcrumbs
+-#
+-# Locals
+-# array - Array - Required - Array of list items
+-#
+-# Usage
+-# -# Breadcrumbs
+-# = partial "bootstrap/components/breadcrumbs",
+-#            :locals => { :array => array }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# List
+= partial "bootstrap/type/list",
+           :locals => { :array      => array,
+                        :extraClass => "breadcrumb",
+                        :type       => "ol" }

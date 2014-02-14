@@ -1,0 +1,75 @@
+-##
+-# Bootstrap List
+-#
+-# Locals
+-# :array      - Array  - Required - Array of the list required
+-# :type       - String - Optional - Unordered or Ordered - ul / ol / dl
+-# :extraClass - String - Optional - String of extra classes can be collection
+-#                                   list-unstyled, list-inline, dl-horizontal
+-#
+-# Usage
+-# -# List
+-# = partial "bootstrap/type/list",
+-#            :locals => { :array      => data.page.list,
+-#                         :type       => "ul",
+-#                         :extraClass => "list-unstyled" }
+-#
+-# YAML
+-# list :
+-#    - text : "Lorem ipsum dolor sit amet"
+-#       url : "/link"
+-#    - text : "Facilisis in pretium nisl aliquet"
+-#       url : "/link"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Type Default
+- if ! locals[ :type ]
+    - type = "ul"
+
+-# List
+- haml_tag type, { :class => locals[ :extraClass ] ? extraClass : false } do
+
+    -# Check that array is defined
+    - if locals[ :array ]
+
+        -# Loop through the array
+        - array.each do | value |
+
+            -# List Type
+            - if type == "dl"
+
+                %dt
+
+                    -# If URL then show link
+                    - if value[ :url ]
+
+                        %a{ :href  => value[ :url ],
+                            :title => value[ :title ] }
+                            = value[ :title ]
+
+                        -# Just the title
+                    - else
+                        = value[ :title ]
+
+                %dd= value[ :text ]
+
+            - else
+
+                -# Text is required to show a list
+                - if ! value[ :text ].blank?
+
+                    -# List Item
+                    %li{ :class => ( value[ :active ] ) ? "active" : false }
+
+                        -# If URL is present then show a link
+                        - if value[ :url ]
+
+                            %a{ :href  => value[ :url ],
+                                :title => value[ :text ] }
+                                = value[ :text ]
+
+                            -# No Link Required
+                        - else
+                            = value[ :text ]

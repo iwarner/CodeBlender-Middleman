@@ -1,0 +1,47 @@
+---
+author         : Ian Warner
+title          : Tags
+small          : Articles by Tag
+date           : 2001-03-31
+og:title       : Tags
+og:description : Tags
+og:type        : Tags
+og:url         :
+og:image       :
+pageable       : true
+per_page       : 12
+layout         : blog/tags
+---
+
+-# Paginate
+- if paginate
+
+    %p
+        Page
+        = page_number
+        of
+        = num_pages
+
+    - if prev_page
+        %p
+            = link_to 'Previous page', prev_page
+
+-# Latest
+%ul.list-unstyled.labelList
+
+    - page_articles.each do | article |
+
+        %li
+
+            -# Label
+            = partial "bootstrap/components/label",
+                       :locals => { :color   => "info",
+                                    :content => article.date.strftime( '%b %e' ) }
+
+            = link_to article.title, article
+
+- if paginate
+
+    - if next_page
+
+        %p= link_to 'Next page', next_page

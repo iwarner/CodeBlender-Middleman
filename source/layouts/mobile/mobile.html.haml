@@ -1,0 +1,69 @@
+-##
+-# PhoneGap Mobile Layout
+-#
+-# Usage
+-# - wrap_layout "mobile/mobile" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+!!!
+%html
+
+    %head
+
+        -# Encoding
+        %meta{ :charset => "utf-8" }
+
+        -# Meta tag for IE Comapatability
+        %meta{ :content      => "IE=edge,chrome=1",
+               :"http-equiv" => "X-UA-Compatible" }
+
+        -# Mobile Phone Meta Data
+        = partial "./meta/mobile"
+
+        -# Page Title
+        %title= current_page.data.title
+
+        -# Stylesheet
+        %link{ :rel  => 'stylesheet',
+               :type => 'text/css',
+               :href => "#{css_dir}/site.css" }
+
+    -# Body with Page Class
+    %body{ :class => "#{page_classes} js" }
+
+        -# Panel Left - Scrollable
+        %aside{ :role => :panelLeft }
+
+        -# Panel Right - Scrollable
+        %aside{ :role => :panelRight }
+
+        -# Header
+        %header
+
+        -# Main Section - Scrollable
+        %section{ :role => :main }
+
+            = yield
+
+        -# Redeem
+        %footer
+
+        -# PhoneGap
+        - if build?
+            %script{ :src => "cordova.js" }
+        - else
+            %script{ :src => "cordova.js" }
+
+        -# Javascript
+        %script{ :src => "#{js_dir}/all.js" }
+
+        -# Initialize JavaScript
+        :javascript
+            App.initialize()
+
+        :javascript
+            $('body > :not(.mobilePrototype)').hide();
+            $('.mobilePrototype').appendTo('body');

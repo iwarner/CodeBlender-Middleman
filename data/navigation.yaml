@@ -1,0 +1,68 @@
+##
+# Navigation
+#
+# Usage
+# Description content must be written in markdown .As these sections are
+# rendered in HAML with the :markdown filter. Make sure Kramdown is set at the
+# default engine in cofig.rb set :markdown_engine, :kramdown
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+# @see    http://getbootstrap.com/components/#navbar
+# @todo
+##
+
+---
+
+# Who We Are
+-   :name   : Who We Are
+    :status : active
+    :url    : /who-we-are
+
+# What We Do
+-   :name   : What We Do
+    :status : active
+    :url    : /what-we-do
+
+# Our Work
+-   :name   : Our Work
+    :status : active
+    :url    : /our-work
+
+# Blog
+-   :name   : dropdown
+    :status : active
+    :items:
+
+    -   :title  : Blog
+
+    -   :name   : Articles
+        :status : active
+        :url    : /blog/articles
+
+    -   :name   : Tags
+        :status : active
+        :url    : /blog/tag
+
+    -   :name   : Calendar
+        :status : active
+        :url    : /blog/calendar
+
+# Contact
+-   :name   : Contact
+    :status : active
+    :url    : /contact
+
+# Language Drop-down
+-   :name   : dropdown
+    :status : suspended
+    :items:
+
+    -   :title  : icon-globe
+
+    -   :name   : :langThai
+        :status : active
+        :url    : "/"
+
+    -   :name   : :langEnglish
+        :status : active
+        :url    : "/en"

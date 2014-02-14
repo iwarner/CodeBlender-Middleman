@@ -1,0 +1,48 @@
+-##
+-# Bootstrap Jumbotron
+-#
+-# Locals
+-# description - String - Optional - Description text
+-# gradient    - Bool   - Optional - Whether to include the gradient
+-# image       - Bool   - Optional - Whether to include an image
+-# quotes      - Bool   - Optional - Whether to show quotes around the small text
+-# small       - String - Optional - Caption for the header
+-# title       - String - Required - H1 tag for the Jumbotron
+-#
+-# Usage
+-# -# Jumbotron
+-# = partial "bootstrap/components/jumbotron",
+-#            :locals => { :title       => "Title",
+-#                         :small       => "Small Text",
+-#                         :description => "Description" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Image
+- if locals[ :image ]
+    - extraClass = "image"
+
+-# Gradient
+- if locals[ :gradient ]
+    - extraClass = "gradient"
+
+-# Jumbotron
+.jumbotron{ :class => extraClass ? extraClass : false }
+
+    .container
+
+        -# Title
+        - if locals[ :title ]
+
+            %h1
+                = title
+
+                -# Small Text
+                - if locals[ :small ]
+                    %small{ :class => ( locals[ :quotes ] ) ? "quotes" : false }
+                        = small
+
+        -# Description
+        - if locals[ :description ]
+            %p= description

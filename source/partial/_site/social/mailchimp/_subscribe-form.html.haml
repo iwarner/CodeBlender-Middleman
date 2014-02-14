@@ -1,0 +1,61 @@
+-##
+-# Mailchimp Subscribe Form
+-#
+-# Locals
+-# action - String - Optional - URL string for the Mailchimp form
+-#
+-# Usage
+-# -# Mailchimp subscription form
+-# = partial "social/mailchimp/subscribe-form",
+-#            :locals => { :action => "http://drykiss.us7.list-manage1.com/subscribe/post-json?u=4862895059f8ff67d43123d97&id=9ea724a203&c=?" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see
+-# @todo   Add the required locals for this : action, elements, icons, placeholders etc
+-# @todo   Sort out whether Fname and Lname are required by locals
+-# @todo   Translate this
+-##
+
+-# If Action if not supplied - get details from Config.yaml
+- if  ! locals[ :action ]
+    - action = data.config.mailChimpPath + "?u=" + data.config.mailChimpU + "&id=" + data.config.mailChimpID + "&c=?"
+
+-# Subscription Form
+%form.mailChimpForm{ :action => action }
+
+    -# Email Address
+    = partial "bootstrap/css/forms/input",
+               :locals => { :id          => "mce-EMAIL",
+                            :group       => [ "glyphicon-envelope", false ],
+                            :label       =>  false,
+                            :name        => "EMAIL",
+                            :placeholder => "Your email address",
+                            :required    => true,
+                            :type        => "email" }
+
+    -# First Name
+    = partial "bootstrap/css/forms/input",
+               :locals => { :id          => "mce-FNAME",
+                            :group       => [ "glyphicon-user", false ],
+                            :label       =>  false,
+                            :name        => "FNAME",
+                            :placeholder => "Your first name",
+                            :required    => true }
+
+    -# Last Name
+    = partial "bootstrap/css/forms/input",
+               :locals => { :id          => "mce-LNAME",
+                            :group       => [ "glyphicon-user", false ],
+                            :label       =>  false,
+                            :name        => "LNAME",
+                            :placeholder => "Your last name",
+                            :required    => true }
+
+    -# Subscribe
+    = partial "bootstrap/css/button",
+               :locals => { :block   => false,
+                            :content => "Subscribe" }
+
+%br
+%br
+%p.msg{ :hidden => true }

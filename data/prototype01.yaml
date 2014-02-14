@@ -1,0 +1,185 @@
+##
+# Prototype YAML
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+# @see
+# @todo
+##
+
+---
+
+# Splash
+- image      : "loading/splash"
+  extraClass : "splash"
+  hidden     : true
+  region     :
+    - extraClass : "regionSplash"
+      goto       : "login"
+
+# Learn More 01
+- image      : "learn-more/learn-more-01"
+  extraClass : "learnMore01"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "login"
+    - extraClass : "regionSwipe"
+      goto       : "learnMore02"
+    - extraClass : "regionNoThanks"
+      goto       : "login"
+    - extraClass : "regionSignUp"
+      goto       : "signUp"
+
+# Learn More 02
+- image      : "learn-more/learn-more-02"
+  extraClass : "learnMore02"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "login"
+    - extraClass : "regionSwipe"
+      goto       : "learnMore01"
+    - extraClass : "regionNoThanks"
+      goto       : "login"
+    - extraClass : "regionSignUp"
+      goto       : "signUp"
+
+# Login
+- image      : "login/login"
+  extraClass : "login"
+  region     :
+    - extraClass : "regionLogin"
+      goto       : "loggingIn"
+    - extraClass : "regionLearMore"
+      goto       : "learnMore01"
+    - extraClass : "regionSignUp"
+      goto       : "signUp"
+
+# Logging In
+- image      : "login/logging-in"
+  extraClass : "loggingIn"
+  region     :
+    - extraClass : "regionLoggingIn"
+      goto       : "offer"
+
+# Sign Up
+- image      : "registration/sign-up"
+  extraClass : "signUp"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "login"
+    - extraClass : "regionBack"
+      goto       : "login"
+
+# Menu
+- image      : "menu/menu"
+  extraClass : "menu"
+  region     :
+    - extraClass : "regionClose"
+      goto       : "offer"
+    - extraClass : "regionAll"
+      goto       : "offer"
+    - extraClass : "regionNear"
+      goto       : "geoOffers"
+    - extraClass : "regionSaved"
+      goto       : "saved"
+    - extraClass : "regionCard"
+      goto       : "cardProfile"
+    - extraClass : "regionCommunications"
+      goto       : "communications"
+    - extraClass : "regionInterests"
+      goto       : "interests"
+    - extraClass : "regionLogout"
+      goto       : "login"
+    - extraClass : "regionService"
+      goto       : "service"
+
+# Offer
+- image      : "offer/all"
+  extraClass : "offer"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+    - extraClass : "regionSort"
+      goto       : "offerSort"
+    - extraClass : "regionSearch"
+      goto       : "search"
+    - extraClass : "regionDetails"
+      goto       : "offerDetail"
+
+# Offer Sort
+- image      : "offer/sort"
+  extraClass : "offerSort"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+    - extraClass : "regionSort"
+      goto       : "offer"
+    - extraClass : "regionSearch"
+      goto       : "search"
+    - extraClass : "regionDetails"
+      goto       : "offerDetail"
+
+# Offer Detail
+- image      : "offer/detail"
+  extraClass : "offerDetail"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offer"
+    - extraClass : "regionMore"
+      goto       : "offerMore"
+    - extraClass : "regionExpand1"
+      goto       : "offerExpanded"
+    - extraClass : "regionExpand2"
+      goto       : "offerExpanded"
+    - extraClass : "regionMap"
+      goto       : "geoDetail"
+    - extraClass : "regionSave"
+      goto       : ""
+    - extraClass : "regionBook"
+      goto       : "tableBook"
+    - extraClass : "regionTerms"
+      goto       : "offerTerms"
+
+# Search
+- image      : "search/search"
+  extraClass : "search"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offer"
+    - extraClass : "regionType"
+      goto       : "searchType"
+
+# Search Typeahead
+- image      : "search/search-type"
+  extraClass : "searchType"
+  region     :
+    - extraClass : "regionSearch"
+      goto       : "searchResult"
+
+# Search Result
+- image      : "search/search-result"
+  extraClass : "searchResult"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offer"
+    - extraClass : "regionSort"
+      goto       : "offerSort"
+    - extraClass : "regionDetail"
+      goto       : "offerDetail"
+
+# Geo Offers
+- image      : "geolocation/offers"
+  extraClass : "geoOffers"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offer"
+    - extraClass : "regionFilter"
+      goto       : ""
+    - extraClass : "regionSearch"
+      goto       : "geoSearch"
+
+# Geo Detail
+- image      : "geolocation/detail"
+  extraClass : "geoDetail"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offer"

@@ -1,0 +1,38 @@
+-##
+-# Scaffolding Login
+-#
+-# Locals
+-#
+-# Usage
+-# = partial "scaffolding/login"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Log In Form
+%form.form-signin
+
+    -# Title
+    %h2.form-signin-heading
+        Please sign in
+
+    -# Email
+    %input.input-block-level{ :type        => :email,
+                              :placeholder => "Email Address",
+                              :required    => :required }
+
+    -# Password
+    %input.input-block-level{ :type        => :password,
+                              :placeholder => "Password",
+                              :required    => :required }
+
+    -# Remember Me
+    %label.checkbox
+        %input{ :type  => :checkbox,
+                :value => "remember-me" }
+
+            Remember me
+
+    -# Submit
+    %button.btn.btn-large.btn-primary{ :type => :submit }
+        Sign in

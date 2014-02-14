@@ -1,0 +1,36 @@
+-##
+-# Bootstrap Pager
+-#
+-# Locals
+-# pageNo    - String - Required -
+-# pages     - String - Required -
+-# prevPage  - String - Required -
+-# nextPage  - String - Required -
+-# active    - String - Optional -
+-# disabled  - String - Optional -
+-# size      - String - Optional - large, small or mini sizes - Default: none
+-# alignment - String - Optional - centered or right
+-#
+-# Usage
+-# = partial "bootstrap/components/pager",
+-#            :locals => { pageNo => "1",
+-#                         pages  => "5" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/components/#pagination-pager
+-# @todo   Add the disabled state
+-# @todo   Add the centered pager style
+-##
+
+-# Pager
+%ul.pager
+
+    %li.previous
+
+        %a{ :href => "#" }
+            &larr; Older
+
+    %li.next
+
+        %a{ :href => "#" }
+            Newer &rarr;

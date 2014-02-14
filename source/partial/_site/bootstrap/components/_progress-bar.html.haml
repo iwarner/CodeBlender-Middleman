@@ -1,0 +1,62 @@
+-##
+-# Bootstrap Progress Bar
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/components/#progress
+-#
+-# Locals
+-# array   - array  - Optional - Use to create stacked Progress bars
+-# width   - int    - Optional - Width of the initial progress bar. Default : 0
+-# colour  - string - Optional - Addition colour for the progress bar. info, success, warning, danger
+-# striped - bool   - Optional - Whether the progress bar should be striped
+-# active  - bool   - Optional - Whether to animate the Progress bar
+-#
+-# Usage
+-# Single
+-# = partial "bootstrap/progress-bar",
+-#            :locals => { :width   => "33",
+-#                         :colour  => "success",
+-#                         :striped => :true,
+-#                         :active  => :true }
+-# Stacked
+-# = partial "bootstrap/progress-bar",
+-#            :locals => { :array   => [ { "width" => "30", "colour" => "info" },
+-#                                       { "width" => "15", "colour" => "danger" } ],
+-#                         :striped => :true,
+-#                         :active  => :true }
+-#
+-# Todo
+-# @tddo
+-##
+
+-# Class variable
+- extraClass = ""
+
+-# Set the Default width if width is not defined
+- if !defined? width or width.blank?
+    - width = 0
+
+-# Add any additional colours
+- if defined? colour
+    - extraClass += " progress-#{colour}"
+
+-# Set it striped if required
+- if defined? striped
+    - extraClass += " progress-striped"
+
+-# Set it animation is required
+- if defined? active
+    - extraClass += " active"
+
+-# Progress Bar
+.progress{ :class => extraClass }
+
+    -# Loop through the array
+    - if defined? array
+        - array.each do | value |
+            .progress-bar{ :role  => "progressbar",
+                           :class => "progress-bar-#{value["colour"]}",
+                           :style => "width:#{value["width"]}%" }
+    - else
+        .progress-bar{ :role  => "progressbar",
+                       :style => "width:#{width}%" }

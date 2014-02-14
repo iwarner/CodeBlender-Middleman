@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+%widget{ :id          => "com.visa.tms",
+         :version     => "#{version}",
+         :xmlns       => "http://www.w3.org/ns/widgets",
+         :"xmlns:gap" => "http://phonegap.com/ns/1.0" }
+
+    %name TMS
+
+    %description TMS by VISA
+
+    %author{ :email => "warneri@visa.com", :href => "http://visa.com" }
+        TMS Team
+
+    %feature{ :name => "http://api.phonegap.com/1.0/device" }
+
+    %gap:platform{ :name => "ios" }
+
+    / %gap:plugin{ :name => "org.apache.cordova.dialogs" }
+    / %gap:plugin{ :name => "org.apache.cordova.geolocation" }
+    / %gap:plugin{ :name => "org.apache.cordova.vibration" }
+    / %gap:plugin{ :name => "com.phonegap.plugin.statusbar" }
+
+    %preference{ :name => "permissions",         :value => "none" }
+    %preference{ :name => "phonegap-version",    :value => "3.3.0" }
+    %preference{ :name => "orientation",         :value => "portrait" }
+    %preference{ :name => "fullscreen",          :value => "true" }
+    %preference{ :name => "DisallowOverscroll",  :value => "true" }
+    %preference{ :name => "webviewbounce",       :value => "false" }
+
+    %gap:config-file{ :platform  => "ios",
+                      :parent    => "UIViewControllerBasedStatusBarAppearance",
+                      :overwrite => "true" }
+        <false/>
+
+    %preference{ :name => "target-device",              :value => "universal" }
+    %preference{ :name => "prerendered-icon",           :value => "true" }
+    %preference{ :name => "ios-statusbarstyle",         :value => "black-translucent" }
+    %preference{ :name => "detect-data-types",          :value => "true" }
+    %preference{ :name => "exit-on-suspend",            :value => "false" }
+    %preference{ :name => "stay-in-webview",            :value => "false" }
+    %preference{ :name => "show-splash-screen-spinner", :value => "true" }
+    %preference{ :name => "auto-hide-splash-screen",    :value => "true" }
+    %preference{ :name => "disable-cursor",             :value => "false" }
+
+    %icon{ :src => "icon.png" }
+    %icon{ :"gap:platform" => "ios", :height => "57",  :src => "res/icon/ios/icon-57.png",    :width => "57" }
+    %icon{ :"gap:platform" => "ios", :height => "72",  :src => "res/icon/ios/icon-72.png",    :width => "72" }
+    %icon{ :"gap:platform" => "ios", :height => "114", :src => "res/icon/ios/icon-57-2x.png", :width => "114" }
+    %icon{ :"gap:platform" => "ios", :height => "144", :src => "res/icon/ios/icon-72-2x.png", :width => "144" }
+
+    %gap:splash{ :"gap:platform" => "ios", :height => "480",  :src => "res/screen/ios/screen-iphone-portrait.png",    :width => "320" }
+    %gap:splash{ :"gap:platform" => "ios", :height => "960",  :src => "res/screen/ios/screen-iphone-portrait-2x.png", :width => "640" }
+    %gap:splash{ :"gap:platform" => "ios", :height => "1024", :src => "res/screen/ios/screen-ipad-portrait.png",      :width => "768" }
+    %gap:splash{ :"gap:platform" => "ios", :height => "768",  :src => "res/screen/ios/screen-ipad-landscape.png",     :width => "1024" }
+
+    %access{ :origin => "*" }

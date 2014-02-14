@@ -1,0 +1,90 @@
+-##
+-# Bootstrap Carousel
+-#
+-# Locals
+-# id         - String - Required - ID of the carousel element
+-# array      - Array  - Required - Content for the Carousel
+-# indicator  - Bool   - Optional - Whether to show the dot indicators - default: true
+-# control    - Bool   - Optional - Whether to show the controls - default: true
+-# imageArray - Bool   - Optional - Whether array is simply a list of images
+-#
+-# Usage
+-# = partial "bootstrap/javascript/carousel",
+-#            :locals => { :id        => "carousel1",
+-#                         :array     => [ "holder.js/690x200",
+-#                                         "holder.js/690x200" ],
+-#                         :indicator => :true }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/javascript/#carousel
+-# @see    http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/
+-# @todo   Need to find a way to work with bioth ImageArray and Array
+-##
+
+-# If ID is not defined or Blank
+- if !defined? id or id.blank?
+    - p "Carousel - no ID defined"
+
+-# If array not defined or Blank
+- if !defined? array or array.blank?
+    - p "Carousel - no array defined"
+
+-# Set Indicator to true if not defined as false
+- if !defined? indicator
+    - indicator = true
+
+-# Set Control to true if not defined as false
+- if !defined? control
+    - control = true
+
+-# Carousel
+.carousel.slide{ :id => id }
+
+    -# If Indicator are required
+    - if indicator == "always" or ( indicator and array.count > 1 )
+
+        %ol.carousel-indicators
+
+            -# Create a integer to increment
+            - i = 0
+
+            -# Loop through the array
+            - array.each do | value |
+
+                -# If this is the first one make it active
+                %li{ :class => ( i == 0 ) ? "active" : false,
+                     :data  => { :target     => "#" + id,
+                                 :"slide-to" => "#{i}" } }
+
+                -# Increment the integer
+                - i += 1
+
+    -# Inner Content
+    .carousel-inner
+
+        -# Create a integer to increment
+        - i = 0
+
+        -# Loop through the array
+        - array.each do | value |
+
+            -# If this is the first one make it active
+            .item{ :class => ( i == 0 ) ? "active" : false }
+
+                -# If this is an Image Array then create the img tag
+                - if defined? imageArray
+                    %img{ :src => value }
+                - else
+                    = value
+
+            -# Increment the integer
+            - i += 1
+
+    -# Controls
+    - if control == "always" or ( control and array.count > 1 )
+
+        %a.carousel-control.left{  :href => "#" + id, :data => { :slide => "prev" } }
+            %span.icon-prev
+
+        %a.carousel-control.right{ :href => "#" + id, :data => { :slide => "next" } }
+            %span.icon-next

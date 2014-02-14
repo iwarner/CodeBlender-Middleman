@@ -1,0 +1,53 @@
+##
+# Prototype YAML
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+# @see
+# @todo
+##
+
+---
+
+# Learn More 01
+- image      : "learn-more/learn-more-01"
+  extraClass : "learnMore01"
+  hidden     : true
+  region     :
+    - extraClass : "regionSwipe"
+      goto       : "learnMore02"
+    - extraClass : "regionLogin"
+      goto       : "login"
+
+# Learn More 02
+- image      : "learn-more/learn-more-02"
+  extraClass : "learnMore02"
+  region     :
+    - extraClass : "regionSwipe"
+      goto       : "learnMore03"
+    - extraClass : "regionLogin"
+      goto       : "login"
+
+# Learn More 03
+- image      : "learn-more/learn-more-03"
+  extraClass : "learnMore03"
+  region     :
+    - extraClass : "regionSwipe"
+      goto       : "learnMore04"
+    - extraClass : "regionLogin"
+      goto       : "login"
+
+# Learn More 04
+- image      : "learn-more/learn-more-04"
+  extraClass : "learnMore04"
+  region     :
+    - extraClass : "regionSwipe"
+      goto       : "learnMore01"
+    - extraClass : "regionLogin"
+      goto       : "login"
+
+# Login
+- image      : "login/login"
+  extraClass : "login"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "learnMore01"

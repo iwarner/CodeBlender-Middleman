@@ -1,0 +1,120 @@
+-##
+-# Form Input / TextArea
+-# Supports HTML5 elements, such as Placeholder, Autofocus.
+-#
+-# Locals
+-# autofocus      - Bool   - Optional - Whether this input should be autofocussed
+-# autocorrect    - Bool   - Optional - Autocorrect
+-# autocapitalize - Bool   - Optional - Autocapitalize
+-# disabled       - Bool   - Optional - Disabled
+-# id             - String - Required - ID of the form element
+-# group          - Array  - Optional - Array of elements to prepend or append
+-# help           - String - Optional - Help text
+-# label          - Array  - Optional - Text and Flag for Screen Reader for the label
+-# name           - String - Optional - Name of the field
+-# pattern        - String - Optional - Pattern
+-# placeholder    - String - Optional - Placeholder text
+-# required       - Bool   - Optional - Whether the validation is required
+-# rows           - Int    - Optional - Amount of rows for the textarea
+-# tag            - String - Optional - Tag name, input or textarea - default : input
+-# type           - String - Required - Type of the form input, default to text
+-#                                      checkbox, file, radio, text, password, submit
+-#                                      email, number, url, range, date, datetime, datetime-local
+-#                                      month, week, time, search, color
+-# value          - String - Optional - Value for the input
+-#
+-# Usage
+-# = partial "bootstrap/css/forms/input",
+-#            :locals => { :id          => "ID",
+-#                         :label       => "Label",
+-#                         :placeholder => "Placeholder" }
+-#
+-# Validation
+-# Add has-error, has-warning, has-info to the inputs form-group class
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/css/#forms
+-# @see    http://diveintohtml5.info/forms.html
+-# @see    http://www.whatwg.org/specs/web-apps/current-work/multipage/the-input-element.html
+-# @todo   Sort out Form groups and input groups - one should be nested in the other
+-# @todo   Check box has a label around the input - maybe create new helper for this
+-# @todo   If using .form-horizontal then need to address the column sizes that add up to 12
+-# @todo   There are many attributes to add to this the list below for a full input box partial
+-# @todo   Input groups can have a size attribute i.e. input-group-lg
+-# @todo   Input Groups can have an associated input-group-btn with dropdowns etc
+-# @todo   Sort out whether this is fontawesome or glyphicon icons
+-##
+
+-# Type
+- if ! locals[ :type ]
+    - type = "text"
+
+-# Tag
+- if ! locals[ :tag ]
+    - tag = "input"
+
+-# Form Group
+.form-group
+
+    -# Label is not false
+    - if locals[ :label ]
+
+        -# Label - note this is an array as it contains flag for screen reader
+        %label{ :for => id, :class => ( locals[ :label ] && label[ 1 ] ) ? "sr-only" : false }
+
+            - if locals[ :label ]
+                = label[ 0 ]
+
+    -# Input Groups
+    %div{ :class => locals[ :group ] ? "input-group" : false }
+
+        -# Prepend Addon
+        - if locals[ :group ] and group[ 0 ]
+            %span.input-group-addon
+
+                -# Check whether this is can icon
+                - if group[ 0 ].include? "icon"
+                    %span.glyphicon{ :class => group[ 0 ] }
+                - else
+                    = group[ 0 ]
+
+        -# Input
+        - haml_tag tag, { :autofocus         => ( locals[ :autofocus ] ) ? true : false,
+                          :autocorrect       => ( locals[ :autocorrect ] ) ? true : false,
+                          :autocapitalize    => ( locals[ :autocapitalize ] ) ? true : false,
+                          :class             => "form-control",
+                          :disabled          => ( locals[ :disabled ] ) ? true : false,
+                          :id                => id,
+                          :name              => ( locals[ :name ] ) ? name : false,
+                          :pattern           => ( locals[ :pattern ] ) ? pattern : false,
+                          :placeholder       => ( locals[ :placeholder ] ) ? placeholder : false,
+                          :required          => ( locals[ :required ] ) ? true : false,
+                          :rows              => ( locals[ :rows ] ) ? rows : false,
+                          :type              => type,
+                          :value             => ( locals[ :value ] ) ? value : false,
+                          :"x-webkit-speech" => ( locals[ :speech ] ) ? true : false, }
+
+        -# Append Addon
+        - if locals[ :group ] and group[ 1 ]
+            %span.input-group-addon
+
+                -# Check whether this is can icon
+                - if group[ 1 ].include? "icon"
+                    %span.glyphicon{ :class => group[ 1 ] }
+                - else
+                    = group[ 1 ]
+
+    -# Form Feedback Icon
+    - if locals[ :feedback ]
+        %span.glyphicon.form-control-feedback{ :class => "glyphicon-ok" }
+
+    -# Help Block
+    - if locals[ :help ]
+        %p.help-block
+            = help
+
+    -# Clear
+    -# .clear.hidden
+    -#     %i.icon-call-cancel
+    -# -# Validate
+    -# .validate.hidden

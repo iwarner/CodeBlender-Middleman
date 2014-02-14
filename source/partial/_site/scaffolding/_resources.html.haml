@@ -1,0 +1,42 @@
+-##
+-# Scaffolding Resources
+-#
+-# Locals
+-# array - Array - Optional - Overides the current_page.data.see
+-#
+-# Usage
+-# -# Resources
+-# = partial "scaffolding/resources"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Check Array Exists
+- if current_page.data.see or locals[ :array ]
+
+    -# Check if a local array is passed in
+    - if locals[ :array ]
+        - array = locals[ :array ]
+    - else
+        - array = current_page.data.see
+
+    -# Heading
+    = partial "./bootstrap/type/heading",
+               :locals => { :small => "Useful websites and tutorials",
+                            :text  => "Resources",
+                            :type  => "h3" }
+
+    -# Decorate the URL element into a link
+    - array.each do | row |
+        - row.map! do | cell |
+            - ( cell.include? "http" ) ? "<a href=\"#{cell}\" target=\"_blank\">#{cell}</a>" : cell
+
+    -# Create Array
+    - array = { "columns" => [ { "label" => "Title" },
+                               { "label" => "URL" } ],
+                "data"    => array }
+
+    -# Table
+    = partial "./bootstrap/css/table",
+               :locals => { :array      => array,
+                            :tableClass => "table-striped table-condensed" }

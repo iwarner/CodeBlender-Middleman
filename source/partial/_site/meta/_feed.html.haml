@@ -1,0 +1,22 @@
+-##
+-# Scaffolding Feed Links
+-#
+-# @see    http://en.wikipedia.org/wiki/Atom_(standard)
+-# @see    http://atomenabled.org/developers/syndication/
+-# @see    http://www.syndic8.com/
+-# @see    http://feedburner.google.com/fb/a/myfeeds
+-#
+-# Locals
+-#
+-# Usage
+-# = partial "meta/feed-links"
+-#
+-# @todo Include the other Feed options RSS1+2 / Atom etc
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Feed Links
+%link{ :href  => "feed.xml",
+       :rel   => "alternate",
+       :title => data.config.atomTitle,
+       :type  => "application/atom+xml" }

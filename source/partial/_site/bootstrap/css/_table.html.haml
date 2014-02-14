@@ -1,0 +1,46 @@
+-##
+-# Bootstrap Table
+-#
+-# Locals
+-# array      - Array  - Required - Array of entries for the Table
+-# tableClass - String - Optional - Table class elements such as striped, bordered,
+-#                                  hover, condensed, responsive
+-#
+-# Usage
+-# -# Table
+-# = partial "bootstrap/css/table",
+-#            :locals => { :array => "Array" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Table
+%table.table{ :class => locals[ :tableClass] ? tableClass : false  }
+
+    -# Header
+    %thead
+
+        %tr
+
+            -# Loop through the columns section to create the Header Row
+            - array[ "columns" ].each_with_index do | column, index |
+                %th
+                    = column[ "label" ]
+
+    %tbody
+
+        -# Loop through the data rows
+        - array[ "data" ].each_with_index do | row, index |
+
+            -# Check to see if there is a context
+            - context = row.detect { | f | f[ "context" ] }
+
+            %tr{ :class => context ? context[ "context" ] : false }
+
+                -# Loop through the data cells
+                - row.each do | cell |
+
+                    -# Do not want to show the contextual
+                    - if ! cell[ "context" ]
+                        %td
+                            = cell

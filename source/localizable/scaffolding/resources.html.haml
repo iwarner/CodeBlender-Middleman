@@ -1,0 +1,30 @@
+---
+author       : "Ian Warner"
+description  : "Resources provides a useful element to add to a page that displays
+                a list of user defined links"
+layout       : "site/page"
+small        : "Useful sites and tutorials"
+title        : "Scaffolding Resources Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/scaffolding"
+---
+
+-# Heading
+= partial "./bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Resources
+= partial "./scaffolding/resources",
+           :locals => { :array => [["Pusher", "http://pusher.com/"]] }
+
+-# Code
+:code
+    #lang: coffee
+    = partial "./scaffolding/resources",
+               :locals => { :array => [["Pusher", "http://pusher.com/"]] }

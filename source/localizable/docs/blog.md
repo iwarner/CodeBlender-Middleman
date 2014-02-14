@@ -1,0 +1,49 @@
+---
+author         : Ian Warner
+date           : 2014-01-20
+excerpt        : "Blog"
+modified       : 2014-02-09
+tags           : [ blog ]
+title          : Blog
+small          : Blog
+og:title       : Blog
+og:description : Blog
+og:type        : Blog
+og:url         :
+og:image       :
+---
+
+## Table of Contents
+
+* Table of Contents
+{:toc}
+
+## Introduction
+
+## Articles
+
+## Table of Contents
+
+The ToC is an automatic [Kramdown utility][], simply including the following
+withing a markdown document will create an indexed contents element.
+
+~~~markdown
+* ToC
+{:toc}
+~~~~
+
+## Tag Cloud
+
+A Tag Cloud helper and extension has been created to automatically create the cloud
+with the following command
+
+~~~ruby
+-# Tag Cloud
+= tagCloud()
+~~~
+
+## Footer
+
+## Related Posts
+
+[Kramdown utility]:http://kramdown.gettalong.org/converter/html.html#toc

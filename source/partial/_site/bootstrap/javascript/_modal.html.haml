@@ -1,0 +1,62 @@
+-##
+-# Bootstrap Media List
+-#
+-# Locals
+-# id     - String - Required - Modal ID
+-# header - String - Optional - Header Text
+-# body   - String - Required - Body Text
+-#
+-# Usage
+-# = partial "bootstrap/modal"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/javascript/#modals
+-# @todo
+-##
+
+-# If ID is not defined or Blank
+- if !defined? id or id.blank?
+    - p "Modal - no ID defined"
+
+-# If body is not defined or Blank
+- if !defined? body or body.blank?
+    - p "Modal - no body defined"
+
+-# Modal
+#myModal.modal.hide.fade{ :tabindex => "-1",
+                          :role     => :dialog,
+                          :aria     => { :labelledby => "#{id}Label",
+                                         :hidden     => true } }
+
+    - if header
+
+        .modal-header
+
+            %button.close{ :type => :button,
+                           :data => { :dismiss => :modal },
+                           :aria => { :hidden  => true } }
+                &times;
+
+            %h3{ :id => "#{id}Label" }
+                = header
+
+    .modal-body
+
+        %p
+            Body
+
+    .modal-footer
+
+        %button.btn{ :data => { :dismiss => :modal },
+                     :aria => { :hidden => true } }
+            Close
+
+        %button.btn.btn-primary
+            Save Changes
+
+-# Button Optional
+%button.btn{ :type => :button,
+             :data => { :target => "#myModal",
+                        :toggle => :modal } }
+
+    Launch

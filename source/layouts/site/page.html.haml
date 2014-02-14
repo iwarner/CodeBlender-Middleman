@@ -1,0 +1,41 @@
+-##
+-# Page
+-#
+-# Usage
+-# - wrap_layout "site/page" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Layout - Calls Wrapper Layout
+- wrap_layout "site/layout" do
+
+    .row
+
+        .col-md-3
+
+            -# Nav List
+            = partial "./bootstrap/components/list-group",
+                       :locals => { :array => current_page.data.navList }
+
+        .col-md-9
+
+            -# Heading
+            = partial "./bootstrap/type/heading",
+                       :locals => { :small => current_page.data.small,
+                                    :text  => current_page.data.title }
+
+            -# Details
+            %p
+                = current_page.data.description
+
+            %hr
+
+            -# Yield
+            = yield
+
+            -# Resources
+            = partial "scaffolding/resources"
+
+            -# Todo
+            = partial "scaffolding/todo"

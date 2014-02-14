@@ -1,0 +1,42 @@
+-##
+-# Google Adsense
+-#
+-# Locals
+-# googleAdsense - String - Required -
+-# slot          - String -
+-# width         - Int    -
+-# height        - Int    -
+-#
+-# Usage
+-# = partial "google/adsense"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://www.google.com/adsense
+-# @see    https://support.google.com/adsense/answer/181947?ctx=as2&rd=2&ref_topic=29033
+-# @todo   Do not require the JS for every advert I think.
+-# @todo   Javascript should probably placed in the JS file and loaded after the last button
+-##
+
+-# Height
+- if ! locals[ :height ]
+    - height = "60"
+
+-# Slot
+- if ! locals[ :slot ]
+    - slot = "9670063286"
+
+-# Width
+- if ! locals[ :width ]
+    - width = "468"
+
+-# Async Google Script
+%script{ :async => true,
+         :src   => "http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" }
+
+%ins{ :class => "adsbygoogle",
+      :style => "display:inline-block;width:#{width}px;height:#{height}px",
+      :data => { :"ad-client" => data.config.googleAdsense,
+                 :"ad-slot"   => slot } }
+
+:javascript
+    (adsbygoogle = window.adsbygoogle || []).push({});

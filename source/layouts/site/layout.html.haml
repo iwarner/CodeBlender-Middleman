@@ -1,0 +1,33 @@
+-##
+-# Layout
+-#
+-# Usage
+-# - wrap_layout "site/layout" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Layout - Calls Wrapper Layout
+- wrap_layout "site/bootstrap" do
+
+    -# Navbar
+    - if ! data.config.navbar.blank? and current_page.data.navbar != false
+        = partial "./bootstrap/components/navbar",
+                   :locals => { :position => "fixed-top" }
+
+    -# Container
+    .container
+
+        -# Yield
+        = yield
+
+    -# Footer
+    %footer
+
+        -# Footer
+        - if data.config.footer
+            = partial "./scaffolding/footer"
+
+        -# Copyright
+        - if data.config.copyright
+            = partial "./scaffolding/copyright"
