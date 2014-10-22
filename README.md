@@ -24,6 +24,3 @@
 ## Google Icon
 
     $ find ~/Google\ Drive/ -name Icon? -exec rm -f {} \;
-
-87 * 2 - 174
-Miss Sarah A Downes, Lloyds Bank, sort: 30-95-05, account 00457027
