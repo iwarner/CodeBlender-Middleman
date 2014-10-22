@@ -1,0 +1,48 @@
+-##
+-# Thumbnails
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Bootstrap Row
+.row{ :class => locals[ :extraClass ] ? extraClass : false }
+
+    -# Loop through the array
+    - array.each do | entry |
+
+        -# Variables
+        - thumb = entry[ :thumbnail ]
+
+        -# Capture Content
+        - captureHTML = capture_html do
+
+            -# Thumbnail
+            .thumbnail{ :class => ( ! thumb.nil? and thumb[ :extraClass ] ) ? thumb[ :extraClass ] : false }
+
+                -# Image
+                = partial "./bootstrap/css/image",
+                           :locals => entry[ :image ]
+
+                -# Zoomix - requires HREF and data-toggle lightbox on the thumbnail array
+                - if ! thumb.nil? and thumb[ :zoomix ]
+                    .zoomix
+                        %i.fa.fa-search
+
+                -# Caption
+                - if ! thumb.nil? and thumb[ :caption ]
+                    .caption= thumb[ :caption ]
+                    .clearfix
+
+        -# If HREF then use an A TAG
+        - if ! thumb.nil? and thumb[ :href ]
+
+            = link_to( captureHTML,
+                       thumb[ :href ],
+                       :class  => locals[ :columns ] ? columns          : "col-xs-12 col-sm-6 col-md-4",
+                       :data   => thumb[ :data ]     ? thumb[ :data ]   : false,
+                       :target => thumb[ :target ]   ? thumb[ :target ] : false )
+
+        - else
+
+            %div{ :class => locals[ :columns ] ? columns : "col-xs-12 col-sm-6 col-md-4" }
+                = captureHTML

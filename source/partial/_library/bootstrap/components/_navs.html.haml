@@ -1,0 +1,33 @@
+-##
+-# Navs
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Extra Class
+- extraClass = locals[ :extraClass ] ? extraClass : ""
+
+-# Pills - default value
+- extraClass += ! locals[ :pills ] ? " nav-tabs" : " nav-pills"
+
+-# Stacked - default value
+- extraClass += locals[ :stacked ] ? " nav-stacked" : " "
+
+-# Nav
+%ul.nav{ :class => extraClass }
+
+    -# Array
+    - if locals[ :array ]
+
+        -# Active - which tab should be active
+        - if ! locals[ :active ]
+            - active = array[ 0 ][ :name ]
+
+        -# Loop through the Array
+        - array.each do | value |
+
+            -# Produce the list
+            %li{ :class => active == value[ :name ] ? "active" : false }
+
+                = link_to( value[ :path ], :data => { :toggle => locals[ :toggle ] ? "tab" : false } ) do
+                    = string value[ :name ]

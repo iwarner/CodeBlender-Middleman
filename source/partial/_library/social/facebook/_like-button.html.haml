@@ -1,0 +1,103 @@
+-##
+-# Facebook Like Button
+-# Requires the JS script to include the FacebookJS SDK
+-#
+-# Locals
+-# action            : The verb to display on the button. Options: 'like', 'recommend'
+-# colorscheme       : The colour scheme for the like button. Options: 'light', 'dark'
+-# extraClass        : Add extraClasses to the Tag
+-# href              : The URL to like. The XFBML version defaults to the current
+-#                     page. HREF should be an absolute URL
+-# kid_directed_site : If your web site or online service, or a portion of your
+-#                     service, is directed to children under 13 you must enable
+-#                     this
+-# layout            : There are three options - renamed to template
+-#     standard      : Displays social text to the right of the button and friends'
+-#                     profile photos below. Minimum width: 225 pixels. Minimum increases
+-#                     by 40px if action is 'recommend' by and increases by 60px if send
+-#                     is 'true'. Default width: 450 pixels. Height: 35 pixels
+-#                     (without photos) or 80 pixels (with photos).
+-#     button_count  : Displays the total number of likes to the right of the button.
+-#                     Minimum width: 90 pixels. Default width: 90 pixels. Height: 20 pixels.
+-#     box_count     : Displays the total number of likes above the button.
+-#                     Minimum width: 55 pixels. Default width: 55 pixels. Height: 65 pixels.
+-#     button        : Plain layout just showing the button
+-# ref               : A label for tracking referrals; must be less than 50 characters
+-#                     and can contain alphanumeric characters and some punctuation
+-#                     (currently +/=-.:_). The ref attribute causes two parameters to be
+-#                     added to the referrer URL when a person clicks a link from a stream story about a Like action:
+-#     fb_ref        : The ref parameter
+-#     fb_source     : The stream type ('home', 'profile', 'search', 'ticker', 'tickerdialog' or 'other')
+-#                     in which the click occurred and the story type
+-#                     ('oneline' or 'multiline'), concatenated with an underscore.
+-# share             : Specifies whether to include a share button with the Like
+-#                     button. This only works with the XFBML version.
+-# show_faces        : Specifies whether to display profile photos below the button
+-#                     (standard layout only) - Requires that you have liked the page also.
+-# width             : The width of the Like button.
+-#
+-# Usage
+-# -# Like Button
+-# = partial "social/facebook/like-button",
+-#            :locals => { :action      => "recommend",
+-#                         :colorscheme => "dark",
+-#                         :href        => "http://google.com",
+-#                         :layout      => "button",
+-#                         :share       => "false" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Action
+- if ! locals[ :action ]
+    - action = "like"
+
+-# Colorscheme
+- if ! locals[ :colorscheme ]
+    - colorscheme = "light"
+
+-# HREF - default to Config URL
+- if ! locals[ :href ]
+    - href = data.config.url
+
+-# kid_directed_site
+- if ! locals[ :kid_directed_site ]
+    - kid_directed_site = "false"
+
+-# Layout
+- if ! locals[ :layout ]
+    - layout = "standard"
+
+-# Share
+- if ! locals[ :share ]
+    - share = "true"
+
+-# Show Faces
+- if ! locals[ :show_faces ]
+    - show_faces = "false"
+
+-# Width
+- if ! locals[ :width ]
+    - width = "450"
+
+-# Debug
+-# = action
+-# = extraClass
+-# = colorscheme
+-# = href
+-# = kid_directed_site
+-# = layout
+-# = share
+-# = show_faces
+-# = width
+
+-# Like Button
+.fb-like{ :class => locals[ :extraClass ] ? extraClass : false,
+          :data  => { :action              => action,
+                      :colorscheme         => colorscheme,
+                      :href                => href,
+                      :"kid-directed-site" => kid_directed_site,
+                      :layout              => layout,
+                      :share               => share,
+                      :"show-faces"        => show_faces,
+                      :width               => width } }

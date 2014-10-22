@@ -1,0 +1,48 @@
+//
+// Info Window
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//--------------------------------------------------------------------------- //
+
+// Google Map Info Window
+//--------------------------------------------------------------------------- //
+div.infoWindow {
+
+    border : 1px solid grey;
+    width  : 400px;
+
+    div {
+        font-size   : 18px;
+        font-weight : normal;
+    }
+
+    i {
+        color        : white;
+        background   : teal;
+        float        : left;
+        font-size    : 80px;
+        padding      : 10px;
+        margin-right : 10px;
+    }
+
+    .title {
+        color       : teal;
+        font-size   : 18px;
+        font-weight : normal;
+        margin      : 10px 0;
+    }
+
+    .subTitle {
+        display     : inline-block;
+        color       : grey;
+        font-weight : normal;
+        font-size   : 16px;
+    }
+
+    .text {
+        display     : inline-block;
+        font-weight : normal;
+        font-size   : 16px;
+    }
+
+}

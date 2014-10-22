@@ -1,0 +1,96 @@
+-##
+-# Input
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-#
+-# Made up of several sections - need to create a way to have these all working together
+-# Form Group
+-# Label
+-# Columns
+-# Input Group
+-# Icons and Buttons
+-# Input
+-# Icons and Buttons
+-# Help
+-##
+
+-# Variables
+- input = locals[ :input ]
+- label = locals[ :label ]
+
+-# Set up Input Container
+- if ! locals[ :inputContainer ]
+    - inputContainer = locals[ :inputContainer ] = {}
+
+-# Form Group
+.form-group
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label.control-label{ :for => input[ :name ], :class => label[ :extraClass ] ? label[ :extraClass ] : false }
+        = string label[ :title ]
+
+    -# Usually contains the column counts for a horizontal form
+    -# Need to remove this DIV if there is no requirement for Columns here
+    %div{ :class => inputContainer[ :extraClass ] ? inputContainer[ :extraClass ] : false }
+
+        -# Input Group Placeholder
+        -# For appending icons in horizontal forms the input group needs to be nested under the columns
+        -# Should include the Sizing for the controls and addons
+        %div{ :class => input[ :inputGroupClass ] ? input[ :inputGroupClass ] : false }
+
+            -# Prepend Icon
+            - if locals[ :icon ] && locals[ :icon ][ :prepend ]
+                %span.input-group-addon
+                    %span{ :class => "fa #{ locals[ :icon ][ :prepend ] }" }
+
+            -# Prepend Button
+            - if locals[ :button ] && locals[ :button ][ :prepend ]
+                %span.input-group-btn
+                    = locals[ :button ][ :prepend ]
+
+            -# Input
+            %input{ :autocapitalize    => input[ :autocapitalize ] ? input[ :autocapitalize ]        : false,
+                    :autocomplete      => input[ :autocomplete ]   ? input[ :autocomplete ]          : false,
+                    :autocorrect       => input[ :autocorrect ]    ? input[ :autocorrect ]           : false,
+                    :autofocus         => input[ :autofocus ]      ? "autofocus"                     : false,
+                    :accept            => input[ :accept ]         ? input[ :accept ]                : false,
+                    :class             => input[ :extraClass ]     ? input[ :extraClass ]            : "form-control",
+                    :disabled          => input[ :disabled ]       ? "disabled"                      : false,
+                    :id                => input[ :name ]           ? input[ :name ]                  : false,
+                    :name              => input[ :name ]           ? input[ :name ]                  : false,
+                    :pattern           => input[ :pattern ]        ? input[ :pattern ]               : false,
+                    :placeholder       => input[ :placeholder ]    ? string( input[ :placeholder ] ) : false,
+                    :required          => input[ :required ]       ? "required"                      : false,
+                    :src               => input[ :src ]            ? input[ :src ]                   : false,
+                    :title             => input[ :title ]          ? input[ :title ]                 : false,
+                    :type              => input[ :type ]           ? input[ :type ]                  : "text",
+                    :value             => input[ :value ]          ? string( input[ :value ] )       : false }
+
+            -# Append Icon
+            - if locals[ :icon ] && locals[ :icon ][ :append ]
+                %span.input-group-addon
+                    %span{ :class => "fa #{ locals[ :icon ][ :append ] }" }
+
+            -# Append Button
+            - if locals[ :button ] && locals[ :button ][ :append ]
+                %span.input-group-btn
+                    = locals[ :button ][ :append ]
+
+            -# Password Strength Meter
+            - if locals[ :strengthMeter ]
+                = partial "./forms/password-strength"
+
+            -# Form Feedback Icon
+            - if locals[ :feedback ]
+                %span.fa.fa-exclamation-triangle.form-control-feedback
+
+        -# Help Block
+        -# Sometimes this should be hidden to allow errors to be added inside.
+        -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
+        - if locals[ :help ]
+
+            %span.help-block{ :class => !!help == help ? "hidden" : false }
+
+                -# Help should be a string to show the text otherwise leave blank
+                - if help.is_a?( String )
+                    = help

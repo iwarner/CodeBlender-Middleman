@@ -1,0 +1,22 @@
+##
+# Movies
+# List of movies
+# Loop through a given directory
+#
+# Structure should be
+# - title  : "After the Dark"
+#   year   : "2013"
+#   rating : ""
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+- title  : "After the Dark"
+  year   : "2013"
+  rating :
+
+- title  : "After Dark"
+  year   : "2013"
+  rating :

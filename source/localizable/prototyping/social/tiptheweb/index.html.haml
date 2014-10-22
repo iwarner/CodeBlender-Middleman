@@ -1,0 +1,28 @@
+---
+author       : "Ian Warner"
+description  : "Tip the Webip is a service that lets you directly support your
+                favorite web content by tipping it."
+small        : "Community Supported Web"
+title        : "Tip the Web"
+
+see :
+    - - "Tip The Web"
+      - "http://tiptheweb.org/"
+
+---
+
+%p
+    Simply sign up for an account with an OpenID such as Google or Facebook.
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :tag  => "h2" }
+
+-# Tip the Web Button
+= partial "social/tiptheweb/button"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "social/tiptheweb/button"

@@ -1,0 +1,104 @@
+---
+author      : "DryKISS"
+description : "For basic styling—light padding and only horizontal dividers—add
+               the base class .table. It may seem redundant, but given the
+               widespread use of tables for other plugins like calendars and
+               date pickers, we've opted to isolate the custom table styles"
+small       : "http://getbootstrap.com/css/#tables"
+title       : "Bootstrap Table Partial"
+
+datasource :
+    columns :
+        - property : "bookmark"
+          label    : "Bookmark"
+          sortable : true
+        - property : "image"
+          label    : "Image"
+          sortable : false
+        - property : "description"
+          label    : "Description"
+          sortable : true
+        - property : "details"
+          label    : "Details"
+          sortable : true
+    data :
+        -
+            - "Row 1 Column 1"
+            - "Row 1 Column 2"
+            - "Row 1 Column 3"
+            - "Row 1 Column 4"
+        -
+            - "Row 2 Column 1"
+            - "Row 2 Column 2"
+            - "Row 2 Column 3"
+            - "Row 2 Column 4"
+
+see :
+    - - "Bootstrap Tables"
+      - "http://getbootstrap.com/css/#tables"
+
+todo :
+    - - "Document the flags for table data"
+      - "Table"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Allow the auto magic to be switched off"
+      - "Table"
+      - "2014-02-12"
+      - { "context" : "info" }
+
+locals :
+    - - "array"
+      - "array"
+      - "required"
+      - "Array of entries for the Table"
+    - - "id"
+      - "string"
+      - "optional"
+      - "ID attribute for the Table tag"
+    - - "tableClass"
+      - "string"
+      - "optional"
+      - "Table class elements such as table-striped, table-bordered, table-hover, table-condensed, table-responsive"
+
+---
+
+%p
+    The table will detect a context { "context" : "info" } element and colour the
+    row accordingly. Also any cell that contain http will be linked automatically.
+
+-# Default
+:ruby
+    code = %{partial "bootstrap/css/table",
+               :locals => { :array => current_page.data.datasource }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }
+
+-# Pretty
+:ruby
+    code = %{partial "bootstrap/css/table",
+               :locals => { :array      => current_page.data.datasource,
+                            :tableClass => "table-striped table-bordered table-hover table-condensed" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Pretty" } }
+
+-# Responsive
+:ruby
+    code = %{partial "bootstrap/css/table",
+               :locals => { :array      => current_page.data.datasource,
+                            :responsive => true,
+                            :tableClass => "table-striped table-bordered table-hover table-condensed" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Responsive" } }

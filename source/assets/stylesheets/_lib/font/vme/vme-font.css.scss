@@ -1,0 +1,136 @@
+@include font-face( Vme, font-path( "vme_v33" ) );
+
+[class^="icon-"],
+[class*=" icon-"] {
+    font-family: Vme;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+}
+
+.large [class^="icon-"]:before,
+.large [class*=" icon-"]:before {
+    font-size: 5em;
+}
+
+.xlarge [class^="icon-"]:before,
+.xlarge [class*=" icon-"]:before {
+    font-size   : 42px;
+    line-height : 1;
+}
+
+.large p {
+    line-height: 5em;
+}
+
+.icon-muted {
+  color: #eee;
+}
+
+.icon-lock:before               { content: "\0039"; }
+.icon-lock-plain:before         { content: "\0038"; }
+.icon-chevron-right:before      { content: "\0037"; }
+.icon-chevron-down:before       { content: "\0059"; }
+.icon-chevron-left:before       { content: "\0036"; }
+.icon-chevron-up:before         { content: "\0058"; }
+.icon-tick:before               { content: "\002e"; }
+.icon-close:before              { content: "\002b"; }
+.icon-close-inv:before          { content: "\002a"; }
+.icon-trash:before              { content: "\003e"; }
+.icon-download:before           { content: "\0057"; }
+.icon-print:before              { content: "\003d"; }
+.icon-home:before               { content: "\003f"; }
+.icon-alert-sign-inv:before     { content: "\0021"; }
+.icon-alert-sign:before         { content: "\0022"; }
+.icon-info-sign-inv:before      { content: "\0028"; }
+.icon-info-sign:before          { content: "\0029"; }
+.icon-warning-sign-inv:before   { content: "\005b"; }
+.icon-warning-sign:before       { content: "\005c"; }
+.icon-plus-sign-inv:before      { content: "\0024"; }
+.icon-plus-sign:before          { content: "\0025"; }
+.icon-minus-sign-inv:before     { content: "\0026"; }
+.icon-minus-sign:before         { content: "\0027"; }
+.icon-plus:before               { content: "\0023"; }
+.icon-truck:before              { content: "\003b"; }
+.icon-mobile-phone:before       { content: "\0045"; }
+.icon-question-sign:before      { content: "\002d"; }
+.icon-question-outline:before   { content: "\002c"; }
+.icon-shopping:before           { content: "\0052"; }
+.icon-wallet:before             { content: "\003c"; }
+.icon-credit-card:before        { content: "\0041"; }
+.icon-password-weak:before      { content: "\0033"; }
+.icon-password-medium:before    { content: "\0032"; }
+.icon-password-strong:before    { content: "\0031"; }
+.icon-ok-sign-inv:before        { content: "\002f"; }
+.icon-ok-sign:before            { content: "\0030"; }
+.icon-star:before               { content: "\003a"; }
+.icon-cross:before              { content: "\005d"; }
+.icon-star-empty:before         { content: "\0061"; }
+.icon-bullet:before             { content: "\0060"; }
+.icon-arrow-back:before         { content: "\005E"; }
+.icon-select:before             { content: "\0063"; }
+.icon-card-select:before        { content: "\0062"; }
+.icon-logout:before             { content: "\0050"; }
+.icon-login:before              { content: "\005F"; }
+.icon-pound:before              { content: "\005A"; }
+.icon-euro:before               { content: "\0044"; }
+.icon-home:before               { content: "\003F"; }
+.icon-pay:before                { content: "\0053"; }
+.icon-payer:before              { content: "\0056"; }
+.icon-pagar:before              { content: "\0055"; }
+.icon-bezahlem:before           { content: "\0054"; }
+.icon-settings:before           { content: "\0046"; }
+.icon-language:before           { content: "\004F"; }
+.icon-offer:before              { content: "\0043"; }
+.icon-menu:before               { content: "\0051"; }
+.icon-pick:before               { content: "\004E"; }
+.icon-football:before           { content: "\004A"; }
+.icon-plug-euro:before          { content: "\0049"; }
+.icon-plug-eng:before           { content: "\0048"; }
+.icon-edit-card:before          { content: "\0042"; }
+.icon-home-garden:before        { content: "\004d"; }
+.icon-ent:before                { content: "\004c"; }
+.icon-beauty:before             { content: "\004b"; }
+.icon-warning-sign-2:before     { content: "\0022"; }
+.icon-tick-2:before             { content: "\0064"; }
+.icon-plug-inv:before           { content: "\0047"; }
+.icon-play:before               { content: "\0035"; }
+.icon-play-inv:before           { content: "\0034"; }
+.icon-tablet:before             { content: "\0065"; }
+.icon-zaplac:before             { content: "\006B"; }
+.icon-terms:before              { content: "\0066"; }
+.icon-envelope:before           { content: "\0067"; }
+.icon-envelope-inv:before       { content: "\0068"; }
+.icon-edit:before               { content: "\0069"; }
+.icon-edit-inv:before           { content: "\006A"; }
+.icon-user:before               { content: "\006C"; }
+.icon-refresh:before            { content: "\006D"; }
+
+.four:before {font-size: 4em;}
+.three:before {font-size: 3em;}
+.two:before {font-size: 2em;}
+.one:before {font-size: 1em;}
+
+#plus1 li {line-height: 5em}
+#plus1 li span{display: inline;vertical-align: middle;font-family:arial}
+#plus1 li span:nth-child(1){ font-size: 4em;}
+#plus1 li span:nth-child(2){ font-size: 2em;}
+#plus1 li span:nth-child(3){ font-size: 1em;}
+#plus1 li span:nth-child(4){ font-size: .5em;}
+
+#plus2 li {line-height: 5em}
+#plus2 li span{display: inline;vertical-align: middle;font-family:verdana}
+#plus2 li span:nth-child(1){ font-size: 4em;}
+#plus2 li span:nth-child(2){ font-size: 2em;}
+#plus2 li span:nth-child(3){ font-size: 1em;}
+#plus2 li span:nth-child(4){ font-size: .5em;}
+
+#plus3 li {line-height: 5em}
+#plus3 li span{display: inline;vertical-align: middle;font-family:comic sans ms}
+#plus3 li span:nth-child(1){ font-size: 4em;}
+#plus3 li span:nth-child(2){ font-size: 2em;}
+#plus3 li span:nth-child(3){ font-size: 1em;}
+#plus3 li span:nth-child(4){ font-size: .5em;}

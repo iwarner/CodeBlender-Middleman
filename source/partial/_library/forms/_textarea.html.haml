@@ -1,0 +1,44 @@
+-##
+-# TextArea
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Group
+.form-group
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label.control-label{ :for => locals[ :name ], :class => label[ :extraClass ] ? label[ :extraClass ] : false }
+        = string label[ :title ]
+
+    -# Input Groups
+    %div{ :class => locals[ :group ] ? "input-group" : "false" }
+
+        -# Input
+        %textarea{ :autocapitalize    => locals[ :autocapitalize ] ? autocapitalize        : false,
+                   :autocomplete      => locals[ :autocomplete ]   ? autocomplete          : false,
+                   :autocorrect       => locals[ :autocorrect ]    ? autocorrect           : false,
+                   :autofocus         => locals[ :autofocus ]      ? "autofocus"           : false,
+                   :accept            => locals[ :accept ]         ? accept                : false,
+                   :class             => locals[ :extraClass ]     ? extraClass            : "form-control",
+                   :disabled          => locals[ :disabled ]       ? true                  : false,
+                   :id                => locals[ :name ]           ? name                  : false,
+                   :name              => locals[ :name ]           ? name                  : false,
+                   :pattern           => locals[ :pattern ]        ? pattern               : false,
+                   :placeholder       => locals[ :placeholder ]    ? string( placeholder ) : false,
+                   :required          => locals[ :required ]       ? "required"            : false,
+                   :rows              => locals[ :rows ]           ? rows                  : false,
+                   :type              => locals[ :type ]           ? type                  : "text",
+                   :value             => locals[ :value ]          ? value                 : false,
+                   :"x-webkit-speech" => locals[ :speech ]         ? true                  : false }
+
+    -# Help Block
+    -# Sometimes this should be hidden to allow errors to be added inside.
+    -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
+    - if locals[ :help ]
+
+        %span.help-block{ :class => !!help == help ? "hidden" : false }
+
+            -# Help should be a string to show the text otherwise leave blank
+            - if help.is_a?( String )
+                = help

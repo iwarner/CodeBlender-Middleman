@@ -1,0 +1,32 @@
+##
+# Products
+# Describes the products for an E-Commerce Shop
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+# Product - Granola Bar
+-   title       : "Granola Bar"
+    excerpt     : "Comes in several amazing varieties including nut, and delicious fruit."
+    description : "Comes in several amazing varieties including nut, and delicious fruit."
+    image       : "granola-bar.jpg"
+    cost        : "2.50"
+    discount    : "2.00"
+    stock       : "100"
+    status      : "active"
+    ingredients :
+        - value : key
+
+# Product - Granola Bar
+-   title       : "Hazelnut Spread"
+    excerpt     : "Organic; refined sugar free and scruptious treat for any meal."
+    description : "Chocolate"
+    image       : "nutella.jpg"
+    cost        : "4.00"
+    discount    : "3.50"
+    stock       : "100"
+    status      : "active"
+    ingredients :
+        - value : key

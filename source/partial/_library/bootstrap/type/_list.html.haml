@@ -1,0 +1,112 @@
+-##
+-# List Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Classes
+- classes = ""
+
+-# Type Default
+- if ! locals[ :type ]
+    - type = "ul"
+
+-# Dropdown Lists for Buttons of Navbars
+- if locals[ :dropdown ]
+    - classes += "dropdown-menu"
+
+-# NavBar Classes
+- if locals[ :navBar ]
+    - classes += " nav navbar-nav"
+
+-# Extra Class
+- classes += locals[ :extraClass ] ? " #{ extraClass }" : ""
+
+-# List
+- haml_tag type, { :"aria-labelledby" => locals[ :dropdown ] ? "dropdownMenu1" : false,
+                   :class             => classes,
+                   :role              => locals[ :dropdown ] ? "menu" : false } do
+
+    -# Check that array is defined
+    - if locals[ :array ]
+
+        -# Loop through the array
+        - array.each do | value |
+
+            -# DL List Type
+            - if type == "dl"
+
+                %dt
+
+                    -# If URL then show link
+                    - if value[ "url" ]
+
+                        -# Link To
+                        = link_to( value[ "url" ], { :title => string( value[ "text" ] ) } ) do
+                            = string value[ "title" ]
+
+                        -# Just the title
+                    - else
+                        = string value[ "title" ]
+
+                %dd
+                    = string value[ "text" ]
+
+                -# UL List Type
+            - else
+
+                -# Divider
+                - if value[ "divider" ]
+
+                    %li{ :class => "divider",
+                         :role  => value[ "dropdown" ] ? "presentation" : false }
+
+                    -# Text is required to show a list
+                - elsif value[ "header" ]
+
+                    -# List Item
+                    %li.dropdown-header{ :role  => locals[ :dropdown ] ? "presentation" : false }
+                        = string value[ "header" ]
+
+                    -# Text is required to show a list
+                - elsif value[ "text" ]
+
+                    -# Active
+                    - classes = value[ "active" ] ? "active" : ""
+
+                    -# Extra Classes
+                    - classes += value[ "extraClass" ] ? " #{ value[ "extraClass" ] }" : ""
+
+                    -# Status
+                    - classes += value[ "status" ] ? " #{ value[ "status" ] }" : ""
+
+                    -# List Item
+                    %li{ :class => ! classes.empty?    ? classes        : false,
+                         :role  => locals[ :dropdown ] ? "presentation" : false,
+                         :data  => value[ "data" ]      ? value[ "data" ] : false }
+
+                        -# If URL is present then show a link
+                        - if value[ "url" ]
+
+                            -# Link To
+                            = link_to( string( value[ "url" ] ),
+                                       { :role     => locals[ :dropdown ] ? "menuitem" : false,
+                                         :tabindex => locals[ :dropdown ] ? "-1"       : false,
+                                         :title    => string( value[ "text" ] ) } ) do
+
+                                -# Check to see if this is an Icon only
+                                - if value[ "text" ] =~ /fa-|glyphicon-/i
+                                    - iconLibrary = value[ "text" ].partition( "-" )
+                                    %i{ :class => "#{iconLibrary[ 0 ]} #{value[ "text" ]}" }
+
+                                    -# Text
+                                - else
+                                    = string value[ "text" ]
+
+                            -# No Link Required
+                        - else
+                            = string value[ "text" ]
+
+                    -# Just show a Partial useful for Mega Menues
+                - elsif value[ "partial" ]
+                    = partial "../_lib/#{value[ "partial" ]}"

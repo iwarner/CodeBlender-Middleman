@@ -1,0 +1,79 @@
+---
+
+author      : "DryKISS"
+description : "Media gallery displays a series of media entities from a specific folder
+               in the assets directory"
+small       : "Series of entities with lightbox and details features"
+title       : "Media Gallery"
+
+see :
+    - - "Keen Themes Example"
+      - "http://keenthemes.com/preview/index.php?theme=metronic_frontend"
+    - - "SwipeJS"
+      - "http://swipejs.com/"
+    - - "Dynamic Gallery"
+      - "http://admindesigns.com/stardom/dynamic-gallery.html"
+    - - "Stardom Gallery"
+      - "http://admindesigns.com/stardom/gallery.html"
+
+todo :
+    - - "Need to allow the image to be placed onto the screen also in a placheolder space ie for mobile prototypes"
+      - "Gallery"
+      - "2014-02-26"
+      - { "context" : "warning" }
+    - - "Add Tooltips to the image to show certain details about the image"
+      - "Gallery"
+      - "2014-02-14"
+      - { "context" : "warning" }
+    - - "Favicon fall out of this gallery as they are not in the assets path"
+      - "Gallery"
+      - "2014-02-14"
+      - { "context" : "info" }
+    - - "Select a specific directory to look under"
+      - "Gallery"
+      - "2014-02-14"
+      - { "context" : "warning" }
+    - - "Provide a drop down of a directory to check"
+      - "Gallery"
+      - "2014-02-14"
+      - { "context" : "info" }
+    - - "Add a selector to change the column widths and height dynamically"
+      - "Gallery"
+      - "2014-02-14"
+      - { "context" : "info" }
+    - - "Icon class is hard coded in the CSS - fix this"
+      - "Gallery"
+      - "2014-02-14"
+      - { "context" : "danger" }
+    - - "Gallery should have pagination, filter and search coupled with it"
+      - "Gallery"
+      - "2014-02-14"
+      - { "context" : "info" }
+
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :tag  => "h2" }
+
+-# Create Array
+- thumbnails = []
+
+-# Loop through Image Resources
+- sitemap.resources.select { | r | [ ".png", ".jpg" ].include?( r.ext ) and ! r.path.scan( "assets/images/prototype01" ).empty? }.each do | resource |
+
+    -# URL
+    - src = resource.url.sub! "/assets/images/", ""
+
+    -# Append to Thumbnails Array
+    - if src
+        - thumbnails << { :image     => { :src    => src },
+                          :thumbnail => { :href   => src,
+                                          :zoomix => true } }
+
+-# Thumbnails
+= partial "./bootstrap/components/thumbnails",
+           :locals => { :array    => thumbnails,
+                        :columns  => "col-xs-12 col-sm-6 col-md-1",
+                        :rowClass => "gallery" }

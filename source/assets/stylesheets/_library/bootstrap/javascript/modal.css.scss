@@ -1,0 +1,71 @@
+
+//
+// Modal
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//--------------------------------------------------------------------------- //
+
+// Container that the modal scrolls within
+.modal {
+
+    // Content
+    //------------------------------------------------------------------------//
+    .modal-content {
+        border: 0;
+        border-radius : 0;
+    }
+
+    // Header
+    // ---------------------------------------------------------------------- //
+    .modal-header {
+
+        border : 0;
+
+        // Title
+        // ------------------------------------------------------------------ //
+        h4 {
+            color       : #0023a0;
+            font-size   : 24px;
+            line-height : 20px;
+            margin-top  : 10px;
+        }
+
+        .text {
+            font-size   : 14px;
+            line-height : 20px;
+        }
+
+        // Close
+        // ------------------------------------------------------------------ //
+        .close {
+
+            span {
+                font-size      : 18px;
+                padding        : 0;
+                vertical-align : middle;
+            }
+
+            background    : image-url( "modals/close.png" ) no-repeat;
+            border-radius : 12px;
+            border        : 0;
+            color         : #fff;
+            height        : 24px;
+            line-height   : 20px;
+            margin        : 0;
+            opacity       : initial;
+            padding       : 0;
+            position      : relative;
+            right         : -27px;
+            text-shadow   : none;
+            top           : -27px;
+            width         : 24px;
+        }
+
+    }
+
+    .modal-footer {
+        border : 0;
+        clear  : both;
+    }
+
+}

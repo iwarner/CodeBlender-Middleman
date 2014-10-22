@@ -1,0 +1,17 @@
+-##
+-# Sidebar
+-#
+-# Usage
+-# - wrap_layout "_library/site/sidebar" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Layout - Calls Sidebar Layout
+- wrap_layout "_library/site/sidebar-left" do
+
+    -# Create the Sidebar
+    - content_for :sidebar do
+
+        -# Sidebar
+        - partial "./scaffolding/subnavigation"

@@ -1,0 +1,11 @@
+-##
+-# Wells
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Well
+.well{ :class => locals[ :extraClass ] ? extraClass : false }
+
+    -# Text
+    = string locals[ :text ]

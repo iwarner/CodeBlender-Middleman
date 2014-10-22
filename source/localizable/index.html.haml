@@ -1,0 +1,45 @@
+---
+
+author      : "DryKISS"
+description : "Serves the local intranet. Bringing together ux, design and development disciplines."
+layout      : "_library/site/full-width"
+small       : "EcoSystem / Prototypes and Documentation"
+title       : "Team 2 Portal"
+
+---
+
+-# Heading
+= partial "./bootstrap/type/heading",
+           :locals => { :text => "Links",
+                        :tag  => "h2" }
+
+-# Default Thumbnail
+= partial "./bootstrap/components/thumbnails",
+               :locals => { :array   => data.scaffolding.portalLinks.thumbs,
+                            :columns => "col-md-2 col-sm-3 col-xs-4" }
+
+
+-# Heading
+= partial "./bootstrap/type/heading",
+           :locals => { :text => "Links",
+                        :tag  => "h2" }
+
+-# Default Thumbnail
+= partial "./bootstrap/components/thumbnails",
+               :locals => { :array   => data.scaffolding.portalLinks.legacy,
+                            :columns => "col-md-2 col-sm-3 col-xs-4" }
+
+-# Capture Configuration Elements
+- content_for :configuration do
+
+    -# Dropdown to select background
+    - array = [ [ "Select Background", "-1" ] ]
+
+    - ( 1..10 ).each do | index |
+        - array << [ "bg-hero#{ index }.jpg" ]
+
+    -# Select
+    = partial "./forms/select",
+               :locals => { :array => array,
+                            :name  => "backgroundSelector",
+                            :label => { :title => "Background" } }

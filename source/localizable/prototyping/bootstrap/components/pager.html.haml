@@ -1,0 +1,38 @@
+---
+
+author      : "DryKISS"
+description : "Quick previous and next links for simple pagination implementations
+               with light markup and styles. It's great for simple sites like blogs
+               or magazines."
+small       : ""
+title       : "Pager"
+
+see :
+    - - "Bootstrap Pager"
+      - "http://getbootstrap.com/components/#pagination-pager"
+
+todo :
+    - - "Add the disabled state"
+      - "Pager"
+      - "2014-06-27"
+      - { "context" : "warning" }
+    - - "Add the centered pager style"
+      - "Pager"
+      - "2014-06-27"
+      - { "context" : "warning" }
+    - - "Need to pass through the links correctly"
+      - "Pager"
+      - "2014-06-27"
+      - { "context" : "warning" }
+
+---
+
+-# Tabs
+:ruby
+    code = %{partial "./bootstrap/components/pager"}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

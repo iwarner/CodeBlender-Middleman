@@ -1,0 +1,175 @@
+---
+
+author      : "DryKISS"
+description : ""
+small       : "Standard Login Form"
+title       : "Login"
+
+see :
+    - - "Metronic Login Page 1"
+      - "http://www.keenthemes.com/preview/metronic/templates/admin/login.html"
+    - - "Metronic Login Page 2"
+      - "http://www.keenthemes.com/preview/metronic/templates/admin/login_soft.html"
+    - - "Bootstrap Signin"
+      - "http://getbootstrap.com/examples/signin/"
+    - - "Client Side Auth"
+      - "http://alexehrnschwender.com/2013/07/client-side-auth-session-mgmt-backbone-node/"
+    - - "Secure API"
+      - "http://www.thebuzzmedia.com/designing-a-secure-rest-api-without-oauth-authentication/"
+
+todo :
+    - - "Add the ability to log in via other openIDs such as google or github."
+      - "Login"
+      - "2014-02-24"
+      - { "context" : "info" }
+    - - "Use the bootstrap button JS to stop the button being submitted again"
+      - "Login"
+      - "2014-08-14"
+      - { "context" : "info" }
+
+list :
+    - text : "fa-facebook-square"
+      url  : "http://facebook.com"
+    - text : "fa-twitter-square"
+      url  : "http://twitter.com"
+    - text : "fa-google-plus-square"
+      url  : "http://google.com"
+    - text : "fa-linkedin-square"
+      url  : "http://linkedin.com"
+
+---
+
+-# Bootstrap Row
+.row
+
+    -# Bootstrap Columns
+    .col-md-6
+
+        -# Heading
+        = partial "./bootstrap/type/heading",
+                   :locals => { :tag  => "h2",
+                                :text => "Login to your account" }
+
+        -# Log In Form
+        %form.loginForm{ :action     => "#",
+                         :method     => "post",
+                         :novalidate => true }
+
+            -# Email Input
+            = partial "./forms/input",
+                       :locals => { :help  => true,
+                                    :icon  => { :prepend => "fa-envelope" },
+                                    :input => { :autocomplete    => "on",
+                                                :inputGroupClass => "input-group",
+                                                :name            => "loginEmail",
+                                                :placeholder     => "Enter Email",
+                                                :required        => true,
+                                                :type            => "email",
+                                                :value           => "ian.warner@drykiss.com" },
+                                    :label => { :extraClass => "sr-only",
+                                                :title      => "Email" } }
+
+            -# Password Input
+            = partial "./forms/input",
+                       :locals => { :help  => true,
+                                    :icon  => { :prepend => "fa-lock" },
+                                    :input => { :autocomplete    => "off",
+                                                :inputGroupClass => "input-group",
+                                                :name            => "loginPassword",
+                                                :placeholder     => "Enter Password",
+                                                :required        => true,
+                                                :type            => "password",
+                                                :value           => "password" },
+                                    :label => { :extraClass => "sr-only",
+                                                :title      => "Password" } }
+
+            -# Remember Me
+            = partial "./forms/checkbox",
+                       :locals => { :extraClass => "pull-left",
+                                    :name       => "loginRemember",
+                                    :text       => "Remember Me",
+                                    :type       => "checkbox" }
+
+            -# Submit
+            = partial "bootstrap/css/button",
+                       :locals => { :context    => "primary",
+                                    :content    => "Login",
+                                    :extraClass => "pull-right",
+                                    :icon       => "fa-chevron-circle-right" }
+
+            .clearfix
+
+            %hr
+
+            -# Login Options
+            .login-options
+
+                -# Heading
+                = partial "./bootstrap/type/heading",
+                           :locals => { :tag  => "h4",
+                                        :text => "Or login with" }
+
+                -# List
+                = partial "bootstrap/type/list",
+                           :locals => { :array      => current_page.data.list,
+                                        :extraClass => "socialIcons list-unstyled list-inline" }
+
+            %hr
+
+            -# Forgot Password
+            .forget-password
+
+                -# Heading
+                = partial "./bootstrap/type/heading",
+                           :locals => { :tag  => "h4",
+                                        :text => "Forgot your password?" }
+
+                %p
+                    No worries, click
+
+                    -# Link To
+                    = link_to( "here", "javascript:;", :id => "forget-password" )
+
+                    to reset your password.
+
+            %hr
+
+            -# Register
+            .create-account
+
+                -# Heading
+                = partial "./bootstrap/type/heading",
+                           :locals => { :tag  => "h4",
+                                        :text => "Create an account." }
+
+                %p
+                    Not registered?, click
+
+                    -# Link To
+                    = link_to( "here", "javascript:;", :id => "create-account" )
+
+                    to create an account.
+
+    .col-md-6
+
+        :markdown
+
+            Standard login will take an email and password combination, validate and then
+            make a request to the API for server side validation and session/token exchange
+            for persistence.
+
+            Authentication should include the following
+
+            * CSRF headers in authentication requests to prevent forgery
+                * http://en.wikipedia.org/wiki/Cross-site_request_forgery
+            * Auth state persistence through signed cookies
+            * Global (singleton) session model in the client whose state changes can be listened to
+            * Client-side + Server-side model validations
+            * Salt/hashing of passwords for back-end storage
+
+            Communication on this form should happen with https.
+
+            Validation
+                http://parsleyjs.org/
+
+%hr

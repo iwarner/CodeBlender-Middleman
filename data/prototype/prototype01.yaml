@@ -1,0 +1,662 @@
+##
+# Prototype YAML
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+# Learn More 01
+- image      : "learnmore-01"
+  extraClass : "learnMore01"
+  hidden     : true
+  region     :
+    - extraClass : "regionSwipe"
+      goto       : "learnMore02"
+      coords     : [ 472, 320, 0, 0 ]
+    - extraClass : "regionLogin"
+      goto       : "login"
+      coords     : [ 41, 124, 33, 508 ]
+    - extraClass : "regionRegister"
+      goto       : "register"
+      coords     : [ 40, 120, 166, 508 ]
+
+# Learn More 02
+- image      : "learnmore-02"
+  extraClass : "learnMore02"
+  region     :
+    - extraClass : "regionSwipe"
+      goto       : "learnMore01"
+      coords     : [ 462, 319, 0, 0 ]
+    - extraClass : "regionLogin"
+      goto       : "login"
+      coords     : [ 41, 124, 33, 508 ]
+    - extraClass : "regionRegister"
+      goto       : "register"
+      coords     : [ 40, 120, 166, 508 ]
+
+# Login
+- image      : "sign-in"
+  extraClass : "login"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "learnMore01"
+      coords     : [ 34, 35, 1, 26 ]
+    - extraClass : "regionEmail"
+      goto       : "loginKeyboard"
+      coords     : [ 38, 291, 15, 94 ]
+
+# Login Keyboard
+- image      : "sign-in-keyboard"
+  extraClass : "loginKeyboard"
+  region     :
+    - extraClass : "regionButton"
+      goto       : "loginCompleted"
+      coords     : [ 43, 51, 269, 525 ]
+
+# Login Completed
+- image      : "sign-in-completed"
+  extraClass : "loginCompleted"
+  region     :
+    - extraClass : "regionButton"
+      goto       : "offer"
+      coords     : [ 34, 35, 1, 26 ]
+    - extraClass : "regionOffers"
+      goto       : "offer"
+      coords     : [ 43, 293, 14, 193 ]
+
+# Register
+- image      : "register-01"
+  extraClass : "register"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "learnMore01"
+      coords     : [ 34, 35, 1, 26 ]
+    - extraClass : "regionCard"
+      goto       : "registerKeyboard#regionButton"
+      coords     : [ 32, 280, 21, 329 ]
+    - extraClass : "regionTerms"
+      goto       : "registerTerms"
+      coords     : [ 47, 287, 17, 799 ]
+
+# Register Terms
+- image      : "register-terms"
+  extraClass : "registerTerms"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "register"
+      coords     : [ 34, 35, 1, 26 ]
+
+# Register Keyboard
+- image      : "register-01-keyboard"
+  extraClass : "registerKeyboard"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "register"
+      coords     : [ 34, 35, 1, 26 ]
+    - extraClass : "regionButton"
+      goto       : "registerCompleted"
+      coords     : [ 44, 78, 242, 875 ]
+
+# Register Completed
+- image      : "register-01-completed"
+  extraClass : "registerCompleted"
+  region     :
+    - extraClass : "regionButton"
+      goto       : "registerConfirm"
+      coords     : [ 34, 35, 1, 26 ]
+    - extraClass : "regionOffers"
+      goto       : "offer#top"
+      coords     : [ 40, 278, 20, 620 ]
+
+# Register Confirm
+- image      : "register-02"
+  extraClass : "registerConfirm"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "registerCompleted"
+      coords     : [ 34, 35, 1, 26 ]
+    - extraClass : "regionLogin"
+      goto       : "login"
+      coords     : [ 40, 280, 21, 393 ]
+
+# Register Done
+- image      : "register-03"
+  extraClass : "registerDone"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "registerCompleted"
+      coords     : [ 34, 35, 1, 26 ]
+    - extraClass : "regionLogin"
+      goto       : "login"
+      coords     : [ 43, 280, 20, 274 ]
+
+# Menu
+- image      : "menu"
+  extraClass : "menu"
+  region     :
+    - extraClass : "regionClose"
+      goto       : "offer"
+      coords     : [ 44, 40, 280, 20 ]
+    - extraClass : "regionAll"
+      goto       : "offer"
+      coords     : [ 42, 278, 0, 45 ]
+    - extraClass : "regionNear"
+      goto       : "offerNear"
+      coords     : [ 42, 278, 0, 89 ]
+    - extraClass : "regionSaved"
+      goto       : "saved"
+      coords     : [ 40, 278, 0, 134 ]
+    - extraClass : "regionCard"
+      goto       : "cardProfile"
+      coords     : [ 40, 278, 0, 201 ]
+    - extraClass : "regionNotification"
+      goto       : "notification"
+      coords     : [ 40, 278, 0, 246 ]
+    - extraClass : "regionLogout"
+      goto       : "login"
+      coords     : [ 42, 278, 0, 286 ]
+    - extraClass : "regionHelp"
+      goto       : "support"
+      coords     : [ 42, 278, 0, 356 ]
+
+# Offer
+- image      : "offers-list"
+  extraClass : "offer"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionSort"
+      goto       : "offerSort"
+      coords     : [ 34, 37, 240, 24 ]
+    - extraClass : "regionSearch"
+      goto       : "offerSearch"
+      coords     : [ 37, 35, 281, 22 ]
+    - extraClass : "regionDetailsBook"
+      goto       : "offerDetailBook"
+      coords     : [ 104, 320, 0, 134 ]
+    - extraClass : "regionDetails"
+      goto       : "offerDetail"
+      coords     : [ 104, 319, 0, 238 ]
+
+# Offer Sort
+- image      : "offers-list-sortby"
+  extraClass : "offerSort"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionSort"
+      goto       : "offer"
+      coords     : [ 34, 37, 240, 24 ]
+    - extraClass : "regionSearch"
+      goto       : "offerSearch"
+      coords     : [ 37, 35, 281, 22 ]
+    - extraClass : "regionSortList"
+      goto       : "offer"
+      coords     : [ 162, 179, 139, 67 ]
+    - extraClass : "regionDetailsBook"
+      goto       : "offerDetailBook"
+      coords     : [ 104, 130, 0, 135 ]
+    - extraClass : "regionDetails"
+      goto       : "offerDetail"
+      coords     : [ 100, 318, 0, 239 ]
+
+# Offer Detail
+- image      : "offers-detail"
+  extraClass : "offerDetail"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offer"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionRedeem"
+      goto       : "offerRedeem"
+      coords     : [ 87, 93, 114, 418 ]
+    - extraClass : "regionTerms"
+      goto       : "offerTerms"
+      coords     : [ 85, 82, 221, 418 ]
+    - extraClass : "regionNear"
+      goto       : "offerNear"
+      coords     : [ 39, 315, 4, 507 ]
+    - extraClass : "regionMore"
+      goto       : "offer"
+      coords     : [ 37, 313, 5, 547 ]
+
+# Offer Detail Book Restaurant
+- image      : "offers-booking-detail"
+  extraClass : "offerDetailBook"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offer"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionBook"
+      goto       : "offerBookLocation"
+      coords     : [ 84, 91, 119, 418 ]
+    - extraClass : "regionTerms"
+      goto       : "offerTerms"
+      coords     : [ 87, 89, 219, 418 ]
+    - extraClass : "regionNear"
+      goto       : "offerNear"
+      coords     : [ 39, 315, 4, 507 ]
+    - extraClass : "regionMore"
+      goto       : "offer"
+      coords     : [ 37, 313, 5, 547 ]
+
+# Offer Book Location
+- image      : "offers-booking-location"
+  extraClass : "offerBookLocation"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offerDetailBook"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionBook"
+      goto       : "offerBookProceed"
+      coords     : [ 53, 63, 257, 515 ]
+
+# Offer Book Proceed
+- image      : "offers-booking-proceed"
+  extraClass : "offerBookProceed"
+  region     :
+    - extraClass : "regionClose"
+      goto       : "offerBookLocation"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionAccept"
+      goto       : "offerBookSelection"
+      coords     : [ 42, 276, 23, 194 ]
+    - extraClass : "regionCancel"
+      goto       : "offerBookLocation"
+      coords     : [ 36, 280, 19, 247 ]
+
+# Offer Book Selection
+- image      : "offers-booking-selection"
+  extraClass : "offerBookSelection"
+  region     :
+    - extraClass : "regionDate"
+      goto       : "offerBookSelectionDate"
+      coords     : [ 43, 281, 20, 186 ]
+    - extraClass : "regionType"
+      goto       : "offerBookSelectionType"
+      coords     : [ 43, 278, 22, 244 ]
+    - extraClass : "regionPeople"
+      goto       : "offerBookSelectionPeople"
+      coords     : [ 43, 280, 21, 299 ]
+    - extraClass : "regionBook"
+      goto       : "offerDetailBook"
+      coords     : [ 65, 290, 14, 404 ]
+
+# Offer Book Selection Date
+- image      : "offers-booking-selection-date"
+  extraClass : "offerBookSelectionDate"
+  region     :
+    - extraClass : "regionDate"
+      goto       : "offerBookSelection"
+      coords     : [ 66, 291, 15, 652 ]
+    - extraClass : "regionType"
+      goto       : "offerBookSelectionType"
+      coords     : [ 43, 282, 20, 492 ]
+    - extraClass : "regionPeople"
+      goto       : "offerBookSelectionPeople"
+      coords     : [ 47, 281, 21, 548 ]
+    - extraClass : "regionBook"
+      goto       : "offerDetailBook"
+      coords     : [ 301, 297, 10, 184 ]
+
+# Offer Book Selection People
+- image      : "offers-booking-selection-people"
+  extraClass : "offerBookSelectionPeople"
+  region     :
+    - extraClass : "regionPeople"
+      goto       : "offerBookSelection"
+      coords     : [ 499, 301, 12, 78 ]
+
+# Offer Book Selection Type
+- image      : "offers-booking-selection-type"
+  extraClass : "offerBookSelectionType"
+  region     :
+    - extraClass : "regionBook"
+      goto       : "offerDetailBook"
+      coords     : [ 64, 289, 15, 402 ]
+    - extraClass : "regionType"
+      goto       : "offerBookSelection"
+      coords     : [ 145, 265, 27, 189 ]
+
+# Offer Terms
+- image      : "offer-terms"
+  extraClass : "offerTerms"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offerDetail"
+      coords     : [ 34, 39, 1, 26 ]
+
+# Offer Redeem
+- image      : "offers-redeem"
+  extraClass : "offerRedeem"
+  region     :
+    - extraClass : "regionCall"
+      goto       : "offerCall"
+      coords     : [ 65, 298, 12, 197 ]
+    - extraClass : "regionWebsite"
+      goto       : "offerWebsite"
+      coords     : [ 77, 298, 10, 264 ]
+    - extraClass : "regionClose"
+      goto       : "offerDetail"
+      coords     : [ 47, 282, 19, 468 ]
+
+# Offer Call
+- image      : "offers-redeem-call"
+  extraClass : "offerCall"
+  region     :
+    - extraClass : "regionCancel"
+      goto       : "offerDetail"
+      coords     : [ 38, 137, 25, 296 ]
+    - extraClass : "regionCall"
+      goto       : "offerDetail"
+      coords     : [ 36, 125, 169, 297 ]
+
+# Offer Website
+- image      : "offers-redeem-website"
+  extraClass : "offerWebsite"
+  region     :
+    - extraClass : "regionAll"
+      goto       : "offerDetail"
+      coords     : [ 584, 320, 0, 0 ]
+
+# Offer Search
+- image      : "offer-search"
+  extraClass : "offerSearch"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offer"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionInput"
+      goto       : "offerSearchInput"
+      coords     : [ 35, 255, 13, 77 ]
+
+# Offer Search Input
+- image      : "offer-search-input"
+  extraClass : "offerSearchInput"
+  region     :
+    - extraClass : "regionSearch"
+      goto       : "offerSearchResults"
+      coords     : [ 41, 79, 241, 525 ]
+
+# Offer Search Results
+- image      : "offer-search-results"
+  extraClass : "offerSearchResults"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offerSearchInput"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionSort"
+      goto       : ""
+      coords     : [ 38, 47, 272, 25 ]
+    - extraClass : "regionDetail"
+      goto       : "offerDetail"
+      coords     : [ 106, 320, 0, 108 ]
+
+# Offer Near
+- image      : "offers-near-me"
+  extraClass : "offerNear"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionFilter"
+      goto       : "offerNearFilter"
+      coords     : [ 35, 36, 243, 25 ]
+    - extraClass : "regionRadius"
+      goto       : "offerNearRadius"
+      coords     : [ 35, 34, 282, 25 ]
+    - extraClass : "regionSearch"
+      goto       : "offerNearSearchAddress"
+      coords     : [ 33, 301, 9, 76 ]
+    - extraClass : "regionList"
+      goto       : "offerNearList"
+      coords     : [ 42, 42, 20, 507 ]
+    - extraClass : "regionDetail"
+      goto       : "offerNearDetail"
+      coords     : [ 270, 277, 25, 189 ]
+
+# Offer Near Detail
+- image      : "offers-near-me-detail"
+  extraClass : "offerNearDetail"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionFilter"
+      goto       : "offerNearFilter"
+      coords     : [ 35, 36, 243, 25 ]
+    - extraClass : "regionRadius"
+      goto       : "offerNearRadius"
+      coords     : [ 35, 34, 282, 25 ]
+    - extraClass : "regionSearch"
+      goto       : "offerNearSearchAddress"
+      coords     : [ 33, 301, 9, 76 ]
+    - extraClass : "regionList"
+      goto       : "offerNearList"
+      coords     : [  ]
+    - extraClass : "regionDetails"
+      goto       : "offerDetail"
+      coords     : [ 54, 62, 258, 514 ]
+
+# Offer Near Search Address
+- image      : "offers-near-me-search-address"
+  extraClass : "offerNearSearchAddress"
+  region     :
+    - extraClass : "regionOffers"
+      goto       : "offerNearSearchOffers"
+      coords     : [ 37, 142, 162, 65 ]
+    - extraClass : "regionSearch"
+      goto       : "offerNear"
+      coords     : [ 43, 78, 242, 525 ]
+
+# Offer Near Search Offers
+- image      : "offers-near-me-search-offers"
+  extraClass : "offerNearSearchOffers"
+  region     :
+    - extraClass : "regionAddress"
+      goto       : "offerNearSearchAddress"
+      coords     : [ 37, 142, 19, 65 ]
+    - extraClass : "regionSearch"
+      goto       : "offerNear"
+      coords     : [ 43, 78, 242, 525 ]
+
+# Offer Near List
+- image      : "offers-near-me-list"
+  extraClass : "offerNearList"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offerNear"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionCategory"
+      goto       : "offerNearCategory"
+      coords     : [ 35, 36, 243, 25 ]
+    - extraClass : "regionSort"
+      goto       : "offerNearSort"
+      coords     : [ 35, 34, 282, 25 ]
+    - extraClass : "regionDetails"
+      goto       : "offerDetail"
+      coords     : [ 103, 320, 0, 64 ]
+
+# Offer Near Category
+- image      : "offers-near-me-category"
+  extraClass : "offerNearCategory"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offerNear"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionCategory"
+      goto       : "offerNearList"
+      coords     : [ 35, 36, 243, 25 ]
+    - extraClass : "regionSort"
+      goto       : "offerNearSort"
+      coords     : [ 35, 34, 282, 25 ]
+
+# Offer Near Sort
+- image      : "offers-near-me-sort"
+  extraClass : "offerNearSort"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "offerNear"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionCategory"
+      goto       : "offerNearCategory"
+      coords     : [ 35, 36, 243, 25 ]
+    - extraClass : "regionSort"
+      goto       : "offerNearList"
+      coords     : [ 35, 34, 282, 25 ]
+
+# Offer Near Radius
+- image      : "offers-near-me-radius"
+  extraClass : "offerNearRadius"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionFilter"
+      goto       : "offerNearFilter"
+      coords     : [ 35, 36, 243, 25 ]
+    - extraClass : "regionRadius"
+      goto       : "offerNear"
+      coords     : [ 35, 34, 282, 25 ]
+    - extraClass : "regionList"
+      goto       : "offerNearList"
+      coords     : [ 41, 40, 22, 507 ]
+
+# Offer Near Filter
+- image      : "offers-near-me-filter"
+  extraClass : "offerNearFilter"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionFilter"
+      goto       : "offerNear"
+      coords     : [ 35, 36, 243, 25 ]
+    - extraClass : "regionRadius"
+      goto       : "offerNearRadius"
+      coords     : [ 35, 34, 282, 25 ]
+    - extraClass : "regionList"
+      goto       : "offerNearList"
+      coords     : [ 41, 40, 22, 507 ]
+
+# Saved Offers
+- image      : "saved-offers"
+  extraClass : "saved"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionSort"
+      goto       : "offerSort"
+      coords     : [ 35, 36, 243, 25 ]
+    - extraClass : "regionSearch"
+      goto       : "offerSearch"
+      coords     : [ 35, 34, 282, 25 ]
+    - extraClass : "regionDetailsBook"
+      goto       : "offerDetailBook"
+      coords     : [ 104, 320, 0, 63 ]
+    - extraClass : "regionDetails"
+      goto       : "offerDetail"
+      coords     : [ 102, 320, 0, 168 ]
+
+# Notification Settings
+- image      : "notification-settings"
+  extraClass : "notification"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+
+# Support
+- image      : "support"
+  extraClass : "support"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionCustomer"
+      goto       : "contact"
+      coords     : [ 84, 300, 13, 78 ]
+    - extraClass : "regionFaq"
+      goto       : "faq"
+      coords     : [ 80, 293, 12, 165 ]
+    - extraClass : "regionTerms"
+      goto       : "supportTerms"
+      coords     : [ 87, 296, 14, 248 ]
+
+# Register Terms
+- image      : "register-terms"
+  extraClass : "supportTerms"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "support"
+      coords     : [ 34, 35, 1, 26 ]
+
+# Contact Us
+- image      : "contactus"
+  extraClass : "contact"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "support"
+      coords     : [ 34, 39, 1, 26 ]
+
+# FAQs
+- image      : "faqs"
+  extraClass : "faq"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "support"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionExpanded"
+      goto       : "faqExpanded"
+      coords     : [ 392, 296, 11, 76 ]
+
+# FAQs Expanded
+- image      : "faqs-expanded"
+  extraClass : "faqExpanded"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "back"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionExpanded"
+      goto       : "faqExpanded"
+      coords     : [ 550, 296, 11, 77 ]
+
+# Card Profile
+- image      : "card-profile"
+  extraClass : "cardProfile"
+  region     :
+    - extraClass : "regionMenu"
+      goto       : "menu"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionEdit"
+      goto       : "cardProfileEdit"
+      coords     : [ 42, 280, 20, 313 ]
+    - extraClass : "regionDeregister"
+      goto       : "deRegister"
+      coords     : [ 42, 278, 22, 362 ]
+
+# Card Profile Edit
+- image      : "card-profile-edit"
+  extraClass : "cardProfileEdit"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "cardProfile"
+      coords     : [ 34, 39, 1, 26 ]
+
+# De Register
+- image      : "de-register"
+  extraClass : "deRegister"
+  region     :
+    - extraClass : "regionBack"
+      goto       : "cardProfile"
+      coords     : [ 34, 39, 1, 26 ]
+    - extraClass : "regionDeregister"
+      goto       : "login"
+      coords     : [ 44, 137, 166, 363 ]
+    - extraClass : "regionHelp"
+      goto       : "support"
+      coords     : [ 45, 135, 22, 364 ]

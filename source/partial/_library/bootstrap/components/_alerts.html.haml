@@ -1,0 +1,21 @@
+-##
+-# Alerts
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Alert
+.alert{ :class => locals[ :context ] ? "alert-#{context}" : "alert-success" }
+
+    -# Dismissable
+    - if locals[ :dismissable ]
+
+        -# Button
+        = partial "./bootstrap/css/button",
+                   :locals => { :content    => "&times;",
+                                :dismiss    => "alert",
+                                :extraClass => "close",
+                                :hidden     => true }
+
+    -# Text
+    = string locals[ :text ]

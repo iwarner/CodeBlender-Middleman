@@ -1,17 +1,29 @@
-This README.md file is displayed on your project page. You should edit this 
-file to describe your project, including instructions for building and 
-running the project, pointers to the license under which you are making the 
-project available, and anything else you think would be useful for others to
-know.
+# Project
 
-We have created an empty license.txt file for you. Well, actually, it says,
-"<Replace this text with the license you've chosen for your project.>" We 
-recommend you edit this and include text for license terms under which you're
-making your code available. A good resource for open source licenses is the 
-[Open Source Initiative](http://opensource.org/).
+## Middleman
 
-Be sure to update your project's profile with a short description and 
-eye-catching graphic.
+    $ ~/Google\ Drive/www/codeblender.net/www
+    $ bundle exec middleman server -p 8080
+    $ sudo bundle exec middleman server -p 80
 
-Finally, consider defining a timeline and work items on the "Current Work" tab 
-to give interested developers a sense of your cadence and upcoming enhancements.
+### Sitemap
+
+    http://localhost:8888/__middleman/sitemap/
+    http://localhost:8888/__middleman/config/
+
+### Kill Middleman
+
+    $ ps aux | grep middleman
+    $ sudo kill -9
+
+## Bower
+
+    $ bower update && bower prune
+    $ bower install jquery#2 --save
+
+## Google Icon
+
+    $ find ~/Google\ Drive/ -name Icon? -exec rm -f {} \;
+
+87 * 2 - 174
+Miss Sarah A Downes, Lloyds Bank, sort: 30-95-05, account 00457027

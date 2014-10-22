@@ -1,0 +1,141 @@
+---
+
+author      : "DryKISS"
+description : ""
+small       : ""
+title       : "Statement Helper"
+
+see :
+    - - "CSV Download"
+      - "http://jsfiddle.net/terryyounghk/KPEGU/"
+    - - "File Upload"
+      - "http://www.w3.org/TR/html-markup/input.file.html"
+
+todo :
+
+    - - "Once a file is uploaded save the data to local storage"
+      - "Statement"
+      - "2014-02-25"
+      - { "context" : "warning" }
+
+    - - "Need to be able to add elements to this CSV data table"
+      - "Statement"
+      - "2014-02-25"
+      - { "context" : "warning" }
+
+    - - "Save the exported file as a CSV file - coming out as just download at the moment"
+      - "Statement"
+      - "2014-02-25"
+      - { "context" : "warning" }
+
+    - - "Statement table should be blank, before a file has been uploaded or elements found in local storage"
+      - "Statement"
+      - "2014-02-25"
+      - { "context" : "warning" }
+
+    - - "Form Field to enter the Initial Balance"
+      - "Statement"
+      - "2014-07-01"
+      - { "context" : "danger" }
+
+---
+
+-# File to Use
+- file = "03"
+
+-# Initial Balance
+- initialBalance = 8688.29
+- initialBalance = 17672.53
+- initialBalance = 26524.15
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Form",
+                        :tag  => "h2" }
+
+-# Form to Upload File
+%form.fileUpload{ :action     => "",
+                  :method     => "POST",
+                  :novalidate => true }
+
+    = partial "./forms/input",
+               :locals => { :accept => ".csv",
+                            :help   => true,
+                            :label  => [ "File Upload" ],
+                            :name   => "fileUpload",
+                            :type   => "file" }
+
+-# Form to Upload File
+%form.initialBalance{ :action     => "",
+                      :method     => "POST",
+                      :novalidate => true }
+
+    = partial "./forms/input",
+               :locals => { :help  => true,
+                            :label => [ "Initial Balance" ],
+                            :name  => "initialBalance" }
+
+    -# Button
+    = partial "./bootstrap/css/button",
+               :locals => { :context    => "primary",
+                            :content    => "Submit" }
+
+-# Heading
+= partial "./bootstrap/type/heading",
+           :locals => { :text => "Statement",
+                        :tag  => "h2" }
+
+-# Table Hash
+- table = Hash.new()
+- table[ "data" ]    = []
+- table[ "columns" ] = [ { "label" => "Date" },
+                         { "label" => "Amount" },
+                         { "label" => "Reference" },
+                         { "label" => "Balance" } ]
+
+-# Options
+- options = { :encoding    => 'UTF-8',
+              :headers     => false,
+              :skip_blanks => true }
+
+-# Check the file exists
+- if File.file?( "csv/data#{ file }.csv" )
+
+    -# Read the file
+    - csv_contents = CSV.read( "csv/data#{ file }.csv" )
+
+    -# Remove Header row from the CSV document
+    - csv_contents.slice!( 0 )
+
+    -# Loop through the CSV File and Sort by Date
+    - csv_contents.sort{ | a, b | a[ 1 ].split( '/' ).reverse <=> b[ 1 ].split( '/' ).reverse }.each_with_index do | data, index |
+
+        -# Check for the Last Balance
+        - unless defined? @lastBalance
+            - @lastBalance = initialBalance
+
+        -# Balance
+        - balance = data[ 3 ].to_f + @lastBalance
+        - data << number_to_currency( balance, :unit => "&pound;" )
+
+        -# Remove Columns from Data
+        - set = [ 0, 2, 4 ]
+        - data.delete_if.with_index { | _, index | set.include? index }
+
+        -# Add the Data
+        - table[ "data" ] << data
+
+        -# Save the last balance
+        - @lastBalance = balance
+
+    -# Table
+    = partial "./bootstrap/css/table",
+               :locals => { :array      => table,
+                            :tableClass => "statement table-responsive table-condensed table-bordered table-hover table-striped" }
+
+    -# Button
+    = partial "./bootstrap/css/button",
+               :locals => { :block      => true,
+                            :context    => "primary",
+                            :content    => "To CSV",
+                            :extraClass => "toCSV" }

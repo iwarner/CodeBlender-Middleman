@@ -1,0 +1,149 @@
+---
+
+author      : "DryKISS"
+description : "An Input field is a basic element that allows a user to enter data.
+               Functionality can be altered via the Type attribute."
+small       : "Core user data entry element"
+title       : "Form Input Fields"
+
+see :
+    - - "Bootstrap Forms"
+      - "http://getbootstrap.com/css/#forms"
+
+todo :
+    - - "Complete this page with all the relevant types available"
+      - "Form Input"
+      - "2014-02-18"
+      - { "context" : "warning" }
+    - - "Add the password pattern to the input"
+      - "Form Input"
+      - "2014-05-12"
+      - { "context" : "info" }
+    - - "Password should be accompanied by the password validation element"
+      - "Form Input"
+      - "2014-05-13"
+      - { "context" : "warning" }
+    - - "On Submit all inputs should validate - contain them in one form element"
+      - "Form Input"
+      - "2014-05-12"
+      - { "context" : "danger" }
+
+locals :
+    - - "autocapitalize"
+      - "String"
+      - "Optional"
+      - "Possible values are : none, sentences, words, characters"
+    - - "autocomplete"
+      - "String"
+      - "Optional"
+      - "On or off for autocomplete feature"
+    - - "autocorrect"
+      - "String"
+      - "Optional"
+      - "On or off for autocorrect feature"
+    - - "autofocus"
+      - "Bool"
+      - "Optional"
+      - "Whether this input should be autofocussed"
+    - - "disabled"
+      - "Bool"
+      - "Optional"
+      - "Disabled form field"
+    - - "group"
+      - "Array"
+      - "Optional"
+      - "Array of elements for prepending or appending icons"
+    - - "help"
+      - "String"
+      - "Optional"
+      - "Help text - sometimes used for error messages"
+    - - "label"
+      - "Array"
+      - "Optional"
+      - "Text and Flag for Screen Reader for the label"
+    - - "name"
+      - "String"
+      - "Required"
+      - "Name and ID of the field"
+    - - "pattern"
+      - "String"
+      - "Optional"
+      - "HTML5 Pattern regular expression"
+    - - "placeholder"
+      - "String"
+      - "Optional"
+      - "Placeholder text"
+    - - "required"
+      - "Bool"
+      - "Optional"
+      - "If validation is required"
+    - - "type"
+      - "String"
+      - "Optional"
+      - "Type of the form input, default to text, file, text, password, submit email, number, url, range, date, datetime, datetime-local month, week, time, search, color"
+    - - "value"
+      - "String"
+      - "Optional"
+      - "Value for the input"
+
+---
+
+-# Form
+%form.formInput{ :action     => "",
+                 :method     => "POST",
+                 :novalidate => true }
+
+    -# Text Type
+    :ruby
+        code = %{partial "./forms/input",
+                 :locals => { :help  => true,
+                              :icon  => { :prepend => "fa-credit-card" },
+                              :input => { :name        => "text",
+                                          :placeholder => "Enter Text" },
+                              :label => { :title => "Text Input" } }}
+
+    = partial "./scaffolding/code",
+               :locals => { :id      => 1,
+                            :code    => code,
+                            :heading => { :small => "Generic default type",
+                                          :text  => "Text Type" } }
+
+    -# Submit
+    = partial "./bootstrap/css/button",
+               :locals => { :context => "primary",
+                            :content => "Submit" }
+
+    -# Password Type
+    :ruby
+        code = %{partial "./forms/input",
+                 :locals => { :help          => "Enter 8 characters [a-zA-Z0-9]",
+                              :icon          => { :prepend => "fa-credit-card" },
+                              :input         => { :extraClass      => "password-strength form-control",
+                                                  :inputGroupClass => "input-group form-group-password-strength",
+                                                  :name            => "password",
+                                                  :placeholder     => "Enter password",
+                                                  :type            => "password" },
+                              :label         => { :title => "Password" },
+                              :strengthMeter => true }}
+
+    = partial "./scaffolding/code",
+               :locals => { :id      => 2,
+                            :code    => code,
+                            :heading => { :small => "Also contains some help text",
+                                          :text  => "Password Type" } }
+
+    -# Email Type
+    :ruby
+        code = %{partial "./forms/input",
+                 :locals => { :help          => true,
+                              :icon          => { :prepend => "fa-envelope" },
+                              :input         => { :name            => "email",
+                                                  :placeholder     => "Enter email",
+                                                  :type            => "email" },
+                              :label         => { :title => "Email" } }}
+
+    = partial "./scaffolding/code",
+               :locals => { :id      => 3,
+                            :code    => code,
+                            :heading => { :small => "Also contains a group icon",
+                                          :text  => "Email Type" } }

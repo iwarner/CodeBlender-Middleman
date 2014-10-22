@@ -1,0 +1,26 @@
+-##
+-# Configuration Panel
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Configuration Toolbox
+#skin-toolbox{ :style => "right: -182px;" }
+
+    -# Icon
+    .skin-toolbox-toggle
+        %i.fa.fa-flask
+
+    -# Panel
+    .skin-toolbox-panel
+
+        -# Heading
+        = partial "./bootstrap/type/heading",
+                  :locals => { :tag  => "h5",
+                               :text => "Site Options" }
+
+        -# Form
+        %form#skin-toolbox-form
+
+            -# Yield Content
+            = yield_content :configuration

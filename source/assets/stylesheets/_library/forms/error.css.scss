@@ -1,0 +1,14 @@
+//
+// Form Errors
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//--------------------------------------------------------------------------- //
+
+.has-error .form-control {
+    border-color : #a94442;
+    box-shadow   : inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+.form-control-feedback {
+    top : 0;
+}

@@ -1,0 +1,27 @@
+---
+author       : "Ian Warner"
+description  : "The Recommendations feed displays the most recommended content on
+                your site, using actions (such as likes) by your friends and other
+                people. It is different from the Activity feed which displays recent
+                actions on your site."
+small        : "https://developers.facebook.com/docs/plugins/recommendations-bar"
+title        : "Facebook Recommendations Feed Partial"
+
+see :
+    - - "Facebook Recommendations Feed"
+      - "https://developers.facebook.com/docs/plugins/recommendations/"
+
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :tag  => "h2" }
+
+-# Recommendations Feed
+= partial "social/facebook/recommendations-feed"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "social/facebook/recommendations-feed"

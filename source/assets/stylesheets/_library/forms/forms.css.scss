@@ -1,0 +1,141 @@
+/**
+ * Forms
+ * Consists of several Form Groups that contain a label, input field, clear icon
+ * and validate icon.
+ *
+ * @author Ian Warner <ian.warner@drykiss.com>
+ *
+ * @todo   Sort out the validation icons
+--------------------------------------------------- */
+
+$formLabelBackgroundColor : #e9edf0;
+$formLabelColor           : #315e96;
+$formLabelBorderColor     : #d5d9df;
+$formErrorBackgroundColor : #d3202f;
+
+// Make sure text can be entered
+//-------------------------------------------------
+input, textarea {
+    -webkit-touch-callout : auto;
+    -webkit-user-select   : auto;
+}
+
+// Form
+// ------------------------------------------------
+form {
+
+    font-size : 16px;
+
+    .input-lg {
+        border        : 0;
+        border-radius : 0;
+    }
+
+    .input-group {
+        width : 100%;
+    }
+
+    .form-group {
+        margin-bottom : 0;
+    }
+
+    .input-group-addon {
+        background-color : #fff;
+        border           : 0;
+        border-radius    : 0;
+        font-size        : 20px;
+    }
+
+
+
+
+
+    // Icons in forms
+    // --------------------------------------------
+    i {
+        font-size      : 30px;
+        vertical-align : middle;
+    }
+
+    // Input Error
+    // --------------------------------------------
+    .inputError {
+        color : #d3202f;
+    }
+
+    // Input Success
+    // --------------------------------------------
+    .inputSuccess {
+        color : #46870d;
+    }
+
+    // Label
+    // --------------------------------------------
+    label {
+
+        background-color    : $formLabelBackgroundColor;
+        // border-top          : 1px solid $formLabelBorderColor;
+        // border-bottom       : 1px solid $formLabelBorderColor;
+        color               : $formLabelColor;
+        display             : block;
+        min-height          : 27px;
+        padding             : 20px 0 0 10px;
+        width               : 310px;
+        position            : relative;
+        -webkit-user-select : none;
+
+        // Bottom Border Only
+        // ----------------------------------------
+        &.border-b {
+            border-top    : 0;
+            border-bottom : 1px solid $formLabelBorderColor;
+        }
+
+        // Label Validation Icon
+        // ----------------------------------------
+        i {
+            color     : red;
+            font-size : 16px;
+        }
+
+        // Reduce height of the label
+        // ----------------------------------------
+        &.blank {
+            min-height : 0;
+        }
+    }
+
+    // Error
+    // --------------------------------------------
+    .formError {
+        background-color : $formErrorBackgroundColor;
+        color            : #fff;
+        display          : none;
+    }
+
+    // Horizontal Seperator
+    // --------------------------------------------
+    .hs {
+        width         : 310px;
+        float         : right;
+        border-bottom : 1px solid $formLabelBorderColor;
+
+        &.end {
+            margin-bottom : 20px;
+            width         : 320px;
+        }
+    }
+
+    // Icons
+    // Allows the form element to be cleared, validated and located
+    // --------------------------------------------
+    .clear, .validate, .locate {
+
+        [class^="icon-"]:before {
+            margin : 0;
+        }
+
+        display : inline;
+    }
+
+}

@@ -1,0 +1,47 @@
+-##
+-# Meta Mobile Tags
+-#
+-# <meta name="viewport"
+-#       content="
+-#           height = [pixel_value | device-height] ,
+-#           width = [pixel_value | device-width ] ,
+-#           initial-scale = float_value ,
+-#           minimum-scale = float_value ,
+-#           maximum-scale = float_value ,
+-#           user-scalable = [yes | no] ,
+-#           target-densitydpi = [dpi_value | device-dpi |
+-#                                high-dpi | medium-dpi | low-dpi]" />
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Mobile Meta Tags
+%meta{ :name    => "viewport",
+       :content => "width=device-width, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1" }
+
+-# Browser Chrome
+%meta{ :name    => "apple-mobile-web-app-capable",
+       :content => "yes" }
+
+%meta{ :name    => "apple-mobile-web-app-status-bar-style",
+       :content => "black" }
+
+%meta{ :name    => "mobile-web-app-capable",
+       :content => "yes" }
+
+-# To remove automatic linking
+%meta{ :name    => "format-detection",
+       :content => "telephone=no" }
+
+%meta{ :name    => "x-rim-auto-match",
+       :content => "none",
+       :forua   => :true }
+
+%meta{ :name    => "HandheldFriendly",
+       :content => "true" }
+
+%meta{ :name    => "MobileOptimized",
+       :content => "width" }
+
+%meta{ :"http-equiv" => "cleartype",
+       :content      => "on" }

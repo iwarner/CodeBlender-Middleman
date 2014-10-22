@@ -1,0 +1,25 @@
+---
+author       : "Ian Warner"
+description  : "The Follow button lets people subscribe to the public updates of
+                others on Facebook."
+small        : "https://developers.facebook.com/docs/plugins/follow-button"
+title        : "Facebook Follow Button Partial"
+
+see :
+    - - "Facebook Follow Button"
+      - "https://developers.facebook.com/docs/plugins/follow-button/"
+
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Follow Button",
+                        :tag  => "h2" }
+
+-# Follow Button
+= partial "social/facebook/follow-button"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "social/facebook/follow-button"

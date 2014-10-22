@@ -1,0 +1,46 @@
+-##
+-# Collapse
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Debug Array
+- if ! locals[ :array ]
+    - array = [ { :title => "Heading 1", :body => "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua" },
+                { :title => "Heading 2", :body => "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua" },
+                { :title => "Heading 3", :body => "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua" } ]
+
+-# If no ID is passed in
+- if ! locals[ :id ]
+    - id = "accordion"
+
+-# Set openIn variable. If openIn not specified then leave all collapsables closed
+- openIn = locals[ :openIn ] ? locals[ :openIn ] : false
+
+-# Collapse
+.panel-group{ :id => id }
+
+    - array.each_with_index do | value, index |
+
+        .panel.panel-default
+
+            .panel-heading{ :href => "#collapse#{ index }",
+                            :data => { :toggle => "collapse",
+                                       :parent => "##{ id }" }}
+
+                %h4.panel-title
+
+                    -# Link To
+                    = link_to( "#collapse#{ index }" ) do
+                        = value[ :title ]
+
+                        -# Add Cheveron icon
+                        -# - if locals[ :icon ]
+                        %i.indicator.pull-right.fa.fa-plus
+
+
+
+            .panel-collapse.collapse{ :id    => "collapse#{ index }",
+                                      :class => ( index === openIn ) ? "in" : false }
+                .panel-body
+                    = value[ :body ]

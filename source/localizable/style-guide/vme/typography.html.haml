@@ -1,0 +1,52 @@
+---
+
+author      : "DryKISS"
+description : ""
+small       : "Semantic headings and paragraph text"
+title       : "Typography"
+
+see :
+    - - "Bootstrap Type"
+      - "http://getbootstrap.com/css/#type"
+
+todo :
+    - - "Add the paragraph text to this page also"
+      - "Typography"
+      - "2014-05-21"
+      - { "context" : "info" }
+
+---
+
+-# The quick brown fox jumps over the lazy dog
+
+-# Heading H1
+= partial "bootstrap/type/heading",
+           :locals => { :small => "Houschka Rounded Medium 48/48 #0023A0",
+                        :text  => "Heading 1" }
+
+%p
+    H1 is used in the page header, usually as a link and only once per page.
+
+%hr
+
+-# Heading H2
+= partial "bootstrap/type/heading",
+           :locals => { :small => "Houschka Rounded DemiBold 36/36 #0023A0",
+                        :text  => "Heading 2",
+                        :tag   => "h2" }
+
+%p
+    H2 is also used in the page header and its styled like an H1 for the same
+    reason. H2 is seldom used outside of the header.
+
+%hr
+
+-# Heading H3
+= partial "bootstrap/type/heading",
+           :locals => { :small => "Houschka Rounded DemiBold 30/32 #0023A0",
+                        :text  => "Heading 3",
+                        :tag   => "h3" }
+
+%p
+    Semantic classes H1...H4 are available to make headings or paragraphs take
+    on different heading styles.

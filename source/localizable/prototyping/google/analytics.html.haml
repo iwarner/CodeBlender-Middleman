@@ -1,0 +1,22 @@
+---
+
+author      : "DryKISS"
+description : "The partials below allow for the easy insertion of Google Analytics."
+small       : "Google Analytics site statistics and reporting"
+title       : "Analytics"
+
+see :
+    - - "Google Analytics"
+      - "https://www.google.com/analytics"
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./google/analytics"}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

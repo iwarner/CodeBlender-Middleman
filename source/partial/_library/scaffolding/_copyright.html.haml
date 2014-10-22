@@ -1,0 +1,32 @@
+-##
+-# Copyright
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Copyright
+.copyright{ :class => ( locals[ :center ] ) ? "text-center" : false }
+
+    -# Container
+    %div{ :class => locals[ :fluid ] ? "container-fluid" : "container" }
+
+        -# Year
+        - if ! locals[ :noYear ]
+
+            -# Variables
+            - year = Time.now.strftime( '%Y' )
+
+            %time{ :datetime => year }
+                &copy; #{ year }
+
+        -# Text
+        = string :"copyright.brand"
+        = string :"copyright.rights"
+
+        -# Show any required links
+        - if locals[ :array ]
+
+            -# Horizontal list of links
+            = partial "./bootstrap/type/list",
+                       :locals => { :array      => array,
+                                    :extraClass => "list-inline list-unstyled" }

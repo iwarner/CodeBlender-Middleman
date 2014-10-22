@@ -1,0 +1,130 @@
+---
+
+author      : "DryKISS"
+description : "Extend Bootstrap's grid system with the thumbnail component to
+               easily display grids of images, videos, text, and more."
+small       : "Responsive media components"
+title       : "Thumbnails"
+
+bar :
+    - sup  : Expires
+      text : 485 Days
+    - sup  : Offer Type
+      text : Cashback
+    - icon : bookmark
+      href : "#bookmark"
+
+see :
+    - - "Bootstrap Thumbnails"
+      - "http://getbootstrap.com/components/#thumbnails"
+
+todo :
+    - - "Needs revisiting as a component so it allows for all the possibilites of usage"
+      - "Thumbnail"
+      - "2014-06-27"
+      - { "context" : "danger" }
+    - - "Need to link whole image to destination"
+      - "Thumbnail"
+      - "2014-02-15"
+      - { "context" : "warning" }
+    - - "Add image Ribbon to thumbnail"
+      - "Thumbnail"
+      - "2014-02-15"
+      - { "context" : "info" }
+    - - "Options to remove thumbnail border"
+      - "Thumbnail"
+      - "2014-02-15"
+      - { "context" : "info" }
+
+locals :
+    - - "array"
+      - "array"
+      - "required"
+      - "Array of the Thumbnails"
+    - - "image"
+      - "array"
+      - "optional"
+      - "See Image Partial"
+    - - "thumbnail"
+      - "array"
+      - "optional"
+      - "options"
+    - - "caption"
+      - "string"
+      - "optional"
+      - "Content for the caption area"
+    - - "href"
+      - "string"
+      - "optional"
+      - "Link for whole Thumbnail, and zoomix"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "String of classes to append to Thumbnail"
+    - - "zoomix"
+      - "bool"
+      - "optional"
+      - "To allow zommix, a HREF to the image mist be supplied also"
+    - - "columns"
+      - "string"
+      - "optional"
+      - "Columns string show the thumbnails in i.e. col-sm-6"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "Class for the row"
+
+---
+
+-# Default Thumbnail
+:ruby
+    code = %{partial "./bootstrap/components/thumbnails",
+                      :locals => { :array => [ { :image => { :data => "holder.js/300x200/auto" } },
+                                               { :image => { :data => "holder.js/100x100/auto" } },
+                                               { :image => { :data => "holder.js/100x100/auto" } },
+                                               { :image => { :data => "holder.js/100x100/auto" } },
+                                               { :image => { :data => "holder.js/300x200/auto" } } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "Just an array of images",
+                                      :text  => "Default" } }
+
+-# Linked Thumbnail
+:ruby
+    code = %{partial "./bootstrap/components/thumbnails",
+                      :locals => { :array => [ { :image     => { :src  => "footer/background1.png" },
+                                                 :thumbnail => { :href => image_path( "footer/background1.png" ) } } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :small => "Provide an HREF for the image",
+                                      :text  => "Linked Thumbnail" } }
+
+-# Captioned Thumbnail
+:ruby
+    code = %{partial "./bootstrap/components/thumbnails",
+                      :locals => { :array => [ { :image     => { :data    => "holder.js/300x200/auto" },
+                                                 :thumbnail => { :caption => "Caption 1" } } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :small => "Push an HTML element into the Tumb array",
+                                      :text  => "Captioned Thumbnail" } }
+
+-# Zoomix Thumbnail
+:ruby
+    code = %{partial "./bootstrap/components/thumbnails",
+                      :locals => { :array => [ { :image     => { :data   => "holder.js/300x200/auto" },
+                                                 :thumbnail => { :zoomix => true,
+                                                                 :href   => image_path( "footer/background1.png" ),
+                                                                 :data   => { :toggle => "lightbox" } } } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 4,
+                        :code    => code,
+                        :heading => { :small => "Provide a Gallery",
+                                      :text  => "Zoomix Thumbnail" } }

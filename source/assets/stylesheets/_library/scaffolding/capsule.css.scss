@@ -1,0 +1,42 @@
+//
+// Capsule
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//--------------------------------------------------------------------------- //
+
+$capsuleWidth  : 350px;
+$capsuleHeight : 350px;
+
+// Capsule
+// -------------------------------------------------------------------------- //
+.capsule {
+
+    width      : $capsuleWidth;
+    height     : $capsuleHeight;
+    background : image-url( "capsule/v.me-logo-small.png" ) no-repeat 50% 50%;
+
+    .spinner {
+        width      : $capsuleWidth;
+        height     : $capsuleHeight;
+        background : image-url( "capsule/animation-strip-300.png" ) no-repeat 0 0;
+    }
+
+}
+
+// Animation
+// -------------------------------------------------------------------------- //
+.animated .capsule div {
+    @include animation( capsuleSpin 2s steps( 25 ) 0.25s 1 );
+    @include animation-delay( 1s );
+}
+
+// Keyframes
+// -------------------------------------------------------------------------- //
+@include keyframes( capsuleSpin ) {
+    from {
+        background-position : 0 0;
+    }
+    to {
+        background-position : -8750px 0;
+    }
+}

@@ -1,0 +1,33 @@
+---
+
+author      : "DryKISS"
+description : ""
+small       : "Icon and Textual bar"
+title       : "Bar Partial"
+
+bar :
+    - sup    : Expires
+      text   : 485 Days
+    - sup    : Offer Type
+      text   : Cashback
+    - icon   : bookmark
+      href   : "#bookmark"
+
+locals :
+    - - "array"
+      - "array"
+      - "optional"
+      - "Local array"
+
+---
+
+-# Bar
+:ruby
+    code = %{partial "./scaffolding/bar",
+                      :locals => { :array => current_page.data.bar }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

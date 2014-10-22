@@ -1,0 +1,41 @@
+-##
+-# Facebook Share Button
+-#
+-# Locals
+-#
+-# Usage
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/share-button/
+-#
+-# @todo
+-##
+
+-# HREF
+- if ! locals[ :href ]
+    - href = "https://www.facebook.com/onlyasmile/"
+
+-# Type
+- if ! locals[ :type ]
+    - type = "html5"
+
+-# Debug
+-# = href
+-# = type
+
+-# HTML5
+- if type == "html5"
+
+    .fb-share-button{ :data => { :href => href } }
+
+    -# XFBML
+- elsif type == "xfbml"
+    XFBML
+
+    -# iFrame
+- elsif type == "iframe"
+    iFrame
+
+    -# URL
+- elsif type == "url"
+    URL

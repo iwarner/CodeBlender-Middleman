@@ -1,0 +1,37 @@
+-##
+-# Bar
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Bar
+.bar.text-center
+
+    -# Loop through the elements to display
+    - if locals[ :array ]
+
+        -# Loop through the Footer Yaml
+        - array.each do | entry |
+
+            -# Title
+            - if entry.text
+
+                .element.text
+
+                    -# Suplementary
+                    - if entry.sup
+                        .sup
+                            = entry.sup
+
+                    -# Text
+                    = string entry.text
+
+            -# If an Icon is required
+            - if entry.icon
+
+                -# Link To
+                = link_to( entry.href, :title => entry.icon ) do
+                    %i.fa.fa-bookmark-o
+
+-# Clear Fix
+.clearfix

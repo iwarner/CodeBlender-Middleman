@@ -1,0 +1,128 @@
+##
+# VCards
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+# @see    http://en.wikipedia.org/wiki/VCard
+##
+
+---
+
+# Danny Barnett
+- name  :
+    f : "Danny"
+    l : "Barnett"
+  title : "Project Owner"
+  email :
+    ibm  : "danny_barnett@uk.ibm.com"
+    home : ""
+  tel   : "07702 161 223"
+  skype : ""
+
+# Leila D’Angelo
+- name  :
+    f : "Leila"
+    l : "D’Angelo"
+  title : "Content"
+  email :
+    ibm  : "dangel@uk.ibm.com"
+    home : "leiladangelo@icloud.com"
+  tel   : "07454 247 424"
+  skype : "leilasdangelo"
+
+# Fenton Butcher
+- name  :
+    f : "Fenton"
+    l : "Butcher"
+  title : "UX"
+  email :
+    ibm  : "butchf@uk.ibm.com"
+    home : "fentonb@gmail.com"
+  tel   : "07790 215 810"
+  skype : "fentonbutcher"
+
+# Margaux Renaudin
+- name  :
+    f : "Margaux"
+    l : "Renaudin"
+  title : "Designer"
+  email :
+    ibm  : "margaux@uk.ibm.com"
+    home : "margauxrenaudin@gmail.com"
+  tel   : "07545 525 924"
+  skype : "margauxrenaudin"
+
+# Ian Warner
+- name  :
+    f : "Ian"
+    l : "Warner"
+  title : "Developer"
+  email :
+    ibm  : "warnei@uk.ibm.com"
+    home : "ian.warner@drykiss.com"
+  tel   : "07780 435 329"
+  skype : "iwarner_gb"
+
+# Shane Dowley
+- name  :
+    f : "Shane"
+    l : "Dowley"
+  title : "Scrum Master"
+  email :
+    ibm  : "dowley@uk.ibm.com"
+    home : ""
+  tel   : "07970 743 243"
+  skype : "shane_dowley"
+
+# Guillermo Noain
+- name  :
+    f : "Guillermo"
+    l : "Noain"
+  title : "Developer"
+  email :
+    ibm  : "gnoain@es.ibm.com"
+    home : "gnoain@gmail.com"
+  tel   : "07477 711 552"
+  skype : "gnoain"
+  ibmid : "ci1337@es.ibm.com"
+
+# Eliza Sadler
+- name  :
+    f : "Eliza"
+    l : "Sadler"
+  title : "Product Owner"
+  email :
+    ibm  : "eesadler@us.ibm.com"
+    home : ""
+  tel   : ""
+  skype : "eliza.sadler"
+
+# Jason Andrews
+- name  :
+    f : "Jason"
+    l : "Andrews"
+  title : "Consultant"
+  email :
+    ibm  : "jaandrew@us.ibm.com"
+    home : ""
+  tel   : "+1-706-340-2597"
+  skype : "spoitzaddidas55"
+
+# Isaiah Andrew
+- name  :
+    f : "Isaiah"
+    l : "Andrew"
+  title : "UX"
+  email :
+    ibm  : "isandrew@us.ibm.com"
+    home : ""
+  tel   : "+1-917-214-8786"
+  skype : "isaiah.andrew"
+
+# # UX            - Amanda Cano, canoa@uk.ibm.com, amanda.cano@havasehs.com, 07722 105 898
+# # Designer      - Diogo Carvalho, Diogo Carvalho/UK/Contr/IBM, carvat@uk.ibm.com, 07903 695 711
+# # Front End Dev - Graeme George, Graeme George/UK/Contr/IBM, graeme@uk.ibm.com, 07429 176 819
+# # Back End Dev  - Subrata Giri, Bangalore, subrata.giri@in.ibm.com, Subrata Giri1/India/IBM
+# # Back End Dev  - Praveen Raju, praveen.raju@uk.ibm.com,  Praveen Raju/UK/Contr/IBM, 07907 923 862
+# # Testing       - Andrew Havis, Andrew P Havis/UK/IBM, andrew.havis@uk.ibm.com, 07933 786 428
+# # Testing/Dev   - Matt Parish, matthewparish@uk.ibm.com, 07979 904 321
+# # Strategist    - Laura Hillman, laurahill@uk.ibm.com, Laura Hillman/UK/IBM@IBMGB, 07714 439 222

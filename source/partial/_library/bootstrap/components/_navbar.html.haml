@@ -1,0 +1,141 @@
+-##
+-# NavBar
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- config = data.config
+
+-# Extra Classes
+- extraClass  = locals[ :navExtraClass ] ? navExtraClass : ""
+- extraClass += ( config.navType == "inverse" or locals[ :type ] == "inverse" ) ? " navbar-inverse" : " navbar-default"
+- extraClass += ( locals[ :yamm ] ) ? " yamm" : ""
+
+-# Position of the Navbar Fixed Top or Bottom
+- if config.navPosition or locals[ :position ]
+    - position    = locals[ :position ] ? position : config.navPosition ? config.navPosition : false
+    - extraClass += " navbar-#{ position }"
+
+-# Sort out the Brand name, check it is required
+- if locals[ :brand ] != false
+    - if locals[ :brand ]
+        - brand = locals[ :brand ]
+    - else
+        - if config.navBrand
+            - brand = config.brand
+
+-# Navbar
+%nav.navbar{ :id    => locals[ :id ] ? id : "navbar",
+             :class => extraClass,
+             :role  => "navigation" }
+
+    -# Bootstrap Container
+    %div{ :class => locals[ :fluid ] ? "container-fluid" : "container" }
+
+        -# Navbar Header
+        .navbar-header
+
+            -# Create the Nav Collapse Menu
+            %button.navbar-toggle.collapsed{ :type => :button,
+                                             :data => { :toggle => :collapse,
+                                                        :target => locals[ :target] ? "##{ target }" : "#navbar-collapse" } }
+                %span.sr-only Toggle Navigation
+
+                -# Loop through Spans
+                - 3.times do
+                    %span.icon-bar
+
+            -# Display the Logo or Brand Name and optional Icon
+            - if brand
+
+                -# Link To
+                = link_to( config.navBrandLink,
+                           :class => "navbar-brand",
+                           :title => string( brand ) ) do
+
+                    -# Show Image
+                    - if locals[ :logo ] or config.navLogo
+
+                        -# Logo
+                        - logo = locals[ :logo ] or logo = config.navLogo
+
+                        -# Image
+                        = partial "./bootstrap/css/image",
+                                   :locals => { :alt   => string( config.navLogoAlt ),
+                                                :size  => [ config.navLogoWidth, config.navLogoHeight ],
+                                                :src   => "logo/logo.png" }
+
+                    -# Show Brand
+                    - if config.navBrandText
+                        = string brand
+
+        -# Check that data.navigation is not empty
+        - if t( :navigation ) or locals[ :array ]
+
+            -# Local array takes precedent
+            - array = locals[ :array ] ? array : t( :navigation )
+
+            -# Create the collapse area
+            .navbar-collapse.collapse{ :id => locals[ :target] ? target : "navbar-collapse" }
+
+                -# Wrapper for off-canvas responsive menues
+                -# This needs to be optional
+                %div{ :class => data.config.navWrapper ? "navbar-wrapper" : false }
+
+                    -# Loop through the Navigation Yaml
+                    - array.each do | entry |
+
+                        -# Get correct URL path
+                        - if ! relative_links
+                            - url = current_page.url.length > 1 ? current_page.url[ 0...-1 ] : current_page.url
+                        - else
+                            - url = current_page.url
+
+                        -# Sort out what item is active
+                        - entry[ "active" ] = ( url == entry[ "url" ] ) ? true : false
+
+                        -# Process Array
+                        - array = []
+                        - array << entry
+
+                        -# Dropdown menu
+                        - if entry[ "dropdown" ]
+
+                            -# Dropdown
+                            = partial "./bootstrap/components/dropdown",
+                                       :locals => { :extraClass    => entry[ "extraClass" ] ? entry[ "extraClass" ] : false,
+                                                    :dropDownClass => entry[ "dropdownClass" ],
+                                                    :title         => entry[ "dropdown" ],
+                                                    :list          => { :array    => array[ 0 ][ "items" ],
+                                                                        :dropdown => true } }
+
+                            -# Shop Widget
+                        - elsif entry[ "shop" ]
+
+                            %ul.nav.navbar-nav{ :class => entry[ "extraClass" ] ? entry[ "extraClass" ] : false }
+
+                                %li
+                                    -# Simple Cart Widget
+                                    = partial "./e-commerce/widget"
+
+                            -# Button
+                        - elsif entry[ "button" ]
+
+                            %div{ :class => entry[ "extraClass" ] ? entry[ "extraClass" ] : false }
+
+                                -# Button
+                                = partial "./bootstrap/css/button", :locals => entry[ "button" ]
+
+                            -# Text Link
+                        - else
+
+                            -# List
+                            = partial "./bootstrap/type/list",
+                                       :locals => { :array      => array,
+                                                    :navBar     => true,
+                                                    :extraClass => entry[ "extraClass" ] }
+
+                -# Google Search Bar
+                - if ! config.navSearch.blank?
+                    = partial "./google/search"

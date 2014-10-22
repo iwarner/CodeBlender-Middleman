@@ -1,0 +1,109 @@
+/**
+ * List View
+ * Displays a list of clickable items that may contain text and icons
+ * Will cut short the text to fit the available space
+ *
+ * @author Ian Warner <ian.warner@drykiss.com>
+ * @todo   Overflow should be in a seperate helper class
+ * @todo   Sort out the colour variables for this
+// -------------------------------------------------------------------------- */
+
+// Lists
+// -------------------------------------------------------------------------- */
+ul {
+    list-style-type : none;
+    margin          : 0;
+    padding         : 0;
+}
+
+// Role List
+// -------------------------------------------------------------------------- */
+[role="list"] {
+
+    clear : both;
+
+    // Inset
+    // ---------------------------------------------------------------------- */
+    &.inset {
+
+        width : 272px;
+
+        li {
+
+            padding-left : 12px;
+
+            a {
+                color : #fff;
+
+                span {
+                    text-shadow : 1px 1px #000;
+                }
+            }
+        }
+    }
+
+    // List
+    // ---------------------------------------------------------------------- */
+    li {
+
+        font-size     : 18px;
+        margin-bottom : 10px;
+        padding-left  : 20px;
+
+        // List Divider
+        // ------------------------------------------------------------------ */
+        &.divider {
+            background-color : rgba( 68, 84, 100, 0.5 );
+            color            : #979dab;
+            font-size        : 12px;
+            padding-top      : 5px;
+            padding-bottom   : 5px;
+        }
+
+        // Span Text
+        // Stop text overflowing the edge
+        // ------------------------------------------------------------------ */
+        .overflow {
+            overflow      : hidden;
+            text-overflow : ellipsis;
+            white-space   : nowrap;
+            width         : 100%;
+        }
+
+        // List Icon
+        // Make sure that fa-fw is on the element
+        // ------------------------------------------------------------------ */
+        i {
+            color          : #c9cacf;
+            font-size      : 20px;
+            margin-right   : 5px;
+            vertical-align : middle;
+        }
+
+        // Link
+        // ------------------------------------------------------------------ */
+        a {
+            display   : block;
+            font-size : 18px;
+            color     : #000;
+        }
+
+    }
+
+    // Block List
+    // ---------------------------------------------------------------------- */
+    &.block {
+
+        li {
+            padding       : 10px;
+            margin-bottom : 0px;
+        }
+    }
+
+    // Last List
+    // ---------------------------------------------------------------------- */
+    li:last-child {
+        margin-bottom : 0;
+    }
+
+}

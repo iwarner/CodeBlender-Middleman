@@ -1,0 +1,97 @@
+-##
+-# Bar
+-# Mobile Top Header, can inlcude navigation icons, help, logo or page name.
+-# Control what icons are visible in each Bacbone Views that instantiates it.
+-#
+-# # Instantiate Header Bar View
+-# $( "#bar" ).html( new App.Views.Bar().render( "Your Offers" ).el )
+-#
+-# Locals
+-# title     - string - Optional - Page Title
+-# logo      - bool   - Optional - Logo
+-# asideIcon - bool   - Optional - Aside Icons
+-# backIcon  - bool   - Optional - Back Icon
+-# helpIcon  - bool   - Optional - Help Icon
+-#
+-# Usage
+-#
+-# -# Header Partial
+-# = partial "mobile/bar",
+-#            :locals => { :title     => "Login",
+-#                         :logo      => false,
+-#                         :asideIcon => false,
+-#                         :backIcon  => false,
+-#                         :helpIcon  => false }
+-#
+-# Todo
+-# @todo
+-##
+
+-# Title
+- if ! defined? title
+    - title = false
+
+-# Logo
+- if ! defined? logo
+    - logo = false
+
+-# Aside Icons
+- if ! defined? asideIcon
+    - asideIcon = false
+
+-# Back Icons
+- if ! defined? backIcon
+    - backIcon = false
+
+-# Help Icons
+- if ! defined? helpIcon
+    - helpIcon = false
+
+-# Header
+%header.bar-title
+
+    -# Logo If Required
+    - if logo
+        .logo
+            %img{ :src => "#{images_dir}/logo/logo@2x.png", :alt => "Together Bank" }
+
+    -# Display the Title
+    - if title
+        .title
+            = title
+
+-# Back Icon
+- if backIcon
+    %nav.asideIcon
+        %ul
+            %li.navigationItem
+
+                -# Link To
+                = link_to( "#", :class => "previous" ) do
+                    %i.icon-chevron-left-large
+
+-# Help Icon
+- if helpIcon
+    %nav.asideIcon
+        %ul
+            %li.complimentaryItem
+
+                -# Link To
+                = link_to( "#", :class => "help" ) do
+                    %i.icon-help
+
+-# Aside Icon
+- if asideIcon
+    %nav.asideIcon
+        %ul
+            %li.navigationItem
+
+                -# Link To
+                = link_to( "#", :class => "navigationButton" ) do
+                    %i.icon-menu
+
+            %li.complimentaryItem
+
+                -# Link To
+                = link_to( "#", :class => "complimentaryButton" ) do
+                    %i.icon-menu

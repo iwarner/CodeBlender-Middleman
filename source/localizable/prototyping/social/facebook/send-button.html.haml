@@ -1,0 +1,26 @@
+---
+author       : "Ian Warner"
+description  : "The Send button lets people privately send content on your site to
+                one or more friends in a Facebook message, to an email address, or
+                share it with a Facebook group."
+small        : "https://developers.facebook.com/docs/plugins/send-button/"
+title        : "Facebook Send Button Partial"
+
+see :
+    - - "Facebook Send Button"
+      - "https://developers.facebook.com/docs/plugins/send-button/"
+
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :tag  => "h2" }
+
+-# Send Button
+= partial "social/facebook/send-button"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "social/facebook/send-button"

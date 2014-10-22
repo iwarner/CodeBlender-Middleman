@@ -1,0 +1,35 @@
+---
+
+author      : "DryKISS"
+description : "Indicate the current page's location within a navigational hierarchy."
+small       : ""
+title       : "Breadcrumbs"
+
+see :
+    - - "Bootstrap Breadcrumbs"
+      - "http://getbootstrap.com/components/#breadcrumbs"
+
+todo :
+    - - "Add optional home icon to the left hand side"
+      - "Breadcrumbs"
+      - "2014-02-12"
+      - { "context" : "info" }
+
+locals :
+    - - "array"
+      - "array"
+      - "optional"
+      - "Array of list items"
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./bootstrap/components/breadcrumbs",
+                      :locals => { :array => current_page.data.breadcrumbs }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

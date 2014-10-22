@@ -1,0 +1,49 @@
+-##
+-# Blog Tags
+-#
+-# Usage
+-# - wrap_layout "_library/blog/article" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Article
+- wrap_layout "_library/site/layout" do
+
+    .container
+
+        .row
+
+            .col-md-3
+
+                %aside
+
+                    -# Tags
+                    .tagCloud
+
+                        -# Tag Cloud
+                        = tagCloud()
+
+                    .blogLatest
+
+                        -# Recent Articles
+                        = partial "./blog/recent"
+
+            .col-md-6
+
+                %article
+
+                    -# Heading
+                    = partial "./bootstrap/type/heading",
+                               :locals => { :small => current_page.data.small,
+                                            :text  => current_page.data.title }
+
+                    -# Yield
+                    = yield
+
+            .col-md-3
+
+                %aside
+
+                    -# Archive
+                    = partial "./blog/archive"

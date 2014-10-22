@@ -1,0 +1,38 @@
+---
+
+author         : "DryKISS"
+title          : Calendar
+small          : Articles by Date
+date           : 2001-03-31
+og:title       : Calendar
+og:description : Calendar
+og:type        : Calendar
+og:url         :
+og:image       :
+pageable       : true
+per_page       : 5
+layout         : "_library/blog/tags"
+
+---
+
+-# Latest
+%ul.list-unstyled.labelList
+
+    -# Loop through the Articles
+    - page_articles.each do | article |
+
+        %li
+
+            -# Label
+            = partial "./bootstrap/components/label",
+                       :locals => { :color   => "info",
+                                    :content => article.date.strftime( '%b %e' ) }
+
+            = link_to article.title, article
+
+-# Usage
+= partial "./bootstrap/components/pagination",
+           :locals => { :nextPage => next_page,
+                        :prevPage => prev_page,
+                        :pageNo   => page_number,
+                        :pages    => num_pages }

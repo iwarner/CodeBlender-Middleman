@@ -1,0 +1,111 @@
+---
+
+author      : "DryKISS"
+description : "List groups are a flexible and powerful component for displaying
+               not only simple lists of elements, but complex ones with custom content."
+small       : ""
+title       : "List Group"
+
+see :
+    - - "Bootstrap List Group"
+      - "http://getbootstrap.com/components/#list-group"
+
+todo :
+    - - "Link should be optional for the list group - either li or a depending of url specified"
+      - "List Group"
+      - "2014-03-18"
+      - { "context" : "danger" }
+    - - "Change contex tual to colour or type"
+      - "List Group"
+      - "2014-03-18"
+      - { "context" : "warning" }
+
+locals :
+    - - "array"
+      - "array"
+      - "required"
+      - "Array of the list required"
+    - - "list"
+      - "string"
+      - "optional"
+      - "What Tag context to use for this"
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./bootstrap/components/list-group",
+                      :locals => { :array => [ { :active => true,
+                                                 :title  => lorem.words( 2 ),
+                                                 :url    => "#" },
+                                               { :title  => lorem.words( 2 ),
+                                                 :url    => "#" } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }
+
+-# With Badges
+:ruby
+    code = %{partial "./bootstrap/components/list-group",
+                      :locals => { :array => [ { :badge  => "14",
+                                                 :title  => lorem.words( 2 ),
+                                                 :url    => "#" },
+                                               { :active => true,
+                                                 :badge  => "14",
+                                                 :title  => lorem.words( 2 ),
+                                                 :url    => "#" } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "List Group With Badges" } }
+
+-# Contextual
+:ruby
+    code = %{partial "./bootstrap/components/list-group",
+                      :locals => { :array => [ { :title      => lorem.words( 2 ),
+                                                 :url        => "#",
+                                                 :contextual => "success" },
+                                               { :title      => lorem.words( 2 ),
+                                                 :url        => "#",
+                                                 :contextual => "danger" } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Contextual" } }
+
+-# Content
+:ruby
+    code = %{partial "./bootstrap/components/list-group",
+                      :locals => { :array => [ { :badge   => "14",
+                                                 :heading => lorem.words( 2 ),
+                                                 :text    => lorem.words( 20 ),
+                                                 :url     => "#" },
+                                               { :heading => lorem.words( 2 ),
+                                                 :text    => lorem.words( 20 ),
+                                                 :url     => "#" } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 4,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Content" } }
+
+-# Non-Linked
+:ruby
+    code = %{partial "./bootstrap/components/list-group",
+                      :locals => { :array => [ { :title => lorem.words( 2 ) },
+                                               { :title => lorem.words( 2 ) } ],
+                                   :list  => true }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 5,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Non-Linked" } }

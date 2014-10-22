@@ -1,0 +1,27 @@
+---
+author       : "Ian Warner"
+description  : "Coderwall"
+small        : "Coderwall"
+title        : "Coderwall"
+
+see :
+    - - "Coderwall API"
+      - "https://coderwall.com/api"
+
+todo :
+    - - "Move the JS and CSS out of the layout file"
+      - "Coderwall"
+      - "2014-02-24"
+      - { "context" : "info" }
+
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :tag  => "h2" }
+
+%section.coderwall{ :data => { :"coderwall-username"    => "iwarner",
+                               :"coderwall-orientation" => "horizontal" } }
+
+.clearfix

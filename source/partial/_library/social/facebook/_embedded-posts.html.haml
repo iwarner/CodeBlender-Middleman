@@ -1,0 +1,41 @@
+-##
+-# Facebook Embedded Posts
+-#
+-# Locals
+-#
+-# Usage
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/embedded-posts/
+-#
+-# @todo
+-##
+
+-# HREF
+- if ! locals[ :href ]
+    - href = "https://www.facebook.com/onlyasmile/posts/206206376248041"
+
+-# Type
+- if ! locals[ :type ]
+    - type = "html5"
+
+-# Debug
+-# = href
+-# = type
+
+-# HTML5
+- if type == "html5"
+
+    .fb-post{ :data => { :href => href } }
+
+    -# XFBML
+- elsif type == "xfbml"
+    XFBML
+
+    -# iFrame
+- elsif type == "iframe"
+    iFrame
+
+    -# URL
+- elsif type == "url"
+    URL

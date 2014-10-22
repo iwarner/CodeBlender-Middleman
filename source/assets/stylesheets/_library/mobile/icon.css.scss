@@ -1,0 +1,22 @@
+/**
+ * Icons
+ *
+ * @author Ian Warner <ian.warner@drykiss.com>
+ * @todo
+--------------------------------------------------- */
+
+// Icons
+//-------------------------------------------------
+i {
+
+    color     : $iconColour;
+    font-size : 36px;
+
+    // Icons
+    //---------------------------------------------
+    &:active, &.active {
+        color   : $iconActiveColour;
+        outline : 0;
+    }
+
+}

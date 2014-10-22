@@ -1,0 +1,60 @@
+-##
+-# Modal Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# If ID is not defined or Blank
+- if ! locals[ :id ]
+    - id = "myModal"
+
+-# Modal
+.modal{ :aria     => { :labelledby  => "#{ id }Label",
+                       :hidden      => "true",
+                       :describedby => "Overlay" },
+        :class    => locals[ :noAnimation ] ? false : "fade",
+        :id       => id,
+        :role     => :dialog,
+        :tabindex => "-1" }
+
+    -# Dialog
+    .modal-dialog{ :class => locals[ :size ] ? size : false }
+
+        -# Content
+        .modal-content{ :class => locals[ :contentClass ],
+                        :data  => locals[ :data ] ? data : false }
+
+            -# Header
+            - if ! locals[ :header ] ? true : false
+
+                .modal-header
+
+                    -# Close Button
+                    = partial "./bootstrap/css/button",
+                               :locals => { :extraClass => "close",
+                                            :data       => { :dismiss => "modal" },
+                                            :href       => "javascript:;",
+                                            :hidden     => true }
+
+                    -# Title
+                    - if locals[ :title ]
+
+                        -# Heading
+                        = partial "bootstrap/type/heading",
+                                   :locals => { :extraClass => "modal-title",
+                                                :id         => "#{id}Label",
+                                                :text       => title,
+                                                :tag        => "h4" }
+
+            -# Body
+            - if locals[ :body ]
+
+                .modal-body
+                    = body
+
+            -# Footer
+            - if locals[ :footer ]
+
+                -# Footer
+                .modal-footer
+                    = footer

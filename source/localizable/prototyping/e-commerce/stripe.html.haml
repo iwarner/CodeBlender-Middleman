@@ -1,0 +1,42 @@
+---
+author       : "Ian Warner"
+description  : "Scaffolding Stripe partial"
+small        : "Stripe"
+title        : "Scaffolding Stripe partial"
+
+see :
+    - - "Simple Cart"
+      - "https://github.com/wojodesign/simplecart-js"
+    - - "Stripe"
+      - "https://stripe.com/gb"
+    - - "Stripe JS"
+      - "https://stripe.com/docs/stripe.js"
+
+todo :
+    - - "Handle the Click event in the usual on manner"
+      - "Stripe"
+      - "2014-02-15"
+    - - "Make the Key and Image Global variables"
+      - "Stripe"
+      - "2014-02-15"
+    - - "Handler needs to get the details of the products from date- fields"
+      - "Stripe"
+      - "2014-02-15"
+
+---
+
+-# Default Alert
+:ruby
+    code = %{partial "bootstrap/components/thumbnails",
+           :locals => { :array => [ { :image     => { :data     => "holder.js/252x100" },
+                                      :thumbnail => { :caption  => "Caption 1",
+                                                      :title      => "Product 1" },
+                                      :button    => { :content    => "Buy",
+                                                      :extraClass => "customButton",
+                                                      :href       => "#" } } ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "Stripe Test",
+                                      :text  => "Default" } }

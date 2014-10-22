@@ -1,0 +1,56 @@
+---
+
+author      : "DryKISS"
+description : :metaDescStyleColour
+small       : :metaSmallStyleColour
+title       : :metaTitleStyleColour
+
+see :
+    - - "Colour Lovers"
+      - "http://www.colourlovers.com/"
+    - - "Colour Contrasts"
+      - "http://snook.ca/technical/colour_contrast/colour.html"
+    - - "Calculating Contrasts"
+      - "http://24ways.org/2010/calculating-color-contrast/"
+
+todo :
+    - - "Add in the contrast colours to this page"
+      - "Colours"
+      - "2014-05-22"
+      - { "context" : "info" }
+    - - "Add in the percentage opaciity to this set also"
+      - "Colours"
+      - "2014-05-22"
+      - { "context" : "info" }
+
+---
+
+-# Primary
+= partial "./bootstrap/type/heading",
+           :locals => { :text => "Primary",
+                        :tag  => "h2" }
+
+-# Colours
+= partial "./bootstrap/components/thumbnails",
+           :locals => { :array => [ { :image     => { :data => holder( "179x179", "auto", "Visa Primary Blue", false, "#0023A0:#fff" ) },
+                                      :thumbnail => { :caption => "<b>HEX:</b> #0023A0<br><b>RGB:</b> 0, 35, 160" } },
+                                    { :image     => { :data => holder( "179x179", "auto", "Visa Primary Gold", false, "#ffa000:#000" ) },
+                                      :thumbnail => { :caption => "<b>HEX:</b> #FFA000<br><b>RGB:</b> 255, 160, 0" } },
+                                    { :image     => { :data => holder( "179x179", "auto", "Visa Light Blue", false, "#f2f4fa:#000" ) },
+                                      :thumbnail => { :caption => "<b>HEX:</b> #F2F4FA<br><b>RGB:</b> 242, 244, 250" } } ],
+                        :columns => "col-xs-12 col-sm-6 col-md-3" }
+
+-# Secondary
+= partial "./bootstrap/type/heading",
+           :locals => { :text => "Secondary",
+                        :tag  => "h2" }
+
+-# Colours
+= partial "./bootstrap/components/thumbnails",
+           :locals => { :array => [ { :image     => { :data => holder( "179x179", "auto", "Visa Aqua Light", false, "#BCDFE9:#fff" ) },
+                                      :thumbnail => { :caption => "<b>HEX:</b> #BCDFE9<br><b>RGB:</b> 188, 223, 233" } },
+                                    { :image     => { :data => holder( "179x179", "auto", "Visa Aqua Mid", false, "#18A29C:#000" ) },
+                                      :thumbnail => { :caption => "<b>HEX:</b> #18A29C<br><b>RGB:</b> 24, 162, 156" } },
+                                    { :image     => { :data => holder( "179x179", "auto", "Visa Aqua Dark", false, "#007769:#000" ) },
+                                      :thumbnail => { :caption => "<b>HEX:</b> #007769<br><b>RGB:</b> 0, 119, 105" } } ],
+                        :columns => "col-xs-12 col-sm-6 col-md-3" }

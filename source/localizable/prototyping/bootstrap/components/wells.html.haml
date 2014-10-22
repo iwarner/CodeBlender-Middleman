@@ -1,0 +1,53 @@
+---
+
+author      : "DryKISS"
+description : "Use the well as a simple effect on an element to give it an inset effect."
+small       : ""
+title       : "Wells"
+
+see :
+    - - "Bootstrap Wells"
+      - "http://getbootstrap.com/components/#wells"
+
+locals :
+    - - "text"
+      - "string"
+      - "required"
+      - "Content of the Well"
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./bootstrap/components/wells",
+                      :locals => { :text => "Well" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }
+
+-# Large
+:ruby
+    code = %{partial "./bootstrap/components/wells",
+                      :locals => { :extraClass => "well-lg",
+                                   :text       => "Well" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Large" } }
+
+-# Small
+:ruby
+    code = %{partial "./bootstrap/components/wells",
+                      :locals => { :extraClass => "well-sm",
+                                   :text       => "Well" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Small" } }

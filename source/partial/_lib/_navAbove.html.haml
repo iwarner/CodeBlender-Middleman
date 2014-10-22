@@ -1,0 +1,20 @@
+-##
+-# Nav Above
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+%section.navAbove
+
+    .container
+
+        -# Title
+        = partial "./bootstrap/type/heading",
+                   :locals => { :extraClass => "pull-right noMargin",
+                                :tag        => "h3",
+                                :text       => :navAboveTitle }
+
+        -# Link to Home Page
+        = link_to( data.config.navBrandLink ) do
+
+            TEAM ONE

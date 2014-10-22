@@ -1,0 +1,101 @@
+##
+# English Locale File
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+# English
+en:
+
+    # Nav Above
+    navAboveTitle : "Style Guide"
+
+    # Navigation
+    navigation :
+
+        # Home
+        - text : "Home"
+          url  : "/index.html"
+
+        # Digital Identity
+        - text : "Digital Identity"
+          url  : "/style-guide/brand/index.html"
+
+        # Prototyping
+        - text : "Prototyping"
+          url  : "/prototyping/index.html"
+
+        # Knowledge Base
+        - dropdown : "Knowledge Base"
+          items    :
+            - text : "Articles"
+              url  : "/prototyping/blog/articles.html"
+            - text : "Tags"
+              url  : "/prototyping/blog/tags.html"
+
+    # Home
+    home :
+
+        metaTitle       : "UX Portal"
+        metaSmall       : "Creative and Development portal"
+        metaDescription : "Creative and Development portal"
+
+        jumbotronTitle : "Digital Identity"
+        jumbotronDesc  : >
+            The Brand represents everything we stand for. It is the total sum of
+            many parts, including visual elements of the brand, our services and
+            products, and our stakeholders' perceptions and expectations of us.
+
+    # Style Guide
+    styleGuide :
+
+        metaTitle       : "Style Guidelines"
+        metaSmall       : "Microsite of UX/UI guidelines"
+        metaDescription : "Use this as an overall visual reference for componenets."
+
+        metaTitleStyleColour : "Component Overview"
+        metaSmallStyleColour : "Directory of components"
+        metaDescStyleColour  : "UX Portal..."
+
+    # Contact
+    contact :
+
+        metaTitle       : "Contact"
+        metaSmall       : "Generic contact form, map and details."
+        metaDescription : >
+            Contact form, address and location map for the business.
+
+        headingText  : "Please contact us."
+        headingSmall : "To reserve a booking please complete the form below or call the number."
+
+    # Copyright
+    copyright : "All rights reserved."
+
+    # Footer
+    footer    :
+
+        # Column 1
+        - title       : "About"
+          icon        : "fa-info"
+          description : |
+            The UX Portal is a destination for
+
+        # Column 2
+        - title       : "What We Do"
+          icon        : "fa-cogs"
+          description : |
+            These panels have a minimum height
+
+        # Column 3
+        - title       : "Social"
+          icon        : "fa-facebook"
+          description : |
+            Background image is automatically drawn from footer/background.png
+
+        # Column 4
+        - title       : "Contact"
+          icon        : "fa-phone"
+          description : |
+            Icons and extra classes are assigned within the data file also

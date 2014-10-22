@@ -1,0 +1,42 @@
+-##
+-# Core Meta Tags
+-#
+-# Tags can be set via the current_page.data elements or through content yield the
+-# latter is especially useful for localized pages where the front matter will
+-# change dynamically for the language.
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Title
+%title= string current_page.data.title
+
+-# Encoding
+%meta{ :charset => "utf-8" }
+
+-# Meta Tags for IE
+%meta{ :content      => "IE=edge,chrome=1",
+       :"http-equiv" => "X-UA-Compatible" }
+
+-# Description
+%meta{ :name    => "description",
+       :content => string( current_page.data.description ) }
+
+-# Keywords
+%meta{ :name    => "keywords",
+       :content => string( current_page.data.description )  }
+
+-# Author
+%meta{ :name    => "author",
+       :content => current_page.data.author }
+
+-# Robots
+%meta{ :name    => "robots",
+       :content => "index,follow,archive" }
+
+-# Robots
+%meta{ :name    => "csrf-token",
+       :content => Random.new_seed }
+
+-# Canonical URL
+-# <link rel="canonical" href="http://www.example.com/permalink" />

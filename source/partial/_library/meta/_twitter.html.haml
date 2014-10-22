@@ -1,0 +1,24 @@
+-##
+-# Twitter Meta Tags
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Site
+%meta{ :name    => "twitter:site",
+       :content => data.config.twitter.account }
+
+%meta{ :name    => "twitter:card",
+       :content => "summary" }
+
+%meta{ :name    => "twitter:creator",
+       :content => data.config.twitter.account }
+
+%meta{ :name    => "twitter:title",
+       :content => string( "title" ) }
+
+%meta{ :name    => "twitter:description",
+       :content => string( "description" ) }
+
+%meta{ :name    => "twitter:image",
+       :content => "" }

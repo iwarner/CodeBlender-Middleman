@@ -1,0 +1,26 @@
+---
+
+author       : "DryKISS"
+description  : "Resources provides a useful element to add to a page that displays
+                a list of user defined links"
+small        : "Useful sites and tutorials"
+title        : "Resources"
+
+locals :
+    - - "array"
+      - "array"
+      - "optional"
+      - "Overides the current_page.data.see"
+
+---
+
+-# Bar
+:ruby
+    code = %{partial "./scaffolding/resources",
+                      :locals => { :array => [["Pusher", "http://pusher.com/"]] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

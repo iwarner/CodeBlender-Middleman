@@ -1,0 +1,28 @@
+-##
+-# Blog Image
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- image = current_page.data.image
+
+-# Check if current page has an image
+- if image
+
+    -# Look for an array
+    - if image.is_a?( Array )
+
+        -# Carousel
+        = partial "./bootstrap/javascript/carousel",
+                   :locals => { :id        => "carousel1",
+                                :array     => current_page.data.image,
+                                :indicator => :true }
+
+    - elsif ! image.is_a?( Array )
+
+        -# Image
+        = partial "./bootstrap/css/image",
+                   :locals => { :alt        => string( current_page.data.title ),
+                                :src        => current_page.data.image,
+                                :extraClass => "img-responsive" }

@@ -1,0 +1,16 @@
+-##
+-# Popover Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Button
+= partial "./bootstrap/css/button",
+           :locals => { :content    => locals[ :content ],
+                        :context    => "primary",
+                        :container  => "body",
+                        :extraClass => "popMe",
+                        :placement  => locals[ :placement ] ? placement : "auto",
+                        :popBody    => locals[ :popBody ],
+                        :popTitle   => locals[ :popTitle ],
+                        :toggle     => "popover" }

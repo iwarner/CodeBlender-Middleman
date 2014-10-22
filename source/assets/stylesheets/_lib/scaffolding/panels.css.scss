@@ -1,0 +1,51 @@
+//
+// Panels
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//--------------------------------------------------------------------------- //
+
+// Panel
+//--------------------------------------------------------------------------- //
+.panel {
+
+    // Heading
+    //----------------------------------------------------------------------- //
+    .panel-heading {
+
+        // Overflow Ellipsis on Title
+        //------------------------------------------------------------------- //
+        &.ellipsis .panel-title {
+            white-space   : nowrap;
+            width         : 100%;
+            overflow      : hidden;
+            text-overflow : ellipsis;
+        }
+
+    }
+
+    // Panel Body
+    //----------------------------------------------------------------------- //
+    .panel-body {
+
+        background-size : contain;
+
+        &.table4 {
+            background : url( ?holder.js/400x200/auto ) no-repeat center;
+        }
+
+    }
+
+    // Footer
+    //----------------------------------------------------------------------- //
+    .panel-footer {
+        min-height : 80px;
+    }
+
+    // Small
+    //----------------------------------------------------------------------- //
+    small {
+        color     : #aaa;
+        font-size : 16px;
+    }
+
+}

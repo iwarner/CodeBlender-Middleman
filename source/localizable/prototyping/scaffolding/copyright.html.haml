@@ -1,0 +1,97 @@
+---
+
+author      : "DryKISS"
+description : "Provides a standard below footer bar that contains the copyright information for your site. Can be customised with a Top Arrow, extra links and consistent year."
+small       : "Copyright"
+title       : "Scaffolding copyright partial"
+
+list :
+   - text : "Terms & Conditions"
+     url  : "terms"
+   - text : "Privacy Policy"
+     url  : "privacy"
+   - text : "Support"
+     url  : "support"
+
+todo :
+    - - "Should have a good Margin underneath the Footer"
+      - "Copyright"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Should allow for this to be stuck to the bottom of the page"
+      - "Copyright"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Should this be in a section"
+      - "Copyright"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "What aria role should it take"
+      - "Copyright"
+      - "2014-02-12"
+      - { "context" : "info" }
+
+locals :
+    - - "array"
+      - "array"
+      - "optional"
+      - "Array of extra links"
+    - - "center"
+      - "bool"
+      - "optional"
+      - "Whether to center the text for the copyright"
+    - - "fluid"
+      - "bool"
+      - "optional"
+      - "Whether the container is fluid or normal"
+    - - "noYear"
+      - "bool"
+      - "optional"
+      - "Flag to show the year or not"
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./scaffolding/copyright",
+                      :locals => { :fluid => true }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :text => "Default" } }
+
+-# Copyright centered text
+:ruby
+    code = %{partial "./scaffolding/copyright",
+                      :locals => { :center => true,
+                                   :fluid  => true }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :text => "Copyright centered text" } }
+
+-# Copyright Extra Links
+:ruby
+    code = %{partial "./scaffolding/copyright",
+                      :locals => { :array  => current_page.data.list,
+                                   :center => true,
+                                   :fluid  => true }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :text => "Copyright Extra Links" } }
+
+-# No Year
+:ruby
+    code = %{partial "scaffolding/copyright",
+                     :locals => { :copyright => "Local String Inserted",
+                                  :fluid     => true,
+                                  :noYear    => true }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 4,
+                        :code    => code,
+                        :heading => { :text => "No Year" } }

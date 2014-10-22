@@ -1,0 +1,34 @@
+---
+
+author      : "DryKISS"
+description : "Easily highlight new or unread items by adding a to links,
+               Bootstrap navs, and more."
+small       : ""
+title       : "Badges"
+
+see :
+    - - "Bootstrap Badges"
+      - "http://getbootstrap.com/components/#badges"
+
+locals :
+    - - "content"
+      - "string"
+      - "required"
+      - "Text content for the badge"
+
+---
+
+%p
+    Badges won't self collapse in Internet Explorer 8 because it lacks support
+    for the :empty selector.
+
+-# Badge
+:ruby
+    code = %{partial "./bootstrap/components/badges",
+               :locals => { :content => "88" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

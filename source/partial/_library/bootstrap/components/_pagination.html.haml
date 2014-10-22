@@ -1,0 +1,48 @@
+-##
+-# Pagination
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Pagination
+%ul.pagination
+
+    / -# Previous Page
+    / - if locals[ :prevPage ]
+    /     %li
+    /         = link_to string "Prev", prevPage
+
+    -# Loop through the number of pages
+    - ( 1..locals[ :pages ].to_i ).to_a.each do | page |
+
+        -# Active
+        - if locals[ :pageNo ] == page
+
+            -# Active List
+            %li.active
+                %span
+                    = page
+
+        - else
+
+            %li
+
+                -# Create Variables
+                - url    = current_page.url
+                - newStr = url.sub( /\d+\/$/, page.to_s )
+
+                -# Page Number 1
+                - if page == 1
+                    - newStr = url.sub( /page\/\d\/$/, "" )
+
+                -# Page Matches Page/digit
+                - if ! url.match( /page\/\d+\/$/ )
+                    - newStr = "#{ url }page/#{ page }"
+
+                -# Create Link
+                = link_to page, newStr
+
+    -# Next Page
+    - if locals[ :nextPage ]
+        %li
+            = link_to string( "Next" ), nextPage

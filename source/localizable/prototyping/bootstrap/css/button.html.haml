@@ -1,0 +1,155 @@
+---
+
+author      : "DryKISS"
+description : ""
+small       : ""
+title       : "Button"
+
+see :
+    - - "Bootstrap Buttons"
+      - "http://getbootstrap.com/css/#buttons"
+    - - "Button Generator"
+      - "http://www.plugolabs.com/twitter-bootstrap-button-generator-3/"
+
+todo :
+    - - "Complete the other buttons actions on bootstrap"
+      - "Button"
+      - "2014-02-12"
+      - { "context" : "info" }
+
+locals :
+    - - "active"
+      - "bool"
+      - "optional"
+      - "Whether button is in active state"
+    - - "block"
+      - "bool"
+      - "optional"
+      - "true or false Default: false"
+    - - "context"
+      - "string"
+      - "optional"
+      - "default, primary, success, info, warning, danger, link"
+    - - "content"
+      - "string"
+      - "required"
+      - "Content of the button"
+    - - "disabled"
+      - "bool"
+      - "optional"
+      - "Whether button is in disabled state"
+    - - "dropdown"
+      - "bool"
+      - "optional"
+      - "Button is a dropdown Button add correct elements"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "Extra Classes"
+    - - "href"
+      - "string"
+      - "optional"
+      - "HREF for an A Tag"
+    - - "id"
+      - "string"
+      - "optional"
+      - "ID for the button"
+    - - "icon"
+      - "string"
+      - "optional"
+      - "Whether to append an icon to the button"
+    - - "size"
+      - "string"
+      - "optional"
+      - "Either : xs, sm, lg or blank"
+    - - "toggle"
+      - "string"
+      - "optional"
+      - "Usually either dropdown or modal"
+
+---
+
+-# Vanilla Button
+:ruby
+    code = %{partial "./bootstrap/css/button",
+               :locals => { :content => "Default" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "Vanilla button",
+                                      :text  => "Default" } }
+
+-# Link Button
+:ruby
+    code = %{partial "./bootstrap/css/button",
+               :locals => { :content => "Default",
+                            :href    => "#" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :small => "Changes button tag to a tag",
+                                      :text  => "Link Button" } }
+
+-# Button with Context
+:ruby
+    code = %{partial "./bootstrap/css/button",
+               :locals => { :content => "Primary",
+                            :context => "primary" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :small => "Primary context change",
+                                      :text  => "Primary" } }
+
+-# Size variation with Success Context
+:ruby
+    code = %{partial "./bootstrap/css/button",
+               :locals => { :content => "Success large size",
+                            :context => "success",
+                            :size    => "lg" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 4,
+                        :code    => code,
+                        :heading => { :small => "Success large Size",
+                                      :text  => "Large Button" } }
+
+-# Small Block Info Button
+:ruby
+    code = %{partial "./bootstrap/css/button",
+               :locals => { :block   => true,
+                            :content => "Small block info button",
+                            :context => "info",
+                            :size    => "sm" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 5,
+                        :code    => code,
+                        :heading => { :small => "Small block info button",
+                                      :text  => "Small block info button" } }
+
+-# Icon Button
+:ruby
+    code = %{partial "./bootstrap/css/button",
+               :locals => { :context => "info",
+                            :icon    => "fa-times" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 6,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Icon Button" } }
+
+-# Image Button
+:ruby
+    code = %{partial "./bootstrap/css/button",
+               :locals => { :image => { :data => holder( "32x32" ) }}}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 7,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Image Button" } }

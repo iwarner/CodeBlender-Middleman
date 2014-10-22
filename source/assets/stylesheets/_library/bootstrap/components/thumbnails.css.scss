@@ -1,0 +1,73 @@
+//
+// Thumbnails
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Thumbnail
+//----------------------------------------------------------------------------//
+.thumbnail {
+
+    position : relative;
+
+    // No Border on the Thumb
+    //------------------------------------------------------------------------//
+    &.noBorder {
+        border        : 1px solid #e8e8e8;
+        border-radius : 0;
+        padding       : 0;
+    }
+
+    // Zoom Overlay
+    //------------------------------------------------------------------------//
+    .zoomix {
+
+        background : #000;
+        height     : 100%;
+        left       : 0;
+        opacity    : 0;
+        position   : absolute;
+        top        : 0;
+        width      : 100%;
+        z-index    : 90;
+        @include transition( all 0.3s ease-in-out );
+        @include transform( scale( 0 ) );
+
+        // Icon
+        //--------------------------------------------------------------------//
+        .fa-search {
+            color       : #fff;
+            font-size   : 25px;
+            left        : 50%;
+            line-height : 25px;
+            margin      : -12px 0 0 -12px;
+            position    : absolute;
+            top         : 50%;
+        }
+    }
+
+    // Styled
+    //------------------------------------------------------------------------//
+    &.styled {
+
+        h3 {
+            color     : #6787ad;
+            font-size : 16px;
+            margin    : 10px;
+        }
+
+        p {
+            font-size   : 18px;
+            line-height : 22px
+        }
+    }
+
+    // Caption
+    //------------------------------------------------------------------------//
+    .caption {
+        &.minHeight {
+            min-height : 150px;
+        }
+    }
+
+}

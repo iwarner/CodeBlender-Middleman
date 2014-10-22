@@ -1,0 +1,31 @@
+-##
+-# Jumbotron
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Jumbotron
+.jumbotron{ :class => locals[ :extraClass ] ? extraClass : false }
+
+    -# Bootstrap Container
+    .container
+
+        .row
+
+            %div{ :class => locals[ :columns ] ? columns : "col-md-7" }
+
+                -# Title
+                - if locals[ :title ]
+
+                    %h1
+                        = string title
+
+                        -# Small Text
+                        - if locals[ :small ]
+                            %small{ :class => locals[ :quotes ] ? "quotes" : false }
+                                = string small
+
+                -# Description
+                - if locals[ :description ]
+                    %p
+                        = string description

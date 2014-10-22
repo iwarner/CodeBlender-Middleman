@@ -1,0 +1,39 @@
+---
+
+author      : "DryKISS"
+description : ""
+small       : ""
+title       : "SignIn"
+
+see :
+    - - "Sign In"
+      - "https://developers.google.com/+/web/signin/"
+    - - "Button Attributes"
+      - "https://developers.google.com/+/web/signin/reference#button_attr_scope"
+    - - "Javascript QuickStart"
+      - "https://github.com/googleplus/gplus-quickstart-javascript"
+
+---
+
+#gConnect
+    #signInButton
+
+#authOps{ :style => "display:none" }
+
+    %button#signOut
+        Sign Out
+
+    %button#disconnect
+        Disconnect
+
+    %h2
+        User's profile information
+    #profile
+
+    %h2
+        User's friends that are visible to this app
+    #visiblePeople
+
+    %h2
+        Authentication Logs
+    #authResult

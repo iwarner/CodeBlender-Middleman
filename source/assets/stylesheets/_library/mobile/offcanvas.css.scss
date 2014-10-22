@@ -1,0 +1,127 @@
+//
+// Off Canvas
+//
+//--------------------------------------------------------------------------- //
+@media screen and (max-width: 1024px) {
+
+    // Menu nav
+    //----------------------------------------------------------------------- //
+    .row-offcanvas .navbar-collapse, .row-offcanvas-right .navbar-collapse {
+        display      : block;
+        margin-left  : 0;
+        margin-right : 0;
+        position     : absolute;
+        width        : 273px;
+    }
+
+    #navbar .navbar-header {
+        position : absolute;
+        width : 100%;
+    }
+
+
+    .row-offcanvas-right .navbar-collapse {
+        left : 100%
+    }
+
+    .navbar-collapse {
+        padding-left  : 0;
+        padding-right : 0;
+    }
+
+    .sidebar-offcanvas .navbar-collapse {
+        background-color : #1A1F71;
+        padding-left     : 15px;
+    }
+
+    .yamm .dropdown.yamm-fw .dropdown-menu,
+    .sidebar-offcanvas .dropdown .dropdown-menu {
+        display : block;
+        left : 100%;
+        top : 0;
+        width : 250px;
+    }
+
+    // Main container
+    //------------------------------------------------------------------------//
+    .main {
+        position : absolute;
+        width    : 100%;
+    }
+
+    // Hamburger (nav bars)
+    //------------------------------------------------------------------------//
+    .hamburger
+    {
+        display : block;
+        width   : 40px;
+        height  : 36px;
+        padding : 9px 10px;
+        // margin: 20px;
+        // position: fixed;
+        // z-index: 2;
+    }
+    // #hamburger:before,
+    // #hamburger:after,
+    // #hamburger span
+    // {
+    //     background: #fff;
+    //     content: '';
+    //     display: block;
+    //     width: 30px;
+    //     height: 4px;
+    //     position: absolute;
+    //     // left: 5px;
+    // }
+    // #hamburger:before
+    // {
+    //     top: 5px;
+    // }
+    // #hamburger:after
+    // {
+    //     bottom: 7px;
+    // }
+    // #hamburger span
+    // {
+    //     top: 50%;
+    //     margin-top: -3px;
+    // }
+
+    /* Hamburger animation */
+    .hamburger span
+    {
+        position            : absolute;
+        transition          : none 0.5s ease 0.5s;
+        transition-property : transform, top, bottom, left, opacity
+    }
+    .navbar-toggle.hamburger  .icon-bar + .icon-bar {
+        margin-top : 0;
+    }
+
+    .hamburger span.icon-bar:nth-child(2) {
+        top : 8px;
+    }
+    .hamburger span.icon-bar:nth-child(3) {
+        top : 16px;
+    }
+    .hamburger span.icon-bar:last-child {
+        top : 24px;
+    }
+
+    .active .hamburger span.icon-bar:nth-child(3)
+    {
+        // left: -50px;
+        opacity: 0;
+    }
+    .active .hamburger span.icon-bar:nth-child(2)
+    {
+        transform: rotate( 45deg );
+        top: 16px;
+    }
+    .active .hamburger span.icon-bar:last-child
+    {
+        transform: rotate( -45deg );
+        top: 17px;
+    }
+
+}

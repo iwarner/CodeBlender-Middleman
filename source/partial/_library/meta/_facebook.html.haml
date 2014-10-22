@@ -1,0 +1,56 @@
+-##
+-# Facebook Meta Tags
+-#
+-# Site Config
+-#     brand
+-#     url
+-#     facebookPageId
+-#
+-# Page Frontmatter
+-#     type
+-#     image
+-#     title
+-#     description
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- d = current_page.data
+
+-# Site Name
+%meta{ :content  => data.config.brand,
+       :property => "og:site_name" }
+
+-# Title
+%meta{ :content  => string( d.title ),
+       :itemprop => "name",
+       :property => "og:title" }
+
+-# Description
+%meta{ :content  => string( d.description ),
+       :itemprop => "name",
+       :name     => "description",
+       :property => "og:description" }
+
+-# Type
+%meta{ :content  => d.type,
+       :property => "og:type" }
+
+-# URL
+%meta{ :content  => data.config.url + request.path,
+       :itemprop => "url",
+       :property => "og:url" }
+
+-# Image
+%meta{ :content  => d.image,
+       :itemprop => "image",
+       :property => "og:image" }
+
+-# Facebook Page ID
+%meta{ :content  => data.config.facebookPageId,
+       :property => "fb:page_id" }
+
+-# Facebook App ID
+%meta{ :content  => data.config.facebookAppId,
+       :property => "fb:app_id" }

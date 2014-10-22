@@ -1,0 +1,37 @@
+-##
+-# Labels
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- extraClass = "label "
+
+-# Context
+- if locals[ :context ]
+    - extraClass += "label-" + context
+- else
+    - extraClass += "label-default"
+
+-# Capture HTML
+- captureHTML = capture_html do
+
+    -# Icon
+    - if locals[ :icon ]
+        %span.fa{ :class => icon }
+
+    -# Content
+    = string content
+
+-# Link
+- if locals[ :href ]
+
+    - link_to( locals[ :href ] ? href : false, :class => extraClass ? extraClass : false ) do
+        = captureHTML
+
+    -# Span
+- else
+
+    -# Span
+    %span{ :class => extraClass ? extraClass : false, :href  => locals[ :href ] ? href : false }
+        = captureHTML

@@ -1,0 +1,33 @@
+/**
+ * Seperators
+ *
+ * @author Ian Warner <ian.warner@drykiss.com>
+ *
+ * @todo   Pull out the seperators from all the widgets
+--------------------------------------------------- */
+
+// Variables
+// ------------------------------------------------
+$SeperatorBorderColor     : #d5d9df;
+
+// Horizontal Seperator
+// ------------------------------------------------
+.hs {
+
+    float         : right;
+    border-bottom : 1px solid $formLabelBorderColor;
+    // margin-bottom : 10px;
+    width         : 90%;
+
+    &.end {
+        margin-bottom : 20px;
+        width         : 320px;
+    }
+}
+
+// Vertical Seperator
+// Show Sepeartor after each icon
+// --------------------------------------------
+.vs {
+    border-right : 1px solid $wellBorderColor;
+}

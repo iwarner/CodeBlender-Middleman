@@ -1,0 +1,92 @@
+/**
+ * Well
+ *
+ * @author Ian Warner <ian.warner@drykiss.com>
+ * @todo   Rename this to Panel
+ * @todo   Create the inset element for this
+ * @todo   Should be able to have borders all around
+--------------------------------------------------- */
+
+// Variables
+//-------------------------------------------------
+$wellBackgroundColor : #fff !default;
+$wellHighlightColor  : #f6f6f9 !default;
+$wellBorderColor     : #d5d9df !default;
+
+// Well
+// ------------------------------------------------
+.w {
+
+    background-color : $wellBackgroundColor;
+    border-top       : 1px solid $wellBorderColor;
+    border-bottom    : 1px solid $wellBorderColor;
+    min-height       : 45px;
+    padding          : 9px 0;
+
+    // Flex Box
+    // --------------------------------------------
+    display                 : -webkit-flex;
+    -webkit-justify-content : space-around;
+
+    // Spacing
+    // --------------------------------------------
+    &.spacing {
+        margin-bottom : 10px;
+    }
+
+    // Collapsed
+    // --------------------------------------------
+    &.collapsed {
+        min-height : 0;
+    }
+
+    // Column Display for Flex Box
+    // --------------------------------------------
+    &.column {
+        -webkit-flex-direction : column;
+    }
+
+    // Inset
+    // --------------------------------------------
+    &.inset {
+        border-radius : 5px;
+        margin        : 10px;
+    }
+
+    // Border
+    // --------------------------------------------
+    &.border {
+        border : 1px solid $wellBorderColor;
+        // margin : 7px;
+    }
+
+    // Bottom Border Only
+    // --------------------------------------------
+    &.border-b {
+        border-top    : 0;
+        border-bottom : 1px solid $wellBorderColor;
+    }
+
+    // Bottom None
+    // --------------------------------------------
+    &.border-n {
+        border : 0;
+    }
+
+    // Highlight
+    // --------------------------------------------
+    &.highlight {
+        background : $wellHighlightColor;
+    }
+
+    // Sizes - Small, Default and Large
+    // --------------------------------------------
+    &.w-lg {
+        padding : 15px;
+    }
+
+    &.w-sm {
+        padding : 5px;
+    }
+
+}

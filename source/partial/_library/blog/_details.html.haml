@@ -1,0 +1,55 @@
+-##
+-# Blog Details Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Blog Footer
+.blogDetails
+
+    -# Date
+    %i.fa.fa-calendar
+    = current_page.data.date.strftime( '%Y-%m-%d' )
+
+    -# Author
+    |
+    %i.fa.fa-user
+    by
+    = current_page.data.author
+
+    -# Show Comments
+    - if locals[ :comments ]
+
+        -# Comments
+        |
+        %i.fa.fa-comment
+        X Comments
+
+    -# Like Button
+    = partial "social/facebook/like-button",
+               :locals => { :extraClass => "pull-right",
+                            :href       => data.config.url + current_page.url,
+                            :layout     => "button_count",
+                            :share      => "false" }
+
+    %hr
+
+    -# Read More Button
+    - if locals[ :more ]
+        .pull-right
+            = link_to "Read More", "/current_page.url", class: "btn btn-primary btn-mini"
+
+    -# Tags
+    .tags
+
+        -# Loop through tags
+        - current_page.data.tags.each do | tag |
+
+            -# Label
+            = partial "./bootstrap/components/label",
+                       :locals => { :context => "primary",
+                                    :content => tag,
+                                    :href    => tag_path( tag ),
+                                    :icon    => "fa-tag" }
+
+.clearfix

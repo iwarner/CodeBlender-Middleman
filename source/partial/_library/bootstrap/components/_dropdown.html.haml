@@ -1,0 +1,57 @@
+-##
+-# Dropdown
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- list   = locals[ :list ]
+- button = locals[ :button ]
+
+-# Capture the List Content
+- capture = capture_html do
+
+    -# Check type for DropDown or Button
+    - if locals[ :type ] == "dropdown" || locals[ :type ] == "btn-group"
+
+        -# Create Locals Button if its not created
+        - if ! button
+            - button = {}
+
+        -# Add defaults for Dropdown Button
+        - button[ :dropdown ] = true
+        - button[ :content ]  = locals[ :title ]
+        - button[ :toggle ]   = "dropdown"
+
+        -# Button Partial
+        = partial "./bootstrap/css/button",
+                   :locals => button
+
+        -# If NavBar
+    - else
+
+        -# Link To
+        = link_to( "#", :class => "dropdown-toggle", :data => { :toggle => "dropdown" } ) do
+
+            -# Dropdown Title
+            = string locals[ :title ]
+
+            -# Icon or Image - overide in CSS
+            %b.caret
+
+    -# List Partial
+    = partial "./bootstrap/type/list",
+               :locals => list
+
+-# Dropdown
+- if locals[ :type ] == "dropdown" || locals[ :type ] == "btn-group"
+
+    %div{ :class => locals[ :extraClass ] ? extraClass : false }
+        = capture
+
+- else
+
+    %ul.nav.navbar-nav{ :class => locals[ :extraClass ] ? extraClass : false }
+
+        %li.dropdown{ :class => locals[ :dropDownClass ] ? dropDownClass : false }
+            = capture

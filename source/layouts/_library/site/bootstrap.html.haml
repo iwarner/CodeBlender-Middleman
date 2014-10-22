@@ -1,0 +1,104 @@
+-##
+-# Bootstrap
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- locale = I18n.locale.to_s
+- d      = current_page.data
+- dc     = data.config
+
+-# Wrapper
+!!! 5
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7]    <html class="no-js lt-ie9 lt-ie8">
+/[if IE 8]    <html class="no-js lt-ie9">
+<!--[if gt IE 8]><!-->
+%html{ :class      => "no-js",
+       :lang       => locale,
+       :itemscope  => true,
+       :itemtype   => "http://schema.org/WebPage",
+       :manifest   => dc.manifest     ? "/offline.manifest"    : false,
+       :"xmlns:fb" => dc.metaFacebook ? "http://ogp.me/ns/fb#" : false,
+       :"xmlns:og" => dc.metaFacebook ? "http://ogp.me/ns#"    : false }
+    <!--<![endif]-->
+
+    %head
+
+        -# Core Meta Tags
+        - if dc.metaCore
+            = partial "./meta/core"
+
+        -# Mobile Meta Tags
+        - if dc.metaMobile
+            = partial "./meta/mobile"
+
+        -# Dublin Core Meta Tags
+        - if dc.metaDublin
+            = partial "./meta/dublin"
+
+        -# Facebook Meta Tags
+        - if dc.metaFacebook
+            = partial "./meta/facebook"
+
+        -# Twitter Meta Tags
+        - if dc.metaTwitter
+            = partial "./meta/twitter"
+
+        -# Google Meta Tags
+        - if dc.metaGoogle
+            = partial "./meta/google"
+
+        -# Favicon and Touch Icons
+        = partial "./meta/icon-fav"
+        = partial "./meta/icon-touch"
+
+        -# Feed XML
+        - if dc.feed
+            = partial "./meta/feed"
+
+        -# Main Stylesheet
+        -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
+        = stylesheet_link_tag :all, :media => "all"
+
+        -# Process Head Content from Pages
+        - if content_for? :siteHead
+            = yield_content :siteHead
+
+        -# Google Analytics
+        - if dc.googleAnalytics
+            = partial "./google/analytics"
+
+        -# Modernizr
+        - if dc.modernizr
+            = javascript_include_tag :head
+
+    -# Body with Page Class
+    %body{ :class         => "#{ page_classes } #{ current_page.data.bodyClass }",
+           :data          => data.config.bodySpy ? data.config.bodySpy : false,
+           :"data-lang"   => locale,
+           :"data-locale" => ( ! dc.facebookLocale.blank? ) ? dc.facebookLocale[ locale ] : false }
+
+        -# Facebook Root - Requires an AppID
+        - if dc.facebookAppId
+            #fb-root
+
+        -# Yield
+        = yield
+
+        -# Configuration
+        - if dc.configuration
+            = partial "./scaffolding/configuration"
+
+        -# Cordova
+        - if build? and dc.cordova
+            %script{ :src => "cordova.js" }
+
+        -# JavaScript
+        -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
+        = javascript_include_tag :all
+
+        -# Initialize JS
+        :coffee
+            App.initialize()

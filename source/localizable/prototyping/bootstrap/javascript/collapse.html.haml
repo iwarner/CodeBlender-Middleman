@@ -1,0 +1,45 @@
+---
+
+author      : "DryKISS"
+description : "Get base styles and flexible support for collapsible components like accordions and navigation."
+small       : "Simple accordions"
+title       : "Collapse Partial"
+
+see :
+    - - "Bootstrap Collapse"
+      - "http://getbootstrap.com/javascript/#collapse"
+
+todo :
+    - - "Make the whole section a link (PP: DONE, 2014-08-28)"
+      - "Collapse"
+      - "2014-02-12"
+    - - "Change H4 Tags to partials"
+      - "Collapse"
+      - "2014-02-12"
+
+locals :
+    - - "array"
+      - "array"
+      - "required"
+      - "Array of panels"
+    - - "id"
+      - "string"
+      - "optional"
+      - "Accordion ID defaults to accordion"
+    - - "openIn"
+      - "integer"
+      - "optional"
+      - "Open the accordian at index (0...)"
+
+---
+
+-# Collapse
+:ruby
+    code = %{partial "./bootstrap/javascript/collapse",
+            :locals => { :openIn  => 0 } }
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

@@ -1,0 +1,30 @@
+---
+
+author      : "DryKISS"
+description : "Abstract object styles for building various types of components
+               (like blog comments, Tweets, etc) that feature a left- or
+               right-aligned image alongside textual content."
+small       : ""
+title       : "Media"
+
+see :
+    - - "Bootstrap Media"
+      - "http://getbootstrap.com/components/#media"
+
+todo :
+    - - "Need to code this up - accepting an array to produce the items - hardcoded at the moment"
+      - "Media"
+      - "2014-06-27"
+      - { "context" : "danger" }
+
+---
+
+-# Media
+:ruby
+    code = %{partial "./bootstrap/components/media"}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

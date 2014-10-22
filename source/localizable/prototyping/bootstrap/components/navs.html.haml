@@ -1,0 +1,96 @@
+---
+
+author      : "DryKISS"
+description : "Navs available in Bootstrap have shared markup, starting with the
+               base .nav class, as well as shared states. Swap modifier classes
+               to switch between each style."
+small       : "Tabs or Pills navigation with content areas"
+title       : "Navs"
+
+see :
+    - - "Bootstrap Navs"
+      - "http://getbootstrap.com/components/#nav"
+    - - "Togglable Tabs"
+      - "http://getbootstrap.com/javascript/#tabs"
+
+todo :
+    - - "Add the options for the Togglable tabs"
+      - "Navs"
+      - "2014-05-13"
+      - { "context" : "warning" }
+
+locals :
+    - - "active"
+      - "string"
+      - "optional"
+      - "Active Element - defaults to first in Array"
+    - - "array"
+      - "array"
+      - "required"
+      - "Required - Tab Names - [ { :path => \"\", :name => \"\" } ]"
+    - - "pills"
+      - "bool"
+      - "optional"
+      - "Pills or tabs  - Default : tabs"
+    - - "stacked"
+      - "bool"
+      - "optional"
+      - "Stack - Default : false"
+    - - "toggle"
+      - "bool"
+      - "optional"
+      - "Toggle tab sections - used in Javascript Tabs"
+
+---
+
+-# Tabs
+:ruby
+    code = %{partial "./bootstrap/components/navs",
+               :locals => { :array => [ { :path => "#", :name => "Details" },
+                                        { :path => "#", :name => "Download"} ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Tabs" } }
+
+-# Pills
+:ruby
+    code = %{partial "./bootstrap/components/navs",
+               :locals => { :pills => true,
+                            :array => [ { :path => "#", :name => "Details" },
+                                        { :path => "#", :name => "Download"} ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Pills" } }
+
+-# Stackable Pills
+:ruby
+    code = %{partial "./bootstrap/components/navs",
+               :locals => { :pills      => true,
+                            :extraClass => "nav-stacked",
+                            :array  => [ { :path => "#", :name => "Details" },
+                                         { :path => "#", :name => "Download"} ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Stackable Pills" } }
+
+-# Togglable tabs tab.js
+:ruby
+    code = %{partial "./bootstrap/components/navs",
+               :locals => { :toggle => true,
+                            :array  => [ { :path => "#", :name => "Details" },
+                                         { :path => "#", :name => "Download"} ] }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :small => "tab.js",
+                                      :text  => "Togglable tabs" } }

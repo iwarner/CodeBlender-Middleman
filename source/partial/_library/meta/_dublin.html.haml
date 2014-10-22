@@ -1,0 +1,35 @@
+-##
+-# Dublin Core Meta Tags
+-#
+-# Tags can be set via the current_page.data elements or through content yield
+-# the latter is especially useful for localized pages where the front
+-# matter will change dynamically for the language.
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://dublincore.org/documents/dces/
+-# @see    http://www.dublincoregenerator.com/generator.html
+-# @todo Should array the expected content and generate this correctly
+-# @todo Check that the Dublin core rules are being applied
+-##
+
+-# Variables
+- d = current_page.data
+
+%link{ :rel => "schema.DC",      :href => "http://purl.org/dc/elements/1.1/" }
+%link{ :rel => "schema.DCTERMS", :href => "http://purl.org/dc/terms/" }
+
+%meta{ :name => "DC.Title",       :"xml:lang" => "en",                  :content => string( d.title ) }
+%meta{ :name => "DC.Identifier",  :schema => "DCterms:URI",             :content => data.config.url + request.path }
+%meta{ :name => "DC.Format",      :schema => "DCterms:IMT",             :content => "text/html" }
+%meta{ :name => "DC.Creator",                                           :content => d.author }
+%meta{ :name => "DC.Subject",     :"xml:lang" => "en",                  :content => string( d.subject ) }
+%meta{ :name => "DC.Publisher",                                         :content => data.config.publisher }
+%meta{ :name => "DC.Publisher.Address",                                 :content => data.config.publisherAddress }
+%meta{ :name => "DC.Contributor",                                       :content => d.author }
+%meta{ :name => "DC.Date",        :scheme => "ISO8601",                 :content => d.date }
+%meta{ :name => "DC.Type",                                              :content => "text/html" }
+%meta{ :name => "DC.Description", :"xml:lang" => "en",                  :content => string( d.description ) }
+%meta{ :name => "DC.Coverage",                                          :content => data.config.publisher }
+%meta{ :name => "DC.Rights",                                            :content => data.config.rights }
+%meta{ :name => "DC.Date.X-MetadataLastModified", :scheme => "ISO8601", :content => d.dateModified }
+%meta{ :name => "DC.Language",    :scheme => "dcterms:RFC1766",         :content => "EN" }

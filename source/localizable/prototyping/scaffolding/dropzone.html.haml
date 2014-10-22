@@ -1,0 +1,25 @@
+---
+
+author      : "DryKISS"
+description : "DropzoneJS is an open source library that provides drag'n'drop
+               file uploads with image previews."
+small       : "Multiple file uploads via drag and drop"
+title       : "Dropzone JS"
+
+see :
+    - - "Dropzone"
+      - "http://www.dropzonejs.com/"
+    - - "PHP Tutorial"
+      - "http://www.startutorial.com/articles/view/how-to-build-a-file-upload-form-using-dropzonejs-and-php"
+
+---
+
+-# Bar
+:ruby
+    code = %{partial "scaffolding/dropzone"}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

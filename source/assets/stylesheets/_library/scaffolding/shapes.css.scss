@@ -1,0 +1,34 @@
+//
+// Shapes
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//--------------------------------------------------------------------------- //
+
+// Circle
+//--------------------------------------------------------------------------- //
+.circle {
+    border-radius : 50%;
+}
+
+// Half Circle
+//--------------------------------------------------------------------------- //
+.halfCircle {
+
+    background-color : #fff;
+
+    &.orange {
+        background-color : #ffa000;
+    }
+
+    border-radius : 90px 90px 0 0;
+    height        : 45px;
+    width         : 90px;
+}
+
+@-webkit-keyframes pulse {
+    0%   { color : #666; }
+    25%  { color : #0023a0; }
+    50%  { color : #d19549; }
+    75%  { color : #ffca8b; }
+    100% { color : #dfdcdb; }
+}

@@ -1,0 +1,25 @@
+-##
+-# Disqus Comments Count
+-# Append #disqus_thread to the href attribute in your links.
+-# This will tell Disqus which links to look up and return the comment count.
+-# For example: <a href="http://foo.com/bar.html#disqus_thread">Link</a>.
+-#
+-# Locals
+-# data.config.disqusShortName - String - Required - Given by Disqus
+-#
+-# Usage
+-# = partial "social/disqus/comments-count"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Comments Count
+:coffee
+    disqus_shortname = #{data.config.disqusShortName}
+    (->
+        s       = document.createElement("script")
+        s.async = true
+        s.type  = "text/javascript"
+        s.src   = "//" + disqus_shortname + ".disqus.com/count.js"
+        (document.getElementsByTagName("HEAD")[0] or document.getElementsByTagName("BODY")[0]).appendChild s
+    )()

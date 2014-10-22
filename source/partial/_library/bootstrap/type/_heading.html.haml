@@ -1,0 +1,36 @@
+-##
+-# Heading Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Only display if Text is present
+- if ! locals[ :text ].blank?
+
+    -# Heading
+    - haml_tag locals[ :tag ] ? tag : "h1",
+               { :class => locals[ :extraClass ] ? extraClass : false,
+                 :id    => locals[ :id ]         ? id         : false } do
+
+        -# Check for Link
+        - if locals[ :icon ]
+
+            -# Icon Helper
+            = icon( icon )
+
+        -# Check for Link
+        - if locals[ :href ]
+
+            -# Link To
+            = link_to( string( text ), href )
+
+        - else
+
+            -# Main Text
+            = string text
+
+        -# Add the secondary text if required
+        - if locals[ :small ]
+
+            %small
+                = string small

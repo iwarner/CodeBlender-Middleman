@@ -1,0 +1,108 @@
+##
+# Config YAML
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+# Version - This needs to be interated on each distribution
+:version : "2.0.1"
+
+# Content
+:brand : "UX Portal"
+:url   : "http://ux.com"
+
+# Form Spree
+:formAction : "//api.formspree.com/ian.warner@drykiss.com"
+:formNext   : "http://codeblender.net/contactus/?f=s"
+
+# Scaffolding
+:breadcrumbs   : true
+:container     : "container"
+:copyright     : true
+:configuration : true
+:footer        : true
+:lang          : en
+:mainLogo      : false
+:manifest      : false
+:modernizr     : true
+:navbar        : true
+:resources     : true
+:todo          : true
+:topIcon       : true
+# :bodySpy       :
+#   :spy    : "scroll"
+#   :target : ".ribbon"
+#   :offset : "50"
+
+# Meta
+:metaCore     : true
+:metaMobile   : true
+:metaDublin   : false
+:metaFacebook : true
+:metaTwitter  : false
+:metaGoogle   : true
+
+# RSS Feed
+:feed : false
+
+# Products
+:productColumns : 3
+
+# Dublin Core Meta Data
+:publisher        : "CodeBlender"
+:publisherAddress : "ian.warner@drykiss.com"
+:rights           : "&copy; 2014. All rights reserved."
+
+# Navigation
+:navAbove      : true
+:navBrand      : false
+:navBelow      : true
+:navBrandText  : true
+:navBrandLink  : "/index.html"
+:navExtraClass : "sidebar-offcanvas row-offcanvas-right"
+:navULClass    : "navbar-left"
+:navIcon       : false
+:navLogoAlt    :
+:navLogoWidth  :
+:navLogoHeight :
+:navPosition   : "static-top"
+:navSearch     : false
+:navType       : false
+
+# Footer
+:footerClass : "noBackground"
+
+## SOCIAL
+
+# Coderwall
+:coderwallUsername : iwarner
+
+# Facebook
+:facebookAppId     : 253027968192447
+:facebookAppSecret : 09627a7f101b7225459d95357b80114e
+:facebookPageId    :
+:facebookPageUrl   : https://www.facebook.com/onlyasmile
+:facebookLocale    :
+    en : en_GB
+
+# Disqus
+:disqusShortName :
+
+# Google
+:googleAnalytics      :
+:googleAnalyticsURL   :
+:googleAdsense        :
+:googleSearch         :
+:googleWebmasterTools :
+:googleClientID       : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"
+:googleClientSecret   : "ERR0xB-H_csJEdn2IPZ4MxWW"
+
+# MailChimp
+:mailChimpPath :
+:mailChimpU    :
+:mailChimpID   :
+
+# Open Weather Map
+openWeathMap :

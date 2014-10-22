@@ -1,0 +1,49 @@
+---
+
+author      : "DryKISS"
+description : "Provide pagination links for your site or app with the multi-page
+               pagination component."
+pageable    : true
+per_page    : 5
+small       : ""
+title       : "Pagination"
+
+see :
+    - - "Bootstrap Pagination"
+      - "http://getbootstrap.com/components/#pagination"
+    - - "Pagination Tutorial"
+      - "http://www.slevenbits.com/blog/2013/01/middleman-blog-pagination.html"
+
+locals :
+    - - "pageNo"
+      - "int"
+      - "required"
+      - "Current Page Number - page_number"
+    - - "pages"
+      - "int"
+      - "required"
+      - "Number of pages - num_pages"
+    - - "prevPage"
+      - "string"
+      - "required"
+      - "Previous page devault variable - prev_page"
+    - - "nextPage"
+      - "string"
+      - "required"
+      - "Next page devault variable - next_page"
+
+---
+
+-# Tabs
+:ruby
+    code = %{partial "./bootstrap/components/pagination",
+                      :locals => { :nextPage => "#{next_page.url}",
+                                   :prevPage => "#{prev_page}",
+                                   :pageNo   => 1,
+                                   :pages    => 10 }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }

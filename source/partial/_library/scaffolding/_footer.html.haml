@@ -1,0 +1,40 @@
+-##
+-# Footer
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Footer
+.footer{ :class => data.config.footerClass ? data.config.footerClass : false }
+
+    -# Container
+    %div{ :class => locals[ :fluid ] ? "container-fluid" : "container" }
+
+        -# Bootstrap Row
+        .row
+
+            -# Check Footer YAML or locals is not blank
+            - if t( "footer" ) or locals[ :array ]
+
+                -# Local array takes precedent
+                - array = locals[ :array ] ? locals[ :array ] : t( "footer" )
+
+                -# Columns count
+                - count      = 12 / array.count
+                - extraClass = "col-md-#{ count } "
+
+                -# Loop through the Footer Yaml
+                - array.each do | entry |
+
+                    -# Section
+                    .footerSection{ :class => entry[ "extraClass" ] ? "#{ extraClass } #{ entry[ "extraClass" ] }" : extraClass }
+
+                        -# Heading
+                        = partial "./bootstrap/type/heading",
+                                   :locals => { :icon => entry[ "icon" ] ? entry[ "icon" ] : false,
+                                                :tag  => "h4",
+                                                :text => entry[ "title" ] }
+
+                        -# Body
+                        :markdown
+                            #{ string entry[ "description" ] }

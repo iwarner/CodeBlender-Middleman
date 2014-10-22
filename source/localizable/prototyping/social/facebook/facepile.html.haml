@@ -1,0 +1,25 @@
+---
+author       : "Ian Warner"
+description  : "The Facepile plugin displays the Facebook profile photos of people
+                who have connected with your Facebook page or app."
+small        : "https://developers.facebook.com/docs/plugins/facepile"
+title        : "Facebook Facepile Partial"
+
+see :
+    - - "Facebook Facepile"
+      - "https://developers.facebook.com/docs/plugins/facepile"
+
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Facepile",
+                        :tag  => "h2" }
+
+-# Like Button
+= partial "social/facebook/facepile"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "social/facebook/facepile"

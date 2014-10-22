@@ -1,0 +1,79 @@
+-##
+-# List Group
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo   Should use the list partial
+-##
+
+-# Link or List
+- tag = locals[ :list ] ? "ul" : "div"
+
+-# List Group
+- haml_tag tag, { :class => locals[ :extraClass ] ? "list-group #{ extraClass }" : "list-group nav" } do
+
+    -# Check that an array is defined
+    - if locals[ :array ]
+
+        -# Loop through the array
+        - array.each do | value |
+
+            -# If there is a contextual / colour class add it
+            - if value[ :contextual ]
+                - listClass = "list-group-item-#{ value[ :contextual ] }"
+
+            -# Capture Content
+            - captureHTML = capture_html do
+
+                -# Check if Badge is required
+                - if value[ :badge ]
+
+                    -# Badge
+                    = partial "./bootstrap/components/badges",
+                               :locals => { :content => value [ :badge ] }
+
+                -# Heading and Text
+                - if value [ :heading ]
+
+                    -# Heading
+                    = partial "./bootstrap/type/heading",
+                               :locals => { :extraClass => "list-group-item-heading",
+                                            :tag        => "h4",
+                                            :text       => value[ :heading ] }
+
+                    -# Text
+                    - if value [ :text ]
+                        %p= string value[ :text ]
+
+                -# Title
+                - if value [ :title ]
+                    = string value[ :title ]
+
+            -# List
+            - if locals[ :list ]
+
+                %li{ :class => value[ :active ] ? "#{listClass} active" : listClass }
+
+                    -# Link
+                    - if value[ :url ]
+                        = link_to( value[ :url ], :class => "list-group-item" ) do
+                            = captureHTML
+
+                        -# No Link
+                    - else
+                        %a{ :class => "list-group-item" }
+                            = captureHTML
+
+                    -# Check if this value has a Sub Navigation
+                    - if value[ :submenu ]
+
+                        -# Nav List Group
+                        = partial "./bootstrap/components/list-group",
+                                   :locals => { :array      => value[ :submenu ],
+                                                :extraClass => "nav submenu",
+                                                :list       => true }
+
+                -# A Tag Links
+            - else
+                = link_to( value[ :url ] ? value[ :url ] : false, :class => value[ :active ] ? "list-group-item #{listClass} active" : "list-group-item #{listClass}" ) do
+                    = captureHTML

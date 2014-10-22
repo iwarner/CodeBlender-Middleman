@@ -1,0 +1,26 @@
+##
+# Portal Links
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+thumbs :
+  -
+    image :
+        src : "home/01.jpeg"
+    thumbnail :
+        href    : ""
+        caption : "IBM"
+        target  : "_blank"
+
+legacy :
+
+  -
+    image :
+        src : "home/02.jpeg"
+    thumbnail :
+        href    : ""
+        caption : "IBM"
+        target  : "_blank"

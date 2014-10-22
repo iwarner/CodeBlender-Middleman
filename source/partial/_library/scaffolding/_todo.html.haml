@@ -1,0 +1,30 @@
+-##
+-# Tasks
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Check Array Exists
+- if current_page.data.todo or locals[ :array ]
+
+    %hr
+
+    -# Heading
+    = partial "./bootstrap/type/heading",
+               :locals => { :small => "",
+                            :text  => "Tasks",
+                            :tag   => "h3" }
+
+    -# Create Array
+    - array = { "columns" => [ { "label" => "Task" },
+                               { "label" => "Section" },
+                               { "label" => "Date" } ],
+                "data"    => locals[ :array ] ? array : current_page.data.todo }
+
+    -# Table
+    = partial "./bootstrap/css/table",
+               :locals => { :array      => array,
+                            :id         => "dataTable",
+                            :hidden     => locals[ :hidden ] ? hidden : false,
+                            :footer     => true,
+                            :tableClass => "table-striped table-condensed" }

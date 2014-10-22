@@ -1,0 +1,30 @@
+-##
+-# Google Plus Button
+-#
+-# Locals
+-#
+-# Usage
+-# = partial "google/plus"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.google.com/+/web/+1button/
+-# @todo   Javascript should be placed in the JS file and loaded after the last button
+-# @todo   Sort out the locale setting for this
+-##
+
+-# Plus Button
+.g-plusone{ :data => { :annotation => "inline",
+                       :size       => "standard",
+                       :width      => "300" } }
+
+-# Include the script
+:coffee
+    window.___gcfg = lang: "en-GB"
+    (->
+      po       = document.createElement("script")
+      po.type  = "text/javascript"
+      po.async = true
+      po.src   = "https://apis.google.com/js/platform.js"
+      s        = document.getElementsByTagName("script")[0]
+      s.parentNode.insertBefore po, s
+    )()

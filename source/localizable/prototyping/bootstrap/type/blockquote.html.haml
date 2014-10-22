@@ -1,0 +1,63 @@
+---
+
+author      : "DryKISS"
+description : ""
+small       : ""
+title       : "Blockquote"
+
+see :
+    - - "Bootstrap Blockquotes"
+      - "http://getbootstrap.com/css/#type-blockquotes"
+
+locals :
+    - - "right"
+      - "bool"
+      - "optional"
+      - "Whether to pull the quote right"
+    - - "small"
+      - "string"
+      - "optional"
+      - "Small description"
+    - - "text"
+      - "string"
+      - "required"
+      - "Main text"
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./bootstrap/type/blockquote",
+                      :locals => { :text => "Standard Blockquote" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 1,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Default" } }
+
+-# Small Text
+:ruby
+    code = %{partial "./bootstrap/type/blockquote",
+                      :locals => { :small => "Small text",
+                                   :text  => "Blockquote with secondary small text" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Blockquote with secondary small text" } }
+
+
+-# Pulled Right
+:ruby
+    code = %{partial "bootstrap/type/blockquote",
+                      :locals => { :right => true,
+                                   :small => "Right handed secondary text",
+                                   :text  => "Blockquote pulled right" }}
+
+= partial "./scaffolding/code",
+           :locals => { :id      => 3,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Blockquote pulled right" } }

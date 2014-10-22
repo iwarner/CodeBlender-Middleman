@@ -1,0 +1,124 @@
+---
+author      : "DryKISS"
+description : "Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many."
+small       : "Form Checkbox"
+title       : "Form Checkbox"
+
+see :
+    - - "Bootstrap Supported Controls"
+      - "http://getbootstrap.com/css/#forms-controls"
+    - - "W3 Specification"
+      - "http://www.w3.org/TR/html-markup/input.checkbox.html"
+    - - "Bootstrap Switch"
+      - "http://www.bootstrap-switch.org/"
+
+todo :
+    - - "Work out how to do inline checkboxes with the current partial"
+      - "Form Checkbox"
+      - "2014-05-01"
+      - { "context" : "warning" }
+    - - "Allow the checkbox look and feel to be overidden i.e. a larger checkbox area"
+      - "Form Checkbox"
+      - "2014-05-01"
+      - { "context" : "warning" }
+    - - "Figure out how to use validation messages with Checkboxes"
+      - "Form Checkbox"
+      - "2014-05-01"
+      - { "context" : "warning" }
+
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :tag  => "h2",
+                        :text => "Checkbox" }
+
+-# Form
+%form{ :novalidate => false }
+
+    -# Checkbox
+    = partial "./forms/checkbox",
+               :locals => { :name => "checkbox",
+                            :text => "Textual description here" }
+
+-# Code
+:code
+    #lang: ruby
+    -# Checkbox
+    = partial "./forms/checkbox",
+               :locals => { :name => "checkbox",
+                            :text => "Textual description here" }
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Disabled Checkbox",
+                        :tag  => "h2" }
+
+-# Form
+%form{ :novalidate => false }
+
+    -# Checkbox
+    = partial "./forms/checkbox",
+               :locals => { :disabled => true,
+                            :name     => "checkbox1",
+                            :text     => "Textual description here" }
+
+-# Code
+:code
+    #lang: ruby
+    -# Checkbox
+    = partial "./forms/checkbox",
+               :locals => { :disabled => true,
+                            :name     => "checkbox1",
+                            :text     => "Textual description here" }
+
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Fancy Checkbox",
+                        :tag  => "h2" }
+
+-# Form
+%form{ :novalidate => false }
+
+    -# Checkbox
+    = partial "./forms/checkbox",
+               :locals => { :extraClass => "fancy",
+                            :name       => "checkbox2",
+                            :text       => "Textual description here" }
+
+-# Code
+:code
+    #lang: ruby
+    -# Checkbox
+    = partial "./forms/checkbox",
+               :locals => { :extraClass => "fancy",
+                            :name       => "checkboxFancy",
+                            :text       => "Textual description here" }
+
+
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Disabled Fancy Checkbox",
+                        :tag  => "h2" }
+
+-# Form
+%form{ :novalidate => false }
+
+    -# Checkbox
+    = partial "./forms/checkbox",
+               :locals => { :disabled   => true,
+                            :extraClass => "fancy",
+                            :name       => "checkbox3",
+                            :text       => "Textual description here" }
+
+-# Code
+:code
+    #lang: ruby
+    -# Checkbox
+    = partial "./forms/checkbox",
+               :locals => { :disabled   => true,
+                            :extraClass => "fancy",
+                            :name       => "checkboxFancy",
+                            :text       => "Textual description here" }

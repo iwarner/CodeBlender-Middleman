@@ -1,0 +1,77 @@
+/**
+ * Header
+ *
+ * Produces a Consistent Top Bar for an application
+ * Can Contain icons to the left and right for aside elements
+ * Image or Title text should be centered
+ *
+ * @author Ian Warner <ian.warner@drykiss.com>
+ * @see    http://maker.github.io/ratchet/#bars
+ *
+ * @todo   Flex box center
+ * @todo   Can I justify the icons text and logo so icons are on the widths
+ * @todo   Should not use a section element to add styling
+ * @todo   Add Top : 0 to this
+ * @todo   Logo should not be contined within this - or at least width of it
+ * @todo   Title Font and Size should be set as Variables
+// -------------------------------------------------------------------------- */
+
+// Header Bar
+// -------------------------------------------------------------------------- */
+header {
+
+    background-color : $navBarColour;
+    min-height       : $navBarHeight;
+    position         : relative;
+
+    // Flex Box
+    // ---------------------------------------------------------------------- */
+    display                 : -webkit-flex;
+    -webkit-align-items     : center;
+    -webkit-justify-content : center;
+
+    // Logo
+    // ---------------------------------------------------------------------- */
+    .logo img {
+        width : 120px;
+    }
+
+    // Title
+    // ---------------------------------------------------------------------- */
+    .title {
+        color     : #fff;
+        font-size : 18px;
+    }
+
+    // Aside Icon
+    //----------------------------------------------------------------------- */
+    .asideIcon {
+
+        ul li {
+
+            i {
+                color     : #fff;
+                font-size : 30px;
+            }
+
+            list-style-type : none;
+            position        : absolute;
+            line-height     : 45px;
+            top             : 0;
+
+            &.navigationItem {
+                left : 5px;
+            }
+
+            &.complimentaryItem {
+                right : 5px;
+            }
+
+            img {
+                width : 30px;
+            }
+        }
+    }
+
+}
+
