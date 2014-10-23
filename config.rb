@@ -67,7 +67,7 @@ end
 after_configuration do
     sprockets.append_path File.join "#{ root }", "bower_components"
     sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/"
-    sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/"
+    sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/stylesheets/"
     sprockets.append_path File.join "#{ root }", "bower_components/font-awesome/scss/"
     sprockets.append_path "/assets/font"
 end
