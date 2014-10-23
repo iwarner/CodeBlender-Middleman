@@ -180,7 +180,7 @@ if data.scaffolding.vcards
         vcard.add('X-Skype', "#{ vCard.skype }")
 
         # @todo Output a file
-        puts vcard
+        # puts vcard
 
     end
 

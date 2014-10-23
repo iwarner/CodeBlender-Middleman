@@ -4,6 +4,9 @@ author      : "DryKISS"
 description : ""
 small       : "GUI pattern library"
 title       : "Style Guide"
+jumbotron   :
+    description : :"styleGuide.jumbotron.description"
+    title       : :"styleGuide.jumbotron.title"
 
 see :
     - - "Adobe"
@@ -46,3 +49,11 @@ see :
       - "http://www.produktbezogen.de/how-to-build-the-perfect-pattern-library/"
 
 ---
+
+/ -# Create the required sections
+/ -# Named after the partials file names
+/ - sections = [ "designPrinciples", "logos", "colour", "typography", "streamers", "photography", "iconography", "illustrations" ]
+
+/ -# Loop through the relevant sections required.
+/ - sections.each do | section |
+/     = partial "../_lib/style-guide/brand/#{ section }"

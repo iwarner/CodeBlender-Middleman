@@ -15,3 +15,12 @@
 
         -# Sidebar
         - partial "./scaffolding/subnavigation"
+
+    -# Heading
+    = partial "./bootstrap/type/heading",
+               :locals => { :small => current_page.data.small,
+                            :tag   => "h2",
+                            :text  => current_page.data.title }
+
+    -# Yield
+    = yield
