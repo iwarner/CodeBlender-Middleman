@@ -4,9 +4,17 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Check to see if data exists
+- if ! current_page.data.jumbotron
+    - description = "YO"
+    - title       = "YO"
+- else
+    - description = current_page.data.jumbotron.description
+    - title       = current_page.data.jumbotron.title
+
 %section.navBelow
 
     -# Jumbotron For Brand Guidlines
     = partial "./bootstrap/components/jumbotron",
-               :locals => { :description => :jumbotronDesc,
-                            :title       => :"home.jumbotronTitle" }
+               :locals => { :description => description,
+                            :title       => title }

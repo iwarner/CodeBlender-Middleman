@@ -21,7 +21,7 @@ en:
 
         # Digital Identity
         - text : "Digital Identity"
-          url  : "/style-guide/brand/index.html"
+          url  : "/style-guide/index.html"
 
         # Prototyping
         - text : "Prototyping"
@@ -42,11 +42,10 @@ en:
         metaSmall       : "Creative and Development portal"
         metaDescription : "Creative and Development portal"
 
-        jumbotronTitle : "Digital Identity"
-        jumbotronDesc  : >
-            The Brand represents everything we stand for. It is the total sum of
-            many parts, including visual elements of the brand, our services and
-            products, and our stakeholders' perceptions and expectations of us.
+        jumbotron :
+            title       : "Team Portal"
+            description : >
+                Team Portal
 
     # Style Guide
     styleGuide :
@@ -59,19 +58,30 @@ en:
         metaSmallStyleColour : "Directory of components"
         metaDescStyleColour  : "UX Portal..."
 
-    # Contact
-    contact :
+        jumbotron :
+            title       : "Digital Identity"
+            description : >
+                The Brand represents everything we stand for. It is the total sum of
+                many parts, including visual elements of the brand, our services and
+                products, and our stakeholders' perceptions and expectations of us.
+
+    # Prototyping
+    prototyping :
 
         metaTitle       : "Contact"
         metaSmall       : "Generic contact form, map and details."
         metaDescription : >
             Contact form, address and location map for the business.
 
-        headingText  : "Please contact us."
-        headingSmall : "To reserve a booking please complete the form below or call the number."
+        jumbotron :
+            title       : "Prototyping"
+            description : >
+                Testing bay for components
 
     # Copyright
-    copyright : "All rights reserved."
+    copyright :
+        brand  : "Team Two"
+        rights : "All rights reserved."
 
     # Footer
     footer    :

@@ -4,6 +4,9 @@ author      : "DryKISS"
 description : ""
 small       : "Atomic Components Pattern library"
 title       : "Prototyping"
+jumbotron   :
+    description : :"prototyping.jumbotron.description"
+    title       : :"prototyping.jumbotron.title"
 
 see :
     - - "Bootstrap Cards"
@@ -94,12 +97,12 @@ todo :
       - "Meta"
       - "2014-02-12"
       - { "context" : "info" }
-    - - "Sniff Javascript and append the JS class to the body tag"
-      - "Javascript"
+    - - "Sniff JavaScript and append the JS class to the body tag"
+      - "JavaScript"
       - "2014-02-12"
       - { "context" : "danger" }
     - - "Look at implementing - http://modernizr.com/"
-      - "Javascript"
+      - "JavaScript"
       - "2014-02-14"
       - { "context" : "warning" }
     - - "Create a partial to display a cookie panel on the page"
@@ -108,50 +111,6 @@ todo :
       - { "context" : "info" }
 
 ---
-
-:markdown
-
-    Research and testing ideals - logistical/management things
-
-    1. Prototype needs to be compact and easy to transport (it will be sent via
-       email to external suppliers). Pref filesize that will work through our email sys.
-    2. It needs to be easy to set up and use - or else be accompanied with easy
-       to follow instructions. Preferably not require a server to run.
-    3. It should preferably be standalone on whatever device/operating system/web browser defined.
-    4. Should be able to run on the agreed browser list. There is one somewhere.
-    5. Highly likely need a password protection which is easy for any external agency to add/remove. This adds some corporate IP protection whilst passing backwards and forward via email.
-    6. We prefer to send one final, signed off by all, prototype across the external agency. (Occasionally we may need to send an interim over if they need to look at things like integration etc.) Multiple versions are confusing to the agency and can accidentally introduce errors.
-    7. Clear filenaming - so we and the agency can track and specify which version was used in the research and testing.
-    8. Some kind of researcher clickable menu page - so that the moderator can easily locate the prototype(s) (especially if several are used in a session). Have a chat with the researcher about labelling on the page as it will be likely the participant will see this at some point.
-    9. I believe a big prototype was built and then non-used aspects were made invisible. This is not ideal due to transport size (see point 1) and does put more of the product at risk if transporting the file across the internet/delivering to agencies.
-    10. The research team will help put a steak in the ground after which no changes from UX or visual design will be allowed (unless under exceptional circumstances!). This is of course helped by having regular walkthroughs from all key people involved during prototype build.
-
-    V.me/UX specifics
-
-    1. Level of fidelity for each main part can change for each project. Ideal to have fully functioning, but we can or may cut back if necessary. Lead Ux and Lead Researcher will determine in consultation with you to work out best/most timely/most cost effective way to get what is needed. We generally aim for 80% - we do not necessarily need to be pixel perfect - we just need enough to answer the research objectives. BUT if we are looking at anything involving Perception of Security (unfortunately most of our work!) then it does need to portray a suitable high quality design - so be hi-fidelity.
-    2. In order to assess our standard UX the prototype needs:
-        1. Design and interactions as needed for the research/test objectives to be met [example to talk through - shared shipping]
-        2. Proper (or simulated) error detection and appropriate messaging. (As we assess perception of security as a standard metric - we need the ‘as real’ components that could affect to this).
-        3. Password detection fully operational.
-        4. Field copy and pasting restrictions and any spelling restrictions (i.e., email @ sign validation).
-        5. 3DS - we need a mockup - it may help to have one with and password one without.
-        6. Note that for Express Activation - we needed to set up a detail collection page upfront to collect and then replay data back to the participant later on in the testing - so we will need bespoke coding capabilities for things like this.
-        7. Etc as specified for each project/by the Ux/by the researcher
-    3. Need a thorough walkthrough/‘testing’ process - all involved will help with this.
-    4. It may be useful for you to set the version naming system and we all keep ahead on this - we need to save a copy of the prototype version that was used in the test and be able to specify the exact filename in the end report.
-    5. Realistic data - research lead will provide.
-    6. Note - that prototypes for quant will have to be much higher fidelity as there will be no one sitting next to them to talk them through any glitches.
-    7. Note that EP and GP are able to hand-code HTML, but it might be better for version control to run things past you - but it is often easy for us to make small amends on the fly during clinics. How can we handle this better with the required version control - to be discussed
-    8. For quant - may need to do extra tagging of links to enable link tracking.
-    9. We had a ‘module’ for express that would fake up the express experience by collecting data upfront from participants - EP to walk Ian through. We may need things like this again.
-    10. Needs to be adaptable for + countries (copy and brands - plus any localised UX components).
-    11. Need different style of prototype for clinics, quant and country research/testing - to be discussed.
-
-    Nice to haves
-
-    1. If possible - some kind of secret back button (so the researcher can get back to a page during retrospective questioning, rather than having to go back and start from the beginning and get through all password checks/data input etc).
-    2. If possible - some kind of secret auto fill for the same reason as above (so the researcher can get back to a page during retrospective questioning, rather than having to go back and start from the beginning and get through all password checks/data input etc)
-    3. If possible - some kind of copy input where we can replay the participants name in the interface via some kind of spreadsheet/word doc call that we can edit.
 
 -# Heading
 = partial "./bootstrap/type/heading",

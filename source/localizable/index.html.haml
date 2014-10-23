@@ -5,6 +5,9 @@ description : "Serves the local intranet. Bringing together ux, design and devel
 layout      : "_library/site/full-width"
 small       : "EcoSystem / Prototypes and Documentation"
 title       : "Team 2 Portal"
+jumbotron   :
+    description : :"home.jumbotron.description"
+    title       : :"home.jumbotron.title"
 
 ---
 
@@ -17,7 +20,6 @@ title       : "Team 2 Portal"
 = partial "./bootstrap/components/thumbnails",
                :locals => { :array   => data.scaffolding.portalLinks.thumbs,
                             :columns => "col-md-2 col-sm-3 col-xs-4" }
-
 
 -# Heading
 = partial "./bootstrap/type/heading",

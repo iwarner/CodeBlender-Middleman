@@ -13,7 +13,7 @@ default :
       url    : "/"
 
 # Style Guides Brand
-style-guide/brand :
+style-guide :
 
     - heading : "Digital Identity"
     - title   : "Design Principles"
@@ -34,8 +34,6 @@ style-guide/brand :
           url    : "#one"
         - title  : "Two"
           url    : "#two"
-    - title  : "Streamers"
-      url    : "#streamers"
     - title  : "Photography"
       url    : "#photography"
     - title  : "Iconography"
