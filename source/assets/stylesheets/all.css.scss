@@ -6,8 +6,8 @@
 
 // Variables / Mixins
 //----------------------------------------------------------------------------//
-@import "_library/scaffolding/variables";
 @import "_lib/scaffolding/variables";
+@import "_library/scaffolding/variables";
 @import "_library/scaffolding/mixins";
 
 // Bourbon
@@ -21,10 +21,6 @@
 // Interactive Card
 //----------------------------------------------------------------------------//
 @import "card/lib/css/card";
-
-// Flex Slider
-//----------------------------------------------------------------------------//
-@import "FlexSlider/flexslider";
 
 // Font
 //----------------------------------------------------------------------------//
