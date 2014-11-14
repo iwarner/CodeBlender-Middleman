@@ -6,8 +6,8 @@
 
 -# Check to see if data exists
 - if ! current_page.data.jumbotron
-    - description = "YO"
-    - title       = "YO"
+    - description = :"prototyping.jumbotron.description"
+    - title       = :"prototyping.jumbotron.title"
 - else
     - description = current_page.data.jumbotron.description
     - title       = current_page.data.jumbotron.title

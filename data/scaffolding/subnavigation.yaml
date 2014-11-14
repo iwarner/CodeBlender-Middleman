@@ -393,8 +393,6 @@ prototyping/scaffolding :
       url    : "/prototyping/scaffolding/resources.html"
     - title  : "Search"
       url    : "/prototyping/scaffolding/search.html#search"
-    - title  : "Statement"
-      url    : "/prototyping/scaffolding/statement.html#statement"
     - title  : "Todo"
       url    : "/prototyping/scaffolding/todo.html"
 

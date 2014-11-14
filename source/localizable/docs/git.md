@@ -1,4 +1,5 @@
 ---
+
 author         : Ian Warner
 title          : GIT
 small          : GIT
@@ -10,6 +11,7 @@ og:description : GIT
 og:type        :
 og:url         :
 og:image       :
+
 ---
 
 ## Table of Contents

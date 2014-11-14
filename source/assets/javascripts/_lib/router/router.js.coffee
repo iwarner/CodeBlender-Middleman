@@ -49,7 +49,6 @@ class App.Routers.Router extends Backbone.Router
         "gallery"              : "gallery"
         "notifications"        : "notifications"
         "search"               : "search"
-        "statement"            : "statement"
         "tasks"                : "tasks"
         "world-cup-sweepstake" : "sweepStake"
 
@@ -288,17 +287,6 @@ class App.Routers.Router extends Backbone.Router
         # Instantiate
         new App.Views.Speech
             el : ".container"
-
-    ##
-    # Statement
-    ##
-    statement : ->
-
-        # Instantiate
-        new App.Views.Statement(
-            el    : ".container"
-            model : new App.Models.Statement()
-        ).render()
 
     ##
     # Stripe

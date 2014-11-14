@@ -61,7 +61,7 @@ Please check out the [Build Starter Application][] and [Cordova Hello World][]
 for further advice on this.
 
 ## PhoneGap Build API
-Understanding the [PhoneGap Build API][] will make the build seemless. There is
+Understanding the [PhoneGap Build API][] will make the build seamless. There is
 likely a thor file in the project that will build middleman and update the project
 on [PhoneGap Build][] automatically with a Zip file.
 
@@ -118,16 +118,17 @@ Below is a simple example for creating a new application and emulating this
 inside a browser for iOS, utilising the [Cordova CLI][].
 
 ### PhoneGap
+
     $ phonegap create tms -i "com.project.tms" -n "PROJECT"
     $ cd tms
     $ phonegap build ios
 
 ### Cordova
+
     $ cordova create "MyCordovaProject" com.domain.cordova "MyCordovaProject"
     $ cd MyCordovaProject
     $ cordova platform add ios
     $ cordova build
-    $ cordova emulate ios
     $ cordova emulate ios --target="iPad (Retina)"
 
 * The first argument specifies a directory to be generated, it should not already exist.
