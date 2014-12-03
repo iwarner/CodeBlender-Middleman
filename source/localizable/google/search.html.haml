@@ -1,0 +1,35 @@
+---
+author      : DryKISS
+description : "Google Search Partial"
+layout      : "site/page"
+small       : "Google Search"
+title       : "Google Search Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/google"
+---
+
+-##
+-# CodeBlender Search Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://www.google.com/cse/all
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text  => "Default",
+                 :type  => "h2" }
+
+-# Search
+= partial "google/search"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "google/search"

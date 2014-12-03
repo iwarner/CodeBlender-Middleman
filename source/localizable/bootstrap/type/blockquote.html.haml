@@ -1,0 +1,61 @@
+---
+author       : "Ian Warner"
+description  : "Bootstrap Blockquote Partial"
+layout       : "site/page"
+small        : "http://getbootstrap.com/css/#type-blockquotes"
+title        : "Bootstrap Blockquote Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+see :
+    - - "Bootstrap Blockquotes"
+      - "http://getbootstrap.com/css/#type-blockquotes"
+---
+
+-# Blockquote
+= partial "bootstrap/type/blockquote",
+           :locals => { :text => "Standard Blockquote" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/type/blockquote",
+               :locals => { :text => "Standard Blockquote" }
+
+%hr
+
+-# Blockquote
+= partial "bootstrap/type/blockquote",
+           :locals => { :small => "Small text",
+                        :text  => "Blockquote with secondary small text" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/type/blockquote",
+               :locals => { :small => "Small text",
+                            :text  => "Blockquote with secondary small text" }
+
+%hr
+
+-# Blockquote
+= partial "bootstrap/type/blockquote",
+           :locals => { :right => true,
+                        :small => "Right handed secondary text",
+                        :text  => "Blockquote pulled right" }
+
+.clearfix
+
+-# Code
+:code
+    #lang: ruby
+    -# Blockquote
+    = partial "bootstrap/type/blockquote",
+               :locals => { :right => true,
+                            :small => "Right handed secondary text",
+                            :text  => "Blockquote pulled right" }

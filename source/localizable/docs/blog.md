@@ -1,4 +1,5 @@
 ---
+
 author         : Ian Warner
 date           : 2014-01-20
 excerpt        : "Blog"
@@ -11,6 +12,7 @@ og:description : Blog
 og:type        :
 og:url         :
 og:image       :
+
 ---
 
 ## Table of Contents

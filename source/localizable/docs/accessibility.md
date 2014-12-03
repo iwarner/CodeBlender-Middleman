@@ -1,5 +1,4 @@
 ---
-
 author         : Ian Warner
 date           : 2014-01-20
 excerpt        : "Accessibility"
@@ -20,6 +19,7 @@ og:image       :
 {:toc}
 
 ## Introduction
+
 [Accessibility][] (WCAG) is crucial for both the website and the mobile apps.
 The full [W3C Guidelines 2008][] can be found here and the older
 [W3C Guidelines 1999][]

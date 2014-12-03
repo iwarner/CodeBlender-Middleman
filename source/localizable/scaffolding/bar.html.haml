@@ -1,0 +1,36 @@
+---
+author       : "Ian Warner"
+description  : "Scaffolding Bar Partial"
+layout       : "site/page"
+small        : ""
+title        : "Scaffolding Bar Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/scaffolding"
+
+bar          :
+    - sup    : Expires
+      text   : 485 Days
+    - sup    : Offer Type
+      text   : Cashback
+    - icon   : bookmark
+      href   : "#bookmark"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Bar
+= partial "scaffolding/bar",
+           :locals => { :array => data.page.bar }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "scaffolding/bar"

@@ -113,7 +113,7 @@ activate :deploy do |deploy|
 
 end
 
-# Create GZIP Content
+# Create GZIP Content
 helpers do
 
     def gzip_css_on_build( key, media = "screen" )

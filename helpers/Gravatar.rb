@@ -1,6 +1,10 @@
 ##
 # Grvatar Avatar
 #
+# Usage
+# -# Gravatar
+# = Gravtar( "email@domain.com" )
+#
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 
@@ -12,7 +16,7 @@
 ##
 module Gravatar
 
-    def avatar( email, size = "150", protocol = "https" )
+    def avatar( email, size = "80", protocol = "https" )
 
         if email
 

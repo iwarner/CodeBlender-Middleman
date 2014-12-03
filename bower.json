@@ -1,40 +1,42 @@
 {
-  "name": "codeblender.net",
-  "version": "0.0.1",
-  "homepage": "http://codeblender.net",
-  "authors": [
+  "name"     : "codeblender.net",
+  "version"  : "0.0.1",
+  "homepage" : "http://codeblender.net",
+  "authors"  : [
     "Ian Warner <ian.warner@drykiss.com>"
   ],
-  "dependencies": {
-    "backbone": "",
-    "bootstrap-sass-official": "",
-    "bootstrapx-clickover-bs3": "",
-    "backbone-validation": "",
-    "card": "",
-    "ckeditor": "",
-    "comma-separated-values": "",
-    "DataTables": "",
-    "dropzone": "",
-    "font-awesome": "",
-    "gsap": "",
-    "holderjs": "",
-    "jcrop": "",
-    "jquery": "2",
-    "jquery.payment": "",
-    "jquery-validation": "",
-    "lunr.js": "",
-    "modernizr": "",
-    "notify.js": "",
-    "simplecart-js": "",
-    "underscore": "",
-    "yamm3": ""
+
+  "dependencies" : {
+    "backbone"                 : "",
+    "bootstrap-sass-official"  : "",
+    "bootstrapx-clickover-bs3" : "",
+    "backbone-validation"      : "",
+    "card"                     : "",
+    "ckeditor"                 : "",
+    "comma-separated-values"   : "",
+    "DataTables"               : "",
+    "dropzone"                 : "",
+    "font-awesome"             : "",
+    "gsap"                     : "",
+    "holderjs"                 : "",
+    "jcrop"                    : "",
+    "jquery"                   : "2",
+    "jquery.payment"           : "",
+    "jquery-validation"        : "",
+    "lunr.js"                  : "",
+    "modernizr"                : "",
+    "notify.js"                : "",
+    "simplecart-js"            : "",
+    "underscore"               : "",
+    "yamm3"                    : ""
   },
-  "license": "MIT",
-  "ignore": [
+  "license" : "MIT",
+  "ignore"  : [
     "**/.*",
     "node_modules",
     "bower_components",
     "test",
     "tests"
   ]
+
 }

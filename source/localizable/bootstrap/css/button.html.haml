@@ -1,0 +1,135 @@
+---
+author       : "Ian Warner"
+description  : "Bootstrap Button Partial"
+layout       : "site/page"
+small        : "http://getbootstrap.com/css/#buttons"
+title        : "Bootstrap Button Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+see :
+    - - "Bootstrap Buttons"
+      - "http://getbootstrap.com/css/#buttons"
+
+todo :
+    - - "Complete the other buttons actions on bootstrap"
+      - "Button"
+      - "2014-02-12"
+      - { "context" : "info" }
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Default
+= partial "bootstrap/css/button",
+           :locals => { :content => "Default" }
+
+-# Primary
+= partial "bootstrap/css/button",
+           :locals => { :color   => "primary",
+                        :content => "Primary" }
+
+-# Success
+= partial "bootstrap/css/button",
+           :locals => { :color   => "success",
+                        :content => "Success" }
+
+-# Info
+= partial "bootstrap/css/button",
+           :locals => { :color   => "info",
+                        :content => "Info" }
+
+-# Warning
+= partial "bootstrap/css/button",
+           :locals => { :color   => "warning",
+                        :content => "Warning" }
+
+-# Danger
+= partial "bootstrap/css/button",
+           :locals => { :color   => "danger",
+                        :content => "Danger" }
+
+-# Link
+= partial "bootstrap/css/button",
+           :locals => { :color   => "link",
+                        :content => "Link" }
+
+%br
+%br
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/css/button",
+               :locals => { :content => "Default" }
+
+    = partial "bootstrap/css/button",
+               :locals => { :color   => "primary",
+                            :content => "Primary" }
+
+-# Size
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Size",
+                        :type => "h2" }
+
+-# Size
+= partial "bootstrap/css/button",
+           :locals => { :content => "Small",
+                        :size    => "xs" }
+
+= partial "bootstrap/css/button",
+           :locals => { :content => "Small",
+                        :size    => "sm" }
+
+= partial "bootstrap/css/button",
+           :locals => { :content => "Default" }
+
+= partial "bootstrap/css/button",
+           :locals => { :content => "Large",
+                        :size    => "lg" }
+
+%br
+%br
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/css/button",
+               :locals => { :content => "Small",
+                            :size    => "xs" }
+
+    = partial "bootstrap/css/button",
+               :locals => { :content => "Small",
+                            :size    => "sm" }
+
+    = partial "bootstrap/css/button",
+               :locals => { :content => "Default" }
+
+    = partial "bootstrap/css/button",
+               :locals => { :content => "Large",
+                            :size    => "lg" }
+
+-# Block
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Block",
+                        :type => "h2" }
+
+-# Size
+= partial "bootstrap/css/button",
+           :locals => { :content => "Block",
+                        :color   => "primary",
+                        :block   => true }

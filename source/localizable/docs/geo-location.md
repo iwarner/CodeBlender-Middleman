@@ -32,10 +32,6 @@ GPS, IP address, RFID, WiFi and Bluetooth MAC addresses, and GSM/CDMA cell IDs,
 can each provide a clue to users location. Determining which to use and trust is
 a matter of trade-offs in accuracy, speed, and battery-efficiency.
 
-Office
-Latitude  : 51.51931288629538
-Longitude : -0.1810924933116769
-
 ## iBeacon
 
 Apple's indoor positioning system. It works through BLE (low energy bluetooth).
@@ -62,7 +58,6 @@ http://uxmag.com/articles/the-game-changing-nature-of-beacons?utm_tone=pq&utm_co
 http://monetate.com/infographic/the-retailers-guide-to-solomo/
 
 ## iOS
-
 Documentation on [GEO Location iOS][]
 
 Seeing two prompts for [Geo Location Permission][] make sure the plugin is
@@ -73,7 +68,6 @@ installed.
 Documentation on [Location Strategies Android][]
 
 ## PhoneGap
-
 Documentation on [Geo Location PhoneGap][]
 
 http://www.plugreg.com/plugin/textoo/BackgroundLocationEnabler

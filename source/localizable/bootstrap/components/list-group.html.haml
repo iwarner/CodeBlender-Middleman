@@ -1,0 +1,130 @@
+---
+author       : "Ian Warner"
+description  : "List groups are a flexible and powerful component for displaying
+                not only simple lists of elements, but complex ones with custom content."
+layout       : "site/page"
+small        : "http://getbootstrap.com/components/#list-group"
+title        : "Bootstrap List Group Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+see :
+    - - "Bootstrap List Group"
+      - "http://getbootstrap.com/components/#list-group"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# List Group
+= partial "bootstrap/components/list-group",
+           :locals => { :array => [ { :active => true,
+                                      :title  => "Title 1",
+                                      :url    => "#" },
+                                    { :title  => "Title 2",
+                                      :url    => "#" } ] }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/list-group",
+               :locals => { :array => [ { :active => true,
+                                          :title  => "Title 1",
+                                          :url    => "#" },
+                                        { :title  => "Title 2",
+                                          :url    => "#" } ] }
+
+-# Badges
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "List Group With Badges",
+                        :type => "h2" }
+
+-# List Group
+= partial "bootstrap/components/list-group",
+           :locals => { :array => [ { :badge  => "14",
+                                      :title  => "Title 1",
+                                      :url    => "#" },
+                                    { :active => true,
+                                      :badge  => "14",
+                                      :title  => "Title 2",
+                                      :url    => "#" } ] }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/list-group",
+               :locals => { :array => [ { :title  => "Title 1",
+                                          :url    => "#",
+                                          :badge  => "14" },
+                                        { :active => true,
+                                          :title  => "Title 2",
+                                          :url    => "#",
+                                          :badge  => "14" } ] }
+
+-# Contextual
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Contextual",
+                        :type => "h2" }
+
+-# List Group
+= partial "bootstrap/components/list-group",
+           :locals => { :array => [ { :title      => "Title 1",
+                                      :url        => "#",
+                                      :contextual => "success" },
+                                    { :title      => "Title 2",
+                                      :url        => "#",
+                                      :contextual => "danger" } ] }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/list-group",
+               :locals => { :array => [ { :title      => "Title 1",
+                                          :url        => "#",
+                                          :contextual => "success" },
+                                        { :title      => "Title 2",
+                                          :url        => "#",
+                                          :contextual => "danger" } ] }
+
+-# Content
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Content",
+                        :type => "h2" }
+
+-# List Group
+= partial "bootstrap/components/list-group",
+           :locals => { :array => [ { :badge   => "14",
+                                      :heading => "Heading 1",
+                                      :text    => "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.",
+                                      :url     => "#" },
+                                    { :heading => "Heading 2",
+                                      :text    => "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.",
+                                      :url     => "#" } ] }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/list-group",
+               :locals => { :array => [ { :badge   => "14",
+                                          :heading => "Heading 1",
+                                          :text    => "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.",
+                                          :url     => "#" },
+                                        { :heading => "Heading 2",
+                                          :text    => "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.",
+                                          :url     => "#" } ] }

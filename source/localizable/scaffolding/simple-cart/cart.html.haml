@@ -1,0 +1,29 @@
+---
+author      : DryKISS
+description : "Simple Cart is a lightweight javascript shopping cart."
+layout      : "site/page"
+small       : "Javascript E-Commerce Cart"
+title       : "Scaffolding Simple Cart Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/scaffolding/simple-cart"
+---
+
+-##
+-# CodeBlender Scaffolding Simple Cart
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://github.com/wojodesign/simplecart-js
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text => "Default" }
+
+-# Cart
+.simpleCart_items

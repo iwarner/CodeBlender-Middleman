@@ -12,24 +12,27 @@
 -# @todo Check that the Dublin core rules are being applied
 -##
 
+/ <link href="/dublin.rdf" rel="meta" type="application/rdf+xml" title="Dublin" />
+
+
 -# Variables
 - d = current_page.data
 
-%link{ :rel => "schema.DC",      :href => "http://purl.org/dc/elements/1.1/" }
-%link{ :rel => "schema.DCTERMS", :href => "http://purl.org/dc/terms/" }
+%link{ :rel => "schema.dc",      :href => "http://purl.org/dc/elements/1.1/" }
+%link{ :rel => "schema.dcterms", :href => "http://purl.org/dc/terms/" }
 
-%meta{ :name => "DC.Title",       :"xml:lang" => "en",                  :content => string( d.title ) }
-%meta{ :name => "DC.Identifier",  :schema => "DCterms:URI",             :content => data.config.url + request.path }
-%meta{ :name => "DC.Format",      :schema => "DCterms:IMT",             :content => "text/html" }
-%meta{ :name => "DC.Creator",                                           :content => d.author }
-%meta{ :name => "DC.Subject",     :"xml:lang" => "en",                  :content => string( d.subject ) }
-%meta{ :name => "DC.Publisher",                                         :content => data.config.publisher }
-%meta{ :name => "DC.Publisher.Address",                                 :content => data.config.publisherAddress }
-%meta{ :name => "DC.Contributor",                                       :content => d.author }
-%meta{ :name => "DC.Date",        :scheme => "ISO8601",                 :content => d.date }
-%meta{ :name => "DC.Type",                                              :content => "text/html" }
-%meta{ :name => "DC.Description", :"xml:lang" => "en",                  :content => string( d.description ) }
-%meta{ :name => "DC.Coverage",                                          :content => data.config.publisher }
-%meta{ :name => "DC.Rights",                                            :content => data.config.rights }
-%meta{ :name => "DC.Date.X-MetadataLastModified", :scheme => "ISO8601", :content => d.dateModified }
-%meta{ :name => "DC.Language",    :scheme => "dcterms:RFC1766",         :content => "EN" }
+%meta{ :name => "dc.title",       :"xml:lang" => "en",                  :content => string( d.title ) }
+%meta{ :name => "dc.identifier",  :schema => "dcterms:uri",             :content => data.config.url + request.path }
+%meta{ :name => "dc.format",      :schema => "dcterms:imt",             :content => "text/html" }
+%meta{ :name => "dc.creator",                                           :content => d.author }
+%meta{ :name => "dc.subject",     :"xml:lang" => "en",                  :content => string( d.subject ) }
+%meta{ :name => "dc.publisher",                                         :content => data.config.publisher }
+%meta{ :name => "dc.publisher.address",                                 :content => data.config.publisherAddress }
+%meta{ :name => "dc.contributor",                                       :content => d.author }
+%meta{ :name => "dc.date",        :scheme => "iso8601",                 :content => d.date }
+%meta{ :name => "dc.type",                                              :content => "text/html" }
+%meta{ :name => "dc.description", :"xml:lang" => "en",                  :content => string( d.description ) }
+%meta{ :name => "dc.coverage",                                          :content => data.config.publisher }
+%meta{ :name => "dc.rights",                                            :content => data.config.rights }
+%meta{ :name => "dc.date.x-metadatalastmodified", :scheme => "iso8601", :content => d.dateModified }
+%meta{ :name => "dc.language",    :scheme => "dcterms:rfc1766",         :content => "en" }

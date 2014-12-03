@@ -19,9 +19,8 @@
        :lang       => locale,
        :itemscope  => true,
        :itemtype   => "http://schema.org/WebPage",
-       :manifest   => dc.manifest     ? "/offline.manifest"    : false,
-       :"xmlns:fb" => dc.metaFacebook ? "http://ogp.me/ns/fb#" : false,
-       :"xmlns:og" => dc.metaFacebook ? "http://ogp.me/ns#"    : false }
+       :manifest   => dc.manifest ? "/offline.manifest" : false,
+       :prefix     => "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" }
     <!--<![endif]-->
 
     %head

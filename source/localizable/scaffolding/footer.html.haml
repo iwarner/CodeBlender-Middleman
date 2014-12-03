@@ -1,0 +1,72 @@
+---
+author      : DryKISS
+description : "Scaffolding footer partial"
+layout      : "site/page"
+small       : ""
+title       : "Scaffolding footer partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/scaffolding"
+
+footer :
+    -   :title       : Column 1
+        :icon        : info
+        :description : |
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit...
+
+    -   :title       : Column 2
+        :icon        : cogs
+        :description : |
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit...
+
+    -   :title       : Column 3
+        :icon        : facebook
+        :extraClass  : social
+        :description : |
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit...
+---
+
+-##
+-# CodeBlender Scaffolding Copyright
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text => "Default" }
+
+-# Footer
+= partial "scaffolding/footer"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "scaffolding/footer"
+
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text => "Footer Local" }
+
+-# Footer
+= partial "scaffolding/footer",
+           :locals => { :array       => data.page.footer,
+                        :footerClass => "noBackground text-center" }
+
+-# Code
+:code
+    # lang: ruby
+    = partial "scaffolding/footer",
+           :locals => { :array       => data.page.footer,
+                        :footerClass => "noBackground text-center" }

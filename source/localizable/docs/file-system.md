@@ -30,7 +30,6 @@ Simply then copy and paste the Library code into this folder. So we have
 
     $ cd /var/www/Library/middleman
 
-
 ## CodeBlender
 
 This is the Pattern Library container, it contains all the partials and helpers

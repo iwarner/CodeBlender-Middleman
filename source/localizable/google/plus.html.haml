@@ -1,0 +1,36 @@
+---
+author      : DryKISS
+description : "Let visitors recommend your content on Google Search and share it on
+               Google+."
+layout      : "site/page"
+small       : "Google Plus social sharing"
+title       : "Google Plus Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/google"
+---
+
+-##
+-# CodeBlender Plus Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.google.com/+/web/+1button/
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text  => "Default",
+                 :type  => "h2" }
+
+-# Plus
+= partial "google/plus"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "google/plus"

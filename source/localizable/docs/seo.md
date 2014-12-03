@@ -20,6 +20,7 @@ og:image       :
 {:toc}
 
 ## Introduction
+
 ### SEO, SEM, Adverts
 
 * Add the canonical name to the pages

@@ -1,0 +1,42 @@
+---
+author       : "Ian Warner"
+description  : "Formatted list of tags"
+layout       : "site/page"
+small        : "Displays the tags"
+title        : "Blog Tags Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/blog"
+
+see :
+    - - "Middleman Blogging"
+      - "http://middlemanapp.com/blogging"
+
+todo :
+    - - "Options to put in a badge and add a tag icon on the tag element"
+      - "Tag"
+      - "2014-02-12"
+    - - "Options to remove the Heading - change text or tag"
+      - "Tag"
+      - "2014-02-12"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Tags
+= partial "blog/tags"
+
+%br
+%br
+
+-# Code
+:code
+    #lang: ruby
+    = partial "blog/tags"

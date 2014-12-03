@@ -47,6 +47,7 @@ Also see [Bower Github][] for the latest development news.
 [ZeptoJS][]
 
 ## Todo
+
 * Give more of a breakdown on the bower commands
 * Look at YeoMan as a replacement for Thor and Bower perhaps can this be
   intergrated into Middleman or does it compete?

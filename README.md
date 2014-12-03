@@ -1,7 +1,5 @@
 # Project : CodeBlender
 
-## CodeBlender
-
 ## Middleman : http://middlemanapp.com/
 
     $ cd /var/www/codeblender.net/www
@@ -60,3 +58,6 @@ Used for processing some common tasks
 # Middleman App - http://middlemanapp.com/
 # Bower         - http://bower.io/
 # Thor          - http://whatisthor.com/
+
+
+https://link.getsync.com/#f=IBM&sz=13E7&s=2PTHIBLJDIFPO2ZFMJMC4N4FYTVPXMLD&i=CZQ65X5U5EYOBSHU3KQEIL3MLKNHR6LIY&p=CDELC67YY6KZOZQV7J76ZRHM5S7KD4Q4&e=1416571568

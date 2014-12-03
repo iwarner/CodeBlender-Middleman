@@ -1,7 +1,12 @@
 ##
 # Tag Cloud Class
 #
+# Usage
+# -# Tag Cloud
+# = tagCloud()
+#
 # @author Ian Warner <ian.warner@drykiss.com>
+# @todo   Use CSS instead of inline style
 ##
 class TagCloud
 

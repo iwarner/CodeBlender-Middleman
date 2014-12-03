@@ -1,0 +1,39 @@
+---
+author      : DryKISS
+description : "The Tweet Button is a small widget which allows users to easily share
+               your website with their followers. This page is for developers and
+               users who wish to build their own Tweet Buttons. If you are looking
+               for a quick way to build a Tweet Button for your website you can
+               visit our Twitter Button Resources Page."
+layout      : "site/page"
+small       : ""
+title       : "Tweet Button Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/social/twitter"
+---
+
+-##
+-# CodeBlender Tweet Button Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://dev.twitter.com/docs/tweet-button
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text  => "Default",
+                 :type  => "h2" }
+
+-# Tweet Button
+= partial "social/twitter/tweet-button"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "social/twitter/tweet-button"

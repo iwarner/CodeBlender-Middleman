@@ -1,0 +1,37 @@
+---
+author      : DryKISS
+description : "Embedded Posts are a simple way to put public posts - by a Page or a
+               person on Facebook - into the content of your web site or web page.
+               Only public posts from Facebook Pages and profiles can be embedded."
+layout      : "site/page"
+small       : "https://developers.facebook.com/docs/plugins/embedded-posts"
+title       : "Facebook Embedded Posts Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/social/facebook"
+---
+
+-##
+-# CodeBlender Embedded Posts Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/embedded-posts/
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text => "Default",
+                 :type => "h2" }
+
+-# Embedded Posts
+= partial "social/facebook/embedded-posts"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "social/facebook/embedded-posts"
