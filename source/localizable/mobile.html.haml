@@ -1,0 +1,144 @@
+---
+author       : "Ian Warner"
+description  : "Tool to create and view a mobile prototype via screenshots and click
+                regions"
+layout       : "mobile/mobile"
+small        : "Screen click through viewer"
+title        : "Mobile Prototype Creator"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/"
+
+todo :
+    - - "Swipe needs to happen on certain regions only, and should work back and forward - use history push"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "warning" }
+    - - "Steps should be: Create Project, Upload Screens, Create Regions"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Project creation Form - Project Name - Type (Web or Mobile) perhaps"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Create a gallery of the screens that can be clicked to view and show regions"
+      - "Gallery"
+      - "2014-02-12"
+      - { "context" : "warning" }
+    - - "Make sure screen names conform to a standard when uploaded - no spaces, strange chars etc"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "danger" }
+    - - "Details saved to local storage"
+      - "Database"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Add the DropZone area to upload images to the server"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "warning" }
+    - - "Allow for the boundaries to be chained to produce the full CSS for the project"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "danger" }
+    - - "Add an input to declare the parent CSS"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Add an input on boundary select end to name the region"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Once all has been created then download assets including HTML, JS and CSS"
+      - "Mobile"
+      - "2014-02-12"
+    - - "When Deploying mobile I dont want the body padding added"
+      - "Mobile"
+      - "2014-02-12"
+      - { "context" : "danger" }
+---
+
+%p
+    To create an static image prototype the following must be created.
+    Screenshots; data file (yaml) that creates the screens and regions array;
+    clickable regions via CSS; and a small Javascript file to handle the clicks.
+
+%p
+    Utilising JCrop to creates the region boxes, the CSS can then be displayed
+    in the co-ordinates box. Simple overide the show variables in the Javascript
+    to target an individual screen
+
+-# Form
+%form{ :novalidate => false }
+
+    -# Project Name
+    = partial "./bootstrap/css/forms/input",
+               :locals => { :id          => "project",
+                            :label       => [ "Project Name" ],
+                            :name        => "project",
+                            :placeholder => "Enter project name",
+                            :required    => true }
+
+    -# Submit
+    = partial "./bootstrap/css/button",
+               :locals => { :block   => false,
+                            :color   => "primary",
+                            :content => "Save" }
+
+.row.prototype
+
+    .col-md-8
+
+        -# Heading
+        = partial "./bootstrap/type/heading",
+                   :locals => { :text => "iPhone5 - 320x568",
+                                :type => "h2" }
+
+        -# Mobile Prototype
+        .mobilePrototype
+
+            -# Loop through the array
+            - data.prototype02.each do | entry |
+
+                -# Container
+                %div{ :class  => entry.extraClass,
+                      :hidden => entry.hidden ? false : true }
+
+                    -# Loop Through the regions
+                    - if entry.region
+                        - entry.region.each do | region |
+
+                            %a{ :class => region.extraClass,
+                                :href  => "#",
+                                :data  => { "goto" => region.goto } }
+
+                    -# Image
+                    = partial "./bootstrap/css/image",
+                               :locals => { :alt        => "Image",
+                                            :extraClass => "img-responsive",
+                                            :src        => "prototype02/#{ entry.image }.png" }
+
+    .col-md-4
+
+        -# Heading
+        = partial "./bootstrap/type/heading",
+                   :locals => { :text => "Co-Ordinates",
+                                :type => "h2" }
+
+        = partial "./bootstrap/css/forms/input",
+                   :locals => { :id          => "coords",
+                                :placeholder => "",
+                                :rows        => "8",
+                                :tag         => "textarea" }
+
+        -# Button to toggle the display of the Borders
+        = partial "./bootstrap/css/button",
+                   :locals => { :block      => false,
+                                :color      => "primary",
+                                :content    => "Toggle Regions",
+                                :extraClass => "toggleRegion" }

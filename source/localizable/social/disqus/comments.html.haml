@@ -1,0 +1,41 @@
+---
+author       : "Ian Warner"
+description  : "If you’re passionate about writing and sharing, Disqus helps you
+                build a community of active readers and commenters."
+layout       : "site/page"
+small        : "Social comments"
+title        : "Disqus Comments Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/social/disqus"
+
+see          :
+    - - "Disqus"
+      - "http://disqus.com/"
+    - - "Universal Embed Code"
+      - "http://help.disqus.com/customer/portal/articles/472097-universal-embed-code"
+    - - "JavaScript Variables"
+      - "http://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables"
+
+todo :
+    - - "Look at the AJAX loading of Disqus - required if more than one on a page"
+      - ""
+      - "2014-02-12"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Disqus
+= partial "social/disqus/comments"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "social/disqus/comments"

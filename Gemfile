@@ -8,8 +8,8 @@
 source 'https://rubygems.org'
 
 # Middleman
-gem "middleman",      "~> 3.2.2"
-gem "middleman-blog", "~> 3.5.2"
+gem "middleman"
+gem "middleman-blog"
 gem "middleman-livereload"
 gem "middleman-minify-html"
 gem "middleman-deploy"
@@ -18,7 +18,7 @@ gem "middleman-sprockets"
 gem "middleman-favicon-maker"
 
 # Tools
-gem "builder", "~> 3.0"
+gem "builder"
 gem "kramdown"
 gem "thor"
 gem "stringex"

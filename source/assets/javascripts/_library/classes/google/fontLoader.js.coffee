@@ -1,6 +1,8 @@
 ##
 # Google Font Loader
 #
+# Usage
+#
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 class App.Classes.GoogleFontLoader
@@ -12,7 +14,7 @@ class App.Classes.GoogleFontLoader
 
         window.WebFontConfig =
             google:
-                families: [ 'Droid+Sans::latin', 'Droid+Serif::latin' ]
+                families: [ 'Roboto:400,700:latin' ]
 
         # Create script tag matching protocol
         s       = document.createElement 'script'

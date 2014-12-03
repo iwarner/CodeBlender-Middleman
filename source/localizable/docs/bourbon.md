@@ -1,4 +1,5 @@
 ---
+
 author         : Ian Warner
 title          : Bourbon
 small          : Bourbon
@@ -9,9 +10,11 @@ og:description : Bourbon
 og:type        :
 og:url         :
 og:image       :
+
 ---
 
 ## Table of Contents
+
 * Table of Contents
 {:toc}
 

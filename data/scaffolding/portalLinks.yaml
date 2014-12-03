@@ -7,20 +7,33 @@
 ---
 
 thumbs :
-  -
-    image :
+
+  - image :
         src : "home/01.jpeg"
     thumbnail :
         href    : ""
-        caption : "IBM"
+        caption : ""
         target  : "_blank"
 
-legacy :
-
-  -
-    image :
+  - image :
         src : "home/02.jpeg"
     thumbnail :
         href    : ""
-        caption : "IBM"
+        caption : ""
+        target  : "_blank"
+
+tools :
+
+  - image :
+        src : "home/05.jpeg"
+    thumbnail :
+        href    : ""
+        caption : ""
+        target  : "_blank"
+
+  - image :
+        src : "home/06.jpeg"
+    thumbnail :
+        href    : ""
+        caption : ""
         target  : "_blank"

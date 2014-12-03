@@ -1,0 +1,36 @@
+---
+author       : "Ian Warner"
+description  : "Bootstrap Carousel Partial"
+layout       : "site/page"
+small        : "http://getbootstrap.com/javascript/#carousel"
+title        : "Bootstrap Carousel Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+see :
+    - - "Bootstrap Carousel"
+      - "http://getbootstrap.com/javascript/#carousel"
+---
+
+-# Carousel
+= partial "bootstrap/javascript/carousel",
+           :locals => { :id         => "carousel1",
+                        :array      => [ "holder.js/1028x400",
+                                         "holder.js/1028x400" ],
+                        :indicators => true,
+                        :imageArray => true }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/javascript/carousel",
+               :locals => { :id         => "carousel1",
+                            :array      => [ "holder.js/1028x400",
+                                             "holder.js/1028x400" ],
+                            :indicators => true,
+                            :imageArray => true }

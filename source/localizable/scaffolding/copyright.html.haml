@@ -1,0 +1,125 @@
+---
+author       : "Ian Warner"
+description  : "Provides a standard below footer bar that contains the copyright
+                information for your site. Can be customised with a Top Arrow, extra
+                links and consistent year."
+layout       : "site/page"
+small        : "Copyright"
+title        : "Scaffolding copyright partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/scaffolding"
+
+list         :
+   - text    : "Terms & Conditions"
+     url     : "terms"
+   - text    : "Privacy Policy"
+     url     : "privacy"
+   - text    : "Support"
+     url     : "support"
+
+todo :
+    - - "Should have a good Margin underneath the Footer"
+      - ""
+      - "2014-02-12"
+    - - "Should allow for this to be stuck to the bottom of the page"
+      - ""
+      - "2014-02-12"
+    - - "Should this be in a section"
+      - ""
+      - "2014-02-12"
+    - - "What aria role should it take"
+      - ""
+      - "2014-02-12"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Copyright
+= partial "scaffolding/copyright"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "scaffolding/copyright"
+
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Copyright centered text",
+                        :type => "h2" }
+
+-# Copyright
+= partial "scaffolding/copyright",
+           :locals => { :center => true }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "scaffolding/copyright",
+               :locals => { :center => true }
+
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Copyright Extra Links",
+                        :type => "h2" }
+
+-# Copyright
+= partial "scaffolding/copyright",
+           :locals => { :array  => data.page.list,
+                        :center => true }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "scaffolding/copyright",
+               :locals => { :array  => data.page.list,
+                            :center => true }
+
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Local Copyright",
+                        :type => "h2" }
+
+-# Copyright
+= partial "scaffolding/copyright",
+           :locals => { :copyright => "Local String Inserted" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "scaffolding/copyright",
+               :locals => { :copyright => "Local String Inserted" }
+
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "No Year or Arrow",
+                        :type => "h2" }
+
+-# Copyright
+= partial "scaffolding/copyright",
+           :locals => { :copyright => "Local String Inserted",
+                        :showArrow => false,
+                        :showYear  => false }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "scaffolding/copyright",
+               :locals => { :copyright => "Local String Inserted",
+                            :showArrow => false,
+                            :showYear  => false }

@@ -1,0 +1,70 @@
+---
+author      : DryKISS
+description : "The Geolocation API defines an interface used to get location
+               information of the visitor, from this interface you can return the
+               latitude and longitude of the current visitor. Common sources of the
+               location are GPS or IP Address."
+layout      : "site/page"
+small       : "Location awareness for the browser."
+title       : "Scaffolding GeoLocation partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/scaffolding"
+
+resources :
+    - text : "Geolocation with Google Maps"
+      url  : "http://www.paulund.co.uk/how-to-use-geolocation-api-with-google-maps"
+---
+
+-##
+-# CodeBlender Scaffolding GeoLocation
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://yava.ro/mapgenerator/
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :small => "Sites that give extra guidance.",
+                 :text  => "Resources",
+                 :type  => "h2" }
+
+-# List
+= partial "bootstrap/type/list",
+           :locals => { :array => data.page.resources }
+
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text => "Finding your location",
+                 :type => "h2" }
+
+-# Info Window
+.infoWindow
+
+    %i.fa.fa-shopping-cart
+
+    .title The Clothes Company
+
+    .subTitle Distance
+    .text : 48.62m
+
+    %br
+
+    .subTitle Postcode
+    .text : W2 1RH, UK
+
+    .clearfix
+
+-# Geo Location
+%script{ :src => "http://maps.google.com/maps/api/js?sensor=false" }
+
+%article
+    %h4#status
+        Checking...

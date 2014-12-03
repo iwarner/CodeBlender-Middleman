@@ -1,0 +1,37 @@
+---
+author      : DryKISS
+description : "The Send button lets people privately send content on your site to
+               one or more friends in a Facebook message, to an email address, or
+               share it with a Facebook group."
+layout      : "site/page"
+small       : "https://developers.facebook.com/docs/plugins/send-button/"
+title       : "Facebook Send Button Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/social/facebook"
+---
+
+-##
+-# CodeBlender Send Button Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/send-button/
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text  => "Default",
+                 :type  => "h2" }
+
+-# Send Button
+= partial "social/facebook/send-button"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "social/facebook/send-button"

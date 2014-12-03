@@ -31,10 +31,10 @@
 :resources     : true
 :todo          : true
 :topIcon       : true
-# :bodySpy       :
-#   :spy    : "scroll"
-#   :target : ".ribbon"
-#   :offset : "50"
+:bodySpy       :
+    :spy    : false
+    :target : false
+    :offset : false
 
 # Meta
 :metaCore     : true
@@ -64,9 +64,9 @@
 :navExtraClass : "sidebar-offcanvas row-offcanvas-right"
 :navULClass    : "navbar-left"
 :navIcon       : false
-:navLogoAlt    :
-:navLogoWidth  :
-:navLogoHeight :
+:navLogoAlt    : false
+:navLogoWidth  : false
+:navLogoHeight : false
 :navPosition   : "static-top"
 :navSearch     : false
 :navType       : false
@@ -82,7 +82,7 @@
 # Facebook
 :facebookAppId     : 253027968192447
 :facebookAppSecret : 09627a7f101b7225459d95357b80114e
-:facebookPageId    :
+:facebookPageId    : false
 :facebookPageUrl   : https://www.facebook.com/onlyasmile
 :facebookLocale    :
     en : en_GB
@@ -91,18 +91,18 @@
 :disqusShortName :
 
 # Google
-:googleAnalytics      :
-:googleAnalyticsURL   :
-:googleAdsense        :
-:googleSearch         :
-:googleWebmasterTools :
+:googleAnalytics      : false
+:googleAnalyticsURL   : false
+:googleAdsense        : false
+:googleSearch         : false
+:googleWebmasterTools : false
 :googleClientID       : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"
 :googleClientSecret   : "ERR0xB-H_csJEdn2IPZ4MxWW"
 
 # MailChimp
-:mailChimpPath :
-:mailChimpU    :
-:mailChimpID   :
+:mailChimpPath : false
+:mailChimpU    : false
+:mailChimpID   : false
 
 # Open Weather Map
-openWeathMap :
+openWeathMap : false

@@ -1,0 +1,38 @@
+---
+author      : DryKISS
+description : "The Recommendations feed displays the most recommended content on
+               your site, using actions (such as likes) by your friends and other
+               people. It is different from the Activity feed which displays recent
+               actions on your site."
+layout      : "site/page"
+small       : "https://developers.facebook.com/docs/plugins/recommendations-bar"
+title       : "Facebook Recommendations Feed Partial"
+
+navList      :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/social/facebook"
+---
+
+-##
+-# CodeBlender Recommendations Feed Partial
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/recommendations/
+-# @todo
+-##
+
+-# Heading
+= partial "bootstrap/type/heading",
+    :locals => { :text  => "Default",
+                 :type  => "h2" }
+
+-# Recommendations Feed
+= partial "social/facebook/recommendations-feed"
+
+-# Code
+:code
+    # lang: ruby
+    = partial "social/facebook/recommendations-feed"

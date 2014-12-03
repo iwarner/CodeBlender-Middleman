@@ -55,7 +55,7 @@ initialise Middleman, you need to put in your admin account to run this on Port
 
     $ folder.tms
     $ launch.tms
-    $ ~/Dropbox/www/project.com && sudo bundle exec middleman server -p 80
+    $ /var/www/project.com && sudo bundle exec middleman server -p 80
     $ ripple emulate --remote http://localhost
 
 To run on another port use, this will default to port :4567
@@ -86,6 +86,7 @@ The output will simply be a bunch of HTML files, assets, one CSS file and one
 JavaScript file.
 
 ## Kill Middleman
+
     $ ps aux | grep middleman
     $ sudo kill -9 15106
 
@@ -102,7 +103,6 @@ For example, creating a new widget would require creating the following files:
   folder or create a new folder.
 * In assets/javascripts/_library-js a correspondingly named file should be created
 * In assets/stylesheets/_library-scss a correspondingly named files should be created
-
 * All partials should use the il8n variables
 * Jumbotron
     * Is in a Header section is this right?

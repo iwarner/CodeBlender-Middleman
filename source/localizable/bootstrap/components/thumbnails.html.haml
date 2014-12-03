@@ -1,0 +1,123 @@
+---
+author       : "Ian Warner"
+description  : "Extend Bootstrap's grid system with the thumbnail component to
+                easily display grids of images, videos, text, and more."
+layout       : "site/page"
+small        : "http://getbootstrap.com/components/#thumbnails"
+title        : "Bootstrap Thumbnails Partial"
+
+navList :
+    - active : true
+      title  : "Home"
+      url    : "/"
+    - title  : "Back"
+      url    : "/bootstrap"
+
+bar :
+    - sup    : Expires
+      text   : 485 Days
+    - sup    : Offer Type
+      text   : Cashback
+    - icon   : bookmark
+      href   : "#bookmark"
+
+see :
+    - - "Bootstrap Thumbnails"
+      - "http://getbootstrap.com/components/#thumbnails"
+---
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Default",
+                        :type => "h2" }
+
+-# Thumbnails
+= partial "bootstrap/components/thumbnails",
+           :locals => { :array => [ { "src" => "holder.js/300x200" },
+                                    { "src" => "holder.js/300x200" },
+                                    { "src" => "holder.js/300x200" } ] }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/thumbnails",
+               :locals => { :array => [ { "src" => "holder.js/300x200" },
+                                        { "src" => "holder.js/300x200" },
+                                        { "src" => "holder.js/300x200" } ] }
+
+-# Captioned Thumbnail
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Captioned Thumbnail",
+                        :type => "h2" }
+
+-# Thumbnails
+= partial "bootstrap/components/thumbnails",
+           :locals => { :array => [ { "src"     => "holder.js/300x200",
+                                      "caption" => "Caption 1",
+                                      "button"  => "Buy",
+                                      "link"    => "#",
+                                      "title"   => "Product 1" } ] }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/thumbnails",
+               :locals => { :array => [ { "src"     => "holder.js/300x200",
+                                          "caption" => "Caption 1",
+                                          "button"  => "Buy",
+                                          "link"    => "#",
+                                          "title"   => "Product 1" } ] }
+
+-# Styled Thumbnail
+%hr
+
+-# Heading
+= partial "bootstrap/type/heading",
+           :locals => { :text => "Styled Thumbnail",
+                        :type => "h2" }
+
+-# Content
+- content_for :content do
+
+    Luxury suit 45% off all designer suits on April
+
+    -# Bar
+    = partial "scaffolding/bar",
+               :locals => { :array => data.page.bar }
+
+    .arrow.right
+        .text
+            NEW
+
+- foo = yield_content :content
+
+-# Thumbnails
+= partial "bootstrap/components/thumbnails",
+           :locals => { :array      => [ { "src"     => "/assets/images/thumbnails/image.jpg",
+                                           "caption" => foo,
+                                           "title"   => "The Clothing Company" },
+                                         { "src"     => "/assets/images/thumbnails/image.jpg",
+                                           "caption" => foo,
+                                           "title"   => "The Clothing Company" },
+                                         { "src"     => "/assets/images/thumbnails/image.jpg",
+                                           "caption" => foo,
+                                           "title"   => "The Clothing Company" } ],
+                        :thumbClass => "noBorder styled text-center" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "bootstrap/components/thumbnails",
+               :locals => { :array      => [ { "src"     => "/assets/images/thumbnails/image.jpg",
+                                               "caption" => foo,
+                                               "title"   => "The Clothing Company" },
+                                             { "src"     => "/assets/images/thumbnails/image.jpg",
+                                               "caption" => foo,
+                                               "title"   => "The Clothing Company" },
+                                             { "src"     => "/assets/images/thumbnails/image.jpg",
+                                               "caption" => foo,
+                                               "title"   => "The Clothing Company" } ],
+                            :thumbClass => "noBorder styled text-center" }
