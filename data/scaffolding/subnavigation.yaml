@@ -41,63 +41,6 @@ style-guide :
     - title  : "Illustrations"
       url    : "#illustrations"
 
-# Style Guides TMS
-style-guide/tms :
-
-    - title  : "Style Guide"
-      url    : "/style-guide/index.html"
-    - title  : "TMS"
-      url    : "/style-guide/tms/index.html"
-    - title  : "Icons"
-      url    : "/style-guide/tms/icons.html"
-
-# Style Guides VMe
-style-guide/vme :
-
-    - title  : "Style Guide"
-      url    : "/style-guide/index.html"
-    - title  : "V.Me"
-      url    : "/style-guide/vme/index.html"
-    - title  : "Buttons"
-      url    : "/style-guide/vme/buttons.html"
-    - title  : "Capsule"
-      url    : "/style-guide/vme/capsule.html"
-    - title  : "Colours"
-      url    : "/style-guide/vme/colour.html"
-    - title  : "Icons"
-      url    : "/style-guide/vme/icons.html"
-    - title  : "Lists"
-      url    : "/style-guide/vme/lists.html"
-    - title  : "Navigation"
-      url    : "/style-guide/vme/navigation.html"
-    - title  : "Overlays"
-      url    : "/overlays/index.html"
-    - title  : "Responsive Grid"
-      url    : "/style-guide/vme/responsive-grid.html"
-    - title  : "Tables"
-      url    : "/style-guide/vme/tables.html"
-    - title  : "Typography"
-      url    : "/style-guide/vme/typography.html"
-
-# Style Guides VMe
-overlays :
-    - title  : "Style Guide"
-      url    : "/style-guide/index.html"
-    - title  : "V.Me"
-      url    : "/style-guide/vme/index.html"
-    - title  : "Overlays"
-      url    : "/overlays/index.html"
-    - title  : "Doorway"
-      url    : "/overlays/doorway.html"
-    - title  : "Main Summary"
-      url    : "/overlays/main-summary.html"
-    - title  : "Pay Summary"
-      url    : "/overlays/pay-summary.html"
-    - title  : "Confirmation Auto"
-      url    : "/overlays/confirmation-auto.html"
-    - title  : "Processing"
-      url    : "/overlays/processing.html"
-
 # Prototyping
 prototyping :
 
@@ -123,6 +66,8 @@ prototyping :
       url    : "/prototyping/scaffolding/index.html"
     - title  : "Social"
       url    : "/prototyping/social/index.html"
+    - title  : "SVG"
+      url    : "/prototyping/svg/index.html"
 
 # Blog
 prototyping/blog :
@@ -520,18 +465,12 @@ prototyping/social/twitter :
     - title  : "Tweet Button"
       url    : "/prototyping/social/twitter/tweet-button.html"
 
-# Search
-prototyping/search :
+# SVG
+prototyping/svg :
 
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
-    - title  : "Google"
-      url    : "/prototyping/google/index.html"
-    - title  : "Adsense"
-      url    : "/prototyping/google/adsense.html"
-    - title  : "Analytics"
-      url    : "/prototyping/google/analytics.html"
-    - title  : "Plus"
-      url    : "/prototyping/google/plus.html"
-    - title  : "Search"
-      url    : "/prototyping/google/search.html"
+    - title  : "SVG"
+      url    : "/prototyping/svg/index.html"
+    - title  : "Snap"
+      url    : "/prototyping/svg/snap.html"

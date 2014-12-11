@@ -14,7 +14,7 @@ class App.Views.Collapse extends Backbone.View
     # Events
     ##
     events :
-        "shown.bs.collapse"  : "toggleOpen",
+        "shown.bs.collapse"  : "toggleOpen"
         "hidden.bs.collapse" : "toggleClose"
 
     ##
@@ -22,38 +22,40 @@ class App.Views.Collapse extends Backbone.View
     ##
     initialize : ->
 
-        log.info "Collapse"
+        # Set the icons
+        $( ".panel-collapse" ).each ->
 
-        -# Set the icons
-        $(".panel-collapse").each ->
-            if $(this).is(":hidden")
-                $(this).prev().find("i.indicator").addClass "fa-plus"
+            if $( this ).is( ":hidden" )
+                $( this ).prev().find( "i.indicator" ).addClass "fa-plus"
+
             else
-                $(this).prev().find("i.indicator").addClass "fa-minus"
-            return
+                $( this ).prev().find( "i.indicator" ).addClass "fa-minus"
 
+            return
 
     ##
     # The collapsable content is OPENED
     ##
-    toggleOpen : (e) =>
+    toggleOpen : ( event ) =>
 
-        $(e.target)
-            .prev('.panel-heading')
-            .find("i.indicator")
-            .removeClass('fa-plus')
-            .addClass('fa-minus');
+        $( event.target )
+            .prev( '.panel-heading' )
+            .find( "i.indicator" )
+            .removeClass( 'fa-plus' )
+            .addClass( 'fa-minus' )
+
         false
 
     ##
     # The collapsable content is CLOSED
     ##
-    toggleClose : (e) =>
+    toggleClose : ( event ) =>
 
-        $(e.target)
-            .prev('.panel-heading')
-            .find("i.indicator")
-            .removeClass('fa-minus')
-            .addClass('fa-plus');
+        $( event.target )
+            .prev( '.panel-heading' )
+            .find( "i.indicator" )
+            .removeClass( 'fa-minus' )
+            .addClass( 'fa-plus' )
+
         false
 

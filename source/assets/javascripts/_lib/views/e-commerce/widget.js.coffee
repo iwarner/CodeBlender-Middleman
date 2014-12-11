@@ -67,14 +67,16 @@ class App.Views.Widget extends Backbone.View
     ##
     # cartPop
     ##
-    cartPop : ( e ) ->
+    cartPop : ( event ) ->
+
+        log.info "HERE"
 
         # Prevent default
-        e.preventDefault()
-        e.stopPropagation()
+        event.preventDefault()
+        event.stopPropagation()
 
         # Element
-        $el = $ e.currentTarget
+        $el = $ event.currentTarget
 
         # Toggle opening of Widget
         $el.next().toggle()

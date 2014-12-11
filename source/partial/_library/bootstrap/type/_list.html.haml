@@ -39,74 +39,74 @@
                 %dt
 
                     -# If URL then show link
-                    - if value[ "url" ]
+                    - if value[ :url ]
 
                         -# Link To
-                        = link_to( value[ "url" ], { :title => string( value[ "text" ] ) } ) do
-                            = string value[ "title" ]
+                        = link_to( value[ :url ], { :title => string( value[ :text ] ) } ) do
+                            = string value[ :title ]
 
                         -# Just the title
                     - else
                         = string value[ "title" ]
 
                 %dd
-                    = string value[ "text" ]
+                    = string value[ :text ]
 
                 -# UL List Type
             - else
 
                 -# Divider
-                - if value[ "divider" ]
+                - if value[ :divider ]
 
                     %li{ :class => "divider",
-                         :role  => value[ "dropdown" ] ? "presentation" : false }
+                         :role  => value[ :dropdown ] ? "presentation" : false }
 
                     -# Text is required to show a list
-                - elsif value[ "header" ]
+                - elsif value[ :header ]
 
                     -# List Item
                     %li.dropdown-header{ :role  => locals[ :dropdown ] ? "presentation" : false }
-                        = string value[ "header" ]
+                        = string value[ :header ]
 
                     -# Text is required to show a list
-                - elsif value[ "text" ]
+                - elsif value[ :text ]
 
                     -# Active
-                    - classes = value[ "active" ] ? "active" : ""
+                    - classes = value[ :active ] ? "active" : ""
 
                     -# Extra Classes
-                    - classes += value[ "extraClass" ] ? " #{ value[ "extraClass" ] }" : ""
+                    - classes += value[ :extraClass ] ? " #{ value[ :extraClass ] }" : ""
 
                     -# Status
-                    - classes += value[ "status" ] ? " #{ value[ "status" ] }" : ""
+                    - classes += value[ :status ] ? " #{ value[ :status ] }" : ""
 
                     -# List Item
                     %li{ :class => ! classes.empty?    ? classes        : false,
                          :role  => locals[ :dropdown ] ? "presentation" : false,
-                         :data  => value[ "data" ]      ? value[ "data" ] : false }
+                         :data  => value[ :data ]      ? value[ :data ] : false }
 
                         -# If URL is present then show a link
-                        - if value[ "url" ]
+                        - if value[ :url ]
 
                             -# Link To
-                            = link_to( string( value[ "url" ] ),
+                            = link_to( string( value[ :url ] ),
                                        { :role     => locals[ :dropdown ] ? "menuitem" : false,
                                          :tabindex => locals[ :dropdown ] ? "-1"       : false,
-                                         :title    => string( value[ "text" ] ) } ) do
+                                         :title    => string( value[ :text ] ) } ) do
 
                                 -# Check to see if this is an Icon only
-                                - if value[ "text" ] =~ /fa-|glyphicon-/i
-                                    - iconLibrary = value[ "text" ].partition( "-" )
-                                    %i{ :class => "#{iconLibrary[ 0 ]} #{value[ "text" ]}" }
+                                - if value[ :text ] =~ /fa-|glyphicon-/i
+                                    - iconLibrary = value[ :text ].partition( "-" )
+                                    %i{ :class => "#{iconLibrary[ 0 ]} #{value[ :text ]}" }
 
                                     -# Text
                                 - else
-                                    = string value[ "text" ]
+                                    = string value[ :text ]
 
                             -# No Link Required
                         - else
-                            = string value[ "text" ]
+                            = string value[ :text ]
 
                     -# Just show a Partial useful for Mega Menues
-                - elsif value[ "partial" ]
-                    = partial "../_lib/#{value[ "partial" ]}"
+                - elsif value[ :partial ]
+                    = partial "../_lib/#{value[ :partial ]}"

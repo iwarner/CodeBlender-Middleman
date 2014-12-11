@@ -1,12 +1,12 @@
 ##
-# Application Initilisation
+# Application Initialisation
 #
 # @author Ian Warner <iwarner@drykiss.com>
 ##
 @App =
 
     ##
-    # App Namespacing
+    # App Name spacing
     ##
     Classes     : {}
     Collections : {}
@@ -25,15 +25,15 @@
     API  : "http://localhost/api/v1"
 
     ##
-    # Application Constructor
+    # Application constructor
     ##
     initialize : ->
         @bindEvents()
 
     ##
-    # Bind Event Listeners
+    # Bind event listeners
     #
-    # Bind any events that are required on startup. Common events are:
+    # Bind any events that are required on start-up. Common events are:
     # 'load', 'deviceready', 'offline', and 'online'.
     ##
     bindEvents : ->
@@ -52,8 +52,18 @@
     ##
     onDeviceReady : ->
 
-        # Router
-        App.router = new App.Routers.Router
+        # Routers
+        new App.Routers.Blog
+        new App.Routers.Bootstrap
+        new App.Routers.Default
+        new App.Routers.Ecommerce
+        new App.Routers.Forms
+        new App.Routers.Games
+        new App.Routers.HTML5
+        new App.Routers.Mobile
+        new App.Routers.Scaffolding
+        new App.Routers.Social
+        new App.Routers.SVG
 
         # Create a new session model and scope it to the app global
         # This will be a singleton, which other modules can access

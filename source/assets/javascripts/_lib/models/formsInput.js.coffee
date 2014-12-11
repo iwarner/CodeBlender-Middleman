@@ -3,10 +3,6 @@
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
-
-##
-# Forms Input Class
-##
 class App.Models.FormsInput extends Backbone.Model
 
     # Validation

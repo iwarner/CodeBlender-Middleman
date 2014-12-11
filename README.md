@@ -2,7 +2,7 @@
 
 ## Middleman : http://middlemanapp.com/
 
-    $ cd /var/www/codeblender.net/www
+    $ /var/www/codeblender.net/www
     $ bundle exec middleman server
 
 ### Sitemap

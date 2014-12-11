@@ -25,10 +25,10 @@
 //= require gsap/src/minified/TweenMax.min.js
 
 # CSV
-//= require comma-separated-values/csv
+# require comma-separated-values/csv
 
 # Card
-//= require card/lib/js/card
+# require card/lib/js/card
 
 # CK Editor
 //= require ckeditor/ckeditor
@@ -37,19 +37,22 @@
 //= require lunr.js/lunr
 
 # DataTables
-//= require DataTables/media/js/jquery.dataTables
+# require DataTables/media/js/jquery.dataTables
 
 # Dropzone
-//= require dropzone/downloads/dropzone
+# require dropzone/downloads/dropzone
 
 # Melon JS
-# // require "./_vendor/melonjs/melonJS-1.0.2"
+# require "./_vendor/melonjs/melonJS-1.0.2"
 
 # Stripe
 //= require ./_vendor/stripe/checkout.min
 
 # Simple Cart
-//= require simplecart-js/simpleCart
+# require simplecart-js/
+
+# Snap
+//= require Snap.svg/dist/snap.svg-min
 
 # Bootstrap
 //= require affix
