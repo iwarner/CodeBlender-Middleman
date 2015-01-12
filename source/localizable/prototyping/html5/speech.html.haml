@@ -21,39 +21,39 @@ see :
 
 ---
 
-%p
-    HTML5 Speech Recognition API allows JavaScript to have access to a browser's
-    audio stream and convert it to text.
+/ %p
+/     HTML5 Speech Recognition API allows JavaScript to have access to a browser's
+/     audio stream and convert it to text.
 
--# Synthesis
-= partial "./bootstrap/type/heading",
-           :locals => { :text => "Synthesis",
-                        :tag  => "h2" }
+/ -# Synthesis
+/ = partial "./bootstrap/type/heading",
+/            :locals => { :text => "Synthesis",
+/                         :tag  => "h2" }
 
--# Submit
-= partial "./bootstrap/css/button",
-           :locals => { :context    => "primary",
-                        :content    => "Say",
-                        :extraClass => "synthesis" }
+/ -# Submit
+/ = partial "./bootstrap/css/button",
+/            :locals => { :context    => "primary",
+/                         :content    => "Say",
+/                         :extraClass => "synthesis" }
 
--# Recognition
-= partial "./bootstrap/type/heading",
-           :locals => { :text => "Recognition",
-                        :tag  => "h2" }
+/ -# Recognition
+/ = partial "./bootstrap/type/heading",
+/            :locals => { :text => "Recognition",
+/                         :tag  => "h2" }
 
--# Form
-%form.recognition{ :action     => "",
-                   :method     => "POST",
-                   :novalidate => true }
+/ -# Form
+/ %form.recognition{ :action     => "",
+/                    :method     => "POST",
+/                    :novalidate => true }
 
-    -# Username
-    = partial "./forms/input",
-               :locals => { :name        => "speech",
-                            :label       => [ "Speech" ],
-                            :placeholder => "Enter text to Speak",
-                            :speech      => true }
+/     -# Username
+/     = partial "./forms/input",
+/                :locals => { :name        => "speech",
+/                             :label       => [ "Speech" ],
+/                             :placeholder => "Enter text to Speak",
+/                             :speech      => true }
 
-    -# Submit
-    = partial "./bootstrap/css/button",
-               :locals => { :context => "primary",
-                            :content => "Speak" }
+/     -# Submit
+/     = partial "./bootstrap/css/button",
+/                :locals => { :context => "primary",
+/                             :content => "Speak" }

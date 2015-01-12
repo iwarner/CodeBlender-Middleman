@@ -77,7 +77,7 @@
             - array = locals[ :array ] ? array : t( :navigation )
 
             -# Create the collapse area
-            .navbar-collapse.collapse{ :id => locals[ :target] ? target : "navbar-collapse" }
+            .navbar-collapse.collapse{ :id => locals[ :target ] ? target : "navbar-collapse" }
 
                 -# Wrapper for off-canvas responsive menues
                 -# This needs to be optional
@@ -93,39 +93,39 @@
                             - url = current_page.url
 
                         -# Sort out what item is active
-                        - entry[ "active" ] = ( url == entry[ "url" ] ) ? true : false
+                        - entry[ :active ] = ( url == entry[ :url ] ) ? true : false
 
                         -# Process Array
                         - array = []
                         - array << entry
 
                         -# Dropdown menu
-                        - if entry[ "dropdown" ]
+                        - if entry[ :dropdown ]
 
-                            -# Dropdown
+                            -# Dropdown Partial
                             = partial "./bootstrap/components/dropdown",
-                                       :locals => { :extraClass    => entry[ "extraClass" ] ? entry[ "extraClass" ] : false,
-                                                    :dropDownClass => entry[ "dropdownClass" ],
-                                                    :title         => entry[ "dropdown" ],
-                                                    :list          => { :array    => array[ 0 ][ "items" ],
+                                       :locals => { :extraClass    => entry[ :extraClass ] ? entry[ :extraClass ] : false,
+                                                    :dropDownClass => entry[ :dropdownClass ],
+                                                    :title         => entry[ :dropdown ],
+                                                    :list          => { :array    => array[ 0 ][ :items ],
                                                                         :dropdown => true } }
 
                             -# Shop Widget
-                        - elsif entry[ "shop" ]
+                        - elsif entry[ :shop ]
 
-                            %ul.nav.navbar-nav{ :class => entry[ "extraClass" ] ? entry[ "extraClass" ] : false }
+                            %ul.nav.navbar-nav{ :class => entry[ :extraClass ] ? entry[ :extraClass ] : false }
 
                                 %li
                                     -# Simple Cart Widget
                                     = partial "./e-commerce/widget"
 
                             -# Button
-                        - elsif entry[ "button" ]
+                        - elsif entry[ :button ]
 
-                            %div{ :class => entry[ "extraClass" ] ? entry[ "extraClass" ] : false }
+                            %div{ :class => entry[ :extraClass ] ? entry[ :extraClass ] : false }
 
                                 -# Button
-                                = partial "./bootstrap/css/button", :locals => entry[ "button" ]
+                                = partial "./bootstrap/css/button", :locals => entry[ :button ]
 
                             -# Text Link
                         - else
@@ -134,7 +134,7 @@
                             = partial "./bootstrap/type/list",
                                        :locals => { :array      => array,
                                                     :navBar     => true,
-                                                    :extraClass => entry[ "extraClass" ] }
+                                                    :extraClass => entry[ :extraClass ] }
 
                 -# Google Search Bar
                 - if ! config.navSearch.blank?

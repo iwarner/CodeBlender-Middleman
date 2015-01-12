@@ -36,7 +36,7 @@ todo :
 
                     -# Filename
                     - imgName  = article.title.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
-                    - fileName = "/#{images_dir}/docs/#{imgName}.png"
+                    - fileName = "/#{ images_dir }/docs/#{ imgName }.png"
 
                     -# Check that image exists
                     - if File.file?( fileName )
@@ -55,16 +55,15 @@ todo :
                                :locals => { :extraClass => "media-heading",
                                             :href       => article.url,
                                             :small      => string( article.data.small ),
-                                            :text       => string( article.title ),
-                                            :tag        => "h3" }
+                                            :tag        => "h3",
+                                            :text       => string( article.title ) }
 
                     -# Details
                     = partial "./blog/details",
                                :locals => { :current_page => article }
 
                     -# Excerpt
-                    %p
-                        = string article.data.excerpt
+                    %p= string article.data.excerpt
 
                     -# Read More Button
                     = partial "./bootstrap/css/button",
@@ -88,8 +87,8 @@ todo :
         -# Heading
         = partial "./bootstrap/type/heading",
                    :locals => { :extraClass => "noMargin",
-                                :text       => string( "Archive" ),
-                                :tag        => "h3" }
+                                :tag        => "h3",
+                                :text       => string( "Archive" ) }
 
         -# Archive
         = partial "./blog/archive"
@@ -97,8 +96,8 @@ todo :
         -# Heading
         = partial "./bootstrap/type/heading",
                    :locals => { :extraClass => "noMargin",
-                                :text       => string( "Tags" ),
-                                :tag        => "h3" }
+                                :tag        => "h3",
+                                :text       => string( "Tags" ) }
 
         -# Tag Cloud
         = tagCloud()

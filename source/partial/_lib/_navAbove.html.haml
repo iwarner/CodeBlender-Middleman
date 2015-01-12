@@ -12,7 +12,7 @@
         = partial "./bootstrap/type/heading",
                    :locals => { :extraClass => "pull-right noMargin",
                                 :tag        => "h3",
-                                :text       => "" }
+                                :text       => :"navAbove.strapLine" }
 
         -# Link to Home Page
         = link_to( data.config.navBrandLink ) do
@@ -21,4 +21,4 @@
             = partial "./bootstrap/type/heading",
                        :locals => { :extraClass => "noMargin",
                                     :tag        => "h3",
-                                    :text       => "Team Two" }
+                                    :text       => :"navAbove.title" }

@@ -60,76 +60,76 @@ todo :
 
 ---
 
-%p
-    By default, Firefox uses Google Location Services to determine your location
-    by sending: your computer’s IP address, information about the nearby wireless
-    access points, and a random client identifier, which is assigned by Google,
-    that expires every 2 weeks.
+/ %p
+/     By default, Firefox uses Google Location Services to determine your location
+/     by sending: your computer’s IP address, information about the nearby wireless
+/     access points, and a random client identifier, which is assigned by Google,
+/     that expires every 2 weeks.
 
-%hr
+/ %hr
 
--# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :text => "Find your location",
-                        :tag  => "h2" }
+/ -# Heading
+/ = partial "./bootstrap/type/heading",
+/            :locals => { :text => "Find your location",
+/                         :tag  => "h2" }
 
-%form.locationForm{ :role => "form" }
+/ %form.locationForm{ :role => "form" }
 
-    -# Google Places Search Box
-    = partial "./forms/input",
-               :locals => { :extraClass  => "controls",
-                            :group       => [ false, "fa-location-arrow" ],
-                            :name        => "place",
-                            :label       => [ "Enter Location Form" ],
-                            :placeholder => "Place or postcode",
-                            :required    => true }
+/     -# Google Places Search Box
+/     = partial "./forms/input",
+/                :locals => { :extraClass  => "controls",
+/                             :group       => [ false, "fa-location-arrow" ],
+/                             :name        => "place",
+/                             :label       => [ "Enter Location Form" ],
+/                             :placeholder => "Place or postcode",
+/                             :required    => true }
 
-    -# Submit
-    = partial "bootstrap/css/button",
-               :locals => { :block   => false,
-                            :color   => "primary",
-                            :content => "Submit" }
+/     -# Submit
+/     = partial "bootstrap/css/button",
+/                :locals => { :block   => false,
+/                             :color   => "primary",
+/                             :content => "Submit" }
 
-%br
-%hr
+/ %br
+/ %hr
 
--# Map Container
-.latLong{ :hidden => true }
+/ -# Map Container
+/ .latLong{ :hidden => true }
 
-    -# Geo Location
-    %script{ :src => "http://maps.google.com/maps/api/js?sensor=false&libraries=places" }
+/     -# Geo Location
+/     %script{ :src => "http://maps.google.com/maps/api/js?sensor=false&libraries=places" }
 
-    .gMap
-    %br
+/     .gMap
+/     %br
 
-    %form{ :role => "form" }
+/     %form{ :role => "form" }
 
-        -# Latitude
-        = partial "./forms/input",
-                   :locals => { :name        => "latitude",
-                                :label       => [ "Latitude" ],
-                                :placeholder => "Latitude" }
+/         -# Latitude
+/         = partial "./forms/input",
+/                    :locals => { :name        => "latitude",
+/                                 :label       => [ "Latitude" ],
+/                                 :placeholder => "Latitude" }
 
-        -# Longitude
-        = partial "./forms/input",
-                   :locals => { :name        => "longitude",
-                                :label       => [ "Longitude" ],
-                                :placeholder => "Longitude" }
+/         -# Longitude
+/         = partial "./forms/input",
+/                    :locals => { :name        => "longitude",
+/                                 :label       => [ "Longitude" ],
+/                                 :placeholder => "Longitude" }
 
-    %hr
+/     %hr
 
-    -# Info Window
-    .infoWindow
+/     -# Info Window
+/     .infoWindow
 
-        %i.fa.fa-shopping-cart
+/         %i.fa.fa-shopping-cart
 
-        .title The Clothes Company
-        .subTitle Distance
-        .text : 48.62m
+/         .title The Clothes Company
+/         .subTitle Distance
+/         .text : 48.62m
 
-        %br
+/         %br
 
-        .subTitle Postcode
-        .text : W2 1RH, UK
+/         .subTitle Postcode
+/         .text : W2 1RH, UK
 
-        .clearfix
+/         .clearfix

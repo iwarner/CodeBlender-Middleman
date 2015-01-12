@@ -234,8 +234,6 @@ prototyping/forms :
       url    : "/prototyping/forms/login.html#login"
     - title  : "Password Strength Meter"
       url    : "/prototyping/forms/password-strength-meter.html#strengthMeter"
-    - title  : "Radio"
-      url    : "/prototyping/forms/radio.html"
     - title  : "Registration"
       url    : "/prototyping/forms/registration.html#registration"
     - title  : "Select"

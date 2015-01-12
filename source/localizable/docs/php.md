@@ -1,4 +1,5 @@
 ---
+
 author         : Ian Warner
 title          : PHP
 small          : PHP
@@ -9,9 +10,10 @@ og:description : PHP
 og:type        : PHP
 og:url         :
 og:image       :
+
 ---
 
-## Table of Contents
+<!-- ## Table of Contents
 * Table of Contents
 {:toc}
 
@@ -116,4 +118,4 @@ Install PHP5 - PHP-FPM
 [PHP: Hypertext Preprocessor]:http://php.net/
 [Wiki page]:http://en.wikipedia.org/wiki/PHP
 [FORP]:http://anthonyterrien.com/forp/
-[Jose Gonzalez]:https://github.com/josegonzalez/homebrew-php
+[Jose Gonzalez]:https://github.com/josegonzalez/homebrew-php -->

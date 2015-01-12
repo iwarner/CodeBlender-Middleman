@@ -20,29 +20,36 @@ class App.Views.SubNavigation extends Backbone.View
         # Elements
         el = $ ".subNavigation"
 
+        # Variables
         mainHeight = $( ".mainContent" ).innerHeight()
         sideHeight = el.innerHeight()
+        difference = mainHeight - 300
 
+        # Debug
+        # log.info mainHeight
+        # log.info sideHeight
+        # log.info footerHeight
+        # log.info difference
+        # log.info $(document).height()
+
+        # Check that the page is not shorter than the sidemenu
         if mainHeight > sideHeight
 
             # Affix Offset
             el.affix offset :
-                top    : 320
-                bottom : 155
+                top    : 280
+                bottom : -difference
 
-            # ScrollSpy
-            $( "body" ).scrollspy
-                target : ".subNavigation"
-                offset : 10
+        # ScrollSpy
+        $( "body" ).scrollspy
+            target : ".subNavigation"
+            offset : 10
 
-            # Scrollspy activate event
-            $( ".subNavigation" ).on "activate.bs.scrollspy", ( data ) ->
+        # Scroll Spy activate event
+        el.on "activate.bs.scrollspy", ( data ) ->
 
-                # Element
-                el = data.target
+            # Close all sub menus
+            el.find( ".submenu" ).hide()
 
-                # Close all submenus
-                $( ".subNavigation" ).find( ".submenu" ).hide()
-
-                # Show the active Submenu
-                $( el ).children( ".submenu" ).show()
+            # Show the active sub menu
+            $( data.target ).children( ".submenu" ).show()

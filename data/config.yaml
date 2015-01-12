@@ -2,31 +2,35 @@
 # Config YAML
 #
 # @author Ian Warner <ian.warner@drykiss.com>
+#
+# @todo   Version should be iterated on the build
+# @todo   Can this file be separated and linked to each module
 ##
 
 ---
 
-# Version - This needs to be interated on each distribution
-:version : "2.0.1"
+# Version - This needs to be iterated on each distribution
+version : "2.0.1"
 
-# Content
-:brand : "UX Portal"
-:url   : "http://ux.com"
+# Brand
+brand : "Code Blender"
+url   : "http://codeblender.net"
 
-# Form Spree
-:formAction : "//api.formspree.com/ian.warner@drykiss.com"
-:formNext   : "http://codeblender.net/contactus/?f=s"
+# Formspree : http://formspree.io/
+formspree :
+    action : "//a.com/ian.warner@drykiss.com"
+    next   : "http://codeblender.net/contactus/?f=s"
 
-# Scaffolding
+# Sections
 :breadcrumbs   : true
 :container     : "container"
 :copyright     : true
-:configuration : true
+:configuration : false
 :footer        : true
 :lang          : en
-:mainLogo      : false
+:mainLogo      : true
 :manifest      : false
-:modernizr     : true
+:modernizr     : false
 :navbar        : true
 :resources     : true
 :todo          : true
@@ -40,9 +44,9 @@
 :metaCore     : true
 :metaMobile   : true
 :metaDublin   : false
-:metaFacebook : true
+:metaFacebook : false
 :metaTwitter  : false
-:metaGoogle   : true
+:metaGoogle   : false
 
 # RSS Feed
 :feed : false
@@ -59,9 +63,9 @@
 :navAbove      : true
 :navBrand      : false
 :navBelow      : true
-:navBrandText  : true
+:navBrandText  : false
 :navBrandLink  : "/index.html"
-:navExtraClass : "sidebar-offcanvas row-offcanvas-right"
+:navExtraClass : false
 :navULClass    : "navbar-left"
 :navIcon       : false
 :navLogoAlt    : false

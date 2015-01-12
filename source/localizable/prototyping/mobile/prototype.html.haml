@@ -55,158 +55,158 @@ todo :
 
 ---
 
-- if build?
-    :css
-        body {
-            padding-top : 0;
-        }
+/ - if build?
+/     :css
+/         body {
+/             padding-top : 0;
+/         }
 
-        .mobilePrototype a {
-            border : 0;
-        }
+/         .mobilePrototype a {
+/             border : 0;
+/         }
 
--# Introduction
-:markdown
+/ -# Introduction
+/ :markdown
 
-    To create a static image prototype the following should be created.
+/     To create a static image prototype the following should be created.
 
-    **Creation**
+/     **Creation**
 
-    * Screenshots, recommended .png format
-    * data file (yaml), creates the screens and region co-ordinates array;
-    * Small Javascript file to handle the clicks.
+/     * Screenshots, recommended .png format
+/     * data file (yaml), creates the screens and region co-ordinates array;
+/     * Small Javascript file to handle the clicks.
 
-    Utilising JCrop to creates the region boxes, the co-ordinates can then be displayed
-    in the co-ordinates box. Simply overide the show variable in the Javascript
-    to target an individual screen.
+/     Utilising JCrop to creates the region boxes, the co-ordinates can then be displayed
+/     in the co-ordinates box. Simply overide the show variable in the Javascript
+/     to target an individual screen.
 
-    **Deployment**
+/     **Deployment**
 
-    * Config.rb set mobile variable to true - this ignores folders from deployment
-    * Make sure in mobile.js view that show is set to false
-    * Build - thor project:buildCordova
-    * double click platforms/ios/*.xcodeproj file
+/     * Config.rb set mobile variable to true - this ignores folders from deployment
+/     * Make sure in mobile.js view that show is set to false
+/     * Build - thor project:buildCordova
+/     * double click platforms/ios/*.xcodeproj file
 
--# Form
-%form{ :novalidate => false }
+/ -# Form
+/ %form{ :novalidate => false }
 
-    -# Project Name
-    = partial "./forms/input",
-               :locals => { :input => { :name        => "project",
-                                        :placeholder => "Enter project name" },
-                            :label => { :title => "Project Name" } }
+/     -# Project Name
+/     = partial "./forms/input",
+/                :locals => { :input => { :name        => "project",
+/                                         :placeholder => "Enter project name" },
+/                             :label => { :title => "Project Name" } }
 
-    -# Submit
-    = partial "./bootstrap/css/button",
-               :locals => { :block   => false,
-                            :context => "primary",
-                            :content => "Save" }
+/     -# Submit
+/     = partial "./bootstrap/css/button",
+/                :locals => { :block   => false,
+/                             :context => "primary",
+/                             :content => "Save" }
 
-.row.prototype
+/ .row.prototype
 
-    .col-md-7.phoneSection
+/     .col-md-7.phoneSection
 
-        -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :text => "iPhone5 - 320x568",
-                                :tag  => "h2" }
+/         -# Heading
+/         = partial "./bootstrap/type/heading",
+/                    :locals => { :text => "iPhone5 - 320x568",
+/                                 :tag  => "h2" }
 
-        -# iPhone Container
-        %section.iphoneSection
+/         -# iPhone Container
+/         %section.iphoneSection
 
-            %article.iphoneContainer.mobilePrototype.scrollBox
+/             %article.iphoneContainer.mobilePrototype.scrollBox
 
-                -# Check that data exists
-                - if data.prototype01
+/                 -# Check that data exists
+/                 - if data.prototype01
 
-                    -# Create Options container
-                    - options = [ ]
+/                     -# Create Options container
+/                     - options = [ ]
 
-                    -# Loop through the array
-                    - data.prototype01.each do | entry |
+/                     -# Loop through the array
+/                     - data.prototype01.each do | entry |
 
-                        -# Options
-                        - options << [ entry.extraClass ]
+/                         -# Options
+/                         - options << [ entry.extraClass ]
 
-                        -# Container
-                        %div{ :class  => entry.extraClass,
-                              :hidden => entry.hidden ? false : true }
+/                         -# Container
+/                         %div{ :class  => entry.extraClass,
+/                               :hidden => entry.hidden ? false : true }
 
-                            -# Check that regions exist
-                            - if entry.region
+/                             -# Check that regions exist
+/                             - if entry.region
 
-                                -# Loop Through the regions
-                                - entry.region.each do | region |
+/                                 -# Loop Through the regions
+/                                 - entry.region.each do | region |
 
-                                    -# Link To
-                                    = link_to( "",
-                                               "#",
-                                               :class => region.extraClass,
-                                               :style => region.coords ? "height:#{ region.coords[ 0 ] }px; width:#{ region.coords[ 1 ] }px; left:#{ region.coords[ 2 ] }px; top:#{ region.coords[ 3 ] }px;" : false,
-                                               :data  => { :goto => region.goto } )
+/                                     -# Link To
+/                                     = link_to( "",
+/                                                "#",
+/                                                :class => region.extraClass,
+/                                                :style => region.coords ? "height:#{ region.coords[ 0 ] }px; width:#{ region.coords[ 1 ] }px; left:#{ region.coords[ 2 ] }px; top:#{ region.coords[ 3 ] }px;" : false,
+/                                                :data  => { :goto => region.goto } )
 
-                            -# Image
-                            = partial "./bootstrap/css/image",
-                                       :locals => { :alt        => "Image",
-                                                    :extraClass => "img-responsive",
-                                                    :src        => "prototype01/#{ entry.image }.png" }
+/                             -# Image
+/                             = partial "./bootstrap/css/image",
+/                                        :locals => { :alt        => "Image",
+/                                                     :extraClass => "img-responsive",
+/                                                     :src        => "prototype01/#{ entry.image }.png" }
 
-    .col-md-5.phoneToolsSection
+/     .col-md-5.phoneToolsSection
 
-        -# Description
-        = partial "./bootstrap/type/heading",
-                   :locals => { :text => "Description",
-                                :tag  => "h2" }
+/         -# Description
+/         = partial "./bootstrap/type/heading",
+/                    :locals => { :text => "Description",
+/                                 :tag  => "h2" }
 
-        :markdown
+/         :markdown
 
-            **Learn More**
+/             **Learn More**
 
-            Learn more is where the user is introduced to the application, a carousel
-            gives the user the opportunity to swipe between many screens that provides
-            information on what the app is about, how to use it and benefits.
+/             Learn more is where the user is introduced to the application, a carousel
+/             gives the user the opportunity to swipe between many screens that provides
+/             information on what the app is about, how to use it and benefits.
 
-            * Carousel
-            * Hero Image
-            * Buttons
+/             * Carousel
+/             * Hero Image
+/             * Buttons
 
-        -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :text => "Screen Selection",
-                                :tag  => "h2" }
+/         -# Heading
+/         = partial "./bootstrap/type/heading",
+/                    :locals => { :text => "Screen Selection",
+/                                 :tag  => "h2" }
 
-        -# Change the screen
-        - if options
+/         -# Change the screen
+/         - if options
 
-            -# Select
-            = partial "./forms/select",
-                       :locals => { :array => options ,
-                                    :label => [ "Screen Selection", true ],
-                                    :name  => "screenSelection" }
+/             -# Select
+/             = partial "./forms/select",
+/                        :locals => { :array => options ,
+/                                     :label => [ "Screen Selection", true ],
+/                                     :name  => "screenSelection" }
 
-        -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :text => "Co-Ordinates",
-                                :tag  => "h2" }
+/         -# Heading
+/         = partial "./bootstrap/type/heading",
+/                    :locals => { :text => "Co-Ordinates",
+/                                 :tag  => "h2" }
 
-        -# Input
-        = partial "./forms/textarea",
-                   :locals => { :name => "coords",
-                                :rows => "2"}
+/         -# Input
+/         = partial "./forms/textarea",
+/                    :locals => { :name => "coords",
+/                                 :rows => "2"}
 
-        -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :text => "Actions",
-                                :tag  => "h2" }
+/         -# Heading
+/         = partial "./bootstrap/type/heading",
+/                    :locals => { :text => "Actions",
+/                                 :tag  => "h2" }
 
-        -# Button to toggle the display of the Borders
-        = partial "./bootstrap/css/button",
-                   :locals => { :context    => "primary",
-                                :content    => "Toggle Regions",
-                                :extraClass => "toggleRegion" }
+/         -# Button to toggle the display of the Borders
+/         = partial "./bootstrap/css/button",
+/                    :locals => { :context    => "primary",
+/                                 :content    => "Toggle Regions",
+/                                 :extraClass => "toggleRegion" }
 
-        -# Button to toggle the display of the Borders
-        = partial "./bootstrap/css/button",
-                   :locals => { :context    => "primary",
-                                :content    => "Toggle JCrop",
-                                :extraClass => "toggleJCrop" }
+/         -# Button to toggle the display of the Borders
+/         = partial "./bootstrap/css/button",
+/                    :locals => { :context    => "primary",
+/                                 :content    => "Toggle JCrop",
+/                                 :extraClass => "toggleJCrop" }

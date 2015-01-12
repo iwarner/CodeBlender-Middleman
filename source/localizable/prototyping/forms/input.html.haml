@@ -1,8 +1,9 @@
 ---
 
 author      : "DryKISS"
-description : "An Input field is a basic element that allows a user to enter data.
-               Functionality can be altered via the Type attribute."
+description :
+    An Input field is a basic element that allows a user to enter data.
+    Functionality can be altered via the Type attribute."
 small       : "Core user data entry element"
 title       : "Form Input Fields"
 
@@ -98,8 +99,9 @@ locals :
         code = %{partial "./forms/input",
                  :locals => { :help  => true,
                               :icon  => { :prepend => "fa-credit-card" },
-                              :input => { :name        => "text",
-                                          :placeholder => "Enter Text" },
+                              :input => { :inputGroupClass => "input-group",
+                                          :name            => "text",
+                                          :placeholder     => "Enter Text" },
                               :label => { :title => "Text Input" } }}
 
     = partial "./scaffolding/code",
@@ -137,7 +139,8 @@ locals :
         code = %{partial "./forms/input",
                  :locals => { :help          => true,
                               :icon          => { :prepend => "fa-envelope" },
-                              :input         => { :name            => "email",
+                              :input         => { :inputGroupClass => "input-group",
+                                                  :name            => "email",
                                                   :placeholder     => "Enter email",
                                                   :type            => "email" },
                               :label         => { :title => "Email" } }}

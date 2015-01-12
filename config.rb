@@ -4,26 +4,20 @@
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 
-# Require
-require "builder"
-require 'csv'
-
 # Variables
 set :version,          data.config.version
 set :relative_links,   true
 set :strip_index_file, false
-set :mobile, false
 set :syntaxScheme,     "ThankfulEyes"
-
-set :path,           "assets"
-set :css_dir,        "#{ path }/stylesheets"
-set :js_dir,         "#{ path }/javascripts"
-set :images_dir,     "#{ path }/images"
-set :fonts_dir,      "#{ path }/font"
-set :partials_dir,   "partial/_library"
-set :haml,           { :ugly => true, :format => :html5 }
-set :build_dir,      'www'
-set :layout,         "_lib/site/sidebar-left"
+set :path,             "assets"
+set :css_dir,          "#{ path }/stylesheets"
+set :js_dir,           "#{ path }/javascripts"
+set :images_dir,       "#{ path }/images"
+set :fonts_dir,        "#{ path }/font"
+set :partials_dir,     "partial/_library"
+set :haml,             { :ugly => true, :format => :html5 }
+set :build_dir,        "www"
+set :layout,           "_lib/site/sidebar-left"
 
 # Markdown Engine
 set :markdown_engine, :kramdown
@@ -34,9 +28,6 @@ set :markdown, :layout_engine => :haml,
 
 # Syntax Highlighting
 activate :syntax, :line_numbers => true, :wrap => true
-
-# Add asset fingerprinting to avoid cache issues
-# activate :asset_hash
 
 # i18n
 I18n.enforce_available_locales = true
@@ -51,14 +42,15 @@ activate :livereload
 page "atom.xml",     :layout => false
 page "channel.html", :layout => false
 page "config.xml",   :layout => false
-page "runner.html",  :layout => false
 page "feed.xml",     :layout => false
+page "runner.html",  :layout => false
+page "sitemap.xml",  :layout => false
 
 # Remove 404 from directory indexes
 page "/404.html", :directory_index => false
 
 # Compass
-compass_config do |config|
+compass_config do | config |
     config.output_style  = :compressed
     config.line_comments = false
 end
@@ -66,7 +58,7 @@ end
 # Sprockets
 after_configuration do
     sprockets.append_path File.join "#{ root }", "bower_components"
-    sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/"
+    sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/javascripts/bootstrap"
     sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/stylesheets/"
     sprockets.append_path File.join "#{ root }", "bower_components/font-awesome/scss/"
     sprockets.append_path "/assets/font"
@@ -78,7 +70,7 @@ activate :blog do | blog |
     blog.prefix            = "docs"
     blog.default_extension = ".md"
 
-    blog.permalink = "{category}{title}.html"
+    blog.permalink         = "{category}{title}.html"
 
     # blog.permalink         = ":title.html"
     blog.sources           = ":title.html"
@@ -101,37 +93,27 @@ activate :blog do | blog |
 
 end
 
-# Middleman Deploy
-activate :deploy do |deploy|
-    deploy.method = :rsync
-    deploy.host   = "uxserver.local"
-    deploy.path   = "/Groups/Prototype/Build/codeblender.net/www"
-    # Optional Settings
-    deploy.user  = "git"
-    deploy.clean = true
-    deploy.flags = "-avze 'ssh -i ~/.ssh/id_rsa.pub'"
+# # Middleman Deploy
+# activate :deploy do | deploy |
 
-end
+# end
 
-# Create GZIP Content
-helpers do
+# # Create GZIP Content
+# helpers do
 
-    def gzip_css_on_build( key, media = "screen" )
-        o = stylesheet_link_tag( key, { :media => media } )
-        o.sub!( ".css", ".css.gz" ) if build?
-        o
-    end
+#     def gzip_css_on_build( key, media = "screen" )
+#         o = stylesheet_link_tag( key, { :media => media } )
+#         o.sub!( ".css", ".css.gz" ) if build?
+#         o
+#     end
 
-    def gzip_js_on_build( key )
-        o = javascript_include_tag( key )
-        o.sub!( ".js", ".js.gz" ) if build?
-        o
-    end
+#     def gzip_js_on_build( key )
+#         o = javascript_include_tag( key )
+#         o.sub!( ".js", ".js.gz" ) if build?
+#         o
+#     end
 
-end
-
-# Directory Index
-# activate :directory_indexes
+# end
 
 # Build-specific configuration
 configure :build do
@@ -151,9 +133,6 @@ configure :build do
     # Minify HTML
     # activate :minify_html
 
-    # Enable cache buster
-    # activate :cache_buster
-
     # Favicon
     # activate :favicon_maker, :icons => {
     #     "favicon_template.png" => [
@@ -164,27 +143,27 @@ configure :build do
 
 end
 
-# VCard Creation
-if data.scaffolding.vcards
+# # VCard Creation
+# if data.scaffolding.vcards
 
-    data.scaffolding.vcards.each do | vCard |
+#     data.scaffolding.vcards.each do | vCard |
 
-        vcard           = VCardigan.create( :version => '3.0' )
-        vcard.name      "#{ vCard.name.l }", "#{ vCard.name.f }"
-        vcard.title     "#{ vCard.title }"
-        vcard.org       "IBM"
-        vcard.fullname  "#{ vCard.name.f } #{ vCard.name.l }"
-        vcard.email     "#{ vCard.email.ibm }", :type => 'work', :preferred => 1
-        vcard.tel       "#{ vCard.tel }", :type => 'mobile', :preferred => 1
-        vcard.impp      "#{ vCard.skype }", :"X-SERVICE-TYPE" => "Skype", :type => "home", :preferred => 1
-        vcard.add('X-Skype', "#{ vCard.skype }")
+#         vcard           = VCardigan.create( :version => '3.0' )
+#         vcard.name      "#{ vCard.name.l }", "#{ vCard.name.f }"
+#         vcard.title     "#{ vCard.title }"
+#         vcard.org       "IBM"
+#         vcard.fullname  "#{ vCard.name.f } #{ vCard.name.l }"
+#         vcard.email     "#{ vCard.email.ibm }", :type => 'work', :preferred => 1
+#         vcard.tel       "#{ vCard.tel }", :type => 'mobile', :preferred => 1
+#         vcard.impp      "#{ vCard.skype }", :"X-SERVICE-TYPE" => "Skype", :type => "home", :preferred => 1
+#         vcard.add('X-Skype', "#{ vCard.skype }")
 
-        # @todo Output a file
-        # puts vcard
+#         # @todo Output a file
+#         # puts vcard
 
-    end
+#     end
 
-end
+# end
 
 # # Create Product Pages
 # if data.products

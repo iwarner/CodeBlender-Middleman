@@ -9,19 +9,20 @@
 
 - if locals[ :src ]
 
-    = image_tag string( src ),
-                :alt        => locals[ :alt ]        ? string( alt ) : "Image",
-                :class      => locals[ :extraClass ] ? extraClass    : false,
-                :draggable  => locals[ :draggable ]  ? draggable     : false,
-                :height     => locals[ :size ]       ? size[ 1 ]     : false,
-                :id         => locals[ :id ]         ? id            : false,
-                :width      => locals[ :size ]       ? size[ 0 ]     : false
-
+    = image_tag locals[ :src ],
+          :alt        => locals[ :alt ]        ? string( alt ) : "Image",
+          :class      => locals[ :extraClass ] ? extraClass    : false,
+          :data       => locals[ :data ]       ? data          : false,
+          :draggable  => locals[ :draggable ]  ? draggable     : false,
+          :height     => locals[ :size ]       ? size[ 1 ]     : false,
+          :id         => locals[ :id ]         ? id            : false,
+          :width      => locals[ :size ]       ? size[ 0 ]     : false
 - else
 
     %img{ :alt        => locals[ :alt ]        ? string( alt ) : "Image",
           :class      => locals[ :extraClass ] ? extraClass    : false,
-          :"data-src" => locals[ :data ]       ? data          : false,
+          :data       => locals[ :data ]       ? data          : false,
+          :"data-src" => locals[ :dataSrc ]    ? dataSrc       : false,
           :draggable  => locals[ :draggable ]  ? draggable     : false,
           :height     => locals[ :size ]       ? size[ 1 ]     : false,
           :id         => locals[ :id ]         ? id            : false,

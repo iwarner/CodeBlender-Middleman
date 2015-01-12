@@ -21,9 +21,14 @@ Managing remotes
     $ git remote -v
     $ git remote add bitbucket git@bitbucket.org:DryKISS/codeblender.net.git
 
-## Google Icon
+## BitBucket
 
-    $ find ~/Google\ Drive/ -name Icon? -exec rm -f {} \;
+    git@bitbucket.org:TriangleSolutions/codeblender.net.git
+
+    $ ~/Dropbox/www/DryKiss/codeblender.net/www/source
+    $ git remote add origin git@bitbucket.org:TriangleSolutions/codeblender.net.git
+    $ git push -u origin --all
+    $ git push -u origin --tags
 
 ## Bundler : http://bundler.io/
 
@@ -45,7 +50,8 @@ Initially you will want to install the bower components
 
 Updating can be dangerous and it may update packages that could break features
 
-    $ bower update && bower prune
+    $ bower update
+    $ bower prune
 
 ## Thor : http://whatisthor.com/
 
@@ -58,6 +64,3 @@ Used for processing some common tasks
 # Middleman App - http://middlemanapp.com/
 # Bower         - http://bower.io/
 # Thor          - http://whatisthor.com/
-
-
-https://link.getsync.com/#f=IBM&sz=13E7&s=2PTHIBLJDIFPO2ZFMJMC4N4FYTVPXMLD&i=CZQ65X5U5EYOBSHU3KQEIL3MLKNHR6LIY&p=CDELC67YY6KZOZQV7J76ZRHM5S7KD4Q4&e=1416571568

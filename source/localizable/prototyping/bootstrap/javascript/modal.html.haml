@@ -56,49 +56,49 @@ locals :
 
 ---
 
--# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :text => "Overlapping modals not supported",
-                        :tag  => "h2" }
+/ -# Heading
+/ = partial "./bootstrap/type/heading",
+/            :locals => { :text => "Overlapping modals not supported",
+/                         :tag  => "h2" }
 
-%p
-    Be sure not to open a modal while another is still visible. Showing more than
-    one modal at a time requires custom code.
+/ %p
+/     Be sure not to open a modal while another is still visible. Showing more than
+/     one modal at a time requires custom code.
 
--# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :text => "Modal markup placement",
-                        :tag  => "h2" }
+/ -# Heading
+/ = partial "./bootstrap/type/heading",
+/            :locals => { :text => "Modal markup placement",
+/                         :tag  => "h2" }
 
-%p
-    Always try to place a modal's HTML code in a top-level position in your
-    document to avoid other components affecting the modal's appearance and/or
-    functionality.
+/ %p
+/     Always try to place a modal's HTML code in a top-level position in your
+/     document to avoid other components affecting the modal's appearance and/or
+/     functionality.
 
--# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :tag  => "h2",
-                        :text => "Default" }
+/ -# Heading
+/ = partial "./bootstrap/type/heading",
+/            :locals => { :tag  => "h2",
+/                         :text => "Default" }
 
--# Body
-- body = capture_html do
+/ -# Body
+/ - body = capture_html do
 
-    -# Heading
-    = partial "./bootstrap/type/heading",
-               :locals => { :text => "Heading",
-                            :tag  => "h2" }
+/     -# Heading
+/     = partial "./bootstrap/type/heading",
+/                :locals => { :text => "Heading",
+/                             :tag  => "h2" }
 
-        %p
-            TEXT
+/         %p
+/             TEXT
 
--# Modal
-= partial "./bootstrap/javascript/modal",
-           :locals => { :id   => "myModal",
-                        :body => body }
+/ -# Modal
+/ = partial "./bootstrap/javascript/modal",
+/            :locals => { :id   => "myModal",
+/                         :body => body }
 
--# Button
-= partial "./bootstrap/css/button",
-           :locals => { :context => "primary",
-                        :content => "Launch Modal",
-                        :data    => { :target => "#myModal",
-                                      :toggle => "modal" } }
+/ -# Button
+/ = partial "./bootstrap/css/button",
+/            :locals => { :context => "primary",
+/                         :content => "Launch Modal",
+/                         :data    => { :target => "#myModal",
+/                                       :toggle => "modal" } }

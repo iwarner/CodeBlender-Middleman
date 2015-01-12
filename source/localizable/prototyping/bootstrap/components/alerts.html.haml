@@ -36,13 +36,12 @@ locals :
 -# Success Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               :locals => { :text => "Well done! You successfully read this important alert message." }}
+                      :locals => { :text => "Well done! You successfully read this important alert message." }}
 
 = partial "./scaffolding/code",
            :locals => { :id      => 1,
                         :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Success Alert" } }
+                        :heading => { :text => "Success Alert" } }
 
 -# Info Alert
 :ruby
@@ -53,8 +52,7 @@ locals :
 = partial "./scaffolding/code",
            :locals => { :id      => 2,
                         :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Info Alert" } }
+                        :heading => { :text => "Info Alert" } }
 
 -# Warning Alert
 :ruby
@@ -65,8 +63,7 @@ locals :
 = partial "./scaffolding/code",
            :locals => { :id      => 3,
                         :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Warning Alert" } }
+                        :heading => { :text => "Warning Alert" } }
 
 -# Danger Alert
 :ruby
@@ -77,8 +74,7 @@ locals :
 = partial "./scaffolding/code",
            :locals => { :id      => 4,
                         :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Danger Alert" } }
+                        :heading => { :text => "Danger Alert" } }
 
 -# Dismissable Alert
 :ruby
@@ -93,7 +89,7 @@ locals :
                         :heading => { :small => "Closeable Alert, require JavaScript",
                                       :text  => "Dismissable" } }
 
--# Inline Links
+-# In-line Links
 :ruby
     code = %{partial "./bootstrap/components/alerts",
                :locals => { :context => "success",
@@ -102,5 +98,4 @@ locals :
 = partial "./scaffolding/code",
            :locals => { :id      => 6,
                         :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Inline Links" } }
+                        :heading => { :text => "Inline Links" } }

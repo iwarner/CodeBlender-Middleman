@@ -91,7 +91,7 @@ list :
                                     :type       => "checkbox" }
 
             -# Submit
-            = partial "bootstrap/css/button",
+            = partial "./bootstrap/css/button",
                        :locals => { :context    => "primary",
                                     :content    => "Login",
                                     :extraClass => "pull-right",
@@ -110,7 +110,7 @@ list :
                                         :text => "Or login with" }
 
                 -# List
-                = partial "bootstrap/type/list",
+                = partial "./bootstrap/type/list",
                            :locals => { :array      => current_page.data.list,
                                         :extraClass => "socialIcons list-unstyled list-inline" }
 

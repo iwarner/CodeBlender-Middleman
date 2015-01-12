@@ -35,26 +35,26 @@
             - if index == 0
 
                 -# Add the breadcrumbs Hash
-                - array << { "text" => "fa-home",
-                             "url"  => "/index.html" }
+                - array << { :text => "fa-home",
+                             :url  => "/index.html" }
 
                 -# Sort out the last element
             - elsif count -1 == index
 
                 -# If the last one is index.html remove the last array
                 - if text != "Index.html"
-                    - array << { "active" => true,
-                                 "text"   => text.chomp( File.extname( text ) ) }
+                    - array << { :active => true,
+                                 :text   => text.chomp( File.extname( text ) ) }
                 - else
-                    - array[ -1 ][ "url" ]    = false
-                    - array[ -1 ][ "active" ] = true
+                    - array[ -1 ][ :url ]    = false
+                    - array[ -1 ][ :active ] = true
 
                 -# Sort out the middle elements
             - else
 
                 -# Add the breadcrumbs Hash
-                - array << { "text" => text,
-                             "url"  => "#{ lastBreadcrumb.sub( "//", "/" ) }/index.html" }
+                - array << { :text => text,
+                             :url  => "#{ lastBreadcrumb.sub( "//", "/" ) }/index.html" }
 
     - else
 

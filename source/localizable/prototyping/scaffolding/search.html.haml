@@ -14,35 +14,35 @@ see :
 
 ---
 
--# Form
-%form.searchForm{ :action     => "",
-                  :method     => "POST",
-                  :novalidate => true }
+/ -# Form
+/ %form.searchForm{ :action     => "",
+/                   :method     => "POST",
+/                   :novalidate => true }
 
-    -# Search
-    = partial "./forms/input",
-               :locals => { :help        => true,
-                            :label       => "Search",
-                            :name        => "search",
-                            :placeholder => "Search" }
+/     -# Search
+/     = partial "./forms/input",
+/                :locals => { :help        => true,
+/                             :label       => "Search",
+/                             :name        => "search",
+/                             :placeholder => "Search" }
 
-    -# Submit
-    = partial "./bootstrap/css/button",
-               :locals => { :context => "primary",
-                            :content => "Submit" }
+/     -# Submit
+/     = partial "./bootstrap/css/button",
+/                :locals => { :context => "primary",
+/                             :content => "Submit" }
 
--# Search Results Placeholder
-.searchResults
+/ -# Search Results Placeholder
+/ .searchResults
 
--# Search Results Underscore Template
-%script#search_template{ :type => "text/template" }
+/ -# Search Results Underscore Template
+/ %script#search_template{ :type => "text/template" }
 
-    %ul.list-unstyled
+/     %ul.list-unstyled
 
-        %li{ :"data-question-id" => "{{ id }}" }
+/         %li{ :"data-question-id" => "{{ id }}" }
 
-            %h2
-                %a{ :href => "#" }
-                    {{ title }}
-            %p
-                {{ tags }}
+/             %h2
+/                 %a{ :href => "#" }
+/                     {{ title }}
+/             %p
+/                 {{ tags }}

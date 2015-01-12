@@ -48,7 +48,7 @@
             @onDeviceReady()
 
     ##
-    # Deviceready Event Handler
+    # Device Ready Event Handler
     ##
     onDeviceReady : ->
 
@@ -77,7 +77,7 @@
             # Instantiate Global Views
             new App.Views.Configuration
             new App.Views.Panels
-            new App.Views.Navigation
+            new App.Views.Navigation().render()
             new App.Views.SubNavigation
             new App.Views.Widget
             new App.Views.Offcanvas

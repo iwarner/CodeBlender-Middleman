@@ -56,10 +56,6 @@ class Project < Thor
         say( "\n\t Zip the build folder\n\t" )
         system( "cd www && zip -r ../#{ fileName }.zip . -x '*.DS_Store'" )
 
-        # Debug
-        # puts config
-        # puts version
-
     end
 
     ##
@@ -137,10 +133,6 @@ class Project < Thor
         # Middleman Build
         say( "\n\t Middleman Build Clean\n\t" )
         system( "bundle exec middleman build --clean" )
-
-        # Hack for CodeBlender
-        # say( "\n\t Move Mobile Index file to Root\n\t" )
-        # system( "mv www/mobile/prototype/index.html www/index.html && rm -R www/mobile" )
 
         # Cordova Build
         say( "\n\t Cordova Build\n\t" )

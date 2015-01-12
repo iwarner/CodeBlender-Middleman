@@ -10,7 +10,9 @@
 en:
 
     # Nav Above
-    navAboveTitle : "Style Guide"
+    navAbove :
+        strapLine : "Front end made easy"
+        title     : "Code Blender"
 
     # Navigation
     navigation :
@@ -18,10 +20,6 @@ en:
         # Home
         - text : "Home"
           url  : "/index.html"
-
-        # Digital Identity
-        - text : "Digital Identity"
-          url  : "/style-guide/index.html"
 
         # Prototyping
         - text : "Prototyping"
@@ -38,14 +36,14 @@ en:
     # Home
     home :
 
-        metaTitle       : "UX Portal"
-        metaSmall       : "Creative and Development portal"
-        metaDescription : "Creative and Development portal"
+        metaTitle       : "Code Blender"
+        metaSmall       : ""
+        metaDescription : ""
 
         jumbotron :
-            title       : "Team Portal"
+            title       : "Code Blender"
             description : >
-                Team Portal
+                Code Blender
 
     # Style Guide
     styleGuide :
@@ -80,11 +78,11 @@ en:
 
     # Copyright
     copyright :
-        brand  : "Team Two"
+        brand  : "Code Blender"
         rights : "All rights reserved."
 
     # Footer
-    footer    :
+    footer :
 
         # Column 1
         - title       : "About"

@@ -1,6 +1,9 @@
 ---
+
 author      : "DryKISS"
-description : "Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many."
+description :
+    Checkboxes are for selecting one or several options in a list while
+    radios are for selecting one option from many."
 small       : "Form Checkbox"
 title       : "Form Checkbox"
 
@@ -13,11 +16,11 @@ see :
       - "http://www.bootstrap-switch.org/"
 
 todo :
-    - - "Work out how to do inline checkboxes with the current partial"
+    - - "Work out how to do in-line checkboxes with the current partial"
       - "Form Checkbox"
       - "2014-05-01"
       - { "context" : "warning" }
-    - - "Allow the checkbox look and feel to be overidden i.e. a larger checkbox area"
+    - - "Allow the checkbox look and feel to be overridden i.e. a larger checkbox area"
       - "Form Checkbox"
       - "2014-05-01"
       - { "context" : "warning" }
@@ -25,11 +28,15 @@ todo :
       - "Form Checkbox"
       - "2014-05-01"
       - { "context" : "warning" }
+    - - "Fancy checkboxes are breaking the normal ones"
+      - "Form Checkbox"
+      - "2015-01-04"
+      - { "context" : "warning" }
 
 ---
 
 -# Heading
-= partial "bootstrap/type/heading",
+= partial "./bootstrap/type/heading",
            :locals => { :tag  => "h2",
                         :text => "Checkbox" }
 
@@ -51,8 +58,8 @@ todo :
 
 -# Heading
 = partial "bootstrap/type/heading",
-           :locals => { :text => "Disabled Checkbox",
-                        :tag  => "h2" }
+           :locals => { :tag  => "h2",
+                        :text => "Disabled Checkbox" }
 
 -# Form
 %form{ :novalidate => false }
@@ -75,8 +82,8 @@ todo :
 
 -# Heading
 = partial "bootstrap/type/heading",
-           :locals => { :text => "Fancy Checkbox",
-                        :tag  => "h2" }
+           :locals => { :tag  => "h2",
+                        :text => "Fancy Checkbox" }
 
 -# Form
 %form{ :novalidate => false }
@@ -96,12 +103,10 @@ todo :
                             :name       => "checkboxFancy",
                             :text       => "Textual description here" }
 
-
-
 -# Heading
 = partial "bootstrap/type/heading",
-           :locals => { :text => "Disabled Fancy Checkbox",
-                        :tag  => "h2" }
+           :locals => { :tag  => "h2",
+                        :text => "Disabled Fancy Checkbox" }
 
 -# Form
 %form{ :novalidate => false }

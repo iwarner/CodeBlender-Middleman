@@ -26,15 +26,19 @@
                 -# Loop through the Footer Yaml
                 - array.each do | entry |
 
+                    -# Debug
+                    -# = entry
+                    -# = entry[ :title ]
+
                     -# Section
-                    .footerSection{ :class => entry[ "extraClass" ] ? "#{ extraClass } #{ entry[ "extraClass" ] }" : extraClass }
+                    .footerSection{ :class => entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass }
 
                         -# Heading
                         = partial "./bootstrap/type/heading",
-                                   :locals => { :icon => entry[ "icon" ] ? entry[ "icon" ] : false,
+                                   :locals => { :icon => entry[ :icon ] ? entry[ :icon ] : false,
                                                 :tag  => "h4",
-                                                :text => entry[ "title" ] }
+                                                :text => entry[ :title ] }
 
                         -# Body
                         :markdown
-                            #{ string entry[ "description" ] }
+                            #{ string entry[ :description ] }

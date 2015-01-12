@@ -31,63 +31,63 @@ todo :
 
 ---
 
--# Description
-:markdown
-    Create a list of products in the products.yaml file.
-    To create these as a Simple Cart shelf, add the relevant classes to the items.
+/ -# Description
+/ :markdown
+/     Create a list of products in the products.yaml file.
+/     To create these as a Simple Cart shelf, add the relevant classes to the items.
 
--# Widget
-.row
-    .col-md-3
-        = partial "./e-commerce/widget"
+/ -# Widget
+/ .row
+/     .col-md-3
+/         = partial "./e-commerce/widget"
 
--# Check Products exists
-- if data.products
+/ -# Check Products exists
+/ - if data.products
 
-    -# Thumbnails array
-    - thumbnails  = []
+/     -# Thumbnails array
+/     - thumbnails  = []
 
-    -# Product Loop
-    - data.products.each do | product |
+/     -# Product Loop
+/     - data.products.each do | product |
 
-        -# Content
-        - capture = capture_html do
+/         -# Content
+/         - capture = capture_html do
 
-            -# Simple Cart Shelf Items
-            .simpleCart_shelfItem
+/             -# Simple Cart Shelf Items
+/             .simpleCart_shelfItem
 
-                -# Heading
-                = partial "./bootstrap/type/heading",
-                           :locals => { :extraClass => "item_name",
-                                        :tag        => "h3",
-                                        :text       => product.title }
+/                 -# Heading
+/                 = partial "./bootstrap/type/heading",
+/                            :locals => { :extraClass => "item_name",
+/                                         :tag        => "h3",
+/                                         :text       => product.title }
 
-                -# Excerpt
-                %p
-                    = product.excerpt
+/                 -# Excerpt
+/                 %p
+/                     = product.excerpt
 
-                -# Product Link
-                - page = product.title.downcase.gsub( /[^a-z0-9\- ]/, ' ' ).gsub( / /, '-' )
+/                 -# Product Link
+/                 - page = product.title.downcase.gsub( /[^a-z0-9\- ]/, ' ' ).gsub( / /, '-' )
 
-                -# Cost
-                %p.pull-left.item_price
-                    &pound;
-                    = product.cost
+/                 -# Cost
+/                 %p.pull-left.item_price
+/                     &pound;
+/                     = product.cost
 
-                -# Button
-                = partial "./bootstrap/css/button",
-                           :locals => { :content    => "Buy",
-                                        :context    => "primary",
-                                        :href       => "javascript:;",
-                                        :extraClass => "item_add pull-right" }
+/                 -# Button
+/                 = partial "./bootstrap/css/button",
+/                            :locals => { :content    => "Buy",
+/                                         :context    => "primary",
+/                                         :href       => "javascript:;",
+/                                         :extraClass => "item_add pull-right" }
 
-        -# Thumbnail Array
-        - thumbnails << { :image     => { :extraClass => "item_image item_add",
-                                          :src        => "products/#{product.image}" },
-                          :thumbnail => { :caption    => capture,
-                                          :zoomix     => true } }
+/         -# Thumbnail Array
+/         - thumbnails << { :image     => { :extraClass => "item_image item_add",
+/                                           :src        => "products/#{product.image}" },
+/                           :thumbnail => { :caption    => capture,
+/                                           :zoomix     => true } }
 
--# Thumbnails
-= partial "./bootstrap/components/thumbnails",
-           :locals => { :array      => thumbnails,
-                        :thumbClass => "styled text-center product" }
+/ -# Thumbnails
+/ = partial "./bootstrap/components/thumbnails",
+/            :locals => { :array      => thumbnails,
+/                         :thumbClass => "styled text-center product" }

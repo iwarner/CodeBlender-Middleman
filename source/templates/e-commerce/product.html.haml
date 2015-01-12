@@ -11,63 +11,63 @@ see :
 
 ---
 
--# Product Object
-= product
+/ -# Product Object
+/ = product
 
--# Media
-.media.simpleCart_shelfItem
+/ -# Media
+/ .media.simpleCart_shelfItem
 
-    -# Product Image
-    = partial "./bootstrap/css/image",
-               :locals => { :alt        => product.title,
-                            :src        => "products/#{product.image}",
-                            :extraClass => "pull-left thumbnail media-object img-polaroid" }
+/     -# Product Image
+/     = partial "./bootstrap/css/image",
+/                :locals => { :alt        => product.title,
+/                             :src        => "products/#{product.image}",
+/                             :extraClass => "pull-left thumbnail media-object img-polaroid" }
 
-    -# Media Body
-    .media-body
+/     -# Media Body
+/     .media-body
 
-        -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :extraClass => "item_name",
-                                :small      => "&pound;#{product.cost}",
-                                :text       => product.title }
+/         -# Heading
+/         = partial "./bootstrap/type/heading",
+/                    :locals => { :extraClass => "item_name",
+/                                 :small      => "&pound;#{product.cost}",
+/                                 :text       => product.title }
 
-        -# Product Description
-        %p= product.description
+/         -# Product Description
+/         %p= product.description
 
-        -# Quantity
-        %input.item_quantity{ :type => "text",
-                              :value => "1" }
+/         -# Quantity
+/         %input.item_quantity{ :type => "text",
+/                               :value => "1" }
 
-        -# Price
-        %span.item_price
-            = product.cost
+/         -# Price
+/         %span.item_price
+/             = product.cost
 
-        -# Add to Cart
-        = partial "./bootstrap/css/button",
-                   :locals => { :color      => "primary",
-                                :content    => "Add to Cart",
-                                :extraClass => "item_add",
-                                :href       =>  "javascript:;" }
+/         -# Add to Cart
+/         = partial "./bootstrap/css/button",
+/                    :locals => { :color      => "primary",
+/                                 :content    => "Add to Cart",
+/                                 :extraClass => "item_add",
+/                                 :href       =>  "javascript:;" }
 
-%hr
+/ %hr
 
--# Empty Cart
-= partial "./bootstrap/css/button",
-           :locals => { :color      => "warning",
-                        :content    => "Empty Cart",
-                        :extraClass => "simpleCart_empty",
-                        :href       =>  "javascript:;" }
+/ -# Empty Cart
+/ = partial "./bootstrap/css/button",
+/            :locals => { :color      => "warning",
+/                         :content    => "Empty Cart",
+/                         :extraClass => "simpleCart_empty",
+/                         :href       =>  "javascript:;" }
 
--# View Cart
-= partial "./bootstrap/css/button",
-           :locals => { :color   => "info",
-                        :content => "View Cart",
-                        :href    =>  "/simple-cart/cart" }
+/ -# View Cart
+/ = partial "./bootstrap/css/button",
+/            :locals => { :color   => "info",
+/                         :content => "View Cart",
+/                         :href    =>  "/simple-cart/cart" }
 
--# Checkout
-= partial "./bootstrap/css/button",
-           :locals => { :color      => "primary",
-                        :content    => "Checkout",
-                        :extraClass => "simpleCart_checkout",
-                        :href       =>  "javascript:;" }
+/ -# Checkout
+/ = partial "./bootstrap/css/button",
+/            :locals => { :color      => "primary",
+/                         :content    => "Checkout",
+/                         :extraClass => "simpleCart_checkout",
+/                         :href       =>  "javascript:;" }

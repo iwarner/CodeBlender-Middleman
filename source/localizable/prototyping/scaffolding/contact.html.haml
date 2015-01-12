@@ -31,174 +31,174 @@ todo :
 
 ---
 
--# Capture content for HEAD
-- content_for :siteHead do
-    %script{ :src => "http://maps.google.com/maps/api/js?sensor=false" }
+/ -# Capture content for HEAD
+/ - content_for :siteHead do
+/     %script{ :src => "http://maps.google.com/maps/api/js?sensor=false" }
 
-:markdown
-    Elements that can be customised on this page are as follows:
+/ :markdown
+/     Elements that can be customised on this page are as follows:
 
-    * Title and Small text can be found in the localised file.
+/     * Title and Small text can be found in the localised file.
 
--# Heading
-= partial "bootstrap/type/heading",
-           :locals => { :small => :headingSmall,
-                        :text  => :headingText }
+/ -# Heading
+/ = partial "bootstrap/type/heading",
+/            :locals => { :small => :headingSmall,
+/                         :text  => :headingText }
 
--# Introduction
-%p
-    Whatever your feedback or questions we’d love to hear from you, please
-    e-mail us at :
-    = mailTo( "info@greentouchpi.com" )
+/ -# Introduction
+/ %p
+/     Whatever your feedback or questions we’d love to hear from you, please
+/     e-mail us at :
+/     = mailTo( "info@greentouchpi.com" )
 
-.row
+/ .row
 
-    -# Map and Address
-    .col-md-8.map
+/     -# Map and Address
+/     .col-md-8.map
 
-        -# Tabs Nav
-        = partial "bootstrap/components/navs",
-                   :locals => { :active  => "Wimbledon",
-                                :array   => [ { "path" => "#wimbledon",  "name" => "Wimbledon" } ],
-                                :stacked => false,
-                                :toggle  => true }
+/         -# Tabs Nav
+/         = partial "bootstrap/components/navs",
+/                    :locals => { :active  => "Wimbledon",
+/                                 :array   => [ { "path" => "#wimbledon",  "name" => "Wimbledon" } ],
+/                                 :stacked => false,
+/                                 :toggle  => true }
 
-        -# Tab Content
-        .tab-content
+/         -# Tab Content
+/         .tab-content
 
-            .tab-pane.active#wimbledon
+/             .tab-pane.active#wimbledon
 
-                -# Map
-                .gMap.thumbnail
+/                 -# Map
+/                 .gMap.thumbnail
 
-                -# Under Map
-                .row
+/                 -# Under Map
+/                 .row
 
-                    .col-md-6.col-sm-6.col-xs-6
+/                     .col-md-6.col-sm-6.col-xs-6
 
-                        -# Address
-                        %address
+/                         -# Address
+/                         %address
 
-                            -# Heading
-                            = partial "bootstrap/type/heading",
-                                       :locals => { :text => "Greentouch PI Ltd",
-                                                    :tag  => "h3" }
+/                             -# Heading
+/                             = partial "bootstrap/type/heading",
+/                                        :locals => { :text => "Greentouch PI Ltd",
+/                                                     :tag  => "h3" }
 
-                            -# Address
-                            %i.fa.fa-map-marker.fa-fw
-                            1B Kings Road, Wimbledon, SW19 8PL
-                            %br
-                            %small
-                                (opposite AL Forno restaurant)
+/                             -# Address
+/                             %i.fa.fa-map-marker.fa-fw
+/                             1B Kings Road, Wimbledon, SW19 8PL
+/                             %br
+/                             %small
+/                                 (opposite AL Forno restaurant)
 
-                            %br
+/                             %br
 
-                            -# Call
-                            %i.fa.fa-phone.fa-fw
-                            = callLink( "+442085403888")
+/                             -# Call
+/                             %i.fa.fa-phone.fa-fw
+/                             = callLink( "+442085403888")
 
-                            %br
+/                             %br
 
-                            %i.fa.fa-envelope.fa-fw
-                            = mailTo( "info@greentouchpi.com" )
+/                             %i.fa.fa-envelope.fa-fw
+/                             = mailTo( "info@greentouchpi.com" )
 
-                    .col-md-6.col-sm-6.col-xs-6
+/                     .col-md-6.col-sm-6.col-xs-6
 
-                        -# Opening Times
-                        = partial "bootstrap/type/heading",
-                                   :locals => { :small => "Open 7 days a week!",
-                                                :text  => "Opening Times",
-                                                :tag   => "h3" }
+/                         -# Opening Times
+/                         = partial "bootstrap/type/heading",
+/                                    :locals => { :small => "Open 7 days a week!",
+/                                                 :text  => "Opening Times",
+/                                                 :tag   => "h3" }
 
-                        %i.fa.fa-clock-o.fa-fw
-                        Monday - Saturday : 11am - 9pm
-                        %br
-                        %i.fa.fa-clock-o.fa-fw
-                        Sunday and Bank Holidays : 11am - 8pm
+/                         %i.fa.fa-clock-o.fa-fw
+/                         Monday - Saturday : 11am - 9pm
+/                         %br
+/                         %i.fa.fa-clock-o.fa-fw
+/                         Sunday and Bank Holidays : 11am - 8pm
 
-                -# Heading
-                = partial "bootstrap/type/heading",
-                           :locals => { :small => "On Facebook and Twitter for exclusive promtions!",
-                                        :text  => "Follow Us",
-                                        :tag   => "h3" }
+/                 -# Heading
+/                 = partial "bootstrap/type/heading",
+/                            :locals => { :small => "On Facebook and Twitter for exclusive promtions!",
+/                                         :text  => "Follow Us",
+/                                         :tag   => "h3" }
 
-                -# Social Icons
-                %i.fa.fa-facebook-square
-                %i.fa.fa-twitter-square
+/                 -# Social Icons
+/                 %i.fa.fa-facebook-square
+/                 %i.fa.fa-twitter-square
 
-    -# Form
-    .col-md-4
+/     -# Form
+/     .col-md-4
 
-        -# Heading
-        = partial "bootstrap/type/heading",
-                   :locals => { :extraClass => "noMargin",
-                                :text       => "Booking Form",
-                                :tag        => "h2" }
+/         -# Heading
+/         = partial "bootstrap/type/heading",
+/                    :locals => { :extraClass => "noMargin",
+/                                 :text       => "Booking Form",
+/                                 :tag        => "h2" }
 
-        -# Form
-        %form{ :action     => "//api.formspree.com/ian.warner@drykiss.com",
-               :method     => "POST",
-               :novalidate => false }
+/         -# Form
+/         %form{ :action     => "//api.formspree.com/ian.warner@drykiss.com",
+/                :method     => "POST",
+/                :novalidate => false }
 
-            -# Name
-            = partial "./forms/input",
-                       :locals => { :label       => [ "Name" ],
-                                    :name        => "name",
-                                    :placeholder => "Enter name",
-                                    :required    => true }
+/             -# Name
+/             = partial "./forms/input",
+/                        :locals => { :label       => [ "Name" ],
+/                                     :name        => "name",
+/                                     :placeholder => "Enter name",
+/                                     :required    => true }
 
-            -# Mobile Number
-            = partial "./forms/input",
-                       :locals => { :label       => [ "Mobile Number" ],
-                                    :placeholder => "Enter your mobile phone number",
-                                    :name        => "mobile",
-                                    :required    => true,
-                                    :type        => "tel" }
+/             -# Mobile Number
+/             = partial "./forms/input",
+/                        :locals => { :label       => [ "Mobile Number" ],
+/                                     :placeholder => "Enter your mobile phone number",
+/                                     :name        => "mobile",
+/                                     :required    => true,
+/                                     :type        => "tel" }
 
-            -# Email
-            = partial "./forms/input",
-                       :locals => { :label       => [ "Email" ],
-                                    :placeholder => "Enter email address",
-                                    :name        => "_replyto",
-                                    :required    => true,
-                                    :type        => "email" }
+/             -# Email
+/             = partial "./forms/input",
+/                        :locals => { :label       => [ "Email" ],
+/                                     :placeholder => "Enter email address",
+/                                     :name        => "_replyto",
+/                                     :required    => true,
+/                                     :type        => "email" }
 
-            -# Treatment
-            = partial "./forms/select",
-                       :locals => { :array       => [ [ "Green Touch Thai Massage", "Green Touch Thai Massage" ],
-                                                      [ "Anti-Stress Swedish Massage", "Anti-Stress Swedish Massage" ],
-                                                      [ "Rejuvenating Deep Tissue Massage", "Rejuvenating Deep Tissue Massage" ],
-                                                      [ "Green Touch Signature Massage", "Green Touch Signature Massage" ],
-                                                      [ "Sports Massage", "Sports Massage" ],
-                                                      [ "Reflexology", "Reflexology" ],
-                                                      [ "Aromatherapy Indulgence Massage", "Aromatherapy Indulgence Massage" ] ],
-                                    :label       => [ "Treatment" ],
-                                    :name        => "treatment" }
+/             -# Treatment
+/             = partial "./forms/select",
+/                        :locals => { :array       => [ [ "Green Touch Thai Massage", "Green Touch Thai Massage" ],
+/                                                       [ "Anti-Stress Swedish Massage", "Anti-Stress Swedish Massage" ],
+/                                                       [ "Rejuvenating Deep Tissue Massage", "Rejuvenating Deep Tissue Massage" ],
+/                                                       [ "Green Touch Signature Massage", "Green Touch Signature Massage" ],
+/                                                       [ "Sports Massage", "Sports Massage" ],
+/                                                       [ "Reflexology", "Reflexology" ],
+/                                                       [ "Aromatherapy Indulgence Massage", "Aromatherapy Indulgence Massage" ] ],
+/                                     :label       => [ "Treatment" ],
+/                                     :name        => "treatment" }
 
-            -# Date Time
-            = partial "./forms/input",
-                       :locals => { :label       => [ "Date and Time" ],
-                                    :placeholder => "Date and time",
-                                    :name        => "date",
-                                    :type        => "date" }
+/             -# Date Time
+/             = partial "./forms/input",
+/                        :locals => { :label       => [ "Date and Time" ],
+/                                     :placeholder => "Date and time",
+/                                     :name        => "date",
+/                                     :type        => "date" }
 
-            -# Message
-            = partial "./forms/input",
-                       :locals => { :label       => [ "Message" ],
-                                    :placeholder => "Enter message",
-                                    :name        => "message",
-                                    :required    => true,
-                                    :rows        => "5",
-                                    :tag         => "textarea" }
+/             -# Message
+/             = partial "./forms/input",
+/                        :locals => { :label       => [ "Message" ],
+/                                     :placeholder => "Enter message",
+/                                     :name        => "message",
+/                                     :required    => true,
+/                                     :rows        => "5",
+/                                     :tag         => "textarea" }
 
-            -# Hidden Next
-            = partial "./forms/input",
-                       :locals => { :name  => "_next",
-                                    :type  => "hidden",
-                                    :value => "//localhost/contact" }
+/             -# Hidden Next
+/             = partial "./forms/input",
+/                        :locals => { :name  => "_next",
+/                                     :type  => "hidden",
+/                                     :value => "//localhost/contact" }
 
-            -# Submit
-            = partial "bootstrap/css/button",
-                       :locals => { :block   => false,
-                                    :color   => "primary",
-                                    :content => "Submit" }
+/             -# Submit
+/             = partial "bootstrap/css/button",
+/                        :locals => { :block   => false,
+/                                     :color   => "primary",
+/                                     :content => "Submit" }
