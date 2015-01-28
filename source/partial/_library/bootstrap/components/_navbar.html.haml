@@ -90,7 +90,7 @@
                         - if ! relative_links
                             - url = current_page.url.length > 1 ? current_page.url[ 0...-1 ] : current_page.url
                         - else
-                            - url = current_page.url
+                            - url = File.dirname( URI.parse( current_page.url ).path )
 
                         -# Sort out what item is active
                         - entry[ :active ] = ( url == entry[ :url ] ) ? true : false

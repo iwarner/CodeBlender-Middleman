@@ -8,8 +8,10 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+- meta = current_page.data.meta
+
 -# Title
-%title= string current_page.data.title
+%title= string meta.title
 
 -# Encoding
 %meta{ :charset => "utf-8" }
@@ -20,15 +22,15 @@
 
 -# Description
 %meta{ :name    => "description",
-       :content => string( current_page.data.description ) }
+       :content => string( meta.description ) }
 
 -# Keywords
 %meta{ :name    => "keywords",
-       :content => string( current_page.data.description )  }
+       :content => string( meta.description )  }
 
 -# Author
 %meta{ :name    => "author",
-       :content => current_page.data.author }
+       :content => meta.author }
 
 -# Robots
 %meta{ :name    => "robots",

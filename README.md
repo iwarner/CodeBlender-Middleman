@@ -1,5 +1,14 @@
 # Project : CodeBlender
 
+
+Your /wp-admin is protected by Apache using .htaccess credentials:
+User : admin
+Pass : SuZiw0XNmh
+
+User : Ian Warner
+Pass : dkFJC15
+
+
 ## Middleman : http://middlemanapp.com/
 
     $ /var/www/codeblender.net/www

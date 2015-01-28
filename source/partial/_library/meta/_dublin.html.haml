@@ -8,31 +8,28 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://dublincore.org/documents/dces/
 -# @see    http://www.dublincoregenerator.com/generator.html
+-# @see    http://schema.org/LocalBusiness
+-#
 -# @todo Should array the expected content and generate this correctly
 -# @todo Check that the Dublin core rules are being applied
 -##
 
-/ <link href="/dublin.rdf" rel="meta" type="application/rdf+xml" title="Dublin" />
-
-
 -# Variables
-- d = current_page.data
+- d = current_page.data.meta
 
-%link{ :rel => "schema.dc",      :href => "http://purl.org/dc/elements/1.1/" }
-%link{ :rel => "schema.dcterms", :href => "http://purl.org/dc/terms/" }
+-# Meta
+%meta{ :name => "dcterms.title",       :content => string( d.title ) }
+%meta{ :name => "dcterms.description", :content => string( d.description ) }
+%meta{ :name => "dcterms.publisher",   :content => t( :"meta.publisher" ) }
+%meta{ :name => "dcterms.language",    :content => "en" }
+%meta{ :name => "dcterms.creator",     :content => d.author }
 
-%meta{ :name => "dc.title",       :"xml:lang" => "en",                  :content => string( d.title ) }
-%meta{ :name => "dc.identifier",  :schema => "dcterms:uri",             :content => data.config.url + request.path }
-%meta{ :name => "dc.format",      :schema => "dcterms:imt",             :content => "text/html" }
-%meta{ :name => "dc.creator",                                           :content => d.author }
-%meta{ :name => "dc.subject",     :"xml:lang" => "en",                  :content => string( d.subject ) }
-%meta{ :name => "dc.publisher",                                         :content => data.config.publisher }
-%meta{ :name => "dc.publisher.address",                                 :content => data.config.publisherAddress }
-%meta{ :name => "dc.contributor",                                       :content => d.author }
-%meta{ :name => "dc.date",        :scheme => "iso8601",                 :content => d.date }
-%meta{ :name => "dc.type",                                              :content => "text/html" }
-%meta{ :name => "dc.description", :"xml:lang" => "en",                  :content => string( d.description ) }
-%meta{ :name => "dc.coverage",                                          :content => data.config.publisher }
-%meta{ :name => "dc.rights",                                            :content => data.config.rights }
-%meta{ :name => "dc.date.x-metadatalastmodified", :scheme => "iso8601", :content => d.dateModified }
-%meta{ :name => "dc.language",    :scheme => "dcterms:rfc1766",         :content => "en" }
+-# %meta{ :name => "dc.identifier",  :schema => "dcterms:uri", :content => data.config.url + request.path }
+-# %meta{ :name => "dc.format",      :schema => "dcterms:imt", :content => "text/html" }
+-# %meta{ :name => "dc.creator",                               :content => d.author }
+-# %meta{ :name => "dc.publisher.address",                     :content => data.config.publisherAddress }
+-# %meta{ :name => "dc.contributor",                           :content => d.author }
+-# %meta{ :name => "dc.date",        :scheme => "iso8601",     :content => d.date }
+-# %meta{ :name => "dc.type",                                  :content => "text/html" }
+-# %meta{ :name => "dc.coverage",                              :content => data.config.publisher }
+-# %meta{ :name => "dc.rights",                                :content => data.config.rights }
