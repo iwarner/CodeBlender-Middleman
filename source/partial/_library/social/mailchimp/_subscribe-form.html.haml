@@ -4,10 +4,13 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- dc = data.config
+
 -# If Action if not supplied - get details from Config.yaml
 - if ! locals[ :action ]
-    - if data.config.mailChimpPath
-        - action = data.config.mailChimpPath + "?u=" + data.config.mailChimpU + "&id=" + data.config.mailChimpID + "&c=?"
+    - if dc.mailChimp.path
+        - action = dc.mailChimp.path + "?u=" + dc.mailChimp.u + "&id=" + dc.mailChimp.id + "&c=?"
 
 -# Subscription Form
 %form#mailChimpForm.mailChimpForm{ :action     => action,

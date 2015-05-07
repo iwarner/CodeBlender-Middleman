@@ -5,33 +5,30 @@
 -##
 
 -# Variables
-- extraClass = "label "
+- extraClass = "label"
 
 -# Context
 - if locals[ :context ]
-    - extraClass += "label-" + context
+    - extraClass += " label-" + locals[ :context ]
 - else
-    - extraClass += "label-default"
+    - extraClass += " label-default"
 
 -# Capture HTML
 - captureHTML = capture_html do
 
     -# Icon
     - if locals[ :icon ]
-        %span.fa{ :class => icon }
+        = icon( locals[ :icon ] )
 
     -# Content
-    = string content
+    = string locals[ :content ]
 
 -# Link
 - if locals[ :href ]
-
-    - link_to( locals[ :href ] ? href : false, :class => extraClass ? extraClass : false ) do
-        = captureHTML
+    = link_to( captureHTML, locals[ :href ], class: extraClass )
 
     -# Span
 - else
 
-    -# Span
-    %span{ :class => extraClass ? extraClass : false, :href  => locals[ :href ] ? href : false }
+    %span{ class: extraClass }
         = captureHTML

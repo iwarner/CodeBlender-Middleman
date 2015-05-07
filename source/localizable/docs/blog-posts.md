@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : Backbone
-small          : Backbone
-date           : 2001-03-31
-tags           : [ backbone, js, front-end ]
-og:title       : Backbone
-og:description : Backbone
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

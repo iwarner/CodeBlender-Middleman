@@ -1,6 +1,6 @@
 # Project : CodeBlender
 
-
+# Digital Ocean
 Your /wp-admin is protected by Apache using .htaccess credentials:
 User : admin
 Pass : SuZiw0XNmh
@@ -8,6 +8,7 @@ Pass : SuZiw0XNmh
 User : Ian Warner
 Pass : dkFJC15
 
+http://asanderson.org/posts/2013/06/03/bootstrapping-angular-rails-part-1.html
 
 ## Middleman : http://middlemanapp.com/
 
@@ -25,7 +26,12 @@ Pass : dkFJC15
 
 ## Git
 
-Managing remotes
+## GitHub
+
+    $ dig tml.footyjapan.com | grep -E '(207.97.227.245|204.232.175.78|199.27.73.133)' || echo "OK"
+    $ dig dontpoisonmyskin.com | grep -E '(207.97.227.245|204.232.175.78|199.27.73.133)' || echo "OK"
+
+## Managing remotes
 
     $ git remote -v
     $ git remote add bitbucket git@bitbucket.org:DryKISS/codeblender.net.git
@@ -34,7 +40,7 @@ Managing remotes
 
     git@bitbucket.org:TriangleSolutions/codeblender.net.git
 
-    $ ~/Dropbox/www/DryKiss/codeblender.net/www/source
+    $ /var/www/Dropbox/www/DryKiss/codeblender.net/www/source
     $ git remote add origin git@bitbucket.org:TriangleSolutions/codeblender.net.git
     $ git push -u origin --all
     $ git push -u origin --tags
@@ -63,6 +69,17 @@ Updating can be dangerous and it may update packages that could break features
     $ bower prune
 
 ## Thor : http://whatisthor.com/
+
+## File System
+
+    $ find . -name .svn -exec echo {} \;
+    $ find . -name .svn -exec rm -rf {} \;
+
+    $ find . -name .git -exec echo {} \;
+    $ find . -name .git -exec rm -rf {} \;
+
+    $ find . -name Thumbs.db -exec echo {} \;
+    $ find . -name Thumbs.db -exec rm -rf {} \;
 
 Used for processing some common tasks
 

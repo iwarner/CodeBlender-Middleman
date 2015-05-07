@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : PHP Composer
-small          : PHP Composer
-date           : 2014-02-10
-tags           : [ php, package ]
-og:title       : PHP Composer
-og:description : PHP Composer
-og:type        : PHP Composer
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

@@ -1,5 +1,13 @@
 -##
--# Dropdown
+-# Dropdown Partial
+-#
+-# @Usage
+-# = partial "./bootstrap/components/dropdown",
+-#            locals: { extraClass: "btn-group clearfix",
+-#                      title:      "Drop Down",
+-#                      type:       "btn-group",
+-#                      list:       { array:    current_page.data.list,
+-#                                    dropdown: true }}
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -22,16 +30,16 @@
         - button[ :dropdown ] = true
         - button[ :content ]  = locals[ :title ]
         - button[ :toggle ]   = "dropdown"
+        -# - button[ :data ]     = { toggle: "dropdown" }
 
         -# Button Partial
-        = partial "./bootstrap/css/button",
-                   :locals => button
+        = partial "./bootstrap/css/button", locals: button
 
         -# If NavBar
     - else
 
         -# Link To
-        = link_to( "#", :class => "dropdown-toggle", :data => { :toggle => "dropdown" } ) do
+        = link_to( "#", class: "dropdown-toggle", data: { toggle: "dropdown" } ) do
 
             -# Dropdown Title
             = string locals[ :title ]
@@ -40,18 +48,17 @@
             %b.caret
 
     -# List Partial
-    = partial "./bootstrap/type/list",
-               :locals => list
+    = partial "./bootstrap/type/list", locals: list
 
 -# Dropdown
 - if locals[ :type ] == "dropdown" || locals[ :type ] == "btn-group"
 
-    %div{ :class => locals[ :extraClass ] ? extraClass : false }
+    %div{ class: locals[ :extraClass ] ? extraClass : false, ng: locals[ :ng ] ? ng : false  }
         = capture
 
 - else
 
-    %ul.nav.navbar-nav{ :class => locals[ :extraClass ] ? extraClass : false }
+    %ul.nav.navbar-nav{ class: locals[ :extraClass ] ? extraClass : false }
 
-        %li.dropdown{ :class => locals[ :dropDownClass ] ? dropDownClass : false }
+        %li.dropdown{ class: locals[ :dropDownClass ] ? dropDownClass : false }
             = capture

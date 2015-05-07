@@ -1,8 +1,15 @@
 -##
 -# Button / Link Partial
 -#
+-# Usage
+-# -# Button
+-# = partial "./bootstrap/css/button",
+-#            locals: { content: "Default" }
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://www.plugolabs.com/twitter-bootstrap-button-generator/
+-#
+-# @todo   Check out the angular features for this
 -##
 
 -# Active
@@ -11,7 +18,7 @@
 -# Block Level
 - classes += locals[ :block ] ? " btn-block" : ""
 
--# Color
+-# Colour
 - classes += locals[ :context ] ? " btn-#{ context }" : " btn-default"
 
 -# Disabled
@@ -33,7 +40,12 @@
 - captureHTML = capture_html do
 
     -# Content
-    - if locals[ :content ]
+    - if locals[ :content ] == "close"
+
+        %span{ aria: { hidden: "true" } }
+            &times;
+
+    - elsif locals[ :content ]
         = string content
 
     -# Icon
@@ -42,34 +54,34 @@
 
     -# Image
     - if locals[ :image ]
-        = partial "./bootstrap/css/image",
-                   :locals => locals[ :image ]
+        = partial "./bootstrap/css/image", locals: locals[ :image ]
 
     -# Dropdown Caret
     - if locals[ :dropdown ]
         %span.caret
-        %span.sr-only
-            Toggle Dropdown
+        %span.sr-only Toggle Dropdown
 
 -# Link
 - if ! locals[ :href ]
 
-    %button{ :"aria-hidden"  => locals[ :hidden ]   ? "true"          : false,
-             :class          => "btn #{ classes }",
-             :data           => locals[ :data ]     ? data            : false,
-             :hidden         => locals[ :hidden ]   ? "hidden"        : false,
-             :id             => locals[ :id ]       ? id              : false,
-             :title          => locals[ :title ]    ? string( title ) : false,
-             :type           => "submit" }
+    %button{ aria:   locals[ :aria ]     ? aria                 : false,
+             class:  locals[ :extraClass ] == "close" ? "close" : "btn #{ classes }",
+             data:   locals[ :data ]     ? data                 : false,
+             hidden: locals[ :hidden ]   ? "hidden"             : false,
+             id:     locals[ :id ]       ? id                   : false,
+             ng:     locals[ :ng ]       ? ng                   : false,
+             title:  locals[ :title ]    ? string( title )      : false,
+             type:   locals[ :type ]     ? type                 : "submit" }
         = captureHTML
 
 - else
 
     = link_to( captureHTML,
                locals[ :href ],
-               :"aria-hidden"  => locals[ :hidden ]   ? "true"          : false,
-               :class          => "btn #{ classes }",
-               :data           => locals[ :data ]     ? data            : false,
-               :hidden         => locals[ :hidden ]   ? "hidden"        : false,
-               :id             => locals[ :id ]       ? id              : false,
-               :title          => locals[ :title ]    ? string( title ) : false )
+               aria:   locals[ :aria ]     ? aria            : false,
+               class:  "btn #{ classes }",
+               data:   locals[ :data ]     ? data            : false,
+               hidden: locals[ :hidden ]   ? "hidden"        : false,
+               id:     locals[ :id ]       ? id              : false,
+               ng:     locals[ :ng ]       ? ng              : false,
+               title:  locals[ :title ]    ? string( title ) : false )

@@ -5,7 +5,7 @@
 -# For example: <a href="http://foo.com/bar.html#disqus_thread">Link</a>.
 -#
 -# Locals
--# data.config.disqusShortName - String - Required - Given by Disqus
+-# dc.disqusShortName - String - Required - Given by Disqus
 -#
 -# Usage
 -# = partial "social/disqus/comments-count"
@@ -13,9 +13,12 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- dc = data.config
+
 -# Comments Count
 :coffee
-    disqus_shortname = #{data.config.disqusShortName}
+    disqus_shortname = #{ dc.disqusShortName }
     (->
         s       = document.createElement("script")
         s.async = true

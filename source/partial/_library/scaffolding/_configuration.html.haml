@@ -5,19 +5,19 @@
 -##
 
 -# Configuration Toolbox
-#skin-toolbox{ :style => "right: -182px;" }
+#skin-toolbox{ style: "right: -182px;" }
 
     -# Icon
     .skin-toolbox-toggle
-        %i.fa.fa-flask
+        = icon( "fa-flask" )
 
     -# Panel
     .skin-toolbox-panel
 
         -# Heading
         = partial "./bootstrap/type/heading",
-                  :locals => { :tag  => "h5",
-                               :text => "Site Options" }
+                   locals: { tag:  "h5",
+                             text: "Site Options" }
 
         -# Form
         %form#skin-toolbox-form

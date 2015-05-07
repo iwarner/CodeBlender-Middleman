@@ -17,7 +17,7 @@ todo :
     - - "Can I show these by day also - or in a nice calendar format?"
       - "Blog"
       - "2014-02-27"
-      - { "context" : "info" }
+      - { context: "danger" }
 
 ---
 
@@ -26,7 +26,6 @@ todo :
     code = %{partial "./blog/archive"}
 
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Archive" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Archive" } }

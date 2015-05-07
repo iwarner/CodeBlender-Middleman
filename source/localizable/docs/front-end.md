@@ -1,17 +1,19 @@
 ---
 
-author         : "Ian Warner"
-category       : "Front End"
-date           : 2001-03-31
-image          : "img.jpg"
-small          : "Design"
-tags           : [ design, front-end ]
-title          : "Front end tools and philosophy"
-og:title       : Design
-og:description : Design
-og:type        : Design
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

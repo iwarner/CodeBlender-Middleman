@@ -1,17 +1,19 @@
 ---
 
-author         : Ian Warner
-date           : 2014-01-20
-excerpt        : "SEO"
-modified       : 2014-02-09
-tags           : [ seo ]
-title          : SEO
-small          : SEO
-og:title       : SEO
-og:description : SEO
-og:type        : SEO
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

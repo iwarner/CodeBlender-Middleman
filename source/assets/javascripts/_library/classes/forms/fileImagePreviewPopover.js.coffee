@@ -17,24 +17,23 @@ class App.Classes.FileImagePreviewPopover
     ##
     constructor : ->
 
-        # # Create the close button
-        # closebtn = $("<button/>",
-        #     type    : "button"
-        #     text    : "x"
-        #     id      : "close-preview"
-        #     style   : "font-size: initial;"
-        # )
+        # Create the close button
+        closebtn = $("<button/>",
+            type    : "button"
+            text    : "x"
+            id      : "close-preview"
+            style   : "font-size: initial;"
+        )
 
-        # closebtn.attr "class", "close pull-right"
+        closebtn.attr "class", "close pull-right"
 
-        # # Set the popover default content
-        # $(".image-preview").popover
-        #     trigger     : "manual"
-        #     html        : true
-        #     title       : "<strong>Preview</strong>" + $(closebtn)[0].outerHTML
-        #     content     : "There's no image"
-        #     placement   : "bottom"
-
+        # Set the popover default content
+        $(".image-preview").popover
+            trigger     : "manual"
+            html        : true
+            title       : "<strong>Preview</strong>" + $(closebtn)[0].outerHTML
+            content     : "There's no image"
+            placement   : "bottom"
 
     ##
     # Load the Image Preview in the PopOver
@@ -44,43 +43,41 @@ class App.Classes.FileImagePreviewPopover
             id      : "dynamic"
             width   : 250
         )
-        file = $this.files[0]
+        file   = $this.files[0]
         reader = new FileReader()
 
         # Set preview image into the popover data-content
         reader.onload = (e) ->
-            $(".image-preview-input-title").text "Change"
-            $(".image-preview-clear").show()
-            $(".image-preview-filename").val file.name
+            $( ".image-preview-input-title" ).text "Change"
+            $( ".image-preview-clear" ).show()
+            $( ".image-preview-filename" ).val file.name
             img.attr "src", e.target.result
-            $(".image-preview").attr("data-content", $(img)[0].outerHTML).popover "show"
+            $( ".image-preview" ).attr( "data-content", $(img)[0].outerHTML ).popover "show"
 
         reader.readAsDataURL file
-
 
     ##
     # Hide the Popover and clear the image preview
     ##
     clearPreview : ->
 
-        $(".image-preview").attr("data-content", "").popover "hide"
-        $(".image-preview-filename").val ""
-        $(".image-preview-clear").hide()
-        $(".image-preview-input input:file").val ""
-        $(".image-preview-input-title").text "Browse"
-
+        $( ".image-preview" ).attr( "data-content", "" ).popover "hide"
+        $( ".image-preview-filename" ).val ""
+        $( ".image-preview-clear" ).hide()
+        $( ".image-preview-input input:file" ).val ""
+        $( ".image-preview-input-title" ).text "Browse"
 
     ##
     # Hide the Popover
     ##
     closePreview : ->
 
-        $(".image-preview").popover "hide"
+        $( ".image-preview" ).popover "hide"
 
-        # Hover befor close the preview
-        $(".image-preview").hover (->
-            $(".image-preview").popover "show"
+        # Hover before close the preview
+        $( ".image-preview" ).hover (->
+            $( ".image-preview" ).popover "show"
             return
         ), ->
-            $(".image-preview").popover "hide"
+            $( ".image-preview" ).popover "hide"
             return

@@ -1,14 +1,20 @@
 ---
-author         : Ian Warner
-title          : Apple
-small          : Apple
-date           : 2001-03-31
-tags           : [ apple ]
-og:title       : Apple
-og:description : Apple
-og:type        :
-og:url         :
-og:image       :
+
+heading :
+    small : "Accessibility"
+    title : "Accessibility"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Accessibility"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Accessibility"
+modified : 2014-02-09
+tags     : [ accessibility ]
+
 ---
 
 ## Table of Contents

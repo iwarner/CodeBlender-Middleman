@@ -150,7 +150,7 @@ locals :
 -# Image Button
 :ruby
     code = %{partial "./bootstrap/css/button",
-               :locals => { :image => { :data => holder( "32x32" ) }}}
+             :locals => { :image => { :data => { :src => holder( "32x32" ) }}}}
 
 = partial "./scaffolding/code",
            :locals => { :id      => 7,

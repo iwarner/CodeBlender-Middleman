@@ -33,25 +33,6 @@ module Helpers
     end
 
     ##
-    # Which Icon libary to use if any.
-    ##
-    def icon( element )
-
-        # Find out Icon Library
-        iconLibrary = element.partition( "-" )
-
-        # Check whether this is an icon
-        if element =~ /icon-|fa-|glyphicon-/i
-            result = Haml::Engine.new( "%span{ :class => \"#{iconLibrary[ 0 ]} #{element}\" }" )
-        else
-            result = Haml::Engine.new( element )
-        end
-
-        result.render
-
-    end
-
-    ##
     # IMDB Film Lookup
     ##
     def imdb( film, year = nil )

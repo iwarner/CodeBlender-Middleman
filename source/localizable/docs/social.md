@@ -1,17 +1,19 @@
 ---
 
-author         : "Ian Warner"
-date           : 2014-01-20
-excerpt        : "Social"
-modified       : 2014-02-09
-tags           : [ social ]
-title          : "Social"
-small          : "Social"
-og:title       : "Social"
-og:description : "Social"
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

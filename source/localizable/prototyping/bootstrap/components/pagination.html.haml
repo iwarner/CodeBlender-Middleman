@@ -11,7 +11,6 @@ meta :
     title       : "Pagination"
 
 pageable : true
-per_page : 5
 
 see :
     - - "Bootstrap Pagination"
@@ -39,16 +38,19 @@ locals :
 
 ---
 
+-# Variables
+- prev_page = prev_page ? prev_page.url : false
+- next_page = next_page ? next_page.url : false
+
 -# Tabs
 :ruby
     code = %{partial "./bootstrap/components/pagination",
-                      :locals => { :nextPage => "#{next_page.url}",
-                                   :prevPage => "#{prev_page}",
-                                   :pageNo   => 1,
-                                   :pages    => 10 }}
+                      locals: { nextPage: "#{ next_page }",
+                                prevPage: "#{ prev_page }",
+                                pageNo:   "#{ page_number }",
+                                pages:    "#{ num_pages }" }}
 
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }

@@ -9,7 +9,7 @@
 - dc = data.config
 
 -# Layout - Calls Wrapper Layout
-= wrap_layout "_library/site/layout" do
+= wrap_layout "_library/site/bootstrap" do
 
     .row
 
@@ -20,8 +20,8 @@
 
                 -# Heading
                 = partial "./bootstrap/type/heading",
-                           :locals => { :small => string( d.small ),
-                                        :text  => string( d.title ) }
+                           locals: { small: string( d.small ),
+                                     text:  string( d.title ) }
 
             -# Details
             - if dc.description
@@ -37,3 +37,15 @@
 
             -# Yield
             = yield
+
+            -# Resources
+            - if dc.resources
+                = partial "./scaffolding/resources"
+
+            -# Assets
+            - if dc.assets
+                = partial "./scaffolding/assets"
+
+            -# Todo
+            - if dc.todo
+                = partial "./scaffolding/todo"

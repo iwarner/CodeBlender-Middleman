@@ -12,14 +12,12 @@
     -webkit-tap-highlight-color : rgba( 0, 0, 0, 0 );
     -webkit-text-size-adjust    : none;
     -webkit-touch-callout       : none;
-    // -webkit-user-select         : none;
 }
 
 // HTML
 //----------------------------------------------------------------------------//
 html {
-    height     : 100%;
-    // overflow-x : hidden;
+    height : 100%;
 }
 
 // Body
@@ -29,7 +27,7 @@ body {
     // Add Padding - required if using the fixed NavBar
     //------------------------------------------------------------------------//
     padding-top : 50px;
-    position    : relative;
+    // position    : relative;
     height      : 100%;
     min-height  : 100%;
     width       : 100%;
@@ -47,18 +45,12 @@ a {
         padding-left   : 2px;
     }
 
-    &:hover .zoomix {
-        @include transform( scale( 1 ) );
-        opacity : 0.3;
-    }
-
     &.anchor {
         display    : block;
         position   : relative;
         top        : 0;
         visibility : hidden;
     }
-
 }
 
 // Horizontal rules
@@ -67,13 +59,9 @@ hr {
     margin : 5px 0;
 }
 
-.clear {
-    clear : both;
-}
-
 // Outline - Remove Bootstrap 3 Defaults
 //----------------------------------------------------------------------------//
 a:focus, textarea:hover, input:hover, textarea:active, input:active, textarea:focus, input:focus, button:focus, button:active, button:hover {
-    outline            : 0px !important;
-    -webkit-appearance : none;
+    // outline            : 0px !important;
+    // -webkit-appearance : none;
 }

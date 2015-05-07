@@ -20,28 +20,28 @@
 -##
 
 -# Pricing Table
-.panel{ :class => locals[ :context ] ? "panel-#{ context }" : "panel-warning" }
+.panel{ class: locals[ :context ] ? "panel-#{ context }" : "panel-warning" }
 
     -# Heading
     .panel-heading
 
         -# Heading
         - heading[ :extraClass ] = "panel-title"
-        = partial "./bootstrap/type/heading", :locals => heading
+        = partial "./bootstrap/type/heading", locals: heading
 
     -# Body
-    .panel-body{ :class => locals[ :imageClass ] ? imageClass : false }
+    .panel-body{ class: locals[ :imageClass ] ? imageClass : false }
 
         -# Heading
         = partial "./bootstrap/type/heading",
-                   :locals => { :text => string( locals[ :subheading ] ),
-                                :tag  => "h4" }
+                   locals: { text: string( locals[ :subheading ] ),
+                             tag:  "h4" }
 
     -# List Group
     = partial "./bootstrap/components/list-group",
-               :locals => { :array      => array,
-                            :extraClass => "list-unstyled text-center",
-                            :list       => true }
+               locals: { array:      array,
+                         extraClass: "list-unstyled text-center",
+                         list:       true }
 
     -# Footer
     - if locals[ :footerText ]

@@ -1,15 +1,19 @@
 ---
 
-author         : "DryKISS"
-title          : "PhoneGap"
-small          : "Webkit Wrapper"
-date           : 2014-04-19
-tags           : [ cordova, phonegap, mobile ]
-og:title       : ""
-og:description : ""
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

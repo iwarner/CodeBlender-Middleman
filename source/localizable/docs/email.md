@@ -1,14 +1,20 @@
 ---
-author         : Ian Warner
-title          : Email
-small          : Email
-date           : 2001-03-31
-tags           : [ email ]
-og:title       : Email
-og:description : Email
-og:type        : Email
-og:url         :
-og:image       :
+
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
+
 ---
 
 ## Table of Contents

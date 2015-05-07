@@ -33,6 +33,9 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- dc = data.config
+
 -# Colorscheme
 - if ! locals[ :colorscheme ]
     - colorscheme = "light"
@@ -49,9 +52,9 @@
 - if ! locals[ :height ]
     - height = 556
 
--# HREF default to data.config.facebookPageUrl
+-# HREF default to dc.facebook.page.url
 - if ! locals[ :href ]
-    - href = data.config.facebookPageUrl
+    - href = dc.facebook.page.url
 
 -# Show Border - default to true
 - if ! locals[ :showBorder ]

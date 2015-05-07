@@ -9,6 +9,7 @@ source 'https://rubygems.org'
 
 # Middleman
 gem "middleman"
+gem "middleman-autoprefixer" # https://github.com/middleman/middleman-autoprefixer
 gem "middleman-blog"
 gem "middleman-livereload"
 gem "middleman-minify-html"

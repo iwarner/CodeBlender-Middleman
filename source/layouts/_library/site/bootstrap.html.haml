@@ -2,6 +2,10 @@
 -# Bootstrap
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo Should put the Meta Tags elements in an array to shorten the code
+-# @todo Need to put the body data tags back into the layout
+-# @todo Need to be able to change the doctype and HTML aspects from the config
 -##
 
 -# Variables
@@ -10,81 +14,86 @@
 - dc     = data.config
 
 -# Wrapper
-!!! 5
-/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7">
-/[if IE 7]    <html class="no-js lt-ie9 lt-ie8">
-/[if IE 8]    <html class="no-js lt-ie9">
-<!--[if gt IE 8]><!-->
-%html{ :class      => "no-js",
-       :lang       => locale,
-       :itemscope  => true,
-       :itemtype   => "http://schema.org/#{ t( :"meta.itemType" ) }",
-       :manifest   => dc.manifest ? "/offline.manifest" : false,
-       :prefix     => "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" }
-    <!--<![endif]-->
+!!!
 
-    %head{ :prefix => "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# dcterms: http://purl.org/dc/terms/#" }
+-# HTML Section
+%html{ lang:      string( :locale ),
+       itemscope: true,
+       itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
+       manifest:  dc.manifest ? "/offline.manifest" : false,
+       ng:        { app: ( dc.angular.present? and dc.angular.appName.present? ) ? dc.angular.appName : false },
+       xmlns:     "http://www.w3.org/1999/xhtml",
+       xml:       { lang: string( :locale ) } }
 
-        -# Core Meta Tags
-        - if dc.metaCore
-            = partial "./meta/core"
+    -# Head Section
+    %head{ prefix: ( dc.head.present? and dc.head.prefix.present? ) ? dc.head.prefix : false }
 
-        -# Mobile Meta Tags
-        - if dc.metaMobile
-            = partial "./meta/mobile"
-
-        -# Dublin Core Meta Tags
-        - if dc.metaDublin
-            = partial "./meta/dublin"
-
-        -# Facebook Meta Tags
-        - if dc.metaFacebook
-            = partial "./meta/facebook"
-
-        -# Twitter Meta Tags
-        - if dc.metaTwitter
-            = partial "./meta/twitter"
-
-        -# Google Meta Tags
-        - if dc.metaGoogle
-            = partial "./meta/google"
-
-        -# Favicon and Touch Icons
-        = partial "./meta/icon-fav"
-        = partial "./meta/icon-touch"
-
-        -# Feed XML
-        - if dc.feed
-            = partial "./meta/feed"
+        -# Meta Tags
+        = partial "./meta/all"
 
         -# Main Stylesheet
         -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
-        = stylesheet_link_tag :all, :media => "all"
+        = stylesheet_link_tag :all, media: "all"
 
         -# Process Head Content from Pages
         - if content_for? :siteHead
             = yield_content :siteHead
 
-        -# Google Analytics
-        - if dc.googleAnalytics
-            = partial "./google/analytics"
+        -# Javascript Head
+        = javascript_include_tag :head
 
-        -# Modernizr
-        - if dc.modernizr
-            = javascript_include_tag :head
+        -# Base
+        %base{ href: "/" }
 
     -# Body with Page Class
-    %body{ :class         => "#{ page_classes } #{ current_page.data.bodyClass }",
-           :data          => data.config.bodySpy ? data.config.bodySpy : false,
-           :"data-lang"   => locale,
-           :"data-locale" => ( ! dc.facebookLocale.blank? ) ? dc.facebookLocale[ locale ] : false }
+    %body{ id:    dc.body.id ? dc.body.id : false,
+           class: dc.body.extraClass ? dc.body.extraClass + " " + page_classes : page_classes,
+           data:  { lang:   locale,
+                    locale: ( ! dc.facebook.locale.blank? ) ? dc.facebook.locale[ locale ] : false },
+           ng:    { controller: d.angular ? d.angular.controller ? d.angular.controller : false : false } }
+
+        %a{ id: "top" }
 
         -# Facebook Root - Requires an AppID
-        - if dc.facebookAppId
+        - if dc.facebook.app.id
             #fb-root
 
-        -# Yield
-        = yield
+        -# Section - Above Nav
+        - if dc.navigation.above or ( d.navigation and d.navigation.above )
+            = partial "../_lib/navAbove"
+
+        -# Section - Navbar
+        - if ! dc.navbar.blank? and d.navbar != false
+            %header
+                = partial "./bootstrap/components/navbar", locals: { navExtraClass: dc.navExtraClass }
+
+        -# Section - Below Navigation
+        -# Can be done globally, or via page frontmatter
+        - if dc.navigation.below or ( d.navigation and d.navigation.below )
+            = partial "../_lib/navBelow"
+
+        -# Section Main
+        %div{ class: dc.container ? dc.container : false }
+
+            -# Section - Yield
+            = yield
+
+        -# Section - Footer
+        - if dc.footer.active or dc.copyright
+
+            %footer
+
+                -# Footer
+                - if dc.footer.active
+                    = partial "./scaffolding/footer"
+
+                -# Copyright
+                - if dc.copyright
+                    = partial "./scaffolding/copyright"
+
+                -# Icon
+                - if dc.topIcon
+                    = partial "./scaffolding/topIcon"
 
         -# Configuration
         - if dc.configuration
@@ -92,12 +101,12 @@
 
         -# Cordova
         - if build? and dc.cordova
-            %script{ :src => "cordova.js" }
+            %script{ src: "cordova.js" }
 
         -# JavaScript
         -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
-        = javascript_include_tag :all
+        = javascript_include_tag :body
 
-        -# Initialize JS
-        :coffee
-            App.initialize()
+        -# Google Analytics
+        - if dc.google.analytics
+            = partial "./google/analytics"

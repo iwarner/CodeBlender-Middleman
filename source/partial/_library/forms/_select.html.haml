@@ -12,13 +12,13 @@
 .form-group
 
     -# Label - note this is an array as it contains flag for screen reader
-    %label.control-label{ :for => locals[ :name ], :class => label[ :extraClass ] ? label[ :extraClass ] : false }
+    %label.control-label{ for: locals[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
         = string label[ :title ]
 
     -# Select
-    %select.form-control{ :id       => locals[ :name ]     ? name : false,
-                          :multiple => locals[ :multiple ] ? true : false,
-                          :name     => locals[ :name ]     ? name : false }
+    %select.form-control{ id:       locals[ :name ]     ? name : false,
+                          multiple: locals[ :multiple ] ? true : false,
+                          name:     locals[ :name ]     ? name : false }
 
         -# Check that array is defined
         - if locals[ :array ]
@@ -28,10 +28,10 @@
 
                 -# If no value[ 1 ] is present then escape value[ 0 ]
                 - if ! value[ 1 ]
-                    - value[ 1 ] = CGI::escape( string value[ 0 ] )
+                    - value[ 1 ] = string value[ 0 ]
 
                 -# Option
-                %option{ :value => value[ 1 ] }
+                %option{ value: value[ 1 ] }
                     = string value[ 0 ]
 
     -# Help Block
@@ -39,7 +39,7 @@
     -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
     - if locals[ :help ]
 
-        %span.help-block{ :class => !! help == help ? "hidden" : false }
+        %span.help-block{ class: !! help == help ? "hidden" : false }
 
             -# Help should be a string to show
             - if help.is_a?( String )

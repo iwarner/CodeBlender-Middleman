@@ -94,25 +94,24 @@ locals :
 ---
 
 -# Form
-%form.formInput{ :action     => "",
-                 :method     => "POST",
-                 :novalidate => true }
+%form.formInput{ action: "", method: "POST", novalidate: true }
 
     -# Text Type
     :ruby
         code = %{partial "./forms/input",
-                 :locals => { :help  => true,
-                              :icon  => { :prepend => "fa-credit-card" },
-                              :input => { :inputGroupClass => "input-group",
-                                          :name            => "text",
-                                          :placeholder     => "Enter Text" },
-                              :label => { :title => "Text Input" } }}
+                           locals: { help:  true,
+                                     icon:  { prepend: "fa-credit-card" },
+                                     input: { inputGroupClass: "input-group",
+                                              name:            "text",
+                                              placeholder:     "Enter Text" },
+                                     label: { title: "Text Input" } }}
 
+    -# Code
     = partial "./scaffolding/code",
-               :locals => { :id      => 1,
-                            :code    => code,
-                            :heading => { :small => "Generic default type",
-                                          :text  => "Text Type" } }
+               locals: { id:      1,
+                         code:    code,
+                         heading: { small: "Generic default type",
+                                    text:  "Text Type" } }
 
     -# Submit
     = partial "./bootstrap/css/button",

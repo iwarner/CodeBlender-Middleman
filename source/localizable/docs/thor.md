@@ -1,15 +1,20 @@
 ---
-author         : Ian Warner
-title          : Thor
-small          : Command line toolkit.
-date           : 2013-11-25
-modified       : 2014-02-09
-tags           : [ ruby, thor ]
-og:title       : Thor
-og:description : Thor
-og:type        : Thor
-og:url         :
-og:image       :
+
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
+
 ---
 
 ## Table of Contents

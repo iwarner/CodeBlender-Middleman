@@ -8,8 +8,8 @@
 -# Usage
 -# -# Details
 -# = partial "scaffolding/details",
--#            :locals => { :summary => "Summary",
--#                         :content => "Content" }
+-#            locals: { summary: "Summary",
+-#                      content: "Content" }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -17,7 +17,5 @@
 -# Details
 %details
 
-    %summary
-        = summary
-    %p
-        = content
+    %summary= summary
+    %p= content

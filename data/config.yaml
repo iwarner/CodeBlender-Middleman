@@ -2,9 +2,6 @@
 # Config YAML
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo   Version should be iterated on the build
-# @todo   Can this file be separated and linked to each module
 ##
 
 ---
@@ -16,97 +13,132 @@ version : "2.0.1"
 brand : "Code Blender"
 url   : "http://codeblender.net"
 
-# Formspree : http://formspree.io/
-formspree :
-    action : "//a.com/ian.warner@drykiss.com"
-    next   : "http://codeblender.net/contactus/?f=s"
+# Angular
+angular:
+    appName : "codeBlender"
+
+# Head
+head :
+    prefix : "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# dcterms: http://purl.org/dc/terms/#"
 
 # Sections
-:breadcrumbs   : true
-:container     : "container"
-:copyright     : true
-:configuration : false
-:footer        : true
-:lang          : en
-:mainLogo      : true
-:manifest      : false
-:modernizr     : false
-:navbar        : true
-:resources     : true
-:todo          : true
-:topIcon       : true
-:bodySpy       :
-    :spy    : false
-    :target : false
-    :offset : false
+breadcrumbs   : true
+container     : "container"
+copyright     : true
+configuration : false
+description   : false
+favicon       : "favicon.ico"
+heading       : false
+hr            : false
+lang          : en
+manifest      : false
+modernizr     : false
+navbar        : true
+resources     : true
+todo          : true
+topIcon       : true
+body       :
+    spy    : false
+    target : false
+    offset : false
 
 # Meta
-:metaCore     : true
-:metaMobile   : true
-:metaDublin   : false
-:metaFacebook : false
-:metaTwitter  : false
-:metaGoogle   : false
-
-# RSS Feed
-:feed : false
+meta :
+    apple    : false
+    core     : true
+    dublin   : false
+    facebook : false
+    fancy    : false
+    favicon  : false
+    feed     : false
+    google   : false
+    mobile   : false
+    touch    : false
+    twitter  : false
 
 # Products
-:productColumns : 3
-
-# Dublin Core Meta Data
-:publisher        : "CodeBlender"
-:publisherAddress : "ian.warner@drykiss.com"
-:rights           : "&copy; 2014. All rights reserved."
+productColumns : 3
 
 # Navigation
-:navAbove      : true
-:navBrand      : false
-:navBelow      : true
-:navBrandText  : false
-:navBrandLink  : "/index.html"
-:navExtraClass : false
-:navULClass    : "navbar-left"
-:navIcon       : false
-:navLogoAlt    : false
-:navLogoWidth  : false
-:navLogoHeight : false
-:navPosition   : "static-top"
-:navSearch     : false
-:navType       : false
+navigation :
+    above      : true
+    brand      :
+        active : false
+        text   : true
+        link   : "/index.html"
+    below      : false
+    extraClass : false
+    uLClass    : "navbar-left"
+    icon       : false
+    logo       :
+        alt    : false
+        width  : false
+        height : false
+    position   : "static-top"
+    search     : false
+    type       : false
+    wrapper    : false
 
 # Footer
-:footerClass : "noBackground"
+footer :
+    active     : true
+    extraClass : "noBackground"
 
-## SOCIAL
+# Apple
+apple :
+    app :
+        id : false
+
+# Atom
+atom :
+    title : "Code Blender"
 
 # Coderwall
-:coderwallUsername : iwarner
+coderwall :
+    username : false
 
 # Facebook
-:facebookAppId     : 253027968192447
-:facebookAppSecret : 09627a7f101b7225459d95357b80114e
-:facebookPageId    : false
-:facebookPageUrl   : https://www.facebook.com/onlyasmile
-:facebookLocale    :
-    en : en_GB
+facebook :
+    app :
+        id     : false
+        secret : false
+    page :
+        id  : "835310269859992"
+        url : "https://www.facebook.com/codeblender"
+    locale :
+        en : "en_GB"
+
+# Formspree : http://formspree.io/
+formspree :
+    action : "//formspree.io/ian.warner@drykiss.com"
+    next   : "http://codeblender.net/contactus/?f=s"
 
 # Disqus
-:disqusShortName :
+disqus :
+    shortName : false
 
 # Google
-:googleAnalytics      : false
-:googleAnalyticsURL   : false
-:googleAdsense        : false
-:googleSearch         : false
-:googleWebmasterTools : false
-:googleClientID       : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"
-:googleClientSecret   : "ERR0xB-H_csJEdn2IPZ4MxWW"
+google  :
+    api            : false
+    analytics      :
+        code : false
+        url  : false
+    adsense        : false
+    search         : false
+    webmasterTools : false
+    client :
+        id     : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"
+        secret : "ERR0xB-H_csJEdn2IPZ4MxWW"
 
 # MailChimp
-:mailChimpPath : false
-:mailChimpU    : false
-:mailChimpID   : false
+mailChimp :
+    path : false
+    u    : false
+    id   : false
 
 # Open Weather Map
-openWeathMap : false
+openWeatherMap : false
+
+# Twitter
+twitter :
+    account : false

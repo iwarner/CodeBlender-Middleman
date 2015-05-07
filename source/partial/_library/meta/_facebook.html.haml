@@ -16,29 +16,32 @@
 -##
 
 -# Variables
-- d = current_page.data.meta
+- cp = current_page
+- dc = data.config
+- m  = cp.data.meta
+- fb = dc.facebook
 
 -# Site Name
-%meta{ :content => data.config.brand, :property => "og:site_name" }
+%meta{ content: string( dc.brand ), property: "og:site_name" }
 
 -# Title
-%meta{ :content => string( d.title ), :property => "og:title" }
+%meta{ content: string( m.title ), property: "og:title" }
 
 -# Description
-%meta{ :content => string( d.description ), :name => "description", :property => "og:description" }
+%meta{ content: string( m.description ), name: "description", property: "og:description" }
 
 -# Type
-%meta{ :content => d.type, :property => "og:type" }
+%meta{ content: string( m.type ), property: "og:type" }
 
 -# URL
-%meta{ :content => data.config.url + File.dirname( URI.parse( current_page.url ).path ), :property => "og:url" }
+%meta{ content: dc.url + File.dirname( URI.parse( cp.url ).path ), property: "og:url" }
 
 -# Image
-%meta{ :content => d.image, :property => "og:image" }
+%meta{ content: m.image, property: "og:image" }
 
 -# Facebook Page ID
-%meta{ :content => data.config.facebookPageId, :property => "fb:page_id" }
+%meta{ content: fb.page.id, property: "fb:page_id" }
 
 -# Facebook App ID
-- if data.config.facebookAppId
-    %meta{ :content => data.config.facebookAppId, :property => "fb:app_id" }
+- if fb.app.id
+    %meta{ content: fb.app.id, property: "fb:app_id" }

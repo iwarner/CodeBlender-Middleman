@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : Colours
-small          : Colours
-date           : 2001-03-31
-tags           : [ colours, front-end ]
-og:title       : Colours
-og:description : Colours
-og:type        : Colours
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

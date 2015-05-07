@@ -1,17 +1,19 @@
 ---
 
-author         : Ian Warner
-date           : 2014-01-20
-excerpt        : "Synology"
-modified       : 2014-02-09
-tags           : [ synology, nas ]
-title          : Synology
-small          : Synology
-og:title       : Synology
-og:description : Synology
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

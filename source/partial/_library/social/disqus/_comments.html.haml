@@ -2,13 +2,16 @@
 -# Disqus Comments
 -#
 -# Locals
--# data.config.disqusShortName - String - Required - Given by Disqus
+-# dc.disqusShortName - String - Required - Given by Disqus
 -#
 -# Usage
 -# = partial "social/disqus/comments"
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
+
+-# Variables
+- dc = data.config
 
 -# Disqus
 #disqus_thread
@@ -19,6 +22,6 @@
         dsq       = document.createElement("script")
         dsq.type  = "text/javascript"
         dsq.async = true
-        dsq.src   = "//#{data.config.disqusShortName}.disqus.com/embed.js"
+        dsq.src   = "//#{ dc.disqusShortName }.disqus.com/embed.js"
         (document.getElementsByTagName("head")[0] or document.getElementsByTagName("body")[0]).appendChild dsq
     )()

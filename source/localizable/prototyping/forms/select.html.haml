@@ -60,28 +60,33 @@ selectArray2 :
 
 ---
 
--# Default
-:ruby
-    code = %{partial "./forms/select",
-                      :locals => { :array => current_page.data.selectArray1,
-                                   :label => { :title => "Label" },
-                                   :name  => "ID" }}
-
-= partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "Different Value and Option",
-                                      :text  => "Default" } }
+-# Variables
+- @cd = current_page.data
 
 -# Default
 :ruby
     code = %{partial "./forms/select",
-                      :locals => { :array => current_page.data.selectArray2,
-                                   :label => { :title => "Label" },
-                                   :name  => "ID" }}
+                      locals: { array: @cd.selectArray1,
+                                label: { title: "Label" },
+                                name:  "ID" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "Same Value and Option",
-                                      :text  => "Optimised" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { small: "Different Value and Option",
+                                text:  "Default" } }
+
+-# Default
+:ruby
+    code = %{partial "./forms/select",
+                      locals: { array: @cd.selectArray2,
+                                label: { title: "Label" },
+                                name:  "ID" }}
+
+-# Code
+= partial "./scaffolding/code",
+           locals: { id:      2,
+                     code:    code,
+                     heading: { small: "Same Value and Option",
+                                text:  "Optimised" } }

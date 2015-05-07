@@ -30,31 +30,4 @@ module Image
 
     end
 
-    ##
-    # Holder Image
-    #
-    # @param size  String
-    # @param text  String
-    # @param theme String
-    ##
-    def holder( size = "200x200", auto = "auto", text = false, theme = "social", colors )
-
-        img = 'holder.js/'
-
-        img << size + '/'
-        img << auto + '/'
-        img << colors + '/'
-
-        if theme
-            img << theme + '/'
-        end
-
-        if text
-            img << 'text:' + text if text
-        end
-
-        return img
-
-    end
-
 end

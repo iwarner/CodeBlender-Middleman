@@ -1,37 +1,44 @@
 ---
 
+##
+# Index
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+# Variables
 layout : "_library/site/full-width"
+stub   : "index"
 
-meta :
-    author      : "DryKISS"
-    description : "Serves the local intranet. Bringing together UX, design and development disciplines."
-    title       : "Team 2 Portal"
+# See
+see :
+    - - "Metronic"
+      - "http://www.keenthemes.com/preview/metronic/theme/templates/admin4/angularjs/#/dashboard.html"
 
-jumbotron :
-    description : :"home.jumbotron.description"
-    title       : :"home.jumbotron.title"
+# Todo
+todo :
+    - - "Sort out the look of this home page"
+      - "Index"
+      - "2015-05-06"
+      - { context: "info" }
 
 ---
 
 -# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :text => "Links",
-                        :tag  => "h2" }
+= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Links" }
 
 -# Links
 = partial "./bootstrap/components/thumbnails",
-               :locals => { :array   => data.scaffolding.portalLinks.thumbs,
-                            :columns => "col-md-2 col-sm-3 col-xs-4" }
+           locals: { array:   data.scaffolding.portalLinks.thumbs,
+                     columns: "col-md-2 col-sm-3 col-xs-4" }
 
 -# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :text => "Tools",
-                        :tag  => "h2" }
+= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Tools" }
 
 -# Tools
 = partial "./bootstrap/components/thumbnails",
-               :locals => { :array   => data.scaffolding.portalLinks.tools,
-                            :columns => "col-md-2 col-sm-3 col-xs-4" }
+           locals: { array:   data.scaffolding.portalLinks.tools,
+                     columns: "col-md-2 col-sm-3 col-xs-4" }
 
 -# Capture Configuration Elements
 - content_for :configuration do
@@ -44,6 +51,6 @@ jumbotron :
 
     -# Select
     = partial "./forms/select",
-               :locals => { :array => array,
-                            :name  => "backgroundSelector",
-                            :label => { :title => "Background" } }
+               locals: { array: array,
+                         name:  "backgroundSelector",
+                         label: { title: "Background" } }

@@ -20,8 +20,7 @@
 
                     -# Suplementary
                     - if entry.sup
-                        .sup
-                            = entry.sup
+                        .sup= entry.sup
 
                     -# Text
                     = string entry.text
@@ -30,8 +29,8 @@
             - if entry.icon
 
                 -# Link To
-                = link_to( entry.href, :title => entry.icon ) do
-                    %i.fa.fa-bookmark-o
+                = link_to( entry.href, title: entry.icon ) do
+                    - icon( "fa-bookmark-o" )
 
 -# Clear Fix
 .clearfix

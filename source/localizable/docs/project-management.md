@@ -1,17 +1,19 @@
 ---
 
-author         : Ian Warner
-date           : 2014-01-20
-excerpt        : "Project Brief"
-modified       : 2014-02-28
-tags           : [ document ]
-title          : "Project Brief"
-small          : "Project Brief"
-og:title       : "Project Brief"
-og:description : "Project Brief"
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

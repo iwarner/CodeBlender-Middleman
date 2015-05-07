@@ -1,5 +1,5 @@
 -##
--# Subnavigation
+-# Sub Navigation
 -#
 -# Usage
 -# = partial "./scaffolding/subnavigation"
@@ -7,7 +7,7 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
--# Subnavigation
+-# Sub Navigation
 - if data[ "scaffolding" ][ "subnavigation" ].present?
 
     - subNav = data.scaffolding.subnavigation
@@ -18,8 +18,8 @@
     - else
         - url = current_page.url
 
-    -# Create the Subnavigation section
-    - array = ( url == "/" ) ? subNav[ "default" ] : subNav[ url[ 1..-1 ] ]
+    -# Create the Sub Navigation section
+    - array = url == "/" ? subNav[ "default" ] : subNav[ url[ 1..-2 ] ]
 
     -# If no array is present then revert back to base navigation
     - if ! array
@@ -32,7 +32,7 @@
     -# Check if array exists
     - if array
 
-        -# Loop through the subnavigation and add the active element
+        -# Loop through the sub navigation and add the active element
         - array.each_with_index do | value, index |
 
             -# Check URL Exists
@@ -44,10 +44,10 @@
                 -# Active element
                 - array[ index ][ "active" ] = ( uri.path == url ) ? true : false
 
-        -# Subnavigation
+        -# Sub Navigation
         %nav.subNavigation
 
             -# Nav List Group
             = partial "./bootstrap/components/list-group",
-                       :locals => { :array => array,
-                                    :list  => true }
+                       locals: { array: array,
+                                 list:  true }

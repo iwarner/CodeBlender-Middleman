@@ -1,14 +1,20 @@
 ---
-author         : Ian Warner
-title          : Geo Location
-small          : Geo Location
-date           : 2001-03-31
-tags           : [ geolocation ]
-og:title       : Geo Location
-og:description : Geo Location
-og:type        : Geo Location
-og:url         :
-og:image       :
+
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
+
 ---
 
 ## Table of Contents

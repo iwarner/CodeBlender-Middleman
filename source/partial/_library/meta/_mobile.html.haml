@@ -16,33 +16,14 @@
 -##
 
 -# Mobile Meta Tags
-%meta{ :name    => "viewport",
-       :content => "width=device-width, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1" }
+%meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
 
--# Browser Chrome
-%meta{ :name    => "apple-mobile-web-app-capable",
-       :content => "yes" }
+-# Google Add to Homescreen
+%meta{ name: "mobile-web-app-capable", content: "yes" }
 
-%meta{ :name    => "apple-mobile-web-app-status-bar-style",
-       :content => "black" }
+-# Chrome Touch Icon
+-# %link{ href: "images/touch/chrome-touch-icon-192x192.png", rel: "icon", sizes: "192x192" }
 
-%meta{ :name    => "mobile-web-app-capable",
-       :content => "yes" }
-
--# To remove automatic linking
-%meta{ :name    => "format-detection",
-       :content => "telephone=no" }
-
--# %meta{ :name    => "x-rim-auto-match",
--#        :content => "none",
--#        :forua   => :true }
-
-%meta{ :name    => "HandheldFriendly",
-       :content => "true" }
-
-%meta{ :name    => "MobileOptimized",
-       :content => "320" }
-
--# /[if IEMobile] <meta http-equiv="cleartype" content="on">
--# %meta{ :"http-equiv" => "cleartype",
--#       :content      => "on" }
+-# Tile icon for Win8 (144x144 + tile color)
+%meta{ name: "msapplication-TileImage", content: "images/touch/ms-touch-icon-144x144-precomposed.png" }
+%meta{ name: "msapplication-TileColor", content: "#3372DF" }

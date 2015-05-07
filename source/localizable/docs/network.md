@@ -1,17 +1,19 @@
 ---
 
-author         : Ian Warner
-date           : 2014-02-27
-excerpt        : "PayPal"
-modified       : 2014-02-27
-tags           : [ paypal, e-commerce ]
-title          : PayPal
-small          : PayPal
-og:title       : PayPal
-og:description : PayPal
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

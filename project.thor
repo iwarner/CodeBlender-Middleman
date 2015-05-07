@@ -19,13 +19,13 @@ class Project < Thor
     desc "middlemanDeploy", "Middleman Build and Deploy"
     def middlemanDeploy
 
-        system("clear")
+        system( "clear" )
 
-        say("\n\t Middleman Build Clean\n\t")
-        system("bundle exec middleman build --clean")
+        say( "\n\t Middleman Build Clean\n\t" )
+        system( "bundle exec middleman build --clean" )
 
-        say("\n\t Middleman Deploy\n\t")
-        system("bundle exec middleman deploy")
+        say( "\n\t Middleman Deploy\n\t" )
+        system( "bundle exec middleman deploy" )
 
     end
 
@@ -64,45 +64,48 @@ class Project < Thor
     desc "middlemanSymLinks", "Symlink Library elements into the project"
     def middlemanSymLinks
 
+        # Variables
+        path = "/var/www/codeblender.net/www/"
+
         system( "clear" )
 
         say( "\n\t Create Symlinks\n\t" )
 
         # JavaScript
         system( "rm -R source/assets/javascripts/_library")
-        system( "ln -s /var/www/codeblender.net/www/source/assets/javascripts/_library source/assets/javascripts")
+        system( "ln -s #{ path }source/assets/javascripts/_library source/assets/javascripts")
 
         # CSS
         system( "rm -R source/assets/stylesheets/_library")
-        system( "ln -s /var/www/codeblender.net/www/source/assets/stylesheets/_library source/assets/stylesheets/")
+        system( "ln -s #{ path }source/assets/stylesheets/_library source/assets/stylesheets/")
 
         # Layouts
         system( "rm -R source/layouts/_library")
-        system( "ln -s /var/www/codeblender.net/www/source/layouts/_library source/layouts")
+        system( "ln -s #{ path }source/layouts/_library source/layouts")
 
         # Partial
         system( "rm -R source/partial/_library")
-        system( "ln -s /var/www/codeblender.net/www/source/partial/_library source/partial")
+        system( "ln -s #{ path }source/partial/_library source/partial")
 
         # Helpers
         system( "rm -R helpers")
-        system( "ln -s /var/www/codeblender.net/www/helpers/ helpers")
+        system( "ln -s #{ path }helpers/ helpers")
 
         # Lib
         system( "rm -R lib")
-        system( "ln -s /var/www/codeblender.net/www/lib/ lib")
+        system( "ln -s #{ path }lib/ lib")
 
         # Humans.txt
         system( "rm source/humans.txt")
-        system( "ln -s /var/www/codeblender.net/www/source/humans.txt source")
+        system( "ln -s #{ path }source/humans.txt source")
 
         # Robots.txt
         system( "rm source/robots.txt")
-        system( "ln -s /var/www/codeblender.net/www/source/robots.txt source")
+        system( "ln -s #{ path }source/robots.txt source")
 
         # Gemfile
         system( "rm GEMFILE")
-        system( "ln -s /var/www/codeblender.net/www/Gemfile .")
+        system( "ln -s #{ path }Gemfile .")
 
     end
 

@@ -35,16 +35,14 @@
             - if index == 0
 
                 -# Add the breadcrumbs Hash
-                - array << { :text => "fa-home",
-                             :url  => "/index.html" }
+                - array << { icon: "fa-home", link: { url: "/index.html" } }
 
                 -# Sort out the last element
             - elsif count -1 == index
 
                 -# If the last one is index.html remove the last array
-                - if text != "Index.html"
-                    - array << { :active => true,
-                                 :text   => text.chomp( File.extname( text ) ) }
+                - if text != "index.html"
+                    - array << { active: true, text: text.chomp( File.extname( text ) ) }
                 - else
                     - array[ -1 ][ :url ]    = false
                     - array[ -1 ][ :active ] = true
@@ -53,17 +51,12 @@
             - else
 
                 -# Add the breadcrumbs Hash
-                - array << { :text => text,
-                             :url  => "#{ lastBreadcrumb.sub( "//", "/" ) }/index.html" }
+                - array << { text: text, link: { url: "#{ lastBreadcrumb.sub( "//", "/" ) }/index.html" } }
 
     - else
 
         -# Home page breadcrumbs
-        - array << { :active => true,
-                     :text   => "Home" }
+        - array << { active: true, text: "Home" }
 
 -# List
-= partial "./bootstrap/type/list",
-           :locals => { :array      => array,
-                        :extraClass => "breadcrumb",
-                        :type       => "ol" }
+= partial "./bootstrap/type/list", locals: { array: array, extraClass: "breadcrumb", type: "ol" }

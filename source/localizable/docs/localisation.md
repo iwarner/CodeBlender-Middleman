@@ -1,16 +1,20 @@
 ---
-author         : Ian Warner
-date           : 2014-01-20
-excerpt        : "Localisation"
-modified       : 2014-02-09
-tags           : [ localisation ]
-title          : Localisation
-small          : Localisation
-og:title       : Localisation
-og:description : Localisation
-og:type        : Localisation
-og:url         :
-og:image       :
+
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
+
 ---
 
 ## Table of Contents

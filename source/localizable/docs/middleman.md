@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : Middleman
-small          : Middleman
-date           : 2001-03-31
-tags           : [ middleman ]
-og:title       : Middleman
-og:description : Middleman
-og:type        : Middleman
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

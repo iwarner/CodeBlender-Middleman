@@ -1,16 +1,19 @@
 ---
-author         : Ian Warner
-date           : 2014-01-20
-excerpt        : "Accessibility"
-modified       : 2014-02-09
-tags           : [ accessibility, standards ]
-title          : Accessibility
-small          : Accessibility
-og:title       : Accessibility
-og:description : Accessibility
-og:type        :
-og:url         :
-og:image       :
+
+heading :
+    small : "Accessibility"
+    title : "Accessibility"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Accessibility"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Accessibility (WCAG) is crucial for both the website and the mobile apps."
+modified : 2014-02-09
+tags     : [ accessibility ]
 
 ---
 

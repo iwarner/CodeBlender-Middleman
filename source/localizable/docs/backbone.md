@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : Backbone
-small          : Backbone
-date           : 2001-03-31
-tags           : [ backbone, js, front-end ]
-og:title       : Backbone
-og:description : Backbone
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Accessibility"
+    title : "Accessibility"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Accessibility"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Accessibility"
+modified : 2014-02-09
+tags     : [ accessibility ]
 
 ---
 

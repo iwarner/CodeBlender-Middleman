@@ -27,9 +27,7 @@ see :
 ---
 
 -# Heading
-= partial "bootstrap/type/heading",
-           :locals => { :text => "Test Notification",
-                        :tag  => "h2" }
+= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Test Notification" }
 
 %p{ :contenteditable => "true" }
     The process is, test if Notification is supported, see if the user

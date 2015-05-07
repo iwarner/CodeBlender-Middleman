@@ -5,7 +5,8 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- dc = data.config
+
 -# Favicon
-%link{ :href => "/#{ data.config.favicon }?v=#{ version }",
-       :rel  => "icon",
-       :type => "image/ico" }
+%link{ href: "/#{ dc.favicon }?v=#{ version }", rel: "icon" }

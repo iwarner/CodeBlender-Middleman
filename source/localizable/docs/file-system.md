@@ -1,14 +1,20 @@
 ---
-author         : Ian Warner
-title          : File System
-small          : File System
-date           : 2001-03-31
-tags           : [ file System ]
-og:title       : File System
-og:description : File System
-og:type        : File System
-og:url         :
-og:image       :
+
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
+
 ---
 
 ## Table of Contents

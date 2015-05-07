@@ -8,31 +8,35 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
-- meta = current_page.data.meta
+-# Variables
+- cp   = current_page
+- dc   = data.config
+- path = cp.path
+- m    = cp.data.stub
 
 -# Title
-%title= string meta.title
+%title= string :"meta.#{ m }.title"
 
 -# Encoding
-%meta{ :charset => "utf-8" }
+%meta{ charset: "utf-8" }
 
--# Meta Tags for IE
--#  %meta{ :content => "IE=edge,chrome=1", :"http-equiv" => "X-UA-Compatible" }
+-# Meta Tags for IE2
+%meta{ content: "IE=edge,chrome=1", http: { equiv: "X-UA-Compatible" } }
 
 -# Description
-%meta{ :name => "description", :content => string( meta.description ) }
+%meta{ name: "description", content: string( :"meta.#{ m }.description" ) }
 
 -# Keywords
-%meta{ :name => "keywords", :content => string( meta.description )  }
+%meta{ name: "keywords", content: string( :"meta.#{ m }.description" ) }
 
 -# Author
-%meta{ :name => "author", :content => meta.author }
+%meta{ name: "author", content: string( :"meta.#{ m }.author" ) }
 
 -# Robots
-%meta{ :name => "robots", :content => "index,follow,archive" }
+%meta{ name: "robots", content: "index,follow,archive" }
 
--# Robots
-%meta{ :name => "csrf-token", :content => Random.new_seed }
+-# CSRF Token
+%meta{ name: "csrf-token", content: Random.new_seed }
 
--# Canonical URL
--# <link rel="canonical" href="http://www.example.com/permalink" />
+-# Canonical
+%meta{ rel: "canonical", href: dc.url + cp.url }

@@ -1,16 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : GIT
-small          : GIT
-date           : 2014-03-01
-modified       : 2014-03-14
-tags           : [ git, github ]
-og:title       : GIT
-og:description : GIT
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

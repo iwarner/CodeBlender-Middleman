@@ -4,14 +4,21 @@
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
 
+// Bootstrap Overrides
+//----------------------------------------------------------------------------//
 @import "_lib/bootstrap/components/dropdown";
 @import "_lib/bootstrap/components/jumbotron";
 @import "_lib/bootstrap/components/navbar";
 @import "_lib/bootstrap/components/thumbnails";
-
 @import "_lib/bootstrap/javascript/carousel";
 @import "_lib/bootstrap/javascript/modal";
 
+// Charts
+//----------------------------------------------------------------------------//
+@import "_lib/charts/amchart";
+
+// Scaffolding
+//----------------------------------------------------------------------------//
 @import "_lib/scaffolding/colour";
 @import "_lib/scaffolding/info-window";
 @import "_lib/scaffolding/nav-above";

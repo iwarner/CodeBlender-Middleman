@@ -1,16 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : Analytics
-small          : Analytics
-date           : 2001-03-31
-modified       : 2014-02-09
-tags           : [ analytics ]
-og:title       : Analytics
-og:description : Analytics
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

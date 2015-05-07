@@ -1,14 +1,20 @@
 ---
-author         : "Ian Warner"
-title          : "Enom"
-small          : "Enom"
-date           : 2014-04-04
-tags           : [ enom, domains ]
-og:title       : "Enom"
-og:description : "Enom"
-og:type        : "Enom"
-og:url         :
-og:image       :
+
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
+
 ---
 
 ## Table of Contents

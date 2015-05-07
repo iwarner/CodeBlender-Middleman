@@ -1,16 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : Analytics
-small          : Analytics
-date           : 2001-03-31
-modified       : 2014-02-09
-tags           : [ analytics ]
-og:title       : Analytics
-og:description : Analytics
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 
@@ -140,3 +143,7 @@ I.e. Orders over the past week, by day.
     * [Analytics Placement](https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingOverview)
 * I believe there are two analytics included in the pages
 * Check out Goals and Events for certain actions - i.e. Order
+
+## Todo
+
+http://blog.gospodarets.com/track_javascript_angularjs_and_jquery_errors_with_google_analytics/

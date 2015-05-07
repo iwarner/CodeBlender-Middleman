@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : PHP
-small          : PHP
-date           : 2001-03-31
-tags           : [ php, server, backend ]
-og:title       : PHP
-og:description : PHP
-og:type        : PHP
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

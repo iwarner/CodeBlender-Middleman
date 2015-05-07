@@ -4,11 +4,14 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- dc = data.config
+
 -# Copyright
-.copyright{ :class => ( locals[ :center ] ) ? "text-center" : false }
+.copyright{ class: locals[ :center ] ? "text-center" : false }
 
     -# Container
-    %div{ :class => locals[ :fluid ] ? "container-fluid" : "container" }
+    %div{ class: dc.container }
 
         -# Year
         - if ! locals[ :noYear ]
@@ -16,7 +19,7 @@
             -# Variables
             - year = Time.now.strftime( '%Y' )
 
-            %time{ :datetime => year }
+            %time{ datetime: year }
                 &copy; #{ year }
 
         -# Text
@@ -28,5 +31,5 @@
 
             -# Horizontal list of links
             = partial "./bootstrap/type/list",
-                       :locals => { :array      => array,
-                                    :extraClass => "list-inline list-unstyled" }
+                       locals: { array:      array,
+                                 extraClass: "list-inline list-unstyled" }

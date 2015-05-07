@@ -1,29 +1,33 @@
 -##
 -# Image
 -#
+-# Usage
+-# -# Image
+-# = partial "./bootstrap/css/image",
+-#            locals: { src: loremPixel() }
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
--# :src  => value[ 0 ].start_with?( "holder" ) ? false      : value[ 0 ],
--# :data => value[ 0 ].start_with?( "holder" ) ? value[ 0 ] : false }
+-# src:  value[ 0 ].start_with?( "holder" ) ? false      : value[ 0 ],
+-# data: value[ 0 ].start_with?( "holder" ) ? value[ 0 ] : false }
 
 - if locals[ :src ]
 
     = image_tag locals[ :src ],
-          :alt        => locals[ :alt ]        ? string( alt ) : "Image",
-          :class      => locals[ :extraClass ] ? extraClass    : false,
-          :data       => locals[ :data ]       ? data          : false,
-          :draggable  => locals[ :draggable ]  ? draggable     : false,
-          :height     => locals[ :size ]       ? size[ 1 ]     : false,
-          :id         => locals[ :id ]         ? id            : false,
-          :width      => locals[ :size ]       ? size[ 0 ]     : false
+        alt:       locals[ :alt ]        ? string( alt ) : "Image",
+        class:     locals[ :extraClass ] ? extraClass    : false,
+        data:      locals[ :data ]       ? data          : false,
+        draggable: locals[ :draggable ]  ? draggable     : false,
+        height:    locals[ :size ]       ? size[ 1 ]     : false,
+        id:        locals[ :id ]         ? id            : false,
+        width:     locals[ :size ]       ? size[ 0 ]     : false
 - else
 
-    %img{ :alt        => locals[ :alt ]        ? string( alt ) : "Image",
-          :class      => locals[ :extraClass ] ? extraClass    : false,
-          :data       => locals[ :data ]       ? data          : false,
-          :"data-src" => locals[ :dataSrc ]    ? dataSrc       : false,
-          :draggable  => locals[ :draggable ]  ? draggable     : false,
-          :height     => locals[ :size ]       ? size[ 1 ]     : false,
-          :id         => locals[ :id ]         ? id            : false,
-          :width      => locals[ :size ]       ? size[ 0 ]     : false }
+    %img{ alt:       locals[ :alt ]        ? string( alt ) : "Image",
+          class:     locals[ :extraClass ] ? extraClass    : false,
+          data:      locals[ :data ]       ? data          : false,
+          draggable: locals[ :draggable ]  ? draggable     : false,
+          height:    locals[ :size ]       ? size[ 1 ]     : false,
+          id:        locals[ :id ]         ? id            : false,
+          width:     locals[ :size ]       ? size[ 0 ]     : false }

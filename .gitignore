@@ -10,9 +10,13 @@ www/
 ############
 vendor
 
-# Bower #
+# Bower    #
 ############
 bower_components
+
+# GIT #
+#######
+!.gitkeep
 
 # Sublime #
 ###########

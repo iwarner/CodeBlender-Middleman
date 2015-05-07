@@ -1,15 +1,19 @@
 ---
 
-author         : "DryKISS"
-title          : Ripple
-small          : Ripple
-date           : 2001-03-31
-tags           : [ ripple, testing, front-end ]
-og:title       : Ripple
-og:description : Ripple
-og:type        : Ripple
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

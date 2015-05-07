@@ -4,11 +4,14 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- dc = data.config
+
 -# Footer
-.footer{ :class => data.config.footerClass ? data.config.footerClass : false }
+.footer{ class: dc.footer.extraClass ? dc.footer.extraClass : false }
 
     -# Container
-    %div{ :class => locals[ :fluid ] ? "container-fluid" : "container" }
+    %div{ class: dc.container }
 
         -# Bootstrap Row
         .row
@@ -26,18 +29,14 @@
                 -# Loop through the Footer Yaml
                 - array.each do | entry |
 
-                    -# Debug
-                    -# = entry
-                    -# = entry[ :title ]
-
                     -# Section
-                    .footerSection{ :class => entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass }
+                    .footerSection{ class: entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass }
 
                         -# Heading
                         = partial "./bootstrap/type/heading",
-                                   :locals => { :icon => entry[ :icon ] ? entry[ :icon ] : false,
-                                                :tag  => "h4",
-                                                :text => entry[ :title ] }
+                                   locals: { icon: entry[ :icon ] ? entry[ :icon ] : false,
+                                             tag:  "h4",
+                                             text: entry[ :title ] }
 
                         -# Body
                         :markdown

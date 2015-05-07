@@ -1,16 +1,19 @@
 ---
 
-author         : "Ian Warner"
-title          : "TV Applications / Widgets"
-small          : "Smart TV Apps"
-date           : 2014-02-12
-modified       : 2014-02-12
-tags           : [ tv, samsung, widgets, apps ]
-og:title       : TV
-og:description : TV
-og:type        : TV
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

@@ -9,31 +9,31 @@
 thumbs :
 
   - image :
-        src : "home/01.jpeg"
+        href   : "http://ldr-engage.eu-gb.mybluemix.net/"
+        src    : "home/01.jpeg"
     thumbnail :
-        href    : ""
-        caption : ""
+        caption : "Engage"
         target  : "_blank"
 
   - image :
-        src : "home/02.jpeg"
+        href   : "http://phoenix.eu-gb.mybluemix.net/"
+        src    : "home/02.jpeg"
     thumbnail :
-        href    : ""
-        caption : ""
+        caption : "Content Portal"
         target  : "_blank"
 
 tools :
 
   - image :
-        src : "home/05.jpeg"
+        href   : "http://w3b.ibm.com/"
+        src    : "home/05.jpeg"
     thumbnail :
-        href    : ""
-        caption : ""
+        caption : "W3"
         target  : "_blank"
 
   - image :
-        src : "home/06.jpeg"
+        href   : "https://w3-connections.ibm.com/homepage/web/gettingStarted/"
+        src    : "home/06.jpeg"
     thumbnail :
-        href    : ""
-        caption : ""
+        caption : "Connections"
         target  : "_blank"

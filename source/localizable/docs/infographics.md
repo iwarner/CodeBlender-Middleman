@@ -1,17 +1,19 @@
 ---
 
-author         : Ian Warner
-date           : 2014-03-06
-excerpt        : "Infographics"
-modified       : 2014-02-09
-tags           : [ infographics ]
-title          : Infographics
-small          : Infographics
-og:title       : Infographics
-og:description : Infographics
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

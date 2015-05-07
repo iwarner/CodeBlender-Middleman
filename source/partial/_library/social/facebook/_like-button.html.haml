@@ -48,6 +48,9 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- dc = data.config
+
 -# Action
 - if ! locals[ :action ]
     - action = "like"
@@ -58,7 +61,7 @@
 
 -# HREF - default to Config URL
 - if ! locals[ :href ]
-    - href = data.config.url
+    - href = dc.url
 
 -# kid_directed_site
 - if ! locals[ :kid_directed_site ]

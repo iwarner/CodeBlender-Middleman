@@ -5,7 +5,7 @@
 -##
 
 -# Bootstrap Row
-.row{ :class => locals[ :extraClass ] ? extraClass : false }
+.row{ class: locals[ :extraClass ] ? extraClass : false }
 
     -# Loop through the array
     - array.each do | entry |
@@ -13,36 +13,22 @@
         -# Variables
         - thumb = entry[ :thumbnail ]
 
-        -# Capture Content
-        - captureHTML = capture_html do
+        %div{ class: locals[ :columns ] ? columns        : "col-xs-12 col-sm-6 col-md-4",
+              data:  thumb[ :data ]     ? thumb[ :data ] : false,
+              href:  thumb[ :href ]     ? image_path( thumb[ :href ] ) : false }
 
             -# Thumbnail
-            .thumbnail{ :class => ( ! thumb.nil? and thumb[ :extraClass ] ) ? thumb[ :extraClass ] : false }
+            .thumbnail{ class: thumb[ :extraClass ].present? ? thumb[ :extraClass ] : false }
 
                 -# Image
-                = partial "./bootstrap/css/image",
-                           :locals => entry[ :image ]
+                = link_to( image_path( entry[ :image ][ :href ] ), target: thumb[ :target ] ? thumb[ :target ] : false ) do
+                    = partial "./bootstrap/css/image", locals: entry[ :image ]
 
-                -# Zoomix - requires HREF and data-toggle lightbox on the thumbnail array
-                - if ! thumb.nil? and thumb[ :zoomix ]
-                    .zoomix
-                        %i.fa.fa-search
+                    -# Zoomix - requires HREF and data-toggle light box on the thumbnail array
+                    - if thumb[ :zoomix ].present?
+                        .zoomix= icon( "fa-search" )
 
                 -# Caption
-                - if ! thumb.nil? and thumb[ :caption ]
+                - if thumb[ :caption ].present?
                     .caption= thumb[ :caption ]
                     .clearfix
-
-        -# If HREF then use an A TAG
-        - if ! thumb.nil? and thumb[ :href ]
-
-            = link_to( captureHTML,
-                       thumb[ :href ],
-                       :class  => locals[ :columns ] ? columns          : "col-xs-12 col-sm-6 col-md-4",
-                       :data   => thumb[ :data ]     ? thumb[ :data ]   : false,
-                       :target => thumb[ :target ]   ? thumb[ :target ] : false )
-
-        - else
-
-            %div{ :class => locals[ :columns ] ? columns : "col-xs-12 col-sm-6 col-md-4" }
-                = captureHTML

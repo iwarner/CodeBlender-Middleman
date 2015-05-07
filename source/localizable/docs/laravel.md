@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : PHP Laravel
-small          : PHP Laravel
-date           : 2014-02-10
-tags           : [ php, framework ]
-og:title       : PHP Laravel
-og:description : PHP Laravel
-og:type        : PHP Laravel
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

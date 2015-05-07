@@ -1,17 +1,19 @@
 ---
 
-author         : Ian Warner
-date           : 2014-01-20
-excerpt        : "Blog"
-modified       : 2014-02-09
-tags           : [ blog ]
-title          : Blog
-small          : Blog
-og:title       : Blog
-og:description : Blog
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

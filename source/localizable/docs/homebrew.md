@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : Homebrew
-small          : Homebrew
-date           : 2001-03-31
-tags           : [ homebrew, package ]
-og:title       : Homebrew
-og:description : Homebrew
-og:type        : Homebrew
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

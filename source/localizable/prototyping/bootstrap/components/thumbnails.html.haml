@@ -68,7 +68,7 @@ locals :
     - - "zoomix"
       - "bool"
       - "optional"
-      - "To allow zommix, a HREF to the image mist be supplied also"
+      - "To allow zommix, a HREF to the image must be supplied also"
     - - "columns"
       - "string"
       - "optional"
@@ -80,55 +80,68 @@ locals :
 
 ---
 
--# Default Thumbnail
-:ruby
-    code = %{partial "./bootstrap/components/thumbnails",
-                      :locals => { :array => [ { :image => { :data => "holder.js/300x200/auto" } },
-                                               { :image => { :data => "holder.js/100x100/auto" } },
-                                               { :image => { :data => "holder.js/100x100/auto" } },
-                                               { :image => { :data => "holder.js/100x100/auto" } },
-                                               { :image => { :data => "holder.js/300x200/auto" } } ] }}
+/ -# Default Thumbnail
+/ :ruby
+/     code = %{partial "./bootstrap/components/thumbnails",
+/                       locals: { array: [ { image: { data: { src: "holder.js/300x200/auto" } } },
+/                                          { image: { data: { src: "holder.js/100x100/auto" } } },
+/                                          { image: { data: { src: "holder.js/100x100/auto" } } },
+/                                          { image: { data: { src: "holder.js/100x100/auto" } } },
+/                                          { image: { data: { src: "holder.js/300x200/auto" } } } ] }}
 
-= partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "Just an array of images",
-                                      :text  => "Default" } }
+/ = partial "./scaffolding/code",
+/            locals: { id:      1,
+/                      code:    code,
+/                      heading: { small: "Just an array of images",
+/                                 text:  "Default" } }
 
--# Linked Thumbnail
-:ruby
-    code = %{partial "./bootstrap/components/thumbnails",
-                      :locals => { :array => [ { :image     => { :src  => "footer/background1.png" },
-                                                 :thumbnail => { :href => image_path( "footer/background1.png" ) } } ] }}
+/ -# Linked Thumbnail
+/ :ruby
+/     code = %{partial "./bootstrap/components/thumbnails",
+/                       locals: { array: [ { image:     { src: "footer/background1.png" },
+/                                            thumbnail: { href: image_path( "footer/background1.png" ) } } ] }}
 
-= partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "Provide an HREF for the image",
-                                      :text  => "Linked Thumbnail" } }
+/ = partial "./scaffolding/code",
+/            locals: { id:      2,
+/                      code:    code,
+/                      heading: { small: "Provide an HREF for the image",
+/                                 text:  "Linked Thumbnail" } }
 
 -# Captioned Thumbnail
-:ruby
-    code = %{partial "./bootstrap/components/thumbnails",
-                      :locals => { :array => [ { :image     => { :data    => "holder.js/300x200/auto" },
-                                                 :thumbnail => { :caption => "Caption 1" } } ] }}
+-# Get the list of categories of the products
+- blog.articles.each do | article |
 
-= partial "./scaffolding/code",
-           :locals => { :id      => 3,
-                        :code    => code,
-                        :heading => { :small => "Push an HTML element into the Tumb array",
-                                      :text  => "Captioned Thumbnail" } }
+    -# Capture Content
+    - @captureHTML = capture_html do
+
+        -# Blog Details
+        = partial "./blog/details", locals: { current_page: article }
+
+= partial "./bootstrap/components/thumbnails",
+                      locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" }, href: "HERE" },
+                                           thumbnail: { caption: @captureHTML } } ] }
+
+/ :ruby
+/     code = %{partial "./bootstrap/components/thumbnails",
+/                       locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" } },
+/                                            thumbnail: { caption: @captureHTML, href: "HERE" } } ] }}
+
+/ = partial "./scaffolding/code",
+/            locals: { id:      3,
+/                      code:    code,
+/                      heading: { small: "Push an HTML element into the Tumb array",
+/                                 text:  "Captioned Thumbnail" } }
 
 -# Zoomix Thumbnail
 :ruby
     code = %{partial "./bootstrap/components/thumbnails",
-                      :locals => { :array => [ { :image     => { :data   => "holder.js/300x200/auto" },
-                                                 :thumbnail => { :zoomix => true,
-                                                                 :href   => image_path( "footer/background1.png" ),
-                                                                 :data   => { :toggle => "lightbox" } } } ] }}
+                      locals: {  array: [ { image:     { data: { src: "holder.js/300x200/auto" } },
+                                            thumbnail: { zoomix: true,
+                                                         href:   image_path( "footer/background1.png" ),
+                                                         data:   { toggle: "lightbox" } } } ] }}
 
 = partial "./scaffolding/code",
-           :locals => { :id      => 4,
-                        :code    => code,
-                        :heading => { :small => "Provide a Gallery",
-                                      :text  => "Zoomix Thumbnail" } }
+           locals: { id:      4,
+                     code:    code,
+                     heading: { small: "Provide a Gallery",
+                                text:  "Zoomix Thumbnail" } }

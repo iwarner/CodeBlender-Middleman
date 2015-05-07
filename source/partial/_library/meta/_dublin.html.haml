@@ -9,27 +9,15 @@
 -# @see    http://dublincore.org/documents/dces/
 -# @see    http://www.dublincoregenerator.com/generator.html
 -# @see    http://schema.org/LocalBusiness
--#
--# @todo Should array the expected content and generate this correctly
--# @todo Check that the Dublin core rules are being applied
 -##
 
 -# Variables
-- d = current_page.data.meta
+- dc = data.config
+- m  = current_page.data.meta
 
 -# Meta
-%meta{ :name => "dcterms.title",       :content => string( d.title ) }
-%meta{ :name => "dcterms.description", :content => string( d.description ) }
-%meta{ :name => "dcterms.publisher",   :content => t( :"meta.publisher" ) }
-%meta{ :name => "dcterms.language",    :content => "en" }
-%meta{ :name => "dcterms.creator",     :content => d.author }
-
--# %meta{ :name => "dc.identifier",  :schema => "dcterms:uri", :content => data.config.url + request.path }
--# %meta{ :name => "dc.format",      :schema => "dcterms:imt", :content => "text/html" }
--# %meta{ :name => "dc.creator",                               :content => d.author }
--# %meta{ :name => "dc.publisher.address",                     :content => data.config.publisherAddress }
--# %meta{ :name => "dc.contributor",                           :content => d.author }
--# %meta{ :name => "dc.date",        :scheme => "iso8601",     :content => d.date }
--# %meta{ :name => "dc.type",                                  :content => "text/html" }
--# %meta{ :name => "dc.coverage",                              :content => data.config.publisher }
--# %meta{ :name => "dc.rights",                                :content => data.config.rights }
+%meta{ name: "dcterms.title",       content: string( m.title ) }
+%meta{ name: "dcterms.description", content: string( m.description ) }
+%meta{ name: "dcterms.publisher",   content: string( m.author ) }
+%meta{ name: "dcterms.language",    content: dc.lang }
+%meta{ name: "dcterms.creator",     content: string( m.author ) }

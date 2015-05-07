@@ -1,16 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : Grunt
-small          : Grunt
-date           : 2014-03-10
-modified       : 2014-03-10
-tags           : [ grunt ]
-og:title       : Grunt
-og:description : Grunt
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

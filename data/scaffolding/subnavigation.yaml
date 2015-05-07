@@ -14,7 +14,6 @@ default :
 
 # Style Guides Brand
 style-guide :
-
     - heading : "Digital Identity"
     - title   : "Design Principles"
       url     : "#designPrinciples"
@@ -43,13 +42,16 @@ style-guide :
 
 # Prototyping
 prototyping :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Blog"
       url    : "/prototyping/blog/index.html"
     - title  : "Bootstrap"
       url    : "/prototyping/bootstrap/index.html"
+    - title  : "Charts"
+      url    : "/prototyping/charts/index.html"
+    - title  : "DataTable"
+      url    : "/prototyping/datatable"
     - title  : "E-Commerce"
       url    : "/prototyping/e-commerce/index.html"
     - title  : "Forms"
@@ -57,7 +59,7 @@ prototyping :
     - title  : "Games"
       url    : "/prototyping/games/index.html"
     - title  : "Google"
-      url    : "/prototyping/google/index.html"
+      url    : "/prototyping/google"
     - title  : "HTML5"
       url    : "/prototyping/html5/index.html"
     - title  : "Mobile"
@@ -71,7 +73,6 @@ prototyping :
 
 # Blog
 prototyping/blog :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Blog"
@@ -89,7 +90,6 @@ prototyping/blog :
 
 # Bootstrap
 prototyping/bootstrap :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Bootstrap"
@@ -105,7 +105,6 @@ prototyping/bootstrap :
 
 # Bootstrap Components
 prototyping/bootstrap/components :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Bootstrap"
@@ -147,7 +146,6 @@ prototyping/bootstrap/components :
 
 # Bootstrap CSS
 prototyping/bootstrap/css :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Bootstrap"
@@ -163,7 +161,6 @@ prototyping/bootstrap/css :
 
 # Bootstrap JavaScript
 prototyping/bootstrap/javascript :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Bootstrap"
@@ -183,7 +180,6 @@ prototyping/bootstrap/javascript :
 
 # Bootstrap Type
 prototyping/bootstrap/type :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Bootstrap"
@@ -197,9 +193,26 @@ prototyping/bootstrap/type :
     - title  : "Lists"
       url    : "/prototyping/bootstrap/type/list.html"
 
+# Charts
+prototyping/charts :
+    - title  : "Prototyping"
+      url    : "/prototyping/index.html"
+    - title  : "Charts"
+      url    : "/prototyping/charts/index.html"
+    - title  : "Amchart"
+      url    : "/prototyping/charts/amchart.html#amchart"
+    - title  : "Flot"
+      url    : "/prototyping/charts/flot.html"
+
+# DataTables
+prototyping/datatable :
+    - title  : "Prototyping"
+      url    : "/prototyping/index.html"
+    - title  : "DataTable"
+      url    : "/prototyping/datatable"
+
 # E-Commerce
 prototyping/e-commerce :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "E-Commerce"
@@ -217,7 +230,6 @@ prototyping/e-commerce :
 
 # Forms
 prototyping/forms :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Forms"
@@ -243,7 +255,6 @@ prototyping/forms :
 
 # Games
 prototyping/games :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Games"
@@ -253,11 +264,10 @@ prototyping/games :
 
 # Google
 prototyping/google :
-
     - title  : "Prototyping"
-      url    : "/prototyping/index.html"
+      url    : "/prototyping"
     - title  : "Google"
-      url    : "/prototyping/google/index.html"
+      url    : "/prototyping/google"
     - title  : "Adsense"
       url    : "/prototyping/google/adsense.html"
     - title  : "Analytics"
@@ -271,7 +281,6 @@ prototyping/google :
 
 # HTML5
 prototyping/html5 :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "HTML5"
@@ -285,7 +294,6 @@ prototyping/html5 :
 
 # Mobile
 prototyping/mobile :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Mobile"
@@ -297,7 +305,6 @@ prototyping/mobile :
 
 # Scaffolding
 prototyping/scaffolding :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Scaffolding"
@@ -318,8 +325,6 @@ prototyping/scaffolding :
       url    : "/prototyping/scaffolding/editor.html"
     - title  : "Footer"
       url    : "/prototyping/scaffolding/footer.html"
-    - title  : "Flex Slider"
-      url    : "/prototyping/scaffolding/flex-slider.html"
     - title  : "Gallery"
       url    : "/prototyping/scaffolding/gallery.html"
     - title  : "Icons"
@@ -336,12 +341,13 @@ prototyping/scaffolding :
       url    : "/prototyping/scaffolding/resources.html"
     - title  : "Search"
       url    : "/prototyping/scaffolding/search.html#search"
+    - title  : "Timeline"
+      url    : "/prototyping/scaffolding/timeline.html"
     - title  : "Todo"
       url    : "/prototyping/scaffolding/todo.html"
 
 # Social
 prototyping/social :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Social"
@@ -363,7 +369,6 @@ prototyping/social :
 
 # Social Coderwall
 prototyping/social/coderwall :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Social"
@@ -373,7 +378,6 @@ prototyping/social/coderwall :
 
 # Social Disqus
 prototyping/social/disqus :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Social"
@@ -385,7 +389,6 @@ prototyping/social/disqus :
 
 # Social Facebook
 prototyping/social/facebook :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Social"
@@ -417,7 +420,6 @@ prototyping/social/facebook :
 
 # Social Gravatar
 prototyping/social/gravatar :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Social"
@@ -429,7 +431,6 @@ prototyping/social/gravatar :
 
 # Social Mailchimp
 prototyping/social/mailchimp :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Social"
@@ -441,7 +442,6 @@ prototyping/social/mailchimp :
 
 # Social Tip The Web
 prototyping/social/tiptheweb :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Social"
@@ -451,7 +451,6 @@ prototyping/social/tiptheweb :
 
 # Social Twitter
 prototyping/social/twitter :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "Social"
@@ -465,7 +464,6 @@ prototyping/social/twitter :
 
 # SVG
 prototyping/svg :
-
     - title  : "Prototyping"
       url    : "/prototyping/index.html"
     - title  : "SVG"

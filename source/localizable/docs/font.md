@@ -1,17 +1,19 @@
 ---
 
-author         : Ian Warner
-date           : 2014-01-20
-excerpt        : "Typography"
-modified       : 2014-02-09
-tags           : [ font, typography, design ]
-title          : Fonts
-small          : Fonts
-og:title       : Fonts
-og:description : Fonts
-og:type        : Fonts
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

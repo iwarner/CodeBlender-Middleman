@@ -1,17 +1,12 @@
 ---
 
+# Variables
+stub : "prototyping"
+
+# Heading
 heading :
     small : "Atomic Components Pattern library"
     title : "Prototyping"
-
-meta :
-    author      : "DryKISS"
-    description : ""
-    title       : "Prototyping"
-
-jumbotron   :
-    description : :"prototyping.jumbotron.description"
-    title       : :"prototyping.jumbotron.title"
 
 see :
     - - "Bootstrap Cards"
@@ -41,86 +36,64 @@ todo :
     - - "Complete the prototype home page"
       - "Prototyping"
       - "2014-05-30"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Check out https://github.com/mledoze/countries - include into dropdowns etc"
       - "Countries"
       - "2014-05-19"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Check out how to recurse through filesystem - http://goo.gl/EWnvLr"
       - "Files"
       - "2014-02-12"
-      - { "context" : "info" }
-    - - "Look at intergrating Melon JS and other Game Engines as examples"
-      - "Game"
-      - "2014-02-12"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Translate all partials"
       - "Localisation"
       - "2014-03-03"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Add 5 blog articles to home page"
       - "Blog"
       - "2014-02-12"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Code highlighter - sometimes misaligned"
       - "Syntax"
       - "2014-02-12"
-      - { "context" : "info" }
-    - - "Create a code Partial"
-      - "Syntax"
-      - "2014-02-12"
-      - { "context" : "danger" }
+      - { context: "info" }
     - - "Add a margin top to code partial"
       - "Syntax"
       - "2014-02-12"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Add a variable for the theme of the syntax highlighter in the config file"
       - "Syntax"
       - "2014-02-12"
-      - { "context" : "warning" }
+      - { context: "warning" }
     - - "Include the JS / CSS for the widget in the page also, can link file directly"
       - "Page"
       - "2014-02-12"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Create the codeblender logo / icon"
       - "Design"
       - "2014-02-12"
-      - { "context" : "info" }
-    - - "Add the google search to the navigation"
-      - "Navigation"
-      - "2014-02-12"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Could couple the Meta Tags up into one partial and do work from that"
       - "Meta"
       - "2014-02-12"
-      - { "context" : "info" }
-    - - "Make meta favicons a flag also"
-      - "Meta"
-      - "2014-02-12"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Sort out what to do with the main overlay"
       - "Meta"
       - "2014-02-12"
-      - { "context" : "info" }
+      - { context: "info" }
     - - "Sniff JavaScript and append the JS class to the body tag"
       - "JavaScript"
       - "2014-02-12"
-      - { "context" : "danger" }
-    - - "Look at implementing - http://modernizr.com/"
-      - "JavaScript"
-      - "2014-02-14"
-      - { "context" : "warning" }
+      - { context: "danger" }
     - - "Create a partial to display a cookie panel on the page"
       - "Cookie"
       - "2014-03-02"
-      - { "context" : "info" }
+      - { context: "info" }
 
 ---
 
 -# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :text => "Blog",
-                        :tag  => "h2" }
+= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Blog" }
 
 %hr
 
@@ -131,28 +104,20 @@ todo :
     .col-md-4
 
         -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :text => "Recent Posts",
-                                :tag  => "h3" }
-
+        = partial "./bootstrap/type/heading", locals: { text: "Recent Posts", tag: "h3" }
         = partial "./blog/recent"
 
     -# Archive
     .col-md-4
 
         -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :text => "Archive",
-                                :tag  => "h3" }
-
+        = partial "./bootstrap/type/heading", locals: { text: "Archive", tag: "h3" }
         = partial "./blog/archive"
 
     -# Tags
     .col-md-4
 
         -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :text => "Tags",
-                                :tag  => "h3" }
+        = partial "./bootstrap/type/heading", locals: { text: "Tags", tag: "h3" }
 
         = tagCloud()

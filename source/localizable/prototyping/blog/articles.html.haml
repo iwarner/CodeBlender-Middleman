@@ -20,7 +20,7 @@ todo :
     - - "Complete the formatting for this page"
       - "Blog"
       - "2014-02-27"
-      - { "context" : "info" }
+      - { context: "info" }
 
 ---
 
@@ -40,7 +40,7 @@ todo :
                 .pull-left
 
                     -# Filename
-                    - imgName  = article.title.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
+                    - imgName  = article.data.heading.title.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
                     - fileName = "/#{ images_dir }/docs/#{ imgName }.png"
 
                     -# Check that image exists
@@ -48,35 +48,35 @@ todo :
 
                         -# Image
                         = partial "./bootstrap/css/image",
-                                   :locals => { :alt        => string( article.title ),
-                                                :extraClass => "media-object img-thumbnail",
-                                                :src        => fileName }
+                                   locals: { alt:        string( article.title ),
+                                             extraClass: "media-object img-thumbnail",
+                                             src:        fileName }
 
                 -# Media Body
                 .media-body
 
                     -# Heading
                     = partial "./bootstrap/type/heading",
-                               :locals => { :extraClass => "media-heading",
-                                            :href       => article.url,
-                                            :small      => string( article.data.small ),
-                                            :tag        => "h3",
-                                            :text       => string( article.title ) }
+                               locals: { extraClass: "media-heading",
+                                         href:       article.url,
+                                         small:      string( article.data.small ),
+                                         tag:        "h3",
+                                         text:       string( article.data.heading.title ) }
 
                     -# Details
                     = partial "./blog/details",
-                               :locals => { :current_page => article }
+                               locals: { current_page: article }
 
                     -# Excerpt
                     %p= string article.data.excerpt
 
                     -# Read More Button
                     = partial "./bootstrap/css/button",
-                               :locals => { :context    => "primary",
-                                            :content    => string( "Read More" ),
-                                            :extraClass => "pull-right",
-                                            :href       => article.url,
-                                            :size       => "sm" }
+                               locals: { context:    "primary",
+                                         content:    string( "Read More" ),
+                                         extraClass: "pull-right",
+                                         href:       article.url,
+                                         size:       "sm" }
 
         -# Pagination
         .text-center

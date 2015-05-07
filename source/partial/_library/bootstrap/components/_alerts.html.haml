@@ -8,14 +8,15 @@
 .alert{ :class => locals[ :context ] ? "alert-#{context}" : "alert-success" }
 
     -# Dismissable
-    - if locals[ :dismissable ]
+    - if locals[ :dismiss ]
 
         -# Button
         = partial "./bootstrap/css/button",
-                   :locals => { :content    => "&times;",
-                                :dismiss    => "alert",
+                   :locals => { :aria       => { :label => "Close" },
+                                :content    => "&times;",
+                                :data       => { :dismiss => "alert" },
                                 :extraClass => "close",
-                                :hidden     => true }
+                                :type       => "button" }
 
     -# Text
     = string locals[ :text ]

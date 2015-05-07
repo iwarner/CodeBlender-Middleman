@@ -1,17 +1,19 @@
 ---
 
-author         : "Ian Warner"
-title          : "HAML Templates"
-small          : "HAML Templates"
-date           : 2014-02-13
-excerpt        : "HAML is an HTML abstraction markup language, that makes creating HTML documents
-                  simple, elegant and rapid."
-tags           : [ "haml", "ruby" ]
-og:title       : "HAML Templates"
-og:description : "HAML Templates"
-og:type        : "HAML Templates"
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

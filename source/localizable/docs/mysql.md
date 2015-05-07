@@ -1,15 +1,19 @@
 ---
 
-author         : Ian Warner
-title          : MySQL
-small          : Relational Database
-date           : 2014-02-10
-tags           : [ database ]
-og:title       : MySQL
-og:description : MySQL
-og:type        : MySQL
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

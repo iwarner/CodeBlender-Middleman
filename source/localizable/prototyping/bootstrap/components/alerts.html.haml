@@ -20,7 +20,7 @@ todo :
     - - "Sort out the links in the Alerts using the alert-link class"
       - "Alerts"
       - "2014-04-22"
-      - { "context" : "danger" }
+      - { context: "danger" }
 
 locals :
     - - "context"
@@ -41,18 +41,18 @@ locals :
 -# Success Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-                      :locals => { :text => "Well done! You successfully read this important alert message." }}
+               locals: { text: "Well done! You successfully read this important alert message." }}
 
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :text => "Success Alert" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Success Alert" } }
 
 -# Info Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               :locals => { :context => "info",
-                            :text    => "Heads up! This alert needs your attention, but it's not super important." }}
+               locals: { context: "info",
+                         text:    "Heads up! This alert needs your attention, but it's not super important." }}
 
 = partial "./scaffolding/code",
            :locals => { :id      => 2,
@@ -84,9 +84,9 @@ locals :
 -# Dismissable Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               :locals => { :context     => "warning",
-                            :dismissable => true,
-                            :text        => "Warning! Better check yourself, you're not looking too good." }}
+               :locals => { :context => "warning",
+                            :dismiss => true,
+                            :text    => "Warning! Better check yourself, you're not looking too good." }}
 
 = partial "./scaffolding/code",
            :locals => { :id      => 5,

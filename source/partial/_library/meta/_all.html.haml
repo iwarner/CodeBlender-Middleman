@@ -1,0 +1,56 @@
+-##
+-# All Meta Tags
+-#
+-# Usage
+-# -# Meta All
+-# = partial "./meta/all"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- m = data.config.meta
+
+-# Apple
+- if m.apple
+    = partial "./meta/apple"
+
+-# Core
+- if m.core
+    = partial "./meta/core"
+
+-# Dublin Core
+- if m.dublin
+    = partial "./meta/dublin"
+
+-# Facebook
+- if m.facebook
+    = partial "./meta/facebook"
+
+-# Fancy
+- if m.fancy
+    = partial "./meta/fancy"
+
+-# Favicon
+- if m.favicon
+    = partial "./meta/icon-fav"
+
+-# Feed XML
+- if m.feed
+    = partial "./meta/feed"
+
+-# Google
+- if m.google
+    = partial "./meta/google"
+
+-# Mobile
+- if m.mobile
+    = partial "./meta/mobile"
+
+-# Touch Icons
+- if m.touch
+    = partial "./meta/icon-touch"
+
+-# Twitter
+- if m.twitter
+    = partial "./meta/twitter"

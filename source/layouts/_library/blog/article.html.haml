@@ -10,55 +10,71 @@
 -# Article
 = wrap_layout "_library/site/layout" do
 
-    .container
+    :markdown
 
-        .row
+        - Add in search
+        - Add in tags
+        - Add in social links - facebook like and share, tweet and pin
+        - Add in report page button
+        - Add in video / image - could be carousel
+        - Add in title
+        - Add in price
+        - Add in content
+        - Add in Ribbons on some products
+        - Add in Trending Today
+        - Add in Buy Now
+        - Add in Add to Wishlist
+        - Add in Comments
+        - Add in related products
+        - Add in newsletter
 
-            .col-md-3
+    .row
 
-                %aside
+        .col-md-3
 
-                    -# Tags
-                    .tagCloud
+            %aside
 
-                        -# Tag Cloud
-                        = tagCloud()
+                -# Tags
+                .tagCloud
 
-                    -# Latest Posts
-                    .blogLatest
+                    -# Tag Cloud
+                    = tagCloud()
 
-                        -# Recent Articles
-                        = partial "./blog/recent"
+                -# Latest Posts
+                .blogLatest
 
-            .col-md-6
+                    -# Recent Articles
+                    = partial "./blog/recent"
 
-                %article
+        .col-md-6
 
-                    -# Heading
-                    = partial "./bootstrap/type/heading",
-                               :locals => { :extraClass => "noMargin",
-                                            :small      => current_page.data.small,
-                                            :text       => current_page.data.title }
+            %article
 
-                    -# Details
-                    = partial "./blog/details",
-                               :locals => { :more => false }
+                -# Heading
+                = partial "./bootstrap/type/heading",
+                           locals: { extraClass: "noMargin",
+                                     small:      current_page.data.small,
+                                     text:       current_page.data.title }
 
-                    -# Image
-                    = partial "./blog/image"
+                -# Details
+                = partial "./blog/details",
+                           locals: { more: false }
 
-                    -# Yield
-                    = yield
+                -# Image
+                = partial "./blog/image"
 
-                    -# Pager
-                    = partial "./bootstrap/components/pager"
+                -# Yield
+                = yield
 
-                    -# Discus Comments
-                    = partial "./social/disqus/comments"
+                -# Pager
+                = partial "./bootstrap/components/pager"
 
-            .col-md-3
+                -# Discus Comments
+                = partial "./social/disqus/comments"
 
-                %aside
+        .col-md-3
 
-                    -# Archive
-                    = partial "./blog/archive"
+            %aside
+
+                -# Archive
+                = partial "./blog/archive"

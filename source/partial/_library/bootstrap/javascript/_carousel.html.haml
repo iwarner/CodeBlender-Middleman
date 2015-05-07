@@ -10,9 +10,9 @@
     - id = "myCarousel"
 
 -# Carousel
-.carousel.slide{ :id    => id,
-                 :class => id,
-                 :data  => locals[ :data ] ? locals[ :data ] : false }
+.carousel.slide{ id:    id,
+                 class: id,
+                 data:  locals[ :data ] ? locals[ :data ] : false }
 
     -# Indicators
     - if locals[ :indicator ]
@@ -23,9 +23,9 @@
             - array.each_with_index do | slide, i |
 
                 -# If this is the first slide make it active
-                %li{ :class => i == 0 ? "active" : false,
-                     :data  => { :target     => "." + id,
-                                 :"slide-to" => i } }
+                %li{ class: i == 0 ? "active" : false,
+                     data:  { target:     "." + id,
+                              :"slide-to" => i } }
 
     -# Inner Content
     .carousel-inner{ :role => "listbox" }
@@ -44,7 +44,7 @@
                         - slide[ :image ][ :alt ] = "Carousel #{ i }"
 
                     -# Image
-                    = partial "bootstrap/css/image", :locals => slide[ :image ]
+                    = partial "bootstrap/css/image", locals: slide[ :image ]
 
                 -# Caption
                 - if slide[ :image ][ :caption ]
@@ -55,15 +55,20 @@
                         %h3= slide[ :image ][ :caption ][ :title ]
                         %p= slide[ :image ][ :caption ][ :body ]
 
+                        - if slide[ :image ][ :caption ][ :button ]
+
+                            -# Button
+                            = partial "./bootstrap/css/button", locals: slide[ :image ][ :caption ][ :button ]
+
     -# Controls
     - if locals[ :control ]
 
         -# Prev Left Control
-        = link_to( ".#{ id }", :class => "carousel-control left", :data => { :slide => "prev" }, :role => "button" ) do
-            %span.fa.fa-chevron-left{ :"aria-hidden" => "true" }
+        = link_to( ".#{ id }", class: "carousel-control left", data: { slide: "prev" }, role: "button" ) do
+            %span.fa.fa-chevron-left{ aria: { hidden: "true" } }
             %span.sr-only Previous
 
         -# Next Right Control
-        = link_to( ".#{ id }", :class => "carousel-control right", :data => { :slide => "next" }, :role => "button" ) do
-            %span.fa.fa-chevron-right{ :"aria-hidden" => "true" }
+        = link_to( ".#{ id }", class: "carousel-control right", data: { slide: "next" }, role: "button" ) do
+            %span.fa.fa-chevron-right{ aria: { hidden: "true" } }
             %span.sr-only Next

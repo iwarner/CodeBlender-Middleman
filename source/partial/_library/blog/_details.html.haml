@@ -1,36 +1,45 @@
 -##
 -# Blog Details Partial
 -#
+-# Usage
+-# = partial "./blog/details",
+-#            locals: { current_page: article }
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
+
+-# Variables
+- dc = data.config
 
 -# Blog Footer
 .blogDetails
 
     -# Date
-    %i.fa.fa-calendar
-    = current_page.data.date.strftime( '%Y-%m-%d' )
+    - if locals[ :cal ]
+        = icon( "fa-calendar" )
+        = current_page.data.date.strftime( '%Y-%m-%d' )
 
     -# Author
-    |
-    %i.fa.fa-user
-    by
-    = current_page.data.author
+    - if locals[ :user ]
+        |
+        = icon( "fa-user" )
+        by
+        = current_page.data.meta.author
 
     -# Show Comments
     - if locals[ :comments ]
-
-        -# Comments
         |
-        %i.fa.fa-comment
+        = icon( "fa-comment" )
         X Comments
 
     -# Like Button
-    = partial "social/facebook/like-button",
-               :locals => { :extraClass => "pull-right",
-                            :href       => data.config.url + current_page.url,
-                            :layout     => "button_count",
-                            :share      => "false" }
+    - if locals[ :social ]
+
+        = partial "./social/facebook/like-button",
+                   locals: { extraClass: "pull-right",
+                             href:       dc.url + current_page.url,
+                             layout:     "button_count",
+                             share:      "false" }
 
     %hr
 
@@ -40,16 +49,17 @@
             = link_to "Read More", "/current_page.url", class: "btn btn-primary btn-mini"
 
     -# Tags
-    .tags
+    - if locals[ :tags ]
+        .tags
 
-        -# Loop through tags
-        - current_page.data.tags.each do | tag |
+            -# Loop through tags
+            - current_page.data.tags.each do | tag |
 
-            -# Label
-            = partial "./bootstrap/components/label",
-                       :locals => { :context => "primary",
-                                    :content => tag,
-                                    :href    => tag_path( tag ),
-                                    :icon    => "fa-tag" }
+                -# Label
+                = partial "./bootstrap/components/label",
+                           locals: { context: "primary",
+                                     content: tag,
+                                     href:    tag_path( tag ),
+                                     icon:    "fa-tag" }
 
 .clearfix

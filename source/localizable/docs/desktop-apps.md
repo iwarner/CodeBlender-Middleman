@@ -1,17 +1,19 @@
 ---
 
-author         : "DryKISS"
-date           : 2014-01-20
-excerpt        : "Desktop Applications"
-modified       : 2014-02-09
-tags           : [ tide, node-webkit, appjs, deskshell ]
-title          : "Desktop Applications"
-small          : "Desktop Applications"
-og:title       : "Desktop Applications"
-og:description : "Desktop Applications"
-og:type        :
-og:url         :
-og:image       :
+heading :
+    small : "Alerting"
+    title : "Alerting"
+
+meta :
+    author : "Ian Warner"
+    image  : ""
+    title  : "Alerting"
+    type   : ""
+
+date     : 2014-01-20
+excerpt  : "Alerting"
+modified : 2014-02-09
+tags     : [ alerting ]
 
 ---
 

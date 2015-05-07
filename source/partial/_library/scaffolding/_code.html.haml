@@ -12,21 +12,17 @@
 - locals[ :heading ][ :tag ] = "h2"
 
 -# Heading
-= partial "./bootstrap/type/heading",
-           :locals => locals[ :heading ]
+= partial "./bootstrap/type/heading", locals: locals[ :heading ]
 
-.clearfix
-
-    -# Block
-    = eval code
+-# Block
+.clearfix= eval code
 
 -# Tabs for code and output
 = partial "./bootstrap/components/navs",
-           :locals => { :array      => [ { :path => locals[ :id ] ? "#code#{id}"   : "#code1",   :name => "Code" },
-                                         { :path => locals[ :id ] ? "#output#{id}" : "#output1", :name => "Output" } ],
-                        :extraClass => "clearfix",
-                        :toggle     => true }
-
+           locals: { array:      [ { path: locals[ :id ] ? "#code#{ id }"   : "#code1",   name: "Code" },
+                                   { path: locals[ :id ] ? "#output#{ id }" : "#output1", name: "Output" } ],
+                     extraClass: "clearfix",
+                     toggle:     true }
 
 -# Capture Content
 - capture = capture_html do
@@ -36,14 +32,14 @@
 .tab-content
 
     -# Code
-    .tab-pane.active{ :id => locals[ :id ] ? "code#{id}" : "code1" }
+    .tab-pane.active{ id: locals[ :id ] ? "code#{ id }" : "code1" }
         :code
             #lang: #{ lang }
             = #{ code }
         -#
 
     -# Output
-    .tab-pane{ :id => locals[ :id ] ? "output#{id}" : "output1" }
+    .tab-pane{ id: locals[ :id ] ? "output#{ id }" : "output1" }
         :code
             #lang: haml
             #{ capture }

@@ -9,6 +9,34 @@
 # English
 en:
 
+    # Meta
+    # Automatically configures the Meta based on page name
+    meta :
+
+        # Global
+        publisher        : "DryKISS Ltd"
+        publisherAddress : "ian.warner@drykiss.com"
+        rights           : "&copy; 2015, DryKISS Ltd. All rights reserved."
+        itemType         : "LocalBusiness"
+
+        # Index
+        index :
+            author      : "DryKISS"
+            description : "CodeBlender"
+            image       : "Image"
+            subject     : "DryKISS"
+            title       : "CodeBlender"
+            type        : "website"
+
+        # Index
+        prototyping :
+            author      : "DryKISS"
+            description : "Prototyping"
+            image       : "Image"
+            subject     : "DryKISS"
+            title       : "Prototyping"
+            type        : "website"
+
     # Nav Above
     navAbove :
         strapLine : "Front end made easy"
@@ -19,19 +47,19 @@ en:
 
         # Home
         - text : "Home"
-          url  : "/index.html"
+          link : { url: "/index.html" }
 
         # Prototyping
         - text : "Prototyping"
-          url  : "/prototyping/index.html"
+          link : { url: "/prototyping" }
 
         # Knowledge Base
         - dropdown : "Knowledge Base"
           items    :
             - text : "Articles"
-              url  : "/prototyping/blog/articles.html"
+              link : { url: "/prototyping/blog/articles.html" }
             - text : "Tags"
-              url  : "/prototyping/blog/tags.html"
+              link : { url: "/prototyping/blog/tags.html" }
 
     # Home
     home :

@@ -1,5 +1,25 @@
 -##
+-# Bootstrap JavaScript
 -# Modal Partial
+-#
+-# @usage
+-# -# Body
+-# - body = capture_html do
+-#
+-#     -# Heading
+-#     = partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Heading" }
+-#
+-#     %p
+-#         TEXT
+-#
+-# -# Modal
+-# = partial "./bootstrap/javascript/modal", locals: { id: "myModal", body: body }
+-#
+-# -# Button
+-# = partial "./bootstrap/css/button",
+-#            locals: { content: "Launch Modal",
+-#                      data:    { target: "#myModal",
+-#                                 toggle: "modal" } }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -9,52 +29,48 @@
     - id = "myModal"
 
 -# Modal
-.modal{ :aria     => { :labelledby  => "#{ id }Label",
-                       :hidden      => "true",
-                       :describedby => "Overlay" },
-        :class    => locals[ :noAnimation ] ? false : "fade",
-        :id       => id,
-        :role     => :dialog,
-        :tabindex => "-1" }
+.modal{ aria:     { labelledby:  "#{ id }Label",
+                    hidden:      "true",
+                    describedby: "Overlay" },
+        class:    locals[ :noAnimation ] ? false : "fade",
+        id:       id,
+        role:     "dialog",
+        tabindex: "-1" }
 
-    -# Dialog
-    .modal-dialog{ :class => locals[ :size ] ? size : false }
+    -# Modal Dialog
+    .modal-dialog{ class: locals[ :size ] ? size : false }
 
-        -# Content
-        .modal-content{ :class => locals[ :contentClass ],
-                        :data  => locals[ :data ] ? data : false }
+        -# Modal Content
+        .modal-content{ class: locals[ :contentClass ], data: locals[ :data ] ? data : false }
 
-            -# Header
+            -# Check for Header
             - if ! locals[ :header ] ? true : false
 
+                -# Modal Header
                 .modal-header
 
                     -# Close Button
                     = partial "./bootstrap/css/button",
-                               :locals => { :extraClass => "close",
-                                            :data       => { :dismiss => "modal" },
-                                            :href       => "javascript:;",
-                                            :hidden     => true }
+                               locals: { aria:       { label: "Close" },
+                                         content:    "close",
+                                         extraClass: "close",
+                                         data:       { dismiss: "modal" },
+                                         type:       "button" }
 
-                    -# Title
+                    -# Check for Title
                     - if locals[ :title ]
 
                         -# Heading
                         = partial "bootstrap/type/heading",
-                                   :locals => { :extraClass => "modal-title",
-                                                :id         => "#{id}Label",
-                                                :text       => title,
-                                                :tag        => "h4" }
+                                   locals: { extraClass: "modal-title",
+                                             id:         "#{ id }Label",
+                                             text:       title,
+                                             tag:        "h4" }
 
-            -# Body
+            -# Modal Body
             - if locals[ :body ]
+                .modal-body= body
 
-                .modal-body
-                    = body
-
-            -# Footer
+            -# Modal Footer
             - if locals[ :footer ]
-
-                -# Footer
-                .modal-footer
-                    = footer
+                .modal-footer= footer

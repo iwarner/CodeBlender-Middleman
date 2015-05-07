@@ -4,27 +4,26 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- cp = current_page.data
+- dc = data.config
+
 -# Check Array Exists
-- if current_page.data.todo or locals[ :array ]
+- if cp.todo or locals[ :array ]
 
     %hr
 
     -# Heading
-    = partial "./bootstrap/type/heading",
-               :locals => { :small => "",
-                            :text  => "Tasks",
-                            :tag   => "h3" }
+    = partial "./bootstrap/type/heading", locals: { tag: "h3", text: "Tasks" }
 
     -# Create Array
-    - array = { "columns" => [ { "label" => "Task" },
-                               { "label" => "Section" },
-                               { "label" => "Date" } ],
-                "data"    => locals[ :array ] ? array : current_page.data.todo }
+    - array = { cols: [ "Task", "Section", "Date" ],
+                data: locals[ :array ] ? array : cp.todo }
 
     -# Table
     = partial "./bootstrap/css/table",
-               :locals => { :array      => array,
-                            :id         => "dataTable",
-                            :hidden     => locals[ :hidden ] ? hidden : false,
-                            :footer     => true,
-                            :tableClass => "table-striped table-condensed" }
+               locals: { array:      array,
+                         id:         "dataTableTodo",
+                         hidden:     locals[ :hidden ] ? hidden : false,
+                         footer:     true,
+                         tableClass: "table-striped table-condensed" }
