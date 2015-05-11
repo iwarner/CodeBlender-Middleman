@@ -5,7 +5,8 @@
 -##
 
 -# Alert
-.alert{ :class => locals[ :context ] ? "alert-#{context}" : "alert-success" }
+.alert{ class:          locals[ :context ]       ? "alert-#{context}"     : "alert-success",
+        ng:             locals[ :ng ]             ? locals[ :ng ]           : false,}
 
     -# Dismissable
     - if locals[ :dismiss ]
