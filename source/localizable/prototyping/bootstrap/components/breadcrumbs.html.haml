@@ -1,13 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Breadcrumbs"
+stub : breadcrumbs
 
-meta :
-    author      : "DryKISS"
-    description : "Indicate the current page's location within a navigational hierarchy."
-    title       : "Breadcrumbs"
+heading :
+    title : "Breadcrumbs"
 
 see :
     - - "Bootstrap Breadcrumbs"
@@ -30,10 +26,10 @@ locals :
 -# Default
 :ruby
     code = %{partial "./bootstrap/components/breadcrumbs",
-                      :locals => { :array => current_page.data.breadcrumbs }}
+                      locals: { array: current_page.data.breadcrumbs }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }

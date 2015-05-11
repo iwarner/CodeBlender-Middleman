@@ -19,8 +19,8 @@
         - array.each do | value |
 
             -# If there is a contextual / colour class add it
-            - if value[ :contextual ]
-                - listClass = "list-group-item-#{ value[ :contextual ] }"
+            - if value[ :context ]
+                - listClass = "list-group-item-#{ value[ :context ] }"
 
             -# Capture Content
             - captureHTML = capture_html do

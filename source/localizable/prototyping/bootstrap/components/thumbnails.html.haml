@@ -1,14 +1,10 @@
 ---
 
+stud : thumbnails
+
 heading :
     small : "Responsive media components"
     title : "Thumbnails"
-
-meta :
-    author      : "DryKISS"
-    description : "Extend Bootstrap's grid system with the thumbnail component to
-                   easily display grids of images, videos, text, and more."
-    title       : "Thumbnails"
 
 bar :
     - sup  : Expires
@@ -89,23 +85,25 @@ locals :
 /                                          { image: { data: { src: "holder.js/100x100/auto" } } },
 /                                          { image: { data: { src: "holder.js/300x200/auto" } } } ] }}
 
+/ -# Code
 / = partial "./scaffolding/code",
 /            locals: { id:      1,
 /                      code:    code,
 /                      heading: { small: "Just an array of images",
 /                                 text:  "Default" } }
 
-/ -# Linked Thumbnail
-/ :ruby
-/     code = %{partial "./bootstrap/components/thumbnails",
-/                       locals: { array: [ { image:     { src: "footer/background1.png" },
-/                                            thumbnail: { href: image_path( "footer/background1.png" ) } } ] }}
+-# Linked Thumbnail
+:ruby
+    code = %{partial "./bootstrap/components/thumbnails",
+                      locals: { array: [ { image:     { src: "footer/background1.png" },
+                                           thumbnail: { href: image_path( "footer/background1.png" ) } } ] }}
 
-/ = partial "./scaffolding/code",
-/            locals: { id:      2,
-/                      code:    code,
-/                      heading: { small: "Provide an HREF for the image",
-/                                 text:  "Linked Thumbnail" } }
+-# Code
+= partial "./scaffolding/code",
+           locals: { id:      2,
+                     code:    code,
+                     heading: { small: "Provide an HREF for the image",
+                                text:  "Linked Thumbnail" } }
 
 -# Captioned Thumbnail
 -# Get the list of categories of the products
@@ -117,20 +115,23 @@ locals :
         -# Blog Details
         = partial "./blog/details", locals: { current_page: article }
 
+-# Thumbnails
 = partial "./bootstrap/components/thumbnails",
-                      locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" }, href: "HERE" },
-                                           thumbnail: { caption: @captureHTML } } ] }
+           locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" }, href: "HERE" },
+                                thumbnail: { caption: @captureHTML } } ] }
 
-/ :ruby
-/     code = %{partial "./bootstrap/components/thumbnails",
-/                       locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" } },
-/                                            thumbnail: { caption: @captureHTML, href: "HERE" } } ] }}
+-# Code
+:ruby
+    code = %{partial "./bootstrap/components/thumbnails",
+                      locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" } },
+                                           thumbnail: { caption: @captureHTML, href: "HERE" } } ] }}
 
-/ = partial "./scaffolding/code",
-/            locals: { id:      3,
-/                      code:    code,
-/                      heading: { small: "Push an HTML element into the Tumb array",
-/                                 text:  "Captioned Thumbnail" } }
+-# Code
+= partial "./scaffolding/code",
+           locals: { id:      3,
+                     code:    code,
+                     heading: { small: "Push an HTML element into the Tumb array",
+                                text:  "Captioned Thumbnail" } }
 
 -# Zoomix Thumbnail
 :ruby
@@ -140,6 +141,7 @@ locals :
                                                          href:   image_path( "footer/background1.png" ),
                                                          data:   { toggle: "lightbox" } } } ] }}
 
+-# Code
 = partial "./scaffolding/code",
            locals: { id:      4,
                      code:    code,

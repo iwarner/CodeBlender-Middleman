@@ -1,13 +1,10 @@
 ---
 
+stub : articles
+
 heading :
     small : "List of articles sorted by date"
     title : "Articles"
-
-meta :
-    author      : "DryKISS"
-    description : ""
-    title       : "Articles"
 
 pageable : true
 per_page : 5
@@ -64,8 +61,7 @@ todo :
                                          text:       string( article.data.heading.title ) }
 
                     -# Details
-                    = partial "./blog/details",
-                               locals: { current_page: article }
+                    = partial "./blog/details", locals: { current_page: article }
 
                     -# Excerpt
                     %p= string article.data.excerpt
@@ -82,27 +78,27 @@ todo :
         .text-center
 
             = partial "./bootstrap/components/pagination",
-                       :locals => { :nextPage => next_page,
-                                    :prevPage => prev_page,
-                                    :pageNo   => page_number,
-                                    :pages    => num_pages }
+                       locals: { nextPage: next_page,
+                                 prevPage: prev_page,
+                                 pageNo:   page_number,
+                                 pages:    num_pages }
 
     .col-md-4.col-sm-4
 
         -# Heading
         = partial "./bootstrap/type/heading",
-                   :locals => { :extraClass => "noMargin",
-                                :tag        => "h3",
-                                :text       => string( "Archive" ) }
+                   locals: { extraClass: "noMargin",
+                             tag:        "h3",
+                             text:       string( "Archive" ) }
 
         -# Archive
         = partial "./blog/archive"
 
         -# Heading
         = partial "./bootstrap/type/heading",
-                   :locals => { :extraClass => "noMargin",
-                                :tag        => "h3",
-                                :text       => string( "Tags" ) }
+                   locals: { extraClass: "noMargin",
+                             tag:        "h3",
+                             text:       string( "Tags" ) }
 
         -# Tag Cloud
         = tagCloud()

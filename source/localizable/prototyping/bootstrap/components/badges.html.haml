@@ -1,15 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Badges"
+stub : badges
 
-meta :
-    author      : "DryKISS"
-    description :
-        "Easily highlight new or unread items by adding a to links, Bootstrap
-        navs, and more."
-    title       : "Badges"
+heading :
+    title : "Badges"
 
 see :
     - - "Bootstrap Badges"
@@ -30,9 +24,10 @@ locals :
 -# Badge
 :ruby
     code = %{partial "./bootstrap/components/badges",
-               :locals => { :content => "88" }}
+                      locals: { content: "88" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :text => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }

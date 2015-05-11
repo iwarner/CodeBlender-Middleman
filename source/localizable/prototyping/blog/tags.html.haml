@@ -1,13 +1,10 @@
 ---
 
+stub : tags
+
 heading :
     small : "Displays the tags for blog posts"
     title : "Tags"
-
-meta :
-    author      : "DryKISS"
-    description : ""
-    title       : "Tags"
 
 see :
     - - "Middleman Blogging"
@@ -29,7 +26,6 @@ todo :
     code = %{tagCloud()}
 
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Tags" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Tags" } }

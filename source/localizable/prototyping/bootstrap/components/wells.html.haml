@@ -1,13 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Wells"
+stub : wells
 
-meta :
-    author      : "DryKISS"
-    description : "Use the well as a simple effect on an element to give it an inset effect."
-    title       : "Wells"
+heading :
+    title : "Wells"
 
 see :
     - - "Bootstrap Wells"
@@ -24,34 +20,34 @@ locals :
 -# Default
 :ruby
     code = %{partial "./bootstrap/components/wells",
-                      :locals => { :text => "Well" }}
+                      locals: { text: "Well" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }
 
 -# Large
 :ruby
     code = %{partial "./bootstrap/components/wells",
-                      :locals => { :extraClass => "well-lg",
-                                   :text       => "Well" }}
+                      locals: { extraClass: "well-lg",
+                                text:       "Well" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Large" } }
+           locals: { id:      2,
+                     code:    code,
+                     heading: { text: "Large" } }
 
 -# Small
 :ruby
     code = %{partial "./bootstrap/components/wells",
-                      :locals => { :extraClass => "well-sm",
-                                   :text       => "Well" }}
+                      locals: { extraClass: "well-sm",
+                                text:       "Well" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 3,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Small" } }
+           locals: { id:      3,
+                     code:    code,
+                     heading: { text: "Small" } }

@@ -1,15 +1,10 @@
 ---
 
+stub : dropdown
+
 heading :
     small : "Button and Navbar dropdowns"
     title : "Dropdowns"
-
-meta :
-    author      : "DryKISS"
-    description :
-        "Toggleable, contextual menu for displaying lists of links. Made
-        interactive with the dropdown JavaScript plugin."
-    title       : "Dropdowns"
 
 see :
     - - "Dropdowns"
@@ -64,43 +59,44 @@ list :
 -# Just a Dropdown
 :ruby
     code = %{partial "./bootstrap/components/dropdown",
-                      :locals => { :extraClass => "dropdown clearfix",
-                                   :title      => "Drop Down",
-                                   :type       => "dropdown",
-                                   :list       => { :array    => current_page.data.list,
-                                                    :dropdown => true }}}
+                      locals: { extraClass: "dropdown clearfix",
+                                title:      "Drop Down",
+                                type:       "dropdown",
+                                list:       { array:    current_page.data.list,
+                                              dropdown: true }}}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "With a Header, divider and Disabled Link",
-                                      :text  => "Just a Dropdown" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { small: "With a Header, divider and Disabled Link",
+                                text:  "Just a Dropdown" } }
 
 -# Button Group Dropdown
 :ruby
     code = %{partial "./bootstrap/components/dropdown",
-                     :locals => { :extraClass => "btn-group clearfix",
-                                  :title      => "Drop Down",
-                                  :type       => "btn-group",
-                                  :list       => { :array    => current_page.data.list,
-                                                   :dropdown => true }}}
+                      locals: { extraClass: "btn-group clearfix",
+                                title:      "Drop Down",
+                                type:       "btn-group",
+                                list:       { array:    current_page.data.list,
+                                              dropdown: true }}}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Button Group Dropdown" } }
+           locals: { id:      2,
+                     code:    code,
+                     heading: { text: "Button Group Dropdown" } }
 
 -# Nav Bar Dropdown
 :ruby
     code = %{partial "./bootstrap/components/dropdown",
-                      :locals => { :extraClass => "clearfix",
-                                   :title      => "Drop Down",
-                                   :list       => { :array    => current_page.data.list,
-                                                    :dropdown => true }}}
+                      locals: { extraClass: "clearfix",
+                                title:      "Drop Down",
+                                list:       { array:    current_page.data.list,
+                                              dropdown: true }}}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 3,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Navbar Dropdown" } }
+           locals: { id:      3,
+                     code:    code,
+                     heading: { text: "Navbar Dropdown" } }

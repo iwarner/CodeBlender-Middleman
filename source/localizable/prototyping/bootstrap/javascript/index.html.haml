@@ -1,21 +1,16 @@
 ---
 
-heading :
-    small : ""
-    title : "Javascript"
+stub : javascript
 
-meta :
-    author      : "DryKISS"
-    description : "Bring Bootstrap's components to life with over a dozen custom jQuery
-                   plugins. Easily include them all, or one by one."
-    title       : "Javascript"
+heading :
+    title : "Javascript"
 
 ---
 
 -# Heading
 = partial "./bootstrap/type/heading",
-           :locals => { :text => "Individual or compiled",
-                        :tag  => "h2" }
+           locals: { tag:  "h2",
+                     text: "Individual or compiled" }
 
 %p
     Plugins can be included individually (using Bootstrap's individual *.js files),

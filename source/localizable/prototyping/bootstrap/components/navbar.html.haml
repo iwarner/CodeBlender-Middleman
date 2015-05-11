@@ -1,26 +1,20 @@
 ---
 
+stub : navbar
+
 heading :
     small : "Navigation component"
     title : "Navbar"
 
-meta :
-    author      : "DryKISS"
-    description :
-        "Navbars are responsive meta components that serve as navigation headers
-        for your application or site. They begin collapsed (and are toggleable)
-        in mobile views and become horizontal as the available viewport width increases."
-    title       : "Navbar"
-
-navigation :
-    - :text : My Offers
-      :url  : /offers
-    - :text : My Bookmarks
-      :url  : /bookmarks
-    - :text : Offer Activity
-      :url  : /activity
-    - :text : Account Settings
-      :url  : /settings
+/ navigation :
+/     - :text : My Offers
+/       :url  : /offers
+/     - :text : My Bookmarks
+/       :url  : /bookmarks
+/     - :text : Offer Activity
+/       :url  : /activity
+/     - :text : Account Settings
+/       :url  : /settings
 
 navigation1 :
     - :image  : "site/.png"
@@ -88,50 +82,50 @@ locals :
 
 ---
 
-/ %p
-/     Javascript is required for the Nav Collapse
-/     Be sure to add a role="navigation" to the navbar to help with accessibility.
+%p
+    Javascript is required for the Nav Collapse
+    Be sure to add a role="navigation" to the navbar to help with accessibility.
 
-/     Requires a /data/navigation.yaml file to be present. Basically checks the
-/     YAML for Divider, Dropdown or Menu Item then displays according to the YAML.
+    Requires a /data/navigation.yaml file to be present. Basically checks the
+    YAML for Divider, Dropdown or Menu Item then displays according to the YAML.
 
-/ -# Default
-/ :ruby
-/     code = %{partial "./bootstrap/components/navbar",
-/                       :locals => { :fluid    => true,
-/                                    :position => "static-top" }}
+-# Default
+:ruby
+    code = %{partial "./bootstrap/components/navbar",
+                      locals: { fluid:    true,
+                                position: "static-top" }}
 
-/ = partial "./scaffolding/code",
-/            :locals => { :id      => 1,
-/                         :code    => code,
-/                         :heading => { :small => "",
-/                                       :text  => "Default" } }
+-# Code
+= partial "./scaffolding/code",
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }
 
-/ -# Logo
-/ :ruby
-/     code = %{partial "./bootstrap/components/navbar",
-/                       :locals => { :array    => current_page.data.navigation1,
-/                                    :fluid    => true,
-/                                    :logo     => true,
-/                                    :position => "static-top" }}
+-# Logo
+:ruby
+    code = %{partial "./bootstrap/components/navbar",
+                      locals: { array:    current_page.data.navigation1,
+                                fluid:    true,
+                                logo:     true,
+                                position: "static-top" }}
 
-/ = partial "./scaffolding/code",
-/            :locals => { :id      => 2,
-/                         :code    => code,
-/                         :heading => { :small => "",
-/                                       :text  => "Logo" } }
+-# Code
+= partial "./scaffolding/code",
+           locals: { id:      2,
+                     code:    code,
+                     heading: { text: "Logo" } }
 
-/ -# Inverted
-/ :ruby
-/     code = %{partial "./bootstrap/components/navbar",
-/                       :locals => { :array    => current_page.data.navigation,
-/                                    :brand    => "Test NavBar",
-/                                    :fluid    => true,
-/                                    :position => "static-top",
-/                                    :type     => "inverse" }}
+-# Inverted
+:ruby
+    code = %{partial "./bootstrap/components/navbar",
+                      locals: { array:    current_page.data.navigation,
+                                brand:    "Test NavBar",
+                                fluid:    true,
+                                position: "static-top",
+                                type:     "inverse" }}
 
-/ = partial "./scaffolding/code",
-/            :locals => { :id      => 3,
-/                         :code    => code,
-/                         :heading => { :small => "",
-/                                       :text  => "Inverted" } }
+-# Code
+= partial "./scaffolding/code",
+           locals: { id:      3,
+                     code:    code,
+                     heading: { text: "Inverted" } }

@@ -1,14 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Carousel"
+stub : carousel
 
-meta :
-    author      : "DryKISS"
-    description : "The slideshow below shows a generic plugin and component for
-                   cycling through elements like a carousel."
-    title       : "Carousel"
+heading :
+    title : "Carousel"
 
 see :
     - - "Bootstrap Carousel"
@@ -48,37 +43,15 @@ locals :
       - "optional"
       - "Whether to show the dot indicators - default: true"
 
-carouselArray1 :
+carouselArray :
   - image :
         extraClass : "img-responsive"
-        data       : "holder.js/1028x400/auto"
+        data       :
+            src : "holder.js/1028x400/auto"
   - image :
         extraClass : "img-responsive"
-        data       : "holder.js/1028x400/auto"
-
-carouselArray2 :
-  - image :
-        src : "gwp/gwp_mobile_01.png"
-  - image :
-        src : "gwp/gwp_mobile_02.png"
-  - image :
-        src : "gwp/gwp_mobile_03.png"
-  - image :
-        src : "gwp/gwp_mobile_04.png"
-  - image :
-        src : "gwp/gwp_mobile_05.png"
-  - image :
-        src : "gwp/gwp_mobile_06.png"
-  - image :
-        src : "gwp/gwp_mobile_07.png"
-  - image :
-        src : "gwp/gwp_mobile_08.png"
-  - image :
-        src : "gwp/gwp_mobile_09.png"
-  - image :
-        src : "gwp/gwp_mobile_10.png"
-  - image :
-        src : "gwp/gwp_mobile_11.png"
+        data       :
+            src : "holder.js/1028x400/auto"
 
 ---
 
@@ -113,25 +86,25 @@ carouselArray2 :
 -# Carousel
 :ruby
     code = %{partial "./bootstrap/javascript/carousel",
-                      :locals => { :array     => current_page.data.carouselArray1,
-                                   :data      => { :interval => "false" },
-                                   :control   => true,
-                                   :indicator => true }}
+                      locals: { array:     current_page.data.carouselArray,
+                                data:      { interval: "false" },
+                                control:   true,
+                                indicator: true }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }
 
 -# No Indicators
 :ruby
     code = %{partial "./bootstrap/javascript/carousel",
-                      :locals => { :array => current_page.data.carouselArray2,
-                                   :id    => "iPhoneCarousel" }}
+                      locals: { array: current_page.data.carouselArray,
+                                id:    "iPhoneCarousel" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "No Indicators or Controls" } }
+           locals: { id:      2,
+                     code:    code,
+                     heading: { text: "No Indicators or Controls" } }

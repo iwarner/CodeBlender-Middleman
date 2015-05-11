@@ -1,13 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Label"
+stub : label
 
-meta :
-    author      : "DryKISS"
-    description : ""
-    title       : "Label"
+heading :
+    title : "Label"
 
 see :
     - - "Bootstrap Labels"
@@ -36,24 +32,24 @@ locals :
 -# Default
 :ruby
     code = %{partial "./bootstrap/components/label",
-                      :locals => { :content => "Default" }}
+                      locals: { content: "Default" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }
 
 -# Partial
 :ruby
     code = %{partial "./bootstrap/components/label",
-                      :locals => { :context => "primary",
-                                   :content => "Tag",
-                                   :href    => "#",
-                                   :icon    => "fa-tag" }}
+                      locals: { context: "primary",
+                                content: "Tag",
+                                href:    "#",
+                                icon:    "fa-tag" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Tags" } }
+           locals: { id:      2,
+                     code:    code,
+                     heading: { text: "Tags" } }

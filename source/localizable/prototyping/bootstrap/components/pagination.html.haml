@@ -1,14 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Pagination"
+stub : pagination
 
-meta :
-    author      : "DryKISS"
-    description :
-        "Provide pagination links for your site or app with the multi-page pagination component."
-    title       : "Pagination"
+heading :
+    title : "Pagination"
 
 pageable : true
 
@@ -50,6 +45,7 @@ locals :
                                 pageNo:   "#{ page_number }",
                                 pages:    "#{ num_pages }" }}
 
+-# Code
 = partial "./scaffolding/code",
            locals: { id:      1,
                      code:    code,

@@ -1,14 +1,9 @@
 ---
 
-heading :
-    small : "Small"
-    title : "Panels"
+stub : panels
 
-meta :
-    author      : "DryKISS"
-    description : "While not always necessary, sometimes you need to put your DOM
-                   in a box. For those situations, try the panel component."
-    title       : "Panels"
+heading :
+    title : "Panels"
 
 see :
     - - "Bootstrap Panels"
@@ -62,46 +57,46 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./bootstrap/components/panels",
-                      :locals => { :body => "Body" }}
+    code = %{partial "./bootstrap/components/panels", locals: { body: "Body" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }
 
 -# Full Panel
 :ruby
     code = %{partial "./bootstrap/components/panels",
-                      :locals => { :body    => "Body",
-                                   :context => "primary",
-                                   :footer  => "Footer",
-                                   :heading => { :text => "Heading",
-                                                 :tag  => "h3" },
-                                   :tools   => true }}
+                      locals: { body:    "Body",
+                                context: "primary",
+                                footer:  "Footer",
+                                heading: { text: "Heading",
+                                           tag:  "h3" },
+                                tools:   true }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "Contains the Tools also",
-                                      :text  => "Full Panel" } }
+           locals: { id:      2,
+                     code:    code,
+                     heading: { small: "Contains the Tools also",
+                                text:  "Full Panel" } }
 
 -# Panel with Image as Heading
 :ruby
     code = %{partial "./bootstrap/components/panels",
-                      :locals => { :body    => "Body",
-                                   :context => "primary",
-                                   :footer  => "Footer",
-                                   :heading => { :extraClass => "text-center",
-                                                 :image      => { :data => holder( "300x40" ) } },
-                                   :tools   => true }}
+                      locals: { body:    "Body",
+                                context: "primary",
+                                footer:  "Footer",
+                                heading: { extraClass: "text-center",
+                                           image:      { data: holder( "300x40" ) } },
+                                tools:   true }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 3,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Panel with Image Heading" } }
+           locals: { id:      3,
+                     code:    code,
+                     heading: { text: "Panel with Image Heading" } }
 
 -# Panel with HTML Body Copy
 - @captureHTML = capture_html do
@@ -109,22 +104,23 @@ locals :
     %p
         Choose Provider
 
+    -# Button
     = partial "./bootstrap/css/button",
-               :locals => { :content => "Primary",
-                            :context => "primary" }
+               locals: { content: "Primary",
+                         context: "primary" }
 
 
 :ruby
     code = %{partial "./bootstrap/components/panels",
-                      :locals => { :body    => [ @captureHTML ],
-                                   :context => "primary",
-                                   :footer  => "Footer",
-                                   :heading => { :text => "Heading",
-                                                 :tag  => "h3" },
-                                   :tools   => true }}
+                      locals: { body:    [ @captureHTML ],
+                                context: "primary",
+                                footer:  "Footer",
+                                heading: { text: "Heading",
+                                           tag:  "h3" },
+                                tools:   true }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 4,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Panel with HTML Body" } }
+           locals: { id:      4,
+                     code:    code,
+                     heading: { text: "Panel with HTML Body" } }

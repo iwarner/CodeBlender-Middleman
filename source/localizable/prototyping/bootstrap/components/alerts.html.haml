@@ -1,16 +1,10 @@
 ---
 
+stub : alerts
+
 heading :
     small : "Message boxes"
     title : "Alerts"
-
-meta :
-    author      : "DryKISS"
-    description :
-        "Provide contextual feedback messages for typical user actions with the
-        handful of available and flexible alert messages. For inline dismissal,
-        use the alerts jQuery plugin."
-    title       : "Alerts"
 
 see :
     - - "Bootstrap Alerts"
@@ -41,8 +35,9 @@ locals :
 -# Success Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               locals: { text: "Well done! You successfully read this important alert message." }}
+                      locals: { text: "Well done! You successfully read this important alert message." }}
 
+-# Code
 = partial "./scaffolding/code",
            locals: { id:      1,
                      code:    code,
@@ -51,56 +46,61 @@ locals :
 -# Info Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               locals: { context: "info",
-                         text:    "Heads up! This alert needs your attention, but it's not super important." }}
+                      locals: { context: "info",
+                                text:    "Heads up! This alert needs your attention, but it's not super important." }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :text => "Info Alert" } }
+           locals: { id:      2,
+                     code:    code,
+                     heading: { text: "Info Alert" } }
 
 -# Warning Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               :locals => { :context => "warning",
-                            :text    => "Warning! Better check yourself, you're not looking too good." }}
+                      locals: { context: "warning",
+                                text:    "Warning! Better check yourself, you're not looking too good." }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 3,
-                        :code    => code,
-                        :heading => { :text => "Warning Alert" } }
+           locals: { id:      3,
+                     code:    code,
+                     heading: { text: "Warning Alert" } }
 
 -# Danger Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               :locals => { :context => "danger",
-                            :text    => "Oh snap! Change a few things up and try submitting again." }}
+                      locals: { context: "danger",
+                                text:    "Oh snap! Change a few things up and try submitting again." }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 4,
-                        :code    => code,
-                        :heading => { :text => "Danger Alert" } }
+           locals: { id:      4,
+                     code:    code,
+                     heading: { text: "Danger Alert" } }
 
 -# Dismissable Alert
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               :locals => { :context => "warning",
-                            :dismiss => true,
-                            :text    => "Warning! Better check yourself, you're not looking too good." }}
+                      locals: { context: "warning",
+                                dismiss: true,
+                                text:    "Warning! Better check yourself, you're not looking too good." }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 5,
-                        :code    => code,
-                        :heading => { :small => "Closeable Alert, require JavaScript",
-                                      :text  => "Dismissable" } }
+           locals: { id:      5,
+                     code:    code,
+                     heading: { small: "Closeable Alert, require JavaScript",
+                                text:  "Dismissable" } }
 
 -# In-line Links
 :ruby
     code = %{partial "./bootstrap/components/alerts",
-               :locals => { :context => "success",
-                            :text    => "Well done! You successfully <a href='#' class='alert-link'>Link</a> read this important alert message." }}
+                      locals: { context: "success",
+                                text:    "Well done! You successfully <a href='#' class='alert-link'>Link</a> read this important alert message." }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 6,
-                        :code    => code,
-                        :heading => { :text => "Inline Links" } }
+           locals: { id:      6,
+                     code:    code,
+                     heading: { text: "Inline Links" } }

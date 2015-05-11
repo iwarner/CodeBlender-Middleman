@@ -1,13 +1,10 @@
 ---
 
+stub : collapse
+
 heading :
     small : "Simple accordions"
     title : "Collapse Partial"
-
-meta :
-    author      : "DryKISS"
-    description : "Get base styles and flexible support for collapsible components like accordions and navigation."
-    title       : "Collapse Partial"
 
 see :
     - - "Bootstrap Collapse"
@@ -39,11 +36,10 @@ locals :
 
 -# Collapse
 :ruby
-    code = %{partial "./bootstrap/javascript/collapse",
-            :locals => { :openIn  => 0 } }
+    code = %{partial "./bootstrap/javascript/collapse", locals: { openIn: 0 } }
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }

@@ -1,13 +1,10 @@
 ---
 
+stub : image
+
 heading :
     small : "Classes, including circle, responsive and thumbnail"
     title : "Images"
-
-meta :
-    author      : "DryKISS"
-    description : "Bootstrap Images Partial"
-    title       : "Images"
 
 see :
     - - "Bootstrap Images"
@@ -18,6 +15,8 @@ see :
       - "http://placehold.it/"
     - - "Lorem Pixel"
       - "http://lorempixel.com/"
+    - - "Middleman Helpers"
+      - "https://middlemanapp.com/basics/helper_methods/"
 
 todo :
     - - "Add a Responsive image example"
@@ -65,47 +64,49 @@ locals :
 
 -# Default Image
 :ruby
-    code = %{partial "./bootstrap/css/image",
-                      :locals => { :src => loremPixel() }}
+    code = %{partial "./bootstrap/css/image", locals: { src: loremPixel() }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "Lorem Pixel 200x200",
-                                      :text  => "Default Image" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { small: "Lorem Pixel 200x200",
+                                text:  "Default Image" } }
 
 -# Thumbnail Image
 :ruby
     code = %{partial "./bootstrap/css/image",
-                      :locals => { :src        => lorem.image( "200x200" ),
-                                   :extraClass => "img-thumbnail" }}
+                      locals: { src:        lorem.image( "200x200" ),
+                                extraClass: "img-thumbnail" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "Place Hold It 200x200",
-                                      :text  => "Thumbnail Image" } }
+           locals: { id:      2,
+                     code:    code,
+                     heading: { small: "Place Hold It 200x200",
+                                text:  "Thumbnail Image" } }
 
 -# Circle Image
 :ruby
     code = %{partial "./bootstrap/css/image",
-                      :locals => { :data       => holder( "200x200" ),
-                                   :extraClass => "img-circle" }}
+                      locals: { data:       { src: holder( "200x200" ) },
+                                extraClass: "img-circle" }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 3,
-                        :code    => code,
-                        :heading => { :small => "Holder.js 200x200",
-                                      :text  => "Circle Image" } }
+           locals: { id:      3,
+                     code:    code,
+                     heading: { small: "Holder.js 200x200",
+                                text:  "Circle Image" } }
 
 -# Rounded Image
 :ruby
     code = %{partial "./bootstrap/css/image",
-                      :locals => { :src        => loremPixel( "200/200", "Rounded", "abstract" ),
-                                   :extraClass => "img-rounded" }}
+                      locals: { src:        loremPixel( "200/200", "Rounded", "abstract" ),
+                                extraClass: "img-rounded" }}
 
 = partial "./scaffolding/code",
-           :locals => { :id      => 4,
-                        :code    => code,
-                        :heading => { :small => "Holder.js 200x200",
-                                      :text  => "Rounded Image" } }
+           locals: { id:      4,
+                     code:    code,
+                     heading: { small: "Holder.js 200x200",
+                                text:  "Rounded Image" } }

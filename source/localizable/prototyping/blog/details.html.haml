@@ -1,13 +1,10 @@
 ---
 
+stub : details
+
 heading :
     small : Showcases the details, tags of the post
     title : Details
-
-meta :
-    author      : DryKISS
-    description :
-    title       : Details
 
 date : 2014-01-20
 tags : [ blog, middleman ]
@@ -42,10 +39,10 @@ locals :
 
 -# Details
 :ruby
-    code = %{partial "./blog/details",
-               locals: { more: true }}
+    code = %{partial "./blog/details", locals: { more: true }}
 
+-# Code
 = partial "./scaffolding/code",
-           locals: { id:   1,
-                     code: code,
+           locals: { id:      1,
+                     code:    code,
                      heading: { text: "Default" } }

@@ -1,14 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Progress Bar"
+stub : progressbar
 
-meta :
-    author      : "DryKISS"
-    description : "Provide up-to-date feedback on the progress of a workflow or
-                   action with simple yet flexible progress bars."
-    title       : "Progress Bar"
+heading :
+    title : "Progress Bar"
 
 see :
     - - "Bootstrap Progress Bar"
@@ -53,57 +48,59 @@ locals :
 -# Default
 :ruby
     code = %{partial "./bootstrap/components/progress-bar",
-                      :locals => { :array => [ :width => 33 ] }}
+                      locals: { array: [ width: 33 ] }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }
 
 -# Attributes
 :ruby
     code = %{partial "./bootstrap/components/progress-bar",
-                      :locals => { :array => [ :animated => :true,
-                                               :context  => "success",
-                                               :striped  => :true,
-                                               :width    => 33 ] }}
+                      locals: { array: [ animated: :true,
+                                         context:  "success",
+                                         striped:  :true,
+                                         width:    33 ] }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 2,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Attributes" } }
+           locals: { id:      2,
+                     code:    code,
+                     heading: { text: "Attributes" } }
 
 -# Low Percentage
 :ruby
     code = %{partial "./bootstrap/components/progress-bar",
-                      :locals => { :array => [ :animated => :true,
-                                               :context  => "warning",
-                                               :label    => true,
-                                               :width    => 2 ] }}
+                      locals: { array: [ animated: :true,
+                                         context:  "warning",
+                                         label:    true,
+                                         width:    2 ] }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 3,
-                        :code    => code,
-                        :heading => { :small => "Shows label",
-                                      :text  => "Low Percentage" } }
+           locals: { id:      3,
+                     code:    code,
+                     heading: { small: "Shows label",
+                                text:  "Low Percentage" } }
 
 -# Stacked
 :ruby
     code = %{partial "./bootstrap/components/progress-bar",
-                      :locals => { :array => [ { :animated => :true,
-                                                 :context  => "warning",
-                                                 :label    => true,
-                                                 :width    => 33 },
-                                               { :animated => :true,
-                                                 :context  => "success",
-                                                 :label    => false,
-                                                 :striped => :true,
-                                                 :width    => 33 } ] }}
+                      locals: { array: [ { animated: :true,
+                                           context:  "warning",
+                                           label:    true,
+                                           width:    33 },
+                                         { animated: :true,
+                                           context:  "success",
+                                           label:    false,
+                                           striped:  :true,
+                                           width:    33 } ] }}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 4,
-                        :code    => code,
-                        :heading => { :small => "Multiple bars into the same Progress",
-                                      :text  => "Stacked" } }
+           locals: { id:      4,
+                     code:    code,
+                     heading: { small: "Multiple bars into the same Progress",
+                                text:  "Stacked" } }

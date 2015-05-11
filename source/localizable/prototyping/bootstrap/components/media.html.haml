@@ -1,16 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Media"
+stub : media
 
-meta :
-    author      : "DryKISS"
-    description :
-        "Abstract object styles for building various types of components (like
-        blog comments, Tweets, etc) that feature a left- or right-aligned image
-        alongside textual content."
-    title       : "Media"
+heading :
+    title : "Media"
 
 see :
     - - "Bootstrap Media"
@@ -28,8 +21,8 @@ todo :
 :ruby
     code = %{partial "./bootstrap/components/media"}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }

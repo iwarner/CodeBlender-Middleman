@@ -1,15 +1,9 @@
 ---
 
-heading :
-    small : ""
-    title : "Pager"
+stub : pager
 
-meta :
-    author      : "DryKISS"
-    description :
-        "Quick previous and next links for simple pagination implementations with
-        light markup and styles. It's great for simple sites like blogs or magazines."
-    title       : "Pager"
+heading :
+    title : "Pager"
 
 see :
     - - "Bootstrap Pager"
@@ -35,8 +29,9 @@ todo :
 :ruby
     code = %{partial "./bootstrap/components/pager"}
 
+-# Code
 = partial "./scaffolding/code",
-           :locals => { :id      => 1,
-                        :code    => code,
-                        :heading => { :small => "",
-                                      :text  => "Default" } }
+           locals: { id:      1,
+                     code:    code,
+                     heading: { small: "",
+                                text:  "Default" } }
