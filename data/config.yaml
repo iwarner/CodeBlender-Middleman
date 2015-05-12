@@ -78,7 +78,7 @@ navigation :
     search     : false
     type       : false
     wrapper    : false
-
+    
 # Footer
 footer :
     active     : true
