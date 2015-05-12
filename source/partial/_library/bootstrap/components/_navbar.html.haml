@@ -20,7 +20,8 @@
 -# Navbar
 %nav.navbar{ id:    locals[ :id ] ? id : "navbar",
              class: extraClass,
-             role:  "navigation" }
+             role:  "navigation",
+             ng:    locals[ :ng ] ? ng : false }
 
     -# Bootstrap Container - drawn from config container
     %div{ class: dc.container }

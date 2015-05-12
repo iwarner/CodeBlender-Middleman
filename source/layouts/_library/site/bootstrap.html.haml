@@ -65,7 +65,8 @@
         -# Section - Navbar
         - if ! dc.navbar.blank? and d.navbar != false
             %header
-                = partial "./bootstrap/components/navbar", locals: { navExtraClass: dc.navExtraClass }
+                = partial "./bootstrap/components/navbar", locals: { navExtraClass: dc.navExtraClass,
+                                                                     ng:         {show: "showNavbar"}}
 
         -# Section - Below Navigation
         -# Can be done globally, or via page frontmatter
