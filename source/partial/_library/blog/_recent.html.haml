@@ -19,8 +19,8 @@
 
             -# Label
             = partial "./bootstrap/components/label",
-                       :locals => { :context => "info",
-                                    :content => article.date.strftime( '%b %e' ) }
+                       locals: { context: "info",
+                                 content: article.date.strftime( '%b %e' ) }
 
             -# Link to the Article
             = link_to string( article.title ), article

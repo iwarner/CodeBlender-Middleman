@@ -2,13 +2,17 @@
 -# Blog Tags
 -#
 -# Usage
--# - wrap_layout "_library/blog/article" do
+-# = wrap_layout "_library/blog/article" do
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- cp      = current_page.data
+- heading = current_page.data.heading
+
 -# Article
-= wrap_layout "_library/site/layout" do
+= wrap_layout "_library/site/full-width" do
 
     .container
 
@@ -35,8 +39,8 @@
 
                     -# Heading
                     = partial "./bootstrap/type/heading",
-                               locals: { small: current_page.data.small,
-                                         text:  current_page.data.title }
+                               locals: { small: heading.small,
+                                         text:  heading.title }
 
                     -# Yield
                     = yield

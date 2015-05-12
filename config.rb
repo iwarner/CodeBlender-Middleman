@@ -6,8 +6,8 @@
 
 # Variables
 set :version,          data.config.version
-set :relative_links,   true
-set :strip_index_file, true
+# set :relative_links,   true
+# set :strip_index_file, true
 set :syntaxScheme,     "ThankfulEyes"
 set :path,             "assets"
 set :css_dir,          "#{ path }/stylesheets"

@@ -4,15 +4,16 @@
 -# Usage
 -#
 -# Variables
--# - prev_page = prev_page ? prev_page.url : false
--# - next_page = next_page ? next_page.url : false
+-# -# Variables
+-# - prevPage = prev_page ? prev_page.url : false
+-# - nextPage = next_page ? next_page.url : false
 -#
 -# -# Pagination
--# - partial "./bootstrap/components/pagination",
--#            locals: { nextPage: "#{ next_page }",
--#                      prevPage: "#{ prev_page }",
+-# = partial "./bootstrap/components/pagination",
+-#            locals: { nextPage: "#{ prevPage }",
+-#                      prevPage: "#{ nextPage }",
 -#                      pageNo:   "#{ page_number }",
--#                      pages:    "#{ num_pages }" }}
+-#                      pages:    "#{ num_pages }" }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @todo   Issue exists with Strip Index file variable.
@@ -21,40 +22,45 @@
 -# Pagination
 %ul.pagination
 
+    -# Variables
+    - pageNo     = locals[ :pageNo ].to_i
+    - totalPages = locals[ :pages ].to_i
+
+    -# First
+
     -# Previous Page
     - if locals[ :prevPage ] != "false"
         %li= link_to string( :"pagination.previous" ), prevPage
 
     -# Loop through the number of pages
-    - ( 1..locals[ :pages ].to_i ).each do | page |
+    - ( pageNo - 2 .. pageNo + 2 ).select{ | i | i > 0 && i <= totalPages }.each do | i |
 
         -# Active
-        - if locals[ :pageNo ].to_i == page.to_i
+        - if i == pageNo.to_i
 
             -# Active List
             %li.active
-                %span= page
+                %span= i
 
         - else
 
             %li
 
-                -# Create Variables
-                - url = current_page.url
-                / - newStr   = url.sub( /\d+\/$/, page.to_s )
-                / - uri      = URI.parse( url )
-                / - path     = File.dirname( uri.path )
-                / - basename = File.basename( uri.to_s, ".html" )
+                - p = nil
 
-                -# Page string
-                - if page == 1
-                    - newStr = "/"
-                - else
-                    - newStr = "/page/#{ page }/"
+                -# Lower Numbers
+                - ( i ... pageNo ).each do
+                    - p = prevPage
 
-                -# Create Link
-                = link_to page, newStr
+                -# Greater Numbers
+                - ( pageNo ... i ).each do
+                    - p = nextPage
+
+                -# Link
+                = link_to i, p
 
     -# Next Page
     - if locals[ :nextPage ] != "false"
         %li= link_to string( :"pagination.next" ), nextPage
+
+    -# Last

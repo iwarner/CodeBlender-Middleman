@@ -9,6 +9,11 @@
 # English
 en:
 
+    # Pagination
+    pagination :
+        next     : "Next"
+        previous : "Previous"
+
     # Meta
     # Automatically configures the Meta based on page name
     meta :

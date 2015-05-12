@@ -12,7 +12,6 @@
 ##
 # Require
 ##
-require "lib/tagCloud"
 # require "lib/flickr"
 
 ##
@@ -65,21 +64,6 @@ module BlogHelpers
     #     return [] if all_pages.blank?
     #     all_pages.delete_if { | p | p == page }
     # end
-
-    ##
-    #
-    ##
-    def tagCloud( options = {} )
-
-        [].tap do | html |
-
-            TagCloud.new( options ).render( blog.tags ) do | tag, size, unit |
-                html << link_to( tag, tag_path( tag ), style: "font-size: #{size}#{unit}" )
-            end
-
-        end.join(" ")
-
-    end
 
     # ##
     # #

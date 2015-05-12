@@ -37,6 +37,12 @@ locals :
 - prev_page = prev_page ? prev_page.url : false
 - next_page = next_page ? next_page.url : false
 
+= partial "./bootstrap/components/pagination",
+                      locals: { nextPage: "#{ next_page }",
+                                prevPage: "#{ prev_page }",
+                                pageNo:   "#{ page_number }",
+                                pages:    "#{ num_pages }" }
+
 -# Tabs
 :ruby
     code = %{partial "./bootstrap/components/pagination",
