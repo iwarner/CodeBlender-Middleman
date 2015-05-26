@@ -11,6 +11,7 @@
 - locale = I18n.locale.to_s
 - d      = current_page.data
 - dc     = data.config
+- dn     = data.nav.navigation
 
 -# Wrapper
 !!!
@@ -58,16 +59,16 @@
             #fb-root
 
         -# Section - Above Nav
-        - if dc.navigation.above or ( d.navigation and d.navigation.above )
+        - if dn.above or ( d.navigation and d.navigation.above )
             = partial "../_lib/navAbove"
 
         -# Section - Navbar
         - if ! dc.navbar.blank? and d.navbar != false
-            %header= partial "./bootstrap/components/navbar", locals: dc.navigation
+            %header= partial "./bootstrap/components/navbar", locals: dn
 
         -# Section - Below Navigation
         -# Can be done globally, or via page frontmatter
-        - if dc.navigation.below or ( d.navigation and d.navigation.below )
+        - if dn.below or ( d.navigation and d.navigation.below )
             = partial "../_lib/navBelow"
 
         -# Section Main
@@ -106,5 +107,5 @@
         = javascript_include_tag :body
 
         -# Google Analytics
-        - if dc.google.analytics
+        - if dc.google.analytics.active
             = partial "./google/analytics"

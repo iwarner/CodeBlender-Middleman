@@ -62,7 +62,7 @@
 
                 -# Link To
                 = link_to( brand.link.url,
-                           class: "navbar-brand",
+                           class: "navbar-brand #{ brand.extraClass }",
                            title: brand.text.active ? string( brand.text.title ): false,
                            ui:    brand.link.ui ? brand.link.ui : false ) do
 
