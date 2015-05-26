@@ -50,21 +50,31 @@ en:
     # Navigation
     navigation :
 
-        # Home
-        - text : "Home"
-          link : { url: "/index.html" }
+        # Left
+        left :
 
-        # Prototyping
-        - text : "Prototyping"
-          link : { url: "/prototyping" }
+            # Home
+            - text : "Home"
+              link : { url: "/index.html" }
 
-        # Knowledge Base
-        - dropdown : "Knowledge Base"
-          items    :
-            - text : "Articles"
-              link : { url: "/prototyping/blog/articles.html" }
-            - text : "Tags"
-              link : { url: "/prototyping/blog/tags.html" }
+            # Prototyping
+            - text : "Prototyping"
+              link : { url: "/prototyping" }
+
+            # Knowledge Base
+            - dropdown : "Knowledge Base"
+              items    :
+                - text : "Articles"
+                  link : { url: "/prototyping/blog/articles.html" }
+                - text : "Tags"
+                  link : { url: "/prototyping/blog/tags.html" }
+
+        # Right
+        right :
+
+            # Notification Dropdown
+            - text : "Blah"
+              link : { url: "/index.html" }
 
     # Home
     home :

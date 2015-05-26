@@ -18,26 +18,26 @@
 -# Variables
 - cp = current_page
 - dc = data.config
-- m  = cp.data.meta
+- m  = cp.data.stub
 - fb = dc.facebook
 
 -# Site Name
 %meta{ content: string( dc.brand ), property: "og:site_name" }
 
 -# Title
-%meta{ content: string( m.title ), property: "og:title" }
+%meta{ content: string( :"meta.#{ m }.title" ), property: "og:title" }
 
 -# Description
-%meta{ content: string( m.description ), name: "description", property: "og:description" }
+%meta{ content: string( :"meta.#{ m }.description" ), name: "description", property: "og:description" }
 
 -# Type
-%meta{ content: string( m.type ), property: "og:type" }
+%meta{ content: string( :"meta.#{ m }.type" ), property: "og:type" }
 
 -# URL
 %meta{ content: dc.url + File.dirname( URI.parse( cp.url ).path ), property: "og:url" }
 
 -# Image
-%meta{ content: m.image, property: "og:image" }
+%meta{ content: string( :"meta.#{ m }.image" ), property: "og:image" }
 
 -# Facebook Page ID
 %meta{ content: fb.page.id, property: "fb:page_id" }

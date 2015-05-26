@@ -28,12 +28,12 @@
             - if bar[ :striped ]
                 - extraClass += " progress-bar-striped"
 
-            .progress-bar{ :aria  => { :valuenow => bar[ :width ],
-                                       :valuemin => "0",
-                                       :valuemax => "100" },
-                           :class => extraClass ? extraClass : false,
-                           :role  => "progressbar",
-                           :style => bar[ :width ] ? "width:#{ bar[ :width ] }%" : false }
+            .progress-bar{ aria:  { valuenow: bar[ :width ],
+                                    valuemin: "0",
+                                    valuemax: "100" },
+                           class: extraClass ? extraClass : false,
+                           role:  "progressbar",
+                           style: bar[ :width ] ? "width:#{ bar[ :width ] }%" : false }
 
-                %span{ :class => ! bar[ :label ] ? "sr-only" : false }
+                %span{ class: ! bar[ :label ] ? "sr-only" : false }
                     #{ bar[ :width ] }%

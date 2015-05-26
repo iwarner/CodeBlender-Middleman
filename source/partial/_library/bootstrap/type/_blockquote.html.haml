@@ -5,13 +5,11 @@
 -##
 
 -# Blockquote
-%blockquote{ :class => locals[ :right ] ? "blockquote-reverse" : false }
+%blockquote{ class: locals[ :right ] ? "blockquote-reverse" : false }
 
     -# Main headline text
-    %p
-        = string text
+    %p= string text
 
     -# Add the small text if required
     -if locals[ :small ]
-        %footer
-            = string small
+        %footer= string small

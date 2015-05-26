@@ -1,27 +1,42 @@
 -##
 -# NavBar
 -#
+-# @usage
+-#
+-# @locals
+-# brand      :
+-#     active : false
+-#     text   : true
+-#     link   : "overview"
+-# icon       : false
+-# extraClass : "navbar-default navbar-fixed-top" # navbar-static-top navbar-inverse navbar-fixed-bottom
+-# ng         :
+-#     controller : "NavBarCtrl"
+-#     show       : "NavBarService"
+-#     cloak      : ""
+-# logo       :
+-#     alt    : false
+-#     width  : false
+-#     height : false
+-# position   : "fixed-top"
+-# search     : false
+-# type       : false
+-# uLClass    : "navbar-left"
+-# wrapper    : false
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Variables
-- dc = data.config
-
--# Extra Classes
-- extraClass  = locals[ :navExtraClass ] ? navExtraClass : ""
-- extraClass += ( dc.navigation.type == "inverse" or locals[ :type ] == "inverse" ) ? " navbar-inverse" : " navbar-default"
-- extraClass += ( locals[ :yamm ] ) ? " yamm" : ""
-
--# Position of the Navbar Fixed Top or Bottom
-- if dc.navigation.position or locals[ :position ]
-    - position    = locals[ :position ] ? position : dc.navigation.position ? dc.navigation.position : false
-    - extraClass += " navbar-#{ position }"
+- dc    = data.config
+- nav   = locals
+- links = t( :navigation )
 
 -# Navbar
-%nav.navbar{ id:    locals[ :id ] ? id : "navbar",
-             class: extraClass,
+%nav.navbar{ id:    nav.id ? id : "navbar",
+             class: nav.extraClass ? extraClass : false,
              role:  "navigation",
-             ng:    locals[ :ng ] ? ng : false }
+             ng:    nav.ng ? ng : false }
 
     -# Bootstrap Container - drawn from config container
     %div{ class: dc.container }
@@ -32,22 +47,24 @@
             -# Create the Nav Collapse Menu
             %button.navbar-toggle.collapsed{ type: :button,
                                              data: { toggle: :collapse,
-                                                     target: locals[ :target] ? "##{ target }" : "#navbar-collapse" } }
+                                                     target: nav.target ? "##{ target }" : "#navbar-collapse" } }
                 %span.sr-only Toggle Navigation
 
                 -# Loop through Spans
                 - 3.times do
                     %span.icon-bar
 
-            -# Display the Logo or Brand Name and optional Icon
-            - brand = dc.navigation.brand
+            -# Variable
+            - brand = nav.brand
 
+            -# Display the Logo or Brand Name and optional Icon
             - if brand.active
 
                 -# Link To
-                = link_to( brand.link,
+                = link_to( brand.link.url,
                            class: "navbar-brand",
-                           title: string( brand.text ) ) do
+                           title: brand.text.active ? string( brand.text.title ): false,
+                           ui:    brand.link.ui ? brand.link.ui : false ) do
 
                     -# Icon
                     - if brand.icon.active
@@ -59,79 +76,78 @@
                         -# Image
                         = partial "./bootstrap/css/image",
                                    locals: { alt:  string( brand.logo.alt ),
-                                             size: [ brand.logo.width, brand.height ],
-                                             src:  "logo/logo.png" }
+                                             size: [ brand.logo.width, nav.brand.height ],
+                                             src:  brand.logo.url ? brand.logo.url : "logo/logo.png" }
 
                     -# Show Brand
-                    - if brand.text
-                        = string brand.text
+                    - if brand.text.active
+                        = string brand.text.text
 
-        -# Check that navigation is not empty
-        - if t( :navigation ) or locals[ :array ]
+        -# Create the collapse area
+        .navbar-collapse.collapse{ id: nav.target ? target : "navbar-collapse" }
 
-            -# Local array takes precedent
-            - array = locals[ :array ] ? array : t( :navigation )
+            -# Optional Wrapper for off-canvas responsive menus
+            %div{ class: nav.wrapper ? nav.wrapper : false }
 
-            -# Create the collapse area
-            .navbar-collapse.collapse{ id: locals[ :target ] ? target : "navbar-collapse" }
+                -# Loop through the Left, Center and Right sections
+                - links.each do | entry |
 
-                -# Wrapper for off-canvas responsive menues
-                -# This needs to be optional
-                %div{ class: dc.navigation.wrapper ? dc.navigation.wrapper : false }
+                    -# List Initiation
+                    %ul.nav.navbar-nav{ class: "navbar-#{ entry[ 0 ] }" }
 
-                    -# Loop through the Navigation Yaml
-                    - array.each do | entry |
+                        -# Loop through entries
+                        - entry[ 1 ].each do | side |
 
-                        -# Get correct URL path
-                        - if ! relative_links
-                            - url = current_page.url.length > 1 ? current_page.url[ 0...-1 ] : current_page.url
-                        - else
-                            - url = File.dirname( URI.parse( current_page.url ).path )
+                            -# Get correct URL path
+                            -# - if ! relative_links
+                            -#     - url = current_page.url.length > 1 ? current_page.url[ 0...-1 ] : current_page.url
+                            -# - else
+                            -#     - url = File.dirname( URI.parse( current_page.url ).path )
 
-                        -# Sort out what item is active
-                        - entry[ :active ] = ( url == entry[ :url ] ) ? true : false
+                            -# Sort out what item is active
+                            -# - side[ :active ] = ( url == side[ :url ] ) ? true : false
 
-                        -# Process Array
-                        - array = []
-                        - array << entry
+                            -# Process Array
+                            -# - array = []
+                            -# - array << side
 
-                        -# Dropdown menu
-                        - if entry[ :dropdown ]
+                            -# Dropdown menu
+                            - if side[ :dropdown ]
 
-                            -# Dropdown Partial
-                            = partial "./bootstrap/components/dropdown",
-                                       locals: { extraClass:    entry[ :extraClass ] ? entry[ :extraClass ] : false,
-                                                 dropDownClass: entry[ :dropdownClass ],
-                                                 title:         entry[ :dropdown ],
-                                                 list:          { array:    array[ 0 ][ :items ],
-                                                                  dropdown: true } }
+                                -# Dropdown Partial
+                                = partial "./bootstrap/components/dropdown",
+                                           locals: { dropDownClass: side[ :dropdownClass ],
+                                                     title:         side[ :dropdown ],
+                                                     list:          { array: side[ :items ], dropdown: true } }
 
-                            -# Shop Widget
-                        - elsif entry[ :shop ]
+                                -# Shop Widget
+                            - elsif side[ :shop ]
 
-                            %ul.nav.navbar-nav{ class: entry[ :extraClass ] ? entry[ :extraClass ] : false }
-
-                                %li
-                                    -# Simple Cart Widget
-                                    = partial "./e-commerce/widget"
-
-                            -# Button
-                        - elsif entry[ :button ]
-
-                            %div{ class: entry[ :extraClass ] ? entry[ :extraClass ] : false }
+                                -# Simple Cart Widget
+                                %li= partial "./e-commerce/widget"
 
                                 -# Button
-                                = partial "./bootstrap/css/button", locals: entry[ :button ]
+                            - elsif side[ :button ]
 
-                            -# Text Link
-                        - else
+                                %div{ class: side[ :extraClass ] ? side[ :extraClass ] : false }
 
-                            -# List
-                            = partial "./bootstrap/type/list",
-                                       locals: { array:      array,
-                                                 navBar:     true,
-                                                 extraClass: entry[ :extraClass ] }
+                                    -# Button
+                                    = partial "./bootstrap/css/button", locals: side[ :button ]
 
-                -# Google Search Bar
-                - if dc.google.search
-                    = partial "./google/search"
+                                -# Just show a Partial useful for Mega Menus
+                            - elsif side[ :partial ]
+
+                                = partial "../_lib/#{ side[ :partial ] }"
+
+                                -# Text Link
+                            - else
+
+                                -# List
+                                = partial "./bootstrap/type/listUL",
+                                           locals: { array:      [ side ],
+                                                     navBar:     true,
+                                                     extraClass: side[ :extraClass ] }
+
+                        -# Google Search Bar
+                        - if dc.google.search
+                            = partial "./google/search"

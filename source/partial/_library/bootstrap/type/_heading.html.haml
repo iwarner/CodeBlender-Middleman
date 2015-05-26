@@ -14,7 +14,7 @@
     -# Heading
     - haml_tag locals[ :tag ] ? tag : "h1",
                { class: locals[ :extraClass ] ? extraClass : false,
-                 id:    locals[ :id ]         ? id         : false, 
+                 id:    locals[ :id ]         ? id         : false,
                  ng:    locals[ :ng ]         ? ng         : false} do
 
         -# Check for Link
@@ -36,5 +36,4 @@
 
         -# Add the secondary text if required
         - if locals[ :small ]
-
             %small= string small

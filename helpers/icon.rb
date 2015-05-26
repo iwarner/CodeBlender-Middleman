@@ -30,4 +30,25 @@ module Icon
 
     end
 
+    ##
+    # Stacked Icon
+    # Currently works with Font Awesome
+    #
+    # @see http://fortawesome.github.io/Font-Awesome/examples/#stacked
+    ##
+    def stacked( iconName, size )
+
+        capture_haml do
+
+            haml_tag :span, :class => "fa-stack #{ size }" do
+
+                haml_concat icon( "fa-circle-thin fa-stack-2x" )
+                haml_concat icon( iconName )
+
+            end
+
+        end
+
+    end
+
 end

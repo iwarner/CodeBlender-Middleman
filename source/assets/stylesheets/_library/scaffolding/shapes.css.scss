@@ -1,6 +1,9 @@
 //
 // Shapes
 //
+// @usage
+// @import "_library/scaffolding/shapes";
+//
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
 
@@ -16,7 +19,7 @@ $bgcolor : #3d3d3d;
 
 // Shape Mixin
 //----------------------------------------------------------------------------//
-@mixin shape( $shape, $size, $color ){
+@mixin shape( $shape, $size, $color ) {
 
     @if $shape == square {
         width            : $size;
@@ -86,6 +89,7 @@ $bgcolor : #3d3d3d;
             border-color : transparent transparent $color;
         }
     }
+
     @if $shape == hexagon {
 
         width      : $size*2;

@@ -13,12 +13,12 @@
 'use strict'
 
 # Module
-engageControllers = angular.module 'engageControllers'
+angular.module 'engage.controllers'
 
 ##
 # Top Icon Controller
 ##
-engageControllers.controller 'ThumbnailCtrl', [
+.controller 'ThumbnailCtrl', [
     '$scope'
     '$log'
     ( $scope, $log ) ->
@@ -34,8 +34,6 @@ engageControllers.controller 'ThumbnailCtrl', [
             # Delegate to CBLightBox
             $( this ).CBLightbox onShown : ->
                 return
-
-        $log.info "HERE"
 
         return
 ]

@@ -13,12 +13,12 @@
 'use strict'
 
 # Module
-engageControllers = angular.module 'engageControllers'
+angular.module 'engage.controllers'
 
 ##
 # Top Icon Controller
 ##
-engageControllers.controller 'TopIconCtrl', [
+.controller 'TopIconCtrl', [
     '$scope'
     '$log'
     ( $scope, $log ) ->

@@ -30,7 +30,6 @@
         - button[ :dropdown ] = true
         - button[ :content ]  = locals[ :title ]
         - button[ :toggle ]   = "dropdown"
-        -# - button[ :data ]     = { toggle: "dropdown" }
 
         -# Button Partial
         = partial "./bootstrap/css/button", locals: button
@@ -41,14 +40,14 @@
         -# Link To
         = link_to( "javascript:;", class: "dropdown-toggle", data: { toggle: "dropdown" } ) do
 
-            -# Dropdown Title
+            -# Dropdown Title / HTML
             = string locals[ :title ]
 
             -# Icon or Image - overide in CSS
             %b.caret
 
     -# List Partial
-    = partial "./bootstrap/type/list", locals: list
+    = partial "./bootstrap/type/listUL", locals: list
 
 -# Dropdown
 - if locals[ :type ] == "dropdown" || locals[ :type ] == "btn-group"
@@ -58,7 +57,5 @@
 
 - else
 
-    %ul.nav.navbar-nav{ class: locals[ :extraClass ] ? extraClass : false }
-
-        %li.dropdown{ class: locals[ :dropDownClass ] ? dropDownClass : false }
-            = capture
+    %li.dropdown{ class: locals[ :dropDownClass ] ? dropDownClass : false }
+        = capture

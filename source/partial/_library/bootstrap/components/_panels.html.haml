@@ -14,13 +14,13 @@
 - classes += locals[ :context ] ? " panel-#{ context }" : " panel-default"
 
 -# Panel
-.panel{ :class => classes }
+.panel{ class: classes }
 
     -# Heading
     - if locals[ :heading ]
 
         -# Panel Heading
-        .panel-heading{ :class => heading[ :extraClass ] ? heading[ :extraClass ] : false }
+        .panel-heading{ class: heading[ :extraClass ] ? heading[ :extraClass ] : false }
 
             -# Check if Tools are required
             -# This includes Expanding and Panel Refresh
@@ -30,28 +30,28 @@
                 .tools
 
                     -# Expand
-                    = link_to( "javascript:;", :class => "toggle" ) do
+                    = link_to( "javascript:;", class: "toggle" ) do
                         %i.fa.fa-caret-down
 
             -# Image Check to see if Heading is an image
             - if heading[ :image ]
-                = partial "./bootstrap/css/image", :locals => heading[ :image ]
+                = partial "./bootstrap/css/image", locals: heading[ :image ]
 
                 -# Heading Text
             - else
 
                 -# Heading
                 - heading[ :extraClass ] = "panel-title"
-                = partial "./bootstrap/type/heading", :locals => heading
+                = partial "./bootstrap/type/heading", locals: heading
 
     -# Hidden
-    .content{ :class => locals[ :collapse ]  ? "collapse" : false }
+    .content{ class: locals[ :collapse ]  ? "collapse" : false }
 
         -# Body
         - if locals[ :body ]
 
             -# Panel Body
-            .panel-body{ :class => locals[ :bodyClass ] ? bodyClass : false }
+            .panel-body{ class: locals[ :bodyClass ] ? bodyClass : false }
 
                 -# If body is an array then assume this should be markdown
                 - if ! body.is_a?( Array )

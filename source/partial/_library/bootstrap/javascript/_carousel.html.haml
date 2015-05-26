@@ -24,8 +24,8 @@
 
                 -# If this is the first slide make it active
                 %li{ class: i == 0 ? "active" : false,
-                     data:  { target:     "." + id,
-                              :"slide-to" => i } }
+                     data:  { target: "." + id,
+                              slide:  { to: i } } }
 
     -# Inner Content
     .carousel-inner{ :role => "listbox" }
@@ -34,7 +34,7 @@
         - array.each_with_index do | slide, i |
 
             -# If this is the first one make it active
-            .item{ :class => i == 0 ? "active" : false }
+            .item{ class: i == 0 ? "active" : false }
 
                 -# Image
                 - if slide[ :image ]

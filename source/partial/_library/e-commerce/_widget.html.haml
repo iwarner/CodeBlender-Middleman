@@ -23,7 +23,7 @@
         %i.fa.fa-shopping-cart
 
     -# Cart Popover
-    #cartPopover{ :hidden => true }
+    #cartPopover{ hidden: true }
 
         -# Icon
         %i.fa.fa-play.fa-rotate-270
@@ -49,24 +49,24 @@
 
             -# Button
             = partial "./bootstrap/css/button",
-                       :locals => { :context    => "warning",
-                                    :content    => "Empty",
-                                    :extraClass => "pull-left simpleCart_empty",
-                                    :href       => "javascript:;",
-                                    :size       => "sm" }
+                       locals: { context:    "warning",
+                                 content:    "Empty",
+                                 extraClass: "pull-left simpleCart_empty",
+                                 href:       "javascript:;",
+                                 size:       "sm" }
 
             -# Button
             = partial "./bootstrap/css/button",
-                       :locals => { :context    => "success",
-                                    :content    => "Checkout",
-                                    :extraClass => "pull-right simpleCart_checkout",
-                                    :href       => "javascript:;",
-                                    :size       => "sm" }
+                       locals: { context:    "success",
+                                 content:    "Checkout",
+                                 extraClass: "pull-right simpleCart_checkout",
+                                 href:       "javascript:;",
+                                 size:       "sm" }
 
             -# Button
             = partial "./bootstrap/css/button",
-                       :locals => { :context    => "info",
-                                    :content    => "View Cart",
-                                    :extraClass => "pull-right",
-                                    :href       => "/prototyping/e-commerce/cart.html",
-                                    :size       => "sm" }
+                       locals: { context:    "info",
+                                 content:    "View Cart",
+                                 extraClass: "pull-right",
+                                 href:       "/prototyping/e-commerce/cart.html",
+                                 size:       "sm" }

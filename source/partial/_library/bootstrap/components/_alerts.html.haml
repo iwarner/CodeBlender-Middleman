@@ -5,19 +5,19 @@
 -##
 
 -# Alert
-.alert{ class:          locals[ :context ]       ? "alert-#{context}"     : "alert-success",
-        ng:             locals[ :ng ]             ? locals[ :ng ]           : false,}
+.alert{ class: locals[ :context ] ? "alert-#{ context }" : "alert-success",
+        ng:    locals[ :ng ]      ? locals[ :ng ]        : false }
 
     -# Dismissable
     - if locals[ :dismiss ]
 
         -# Button
         = partial "./bootstrap/css/button",
-                   :locals => { :aria       => { :label => "Close" },
-                                :content    => "&times;",
-                                :data       => { :dismiss => "alert" },
-                                :extraClass => "close",
-                                :type       => "button" }
+                   locals: { aria:       { label: "Close" },
+                             content:    "&times;",
+                             data:       { dismiss: "alert" },
+                             extraClass: "close",
+                             type:       "button" }
 
     -# Text
     = string locals[ :text ]

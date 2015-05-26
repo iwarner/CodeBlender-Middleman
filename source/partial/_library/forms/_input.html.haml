@@ -87,8 +87,5 @@
         -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
         - if locals[ :help ]
 
-            %span.help-block{ class: !!help == help ? "hidden" : false }
-
-                -# Help should be a string to show the text otherwise leave blank
-                - if help.is_a?( String )
-                    = help
+            %span.help-block{ ng: locals[ :help ][ :ng ] }
+                = locals[ :help ][ :content ]

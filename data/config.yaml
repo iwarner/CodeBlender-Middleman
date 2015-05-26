@@ -61,24 +61,37 @@ productColumns : 3
 
 # Navigation
 navigation :
+
     above      : true
-    brand      :
-        active : false
-        text   : true
-        link   : "/index.html"
     below      : false
-    extraClass : false
-    uLClass    : "navbar-left"
-    icon       : false
-    logo       :
-        alt    : false
-        width  : false
-        height : false
-    position   : "static-top"
+
+    brand      :
+        active : true
+        icon   :
+            active : false
+            icon   : "fa-user fa-fw"
+        link   : "overview"
+        logo       :
+            active : false
+            alt    : "CodeBlender"
+            width  : 100
+            height : 100
+        text   :
+            active : true
+            text   : "CodeBlender"
+
+    extraClass : "navbar-default navbar-fixed-top" # navbar-static-top navbar-inverse navbar-fixed-bottom
+    ng         :
+        controller : "NavBarCtrl"
+        show       : "NavBarService"
+        cloak      : ""
+
+    position   : "fixed-top"
     search     : false
     type       : false
+    uLClass    : "navbar-left"
     wrapper    : false
-    
+
 # Footer
 footer :
     active     : true

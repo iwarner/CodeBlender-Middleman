@@ -14,7 +14,7 @@
 - extraClass += locals[ :stacked ] ? " nav-stacked" : " "
 
 -# Nav
-%ul.nav{ :class => extraClass }
+%ul.nav{ class: extraClass }
 
     -# Array
     - if locals[ :array ]
@@ -27,7 +27,7 @@
         - array.each do | value |
 
             -# Produce the list
-            %li{ :class => active == value[ :name ] ? "active" : false }
+            %li{ class: active == value[ :name ] ? "active" : false }
 
-                = link_to( value[ :path ], :data => { :toggle => locals[ :toggle ] ? "tab" : false } ) do
+                = link_to( value[ :path ], data: { toggle: locals[ :toggle ] ? "tab" : false } ) do
                     = string value[ :name ]

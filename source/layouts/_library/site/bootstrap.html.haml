@@ -3,7 +3,6 @@
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -#
--# @todo Should put the Meta Tags elements in an array to shorten the code
 -# @todo Need to put the body data tags back into the layout
 -# @todo Need to be able to change the doctype and HTML aspects from the config
 -##
@@ -64,9 +63,7 @@
 
         -# Section - Navbar
         - if ! dc.navbar.blank? and d.navbar != false
-            %header
-                = partial "./bootstrap/components/navbar", locals: { navExtraClass: dc.navExtraClass ? dc.navExtraClass : false,
-                                                                     ng:            dc.navigation.ng ? dc.navigation.ng : {show: "true"}}
+            %header= partial "./bootstrap/components/navbar", locals: dc.navigation
 
         -# Section - Below Navigation
         -# Can be done globally, or via page frontmatter
