@@ -86,7 +86,7 @@ carouselArray :
 -# Carousel
 :ruby
     code = %{partial "./bootstrap/javascript/carousel",
-                      locals: { array:     current_page.data.carouselArray,
+                      locals: { array:     [{ image: { extraClass: "img-responsive", data: { src: "holder.js/1028x400/auto" }}}],
                                 data:      { interval: "false" },
                                 control:   true,
                                 indicator: true }}

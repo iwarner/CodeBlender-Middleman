@@ -40,11 +40,15 @@
         -# Link To
         = link_to( "javascript:;", class: "dropdown-toggle", data: { toggle: "dropdown" } ) do
 
+            -# Icon
+            - if locals[ :icon ]
+                = icon locals[ :icon ]
+
             -# Dropdown Title / HTML
             = string locals[ :title ]
 
-            -# Icon or Image - overide in CSS
-            %b.caret
+            -# Icon or Image - override in CSS
+            %span.caret
 
     -# List Partial
     = partial "./bootstrap/type/listUL", locals: list

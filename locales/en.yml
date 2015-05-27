@@ -62,6 +62,27 @@ en:
               link : { url: "/prototyping" }
 
             # Knowledge Base
+            - dropdown : "Overview"
+              icon  : "fa-file-text-o"
+              items :
+                  - text : "Overview"
+                    link : { ui: { sref: "overview" } }
+                    icon : "fa-file-text-o"
+                  - text : "Nurture"
+                    link : { ui: { sref: "nurture" } }
+                    icon : "fa-phone"
+                  - text : "Track"
+                    link : { ui: { sref: "nurture" } }
+                    icon : "fa-envelope"
+                  - text : "Timeline"
+                    link : { ui: { sref: "timeline" } }
+                    icon : "fa-calendar"
+                  - text : "Login"
+                    link : { ui: { sref: "login" } }
+                    icon : "fa-key"
+
+
+            # Knowledge Base
             - dropdown : "Knowledge Base"
               items    :
                 - text : "Articles"

@@ -118,6 +118,7 @@
                                 = partial "./bootstrap/components/dropdown",
                                            locals: { dropDownClass: side[ :dropdownClass ],
                                                      title:         side[ :dropdown ],
+                                                     icon:          side[ :icon ] ? side[ :icon ] : false,
                                                      list:          { array: side[ :items ], dropdown: true } }
 
                                 -# Shop Widget
