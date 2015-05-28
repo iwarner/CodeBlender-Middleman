@@ -13,40 +13,37 @@
 
     .row
 
-        -# Main Content
-        .col-md-12
+        - if dc.heading
 
-            - if dc.heading
+            -# Heading
+            = partial "./bootstrap/type/heading",
+                       locals: { small: string( d.small ),
+                                 text:  string( d.title ),
+                                 ng: {show: "headerVisible"}}
 
-                -# Heading
-                = partial "./bootstrap/type/heading",
-                           locals: { small: string( d.small ),
-                                     text:  string( d.title ),
-                                     ng: {show: "headerVisible"}}
+        -# Details
+        - if dc.description
+            %p= string d.description
 
-            -# Details
-            - if dc.description
-                %p= string d.description
+        -# Separator
+        - if dc.hr
+            %hr
 
-            -# Separator
-            - if dc.hr
-                %hr
+        -# Locals
+        - if d.locals
+            = partial "./scaffolding/locals"
 
-            -# Locals
-            - if d.locals
-                = partial "./scaffolding/locals"
+        -# Yield
+        = yield
 
-            -# Yield
-            = yield
+        -# Resources
+        - if dc.resources
+            = partial "./scaffolding/resources"
 
-            -# Resources
-            - if dc.resources
-                = partial "./scaffolding/resources"
+        -# Assets
+        - if dc.assets
+            = partial "./scaffolding/assets"
 
-            -# Assets
-            - if dc.assets
-                = partial "./scaffolding/assets"
-
-            -# Todo
-            - if dc.todo
-                = partial "./scaffolding/todo"
+        -# Todo
+        - if dc.todo
+            = partial "./scaffolding/todo"

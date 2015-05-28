@@ -14,7 +14,7 @@
         -# Bootstrap Row
         .row
 
-            %div{ class: locals[ :columns ] ? columns : "col-md-12" }
+            %div{ class: locals[ :columns ] ? columns : false }
 
                 -# Title
                 - if locals[ :title ]

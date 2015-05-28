@@ -39,7 +39,7 @@
              ng:    nav.ng ? ng : false }
 
     -# Bootstrap Container - drawn from config container
-    %div{ class: dc.container }
+    %div{ class: nav.container.present? ? nav.container : dc.container }
 
         -# Navbar Header
         .navbar-header
