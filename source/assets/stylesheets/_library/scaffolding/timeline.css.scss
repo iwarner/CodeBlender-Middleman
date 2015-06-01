@@ -30,7 +30,82 @@ $stage    : #28bade;
     }
 }
 
-// Timeline
+// ---
+
+ul.timelineList {
+    margin     : 30px 0 0 0;
+    padding    : 0;
+    list-style : none;
+    position   : relative;    
+    
+    &:before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        margin-left: -10px;
+        left: -20px;
+        background: linear-gradient(to bottom, transparent, transparent 50%, #D5D5D5 50%, #D5D5D5) repeat scroll 0% 0% / 100% 10px transparent;
+        top: 40px;
+        bottom: 60px;
+    }
+    
+    li {
+        position: relative;
+        
+        .card:before {
+            content: "";
+            position: absolute;
+            left: -38px;
+            border-radius: 50%;
+            width: 15px;
+            height: 15px;
+            background-color: $body-bg;
+            top: 30px;
+            border: 1px solid #D5D5D5;
+        }
+        
+        i.fa.fa-chevron-down {
+            position: absolute;
+            left: -34px;
+            bottom: 50px;   
+            color: #D5D5D5;
+            font-size: 9px;
+        }
+    }    
+    
+    &.past {
+        &:before {
+            background-color: #D5D5D5;
+            top: 70px;
+            bottom: 0;
+        }
+        
+        li {
+            &:last-child .card:after {
+                content: "";
+                position: absolute;
+                width: 1px;
+                margin-left: -10px;
+                left: -21px;
+                background-color: $body-bg;
+                top: 45px;
+                bottom: 0px;
+            }
+            
+            .card:before {
+                background-color: #D5D5D5;   
+            }
+            
+            &:first-child .card:before {
+                background-color: #F14C2E; 
+                border: 1px solid #F14C2E;
+            }
+        }
+        
+    }
+}
+
+// Old Timeline
 //----------------------------------------------------------------------------//
 .cbp_tmtimeline {
     margin     : 30px 0 0 0;
