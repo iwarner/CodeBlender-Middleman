@@ -20,7 +20,7 @@ module Icon
         iconLibrary = iconName.partition( "-" )
 
         # Check whether this is an icon
-        if iconName =~ /icon-|fa-|glyphicon-/i
+        if iconName =~ /^icon-|^fa-|^glyphicon-/i
             result = Haml::Engine.new( "%span{ class: \"#{ iconLibrary[ 0 ] } #{ iconName } fa-fw\" }" )
         else
             result = Haml::Engine.new( iconName )
