@@ -2,7 +2,7 @@
 # Icon Helper
 #
 # Usage
-# icon "iconName"
+# icon( "fa-phone extraClass" )
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
