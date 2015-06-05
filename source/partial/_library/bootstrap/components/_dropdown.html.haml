@@ -30,6 +30,7 @@
         - button[ :dropdown ] = true
         - button[ :content ]  = locals[ :title ]
         - button[ :toggle ]   = "dropdown"
+        - button[ :data ]     = { toggle: "dropdown" }
 
         -# Button Partial
         = partial "./bootstrap/css/button", locals: button

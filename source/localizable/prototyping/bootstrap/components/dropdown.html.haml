@@ -37,15 +37,18 @@ locals :
       - "String of classes for the List element"
 
 list :
-    - :header  : "Header"
-    - :text    : "Action1"
-      :url     : "#"
-    - :text    : "Another action"
-      :url     : "#"
-    - :divider : true
-    - :text    : "Action2"
-      :url     : "#"
-      :status  : "disabled"
+    - header  : "Header"
+    - text    : "Action1"
+      link    :
+          url : "#"
+    - text    : "Another action"
+      link    :
+          url   : "#"
+    - divider : true
+    - text    : "Action2"
+      link    :
+          url   : "#"
+      status  : "disabled"
 
 ---
 
@@ -56,14 +59,26 @@ list :
 
     Bootstrap dropdown.js is required to make the clickable element interactive.
 
+/ [ { text: "Action1", link: { url: "#" } }, { text: "Another action", link: { url: "#" } } ]
+
+-# Variables
+- days = []
+
+- ( 1...32 ).each do | i |
+    - days << [ i ]
+
+= days
+
 -# Just a Dropdown
 :ruby
     code = %{partial "./bootstrap/components/dropdown",
-                      locals: { extraClass: "dropdown clearfix",
+                      locals: { button:     { ng: { click: "callAttemptsOpen=!callAttemptsOpen" } },
+                                extraClass: "dropdown",
+                                list:       { array:    [ { text: "Action1", link: { url: "#" } }, { text: "Another action", link: { url: "#" } } ],
+                                              dropdown: true },
+                                ng:         { class: "{ open: callAttemptsOpen }", model: "callAttempts" },
                                 title:      "Drop Down",
-                                type:       "dropdown",
-                                list:       { array:    current_page.data.list,
-                                              dropdown: true }}}
+                                type:       "dropdown" } }
 
 -# Code
 = partial "./scaffolding/code",
