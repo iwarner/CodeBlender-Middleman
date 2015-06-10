@@ -78,6 +78,12 @@ ul.timelineList {
             color: #D5D5D5;
             font-size: 9px;
         }
+
+        span.time.overdue {
+            background-color: #F14C2E;
+            color: white;
+            padding: 1px 5px;
+        }
     }
 
     &.past {
