@@ -2,6 +2,7 @@
 // Timeline
 //
 // @author Ian Warner <ian.warner@drykiss.com>
+//         Matt Parish <matthewparish@uk.ibm.com>
 //----------------------------------------------------------------------------//
 
 // Variables
@@ -36,8 +37,9 @@ ul.timelineList {
     margin     : 0;
     padding    : 0;
     list-style : none;
-    position   : relative;    
-    
+    position   : relative;
+    background-color: $body-bg;
+
     &:before {
         content: "";
         position: absolute;
@@ -48,10 +50,15 @@ ul.timelineList {
         top: 40px;
         bottom: 60px;
     }
-    
+
     li {
         position: relative;
-        
+
+        h2 {
+            margin: 0;
+            padding: 20px 0px;
+        }
+
         .card:before {
             content: "";
             position: absolute;
@@ -63,23 +70,23 @@ ul.timelineList {
             top: 30px;
             border: 1px solid #D5D5D5;
         }
-        
+
         i.fa.fa-chevron-down {
             position: absolute;
             left: -34px;
-            bottom: 50px;   
+            bottom: 50px;
             color: #D5D5D5;
             font-size: 9px;
         }
-    }    
-    
+    }
+
     &.past {
         &:before {
             background-color: #D5D5D5;
-            top: 70px;
+            top: 90px;
             bottom: 0;
         }
-        
+
         li {
             &:last-child .card:after {
                 content: "";
@@ -91,16 +98,16 @@ ul.timelineList {
                 top: 45px;
                 bottom: 0px;
             }
-            
+
             .card:before {
-                background-color: #D5D5D5;   
+                background-color: #D5D5D5;
             }
-            
+
             &:first-child .card:before {
-                background-color: #F14C2E; 
+                background-color: #F14C2E;
                 border: 1px solid #F14C2E;
             }
         }
-        
+
     }
 }
