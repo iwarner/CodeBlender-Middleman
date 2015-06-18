@@ -40,15 +40,32 @@ ul.timelineList {
     position   : relative;
     background-color: $body-bg;
 
-    &:before {
-        content: "";
-        position: absolute;
-        width: 1px;
-        margin-left: -10px;
-        left: -20px;
-        background: linear-gradient(to bottom, transparent, transparent 50%, #D5D5D5 50%, #D5D5D5) repeat scroll 0% 0% / 100% 10px transparent;
-        top: 40px;
-        bottom: 60px;
+    &:not(.nobar) {
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            margin-left: -10px;
+            left: -20px;
+            background: linear-gradient(to bottom, transparent, transparent 50%, #D5D5D5 50%, #D5D5D5) repeat scroll 0% 0% / 100% 10px transparent;
+            top: 65px;
+            bottom: 60px;
+        }
+
+        li {
+            .card:before {
+                content: "";
+                position: absolute;
+                left: -38px;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+                background-color: $body-bg;
+                top: 30px;
+                border: 1px solid #D5D5D5;
+            }
+        }
     }
 
     li {
@@ -59,16 +76,15 @@ ul.timelineList {
             padding: 20px 0px;
         }
 
-        .card:before {
-            content: "";
-            position: absolute;
-            left: -38px;
-            border-radius: 50%;
-            width: 15px;
-            height: 15px;
-            background-color: $body-bg;
-            top: 30px;
-            border: 1px solid #D5D5D5;
+                // Heading
+        //------------------------------------------------------------------------//
+        h2 {
+            background-color : $body-bg;
+            color            : $text-color;
+            font-weight      : bold;
+            font-size        : 15px;
+            margin           : 0;
+            padding          : 10px 0;
         }
 
         i.fa.fa-chevron-down {
@@ -89,7 +105,6 @@ ul.timelineList {
     &.past {
         &:before {
             background-color: #D5D5D5;
-            top: 90px;
             bottom: 0;
         }
 
