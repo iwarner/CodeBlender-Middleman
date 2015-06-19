@@ -15,7 +15,7 @@ url   : "http://codeblender.net"
 
 # Angular
 angular:
-    appName : "codeBlender"
+    appName : "app"
 
 # Head
 head :

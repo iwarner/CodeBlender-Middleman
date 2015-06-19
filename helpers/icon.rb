@@ -13,15 +13,15 @@ module Icon
     #
     # @todo Option for the Fixed Width? Also just for font-awesome
     ##
-    def icon( iconName )
+    def icon( iconName, ng=false )
 
         # Find out Icon Library
         iconName    = string iconName
         iconLibrary = iconName.partition( "-" )
 
         # Check whether this is an icon
-        if iconName =~ /^icon-|^fa-|^glyphicon-/i
-            result = Haml::Engine.new( "%span{ class: \"#{ iconLibrary[ 0 ] } #{ iconName } fa-fw\" }" )
+        if iconName =~ /^fa-|^timeline-|^headline-|^icon-|^glyphicon-/i
+            result = Haml::Engine.new( "%span{ class: \"#{ iconLibrary[ 0 ] } #{ iconName } fa-fw\", ng: #{ ng } }" )
         else
             result = Haml::Engine.new( iconName )
         end

@@ -60,7 +60,7 @@
 
         -# Section - Above Nav
         - if dn.above or ( d.navigation and d.navigation.above )
-            = partial "../_lib/navAbove"
+            = partial "../_lib/nav/above"
 
         -# Section - Navbar
         - if ! dc.navbar.blank? and d.navbar != false
@@ -69,7 +69,7 @@
         -# Section - Below Navigation
         -# Can be done globally, or via page frontmatter
         - if dn.below or ( d.navigation and d.navigation.below )
-            = partial "../_lib/navBelow"
+            = partial "../_lib/nav/below"
 
         -# Section Main
         %div{ class: dc.container ? dc.container : false }

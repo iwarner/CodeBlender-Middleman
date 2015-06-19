@@ -8,34 +8,55 @@
     ],
 
     "dependencies" : {
+
         "amcharts"                 : "",
+
         "angular"                  : "",
-        "angular-route"            : "",
+        "angular-ui-router"        : "",
+        "angularfire"              : "",
+
         "backbone"                 : "",
+        "backbone-validation"      : "",
+
         "bootstrap-sass-official"  : "",
         "bootstrapx-clickover-bs3" : "",
-        "backbone-validation"      : "",
+
         "card"                     : "",
         "ckeditor"                 : "",
+
         "comma-separated-values"   : "",
+
         "DataTables"               : "",
         "datatables-colreorder"    : "",
         "datatables-colvis"        : "",
         "datatables-tabletools"    : "",
+
         "dropzone"                 : "",
+
+        "firebase"                 : "",
         "font-awesome"             : "",
+
         "gsap"                     : "",
+
         "holderjs"                 : "",
+
         "jcrop"                    : "",
+
         "jquery"                   : "",
         "jquery.payment"           : "",
         "jquery-validation"        : "",
+
         "lunr.js"                  : "",
+
         "modernizr"                : "",
+
         "notify.js"                : "",
+
         "simplecart-js"            : "",
+
         "Snap.svg"                 : "",
         "underscore"               : "",
+
         "yamm3"                    : ""
     },
 

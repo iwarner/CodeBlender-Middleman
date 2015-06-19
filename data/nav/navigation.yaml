@@ -35,9 +35,9 @@ brand :
 extraClass : "navbar-default navbar-fixed-top" # navbar-static-top navbar-inverse navbar-fixed-bottom
 
 ng :
-    controller : "NavBarCtrl"
-    show       : "NavBarService"
-    cloak      : ""
+    controller : false
+    show       : false
+    cloak      : false
 
 position : "fixed-top"
 search   : false

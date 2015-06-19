@@ -29,9 +29,6 @@ set :markdown, layout_engine: :haml,
 # Syntax Highlighting
 activate :syntax, line_numbers: true, wrap: true
 
-# Jasmine
-activate :jasmine
-
 # i18n
 I18n.enforce_available_locales = true
 I18n.default_locale            = :en

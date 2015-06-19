@@ -1,13 +1,13 @@
 ---
 
+stub : login
+
+angular :
+    controller : "LoginCtrl"
+
 heading :
     small : "Standard Login Form"
     title : "Login"
-
-meta :
-    author      : "DryKISS"
-    description : ""
-    title       : "Login"
 
 see :
     - - "Metronic Login Page 1"
@@ -50,56 +50,56 @@ list :
     .col-md-6
 
         -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :tag  => "h2",
-                                :text => "Login to your account" }
+        = partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Login to your account" }
 
         -# Log In Form
-        %form.loginForm{ :action     => "#",
-                         :method     => "post",
-                         :novalidate => true }
+        %form.loginForm{ name: "loginForm", novalidate: true }
 
             -# Email Input
             = partial "./forms/input",
-                       :locals => { :help  => true,
-                                    :icon  => { :prepend => "fa-envelope" },
-                                    :input => { :autocomplete    => "on",
-                                                :inputGroupClass => "input-group",
-                                                :name            => "loginEmail",
-                                                :placeholder     => "Enter Email",
-                                                :required        => true,
-                                                :type            => "email",
-                                                :value           => "ian.warner@drykiss.com" },
-                                    :label => { :extraClass => "sr-only",
-                                                :title      => "Email" } }
+                       locals: { help:     {},
+                                 icon:  { prepend:         "fa-envelope" },
+                                 input: { name:            "loginEmail",
+                                          ng:              { model: "user.email", minlength: "3" },
+                                          placeholder:     "Enter Email",
+                                          required:        true,
+                                          type:            "email" },
+                                 label: { extraClass: "sr-only", title: "Email" } }
 
             -# Password Input
             = partial "./forms/input",
-                       :locals => { :help  => true,
-                                    :icon  => { :prepend => "fa-lock" },
-                                    :input => { :autocomplete    => "off",
-                                                :inputGroupClass => "input-group",
-                                                :name            => "loginPassword",
-                                                :placeholder     => "Enter Password",
-                                                :required        => true,
-                                                :type            => "password",
-                                                :value           => "password" },
-                                    :label => { :extraClass => "sr-only",
-                                                :title      => "Password" } }
+                       locals: { help:  {},
+                                 icon:  { prepend:         "fa-lock" },
+                                 input: { autocomplete:    "off",
+                                          name:            "loginPassword",
+                                          ng:              { model: "user.password", minlength: "8", maxlength: "16" },
+                                          pattern:         "(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$",
+                                          placeholder:     "Enter Password",
+                                          required:        true,
+                                          type:            "password" },
+                                 label: { extraClass: "sr-only", title: "Password" } }
 
             -# Remember Me
             = partial "./forms/checkbox",
-                       :locals => { :extraClass => "pull-left",
-                                    :name       => "loginRemember",
-                                    :text       => "Remember Me",
-                                    :type       => "checkbox" }
+                       locals: { extraClass: "pull-left",
+                                 name:       "loginRemember",
+                                 text:       "Remember Me",
+                                 type:       "checkbox" }
 
             -# Submit
             = partial "./bootstrap/css/button",
-                       :locals => { :context    => "primary",
-                                    :content    => "Login",
-                                    :extraClass => "pull-right",
-                                    :icon       => "fa-chevron-circle-right" }
+                       locals: { context:    "primary",
+                                 content:    "Login",
+                                 extraClass: "pull-right",
+                                 ng: { click: "save()" } }
+
+            -# Reset
+            = partial "./bootstrap/css/button",
+                       locals: { context:    "link",
+                                 content:    "Reset",
+                                 extraClass: "pull-right",
+                                 ng: { click: "reset()" },
+                                 type: "reset" }
 
             .clearfix
 
@@ -109,14 +109,12 @@ list :
             .login-options
 
                 -# Heading
-                = partial "./bootstrap/type/heading",
-                           :locals => { :tag  => "h4",
-                                        :text => "Or login with" }
+                = partial "./bootstrap/type/heading", locals: { tag: "h4", text: "Or login with" }
 
                 -# List
-                = partial "./bootstrap/type/list",
-                           :locals => { :array      => current_page.data.list,
-                                        :extraClass => "socialIcons list-unstyled list-inline" }
+                = partial "./bootstrap/type/listUL",
+                           locals: { array:      current_page.data.list,
+                                     extraClass: "socialIcons list-unstyled list-inline" }
 
             %hr
 
@@ -124,16 +122,13 @@ list :
             .forget-password
 
                 -# Heading
-                = partial "./bootstrap/type/heading",
-                           :locals => { :tag  => "h4",
-                                        :text => "Forgot your password?" }
+                = partial "./bootstrap/type/heading", locals: { tag: "h4", text: "Forgot your password?" }
 
                 %p
                     No worries, click
 
                     -# Link To
-                    = link_to( "here", "javascript:;", :id => "forget-password" )
-
+                    = link_to( "here", "javascript:;", id: "forget-password" )
                     to reset your password.
 
             %hr
@@ -142,16 +137,13 @@ list :
             .create-account
 
                 -# Heading
-                = partial "./bootstrap/type/heading",
-                           :locals => { :tag  => "h4",
-                                        :text => "Create an account." }
+                = partial "./bootstrap/type/heading", locals: { tag: "h4", text: "Create an account." }
 
                 %p
                     Not registered?, click
 
                     -# Link To
-                    = link_to( "here", "javascript:;", :id => "create-account" )
-
+                    = link_to( "here", "javascript:;", id: "create-account" )
                     to create an account.
 
     .col-md-6

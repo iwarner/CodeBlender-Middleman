@@ -13,14 +13,16 @@
 'use strict'
 
 # Module
-angular.module 'engage.controllers'
+angular.module 'app.controllers'
 
 ##
 # Top Icon Controller
 ##
 .controller 'ThumbnailCtrl', [
+
     '$scope'
     '$log'
+
     ( $scope, $log ) ->
 
         # Delegate calls to data-toggle="lightbox"

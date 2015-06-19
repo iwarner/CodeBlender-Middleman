@@ -8,7 +8,7 @@
 'use strict'
 
 # Module
-codeBlender = angular.module( 'codeBlender' )
+angular.module 'app'
 
 ##
 # Config
@@ -16,26 +16,43 @@ codeBlender = angular.module( 'codeBlender' )
 # @param routeProvider    NGRouter
 # @param locationProvider To remove the Hash
 ##
-codeBlender.config [
-    '$routeProvider'
-    '$locationProvider'
-    ( $routeProvider, $locationProvider ) ->
+.config [
 
-        $routeProvider.
+    '$stateProvider'
+    '$urlRouterProvider'
 
-            when( '/prototyping/datatable',
-                   controller : 'DataTableCtrl' ).
+    ( $stateProvider, $urlRouterProvider ) ->
 
-            when( '/prototyping/scaffolding/timeline.html',
-                   controller : 'TimelineCtrl' ).
+        # Default state
+        $urlRouterProvider.when      "", "/"
+        $urlRouterProvider.when      "/", "/"
 
-            when( '/',
-                  templateUrl : 'views/phone-list.html'
-                  controller  : 'PhoneListCtrl' )
+]
 
-        # Location Provider : Removes Hash
-        # $locationProvider.html5Mode true
+##
+# Run
+# Check Auth state
+#
+# @see https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-onauthcallback-context
+##
+.run [
+
+    '$rootScope'
+    '$state'
+    '$stateParams'
+    '$log'
+    'auth'
+
+    ( $rootScope, $state, $stateParams, $log, auth ) ->
+
+        # Track status of authentication
+        auth.$onAuth ( user ) ->
+
+            $log.info "Loggind In:", user
+
+            $rootScope.loggedIn = ! !user
+            return
 ]
 
 # Module
-codeBlenderControllers = angular.module( 'codeBlenderControllers', [] )
+angular.module 'app.controllers', []

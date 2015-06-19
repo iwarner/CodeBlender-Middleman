@@ -5,10 +5,19 @@
 ##
 
 # App
-//= require ./app/app
+//= require_tree ./app
 
 # Router
 //= require_tree ./router
 
-# Controller
-//= require_tree ./controllers
+# Directive
+//= require_tree ./directive
+
+# Service
+//= require_tree ./service
+
+# Library Controller
+//= require_tree ../../_library/angular/controllers
+
+# Lib Controller
+//= require_tree ./controller

@@ -1,5 +1,5 @@
 ##
-# Application Combined JavaScript
+# DataTable Controllers
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
@@ -10,16 +10,18 @@
 'use strict'
 
 # Module
-codeBlenderControllers = angular.module 'codeBlenderControllers'
+angular.module 'app.controllers'
 
 ##
 # DataTable Controller
 #
 # @todo Make this more Angular : http://l-lin.github.io/angular-datatables/#/welcome
 ##
-codeBlenderControllers.controller 'DataTableCtrl', [
+.controller 'DataTableCtrl', [
+
     '$scope'
     '$routeParams'
+
     ( $scope, $routeParams ) ->
 
         # Save the lastID

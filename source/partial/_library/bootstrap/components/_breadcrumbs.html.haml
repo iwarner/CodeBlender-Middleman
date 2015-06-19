@@ -1,6 +1,11 @@
 -##
 -# Breadcrumbs
 -#
+-# @usage
+-# -# Breadcrumbs
+-# = partial "./bootstrap/components/breadcrumbs",
+-#            locals: { array: current_page.data.breadcrumbs }
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
@@ -58,5 +63,7 @@
         -# Home page breadcrumbs
         - array << { active: true, text: "Home" }
 
--# List
-= partial "./bootstrap/type/listUL", locals: { array: array, extraClass: "breadcrumb", type: "ol" }
+%ol{ class: "breadcrumb" }
+
+    -# List
+    = partial "./bootstrap/type/listUL", locals: { array: array, extraClass: "breadcrumb", tag: "ol" }

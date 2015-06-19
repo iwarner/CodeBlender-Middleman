@@ -15,8 +15,21 @@
 # @param ngRoute Router
 # @param codeBlenderControllers Controller
 ##
-codeBlender = angular.module( 'codeBlender',  [
-    'ngRoute'
-    'codeBlenderControllers'
-    'codeBlender.filters'
-] )
+angular.module 'app',  [
+
+
+    'ui.router'
+
+
+    'app.controllers'
+    'app.config'
+    'app.security'
+
+
+    'firebase'
+
+    'app.auth'
+    'app.filters'
+    'app.utilities'
+
+]

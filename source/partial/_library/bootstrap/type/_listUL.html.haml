@@ -1,6 +1,11 @@
 -##
 -# List Partial
--# Handles lists for Navbar Dropdowns
+-#
+-# Anything for NavBar does not require an opening tag
+-#
+-# Handles lists used in
+-# Lists
+-# Navbar
 -#
 -# @usage
 -# -# List
@@ -9,9 +14,7 @@
 -#                      type:  "ol" }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
--#
--# @todo Split out the DL and UL list types
--# @todo Rename ExtraClasses to classes throughout App
+-# @todo   Rename ExtraClasses to classes throughout App
 -##
 
 -# Capture the List Content
@@ -28,19 +31,18 @@
 
                 %li{ class: "divider", role: list[ :dropdown ] ? "presentation" : false }
 
-                -# Text is required to show a list
+                -# Header
             - elsif list[ :header ]
 
-                -# List Item
                 %li.dropdown-header{ role: locals[ :dropdown ] ? "presentation" : false }
                     = string list[ :header ]
 
-                -# Just show a Partial useful for Mega Menus
+                -# Partial
             - elsif list[ :partial ]
 
                 = partial "../_lib/#{ list[ :partial ] }"
 
-                -# Text is required to show a list
+                -# Text
             - else
 
                 -# Active
@@ -53,9 +55,9 @@
                 - classes += list[ :status ] ? " #{ list[ :status ] }" : ""
 
                 -# List Item
-                %li{ class: ! classes.empty?    ? classes        : false,
-                     data:  list[ :data ]      ? list[ :data ] : false,
-                     ng:    list[ :ng ]        ? list[ :ng ]   : false,
+                %li{ class: ! classes.empty?    ? classes       : false,
+                     data:  list[ :data ]       ? list[ :data ] : false,
+                     ng:    list[ :ng ]         ? list[ :ng ]   : false,
                      ui:    { sref: { active: "active" } },
                      role:  locals[ :dropdown ] ? "presentation" : false }
 
@@ -65,8 +67,8 @@
                         -# Link To
                         = link_to( string( list[ :link ][ :url ] ),
                                    { ng:       list[ :link ][ :ng ] ? list[ :link ][ :ng ] : false,
-                                     role:     locals[ :dropdown ]   ? "menuitem"            : false,
-                                     tabindex: locals[ :dropdown ]   ? "-1"                  : false,
+                                     role:     locals[ :dropdown ] ? "menuitem"            : false,
+                                     tabindex: locals[ :dropdown ] ? "-1"                  : false,
                                      title:    string( list[ :text ] ),
                                      ui:       list[ :link ][ :ui ] ? list[ :link ][ :ui ] : false } ) do
 

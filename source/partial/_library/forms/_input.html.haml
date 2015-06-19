@@ -1,6 +1,16 @@
 -##
 -# Input
 -#
+-# @usage
+-# -# Input
+-# = partial "./forms/input",
+-#            locals: { help:  true,
+-#                      icon:  { prepend: "fa-credit-card" },
+-#                               input: { inputGroupClass: "input-group",
+-#                                        name:            "text",
+-#                                        placeholder:     "Enter Text" },
+-#                      label: { title: "Text Input" } }
+-# 
 -# Made up of several sections - need to create a way to have these all working together
 -# Form Group
 -# Label
@@ -10,6 +20,8 @@
 -# Input
 -# Icons and Buttons
 -# Help
+-#
+-# Validation .has-warning, .has-error to form-group
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @todo   There are two many container divs being produced use content capture.
@@ -24,7 +36,7 @@
     - inputContainer = locals[ :inputContainer ] = {}
 
 -# Form Group
-.form-group
+.form-group{ show: { errors: "{showSuccess: true}" } }
 
     -# Label - note this is an array as it contains flag for screen reader
     %label.control-label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
@@ -37,19 +49,19 @@
         -# Input Group Placeholder
         -# For appending icons in horizontal forms the input group needs to be nested under the columns
         -# Should include the Sizing for the controls and addons
-        %div{ class: input[ :inputGroupClass ] ? input[ :inputGroupClass ] : false }
+        %div{ class: input[ :inputGroupClass ] ? input[ :inputGroupClass ] : "input-group" }
 
             -# Prepend Icon
             - if locals[ :icon ] and locals[ :icon ][ :prepend ]
-                %span.input-group-addon= icon locals[ :icon ][ :prepend ]
+                .input-group-addon= icon locals[ :icon ][ :prepend ]
 
             -# Prepend Button
             - if locals[ :button ] and locals[ :button ][ :prepend ]
-                %span.input-group-btn= locals[ :button ][ :prepend ]
+                .input-group-btn= locals[ :button ][ :prepend ]
 
             -# Input
             %input{ autocapitalize: input[ :autocapitalize ] ? input[ :autocapitalize ]        : false,
-                    autocomplete:   input[ :autocomplete ]   ? input[ :autocomplete ]          : false,
+                    autocomplete:   input[ :autocomplete ]   ? input[ :autocomplete ]          : "on",
                     autocorrect:    input[ :autocorrect ]    ? input[ :autocorrect ]           : false,
                     autofocus:      input[ :autofocus ]      ? "autofocus"                     : false,
                     accept:         input[ :accept ]         ? input[ :accept ]                : false,
@@ -60,7 +72,7 @@
                     ng:             input[ :ng ]             ? input[ :ng ]                    : false,
                     pattern:        input[ :pattern ]        ? input[ :pattern ]               : false,
                     placeholder:    input[ :placeholder ]    ? string( input[ :placeholder ] ) : false,
-                    required:       input[ :required ]       ? "required"                      : false,
+                    required:       input[ :required ]       ? ""                              : false,
                     src:            input[ :src ]            ? input[ :src ]                   : false,
                     title:          input[ :title ]          ? input[ :title ]                 : false,
                     type:           input[ :type ]           ? input[ :type ]                  : "text",
@@ -68,19 +80,19 @@
 
             -# Append Icon
             - if locals[ :icon ] && locals[ :icon ][ :append ]
-                %span.input-group-addon= icon locals[ :icon ][ :append ]
+                .input-group-addon= icon locals[ :icon ][ :append ]
 
             -# Append Button
             - if locals[ :button ] && locals[ :button ][ :append ]
-                %span.input-group-btn= locals[ :button ][ :append ]
+                .input-group-btn= locals[ :button ][ :append ]
 
             -# Password Strength Meter
             - if locals[ :strengthMeter ]
                 = partial "./forms/password-strength"
 
             -# Form Feedback Icon
-            - if locals[ :feedback ]
-                %span.fa.fa-exclamation-triangle.form-control-feedback
+            -# Change the class of the icon
+            = icon "fa- form-control-feedback ng-hide"
 
         -# Help Block
         -# Sometimes this should be hidden to allow errors to be added inside.

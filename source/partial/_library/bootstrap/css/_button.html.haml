@@ -41,9 +41,7 @@
 
     -# Content
     - if locals[ :content ] == "close"
-
-        %span{ aria: { hidden: "true" } }
-            &times;
+        %span{ aria: { hidden: "true" } } &times;
 
     - elsif locals[ :content ]
         = string content
@@ -66,12 +64,14 @@
 
     %button{ aria:   locals[ :aria ]     ? aria                 : false,
              class:  locals[ :extraClass ] == "close" ? "close" : "btn #{ classes }",
+             clip:    locals[ :clip ]    ? clip                 : false,
              data:   locals[ :data ]     ? data                 : false,
              hidden: locals[ :hidden ]   ? "hidden"             : false,
              id:     locals[ :id ]       ? id                   : false,
              ng:     locals[ :ng ]       ? ng                   : false,
              title:  locals[ :title ]    ? string( title )      : false,
-             type:   locals[ :type ]     ? type                 : "submit" }
+             type:   locals[ :type ]     ? type                 : "submit",
+             ui:     locals[ :ui ]       ? ui                   : false }
         = captureHTML
 
 - else
@@ -80,8 +80,10 @@
                locals[ :href ],
                aria:   locals[ :aria ]     ? aria            : false,
                class:  "btn #{ classes }",
+               clip:   locals[ :clip ]     ? clip            : false,
                data:   locals[ :data ]     ? data            : false,
                hidden: locals[ :hidden ]   ? "hidden"        : false,
                id:     locals[ :id ]       ? id              : false,
                ng:     locals[ :ng ]       ? ng              : false,
-               title:  locals[ :title ]    ? string( title ) : false )
+               title:  locals[ :title ]    ? string( title ) : false,
+               ui:     locals[ :ui ]       ? ui              : false )

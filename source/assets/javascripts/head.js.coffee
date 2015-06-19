@@ -10,6 +10,16 @@
 # JQuery
 //= require jquery/dist/jquery
 
+# Angular JS
+//= require angular/angular
+//= require angular-ui-router/release/angular-ui-router
+
+# Firebase
+//= require firebase/firebase
+
+# Angular Fire
+//= require angularfire/dist/angularfire
+
 # Bootstrap
 //= require bootstrap-sprockets
 
@@ -21,10 +31,6 @@
 
 # DataTables Bootstrap
 //= require ./_vendor/datatable/datatable
-
-# Angular JS
-//= require angular/angular
-//= require angular-route/angular-route
 
 # App
 //= require ./_lib/angular/app

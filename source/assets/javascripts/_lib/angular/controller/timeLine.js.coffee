@@ -12,15 +12,17 @@
 'use strict'
 
 # Module
-codeBlenderControllers = angular.module 'codeBlenderControllers'
+angular.module 'app.controllers'
 
 ##
 # Timeline Controller
 ##
-codeBlenderControllers.controller 'TimelineCtrl', [
+.controller 'TimelineCtrl', [
+
     '$scope'
     '$http'
     '$log'
+
     ( $scope, $http, $log ) ->
 
         # Get the Data Source
@@ -115,7 +117,7 @@ codeBlenderControllers.controller 'TimelineCtrl', [
 ##
 # Filer
 ##
-angular.module( 'codeBlender.filters', [] ).filter 'timelineFilter', [ ->
+angular.module( 'app.filters', [] ).filter 'timelineFilter', [ ->
 
     ( nodes, selectedType ) ->
 
