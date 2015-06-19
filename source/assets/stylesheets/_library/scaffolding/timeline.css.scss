@@ -2,6 +2,7 @@
 // Timeline
 //
 // @author Ian Warner <ian.warner@drykiss.com>
+//         Matt Parish <matthewparish@uk.ibm.com>
 //----------------------------------------------------------------------------//
 
 // Variables
@@ -36,50 +37,81 @@ ul.timelineList {
     margin     : 0;
     padding    : 0;
     list-style : none;
-    position   : relative;    
-    
-    &:before {
-        content: "";
-        position: absolute;
-        width: 1px;
-        margin-left: -10px;
-        left: -20px;
-        background: linear-gradient(to bottom, transparent, transparent 50%, #D5D5D5 50%, #D5D5D5) repeat scroll 0% 0% / 100% 10px transparent;
-        top: 40px;
-        bottom: 60px;
-    }
-    
-    li {
-        position: relative;
-        
-        .card:before {
+    position   : relative;
+    background-color: $body-bg;
+
+    &:not(.nobar) {
+
+        &:before {
             content: "";
             position: absolute;
-            left: -38px;
-            border-radius: 50%;
-            width: 15px;
-            height: 15px;
-            background-color: $body-bg;
-            top: 30px;
-            border: 1px solid #D5D5D5;
+            width: 1px;
+            margin-left: -10px;
+            left: -20px;
+            background: linear-gradient(to bottom, transparent, transparent 50%, #D5D5D5 50%, #D5D5D5) repeat scroll 0% 0% / 100% 10px transparent;
+            top: 65px;
+            bottom: 60px;
         }
-        
+
+        li {
+            .card:before {
+                content: "";
+                position: absolute;
+                left: -38px;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+                background-color: $body-bg;
+                top: 30px;
+                border: 1px solid #D5D5D5;
+            }
+        }
+    }
+
+    li {
+        position: relative;
+
+        h2 {
+            margin: 0;
+            padding: 20px 0px;
+        }
+
+                // Heading
+        //------------------------------------------------------------------------//
+        h2 {
+            background-color : $body-bg;
+            color            : $text-color;
+            font-weight      : bold;
+            font-size        : 15px;
+            margin           : 0;
+            padding          : 10px 0;
+        }
+
         i.fa.fa-chevron-down {
             position: absolute;
             left: -34px;
-            bottom: 50px;   
+            bottom: 50px;
             color: #D5D5D5;
             font-size: 9px;
         }
-    }    
-    
+
+        span.time.overdue {
+            background-color: #F14C2E;
+            color: white;
+            padding: 1px 5px;
+        }
+
+        a#actions {
+            cursor: pointer;
+        }
+    }
+
     &.past {
         &:before {
             background-color: #D5D5D5;
-            top: 70px;
             bottom: 0;
         }
-        
+
         li {
             &:last-child .card:after {
                 content: "";
@@ -91,16 +123,16 @@ ul.timelineList {
                 top: 45px;
                 bottom: 0px;
             }
-            
+
             .card:before {
-                background-color: #D5D5D5;   
+                background-color: #D5D5D5;
             }
-            
+
             &:first-child .card:before {
-                background-color: #F14C2E; 
+                background-color: #F14C2E;
                 border: 1px solid #F14C2E;
             }
         }
-        
+
     }
 }
