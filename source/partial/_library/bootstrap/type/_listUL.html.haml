@@ -66,11 +66,11 @@
 
                         -# Link To
                         = link_to( string( list[ :link ][ :url ] ),
-                                   { ng:       list[ :link ][ :ng ] ? list[ :link ][ :ng ] : false,
-                                     role:     locals[ :dropdown ] ? "menuitem"            : false,
-                                     tabindex: locals[ :dropdown ] ? "-1"                  : false,
-                                     title:    string( list[ :text ] ),
-                                     ui:       list[ :link ][ :ui ] ? list[ :link ][ :ui ] : false } ) do
+                                   { ng:       list[ :link ][ :ng ]     ? list[ :link ][ :ng ]     : false,
+                                     role:     locals[ :dropdown ]      ? "menuitem"               : false,
+                                     tabindex: locals[ :dropdown ]      ? "-1"                     : false,
+                                     target:   list[ :link ][ :target ] ? list[ :link ][ :target ] : false,
+                                     ui:       list[ :link ][ :ui ]     ? list[ :link ][ :ui ]     : false } ) do
 
                             -# Icon
                             - if list[ :icon ]

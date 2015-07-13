@@ -24,14 +24,14 @@ layout         : "_library/blog/tags"
         %li
 
             -# Label
-            = partial "./bootstrap/components/label",
+            = partial "./bootstrap/component/label",
                        :locals => { :color   => "info",
                                     :content => article.date.strftime( '%b %e' ) }
 
             = link_to article.title, article
 
 -# Usage
-= partial "./bootstrap/components/pagination",
+= partial "./bootstrap/component/pagination",
            :locals => { :nextPage => next_page,
                         :prevPage => prev_page,
                         :pageNo   => page_number,

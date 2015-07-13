@@ -1,14 +1,15 @@
 -##
 -# Sidebar
 -#
--# Usage
--# = wrap_layout "_library/site/sidebar" do
+-# @usage
+-# -# Sidebar Left
+-# = wrap_layout "_lib/sidebarLeft" do
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Layout - Calls Sidebar Layout
-= wrap_layout "_library/site/sidebar-left" do
+= wrap_layout "_library/sidebarLeft" do
 
     -# Create the Sidebar
     - content_for :sidebar do
@@ -18,9 +19,9 @@
 
     -# Heading
     = partial "./bootstrap/type/heading",
-               :locals => { :small => current_page.data.heading.small,
-                            :tag   => "h2",
-                            :text  => current_page.data.heading.title }
+               locals: { small: current_page.data.heading.small,
+                         tag:   "h2",
+                         text:  current_page.data.heading.title }
 
     -# Yield
     = yield

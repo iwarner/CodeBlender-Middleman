@@ -47,7 +47,7 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./bootstrap/components/progress-bar",
+    code = %{partial "./bootstrap/component/progress-bar",
                       locals: { array: [ width: 33 ] }}
 
 -# Code
@@ -58,7 +58,7 @@ locals :
 
 -# Attributes
 :ruby
-    code = %{partial "./bootstrap/components/progress-bar",
+    code = %{partial "./bootstrap/component/progress-bar",
                       locals: { array: [ animated: :true,
                                          context:  "success",
                                          striped:  :true,
@@ -72,7 +72,7 @@ locals :
 
 -# Low Percentage
 :ruby
-    code = %{partial "./bootstrap/components/progress-bar",
+    code = %{partial "./bootstrap/component/progress-bar",
                       locals: { array: [ animated: :true,
                                          context:  "warning",
                                          label:    true,
@@ -87,7 +87,7 @@ locals :
 
 -# Stacked
 :ruby
-    code = %{partial "./bootstrap/components/progress-bar",
+    code = %{partial "./bootstrap/component/progress-bar",
                       locals: { array: [ { animated: :true,
                                            context:  "warning",
                                            label:    true,

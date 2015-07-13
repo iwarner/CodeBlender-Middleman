@@ -29,7 +29,7 @@
                 - if value[ :badge ]
 
                     -# Badge
-                    = partial "./bootstrap/components/badges",
+                    = partial "./bootstrap/component/badges",
                                locals: { content: value [ :badge ] }
 
                 -# Heading and Text
@@ -69,7 +69,7 @@
                     - if value[ :submenu ]
 
                         -# Nav List Group
-                        = partial "./bootstrap/components/list-group",
+                        = partial "./bootstrap/component/list-group",
                                    locals: { array:      value[ :submenu ],
                                              extraClass: "nav submenu",
                                              list:       true }

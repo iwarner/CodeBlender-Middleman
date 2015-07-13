@@ -7,6 +7,9 @@
 # Holder
 //= require holderjs/holder
 
+# Google Material Design Lite
+//= require material-design-lite/material
+
 # JQuery Validation
 # require jquery-validation/dist/jquery.validate.min
 

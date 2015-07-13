@@ -1,6 +1,10 @@
 -##
 -# Sidebar Right
 -#
+-# @usage
+-# -# Sidebar Right
+-# = wrap_layout "_library/sidebarRight" do
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
@@ -9,7 +13,7 @@
 - dc = data.config
 
 -# Layout - Calls Wrapper Layout
-= wrap_layout "_library/site/bootstrap" do
+= wrap_layout "_library/bootstrap" do
 
     .row
 
@@ -18,7 +22,7 @@
 
             -# Breadcrumbs
             - if dc.breadcrumbs
-                = partial "./bootstrap/components/breadcrumbs"
+                = partial "./bootstrap/component/breadcrumbs"
 
             -# Heading
             - if dc.heading

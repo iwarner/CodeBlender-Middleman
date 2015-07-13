@@ -8,7 +8,7 @@ heading :
 
 see :
     - - "Bootstrap Navs"
-      - "http://getbootstrap.com/components/#nav"
+      - "http://getbootstrap.com/component/#nav"
     - - "Togglable Tabs"
       - "http://getbootstrap.com/javascript/#tabs"
 
@@ -44,7 +44,7 @@ locals :
 
 -# Tabs
 :ruby
-    code = %{partial "./bootstrap/components/navs",
+    code = %{partial "./bootstrap/component/navs",
                       locals: { array: [ { path: "javascript:;", name: "Details" },
                                          { path: "javascript:;", name: "Download"} ] }}
 
@@ -56,7 +56,7 @@ locals :
 
 -# Pills
 :ruby
-    code = %{partial "./bootstrap/components/navs",
+    code = %{partial "./bootstrap/component/navs",
                       locals: { pills: true,
                                 array: [ { path: "javascript:;", name: "Details" },
                                          { path: "javascript:;", name: "Download"} ] }}
@@ -69,7 +69,7 @@ locals :
 
 -# Stackable Pills
 :ruby
-    code = %{partial "./bootstrap/components/navs",
+    code = %{partial "./bootstrap/component/navs",
                       locals: { pills:      true,
                                 extraClass: "nav-stacked",
                                 array:      [ { path: "javascript:;", name: "Details" },
@@ -82,7 +82,7 @@ locals :
 
 -# Togglable tabs tab.js
 :ruby
-    code = %{partial "./bootstrap/components/navs",
+    code = %{partial "./bootstrap/component/navs",
                       locals: { array:  [ { path: "#details4",  name: "Details" },
                                           { path: "#download4", name: "Download"} ],
                                 toggle: true }}

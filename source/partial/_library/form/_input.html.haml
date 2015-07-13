@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Input
--# = partial "./forms/input",
+-# = partial "./form/input",
 -#            locals: { help:  true,
 -#                      icon:  { prepend: "fa-credit-card" },
 -#                               input: { inputGroupClass: "input-group",
@@ -66,6 +66,7 @@
                     autofocus:      input[ :autofocus ]      ? "autofocus"                     : false,
                     accept:         input[ :accept ]         ? input[ :accept ]                : false,
                     class:          input[ :extraClass ]     ? input[ :extraClass ]            : "form-control",
+                    :"clear-btn" => '',
                     disabled:       input[ :disabled ]       ? "disabled"                      : false,
                     id:             input[ :name ]           ? input[ :name ]                  : false,
                     name:           input[ :name ]           ? input[ :name ]                  : false,
@@ -92,7 +93,8 @@
 
             -# Form Feedback Icon
             -# Change the class of the icon
-            = icon "fa- form-control-feedback ng-hide"
+            - if locals[ :feedback ]
+                = icon "fa- form-control-feedback ng-hide"
 
         -# Help Block
         -# Sometimes this should be hidden to allow errors to be added inside.

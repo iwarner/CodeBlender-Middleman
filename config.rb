@@ -4,6 +4,9 @@
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 
+# Middleman Components
+activate :components
+
 # Variables
 set :version,          data.config.version
 set :relative_links,   true
@@ -17,7 +20,7 @@ set :fonts_dir,        "#{ path }/font"
 set :partials_dir,     "partial/_library"
 set :haml,             { ugly: true, format: :html5 }
 set :build_dir,        "www"
-set :layout,           "_lib/site/sidebar-left"
+set :layout,           "_lib/sidebarLeft"
 
 # Markdown Engine
 set :markdown_engine, :kramdown
@@ -75,7 +78,7 @@ activate :blog do | blog |
     # blog.permalink         = ":title.html"
     blog.sources           = ":title.html"
 
-    blog.layout            = "_library/blog/article"
+    blog.layout            = "_library/article"
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 

@@ -84,7 +84,6 @@ angular.module 'app'
 
             if showSuccess
                 el.toggleClass( 'has-success', !invalid )
-
     {
     restrict : 'A'
     require  : '^form'

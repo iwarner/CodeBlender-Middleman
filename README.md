@@ -12,6 +12,8 @@
     $ ps aux | grep middleman
     $ sudo kill -9
 
+    $ middleman init -T tdreyno/my-middleman-starter ~/Sites/new-site
+
 # Firebase : https://www.firebase.com
 
     Test User

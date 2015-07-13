@@ -24,8 +24,8 @@ angular.module 'app'
     ( $stateProvider, $urlRouterProvider ) ->
 
         # Default state
-        $urlRouterProvider.when      "", "/"
-        $urlRouterProvider.when      "/", "/"
+        $urlRouterProvider.when "", "/"
+        $urlRouterProvider.when "/", "/"
 
 ]
 

@@ -7,7 +7,7 @@ heading :
 
 see :
     - - "Bootstrap Panels"
-      - "http://getbootstrap.com/components/#panels"
+      - "http://getbootstrap.com/component/#panels"
 
 todo :
     - - "Header bar should have a collapseable element to the left hand side"
@@ -57,7 +57,7 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./bootstrap/components/panels", locals: { body: "Body" }}
+    code = %{partial "./bootstrap/component/panels", locals: { body: "Body" }}
 
 -# Code
 = partial "./scaffolding/code",
@@ -67,7 +67,7 @@ locals :
 
 -# Full Panel
 :ruby
-    code = %{partial "./bootstrap/components/panels",
+    code = %{partial "./bootstrap/component/panels",
                       locals: { body:    "Body",
                                 context: "primary",
                                 footer:  "Footer",
@@ -84,7 +84,7 @@ locals :
 
 -# Panel with Image as Heading
 :ruby
-    code = %{partial "./bootstrap/components/panels",
+    code = %{partial "./bootstrap/component/panels",
                       locals: { body:    "Body",
                                 context: "primary",
                                 footer:  "Footer",
@@ -111,7 +111,7 @@ locals :
 
 
 :ruby
-    code = %{partial "./bootstrap/components/panels",
+    code = %{partial "./bootstrap/component/panels",
                       locals: { body:    [ @captureHTML ],
                                 context: "primary",
                                 footer:  "Footer",

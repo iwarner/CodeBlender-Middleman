@@ -40,7 +40,8 @@
 #         ret = []
 
 #         # Get the Unique Categories
-#         sitemap.resources.uniq{ |r| r.data.category }.each do | articles |
+#         sitemap.resources.
+#         { |r| r.data.category }.each do | articles |
 
 #             if !articles.data.category.nil? and !exclude.include?( articles.data.category )
 #                 ret << articles.data.category

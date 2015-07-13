@@ -27,11 +27,7 @@ todo :
 
 -# Tabs
 :ruby
-    code = %{partial "./bootstrap/components/pager"}
+    code = %{partial "./bootstrap/component/pager"}
 
 -# Code
-= partial "./scaffolding/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { small: "",
-                                text:  "Default" } }
+= partial "./scaffolding/code", locals: { id: 1, code: code, heading: { text: "Default" } }

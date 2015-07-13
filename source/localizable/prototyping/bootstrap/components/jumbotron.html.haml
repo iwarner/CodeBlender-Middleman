@@ -35,7 +35,7 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./bootstrap/components/jumbotron",
+    code = %{partial "./bootstrap/component/jumbotron",
                       locals: { description: "Description",
                                 small:       "Small Text",
                                 title:       "Title" }}
@@ -47,7 +47,7 @@ locals :
 
 -# Gradient
 :ruby
-    code = %{partial "./bootstrap/components/jumbotron",
+    code = %{partial "./bootstrap/component/jumbotron",
                       locals: { description: "Description",
                                 extraClass:  "gradient",
                                 small:       "Small Text",
@@ -60,7 +60,7 @@ locals :
 
 -# Image Jumbotron
 :ruby
-    code = %{partial "./bootstrap/components/jumbotron",
+    code = %{partial "./bootstrap/component/jumbotron",
                       locals: { extraClass: "image" }}
 
 = partial "./scaffolding/code",

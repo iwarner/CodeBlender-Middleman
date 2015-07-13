@@ -25,7 +25,7 @@ angular.module 'app.controllers'
 
     ( $scope, $log ) ->
 
-        # Delegate calls to data-toggle="lightbox"
+        # Delegate call to data-toggle="lightbox"
         $( document ).delegate "*[data-toggle=\"lightbox\"]", "click", ( event ) ->
 
             $log.info "Click Recorded"

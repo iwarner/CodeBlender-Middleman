@@ -56,7 +56,7 @@
             - current_page.data.tags.each do | tag |
 
                 -# Label
-                = partial "./bootstrap/components/label",
+                = partial "./bootstrap/component/label",
                            locals: { context: "primary",
                                      content: tag,
                                      href:    tag_path( tag ),

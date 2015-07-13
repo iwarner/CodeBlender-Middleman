@@ -71,7 +71,7 @@ Clicked : {{ msg }}
 - body = capture_html do
 
     -# Togglable tabs tab.js
-    = partial "./bootstrap/components/navs",
+    = partial "./bootstrap/component/navs",
                locals: { array:  [ { path: "#log1",         name: "Log Call" },
                                    { path: "#purchase1",    name: "Purchase"},
                                    { path: "#handover1",    name: "Handover"},
@@ -179,7 +179,7 @@ Filter by icons:
     -# Timeline Dropdown Filter
     -# @see http://jsfiddle.net/TahmidTanzim/N9Vqk/
     -##
-    = partial "./bootstrap/components/dropdown",
+    = partial "./bootstrap/component/dropdown",
                locals: { button:     { ng: { click: "open=!open" } },
                          extraClass: "btn-group",
                          list:       { array:    current_page.data.list,

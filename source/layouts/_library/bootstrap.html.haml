@@ -1,6 +1,10 @@
 -##
 -# Bootstrap
 -#
+-# @usage
+-# -# Bootstrap
+-# = wrap_layout "_library/article" do
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -#
 -# @todo Need to put the body data tags back into the layout
@@ -13,7 +17,7 @@
 - dc     = data.config
 - dn     = data.nav.navigation
 
--# Wrapper
+-# HTML5 DocType
 !!!
 
 -# HTML Section
@@ -59,12 +63,12 @@
             #fb-root
 
         -# Section - Above Nav
-        - if dn.above or ( d.navigation and d.navigation.above )
-            = partial "../_lib/nav/above"
+        - if dn.above
+            = partial dn.above
 
         -# Section - Navbar
         - if ! dc.navbar.blank? and d.navbar != false
-            %header= partial "./bootstrap/components/navbar", locals: dn
+            %header= partial "./bootstrap/component/navbar", locals: dn
 
         -# Section - Below Navigation
         -# Can be done globally, or via page frontmatter

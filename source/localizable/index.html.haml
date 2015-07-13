@@ -1,13 +1,7 @@
 ---
 
-##
-# Index
-#
-# @author Ian Warner <ian.warner@drykiss.com>
-##
-
 # Variables
-layout : "_library/site/full-width"
+layout : "_library/fullWidth"
 stub   : "index"
 
 # See
@@ -24,11 +18,14 @@ todo :
 
 ---
 
+%button{ class: "mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" }
+    button
+
 -# Heading
 = partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Links" }
 
 -# Links
-= partial "./bootstrap/components/thumbnails",
+= partial "./bootstrap/component/thumbnails",
            locals: { array:   data.scaffolding.portalLinks.thumbs,
                      columns: "col-md-2 col-sm-3 col-xs-4" }
 
@@ -36,7 +33,7 @@ todo :
 = partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Tools" }
 
 -# Tools
-= partial "./bootstrap/components/thumbnails",
+= partial "./bootstrap/component/thumbnails",
            locals: { array:   data.scaffolding.portalLinks.tools,
                      columns: "col-md-2 col-sm-3 col-xs-4" }
 

@@ -6,9 +6,11 @@
 
 ---
 
-above : true
+# Paths to the navigation above and below
+above : "./scaffolding/navAbove"
 below : false
 
+# Brand
 brand :
 
     active : true

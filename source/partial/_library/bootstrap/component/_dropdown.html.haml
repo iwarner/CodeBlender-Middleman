@@ -1,8 +1,9 @@
 -##
 -# Dropdown Partial
 -#
--# @Usage
--# = partial "./bootstrap/components/dropdown",
+-# @usage
+-# -# Dropdown
+-# = partial "./bootstrap/component/dropdown",
 -#            locals: { extraClass: "btn-group clearfix",
 -#                      title:      "Drop Down",
 -#                      type:       "btn-group",
@@ -49,7 +50,7 @@
             = string locals[ :title ]
 
             -# Icon or Image - override in CSS
-            %span.caret
+            = icon "fa-chevron-down"
 
     -# List Partial
     = partial "./bootstrap/type/listUL", locals: list

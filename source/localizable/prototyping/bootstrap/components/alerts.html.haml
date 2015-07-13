@@ -8,7 +8,7 @@ heading :
 
 see :
     - - "Bootstrap Alerts"
-      - "http://getbootstrap.com/components/#alerts"
+      - "http://getbootstrap.com/component/#alerts"
 
 todo :
     - - "Sort out the links in the Alerts using the alert-link class"
@@ -34,7 +34,7 @@ locals :
 
 -# Success Alert
 :ruby
-    code = %{partial "./bootstrap/components/alerts",
+    code = %{partial "./bootstrap/component/alerts",
                       locals: { text: "Well done! You successfully read this important alert message." }}
 
 -# Code
@@ -45,7 +45,7 @@ locals :
 
 -# Info Alert
 :ruby
-    code = %{partial "./bootstrap/components/alerts",
+    code = %{partial "./bootstrap/component/alerts",
                       locals: { context: "info",
                                 text:    "Heads up! This alert needs your attention, but it's not super important." }}
 
@@ -57,7 +57,7 @@ locals :
 
 -# Warning Alert
 :ruby
-    code = %{partial "./bootstrap/components/alerts",
+    code = %{partial "./bootstrap/component/alerts",
                       locals: { context: "warning",
                                 text:    "Warning! Better check yourself, you're not looking too good." }}
 
@@ -69,7 +69,7 @@ locals :
 
 -# Danger Alert
 :ruby
-    code = %{partial "./bootstrap/components/alerts",
+    code = %{partial "./bootstrap/component/alerts",
                       locals: { context: "danger",
                                 text:    "Oh snap! Change a few things up and try submitting again." }}
 
@@ -81,7 +81,7 @@ locals :
 
 -# Dismissable Alert
 :ruby
-    code = %{partial "./bootstrap/components/alerts",
+    code = %{partial "./bootstrap/component/alerts",
                       locals: { context: "warning",
                                 dismiss: true,
                                 text:    "Warning! Better check yourself, you're not looking too good." }}
@@ -95,7 +95,7 @@ locals :
 
 -# In-line Links
 :ruby
-    code = %{partial "./bootstrap/components/alerts",
+    code = %{partial "./bootstrap/component/alerts",
                       locals: { context: "success",
                                 text:    "Well done! You successfully <a href='#' class='alert-link'>Link</a> read this important alert message." }}
 

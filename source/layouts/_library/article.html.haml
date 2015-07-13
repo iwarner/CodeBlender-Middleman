@@ -1,8 +1,9 @@
 -##
 -# Blog Article
 -#
--# Usage
--# = wrap_layout "_library/blog/article" do
+-# @usage
+-# -# Article layout
+-# = wrap_layout "_library/article" do
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -12,7 +13,7 @@
 - heading = current_page.data.heading
 
 -# Article
-= wrap_layout "_library/site/full-width" do
+= wrap_layout "_library/full-width" do
 
     :markdown
 
@@ -71,7 +72,7 @@
                 = yield
 
                 -# Pager
-                = partial "./bootstrap/components/pager"
+                = partial "./bootstrap/component/pager"
 
                 -# Discus Comments
                 = partial "./social/disqus/comments"

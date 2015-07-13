@@ -18,7 +18,7 @@
                                    :novalidate => locals[ :novalidate ] ? "novalidate" : true }
 
     -# Email Address Input
-    = partial "./forms/input",
+    = partial "./form/input",
                :locals => { :help  => true,
                             :icon  => { :prepend => "fa-envelope" },
                             :input => { :inputGroupClass => "input-group",
@@ -32,14 +32,14 @@
     - if locals[ :name ]
 
         -# First Name
-        = partial "./forms/input",
+        = partial "./form/input",
                    :locals => { :help  => true,
                                 :icon  => { :prepend => "fa-user" },
                                 :input => { :inputGroupClass => "input-group",
                                             :name            => "FNAME",
                                             :placeholder     => :"mailchimp.FirstName" }}
         -# Last Name
-        = partial "./forms/input",
+        = partial "./form/input",
                    :locals => { :help  => true,
                                 :icon  => { :prepend => "fa-user" },
                                 :input => { :inputGroupClass => "input-group",

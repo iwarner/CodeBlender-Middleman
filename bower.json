@@ -48,6 +48,8 @@
 
         "lunr.js"                  : "",
 
+        "material-design-lite"     : "",
+
         "modernizr"                : "",
 
         "notify.js"                : "",

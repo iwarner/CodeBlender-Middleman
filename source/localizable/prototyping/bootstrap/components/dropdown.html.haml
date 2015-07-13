@@ -8,7 +8,7 @@ heading :
 
 see :
     - - "Dropdowns"
-      - "http://getbootstrap.com/components/#dropdowns"
+      - "http://getbootstrap.com/component/#dropdowns"
     - - "Button Dropdowns"
       - "http://getbootstrap.com/javascript/#dropdowns"
 
@@ -21,7 +21,7 @@ todo :
       - "Dropdown"
       - "2014-04-28"
       - { "context" : "info" }
-    - - "Dropdowns are present in the Components and Javascript side of things"
+    - - "Dropdowns are present in the Components and JavaScript side of things"
       - "Dropdown"
       - "2014-04-28"
       - { "context" : "info" }
@@ -71,7 +71,7 @@ list :
 
 -# Just a Dropdown
 :ruby
-    code = %{partial "./bootstrap/components/dropdown",
+    code = %{partial "./bootstrap/component/dropdown",
                       locals: { button:     { ng: { click: "callAttemptsOpen=!callAttemptsOpen" } },
                                 extraClass: "dropdown",
                                 list:       { array:    [ { text: "Action1", link: { url: "#" } }, { text: "Another action", link: { url: "#" } } ],
@@ -89,7 +89,7 @@ list :
 
 -# Button Group Dropdown
 :ruby
-    code = %{partial "./bootstrap/components/dropdown",
+    code = %{partial "./bootstrap/component/dropdown",
                       locals: { extraClass: "btn-group clearfix",
                                 title:      "Drop Down",
                                 type:       "btn-group",
@@ -104,7 +104,7 @@ list :
 
 -# Nav Bar Dropdown
 :ruby
-    code = %{partial "./bootstrap/components/dropdown",
+    code = %{partial "./bootstrap/component/dropdown",
                       locals: { extraClass: "clearfix",
                                 title:      "Drop Down",
                                 list:       { array:    current_page.data.list,

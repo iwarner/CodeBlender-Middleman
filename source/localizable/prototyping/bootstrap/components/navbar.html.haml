@@ -22,7 +22,7 @@ navigation1 :
 
 see :
     - - "Bootstrap Navbar"
-      - "http://getbootstrap.com/components/#navbar"
+      - "http://getbootstrap.com/component/#navbar"
 
 todo :
     - - "General images and icons need to work for each item and as an item in there own right"
@@ -91,7 +91,7 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./bootstrap/components/navbar",
+    code = %{partial "./bootstrap/component/navbar",
                       locals: { fluid:    true,
                                 position: "static-top" }}
 
@@ -103,7 +103,7 @@ locals :
 
 -# Logo
 :ruby
-    code = %{partial "./bootstrap/components/navbar",
+    code = %{partial "./bootstrap/component/navbar",
                       locals: { array:    current_page.data.navigation1,
                                 fluid:    true,
                                 logo:     true,
@@ -117,7 +117,7 @@ locals :
 
 -# Inverted
 :ruby
-    code = %{partial "./bootstrap/components/navbar",
+    code = %{partial "./bootstrap/component/navbar",
                       locals: { array:    current_page.data.navigation,
                                 brand:    "Test NavBar",
                                 fluid:    true,
