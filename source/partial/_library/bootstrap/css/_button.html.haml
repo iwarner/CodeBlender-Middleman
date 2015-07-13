@@ -60,7 +60,7 @@
         %span.sr-only Toggle Dropdown
 
 -# Link
-- if ! locals[ :href ]
+- if ! ( locals[ :href ] or locals[ :ui ] )
 
     %button{ aria:   locals[ :aria ]     ? aria                 : false,
              class:  locals[ :extraClass ] == "close" ? "close" : "btn #{ classes }",
@@ -70,8 +70,7 @@
              id:     locals[ :id ]       ? id                   : false,
              ng:     locals[ :ng ]       ? ng                   : false,
              title:  locals[ :title ]    ? string( title )      : false,
-             type:   locals[ :type ]     ? type                 : "submit",
-             ui:     locals[ :ui ]       ? ui                   : false }
+             type:   locals[ :type ]     ? type                 : "submit" }
         = captureHTML
 
 - else
