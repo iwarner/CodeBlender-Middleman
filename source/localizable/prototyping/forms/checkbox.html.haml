@@ -40,12 +40,10 @@ todo :
 ---
 
 -# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :tag  => "h2",
-                        :text => "Checkbox" }
+= partial "molecule/heading/heading", locals: { tag:  "h2", text: "Checkbox" }
 
 -# Form
-%form{ :novalidate => false }
+%form{ novalidate: false }
 
     -# Checkbox
     = partial "./forms/checkbox",
@@ -61,12 +59,10 @@ todo :
                             :text => "Textual description here" }
 
 -# Heading
-= partial "bootstrap/type/heading",
-           :locals => { :tag  => "h2",
-                        :text => "Disabled Checkbox" }
+= partial "molecule/heading/heading", locals: { tag: "h2", text: "Disabled Checkbox" }
 
 -# Form
-%form{ :novalidate => false }
+%form{ novalidate: false }
 
     -# Checkbox
     = partial "./forms/checkbox",
@@ -85,9 +81,7 @@ todo :
 
 
 -# Heading
-= partial "bootstrap/type/heading",
-           :locals => { :tag  => "h2",
-                        :text => "Fancy Checkbox" }
+= partial "molecule/heading/heading", locals: { tag: "h2", text: "Fancy Checkbox" }
 
 -# Form
 %form{ :novalidate => false }
@@ -108,9 +102,7 @@ todo :
                             :text       => "Textual description here" }
 
 -# Heading
-= partial "bootstrap/type/heading",
-           :locals => { :tag  => "h2",
-                        :text => "Disabled Fancy Checkbox" }
+= partial "molecule/heading/heading", locals: { tag: "h2", text: "Disabled Fancy Checkbox" }
 
 -# Form
 %form{ :novalidate => false }

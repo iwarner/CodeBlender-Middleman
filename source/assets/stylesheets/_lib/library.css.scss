@@ -24,7 +24,7 @@
 
 // Google Material Design Lite
 //----------------------------------------------------------------------------//
-@import "material-design-lite/material";
+// @import "material-design-lite/material";
 
 // Interactive Card
 //----------------------------------------------------------------------------//
@@ -57,7 +57,6 @@
 @import "_library/bootstrap/javascript/carousel";
 @import "_library/bootstrap/javascript/collapse";
 @import "_library/bootstrap/javascript/popover";
-@import "_library/bootstrap/type/heading";
 
 // E-Commerce
 //----------------------------------------------------------------------------//
@@ -69,7 +68,6 @@
 @import "datatables-colvis/css/dataTables.colVis";
 @import "datatables-colreorder/css/dataTables.colReorder";
 @import "_library/datatable/paginate";
-@import "_vendor/datatable/datatable";
 
 // Dropzone
 //----------------------------------------------------------------------------//
@@ -103,13 +101,10 @@
 @import "_library/scaffolding/scaffolding";
 @import "_library/scaffolding/arrow";
 @import "_library/scaffolding/bar";
-@import "_library/scaffolding/copyright";
 @import "_library/scaffolding/configuration";
-@import "_library/scaffolding/footer";
 @import "_library/scaffolding/gallery";
 @import "_library/scaffolding/lightbox";
 @import "_library/scaffolding/mobile";
-@import "_library/scaffolding/navAbove";
 @import "_library/scaffolding/shapes";
 @import "_library/scaffolding/show-grid";
 @import "_library/scaffolding/timeline";
@@ -122,3 +117,15 @@
 // Sections
 //----------------------------------------------------------------------------//
 @import "_library/sections/main";
+
+
+
+// Molecule
+//----------------------------------------------------------------------------//
+@import "molecule/brand/brand";
+@import "molecule/heading/heading";
+
+// Organism
+//----------------------------------------------------------------------------//
+@import "organism/navAbove/navAbove";
+@import "organism/footer/footer";

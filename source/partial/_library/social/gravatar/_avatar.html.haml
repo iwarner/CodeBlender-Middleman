@@ -6,9 +6,7 @@
 -# size  - Int    - Optional - Size of the image
 -#
 -# Usage
--# = partial "social/gravatar/avatar",
--#            :locals => { :email => "iwarner@triangle-solutions.com",
--#                         :size  => "200" }
+-# = partial "social/gravatar/avatar", locals: { email: "iwarner@triangle-solutions.com", size: "200" }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -18,7 +16,4 @@
     - size = 80
 
 -# Image
-= partial "bootstrap/css/image",
-           :locals => { :alt  => "Image",
-                        :src  => avatar( email, size ),
-                        :type => "thumbnail" }
+= partial "atom/image/image", locals: { alt: "Image", src: avatar( email, size ), type: "thumbnail" }

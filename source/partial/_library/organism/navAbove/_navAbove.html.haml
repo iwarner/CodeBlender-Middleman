@@ -1,0 +1,39 @@
+-##
+-# Navigation Above
+-#
+-# Provides a placement for content above a navigation bar
+-# Should include branding, logo, strap line and background image.
+-#
+-# @usage
+-# -# Navigation Above
+-# = partial "./organism/navAbove/navAbove"
+-#
+-# @category organism
+-# @stub     navAbove
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Header navAbove
+%header
+
+    -# Placed in a Fluid to give full image bleed if required
+    .container-fluid
+
+        .row.navAbove
+
+            -# Default site container
+            %div{ class: dataConfig.container ? dataConfig.container : false }
+
+                .navAbove__row
+
+                    -# Left Column
+                    .navAbove__leftColumn
+
+                        -# Brand
+                        = partial "./molecule/brand/brand"
+
+                    -# Right Column
+                    .navAbove__rightColumn
+
+                        -# Heading H2
+                        = partial "./molecule/heading/heading", locals: { extraClass: "text-right", tag: "h2", text: :"navAbove.strapLine" }

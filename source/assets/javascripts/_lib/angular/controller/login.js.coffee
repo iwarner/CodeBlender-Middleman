@@ -49,15 +49,14 @@ angular.module 'app.controllers'
 
     ( $urlRouterProvider ) ->
 
-        console.log "HERE"
-
         # require user to be authenticated before they can access this page
         # this is handled by the .whenAuthenticated method declared in
         # components/router/router.js
-        $urlRouterProvider.whenAuthenticated '/account',
-            templateUrl : 'account/account.html'
-            controller  : 'AccountCtrl'
-        return
+        # $urlRouterProvider.whenAuthenticated '/account',
+        #     templateUrl : 'account/account.html'
+        #     controller  : 'AccountCtrl'
+        # return
+
 ]
 
 

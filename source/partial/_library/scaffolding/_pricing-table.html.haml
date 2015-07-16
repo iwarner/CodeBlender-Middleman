@@ -27,13 +27,13 @@
 
         -# Heading
         - heading[ :extraClass ] = "panel-title"
-        = partial "./bootstrap/type/heading", locals: heading
+        = partial "molecule/heading/heading", locals: heading
 
     -# Body
     .panel-body{ class: locals[ :imageClass ] ? imageClass : false }
 
         -# Heading
-        = partial "./bootstrap/type/heading",
+        = partial "molecule/heading/heading",
                    locals: { text: string( locals[ :subheading ] ),
                              tag:  "h4" }
 

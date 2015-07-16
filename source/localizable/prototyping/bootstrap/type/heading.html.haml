@@ -43,8 +43,7 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./bootstrap/type/heading",
-                      locals: { text: "Default H1 Tag" }}
+    code = %{partial "molecule/heading/heading", locals: { text: "Default H1 Tag" }}
 
 = partial "./scaffolding/code",
            locals: { id:      1,
@@ -53,7 +52,7 @@ locals :
 
 -# H2 With Small
 :ruby
-    code = %{partial "./bootstrap/type/heading",
+    code = %{partial "molecule/heading/heading",
                       locals: { small: "Secondary small text",
                                 text:  "H2 with Secondary Text",
                                 tag:   "h2" }}
@@ -65,7 +64,7 @@ locals :
 
 -# H4
 :ruby
-    code = %{partial "bootstrap/type/heading",
+    code = %{partial "molecule/heading/heading",
                       locals: { small: "Simply change the tag attribute",
                                 text:  "H4",
                                 tag:   "h4" }}
@@ -77,7 +76,7 @@ locals :
 
 -# Heading With Link
 :ruby
-    code = %{partial "bootstrap/type/heading",
+    code = %{partial "molecule/heading/heading",
                       locals: { href:  "#",
                                 small: "With a Link attached",
                                 text:  "Linked Heading",

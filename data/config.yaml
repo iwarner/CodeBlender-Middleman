@@ -29,7 +29,6 @@ configuration : false
 description   : false
 favicon       : "favicon.ico"
 heading       : false
-hr            : false
 lang          : en
 manifest      : false
 modernizr     : false

@@ -51,10 +51,10 @@ todo :
                                     { :text => "They don't want the user to see a domain that is not their own" } ] }
 
 -# Heading
-= partial "./bootstrap/type/heading",
-           :locals => { :small => "Complete the form below and simply respond to the email.",
-                        :text  => "Newsletter Signup",
-                        :tag   => "h2" }
+= partial "molecule/heading/heading",
+           locals: { small: "Complete the form below and simply respond to the email.",
+                     text:  "Newsletter Signup",
+                     tag:   "h2" }
 
 -# Mailchimp subscription form
 = partial "./social/mailchimp/subscribe-form"

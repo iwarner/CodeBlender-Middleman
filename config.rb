@@ -7,8 +7,12 @@
 # Middleman Components
 activate :components
 
+# Config Variables
+set :dataConfig, data.config
+set :dataNav,    data.nav.navigation
+set :version,    dataConfig.version
+
 # Variables
-set :version,          data.config.version
 set :relative_links,   true
 set :strip_index_file, true
 set :syntaxScheme,     "ThankfulEyes"
@@ -64,6 +68,7 @@ after_configuration do
     sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/javascripts/"
     sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/stylesheets/"
     sprockets.append_path File.join "#{ root }", "bower_components/font-awesome/scss/"
+    sprockets.append_path File.join "#{ root }", "source/partial/_library/"
     sprockets.append_path "/assets/font"
 end
 

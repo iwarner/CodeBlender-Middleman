@@ -62,27 +62,6 @@ en:
               link : { url: "/prototyping" }
 
             # Knowledge Base
-            - dropdown : "Overview"
-              icon  : "fa-file-text-o"
-              items :
-                  - text : "Overview"
-                    link : { ui: { sref: "overview" } }
-                    icon : "fa-file-text-o"
-                  - text : "Nurture"
-                    link : { ui: { sref: "nurture" } }
-                    icon : "fa-phone"
-                  - text : "Track"
-                    link : { ui: { sref: "nurture" } }
-                    icon : "fa-envelope"
-                  - text : "Timeline"
-                    link : { ui: { sref: "timeline" } }
-                    icon : "fa-calendar"
-                  - text : "Login"
-                    link : { ui: { sref: "login" } }
-                    icon : "fa-key"
-
-
-            # Knowledge Base
             - dropdown : "Knowledge Base"
               items    :
                 - text : "Articles"
@@ -100,10 +79,6 @@ en:
     # Home
     home :
 
-        metaTitle       : "Code Blender"
-        metaSmall       : ""
-        metaDescription : ""
-
         jumbotron :
             title       : "Code Blender"
             description : >
@@ -111,14 +86,6 @@ en:
 
     # Style Guide
     styleGuide :
-
-        metaTitle       : "Style Guidelines"
-        metaSmall       : "Microsite of UX/UI guidelines"
-        metaDescription : "Use this as an overall visual reference for componenets."
-
-        metaTitleStyleColour : "Component Overview"
-        metaSmallStyleColour : "Directory of components"
-        metaDescStyleColour  : "UX Portal..."
 
         jumbotron :
             title       : "Digital Identity"
@@ -130,15 +97,21 @@ en:
     # Prototyping
     prototyping :
 
-        metaTitle       : "Contact"
-        metaSmall       : "Generic contact form, map and details."
-        metaDescription : >
-            Contact form, address and location map for the business.
-
         jumbotron :
             title       : "Prototyping"
             description : >
                 Testing bay for components
+
+    # Datagrid Table
+    table :
+
+        client       : "Client"
+        role         : "Job title"
+        organisation : "Organisation"
+        tactic       : "Tactic code"
+        lastContact  : "Last contact"
+        buyingStage  : "Buying stage"
+        nextAction   : "Next action"
 
     # Copyright
     copyright :

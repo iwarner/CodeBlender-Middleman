@@ -2,52 +2,43 @@
 -# Full Width
 -#
 -# @usage
--# -#Full Width layout
+-# -# Full Width layout
 -# = wrap_layout "_library/fullWidth" do
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Variables
-- d  = current_page.data
-- dc = data.config
+- dataCurrent = current_page.data
 
 -# Layout - Calls Wrapper Layout
 = wrap_layout "_library/bootstrap" do
 
     .row
 
-        - if dc.heading
-
-            -# Heading
-            = partial "./bootstrap/type/heading",
-                       locals: { small: string( d.small ),
-                                 text:  string( d.title ),
-                                 ng: {show: "headerVisible"}}
+        -# Heading
+        - if dataConfig.heading
+            = partial "molecule/heading/heading", locals: { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
 
         -# Details
-        - if dc.description
-            %p= string d.description
-
-        -# Separator
-        - if dc.hr
-            %hr
+        - if dataConfig.description
+            %p= string dataCurrent.description
 
         -# Locals
-        - if d.locals
+        - if dataCurrent.locals
             = partial "./scaffolding/locals"
 
         -# Yield
         = yield
 
         -# Resources
-        - if dc.resources
+        - if dataConfig.resources
             = partial "./scaffolding/resources"
 
         -# Assets
-        - if dc.assets
+        - if dataConfig.assets
             = partial "./scaffolding/assets"
 
         -# Todo
-        - if dc.todo
+        - if dataConfig.todo
             = partial "./scaffolding/todo"

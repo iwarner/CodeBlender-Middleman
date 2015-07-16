@@ -35,14 +35,14 @@
 
             -# Image Check to see if Heading is an image
             - if heading[ :image ]
-                = partial "./bootstrap/css/image", locals: heading[ :image ]
+                = partial "atom/image/image", locals: heading[ :image ]
 
                 -# Heading Text
             - else
 
                 -# Heading
                 - heading[ :extraClass ] = "panel-title"
-                = partial "./bootstrap/type/heading", locals: heading
+                = partial "molecule/heading/heading", locals: heading
 
     -# Hidden
     .content{ class: locals[ :collapse ]  ? "collapse" : false }

@@ -7,7 +7,7 @@
 ---
 
 # Paths to the navigation above and below
-above : "./scaffolding/navAbove"
+above : "organism/navAbove/navAbove"
 below : false
 
 # Brand
@@ -16,8 +16,8 @@ brand :
     active : true
 
     icon :
-        active : false
-        icon   : "fa-user fa-fw"
+        active : true
+        icon   : "fa-eyedropper"
 
     link :
         url : "#"

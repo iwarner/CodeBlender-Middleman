@@ -1,0 +1,74 @@
+-##
+-# Footer and Copyright elements
+-#
+-# Provides a footer and copyright
+-#
+-# @usage
+-# -# Footer
+-# = partial "./organism/footer/footer"
+-#
+-# @category organism
+-# @stub     footer
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+%footer
+
+    -# Footer
+    .footer{ class: dataConfig.footer.extraClass ? dataConfig.footer.extraClass : false }
+
+        -# Container
+        %div{ class: dataConfig.container ? dataConfig.container : false }
+
+            -# Bootstrap Row
+            .row
+
+                -# Check Footer YAML or locals is not blank
+                - if t( "footer" ) or locals[ :array ]
+
+                    -# Local array takes precedent
+                    - array = locals[ :array ] ? locals[ :array ] : t( "footer" )
+
+                    -# Columns count
+                    - count      = 12 / array.count
+                    - extraClass = "col-md-#{ count } "
+
+                    -# Loop through the Footer Yaml
+                    - array.each do | entry |
+
+                        -# Section
+                        .footerSection{ class: entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass }
+
+                            -# Heading
+                            = partial "molecule/heading/heading",
+                                       locals: { icon: entry[ :icon ] ? entry[ :icon ] : false,
+                                                 tag:  "h4",
+                                                 text: entry[ :title ] }
+
+                            -# Body
+                            :markdown
+                                #{ string entry[ :description ] }
+
+    -# Copyright
+    .copyright{ class: locals[ :center ] ? "text-center" : false }
+
+        -# Container
+        %div{ class: dataConfig.container }
+
+            -# Year
+            - if ! locals[ :noYear ]
+
+                -# Variables
+                - year = Time.now.strftime '%Y'
+
+                %time{ datetime: year } &copy; #{ year }
+
+            -# Text
+            = string :"copyright.brand"
+            = string :"copyright.rights"
+
+            -# Show any required links
+            - if locals[ :array ]
+
+                -# Horizontal list of links
+                = partial "./bootstrap/type/listUL", locals: { array: array, extraClass: "list-inline list-unstyled" }

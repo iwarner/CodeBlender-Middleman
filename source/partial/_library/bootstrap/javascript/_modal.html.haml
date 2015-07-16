@@ -7,7 +7,7 @@
 -# - body = capture_html do
 -#
 -#     -# Heading
--#     = partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Heading" }
+-#     = partial "molecule/heading/heading", locals: { tag: "h2", text: "Heading" }
 -#
 -#     %p
 -#         TEXT
@@ -61,7 +61,7 @@
                     - if locals[ :title ]
 
                         -# Heading
-                        = partial "bootstrap/type/heading",
+                        = partial "molecule/heading/heading",
                                    locals: { extraClass: "modal-title",
                                              id:         "#{ id }Label",
                                              text:       title,

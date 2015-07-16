@@ -1,12 +1,15 @@
 -##
 -# Image
 -#
--# Usage
--# -# Image
--# = partial "./bootstrap/css/image",
--#            locals: { src: loremPixel() }
+-# Provides Icon, Logo and text if required
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @usage
+-# -# Image
+-# = partial "atom/image/image", locals: { src: loremPixel() }
+-#
+-# @category atom
+-# @stub     image
+-# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# src:  value[ 0 ].start_with?( "holder" ) ? false      : value[ 0 ],
@@ -23,6 +26,7 @@
         id:        locals[ :id ]         ? id            : false,
         ng:        locals[ :ng ]         ? ng            : false,
         width:     locals[ :size ]       ? size[ 0 ]     : false
+
 - else
 
     %img{ alt:       locals[ :alt ]        ? string( alt ) : "Image",

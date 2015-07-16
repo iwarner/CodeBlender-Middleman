@@ -24,31 +24,22 @@
                 %aside
 
                     -# Tags
-                    .tagCloud
+                    .tagCloud= tagCloud()
 
-                        -# Tag Cloud
-                        = tagCloud()
-
-                    .blogLatest
-
-                        -# Recent Articles
-                        = partial "./blog/recent"
+                    -# Recent Articles
+                    .blogLatest= partial "./blog/recent"
 
             .col-md-6
 
                 %article
 
                     -# Heading
-                    = partial "./bootstrap/type/heading",
-                               locals: { small: heading.small,
-                                         text:  heading.title }
+                    = partial "molecule/heading/heading", locals: { small: heading.small, text: heading.title }
 
                     -# Yield
                     = yield
 
             .col-md-3
 
-                %aside
-
-                    -# Archive
-                    = partial "./blog/archive"
+                -# Archive
+                %aside= partial "./blog/archive"

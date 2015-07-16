@@ -93,7 +93,7 @@ todo :
 ---
 
 -# Heading
-= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Blog" }
+= partial "molecule/heading/heading", locals: { tag: "h2", text: "Blog" }
 
 %hr
 
@@ -104,21 +104,21 @@ todo :
     .col-md-4
 
         -# Heading
-        = partial "./bootstrap/type/heading", locals: { text: "Recent Posts", tag: "h3" }
+        = partial "molecule/heading/heading", locals: { text: "Recent Posts", tag: "h3" }
         = partial "./blog/recent"
 
     -# Archive
     .col-md-4
 
         -# Heading
-        = partial "./bootstrap/type/heading", locals: { text: "Archive", tag: "h3" }
+        = partial "molecule/heading/heading", locals: { text: "Archive", tag: "h3" }
         = partial "./blog/archive"
 
     -# Tags
     .col-md-4
 
         -# Heading
-        = partial "./bootstrap/type/heading", locals: { text: "Tags", tag: "h3" }
+        = partial "molecule/heading/heading", locals: { text: "Tags", tag: "h3" }
 
         -# Tag Cloud
         = tagCloud()

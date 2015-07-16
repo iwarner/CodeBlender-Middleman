@@ -27,9 +27,9 @@ see :
 ---
 
 -# Heading
-= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Test Notification" }
+= partial "molecule/heading/heading", locals: { tag: "h2", text: "Test Notification" }
 
-%p{ :contenteditable => "true" }
+%p{ contenteditable: "true" }
     The process is, test if Notification is supported, see if the user
     has either granted, denied or are in a default state in terms of
     notification permissions. Ask for permissions if not granted.

@@ -44,7 +44,7 @@
                         - slide[ :image ][ :alt ] = "Carousel #{ i }"
 
                     -# Image
-                    = partial "bootstrap/css/image", locals: slide[ :image ]
+                    = partial "atom/image/image", locals: slide[ :image ]
 
                 -# Caption
                 - if slide[ :image ][ :caption ]

@@ -50,7 +50,7 @@ list :
     .col-md-6
 
         -# Heading
-        = partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Login to your account" }
+        = partial "molecule/heading/heading", locals: { tag: "h2", text: "Login to your account" }
 
         -# Log In Form
         %form.loginForm{ name: "loginForm", novalidate: true }
@@ -109,7 +109,7 @@ list :
             .login-options
 
                 -# Heading
-                = partial "./bootstrap/type/heading", locals: { tag: "h4", text: "Or login with" }
+                = partial "molecule/heading/heading", locals: { tag: "h4", text: "Or login with" }
 
                 -# List
                 = partial "./bootstrap/type/listUL",
@@ -122,7 +122,7 @@ list :
             .forget-password
 
                 -# Heading
-                = partial "./bootstrap/type/heading", locals: { tag: "h4", text: "Forgot your password?" }
+                = partial "molecule/heading/heading", locals: { tag: "h4", text: "Forgot your password?" }
 
                 %p
                     No worries, click
@@ -137,7 +137,7 @@ list :
             .create-account
 
                 -# Heading
-                = partial "./bootstrap/type/heading", locals: { tag: "h4", text: "Create an account." }
+                = partial "molecule/heading/heading", locals: { tag: "h4", text: "Create an account." }
 
                 %p
                     Not registered?, click

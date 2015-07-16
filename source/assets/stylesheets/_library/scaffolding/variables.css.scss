@@ -1,5 +1,6 @@
 //
 // Variables
+// Normalised variables, but uses the standard bootstrap variables by default
 //
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
@@ -10,32 +11,14 @@ $fa-font-path : font-url( ".", true ) !default;
 
 // Colours
 //----------------------------------------------------------------------------//
-$gray-light    : lighten( #000, 46.7% ) !default;
-$brand-primary : #1A1F71 !default;
 
 // Links
 //----------------------------------------------------------------------------//
-$link-hover-color : #F7B600 !default;
 
 // Typography
 //----------------------------------------------------------------------------//
-$font-size-h1 : 36px !default;
-$font-size-h2 : 30px !default;
-$font-size-h3 : 21px !default;
-$font-size-h4 : 18px !default;
-
-$font-family-sans-serif : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !default;
-
-$headings-font-family : "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !default;
-$headings-font-weight : normal !default;
-$headings-line-height : 1 !default;
-$headings-color       : #1A1F71 !default;
-$headings-small-color : $gray-light !default;
 
 // Components
-//----------------------------------------------------------------------------//
-
-// Tables
 //----------------------------------------------------------------------------//
 
 // Tables
@@ -49,51 +32,27 @@ $headings-small-color : $gray-light !default;
 
 // Jumbotron
 //----------------------------------------------------------------------------//
-$jumbotron-color     : #fff !default;
-$jumbotron-font-size : 18px !default;
 
 // Tooltips
 //----------------------------------------------------------------------------//
 
 // Thumbnails
 //----------------------------------------------------------------------------//
-$thumbnail-bg              : #fff !default;
-$thumbnail-caption-padding : 20px !default;
-$thumbnail-caption-color   : #705843 !default;
 
 // Popovers
 //----------------------------------------------------------------------------//
-$popover-title-bg : #FE6B0E !default;
 
 // Bootstrap Alerts
 //----------------------------------------------------------------------------//
-$alert-padding : 10px !default;
 
 // Navbar
 //----------------------------------------------------------------------------//
-$navbar-height                    : 50px !default;
-$navbar-default-bg                : #1A1F71 !default;
-$navbar-default-color             : #FFF !default;
-$navbar-default-link-color        : #FFF !default;
-$navbar-default-link-active-color : #F7B600 !default;
-$navbar-default-link-hover-color  : #F7B600 !default;
-$navbar-margin-bottom             : 0 !default;
 
 // Footer
 //----------------------------------------------------------------------------//
-$footerColor      : #b3b3b3 !default;
-$footerTitleColor : #FFF !default;
-$footerLinkColor  : #f8981d !default;
-$footerBold       : #b3b3b3 !default;
-$footerBorder     : #444 !default;
-$footerBackground : #444 !default;
 
 // Copyright
 //----------------------------------------------------------------------------//
-$copyrightBackground : #444 !default;
-$copyrightColor      : #F1F2F2 !default;
-$copyrightBorder     : rgba( 255, 255, 255, 0.05 ) !default;
 
 // Carousel
 //----------------------------------------------------------------------------//
-$carousel-control-font-size : 30px !default;

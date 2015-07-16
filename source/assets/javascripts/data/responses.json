@@ -1,129 +1,97 @@
 {
-    "draw"            : 1,
-    "recordsTotal"    : 11,
-    "recordsFiltered" : 11,
-    "data"            :
-    [
+    "metadata": {
+        "serverTime": 1435915386119,
+        "totalResponseTime": "23314 ms",
+        "totalRowCount": 598
+    },
+    "result": [
+
         {
-        "DT_RowId"  : "row_1",
-        "name"      : "Christopher Marshall",
-        "role"      : "UX Designer",
-        "company"   : "IBM",
-        "tactic"    : "343243242",
-        "contacted" : "2015-04-13",
-        "stage"     : "Live",
-        "offer"     : "Websphere",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
+            "prospectId" : "11111",
+            "responseId" : "11111",
+            "read"       : false,
+            "firstName"  : "APeter",
+            "lastName"   : "Ingleson",
+            "role"       : "Telecoms Manager",
+            "company"    : "Atradius Credit Insurance N.V",
+            "tacticCode" : "C06303RT",
+
+            "lastInteraction" : {
+                "type" : "webResponse",
+                "date" : 1434480583000
+            },
+
+            "buyingStage" : "learn",
+            "nextBestAction" : "callScheduled"
+
         },
+
         {
-        "DT_RowId"  : "row_2",
-        "name"      : "Olivia McCartney",
-        "role"      : "Security Specialist",
-        "company"   : "Microsoft",
-        "tactic"    : "343243242",
-        "contacted" : "2015-04-04",
-        "stage"     : "1",
-        "offer"     : "Rational",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
+            "prospectId"      : "21112674777482806MOD161",
+            "responseId"      : "900506485",
+            "read"            : false,
+            "firstName"       : "BNick",
+            "lastName"        : "Broomfield",
+            "role"            : "Marketing Strategist",
+            "company"         : "Coca-Cola",
+            "tacticCode"      : "M161001W",
+            "lastInteraction" : {
+                "type" : "closedResponse",
+                "date" : 1434380583000
+            },
+            "buyingStage"    : "try",
+            "nextBestAction" : "setBuyingStage"
         },
+
         {
-        "DT_RowId"  : "row_3",
-        "name"      : "William Price",
-        "role"      : "Industrial Designer",
-        "company"   : "Apple",
-        "tactic"    : "343243242",
-        "contacted" : "2015-03-01",
-        "stage"     : "1",
-        "offer"     : "Cognos",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
+            "prospectId"      : "21090308677482806CDOC250",
+            "responseId"      : "910606145",
+            "read"            : false,
+            "firstName"       : "CPeter",
+            "lastName"        : "Mcnally",
+            "role"            : "MR",
+            "company"         : "goldcrestdesign&engineering",
+            "tacticCode"      : "C25000KT",
+            "lastInteraction" : {
+                "type" : "closedResponse",
+                "date" : 1434114174000
+            },
+            "buyingStage"    : "buy",
+            "nextBestAction" : "handedOver"
         },
+
         {
-        "DT_RowId"  : "row_4",
-        "name"      : "Alicia Garcia",
-        "role"      : "3D Artist",
-        "company"   : "Oracle",
-        "tactic"    : "343243242",
-        "contacted" : "2015-02-24",
-        "stage"     : "1",
-        "offer"     : "BlueMix",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
+            "prospectId"      : "21185649277482806CDOC250",
+            "responseId"      : "914405482",
+            "read"            : false,
+            "firstName"       : "DJagpal",
+            "lastName"        : "Zheeta",
+            "role"            : "CIO",
+            "company"         : "Marks and Spencer PLC",
+            "tacticCode"      : "C25000KT",
+            "lastInteraction" : {
+                "type" : "closedResponse",
+                "date" : 1434114174000
+            },
+            "buyingStage"    : "validated",
+            "nextBestAction" : "setBuyingStage"
         },
+
         {
-        "DT_RowId"  : "row_5",
-        "name"      : "Thomas Morris",
-        "role"      : "Brand Designer",
-        "company"   : "IBM",
-        "tactic"    : "343243242",
-        "contacted" : "2015-02-23",
-        "stage"     : "1",
-        "offer"     : "BlueMix",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
-        },
-        {
-        "DT_RowId"  : "row_6",
-        "name"      : "Veronica Wright",
-        "role"      : "Illustrator",
-        "company"   : "Apple",
-        "tactic"    : "343243242",
-        "contacted" : "2015-01-13",
-        "stage"     : "1",
-        "offer"     : "Websphere",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
-        },
-        {
-        "DT_RowId"  : "row_7",
-        "name"      : "Daniel Gibson",
-        "role"      : "Art Director",
-        "company"   : "BP",
-        "tactic"    : "343243242",
-        "contacted" : "2014-12-13",
-        "stage"     : "1",
-        "offer"     : "Sales Connect",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
-        },
-        {
-        "DT_RowId"  : "row_8",
-        "name"      : "Kelly Phillips",
-        "role"      : "Videographer",
-        "company"   : "Microsoft",
-        "tactic"    : "343243242",
-        "contacted" : "2014-08-20",
-        "stage"     : "1",
-        "offer"     : "Rational",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
-        },
-        {
-        "DT_RowId"  : "row_9",
-        "name"      : "Elijah Garcia",
-        "role"      : "Digital Designer",
-        "company"   : "Huddle",
-        "tactic"    : "343243242",
-        "contacted" : "2014-08-13",
-        "stage"     : "1",
-        "offer"     : "Unica",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
-        },
-        {
-        "DT_RowId"  : "row_10",
-        "name"      : "Alice Kelly",
-        "role"      : "3D Artist",
-        "company"   : "Pixar",
-        "tactic"    : "343243242",
-        "contacted" : "2014-06-13",
-        "stage"     : "1",
-        "offer"     : "Websphere",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
-        },
-        {
-        "DT_RowId"  : "row_11",
-        "name"      : "Erik Brown",
-        "role"      : "Product Manager",
-        "company"   : "Oracle",
-        "tactic"    : "343243242",
-        "contacted" : "2014-04-13",
-        "stage"     : "1",
-        "offer"     : "Verse",
-        "note"      : "Lorem ipsum dolor sit amet, audiam democritum an sed, mel at accusam voluptatum, ex eum quod omittantur. Id quo aliquam mentitum pertinacia."
+            "prospectId"      : "21232954777482806CDOC250",
+            "responseId"      : "906505601",
+            "read"            : false,
+            "firstName"       : "EOmar",
+            "lastName"        : "Khan",
+            "role"            : "Data Director",
+            "company"         : "WPP",
+            "tacticCode"      : "C25000KT",
+            "lastInteraction" : {
+                "type" : "closedResponse",
+                "date" : 1434114174000
+            },
+            "buyingStage"    : "",
+            "nextBestAction" : "setBuyingStage"
         }
     ]
 }

@@ -1,0 +1,121 @@
+//
+// Scaffolding Footer
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Footer
+//----------------------------------------------------------------------------//
+.footer {
+
+    border-top : 4px solid rgba( 247, 182, 0, 0.5 );
+    color      : $gray-lighter;
+    font-size  : 16px;
+
+    // Background
+    //------------------------------------------------------------------------//
+    background : $gray-dark image-url( "footer/background.png" );
+
+    &.noBackground {
+        background : $gray-dark;
+    }
+
+    // Footer Section
+    //------------------------------------------------------------------------//
+    .footerSection {
+        min-height : 100%;
+    }
+
+    // Separators
+    //------------------------------------------------------------------------//
+    .footerSection:not:first-child {
+        border-left : 2px solid $gray-darker;
+    }
+
+    // Background Type
+    //------------------------------------------------------------------------//
+    p i {
+        display    : inline-block;
+        text-align : center;
+        width      : 20px;
+    }
+
+    // Footer Heading
+    //------------------------------------------------------------------------//
+    h4 {
+        display       : block;
+        font-size     : 20px;
+        line-height   : 32px;
+        margin-bottom : 10px;
+        padding       : 2px 0;
+    }
+
+    // Social Elements
+    //------------------------------------------------------------------------//
+    .socialList  {
+
+        text-align : center;
+
+        a {
+
+            &:hover {
+                background : #fff;
+            }
+
+            border          : 2px solid #fff;
+            border-radius   : 50%;
+            display         : inline-block;
+            font-size       : 30px;
+            height          : 70px;
+            line-height     : 70px;
+            margin          : 0 10px 15px;
+            text-decoration : none;
+            transition      : all .2s ease-in-out;
+            width           : 70px;
+
+        }
+
+    }
+
+}
+
+//
+// Scaffolding Copyright
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//--------------------------------------------------------------------------- //
+
+// Copyright
+//--------------------------------------------------------------------------- //
+.copyright {
+
+    background : $gray-dark;
+    border-top : 2px solid $gray-darker;
+    color      : $gray-lighter;
+    padding    : 10px 0;
+
+    // Paragraph
+    //----------------------------------------------------------------------- //
+    p {
+        display : inline;
+    }
+
+    // Links
+    //----------------------------------------------------------------------- //
+    a {
+        color : #fff;
+    }
+
+    // To Top icon
+    //----------------------------------------------------------------------- //
+    span i {
+        cursor : pointer;
+    }
+
+    // Link List
+    //----------------------------------------------------------------------- //
+    ul {
+        display : inline;
+    }
+
+}

@@ -29,7 +29,7 @@
 
     git@bitbucket.org:TriangleSolutions/codeblender.net.git
 
-    $ /var/www/Dropbox/www/DryKiss/codeblender.net/www/source
+    $ /var/www/codeblender.net/www
     $ git remote add origin git@bitbucket.org:TriangleSolutions/codeblender.net.git
     $ git push -u origin --all
     $ git push -u origin --tags

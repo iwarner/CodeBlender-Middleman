@@ -20,9 +20,7 @@ see :
     .col-md-6
 
         -# Heading
-        = partial "./bootstrap/type/heading",
-                   :locals => { :tag  => "h2",
-                                :text => "Sign Up" }
+        = partial "molecule/heading/heading", locals: { tag: "h2", text: "Sign Up" }
 
         -# Register Form
         %form.registerForm{ :action     => "#",
@@ -104,8 +102,7 @@ see :
                                     :label => { :extraClass => "sr-only",
                                                 :title      => "City/Town" } }
 
-            %p
-                Enter your account details
+            %p Enter your account details
 
             -# Email
             = partial "./forms/input",

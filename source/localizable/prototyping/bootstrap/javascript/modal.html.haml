@@ -61,14 +61,14 @@ locals :
 ---
 
 -# Heading
-= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Overlapping modals not supported" }
+= partial "molecule/heading/heading", locals: { tag: "h2", text: "Overlapping modals not supported" }
 
 %p
     Be sure not to open a modal while another is still visible. Showing more than
     one modal at a time requires custom code.
 
 -# Heading
-= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Modal markup placement" }
+= partial "molecule/heading/heading", locals: { tag: "h2", text: "Modal markup placement" }
 
 %p
     Always try to place a modal's HTML code in a top-level position in your
@@ -76,7 +76,7 @@ locals :
     functionality.
 
 -# Heading
-= partial "./bootstrap/type/heading", locals: { tag: "h2", text: "Default" }
+= partial "molecule/heading/heading", locals: { tag: "h2", text: "Default" }
 
 -# Title
 - title = "Modal Title"
@@ -86,10 +86,10 @@ locals :
     %p Modal Body
 
 -# Modal
-= partial "./bootstrap/javascript/modal", locals: { id: "myModal", body: body, title: title }
+= partial ".bootstrap/javascript/modal", locals: { id: "myModal", body: body, title: title }
 
 -# Button
-= partial "./bootstrap/css/button",
+= partial ".bootstrap/css/button",
            locals: { context: "primary",
                      content: "Launch Modal",
                      data:    { target: "#myModal",

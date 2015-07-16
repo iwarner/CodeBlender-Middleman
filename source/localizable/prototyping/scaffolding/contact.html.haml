@@ -45,9 +45,7 @@ todo :
 /     * Title and Small text can be found in the localised file.
 
 / -# Heading
-/ = partial "bootstrap/type/heading",
-/            :locals => { :small => :headingSmall,
-/                         :text  => :headingText }
+/ = partial "molecule/heading/heading", locals: { small: :headingSmall, text: :headingText }
 
 / -# Introduction
 / %p
@@ -84,7 +82,7 @@ todo :
 /                         %address
 
 /                             -# Heading
-/                             = partial "bootstrap/type/heading",
+/                             = partial "molecule/heading/heading",
 /                                        :locals => { :text => "Greentouch PI Ltd",
 /                                                     :tag  => "h3" }
 
@@ -109,7 +107,7 @@ todo :
 /                     .col-md-6.col-sm-6.col-xs-6
 
 /                         -# Opening Times
-/                         = partial "bootstrap/type/heading",
+/                         = partial "molecule/heading/heading",
 /                                    :locals => { :small => "Open 7 days a week!",
 /                                                 :text  => "Opening Times",
 /                                                 :tag   => "h3" }
@@ -121,7 +119,7 @@ todo :
 /                         Sunday and Bank Holidays : 11am - 8pm
 
 /                 -# Heading
-/                 = partial "bootstrap/type/heading",
+/                 = partial "molecule/heading/heading",
 /                            :locals => { :small => "On Facebook and Twitter for exclusive promtions!",
 /                                         :text  => "Follow Us",
 /                                         :tag   => "h3" }
@@ -134,7 +132,7 @@ todo :
 /     .col-md-4
 
 /         -# Heading
-/         = partial "bootstrap/type/heading",
+/         = partial "molecule/heading/heading",
 /                    :locals => { :extraClass => "noMargin",
 /                                 :text       => "Booking Form",
 /                                 :tag        => "h2" }

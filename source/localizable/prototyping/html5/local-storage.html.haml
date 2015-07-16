@@ -18,9 +18,7 @@ see :
 ---
 
 -# Heading
-= partial "bootstrap/type/heading",
-           :locals => { :text => "Export",
-                        :tag  => "h2" }
+= partial "molecule/heading/heading", locals: { text: "Export", tag: "h2" }
 
 -# Button
 = partial "./bootstrap/css/button",
@@ -29,8 +27,6 @@ see :
                         :extraClass => "downloadButton" }
 
 -# Heading
-= partial "bootstrap/type/heading",
-           :locals => { :text => "Import",
-                        :tag  => "h2" }
+= partial "molecule/heading/heading", locals: { text: "Import", tag: "h2" }
 
-%input.import{ :type => "file" }
+%input.import{ type: "file" }

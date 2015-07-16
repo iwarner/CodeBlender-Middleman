@@ -14,8 +14,6 @@
 -# Variables
 - locale = I18n.locale.to_s
 - d      = current_page.data
-- dc     = data.config
-- dn     = data.nav.navigation
 
 -# HTML5 DocType
 !!!
@@ -24,13 +22,13 @@
 %html{ lang:      string( :locale ),
        itemscope: true,
        itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
-       manifest:  dc.manifest ? "/offline.manifest" : false,
-       ng:        { app: ( dc.angular.present? and dc.angular.appName.present? ) ? dc.angular.appName : false },
+       manifest:  dataConfig.manifest ? "/offline.manifest" : false,
+       ng:        { app: ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false },
        xmlns:     "http://www.w3.org/1999/xhtml",
        xml:       { lang: string( :locale ) } }
 
     -# Head Section
-    %head{ prefix: ( dc.head.present? and dc.head.prefix.present? ) ? dc.head.prefix : false }
+    %head{ prefix: ( dataConfig.head.present? and dataConfig.head.prefix.present? ) ? dataConfig.head.prefix : false }
 
         -# Meta Tags
         = partial "./meta/all"
@@ -50,60 +48,50 @@
         %base{ href: "/" }
 
     -# Body with Page Class
-    %body{ id:    dc.body.id ? dc.body.id : false,
-           class: dc.body.extraClass ? dc.body.extraClass + " " + page_classes : page_classes,
+    %body{ id:    dataConfig.body.id ? dataConfig.body.id : false,
+           class: dataConfig.body.extraClass ? dataConfig.body.extraClass + " " + page_classes : page_classes,
            data:  { lang:   locale,
-                    locale: ( ! dc.facebook.locale.blank? ) ? dc.facebook.locale[ locale ] : false },
+                    locale: ( ! dataConfig.facebook.locale.blank? ) ? dataConfig.facebook.locale[ locale ] : false },
            ng:    { controller: d.angular ? d.angular.controller ? d.angular.controller : false : false } }
 
         %a{ id: "top" }
 
         -# Facebook Root - Requires an AppID
-        - if dc.facebook.app.id
+        - if dataConfig.facebook.app.id
             #fb-root
 
         -# Section - Above Nav
-        - if dn.above
-            = partial dn.above
+        - if dataNav.above
+            = partial dataNav.above
 
         -# Section - Navbar
-        - if ! dc.navbar.blank? and d.navbar != false
-            %header= partial "./bootstrap/component/navbar", locals: dn
+        - if ! dataConfig.navbar.blank? and d.navbar != false
+            = partial "bootstrap/component/navbar", locals: dataNav
 
         -# Section - Below Navigation
-        -# Can be done globally, or via page frontmatter
-        - if dn.below or ( d.navigation and d.navigation.below )
-            = partial "../_lib/nav/below"
+        - if dataNav.below
+            = partial dataNav.below
 
         -# Section Main
-        %div{ class: dc.container ? dc.container : false }
+        %div{ class: dataConfig.container ? dataConfig.container : false }
 
             -# Section - Yield
             = yield
 
         -# Section - Footer
-        - if dc.footer.active or dc.copyright
+        - if dataConfig.footer.active or dataConfig.copyright
+            = partial "organism/footer/footer"
 
-            %footer
-
-                -# Footer
-                - if dc.footer.active
-                    = partial "./scaffolding/footer"
-
-                -# Copyright
-                - if dc.copyright
-                    = partial "./scaffolding/copyright"
-
-                -# Icon
-                - if dc.topIcon
-                    = partial "./scaffolding/topIcon"
+        -# Icon
+        - if dataConfig.topIcon
+            = partial "scaffolding/topIcon"
 
         -# Configuration
-        - if dc.configuration
-            = partial "./scaffolding/configuration"
+        - if dataConfig.configuration
+            = partial "scaffolding/configuration"
 
         -# Cordova
-        - if build? and dc.cordova
+        - if build? and dataConfig.cordova
             %script{ src: "cordova.js" }
 
         -# JavaScript
@@ -111,5 +99,5 @@
         = javascript_include_tag :body
 
         -# Google Analytics
-        - if dc.google.analytics.active
-            = partial "./google/analytics"
+        - if dataConfig.google.analytics.active
+            = partial "google/analytics"

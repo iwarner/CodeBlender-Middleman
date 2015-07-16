@@ -18,7 +18,6 @@ gem "middleman-deploy"
 gem "middleman-syntax"
 gem "middleman-sprockets"
 gem "middleman-favicon-maker"
-gem "middleman-components", :path => "/var/www/codeblender.net/middleman-components"
 
 # Tools
 gem "builder"

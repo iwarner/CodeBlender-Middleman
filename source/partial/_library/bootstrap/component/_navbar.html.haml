@@ -73,7 +73,7 @@
                     - if brand.logo.active
 
                         -# Image
-                        = partial "./bootstrap/css/image",
+                        = partial "atom/image/image",
                                    locals: { alt:  string( brand.logo.alt ),
                                              size: [ brand.logo.width, nav.brand.height ],
                                              src:  brand.logo.url ? brand.logo.url : "logo/logo.png" }

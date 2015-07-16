@@ -4,13 +4,8 @@ angular :
     controller : "DataTableCtrl"
 
 heading :
-    small : ""
+    small : "JQuery grid"
     title : "DataTables"
-
-meta :
-    author      : "DryKISS"
-    description : "DataTables"
-    title       : "DataTables"
 
 see :
     - - "DataTables"
@@ -42,32 +37,65 @@ todo :
 
 %hr
 
-%table#dataTable.table.table-striped.table-bordered.table-hover{ aria: { describedby: "dataTable_info" }, role: "grid" }
+-# DataGrid
+.table-responsive
 
-    %thead
+    -# Table
+    %table#dataTable.table.table-hover{ aria: { describedby: "dataTable_info" }, role: "grid" }
 
-        %tr
-            %th
-                %input{ type: "checkbox", id: "selectAll", name: "selectAll" }
-            %th Name
-            %th Role
-            %th Company
-            %th Tactic Code
-            %th Last Contacted
-            %th Sales stage
-            %th Related Offer
-            %th Note
-            %th Expand
+        %thead
 
-    %tfoot
-        %tr
-            %th
-            %th Name
-            %th Role
-            %th Company
-            %th Tactic Code
-            %th Last Contacted
-            %th
-            %th Related Offer
-            %th Note
-            %th
+            %tr
+                %th Prospect ID
+                %th= string :"table.client"
+                %th= string :"table.role"
+                %th= string :"table.organisation"
+                %th= string :"table.tactic"
+                %th= string :"table.lastContact"
+                %th= string :"table.buyingStage"
+                %th= string :"table.nextAction"
+                %th Expand
+
+        %tfoot
+            %tr
+                %th Prospect ID
+                %th Name
+                %th Role
+                %th Company
+                %th Tactic Code
+                %th Last Contacted
+                %th Buying Stage
+                %th Next Action
+                %th Expand
+
+/ -# DataGrid
+/ .table-responsive
+
+/     %table#dataTable.table.table-striped.table-bordered.table-hover{ aria: { describedby: "dataTable_info" }, role: "grid" }
+
+/         %thead
+
+/             %tr
+/                 %th
+/                     %input{ type: "checkbox", id: "selectAll", name: "selectAll" }
+/                 %th Name
+/                 %th Role
+/                 %th Company
+/                 %th Tactic Code
+/                 %th Last Contacted
+/                 %th Sales stage
+/                 %th Related Offer
+/                 %th Note
+/                 %th Expand
+
+/         %tfoot
+/             %tr
+/                 %th
+/                 %th Name
+/                 %th Role
+/                 %th Company
+/                 %th Tactic Code
+/                 %th Last Contacted
+/                 %th
+/                 %th Related Offer
+/                 %th Note

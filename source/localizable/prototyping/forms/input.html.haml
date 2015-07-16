@@ -1,15 +1,11 @@
 ---
 
+# Variables
+stub : input
+
 heading :
     small : "Core user data entry element"
     title : "Form Input Fields"
-
-meta :
-    author      : "DryKISS"
-    description :
-        "An Input field is a basic element that allows a user to enter data.
-        Functionality can be altered via the Type attribute."
-    title       : "Form Input Fields"
 
 see :
     - - "Bootstrap Forms"
@@ -93,63 +89,50 @@ locals :
 
 ---
 
--# Form
-%form.formInput{ action: "", method: "POST", novalidate: true }
+-# Text Type
+:ruby
+    code = %{partial "atom/input/input",
+                       locals: { help:  {},
+                                 icon:  { prepend: "fa-credit-card" },
+                                 input: { inputGroupClass: "input-group",
+                                          name:            "text",
+                                          placeholder:     "Enter Text" },
+                                 label: { title: "Text Input" } }}
 
-    -# Text Type
-    :ruby
-        code = %{partial "./forms/input",
-                           locals: { help:  true,
-                                     icon:  { prepend: "fa-credit-card" },
-                                     input: { inputGroupClass: "input-group",
-                                              name:            "text",
-                                              placeholder:     "Enter Text" },
-                                     label: { title: "Text Input" } }}
+-# Code
+= partial "scaffolding/code",
+           locals: { id:      1,
+                     code:    code,
+                     heading: { small: "Generic default type", text: "Text Type" } }
 
-    -# Code
-    = partial "./scaffolding/code",
-               locals: { id:      1,
-                         code:    code,
-                         heading: { small: "Generic default type",
-                                    text:  "Text Type" } }
+-# Password Type
+:ruby
+    code = %{partial "atom/input/input",
+                      locals: { help:  { text: "Enter 8 characters [a-zA-Z0-9]" },
+                                icon:  { prepend:     "fa-credit-card" },
+                                input: { name:        "password",
+                                         placeholder: "Enter password",
+                                         type:        "password" },
+                                label: { title: "Password" } } }
 
-    -# Submit
-    = partial "./bootstrap/css/button",
-               :locals => { :context => "primary",
-                            :content => "Submit" }
+-# Code
+= partial "./scaffolding/code",
+           locals: { id:      2,
+                     code:    code,
+                     heading: { small: "Also contains some help text", text: "Password Type" } }
 
-    -# Password Type
-    :ruby
-        code = %{partial "./forms/input",
-                 :locals => { :help          => "Enter 8 characters [a-zA-Z0-9]",
-                              :icon          => { :prepend => "fa-credit-card" },
-                              :input         => { :extraClass      => "password-strength form-control",
-                                                  :inputGroupClass => "input-group form-group-password-strength",
-                                                  :name            => "password",
-                                                  :placeholder     => "Enter password",
-                                                  :type            => "password" },
-                              :label         => { :title => "Password" },
-                              :strengthMeter => true }}
+-# Email Type
+:ruby
+    code = %{partial "atom/input/input",
+                      locals: { help:  {},
+                                icon:  { prepend: "fa-envelope" },
+                                input: { name:        "email",
+                                         placeholder: "Enter email",
+                                         type:        "email" },
+                                label: { title: "Email" } }}
 
-    = partial "./scaffolding/code",
-               :locals => { :id      => 2,
-                            :code    => code,
-                            :heading => { :small => "Also contains some help text",
-                                          :text  => "Password Type" } }
-
-    -# Email Type
-    :ruby
-        code = %{partial "./forms/input",
-                 :locals => { :help          => true,
-                              :icon          => { :prepend => "fa-envelope" },
-                              :input         => { :inputGroupClass => "input-group",
-                                                  :name            => "email",
-                                                  :placeholder     => "Enter email",
-                                                  :type            => "email" },
-                              :label         => { :title => "Email" } }}
-
-    = partial "./scaffolding/code",
-               :locals => { :id      => 3,
-                            :code    => code,
-                            :heading => { :small => "Also contains a group icon",
-                                          :text  => "Email Type" } }
+-# Code
+= partial "./scaffolding/code",
+           locals: { id:      3,
+                     code:    code,
+                     heading: { small: "Also contains a group icon", text: "Email Type" } }

@@ -10,9 +10,10 @@
 @mixin region( $region, $height, $width, $left : 0, $top : 0 ) {
 
     .region#{ $region } {
-        height   : #{ $height }px;
-        width    : #{ $width }px;
-        left     : #{ $left }px;
-        top      : #{ $top }px;
+        height : #{ $height }px;
+        width  : #{ $width }px;
+        left   : #{ $left }px;
+        top    : #{ $top }px;
     }
+
 }

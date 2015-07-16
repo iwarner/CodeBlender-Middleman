@@ -24,7 +24,7 @@
     - elsif ! image.is_a?( Array )
 
         -# Image
-        = partial "./bootstrap/css/image",
+        = partial "atom/image/image",
                    locals: { alt:        string( title ),
                              src:        image,
                              extraClass: "img-responsive" }

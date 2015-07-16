@@ -64,7 +64,7 @@ locals :
 
 -# Default Image
 :ruby
-    code = %{partial "./bootstrap/css/image", locals: { src: loremPixel() }}
+    code = %{partial "atom/image/image", locals: { src: loremPixel() }}
 
 -# Code
 = partial "./scaffolding/code",
@@ -75,7 +75,7 @@ locals :
 
 -# Thumbnail Image
 :ruby
-    code = %{partial "./bootstrap/css/image",
+    code = %{partial "atom/image/image",
                       locals: { src:        lorem.image( "200x200" ),
                                 extraClass: "img-thumbnail" }}
 
@@ -88,7 +88,7 @@ locals :
 
 -# Circle Image
 :ruby
-    code = %{partial "./bootstrap/css/image",
+    code = %{partial "atom/image/image",
                       locals: { data:       { src: holder( "200x200" ) },
                                 extraClass: "img-circle" }}
 
@@ -101,7 +101,7 @@ locals :
 
 -# Rounded Image
 :ruby
-    code = %{partial "./bootstrap/css/image",
+    code = %{partial "atom/image/image",
                       locals: { src:        loremPixel( "200/200", "Rounded", "abstract" ),
                                 extraClass: "img-rounded" }}
 
