@@ -17,8 +17,8 @@
 # Firebase : https://www.firebase.com
 
     Test User
-    ian.warner@drykiss.com
-    dkTestUser15
+    User : ian.warner@drykiss.com
+    Pass : dkTestUser15
 
 # GitHub : http://github.com
 

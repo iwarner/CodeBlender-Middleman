@@ -20,9 +20,7 @@ brand :
         icon   : "fa-eyedropper"
 
     link :
-        url : "#"
-        ui  :
-            sref : "overview"
+        url : "/"
 
     logo :
         active : false
@@ -42,7 +40,6 @@ ng :
     cloak      : false
 
 position : "fixed-top"
-search   : false
 type     : false
 uLClass  : "navbar-left"
 wrapper  : false

@@ -20,8 +20,11 @@ angular.module 'app'
 
     '$stateProvider'
     '$urlRouterProvider'
+    'ngClipProvider'
 
-    ( $stateProvider, $urlRouterProvider ) ->
+    ( $stateProvider, $urlRouterProvider, ngClipProvider ) ->
+
+        ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'
 
         # Default state
         $urlRouterProvider.when "", "/"

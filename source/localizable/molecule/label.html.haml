@@ -1,0 +1,55 @@
+---
+
+stub : label
+
+heading :
+    title : "Label"
+
+see :
+    - - "Bootstrap Labels"
+      - "http://getbootstrap.com/components/#labels"
+
+locals :
+    - - "context"
+      - "string"
+      - "optional"
+      - "Variations colour of the label, default, primary, success, info, warning, danger"
+    - - "content"
+      - "string"
+      - "required"
+      - "Label text"
+    - - "href"
+      - "string"
+      - "optional"
+      - "Whether this is a link"
+    - - "icon"
+      - "string"
+      - "optional"
+      - "Whether to include a Font Awesome icon"
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./bootstrap/component/label",
+                      locals: { content: "Default" }}
+
+-# Code
+= partial "./organism/code/code",
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }
+
+-# Partial
+:ruby
+    code = %{partial "./bootstrap/component/label",
+                      locals: { context: "primary",
+                                content: "Tag",
+                                href:    "#",
+                                icon:    "fa-tag" }}
+
+-# Code
+= partial "./organism/code/code",
+           locals: { id:      2,
+                     code:    code,
+                     heading: { text: "Tags" } }

@@ -1,0 +1,26 @@
+-##
+-# Google Adsense Advert
+-#
+-# Locals
+-# google.adsense - string - required -
+-# slot           - string -
+-# width          - int    -
+-# height         - int    -
+-#
+-# Usage
+-# -# Adsense
+-# = partial "./atom/adsense/adsense", locals: { slot: 9670063286, width: 468, height: 60 }
+-#
+-# @see https://www.google.com/adsens
+-##
+
+-# Abort if googleAdsense is not defined or Blank
+- if ! dataConfig.google.adsense.present?
+    - p "Google Adsense - no googleAdsense defined"
+
+%script{ async: true, src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" }
+
+%ins.adsbygoogle{ style: "display:inline-block;width:#{ width }px;height:#{ height }px", data: { ad: { client: dataConfig.google.adsense, slot: slot } } }
+
+:javascript
+    ( adsbygoogle = window.adsbygoogle || [] ).push( {} );

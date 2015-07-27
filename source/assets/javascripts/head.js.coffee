@@ -14,6 +14,10 @@
 //= require angular/angular
 //= require angular-ui-router/release/angular-ui-router
 
+# Angular Clipboard
+//= require zeroclipboard/dist/ZeroClipboard
+//= require ng-clip/dest/ng-clip.min
+
 # Firebase
 //= require firebase/firebase
 

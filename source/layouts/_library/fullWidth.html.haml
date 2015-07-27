@@ -18,7 +18,7 @@
 
         -# Heading
         - if dataConfig.heading
-            = partial "molecule/heading/heading", locals: { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
+            = partial "./molecule/heading/heading", locals: { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
 
         -# Details
         - if dataConfig.description

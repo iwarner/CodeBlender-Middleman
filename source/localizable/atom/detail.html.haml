@@ -1,0 +1,24 @@
+---
+
+stub : detail
+
+heading :
+    small : "Click to show an expanded area."
+    title : "Scaffolding Details partial"
+
+see :
+    - - "Details Tag"
+      - "http://www.paulund.co.uk/html5-details-tag"
+
+---
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
+
+-# Details
+= partial "./scaffolding/details", locals: { summary: "Summary", content: "Content" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "./scaffolding/details", locals: { summary: "Summary", content: "Content" }

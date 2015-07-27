@@ -1,0 +1,43 @@
+//
+// Dropdown
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Dropdown
+//----------------------------------------------------------------------------//
+.dropdown {
+
+    // Icon
+    //------------------------------------------------------------------------//
+    &__icon {
+
+        &:before {
+            content        : "\f0d7";
+            font-family    : FontAwesome;
+            margin-left    : 3px;
+            vertical-align : middle;
+        }
+
+    }
+
+}
+
+// Dropup
+//----------------------------------------------------------------------------//
+.dropup {
+
+    // Icon
+    //------------------------------------------------------------------------//
+    .dropdown__icon {
+
+        &:before {
+            content        : "\f0d8";
+            font-family    : FontAwesome;
+            margin-left    : 3px;
+            vertical-align : middle;
+        }
+
+    }
+
+}

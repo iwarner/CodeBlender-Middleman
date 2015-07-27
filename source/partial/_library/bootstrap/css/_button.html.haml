@@ -3,8 +3,7 @@
 -#
 -# Usage
 -# -# Button
--# = partial "./bootstrap/css/button",
--#            locals: { content: "Default" }
+-# = partial "./bootstrap/css/button", locals: { content: "Default" }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://www.plugolabs.com/twitter-bootstrap-button-generator/
@@ -52,12 +51,11 @@
 
     -# Image
     - if locals[ :image ]
-        = partial "atom/image/image", locals: locals[ :image ]
+        = partial "./atom/image/image", locals: locals[ :image ]
 
     -# Dropdown Caret
     - if locals[ :dropdown ]
-        = icon "fa-chevron-down pull-right"
-        %span.sr-only Toggle Dropdown
+        %span{ class: "dropdown__icon" }
 
 -# Link
 - if ! ( locals[ :href ] or locals[ :ui ] )

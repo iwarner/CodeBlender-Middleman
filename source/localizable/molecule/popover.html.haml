@@ -1,0 +1,74 @@
+---
+
+heading :
+    small : "Provides contextual information for a user."
+    title : "Popover"
+
+meta :
+    author      : "DryKISS"
+    description : "Add small overlays of content, like those on the iPad, to any element for housing secondary information.
+                   Popovers require the tooltip plugin to be included in your version of Bootstrap.
+                   Please read the Bootstrap page for caveats when placing inside certain elements."
+    title       : "Popover"
+
+see :
+    - - "Bootstrap Popover"
+      - "http://getbootstrap.com/javascript/#popovers"
+
+todo :
+    - - ""
+      - "Popover"
+      - "2014-06-13"
+      - { "context" : "info" }
+
+locals :
+    - - "content"
+      - "string"
+      - "required"
+      - "Button Text"
+    - - "placement"
+      - "string"
+      - "optional"
+      - "Left, right, top, bottom, default is auto"
+    - - "popBody"
+      - "string"
+      - "required"
+      - "Body of the popover"
+    - - "popTitle"
+      - "string"
+      - "required"
+      - "Title of the popover"
+
+---
+
+%p
+    When "auto" is specified, it will dynamically reorient the popover.
+    For example, if placement is "auto left", the popover will display to the
+    left when possible, otherwise it will display right.
+
+-# Default
+:ruby
+    code = %{partial "./bootstrap/javascript/popover",
+                      :locals => { :content  => "Default",
+                                   :popBody  => "Popover Body Copy",
+                                   :popTitle => "Popover Default" }}
+
+= partial "./organism/code/code",
+           locals: { id:      1,
+                     code:    code,
+                     heading: { small: "Auto positioned popover",
+                                text:  "Default Popover" } }
+
+-# Right
+:ruby
+    code = %{partial "./bootstrap/javascript/popover",
+                      locals: { content:   "Right",
+                                placement: "right",
+                                popBody:   "Popover Body Copy",
+                                popTitle:  "Popover Right" }}
+
+= partial "./organism/code/code",
+           :locals => { :id      => 2,
+                        :code    => code,
+                        :heading => { :small => "",
+                                      :text  => "Popover Right" } }

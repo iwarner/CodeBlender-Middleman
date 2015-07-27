@@ -1,0 +1,29 @@
+---
+
+stub : localStorage
+
+heading :
+    small : "Tips and Tricks for Local Storage"
+    title : "Local Storage"
+
+see :
+    - - "Local Storage"
+      - "http://diveintohtml5.info/storage.html"
+    - - "Saving Images into Local Storage"
+      - "https://hacks.mozilla.org/2012/02/saving-images-and-files-in-localstorage/"
+
+---
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { text: "Export", tag: "h2" }
+
+-# Button
+= partial "./bootstrap/css/button",
+           locals: { context:    "primary",
+                     content:    "Download",
+                     extraClass: "downloadButton" }
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { text: "Import", tag: "h2" }
+
+%input.import{ type: "file" }

@@ -28,7 +28,7 @@
                               slide:  { to: i } } }
 
     -# Inner Content
-    .carousel-inner{ :role => "listbox" }
+    .carousel-inner{ role: "listbox" }
 
         -# Array Loop
         - array.each_with_index do | slide, i |
@@ -44,7 +44,7 @@
                         - slide[ :image ][ :alt ] = "Carousel #{ i }"
 
                     -# Image
-                    = partial "atom/image/image", locals: slide[ :image ]
+                    = partial "./atom/image/image", locals: slide[ :image ]
 
                 -# Caption
                 - if slide[ :image ][ :caption ]

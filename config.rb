@@ -4,37 +4,34 @@
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 
-# Middleman Components
-activate :components
-
 # Config Variables
 set :dataConfig, data.config
 set :dataNav,    data.nav.navigation
 set :version,    dataConfig.version
 
+# Config
+config[ :partials_dir ] = "partial/_library/"
+
 # Variables
-set :relative_links,   true
-set :strip_index_file, true
+set :relative_links,   false
+set :strip_index_file, false
 set :syntaxScheme,     "ThankfulEyes"
 set :path,             "assets"
 set :css_dir,          "#{ path }/stylesheets"
 set :js_dir,           "#{ path }/javascripts"
 set :images_dir,       "#{ path }/images"
+set :index_file,       "index.html"
 set :fonts_dir,        "#{ path }/font"
-set :partials_dir,     "partial/_library"
 set :haml,             { ugly: true, format: :html5 }
 set :build_dir,        "www"
 set :layout,           "_lib/sidebarLeft"
 
 # Markdown Engine
 set :markdown_engine, :kramdown
-set :markdown, layout_engine: :haml,
-               tables:        true,
-               autolink:      true,
-               smartypants:   true
+set :markdown, layout_engine: :haml, tables: true, autolink: true, smartypants: true
 
 # Syntax Highlighting
-activate :syntax, line_numbers: true, wrap: true
+activate :syntax
 
 # i18n
 I18n.enforce_available_locales = true
@@ -101,9 +98,9 @@ activate :blog do | blog |
 
 end
 
-# # Middleman Deploy
-# activate :deploy do | deploy |
-# end
+# Middleman Deploy
+activate :deploy do | deploy |
+end
 
 # # Create GZIP Content
 # helpers do
@@ -121,6 +118,8 @@ end
 #     end
 
 # end
+
+# activate :directory_indexes
 
 # Build-specific configuration
 configure :build do
@@ -173,26 +172,26 @@ end
 # end
 
 # # Create Product Pages
-# if data.products
+if data.products.products
 
-#     # Loop through the products
-#     data.products.each do | product |
+    # Loop through the products
+    data.products.products.each do | product |
 
-#         # Create the Pages if status is active
-#         if product.status == "active"
+        # Create the Pages if status is active
+        if product.status == "active"
 
-#             # Page Name
-#             page = product.title.downcase.gsub( /[^a-z0-9\- ]/, ' ').gsub( / /, '-' )
+            # Page Name
+            page = product.title.downcase.gsub( /[^a-z0-9\- ]/, ' ').gsub( / /, '-' )
 
-#             # Debug
-#             # p product
-#             # p page
+            # Debug
+            # p product
+            # p page
 
-#             # Proxy Pages
-#             proxy "/shop/#{ page }/index.html", "templates/product.html", :locals => { :product => product }, :ignore => true
+            # Proxy Pages
+            proxy "/shop/#{ page }/index.html", "templates/product/product.html", :locals => { :product => product }, :ignore => true
 
-#         end
+        end
 
-#     end
+    end
 
-# end
+end

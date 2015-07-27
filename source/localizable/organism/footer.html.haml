@@ -1,0 +1,76 @@
+---
+
+stub : footer
+
+heading :
+    small : "Footer element for content panels"
+    title : "Footer partial"
+
+see :
+    - - "Bootstrap Sticky Footer"
+      - "http://getbootstrap.com/examples/sticky-footer/"
+    - - "Subtle Patterns"
+      - "http://subtlepatterns.com/"
+
+todo :
+    - - "Complete the Footer for the overall site"
+      - "Footer"
+      - "2014-02-12"
+      - { "context" : "info" }
+
+locals :
+    - - "array"
+      - "array"
+      - "optional"
+      - "Local array, usually from page data"
+    - - "fluid"
+      - "bool"
+      - "optional"
+      - "Whether the footer will be fluid within the parent container"
+    - - "footerClass"
+      - "string"
+      - "optional"
+      - "Footer extra classes"
+
+footer :
+    -   :title       : "Column 1"
+        :icon        : info
+        :description : |
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit...
+
+    -   :title       : "Column 2"
+        :icon        : cogs
+        :description : |
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit...
+
+    -   :title       : "Column 3"
+        :icon        : facebook
+        :extraClass  : social
+        :description : |
+            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit...
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./organism/footer/footer", locals: { fluid: true }}
+
+= partial "./organism/code/code",
+           locals: { id:      "1",
+                     code:    code,
+                     heading: { text: "Default" } }
+
+-# Using Local Data with No Background
+:ruby
+    code = %{partial "./organism/footer/footer",
+                      locals: { array:       current_page.data.footer,
+                                fluid:       true,
+                                footerClass: "noBackground text-center" }}
+
+= partial "./organism/code/code",
+           locals: { id:      "2",
+                     code:    code,
+                     heading: { text: "Local data Footer" } }

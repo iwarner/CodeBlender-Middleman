@@ -22,9 +22,6 @@
 -#                         :asideIcon => false,
 -#                         :backIcon  => false,
 -#                         :helpIcon  => false }
--#
--# Todo
--# @todo
 -##
 
 -# Title
@@ -53,12 +50,11 @@
     -# Logo If Required
     - if logo
         .logo
-            %img{ :src => "#{images_dir}/logo/logo@2x.png", :alt => "Together Bank" }
+            %img{ src: "#{images_dir}/logo/logo@2x.png", alt: "Together Bank" }
 
     -# Display the Title
     - if title
-        .title
-            = title
+        .title= title
 
 -# Back Icon
 - if backIcon

@@ -1,0 +1,22 @@
+-##
+-# Zero Clipboard
+-#
+-# @usage
+-# -# Zero Clipboard
+-# = partial "./atom/zeroClipboard/zeroClipboard"
+-#
+-#
+-# Validation .has-warning, .has-error to form-group
+-#
+-# @category atom
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @see      https://github.com/zeroclipboard/zeroclipboard
+-##
+
+
+-# Open Button
+= partial "./bootstrap/css/button",
+           locals: { content: "Copy",
+                     context: "primary",
+                     clip:    { copy: "copyToClipboard()" },
+                     type:    "button" }

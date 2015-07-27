@@ -1,0 +1,27 @@
+---
+
+heading :
+    small : "Google Adsense"
+    title : "Adsense"
+
+see :
+    - - "Google Adsense"
+      - "http://www.google.com/adsense/start/"
+
+todo :
+    - - "Complete instructions"
+      - "2014-02-12"
+      - { "context" : "info" }
+
+---
+
+:markdown
+
+    Adsense instructions
+
+-# Default
+:ruby
+    code = %{partial "./atom/adsense/adsense", locals: { slot: 9670063286, width: 468, height: 60 }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Default" } }

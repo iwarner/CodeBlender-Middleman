@@ -1,0 +1,75 @@
+-##
+-# Code
+-#
+-# Provides a code block that shows the partial and output code usage
+-#
+-# @usage
+-# -# Code
+-# = partial "organism/code/code", locals: { id: 1, code: code, heading: { small: "Small", text: "Text" } }
+-#
+-# @param id      If used multiple times on the same page, increment this
+-# @param code    The captured code fragment
+-# @param heading Textual heading
+-# @param lang    Code fragment language | default: haml
+-#
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://codeblender.net/organism/code
+-#
+-# @todo Allow for the heading tag to be given in the code partial also
+-# @todo Provide a means for the code block to be expanded and contracted, default as collapsed
+-# @todo Split out the Tabs array into a HAML hash
+-##
+
+-# Language
+- lang = locals[ :lang ] ? lang : "ruby"
+
+-# Heading Tag override
+- locals[ :heading ][ :tag ] = "h2"
+
+.code
+
+    -# Heading
+    = partial "./molecule/heading/heading", locals: locals[ :heading ]
+
+    .code__example
+
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { tag: "h5", text: "EXAMPLE" }
+
+        -# Block
+        = eval code
+
+    .code__code
+
+        -# Clipboard
+        .code__clip
+
+            -# Button Partial
+            = partial "./bootstrap/css/button", locals: { content: "Copy", extraClass: "pull-right" }
+
+        -# Tabs for code and output
+        = partial "./bootstrap/component/nav",
+                   locals: { array:  [ { path: locals[ :id ] ? "#code#{ id }"   : "#code1",   name: "Code" },
+                                       { path: locals[ :id ] ? "#output#{ id }" : "#output1", name: "Output" } ],
+                             toggle: true }
+
+        -# Capture Content
+        - capture = capture_html do
+            = eval code
+
+        -# Tab Content
+        .tab-content
+
+            -# Code
+            .tab-pane.active{ id: locals[ :id ] ? "code#{ id }" : "code1" }
+                :code
+                    #lang: #{ lang }
+                    = #{ code }
+                -#
+
+            -# Output
+            .tab-pane{ id: locals[ :id ] ? "output#{ id }" : "output1" }
+                :code
+                    #lang: html
+                    #{ capture }

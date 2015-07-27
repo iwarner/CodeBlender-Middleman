@@ -1,0 +1,150 @@
+---
+
+stub : registration
+
+heading :
+    small : "Standard Registration Form"
+    title : "Registration"
+
+see :
+    - - "Example registration form"
+      - "http://www.keenthemes.com/preview/metronic/templates/admin/login.html"
+
+---
+
+.row
+
+    .col-md-6
+
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Sign Up" }
+
+        -# Register Form
+        %form.registerForm{ action: "#", method: "post", novalidate: true }
+
+            %p
+                Enter your personal details
+
+/             -# Full Name
+/             = partial "./atom/input/input",
+/                        :locals => { :help  => { true },
+/                                     :icon  => { :prepend => "fa-font fa-fw" },
+/                                     :input => { :autocomplete    => "on",
+/                                                 :inputGroupClass => "input-group",
+/                                                 :name            => "registerName",
+/                                                 :placeholder     => "Full Name",
+/                                                 :required        => true,
+/                                                 :value           => "Ian Warner" },
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "Name" } }
+
+/             -# Address 1
+/             = partial "./atom/input/input",
+/                        :locals => { :help  => {true},
+/                                     :icon  => { :prepend => "fa-map-marker fa-fw" },
+/                                     :input => { :autocomplete    => "on",
+/                                                 :inputGroupClass => "input-group",
+/                                                 :name            => "registerAddress1",
+/                                                 :placeholder     => "Address 1",
+/                                                 :required        => true,
+/                                                 :value           => "Flat 6" },
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "Address 1" } }
+
+/             -# Address 2
+/             = partial "./atom/input/input",
+/                        :locals => { :help  => {true},
+/                                     :icon  => { :prepend => "fa-map-marker fa-fw" },
+/                                     :input => { :autocomplete    => "on",
+/                                                 :inputGroupClass => "input-group",
+/                                                 :name            => "registerAddress2",
+/                                                 :placeholder     => "Address 2",
+/                                                 :required        => true,
+/                                                 :value           => "Effingham Court" },
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "Address 2" } }
+
+/             -# City / Town
+/             = partial "./atom/input/input",
+/                        :locals => { :help  => {true},
+/                                     :icon  => { :prepend => "fa-map-marker fa-fw" },
+/                                     :input => { :autocomplete    => "on",
+/                                                 :inputGroupClass => "input-group",
+/                                                 :name            => "registerCity",
+/                                                 :placeholder     => "City/Town",
+/                                                 :required        => true,
+/                                                 :value           => "Colliers Wood" },
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "City/Town" } }
+
+/             -# County
+/             = partial "./atom/input/input",
+/                        :locals => { :help  => {true},
+/                                     :icon  => { :prepend => "fa-map-marker fa-fw" },
+/                                     :input => { :autocomplete    => "on",
+/                                                 :inputGroupClass => "input-group",
+/                                                 :name            => "registerCounty",
+/                                                 :placeholder     => "County",
+/                                                 :required        => true,
+/                                                 :value           => "London" },
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "County" } }
+
+/             -# Country
+/             = partial "./form/select",
+/                        :locals => { :array => [ [ "United Kingdom", "44" ], [ "USA", "1" ] ],
+/                                     :name  => "registerCountry",
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "City/Town" } }
+
+/             %p Enter your account details
+
+/             -# Email
+/             = partial "./atom/input/input",
+/                        :locals => { :help  => {true},
+/                                     :icon  => { :prepend => "fa-envelope fa-fw" },
+/                                     :input => { :autocomplete    => "on",
+/                                                 :inputGroupClass => "input-group",
+/                                                 :name            => "registerEmail",
+/                                                 :placeholder     => "Email",
+/                                                 :required        => true,
+/                                                 :type            => "email",
+/                                                 :value           => "ian.warner@drykiss.com" },
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "Email" } }
+
+/             -# Password
+/             = partial "./atom/input/input",
+/                        :locals => { :help  => {true},
+/                                     :icon  => { :prepend => "fa-lock fa-fw" },
+/                                     :input => { :autocomplete    => "off",
+/                                                 :inputGroupClass => "input-group",
+/                                                 :name            => "registerPassword",
+/                                                 :placeholder     => "Password",
+/                                                 :required        => true,
+/                                                 :type            => "password" },
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "Password" } }
+
+/             -# Password Confirm
+/             = partial "./atom/input/input",
+/                        :locals => { :help  => {true},
+/                                     :icon  => { :prepend => "fa-lock fa-fw" },
+/                                     :input => { :autocomplete    => "off",
+/                                                 :inputGroupClass => "input-group",
+/                                                 :name            => "registerPasswordConf",
+/                                                 :placeholder     => "Password Confirmation",
+/                                                 :required        => true,
+/                                                 :type            => "password" },
+/                                     :label => { :extraClass => "sr-only",
+/                                                 :title      => "Password confirmation" } }
+
+/             %p
+/                 I agree to the Terms of Service and Privacy Policy
+
+/             -# Submit
+/             = partial "./bootstrap/css/button",
+/                        :locals => { :context    => "primary",
+/                                     :content    => "Sign Up",
+/                                     :extraClass => "pull-right",
+/                                     :icon       => "fa-chevron-circle-right" }

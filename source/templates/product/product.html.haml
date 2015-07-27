@@ -1,0 +1,73 @@
+---
+
+author      : "DryKISS"
+description : "Displays the product details"
+
+heading :
+    small : "Google Analytics site statistics and reporting"
+    title : "Analytics"
+
+see :
+    - - "Product Page example"
+      - "http://www.keenthemes.com/preview/metronic_ecommerce/item.html"
+
+---
+
+-# Product Object
+= product
+
+-# Media
+.media.simpleCart_shelfItem
+
+    -# Product Image
+    = partial "./atom/image/image",
+               locals: { alt:        product.title,
+                         src:        "products/#{product.image}",
+                         extraClass: "pull-left thumbnail media-object img-polaroid" }
+
+    -# Media Body
+    .media-body
+
+        -# Heading
+        = partial "./molecule/heading/heading",
+                   locals: { extraClass: "item_name",
+                             small:      "&pound;#{product.cost}",
+                             text:       product.title }
+
+        -# Product Description
+        %p= product.description
+
+        -# Quantity
+        %input.item_quantity{ type: "text", value: "1" }
+
+        -# Price
+        %span.item_price= product.cost
+
+        -# Add to Cart
+        = partial "./bootstrap/css/button",
+                   :locals => { :color      => "primary",
+                                :content    => "Add to Cart",
+                                :extraClass => "item_add",
+                                :href       =>  "javascript:;" }
+
+%hr
+
+-# Empty Cart
+= partial "./bootstrap/css/button",
+           :locals => { :color      => "warning",
+                        :content    => "Empty Cart",
+                        :extraClass => "simpleCart_empty",
+                        :href       =>  "javascript:;" }
+
+-# View Cart
+= partial "./bootstrap/css/button",
+           :locals => { :color   => "info",
+                        :content => "View Cart",
+                        :href    =>  "/simple-cart/cart" }
+
+-# Checkout
+= partial "./bootstrap/css/button",
+           :locals => { :color      => "primary",
+                        :content    => "Checkout",
+                        :extraClass => "simpleCart_checkout",
+                        :href       =>  "javascript:;" }

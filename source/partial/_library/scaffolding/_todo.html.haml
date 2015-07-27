@@ -6,7 +6,6 @@
 
 -# Variables
 - cp = current_page.data
-- dc = data.config
 
 -# Check Array Exists
 - if cp.todo or locals[ :array ]
@@ -14,10 +13,10 @@
     %hr
 
     -# Heading
-    = partial "molecule/heading/heading", locals: { tag: "h3", text: "Tasks" }
+    = partial "./molecule/heading/heading", locals: { tag: "h3", text: "Tasks" }
 
-    -# Create Array
-    - array = { cols: [ "Task", "Section", "Date" ],
+    -# Create Columns Array
+    - array = { cols: [ "Task", "Date" ],
                 data: locals[ :array ] ? array : cp.todo }
 
     -# Table
@@ -25,5 +24,4 @@
                locals: { array:      array,
                          id:         "dataTableTodo",
                          hidden:     locals[ :hidden ] ? hidden : false,
-                         footer:     true,
                          tableClass: "table-striped table-condensed" }

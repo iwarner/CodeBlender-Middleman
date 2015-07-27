@@ -18,7 +18,6 @@
 -#     alt    : false
 -#     width  : false
 -#     height : false
--# search     : false
 -# type       : false
 -# uLClass    : "navbar-left"
 -# wrapper    : false
@@ -73,7 +72,7 @@
                     - if brand.logo.active
 
                         -# Image
-                        = partial "atom/image/image",
+                        = partial "./atom/image/image",
                                    locals: { alt:  string( brand.logo.alt ),
                                              size: [ brand.logo.width, nav.brand.height ],
                                              src:  brand.logo.url ? brand.logo.url : "logo/logo.png" }
@@ -114,7 +113,7 @@
                             - if side[ :dropdown ]
 
                                 -# Dropdown Partial
-                                = partial "./bootstrap/component/dropdown",
+                                = partial "./molecule/dropdown/navbar",
                                            locals: { dropDownClass: side[ :dropdownClass ],
                                                      title:         side[ :dropdown ],
                                                      icon:          side[ :icon ] ? side[ :icon ] : false,
@@ -143,11 +142,11 @@
                             - else
 
                                 -# List
-                                = partial "./bootstrap/type/listUL",
+                                = partial "./atom/list/ul",
                                            locals: { array:      [ side ],
                                                      navBar:     true,
                                                      extraClass: side[ :extraClass ] }
 
-                        -# Google Search Bar
-                        - if dc.google.search
-                            = partial "./google/search"
+                -# Google Search Bar
+                - if dc.google.search
+                    = partial "./google/search"

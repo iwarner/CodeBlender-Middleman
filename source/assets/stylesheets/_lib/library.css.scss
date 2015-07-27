@@ -41,13 +41,12 @@
 // Blog
 //----------------------------------------------------------------------------//
 @import "_library/blog/article";
-@import "_library/blog/detail";
+@import "blog/detail/detail";
 @import "_library/blog/tag";
 
 // Bootstrap Overrides
 //----------------------------------------------------------------------------//
 @import "_library/bootstrap/components/alerts";
-@import "_library/bootstrap/components/dropdown";
 @import "_library/bootstrap/components/jumbotron";
 @import "_library/bootstrap/components/list-group";
 @import "_library/bootstrap/components/media";
@@ -88,10 +87,6 @@
 @import "_library/mobile/scroll-box";
 @import "_library/mobile/offcanvas";
 
-// Pygments Syntax Highlighting
-//----------------------------------------------------------------------------//
-@import "_library/pygments/github";
-
 // Responsive
 //----------------------------------------------------------------------------//
 @import "_library/responsive/responsive";
@@ -123,9 +118,11 @@
 // Molecule
 //----------------------------------------------------------------------------//
 @import "molecule/brand/brand";
+@import "molecule/dropdown/dropdown";
 @import "molecule/heading/heading";
 
 // Organism
 //----------------------------------------------------------------------------//
-@import "organism/navAbove/navAbove";
+@import "organism/code/code";
 @import "organism/footer/footer";
+@import "organism/navAbove/navAbove";

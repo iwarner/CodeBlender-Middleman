@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Input
--# = partial "atom/input/input",
+-# = partial "./atom/input/input",
 -#            locals: { help:  true,
 -#                      icon:  { prepend: "fa-credit-card" },
 -#                               input: { inputGroupClass: "input-group",
@@ -23,8 +23,9 @@
 -#
 -# Validation .has-warning, .has-error to form-group
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @todo   There are two many container divs being produced use content capture.
+-# @category atom
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @todo     There are two many container divs being produced use content capture.
 -##
 
 -# Variables
@@ -89,7 +90,7 @@
 
             -# Password Strength Meter
             - if locals[ :strengthMeter ]
-                = partial "./forms/password-strength"
+                = partial "./form/passwordStrength"
 
             -# Form Feedback Icon
             -# Change the class of the icon

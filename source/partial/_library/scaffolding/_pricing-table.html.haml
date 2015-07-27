@@ -12,9 +12,9 @@
 -# Usage
 -# -# Pricing Table
 -# = partial "./scaffolding/pricing-table",
--#            :locals => { :array      => array,
--#                         :heading    => "Heading",
--#                         :subheading => "Sub Heading" }
+-#            locals: { array:      array,
+-#                      heading:    "Heading",
+-#                      subheading: "Sub Heading" }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -27,13 +27,13 @@
 
         -# Heading
         - heading[ :extraClass ] = "panel-title"
-        = partial "molecule/heading/heading", locals: heading
+        = partial "./molecule/heading/heading", locals: heading
 
     -# Body
     .panel-body{ class: locals[ :imageClass ] ? imageClass : false }
 
         -# Heading
-        = partial "molecule/heading/heading",
+        = partial "./molecule/heading/heading",
                    locals: { text: string( locals[ :subheading ] ),
                              tag:  "h4" }
 
@@ -45,5 +45,4 @@
 
     -# Footer
     - if locals[ :footerText ]
-        .panel-footer.text-center
-            = string( locals[ :footerText ] )
+        .panel-footer.text-center= string( locals[ :footerText ] )

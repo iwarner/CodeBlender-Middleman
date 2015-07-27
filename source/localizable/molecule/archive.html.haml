@@ -1,0 +1,25 @@
+---
+
+stub : archive
+
+heading :
+    small : "Blog archive by year and month"
+    title : "Archive"
+
+see :
+    - - "Archive UI Pattern"
+      - "http://ui-patterns.com/patterns/Archive"
+
+todo :
+    - - "Can I show these by day also - or in a nice calendar format?"
+      - "Blog"
+      - "2014-02-27"
+      - { context: "danger" }
+
+---
+
+-# Archive
+:ruby
+    code = %{partial "./blog/archive"}
+
+= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Archive" } }

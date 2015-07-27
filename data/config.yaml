@@ -102,8 +102,8 @@ google  :
     analytics      :
         code : false
         url  : false
-    adsense        : false
-    search         : false
+    adsense        : "ca-pub-4390370568784157"
+    search         : "partner-pub-4390370568784157:1349230888"
     webmasterTools : false
     client :
         id     : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"

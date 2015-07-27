@@ -1,0 +1,121 @@
+---
+
+stub : dropdown
+
+heading :
+    small : "Button and Navbar dropdown"
+    title : "Dropdown"
+
+see :
+    - - "Dropdowns"
+      - "http://getbootstrap.com/components/#dropdowns"
+    - - "Button Dropdowns"
+      - "http://getbootstrap.com/components/#btn-dropdowns"
+    - - "JavaScript Dropdown"
+      - "http://getbootstrap.com/javascript/#dropdowns"
+    - - "Navigation Dropdown"
+      - "http://getbootstrap.com/components/#nav-dropdowns"
+    - - "Input Group Buttons"
+      - "http://getbootstrap.com/components/#input-groups-buttons-dropdowns"
+    - - "Angular UI Dropdown"
+      - "http://angular-ui.github.io/bootstrap/#/dropdown"
+    - - "Dropdown PSDs"
+      - "http://thedesigninspiration.com/articles/40-free-dropdown-and-select-box-psd-designs/"
+
+todo :
+    - - "Split Dropdown markup out of the list partial - create a dropdown list partial instead as easier to maintain"
+      - "2014-04-28"
+      - { "context" : "info" }
+    - - "Enable the caret to be modified - could be an icon, image or the default caret."
+      - "2014-04-28"
+      - { "context" : "info" }
+    - - "Dropdowns are present in the Components and JavaScript side of things"
+      - "2014-04-28"
+      - { "context" : "info" }
+
+locals :
+    - - "array"
+      - "array"
+      - "required"
+      - "Array of list items"
+    - - "listClass"
+      - "string"
+      - "optional"
+      - "String of classes for the List element"
+
+list :
+    - header  : "Header"
+    - text    : "Action1"
+      link    :
+          url : "#"
+    - text    : "Another action"
+      link    :
+          url : "#"
+    - divider : true
+    - text    : "Action2"
+      link    :
+          url : "#"
+      status  : "disabled"
+
+---
+
+%p
+    Dropdown molecule is collated from two
+    %a{ href: "/atom" } atoms.
+
+    The
+    %a{ href: "/atom/button.html" } Button
+    and
+    %a{ href: "/atom/list.html" } List.
+
+%p
+    Made interactive with the Bootstrap dropdown.js plugin
+
+-# Dropdown
+:ruby
+    code = %{partial "./molecule/dropdown/dropdown",
+               locals: { button: { content: "Dropdown" },
+                         list:   { array: [ { text: "Action 1", link: { url: "#" } }, { text: "Action 2", link: { url: "#" } } ] } }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Dropdown" } }
+
+-# Dropdown Alignment
+:ruby
+    code = %{partial "./molecule/dropdown/dropdown",
+               locals: { button:     { content: "Dropdown" },
+                         extraClass: "dropdown",
+                         list:       { array: current_page.data.list, extraClass: "dropdown-menu-right" } }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: 2, code: code, heading: { text: "Dropdown Alignment" } }
+
+-# Dropup
+:ruby
+    code = %{partial "./molecule/dropdown/dropdown",
+                      locals: { button:     { content: "Dropdown" },
+                                extraClass: "dropup",
+                                list:       { array: current_page.data.list } }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: 3, code: code, heading: { text: "Dropup" } }
+
+-# Button Group
+:ruby
+    code = %{partial "./molecule/dropdown/dropdown",
+                      locals: { button:     { content: "Dropdown" },
+                                extraClass: "btn-group",
+                                list:       { array: current_page.data.list } }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: 4, code: code, heading: { text: "Button Group" } }
+
+/ -# Nav Bar Dropdown
+/ :ruby
+/     code = %{partial "./molecule/dropdown/dropdown",
+/                       locals: { extraClass: "clearfix",
+/                                 title:      "Drop Down",
+/                                 list:       { array: current_page.data.list } }}
+
+/ -# Code
+/ = partial "./organism/code/code", locals: { id: 5, code: code, heading: { text: "Navbar Dropdown" } }

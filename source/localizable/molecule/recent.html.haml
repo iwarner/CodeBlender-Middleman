@@ -1,0 +1,35 @@
+---
+
+stub : recent
+
+heading :
+    small : "Displays the latest blog posts"
+    title : "Recent Posts"
+
+see :
+    - - "Middleman Blogging"
+      - "http://middlemanapp.com/blogging"
+
+todo :
+    - - "Option to change the badge colour"
+      - "Recent"
+      - "2014-02-12"
+      - { "context" : "info" }
+
+locals :
+    - - "count"
+      - "int"
+      - "optional"
+      - "How many articles to display"
+
+---
+
+-# Recent
+:ruby
+    code = %{partial "./blog/recent", locals: { count: "10" }}
+
+= partial "./organism/code/code",
+           locals: { id:      1,
+                     code:    code,
+                     heading: { small: "Lists 10 posts",
+                                text:  "Recent Posts" } }

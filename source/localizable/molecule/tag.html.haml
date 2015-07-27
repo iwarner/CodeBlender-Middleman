@@ -1,0 +1,31 @@
+---
+
+stub : tags
+
+heading :
+    small : "Displays the tags for blog posts"
+    title : "Tags"
+
+see :
+    - - "Middleman Blogging"
+      - "http://middlemanapp.com/blogging"
+
+todo :
+    - - "Options to put in a badge and add a tag icon on the tag element"
+      - "Tag"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "Options to remove the Heading - change text or tag"
+      - "Tag"
+      - "2014-02-12"
+
+---
+
+-# Tags
+:ruby
+    code = %{tagCloud()}
+
+= partial "./organism/code/code",
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Tags" } }

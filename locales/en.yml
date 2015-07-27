@@ -9,6 +9,8 @@
 # English
 en:
 
+    locale : "en"
+
     # Pagination
     pagination :
         next     : "Next"
@@ -33,14 +35,24 @@ en:
             title       : "CodeBlender"
             type        : "website"
 
-        # Index
-        prototyping :
+        # Dropdown
+        dropdown :
             author      : "DryKISS"
-            description : "Prototyping"
+            description : "Dropdown"
             image       : "Image"
             subject     : "DryKISS"
-            title       : "Prototyping"
+            title       : "Dropdown"
             type        : "website"
+
+        # Zero Clipboard
+        zeroClipboard :
+            author      : "DryKISS"
+            description : "Zero Clipboard"
+            image       : "Image"
+            subject     : "DryKISS"
+            title       : "Zero Clipboard"
+            type        : "website"
+
 
     # Nav Above
     navAbove :
@@ -53,13 +65,19 @@ en:
         # Left
         left :
 
-            # Home
-            - text : "Home"
-              link : { url: "/index.html" }
-
             # Prototyping
-            - text : "Prototyping"
-              link : { url: "/prototyping" }
+            - dropdown : "Prototyping"
+              items    :
+                - text : "Atom"
+                  link : { url: "/atom/atom.html" }
+                - text : "Molecule"
+                  link : { url: "/molecule/molecule.html" }
+                - text : "Organism"
+                  link : { url: "/organism/organism.html" }
+                - text : "Template"
+                  link : { url: "/template/template.html" }
+                - text : "Page"
+                  link : { url: "/page/page.html" }
 
             # Knowledge Base
             - dropdown : "Knowledge Base"
@@ -123,7 +141,7 @@ en:
 
         # Column 1
         - title       : "About"
-          icon        : "fa-info"
+          icon        : "fa-info-circle"
           description : |
             The UX Portal is a destination for
 

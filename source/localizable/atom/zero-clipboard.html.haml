@@ -1,0 +1,50 @@
+---
+
+stub : zeroClipboard
+
+heading :
+    title : "Zero Clipboard"
+
+see :
+    - - "Zero Clipboard"
+      - "https://github.com/zeroclipboard/zeroclipboard"
+    - - "NG Clip"
+      - "https://github.com/asafdav/ng-clip"
+
+---
+
+:markdown
+
+    To facilitate a copy to clipboard pattern, we will utilise NGClip, which in
+    turn installs the ZeroClipboard library.
+
+    - Add "ng-clip" : "" to bower.json
+    - run $ bower install
+
+    To set up correctly add the correct path to the SWF file in the angular app config
+
+    - ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'
+
+    Include the correct JavaScript files in the JavasScript sprockets
+
+    - //= require zeroclipboard/dist/ZeroClipboard
+    - //= require ng-clip/dest/ng-clip.min
+
+    Set ngClipboard as a dependency in your module
+
+    - angular.module 'app', [ 'ngClipboard' ]
+
+    Add clip-copy directive to the wanted element, example:
+
+    - clip-copy="getTextToCopy()"
+    - clip-click="doSomething()"
+
+-# Default
+:ruby
+    code = %{partial "./atom/zeroClipboard/zeroClipboard" }
+
+-# Code
+= partial "./organism/code/code",
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Zero Clipboard" } }

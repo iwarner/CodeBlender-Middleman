@@ -12,16 +12,12 @@
             data:    current_page.data.locals }
 
 -# Table
-- body = partial "./bootstrap/css/table",
-                  locals: { array:      array,
-                            tableClass: "table-striped table-condensed" }
+- body = partial "./bootstrap/css/table", locals: { array: array, tableClass: "table-striped table-condensed" }
 
 -# Locals Panel
 = partial "./bootstrap/component/panels",
            locals: { table:    body,
                      collapse: true,
                      context:  "primary",
-                     heading:  { extraClass: "panel-title",
-                                 text:       "Locals",
-                                 tag:        "h2" },
+                     heading:  { extraClass: "panel-title", text: "Locals", tag: "h2" },
                      tools:    true }

@@ -19,18 +19,18 @@ todo :
 ---
 
 -# Heading
-= partial "molecule/heading/heading", locals: { tag: "h2", text: "Links" }
+= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Links" }
 
 -# Links
-= partial "bootstrap/component/thumbnails",
+= partial "./bootstrap/component/thumbnails",
            locals: { array:   data.scaffolding.portalLinks.thumbs,
                      columns: "col-md-2 col-sm-3 col-xs-4" }
 
 -# Heading
-= partial "molecule/heading/heading", locals: { tag: "h2", text: "Tools" }
+= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Tools" }
 
 -# Tools
-= partial "bootstrap/component/thumbnails",
+= partial "./bootstrap/component/thumbnails",
            locals: { array:   data.scaffolding.portalLinks.tools,
                      columns: "col-md-2 col-sm-3 col-xs-4" }
 
@@ -44,7 +44,7 @@ todo :
         - array << [ "bg-hero#{ index }.jpg" ]
 
     -# Select
-    = partial "forms/select",
+    = partial "./form/select",
                locals: { array: array,
                          name:  "backgroundSelector",
                          label: { title: "Background" } }

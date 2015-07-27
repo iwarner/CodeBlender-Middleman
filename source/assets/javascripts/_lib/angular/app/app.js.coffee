@@ -17,19 +17,18 @@
 ##
 angular.module 'app',  [
 
-
     'ui.router'
-
 
     'app.controllers'
     'app.config'
     'app.security'
-
 
     'firebase'
 
     'app.auth'
     'app.filters'
     'app.utilities'
+
+    'ngClipboard'
 
 ]

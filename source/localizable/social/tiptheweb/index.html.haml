@@ -1,0 +1,31 @@
+---
+
+heading :
+    small : "Community Supported Web"
+    title : "Tip the Web"
+
+meta :
+    author      : "Ian Warner"
+    description :
+        "Tip the Web is a service that lets you directly support your favourite
+        web content by tipping it."
+    title       : "Tip the Web"
+
+see :
+    - - "Tip The Web"
+      - "http://tiptheweb.org/"
+
+---
+
+%p Simply sign up for an account with an OpenID such as Google or Facebook.
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
+
+-# Tip the Web Button
+= partial "./social/tiptheweb/button"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "./social/tiptheweb/button"

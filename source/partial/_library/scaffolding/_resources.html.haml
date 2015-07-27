@@ -14,14 +14,13 @@
 - if cp.see or locals[ :array ]
 
     -# Heading
-    = partial "molecule/heading/heading",
+    = partial "./molecule/heading/heading",
                locals: { small: "Useful websites and tutorials",
                          tag:   "h3",
                          text:  "Resources" }
 
     -# Create Array
-    - array = { cols: [ "Title", "URL" ],
-                data: array ? array : cp.see }
+    - array = { cols: [ "Title", "URL" ], data: array ? array : cp.see }
 
     -# Table
     = partial "./bootstrap/css/table",

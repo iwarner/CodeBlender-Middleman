@@ -1,17 +1,19 @@
 ---
 
-author         : "DryKISS"
-title          : Tags
-small          : Articles by Tag
-date           : 2001-03-31
-og:title       : Tags
-og:description : Tags
-og:type        : Tags
-og:url         :
-og:image       :
-pageable       : true
-per_page       : 12
-layout         : "_library/blog/tags"
+stub : tag
+
+heading :
+    small : Articles by Tag
+    title : Tags
+
+see :
+    - - "Google Analytics"
+      - "https://www.google.com/analytics"
+
+layout   : "_library/tags"
+pageable : true
+per_page : 12
+date     : 2001-03-31
 
 ---
 
@@ -19,14 +21,11 @@ layout         : "_library/blog/tags"
 - if paginate
 
     %p
-        Page
-        = page_number
-        of
-        = num_pages
+        Page= page_number
+        of= num_pages
 
     - if prev_page
-        %p
-            = link_to 'Previous page', prev_page
+        %p= link_to 'Previous page', prev_page
 
 -# Latest
 %ul.list-unstyled.labelList
@@ -36,14 +35,8 @@ layout         : "_library/blog/tags"
         %li
 
             -# Label
-            = partial "./bootstrap/component/label",
-                       :locals => { :color   => "info",
-                                    :content => article.date.strftime( '%b %e' ) }
-
+            = partial "./bootstrap/component/label", locals: { color: "info", content: article.date.strftime( '%b %e' ) }
             = link_to article.title, article
 
-- if paginate
-
-    - if next_page
-
-        %p= link_to 'Next page', next_page
+- if paginate and next_page
+    %p= link_to 'Next page', next_page

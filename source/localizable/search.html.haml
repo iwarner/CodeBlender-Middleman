@@ -27,9 +27,9 @@ see :
     var googleSearchPath       = "/cse";
 
 -# Javascript
-%script{ :src => "http://www.google.com/afsonline/show_afs_search.js" }
+%script{ src: "http://www.google.com/afsonline/show_afs_search.js" }
 
 -# Popular Queries
-%script{ :src => "http://www.google.com/cse/query_renderer.js" }
+%script{ src: "http://www.google.com/cse/query_renderer.js" }
 #queries
-%script{ :src => "http://www.google.com/cse/api/#{data.config.googleSearch}/cse/5919031289/queries/js?oe=UTF-8&amp;callback=(new+PopularQueryRenderer(document.getElementById(%22queries%22))).render" }
+%script{ src: "http://www.google.com/cse/api/#{data.config.googleSearch}/cse/5919031289/queries/js?oe=UTF-8&amp;callback=(new+PopularQueryRenderer(document.getElementById(%22queries%22))).render" }

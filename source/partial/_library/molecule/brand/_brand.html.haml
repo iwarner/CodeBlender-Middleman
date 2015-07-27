@@ -13,13 +13,13 @@
 -##
 
 -# Heading H1
-= partial "molecule/heading/heading", locals: { icon: dataNav.brand.icon.icon, href: dataNav.brand.link.url, text: :"navAbove.title" }
+= partial "./molecule/heading/heading", locals: { icon: dataNav.brand.icon.icon, href: dataNav.brand.link.url, text: :"navAbove.title" }
 
 / -# Show Image
 - if dataNav.brand.logo.active
 
     -# Image
-    = partial "atom/image/image",
+    = partial "./atom/image/image",
                locals: { alt:  string( dataNav.brand.logo.alt ),
                          size: [ dataNav.brand.logo.width, dataNav.brand.height ],
                          src:  dataNav.brand.logo.url ? dataNav.brand.logo.url : "logo/logo.png" }

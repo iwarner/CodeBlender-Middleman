@@ -66,7 +66,7 @@
 
         -# Section - Navbar
         - if ! dataConfig.navbar.blank? and d.navbar != false
-            = partial "bootstrap/component/navbar", locals: dataNav
+            = partial "./bootstrap/component/navbar", locals: dataNav
 
         -# Section - Below Navigation
         - if dataNav.below
@@ -80,15 +80,15 @@
 
         -# Section - Footer
         - if dataConfig.footer.active or dataConfig.copyright
-            = partial "organism/footer/footer"
+            = partial "./organism/footer/footer"
 
         -# Icon
         - if dataConfig.topIcon
-            = partial "scaffolding/topIcon"
+            = partial "./scaffolding/topIcon"
 
         -# Configuration
         - if dataConfig.configuration
-            = partial "scaffolding/configuration"
+            = partial "./scaffolding/configuration"
 
         -# Cordova
         - if build? and dataConfig.cordova
@@ -100,4 +100,4 @@
 
         -# Google Analytics
         - if dataConfig.google.analytics.active
-            = partial "google/analytics"
+            = partial "./google/analytics"

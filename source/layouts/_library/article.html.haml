@@ -6,32 +6,17 @@
 -# = wrap_layout "_library/article" do
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
+-# @todo - Add in search - Add in tags - Add in social links - facebook like and share, tweet and pin - Add in report page button
+-# @todo - Add in video / image - could be carousel - Add in title - Add in price - Add in content - Add in Ribbons on some products
+-# @todo - Add in Trending Today - Add in Buy Now - Add in Add to Wishlist - Add in Comments - Add in related products - Add in newsletter
 -##
 
 -# Variables
 - cp      = current_page.data
-- heading = current_page.data.heading
+- heading = cp.heading
 
 -# Article
-= wrap_layout "_library/full-width" do
-
-    :markdown
-
-        - Add in search
-        - Add in tags
-        - Add in social links - facebook like and share, tweet and pin
-        - Add in report page button
-        - Add in video / image - could be carousel
-        - Add in title
-        - Add in price
-        - Add in content
-        - Add in Ribbons on some products
-        - Add in Trending Today
-        - Add in Buy Now
-        - Add in Add to Wishlist
-        - Add in Comments
-        - Add in related products
-        - Add in newsletter
+= wrap_layout "_library/fullWidth" do
 
     .row
 
@@ -56,14 +41,10 @@
             %article
 
                 -# Heading
-                = partial "molecule/heading/heading",
-                           locals: { extraClass: "noMargin",
-                                     small:      heading.small,
-                                     text:       heading.title }
+                = partial "./molecule/heading/heading", locals: { extraClass: "noMargin", small: heading.small, text: heading.title }
 
                 -# Details
-                = partial "./blog/details",
-                           locals: { more: false }
+                = partial "./blog/detail/detail", locals: { more: false }
 
                 -# Image
                 = partial "./blog/image"

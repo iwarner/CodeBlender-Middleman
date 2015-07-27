@@ -5,10 +5,10 @@
 ##
 
 # Holder
-//= require holderjs/holder
+#require holderjs/holder
 
 # Google Material Design Lite
-//= require material-design-lite/material
+#require material-design-lite/material
 
 # JQuery Validation
 # require jquery-validation/dist/jquery.validate.min
@@ -20,7 +20,7 @@
 # require jcrop/js/jquery.Jcrop
 
 # Backbone and Underscore
-//= require underscore/underscore
+#require underscore/underscore
 # require backbone/backbone
 # require backbone-validation/dist/backbone-validation
 

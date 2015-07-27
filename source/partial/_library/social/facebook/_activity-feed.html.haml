@@ -26,7 +26,7 @@
 -# HTML5
 - if type == "html5"
 
-    .fb-activity{ :data => { :action   => action } }
+    .fb-activity{ data: { action: action } }
 
     -# XFBML
 - elsif type == "xfbml"
@@ -37,5 +37,5 @@
     iFrame
 
     -# URL
-- elsif type == "url"
+- else
     URL

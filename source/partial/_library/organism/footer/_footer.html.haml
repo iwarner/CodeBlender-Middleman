@@ -40,7 +40,7 @@
                         .footerSection{ class: entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass }
 
                             -# Heading
-                            = partial "molecule/heading/heading",
+                            = partial "./molecule/heading/heading",
                                        locals: { icon: entry[ :icon ] ? entry[ :icon ] : false,
                                                  tag:  "h4",
                                                  text: entry[ :title ] }
@@ -71,4 +71,4 @@
             - if locals[ :array ]
 
                 -# Horizontal list of links
-                = partial "./bootstrap/type/listUL", locals: { array: array, extraClass: "list-inline list-unstyled" }
+                = partial "./atom/list/ul", locals: { array: array, extraClass: "list-inline list-unstyled" }

@@ -6,7 +6,7 @@
 
 -# Variables
 - cp    = current_page.data
-- image = cp.image
+- image = cp.meta.image
 - title = cp.title
 
 -# Check if current page has an image
@@ -16,15 +16,9 @@
     - if image.is_a?( Array )
 
         -# Carousel
-        = partial "./bootstrap/javascript/carousel",
-                   locals: { id:        "carousel1",
-                             array:     image,
-                             indicator: :true }
+        = partial "./bootstrap/javascript/carousel", locals: { id: "carousel1", array: image, indicator: :true }
 
     - elsif ! image.is_a?( Array )
 
         -# Image
-        = partial "atom/image/image",
-                   locals: { alt:        string( title ),
-                             src:        image,
-                             extraClass: "img-responsive" }
+        = partial "./atom/image/image", locals: { alt: title, src: image, extraClass: "img-responsive" }

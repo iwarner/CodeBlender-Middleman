@@ -17,8 +17,7 @@
 
     .benefitsFlexSlider
 
-        %h2.sliderTitle
-            = sliderTitle
+        %h2.sliderTitle= sliderTitle
 
         .arrowPointer
             %b
@@ -28,10 +27,8 @@
             - array.each do | value |
 
                 %li
-                    %h3
-                        = value.title
-                    %p
-                        = value.description
+                    %h3= value.title
+                    %p= value.description
 
         .flexsliderMask
             %b
@@ -42,7 +39,6 @@
                                     :animationspeed => locals[ :animationSpeed ] ? animationSpeed : "600",
                                     :type           => "howitworks" } }
 
-
             -# Slides
             %ul.slides
 
@@ -52,7 +48,7 @@
                     %li
 
                         -# Image
-                        = partial "atom/image/image",
+                        = partial "./atom/image/image",
                                    :locals => { :alt    => "Mobile Screen",
                                                 :height => "512",
                                                 :src    => "slides/#{ value.image }",

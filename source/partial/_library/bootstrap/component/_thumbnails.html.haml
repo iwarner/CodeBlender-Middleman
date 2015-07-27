@@ -22,7 +22,7 @@
 
                 -# Image
                 = link_to( image_path( entry[ :image ][ :href ] ), target: thumb[ :target ] ? thumb[ :target ] : false ) do
-                    = partial "atom/image/image", locals: entry[ :image ]
+                    = partial "./atom/image/image", locals: entry[ :image ]
 
                     -# Zoomix - requires HREF and data-toggle light box on the thumbnail array
                     - if thumb[ :zoomix ].present?

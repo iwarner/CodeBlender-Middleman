@@ -1,0 +1,41 @@
+-##
+-# Dropdown Partial
+-#
+-# @usage
+-# -# Dropdown
+-# = partial "./molecule/dropdown/dropdown",
+-#            locals: { extraClass: "btn-group clearfix",
+-#                      title:      "Drop Down",
+-#                      list:       { array: current_page.data.list, dropdown: true }}
+-#
+-# @param list       Array of the menu list data
+-# @param button     Accepts the full button locals with overides
+-# @param extraClass Extraclass for container div | default : dropdown
+-#
+-# @category Molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- list = locals[ :list ]
+
+-# Button
+- button = locals[ :button ] ? button : {}
+
+-# Opening Tag
+%div{ class: locals[ :extraClass ] ? extraClass : "dropdown", ng: locals[ :ng ] ? ng : false }
+
+    -# Add defaults for Button for dropdown action
+    - button[ :dropdown ] = true
+    - button[ :toggle ]   = "dropdown"
+    - button[ :data ]     = { toggle: "dropdown" }
+    - button[ :type ]     = "button"
+    - button[ :id ]       = button[ :id ] ? button[ :id ] : "dropdownMenu1"
+    - button[ :aria ]     = { haspopup: "true", expanded: "true" }
+
+    -# Button Partial
+    = partial "./bootstrap/css/button", locals: button
+
+    -# List Partial | Dropdown : true
+    - list[ :dropdown ]  = "true"
+    = partial "./atom/list/ul", locals: list

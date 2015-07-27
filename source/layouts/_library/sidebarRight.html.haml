@@ -26,7 +26,7 @@
 
             -# Heading
             - if dc.heading
-                = partial "molecule/heading/heading", locals: { small: string( d.small ), text: string( d.title ) }
+                = partial "./molecule/heading/heading", locals: { small: string( d.small ), text: string( d.title ) }
 
             -# Details
             - if dc.description

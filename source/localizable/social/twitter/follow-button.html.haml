@@ -1,0 +1,30 @@
+---
+
+heading :
+    small : "Follow Button"
+    title : "Follow Button Partial"
+
+meta :
+    author      : "Ian Warner"
+    description :
+        "The Follow Button is a small widget which allows users to easily follow
+        a Twitter account from any web page. The Follow Button uses the same
+        implementation model as the Tweet Button, and its integration is just as simple."
+    title       : "Follow Button Partial"
+
+see :
+    - - "Twitter Follow Button"
+      - "https://dev.twitter.com/docs/follow-button"
+
+---
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
+
+-# Follow Button
+= partial "./social/twitter/follow-button"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "./social/twitter/follow-button"

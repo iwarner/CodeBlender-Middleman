@@ -36,7 +36,7 @@
                 - if value [ :heading ]
 
                     -# Heading
-                    = partial "molecule/heading/heading",
+                    = partial "./molecule/heading/heading",
                                locals: { extraClass: "list-group-item-heading",
                                          tag:        "h4",
                                          text:       value[ :heading ] }
@@ -57,13 +57,11 @@
                     -# Link
                     - if value[ :url ]
 
-                        %a{ href: value[ :url ], class: "list-group-item" }
-                            = captureHTML
+                        %a{ href: value[ :url ], class: "list-group-item" }= captureHTML
 
                         -# No Link
                     - else
-                        %a{ class: "list-group-item" }
-                            = captureHTML
+                        %a{ class: "list-group-item" }= captureHTML
 
                     -# Check if this value has a Sub Navigation
                     - if value[ :submenu ]
