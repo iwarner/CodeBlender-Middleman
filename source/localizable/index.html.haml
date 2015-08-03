@@ -9,42 +9,61 @@ see :
     - - "Metronic"
       - "http://www.keenthemes.com/preview/metronic/theme/templates/admin4/angularjs/#/dashboard.html"
 
-# Todo
-todo :
-    - - "Sort out the look of this home page"
-      - "Index"
-      - "2015-05-06"
-      - { context: "info" }
-
 ---
 
--# Heading
-= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Links" }
+.container
 
--# Links
-= partial "./bootstrap/component/thumbnails",
-           locals: { array:   data.scaffolding.portalLinks.thumbs,
-                     columns: "col-md-2 col-sm-3 col-xs-4" }
+    .text-center
 
--# Heading
-= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Tools" }
+        -# Brand
+        = partial "./molecule/brand/brand"
 
--# Tools
-= partial "./bootstrap/component/thumbnails",
-           locals: { array:   data.scaffolding.portalLinks.tools,
-                     columns: "col-md-2 col-sm-3 col-xs-4" }
+    -# Heading - H2
+    = partial "./molecule/heading/heading", locals: { extraClass: "text-center", tag: "h2", text: "Hand crafted HAML partials" }
 
--# Capture Configuration Elements
-- content_for :configuration do
+    %hr
 
-    -# Dropdown to select background
-    - array = [ [ "Select Background", "-1" ] ]
+    .row
 
-    - ( 1..10 ).each do | index |
-        - array << [ "bg-hero#{ index }.jpg" ]
+        .col-md-4.text-center
+            = partial "./atom/button/button", locals: { icon: "fa-github", text: "Github", size: "lg" }
 
-    -# Select
-    = partial "./form/select",
-               locals: { array: array,
-                         name:  "backgroundSelector",
-                         label: { title: "Background" } }
+        .col-md-4.text-center
+            = partial "./atom/button/button", locals: { icon: "fa-download", text: "Download", size: "lg" }
+
+        .col-md-4.text-center
+            = partial "./atom/button/button", locals: { icon: "fa-folder", text: "Docs", size: "lg" }
+
+    %hr
+
+    SHARING
+
+    WHY
+    Alternatives
+    Extensability
+
+
+    CORE EXAMPLE
+
+    FOOTER
+
+    / -# Links
+    / = partial "./atom/thumbnail/thumbnail", locals: { array: data.scaffolding.portalLinks.thumbs, columns: "col-md-2 col-sm-3 col-xs-4" }
+
+    / -# Heading
+    / = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Tools" }
+
+    / -# Tools
+    / = partial "./atom/thumbnail/thumbnail", locals: { array: data.scaffolding.portalLinks.tools, columns: "col-md-2 col-sm-3 col-xs-4" }
+
+    / -# Capture Configuration Elements
+    / - content_for :configuration do
+
+    /     -# Dropdown to select background
+    /     - array = [ [ "Select Background", "-1" ] ]
+
+    /     - ( 1..10 ).each do | index |
+    /         - array << [ "bg-hero#{ index }.jpg" ]
+
+    /     -# Select
+    /     = partial "./atom/select/select", locals: { array: array, name: "backgroundSelector", label: { title: "Background" } }

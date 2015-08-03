@@ -14,31 +14,32 @@
 -# Layout - Calls Wrapper Layout
 = wrap_layout "_library/bootstrap" do
 
-    .row
+    -# Heading
+    - if dataConfig.heading
+        = partial "./molecule/heading/heading", locals: { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
 
-        -# Heading
-        - if dataConfig.heading
-            = partial "./molecule/heading/heading", locals: { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
+    -# Details
+    - if dataConfig.description
+        %p= string dataCurrent.description
 
-        -# Details
-        - if dataConfig.description
-            %p= string dataCurrent.description
+    -# Locals
+    - if dataCurrent.locals
+        = partial "./organism/local/local"
 
-        -# Locals
-        - if dataCurrent.locals
-            = partial "./scaffolding/locals"
+    -# Yield
+    = yield
 
-        -# Yield
-        = yield
+    -# Resources
+    - if dataConfig.resources
+        .container
+            = partial "./organism/resource/resource"
 
-        -# Resources
-        - if dataConfig.resources
-            = partial "./scaffolding/resources"
+    -# Assets
+    - if dataConfig.assets
+        .container
+            = partial "./organism/asset/asset"
 
-        -# Assets
-        - if dataConfig.assets
-            = partial "./scaffolding/assets"
-
-        -# Todo
-        - if dataConfig.todo
-            = partial "./scaffolding/todo"
+    -# Todo
+    - if dataConfig.todo
+        .container
+            = partial "./organism/todo/todo"

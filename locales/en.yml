@@ -53,10 +53,9 @@ en:
             title       : "Zero Clipboard"
             type        : "website"
 
-
     # Nav Above
     navAbove :
-        strapLine : "Front end made easy"
+        strapLine : "An atomic Middleman partials library"
         title     : "Code Blender"
 
     # Navigation

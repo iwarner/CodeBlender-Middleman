@@ -1,0 +1,57 @@
+-##
+-# All Meta Tags
+-#
+-# Usage
+-# -# Meta All
+-# = partial "./meta/all"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @todo Use the Sitemap to loop through the resources in the meta folder dynamically - can remove All then.
+-##
+
+-# Variables
+- m = data.config.meta
+
+-# Apple
+- if m.apple
+    = partial "./atom/meta/apple"
+
+-# Core
+- if m.core
+    = partial "./atom/meta/core"
+
+-# Dublin Core
+- if m.dublin
+    = partial "./atom/meta/dublin"
+
+-# Facebook
+- if m.facebook
+    = partial "./atom/meta/facebook"
+
+-# Fancy
+- if m.fancy
+    = partial "./atom/meta/fancy"
+
+-# Favicon
+- if m.favicon
+    = partial "./atom/meta/icon-fav"
+
+-# Feed XML
+- if m.feed
+    = partial "./atom/meta/feed"
+
+-# Google
+- if m.google
+    = partial "./atom/meta/google"
+
+-# Mobile
+- if m.mobile
+    = partial "./atom/meta/mobile"
+
+-# Touch Icons
+- if m.touch
+    = partial "./atom/meta/icon-touch"
+
+-# Twitter
+- if m.twitter
+    = partial "./atom/meta/twitter"

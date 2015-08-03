@@ -30,6 +30,18 @@ molecule :
     - title : "Dropdown"
       url   : "/molecule/dropdown.html"
 
+    - title : "Table"
+      url   : "/molecule/table.html"
+
+# Organism
+organism :
+
+    - title : "Organsim"
+      url   : "/organism/index.html"
+
+    - title : "DataTable"
+      url   : "/organism/datatable.html"
+
 #     - title  : "Blog"
 #       url    : "/prototyping/blog/index.html"
 #     - title  : "Bootstrap"
@@ -146,8 +158,6 @@ molecule :
 #       url    : "/prototyping/bootstrap/css/button.html"
 #     - title  : "Image"
 #       url    : "/prototyping/bootstrap/css/image.html"
-#     - title  : "Table"
-#       url    : "/prototyping/bootstrap/css/table.html"
 
 # # Bootstrap JavaScript
 # prototyping/bootstrap/javascript :

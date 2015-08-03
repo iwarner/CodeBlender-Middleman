@@ -44,30 +44,26 @@ see :
         %span.item_price= product.cost
 
         -# Add to Cart
-        = partial "./bootstrap/css/button",
+        = partial "./atom/button/button",
                    :locals => { :color      => "primary",
-                                :content    => "Add to Cart",
+                                :text    => "Add to Cart",
                                 :extraClass => "item_add",
                                 :href       =>  "javascript:;" }
 
 %hr
 
 -# Empty Cart
-= partial "./bootstrap/css/button",
+= partial "./atom/button/button",
            :locals => { :color      => "warning",
-                        :content    => "Empty Cart",
+                        :text    => "Empty Cart",
                         :extraClass => "simpleCart_empty",
                         :href       =>  "javascript:;" }
 
 -# View Cart
-= partial "./bootstrap/css/button",
+= partial "./atom/button/button",
            :locals => { :color   => "info",
-                        :content => "View Cart",
+                        :text => "View Cart",
                         :href    =>  "/simple-cart/cart" }
 
 -# Checkout
-= partial "./bootstrap/css/button",
-           :locals => { :color      => "primary",
-                        :content    => "Checkout",
-                        :extraClass => "simpleCart_checkout",
-                        :href       =>  "javascript:;" }
+= partial "./atom/button/button", locals: { color: "primary", text: "Checkout", extraClass: "simpleCart_checkout", href: "javascript:;" }

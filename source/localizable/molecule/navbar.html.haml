@@ -91,7 +91,7 @@ locals :
 
 / -# Default
 / :ruby
-/     code = %{partial "./bootstrap/component/navbar",
+/     code = %{partial "./molecule/navbar/navbar",
 /                       locals: { fluid:    true,
 /                                 position: "static-top" }}
 
@@ -103,7 +103,7 @@ locals :
 
 / -# Logo
 / :ruby
-/     code = %{partial "./bootstrap/component/navbar",
+/     code = %{partial "./molecule/navbar/navbar",
 /                       locals: { array:    current_page.data.navigation1,
 /                                 fluid:    true,
 /                                 logo:     true,
@@ -117,7 +117,7 @@ locals :
 
 / -# Inverted
 / :ruby
-/     code = %{partial "./bootstrap/component/navbar",
+/     code = %{partial "./molecule/navbar/navbar",
 /                       locals: { array:    current_page.data.navigation,
 /                                 brand:    "Test NavBar",
 /                                 fluid:    true,

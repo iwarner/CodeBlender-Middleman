@@ -11,9 +11,11 @@
 -# @param list       Array of the menu list data
 -# @param button     Accepts the full button locals with overides
 -# @param extraClass Extraclass for container div | default : dropdown
+-# @param ng         Angular elements
 -#
 -# @category Molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @see      http://www.bootply.com/b4NKREUPkN
 -##
 
 -# Variables
@@ -23,7 +25,7 @@
 - button = locals[ :button ] ? button : {}
 
 -# Opening Tag
-%div{ class: locals[ :extraClass ] ? extraClass : "dropdown", ng: locals[ :ng ] ? ng : false }
+%div{ class: locals[ :extraClass ] ? extraClass : "dropdown", ng: locals[ :ng ] ? locals[ :ng ] : false }
 
     -# Add defaults for Button for dropdown action
     - button[ :dropdown ] = true
@@ -34,7 +36,7 @@
     - button[ :aria ]     = { haspopup: "true", expanded: "true" }
 
     -# Button Partial
-    = partial "./bootstrap/css/button", locals: button
+    = partial "./atom/button/button", locals: button
 
     -# List Partial | Dropdown : true
     - list[ :dropdown ]  = "true"

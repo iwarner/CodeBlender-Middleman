@@ -7,17 +7,14 @@
 
 class App.Views.Offcanvas extends Backbone.View
 
-
     ##
     # el
     ##
     el : "body"
 
-
     easing :'Power1.easeOut'
     navOpen : false
     subNavOpen : false
-
 
     ##
     # Events
@@ -36,7 +33,6 @@ class App.Views.Offcanvas extends Backbone.View
         this.updateNav()
 
         $( window ).on( "resize", this.updateNav )
-
 
     ##
     # Updates the navigation menu
@@ -62,7 +58,6 @@ class App.Views.Offcanvas extends Backbone.View
             # $( "#navbar-collapse" ).css( { "height" :"340px", "max-height" : "340px" } ) # 340px is the default height
             $( "#navbar-collapse .navbar-wrapper" ).css( { "height" : "auto", "max-height" : "auto" } )
             $( "#navbar-collapse .dropdown-menu" ).css( { "height" : "auto", "max-height" : "auto" } )
-
 
     ##
     # Toggle the offcanvas nav menu
@@ -108,8 +103,6 @@ class App.Views.Offcanvas extends Backbone.View
             this.openSubNav( $parent )
             this.subNavOpen = true
 
-
-
     ##
     # Open the offcanvas
     ##
@@ -150,7 +143,6 @@ class App.Views.Offcanvas extends Backbone.View
 
         this.navOpen = false
 
-
     ##
     # Open the SubNav
     ##
@@ -161,7 +153,6 @@ class App.Views.Offcanvas extends Backbone.View
         TweenLite.to($subNavMenu, 0.5, {left: "60px", ease: App.Views.Offcanvas.prototype.easing} );
         $parent.addClass( "active" )
 
-
     ##
     # Close the SubNav
     ##
@@ -171,8 +162,6 @@ class App.Views.Offcanvas extends Backbone.View
         $subNavMenu = $parent.find( ".dropdown-menu" )
         TweenLite.to($subNavMenu, 0.5, {left: "100%", ease: App.Views.Offcanvas.prototype.easing} );
         $parent.removeClass( "active" )
-
-
 
     ##
     # Do the scroll to section or go to location

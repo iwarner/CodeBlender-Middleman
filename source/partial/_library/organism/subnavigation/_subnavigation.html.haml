@@ -1,0 +1,51 @@
+-##
+-# Sub Navigation
+-#
+-# Usage
+-# = partial "./scaffolding/subnavigation"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Sub Navigation
+- if data[ "scaffolding" ][ "subnavigation" ].present?
+
+    - subNav = data.scaffolding.subnavigation
+
+    -# Get correct URL path
+    - if ! relative_links
+        - url = current_page.url.length > 1 ? current_page.url[ 0...-1 ] : current_page.url
+    - else
+        - url = current_page.url
+
+    -# Create the Sub Navigation section
+    - array = url == "/" ? subNav[ "default" ] : subNav[ url[ 1..-2 ] ]
+
+    -# If no array is present then revert back to base navigation
+    - if ! array
+
+        - split = current_page.url.split( "/" )
+        - split.shift
+        - split.pop
+        - array = subNav[ split.join( "/" ) ]
+
+    -# Check if array exists
+    - if array
+
+        -# Loop through the sub navigation and add the active element
+        - array.each_with_index do | value, index |
+
+            -# Check URL Exists
+            - if value.url
+
+                -# Get URI
+                - uri = URI.parse( value.url )
+
+                -# Active element
+                - array[ index ][ "active" ] = ( uri.path == url ) ? true : false
+
+        -# Sub Navigation
+        %nav.subNavigation
+
+            -# Nav List Group
+            = partial "./molecule/listGroup/listGroup", locals: { array: array, list: true }

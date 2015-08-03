@@ -85,16 +85,16 @@ list :
                                  type:       "checkbox" }
 
             -# Submit
-            = partial "./bootstrap/css/button",
+            = partial "./atom/button/button",
                        locals: { context:    "primary",
-                                 content:    "Login",
+                                 text:       "Login",
                                  extraClass: "pull-right",
                                  ng: { click: "save()" } }
 
             -# Reset
-            = partial "./bootstrap/css/button",
+            = partial "./atom/button/button",
                        locals: { context:    "link",
-                                 content:    "Reset",
+                                 text:       "Reset",
                                  extraClass: "pull-right",
                                  ng: { click: "reset()" },
                                  type: "reset" }

@@ -15,44 +15,46 @@
 -# Layout - Calls Wrapper Layout
 = wrap_layout "_library/bootstrap" do
 
-    .row
+    .container
 
-        -# Nav List
-        .col-md-3
+        .row
 
-            -# Subnavigation
-            = yield_content :sidebar
+            -# Nav List
+            .col-md-3
 
-        -# Main Content
-        .col-md-9.mainContent
+                -# Subnavigation
+                = yield_content :sidebar
 
-            -# Breadcrumbs
-            - if dc.breadcrumbs
-                = partial "./bootstrap/component/breadcrumbs"
+            -# Main Content
+            .col-md-9.mainContent
 
-            -# Heading
-            - if dc.heading
-                = partial "./molecule/heading/heading", locals: { small: string( d.small ), text: string( d.title ) }
+                -# Breadcrumbs
+                - if dc.breadcrumbs
+                    = partial "./molecule/breadcrumb/breadcrumb"
 
-            -# Details
-            - if dc.description
-                %p= string d.description
+                -# Heading
+                - if dc.heading
+                    = partial "./molecule/heading/heading", locals: { small: string( d.small ), text: string( d.title ) }
 
-            -# Locals
-            - if dc.locals
-                = partial "./scaffolding/locals"
+                -# Details
+                - if dc.description
+                    %p= string d.description
 
-            -# Yield
-            = yield
+                -# Locals
+                - if dc.locals
+                    = partial "./organism/local/local"
 
-            -# Resources
-            - if dc.resources
-                = partial "./scaffolding/resources"
+                -# Yield
+                = yield
 
-            -# Assets
-            - if dc.assets
-                = partial "./scaffolding/assets"
+                -# Resources
+                - if dc.resources
+                    = partial "./organism/resource/resource"
 
-            -# Todo
-            - if dc.todo
-                = partial "./scaffolding/todo"
+                -# Assets
+                - if dc.assets
+                    = partial "./organism/asset/asset"
+
+                -# Todo
+                - if dc.todo
+                    = partial "./organism/todo/todo"

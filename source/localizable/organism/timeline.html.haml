@@ -68,7 +68,7 @@ Clicked : {{ msg }}
 - body = capture_html do
 
     -# Togglable tabs tab.js
-    = partial "./bootstrap/component/nav",
+    = partial "./molecule/nav/nav",
                locals: { array:  [ { path: "#log1",         name: "Log Call" },
                                    { path: "#purchase1",    name: "Purchase"},
                                    { path: "#handover1",    name: "Handover"},
@@ -129,9 +129,9 @@ Clicked : {{ msg }}
 = partial "./bootstrap/javascript/modal", locals: { id: "myModal", body: body, title: title }
 
 -# Button
-= partial "./bootstrap/css/button",
+= partial "./atom/button/button",
            locals: { context: "primary",
-                     content: "Launch Modal",
+                     text:    "Launch Modal",
                      data:    { target: "#myModal",
                                 toggle: "modal" } }
 

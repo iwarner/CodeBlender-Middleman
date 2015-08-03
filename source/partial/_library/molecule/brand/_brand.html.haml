@@ -12,14 +12,17 @@
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
--# Heading H1
-= partial "./molecule/heading/heading", locals: { icon: dataNav.brand.icon.icon, href: dataNav.brand.link.url, text: :"navAbove.title" }
+-# Variables
+- brand = dataNav.brand
 
-/ -# Show Image
-- if dataNav.brand.logo.active
+-# Heading H1
+= partial "./molecule/heading/heading", locals: { icon: brand.icon.icon, href: brand.link.url, text: :"navAbove.title" }
+
+-# Show Image
+- if brand.logo.active
 
     -# Image
     = partial "./atom/image/image",
-               locals: { alt:  string( dataNav.brand.logo.alt ),
-                         size: [ dataNav.brand.logo.width, dataNav.brand.height ],
-                         src:  dataNav.brand.logo.url ? dataNav.brand.logo.url : "logo/logo.png" }
+               locals: { alt:  brand.logo.alt,
+                         size: [ brand.logo.width, brand.logo.height ],
+                         src:  brand.logo.url ? brand.logo.url : "logo/logo.png" }

@@ -1,0 +1,30 @@
+-##
+-# Google Custom Search
+-#
+-# Locals
+-#
+-# Usage
+-# = partial "./molecule/search/search"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://www.google.com/cse/all
+-#
+-# @todo   Use the partial form elements
+-# @todo   Search bar should not just be for navbar
+-# @todo   Bring in the results via AJAX probably
+-##
+
+-# Search
+%form#cse-search-box.navbar-form.navbar-right{ action: "/search", role: "search" }
+
+    .form-group
+
+        %input.form-control{ type: "text", placeholder: "Search", name: "q" }
+
+        %input{ type: "hidden", name: "cx", value: dataConfig.google.search }
+
+        %input{ type: "hidden", name: "cof", value: "FORID:10" }
+
+        %input{ type: "hidden", name: "ie", value: "UTF-8" }
+
+    %input.btn.btn-default{ name: "sa", type: "submit", value: "Search" }

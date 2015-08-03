@@ -46,10 +46,10 @@
         .code__clip
 
             -# Button Partial
-            = partial "./bootstrap/css/button", locals: { content: "Copy", extraClass: "pull-right" }
+            = partial "./atom/button/button", locals: { text: "Copy", extraClass: "pull-right" }
 
         -# Tabs for code and output
-        = partial "./bootstrap/component/nav",
+        = partial "./molecule/nav/nav",
                    locals: { array:  [ { path: locals[ :id ] ? "#code#{ id }"   : "#code1",   name: "Code" },
                                        { path: locals[ :id ] ? "#output#{ id }" : "#output1", name: "Output" } ],
                              toggle: true }

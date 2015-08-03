@@ -1,0 +1,127 @@
+-##
+-# NavBar
+-#
+-# @usage
+-#
+-# @locals
+-# brand      :
+-#     active : false
+-#     text   : true
+-#     link   : "overview"
+-# icon       : false
+-# extraClass : "navbar-default navbar-fixed-top" # navbar-static-top navbar-inverse navbar-fixed-bottom
+-# ng         :
+-#     controller : "NavBarCtrl"
+-#     show       : "NavBarService"
+-#     cloak      : ""
+-# logo       :
+-#     alt    : false
+-#     width  : false
+-#     height : false
+-# type       : false
+-# uLClass    : "navbar-left"
+-# wrapper    : false
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- dc    = data.config
+- nav   = locals
+- links = t( :navigation )
+
+-# Navbar
+%nav.navbar{ id:    nav.id ? id : "navbar",
+             class: nav.extraClass ? extraClass : false,
+             role:  "navigation",
+             ng:    nav.ng ? ng : false }
+
+    -# Bootstrap Container - drawn from config container
+    %div{ class: nav.container.present? ? nav.container : dc.container }
+
+        -# Navbar Header
+        .navbar-header
+
+            -# Create the Nav Collapse Menu
+            %button.navbar-toggle.collapsed{ type: :button,
+                                             data: { toggle: :collapse,
+                                                     target: nav.target ? "##{ target }" : "#navbar-collapse" } }
+                %span.sr-only Toggle Navigation
+
+                -# Loop through Spans
+                - 3.times do
+                    %span.icon-bar
+
+            -# Brand
+            = partial "./molecule/brand/navbar"
+
+        -# Create the collapse area
+        .navbar-collapse.collapse{ id: nav.target ? target : "navbar-collapse" }
+
+            -# Optional Wrapper for off-canvas responsive menus
+            %div{ class: nav.wrapper ? nav.wrapper : false }
+
+                -# Loop through the Left, Center and Right sections
+                - links.each do | entry |
+
+                    -# List Initiation
+                    %ul.nav.navbar-nav{ class: "navbar-#{ entry[ 0 ] }" }
+
+                        -# Loop through entries
+                        - entry[ 1 ].each do | side |
+
+                            -# Get correct URL path
+                            -# - if ! relative_links
+                            -#     - url = current_page.url.length > 1 ? current_page.url[ 0...-1 ] : current_page.url
+                            -# - else
+                            -#     - url = File.dirname( URI.parse( current_page.url ).path )
+
+                            -# Sort out what item is active
+                            -# - side[ :active ] = ( url == side[ :url ] ) ? true : false
+
+                            -# Process Array
+                            -# - array = []
+                            -# - array << side
+
+                            -# Dropdown menu
+                            - if side[ :dropdown ]
+
+                                -# Dropdown Partial
+                                = partial "./molecule/dropdown/navbar",
+                                           locals: { dropDownClass: side[ :dropdownClass ],
+                                                     title:         side[ :dropdown ],
+                                                     icon:          side[ :icon ] ? side[ :icon ] : false,
+                                                     ng:            side[ :ng ]   ? side[ :ng ]   : false,
+                                                     list:          { array: side[ :items ], dropdown: true } }
+
+                                -# Shop Widget
+                            - elsif side[ :shop ]
+
+                                -# Simple Cart Widget
+                                %li= partial "./e-commerce/widget"
+
+                                -# Button
+                            - elsif side[ :button ]
+
+                                %div{ class: side[ :extraClass ] ? side[ :extraClass ] : false }
+
+                                    -# Button
+                                    = partial "./atom/button/button", locals: side[ :button ]
+
+                                -# Just show a Partial useful for Mega Menus
+                            - elsif side[ :partial ]
+
+                                = partial "../_lib/#{ side[ :partial ] }"
+
+                                -# Text Link
+                            - else
+
+                                -# List
+                                = partial "./atom/list/ul",
+                                           locals: { array:      [ side ],
+                                                     navBar:     true,
+                                                     extraClass: side[ :extraClass ] }
+
+                -# Google Search Bar
+                - if dc.google.search
+                    = partial "./molecule/search/search"

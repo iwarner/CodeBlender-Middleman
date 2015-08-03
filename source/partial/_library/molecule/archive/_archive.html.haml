@@ -1,0 +1,38 @@
+-##
+-# Blog Archive
+-#
+-# @usage
+-# -# Blog Archive
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Start unstyled list
+%ul.list-unstyled
+
+    -# Loop through Site Blog Posts
+    -  blog.articles.group_by { | y | y.date.year }.each do | year, articles |
+
+        -# List
+        %li
+
+            -# Link to the Blog post Via Year
+            = link_to year, blog_year_path( year )
+
+            -# Badge
+            = partial "./atom/badge/badge", locals: { content: articles.size }
+
+            -# Loop through the articles by Month
+            - articles.group_by { | a | a.date.month }.each do | month, monthArticles |
+
+                -# Start unstyled list
+                %ul
+
+                    -# List
+                    %li
+
+                        -# Link Via Month
+                        = link_to monthArticles.first.date.strftime( "%b" ), blog_month_path( year, month )
+
+                        -# Badge
+                        = partial "./atom/badge/badge", locals: { content: monthArticles.size }

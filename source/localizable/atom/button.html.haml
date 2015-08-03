@@ -71,7 +71,7 @@ locals :
 
 -# Vanilla Button
 :ruby
-    code = %{partial "./bootstrap/css/button", locals: { content: "Default" }}
+    code = %{partial "./atom/button/button", locals: { text: "Default" }}
 
 -# Code
 = partial "./organism/code/code",
@@ -82,9 +82,7 @@ locals :
 
 -# Link Button
 :ruby
-    code = %{partial "./bootstrap/css/button",
-                      locals: { content: "Default",
-                                href:    "#" }}
+    code = %{partial "./atom/button/button", locals: { text: "Default", href: "#" }}
 
 -# Code
 = partial "./organism/code/code",
@@ -95,9 +93,7 @@ locals :
 
 -# Button with Context
 :ruby
-    code = %{partial "./bootstrap/css/button",
-                      locals: { content: "Primary",
-                                context: "primary" }}
+    code = %{partial "./atom/button/button", locals: { text: "Primary", context: "primary" }}
 
 -# Code
 = partial "./organism/code/code",
@@ -108,10 +104,8 @@ locals :
 
 -# Size variation with Success Context
 :ruby
-    code = %{partial "./bootstrap/css/button",
-                      locals: { content: "Success large size",
-                                context: "success",
-                                size:    "lg" }}
+    code = %{partial "./atom/button/button",
+                      locals: { text: "Success large size", context: "success", size: "lg" }}
 
 -# Code
 = partial "./organism/code/code",
@@ -122,9 +116,9 @@ locals :
 
 -# Small Block Info Button
 :ruby
-    code = %{partial "./bootstrap/css/button",
+    code = %{partial "./atom/button/button",
                       locals: { block:   true,
-                                content: "Small block info button",
+                                text:    "Small block info button",
                                 context: "info",
                                 size:    "sm" }}
 
@@ -137,9 +131,7 @@ locals :
 
 -# Icon Button
 :ruby
-    code = %{partial "./bootstrap/css/button",
-                      locals: { context: "info",
-                                icon:    "fa-times" }}
+    code = %{partial "./atom/button/button", locals: { text: "info", icon: "fa-times" }}
 
 -# Code
 = partial "./organism/code/code",
@@ -149,8 +141,7 @@ locals :
 
 -# Image Button
 :ruby
-    code = %{partial "./bootstrap/css/button",
-                      locals: { image: { data: { src: holder( "32x32" ) }}}}
+    code = %{partial "./atom/button/button", locals: { image: { data: { src: holder( "32x32" ) }}}}
 
 -# Code
 = partial "./organism/code/code",

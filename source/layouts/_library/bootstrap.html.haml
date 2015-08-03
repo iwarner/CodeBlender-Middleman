@@ -31,7 +31,7 @@
     %head{ prefix: ( dataConfig.head.present? and dataConfig.head.prefix.present? ) ? dataConfig.head.prefix : false }
 
         -# Meta Tags
-        = partial "./meta/all"
+        = partial "./atom/meta/all"
 
         -# Main Stylesheet
         -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
@@ -66,17 +66,14 @@
 
         -# Section - Navbar
         - if ! dataConfig.navbar.blank? and d.navbar != false
-            = partial "./bootstrap/component/navbar", locals: dataNav
+            = partial "./molecule/navbar/navbar", locals: dataNav
 
         -# Section - Below Navigation
         - if dataNav.below
             = partial dataNav.below
 
-        -# Section Main
-        %div{ class: dataConfig.container ? dataConfig.container : false }
-
-            -# Section - Yield
-            = yield
+        -# Section - Yield
+        = yield
 
         -# Section - Footer
         - if dataConfig.footer.active or dataConfig.copyright
@@ -84,7 +81,7 @@
 
         -# Icon
         - if dataConfig.topIcon
-            = partial "./scaffolding/topIcon"
+            = partial "./molecule/topIcon/topIcon"
 
         -# Configuration
         - if dataConfig.configuration

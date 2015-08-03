@@ -5,6 +5,31 @@
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
 
+// Modal
+//----------------------------------------------------------------------------//
+.modal {
+
+    .modal-dialog {
+        padding : 0 10px 30px 10px;
+    }
+
+    .modal-header {
+
+        a, a:link {
+            color : #FFFFFF;
+        }
+
+        .close {
+            height : 33px;
+            right  : -33px;
+            top    : -28px;
+            width  : 33px;
+        }
+
+    }
+
+}
+
 // Container that the modal scrolls within
 .modal {
 

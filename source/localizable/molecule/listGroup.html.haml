@@ -33,7 +33,7 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./bootstrap/component/list-group",
+    code = %{partial "./molecule/listGroup/listGroup",
                       locals: { array: [ { active: true,
                                            title:  lorem.words( 2 ),
                                            url:    "#" },
@@ -48,7 +48,7 @@ locals :
 
 -# With Badges
 :ruby
-    code = %{partial "./bootstrap/component/list-group",
+    code = %{partial "./molecule/listGroup/listGroup",
                       locals: { array: [ { badge: "14",
                                            title: lorem.words( 2 ),
                                            url:   "#" },
@@ -65,7 +65,7 @@ locals :
 
 -# Contextual
 :ruby
-    code = %{partial "./bootstrap/component/list-group",
+    code = %{partial "./molecule/listGroup/listGroup",
                       locals: { array: [ { title:   lorem.words( 2 ),
                                            url:     "#",
                                            context: "success" },
@@ -81,7 +81,7 @@ locals :
 
 -# Content
 :ruby
-    code = %{partial "./bootstrap/component/list-group",
+    code = %{partial "./molecule/listGroup/listGroup",
                       locals: { array: [ { badge:   "14",
                                            heading: lorem.words( 2 ),
                                            text:    lorem.words( 20 ),
@@ -98,7 +98,7 @@ locals :
 
 -# Non-Linked
 :ruby
-    code = %{partial "./bootstrap/component/list-group",
+    code = %{partial "./molecule/listGroup/listGroup",
                       locals: { array: [ { title: lorem.words( 2 ) },
                                          { title: lorem.words( 2 ) } ],
                                 list:  true }}

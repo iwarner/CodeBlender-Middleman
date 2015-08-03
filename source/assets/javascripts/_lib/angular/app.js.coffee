@@ -16,8 +16,9 @@
 # Service
 //= require_tree ./service
 
-# Library Controller
-//= require_tree ../../_library/angular/controllers
-
 # Lib Controller
 //= require_tree ./controller
+
+# Library Controllers
+//= require ../../../../partial/_library/molecule/topIcon/topIcon
+//= require ../../../../partial/_library/organism/dataTable/dataTable

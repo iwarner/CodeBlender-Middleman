@@ -41,7 +41,7 @@
         - button[ :data ]     = { toggle: "dropdown" }
 
         -# Button Partial
-        = partial "./bootstrap/css/button", locals: button
+        = partial "./atom/button/button", locals: button
 
         -# Navbar dropdown
     - else
@@ -70,5 +70,5 @@
 
 - else
 
-    %li.dropdown{ class: locals[ :dropDownClass ] ? dropDownClass : false }
+    %li.dropdown{ class: locals[ :dropDownClass ] ? dropDownClass : false, ng: locals[ :ng ] ? ng : false }
         = capture

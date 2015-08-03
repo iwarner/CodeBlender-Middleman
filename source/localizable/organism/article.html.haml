@@ -99,9 +99,9 @@ todo :
                     %p= string article.data.excerpt
 
                     -# Read More Button
-                    = partial "./bootstrap/css/button",
+                    = partial "./atom/button/button",
                                locals: { context:    "primary",
-                                         content:    string( "Read More" ),
+                                         text:       "Read More",
                                          extraClass: "pull-right",
                                          href:       article.url,
                                          size:       "sm" }

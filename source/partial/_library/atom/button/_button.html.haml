@@ -1,0 +1,86 @@
+-##
+-# Button / Link Partial
+-#
+-# Usage
+-# -# Button
+-# = partial "./atom/button/button", locals: { text: "Default" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://www.plugolabs.com/twitter-bootstrap-button-generator/
+-#
+-# @todo   Allow for an image or icon before also
+-##
+
+-# Active
+- classes = locals[ :active ] ? " active" : ""
+
+-# Block Level
+- classes += locals[ :block ] ? " btn-block" : ""
+
+-# Colour
+- classes += locals[ :context ] ? " btn-#{ context }" : " btn-default"
+
+-# Disabled
+- classes += locals[ :disabled ] ? " disabled" : ""
+
+-# Dropdown
+- classes += locals[ :dropdown ] ? " dropdown-toggle" : ""
+
+-# Extra Class
+- classes += locals[ :extraClass ] ? " #{ extraClass }" : ""
+
+-# Size - lg, sm, xs
+- classes += locals[ :size ] ? " btn-#{ size }" : ""
+
+-# Tag
+- tag = locals[ :href ] ? "a" : "button"
+
+-# Capture Content
+- captureHTML = capture_html do
+
+    -# Content
+    - if locals[ :text ] == "close"
+        %span{ aria: { hidden: "true" } } &times;
+
+    - elsif locals[ :text ]
+        = string text
+
+    -# Icon
+    - if locals[ :icon ]
+        = icon locals[ :icon ]
+
+    -# Image
+    - if locals[ :image ]
+        = partial "./atom/image/image", locals: locals[ :image ]
+
+    -# Dropdown Caret
+    - if locals[ :dropdown ]
+        %span{ class: "dropdown__icon" }
+
+-# Link
+- if ! ( locals[ :href ] or locals[ :ui ] )
+
+    %button{ aria:   locals[ :aria ]     ? aria                 : false,
+             class:  locals[ :extraClass ] == "close" ? "close" : "btn #{ classes }",
+             clip:   locals[ :clip ]     ? clip                 : false,
+             data:   locals[ :data ]     ? data                 : false,
+             hidden: locals[ :hidden ]   ? "hidden"             : false,
+             id:     locals[ :id ]       ? id                   : false,
+             ng:     locals[ :ng ]       ? ng                   : false,
+             title:  locals[ :title ]    ? string( title )      : false,
+             type:   locals[ :type ]     ? type                 : "submit" }
+        = captureHTML
+
+- else
+
+    = link_to( captureHTML,
+               locals[ :href ],
+               aria:   locals[ :aria ]     ? aria            : false,
+               class:  "btn #{ classes }",
+               clip:   locals[ :clip ]     ? clip            : false,
+               data:   locals[ :data ]     ? data            : false,
+               hidden: locals[ :hidden ]   ? "hidden"        : false,
+               id:     locals[ :id ]       ? id              : false,
+               ng:     locals[ :ng ]       ? ng              : false,
+               title:  locals[ :title ]    ? string( title ) : false,
+               ui:     locals[ :ui ]       ? ui              : false )

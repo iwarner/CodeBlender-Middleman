@@ -97,10 +97,10 @@ todo :
 /                             :label => { :title => "Project Name" } }
 
 /     -# Submit
-/     = partial "./bootstrap/css/button",
+/     = partial "./atom/button/button",
 /                :locals => { :block   => false,
 /                             :context => "primary",
-/                             :content => "Save" }
+/                             :text    => "Save" }
 
 / .row.prototype
 
@@ -200,13 +200,13 @@ todo :
 /                                 :tag  => "h2" }
 
 /         -# Button to toggle the display of the Borders
-/         = partial "./bootstrap/css/button",
+/         = partial "./atom/button/button",
 /                    :locals => { :context    => "primary",
-/                                 :content    => "Toggle Regions",
+/                                 :text       => "Toggle Regions",
 /                                 :extraClass => "toggleRegion" }
 
 /         -# Button to toggle the display of the Borders
-/         = partial "./bootstrap/css/button",
+/         = partial "./atom/button/button",
 /                    :locals => { :context    => "primary",
-/                                 :content    => "Toggle JCrop",
+/                                 :text       => "Toggle JCrop",
 /                                 :extraClass => "toggleJCrop" }

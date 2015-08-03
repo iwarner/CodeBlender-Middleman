@@ -30,7 +30,7 @@ see :
 = partial "./molecule/heading/heading", locals: { text: "Synthesis", tag: "h2" }
 
 -# Submit
-= partial "./bootstrap/css/button", locals: { context: "primary", content: "Say", extraClass: "synthesis" }
+= partial "./atom/button/button", locals: { context: "primary", text: "Say", extraClass: "synthesis" }
 
 -# Recognition
 = partial "./molecule/heading/heading", locals: { text: "Recognition", tag: "h2" }
@@ -46,4 +46,4 @@ see :
     /                      speech:      true }
 
     -# Submit
-    = partial "./bootstrap/css/button", locals: { context: "primary", content: "Speak" }
+    = partial "./atom/button/button", locals: { context: "primary", text: "Speak" }

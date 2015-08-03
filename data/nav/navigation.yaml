@@ -30,16 +30,15 @@ brand :
 
     text :
         active : true
-        text   : "CodeBlender"
+        text   : "Home"
 
-extraClass : "navbar-default navbar-fixed-top" # navbar-static-top navbar-inverse navbar-fixed-bottom
+extraClass : "navbar-default"
 
 ng :
     controller : false
     show       : false
     cloak      : false
 
-position : "fixed-top"
 type     : false
 uLClass  : "navbar-left"
 wrapper  : false

@@ -22,7 +22,7 @@
 
             -# Breadcrumbs
             - if dc.breadcrumbs
-                = partial "./bootstrap/component/breadcrumbs"
+                = partial "./molecule/breadcurmb/breadcrumb"
 
             -# Heading
             - if dc.heading
@@ -34,22 +34,22 @@
 
             -# Locals
             - if dc.locals
-                = partial "./scaffolding/locals"
+                = partial "./organism/local/local"
 
             -# Yield
             = yield
 
             -# Resources
             - if dc.resources
-                = partial "./scaffolding/resources"
+                = partial "./organism/resource/resource"
 
             -# Assets
             - if dc.assets
-                = partial "./scaffolding/assets"
+                = partial "./organism/asset/asset"
 
             -# Todo
             - if dc.todo
-                = partial "./scaffolding/todo"
+                = partial "./organism/todo/todo"
 
         -# Nav List
         .col-md-3

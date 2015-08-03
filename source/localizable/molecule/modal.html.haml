@@ -85,8 +85,8 @@ locals :
 = partial "./bootstrap/javascript/modal", locals: { id: "myModal", body: body, title: title }
 
 -# Button
-= partial "./bootstrap/css/button",
+= partial "./atom/button/button",
            locals: { context: "primary",
-                     content: "Launch Modal",
+                     text:    "Launch Modal",
                      data:    { target: "#myModal",
                                 toggle: "modal" } }
