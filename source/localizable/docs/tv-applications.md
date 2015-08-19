@@ -1,19 +1,19 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Developing for a new medium"
+    title : "TV applications"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "TV applications"
     type   : ""
 
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "TV applications"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ tv ]
 
 ---
 

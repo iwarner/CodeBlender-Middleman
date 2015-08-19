@@ -1,19 +1,19 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : ""
+    title : "Thor"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Thor"
     type   : ""
 
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Thor"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ thor, ruby ]
 
 ---
 

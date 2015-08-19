@@ -16,7 +16,7 @@
 - brand = dataNav.brand
 
 -# Heading H1
-= partial "./molecule/heading/heading", locals: { icon: brand.icon.icon, href: brand.link.url, text: :"navAbove.title" }
+= partial "./molecule/heading/heading", locals: { icon: brand.icon.icon, href: brand.link.url, text: :"navAbove.title", itemprop: "headline" }
 
 -# Show Image
 - if brand.logo.active

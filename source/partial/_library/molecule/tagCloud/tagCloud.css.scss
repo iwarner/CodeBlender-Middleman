@@ -1,0 +1,24 @@
+//
+// Tag Cloud
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+section {
+
+    // Tag Cloud
+    //------------------------------------------------------------------------//
+    .tagCloud {
+
+        // Tags
+        //--------------------------------------------------------------------//
+        &__tags {
+
+            border-top    : 1px solid $gray-lighter;
+            border-bottom : 1px solid $gray-lighter;
+            padding       : 10px 0;
+            margin        : 10px 0;
+
+        }
+    }
+}

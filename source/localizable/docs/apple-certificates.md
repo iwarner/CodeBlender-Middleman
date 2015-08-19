@@ -1,19 +1,19 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : ""
+    title : "Apple"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Apple"
     type   : ""
 
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Apple"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ apple ]
 
 ---
 

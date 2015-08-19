@@ -1,0 +1,20 @@
+//
+// MailChimp Subscription
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+.mailChimpSubscription {
+
+    form {
+        border-top    : 1px solid $gray-lighter;
+        border-bottom : 1px solid $gray-lighter;
+        padding       : 10px 0;
+        margin        : 10px 0;
+    }
+
+    &__error, &__success {
+        margin-top : 10px;
+    }
+
+}

@@ -14,7 +14,7 @@
 -##
 
 -# Header navAbove
-%header
+%header{ role: "banner", itemscope: true, itemtype: "http://schema.org/WPHeader" }
 
     -# Placed in a Fluid to give full image bleed if required
     .container-fluid
@@ -36,4 +36,4 @@
                     .navAbove__rightColumn
 
                         -# Heading H2
-                        = partial "./molecule/heading/heading", locals: { extraClass: "text-right", tag: "h2", text: :"navAbove.strapLine" }
+                        = partial "./molecule/heading/heading", locals: { extraClass: "text-right", tag: "h2", text: :"navAbove.strapLine", itemprop: "description" }

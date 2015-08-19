@@ -30,11 +30,7 @@ see :
     Lastly process the sending of the Notification.
 
 -# Notification
-= partial "./atom/button/button",
-           locals: { text:       "Test Notification",
-                     block:      false,
-                     extraClass: "touchNotification",
-                     size:       "lg" }
+= partial "./atom/button/button", locals: { text: "Test Notification", extraClass: "touchNotification", size: "lg" }
 
 %br
 %br
@@ -46,7 +42,7 @@ see :
     # Instantiate Notification Class
     notification = new App.Classes.Notification
 
-    # Create Notification in Javascript
+    # Create Notification in JavaScript
     notification.create "Hello",
         body : "Body of the Notification"
         tag  : "CodeBlender"

@@ -1,0 +1,24 @@
+-##
+-# Tag Cloud
+-#
+-# @usage
+-# -# Tag Cloud
+-# = partial "./molecule/tagCloud/tagCloud"
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# 
+-# @todo Make the font colour change with the size also
+-##
+
+-# Section - Tag Cloud
+%section.tagCloud
+
+    -# Heading
+    = partial "./molecule/heading/heading", locals: { extraClass: "heading--noMargin", tag: "h4", text: "Tags" }
+
+    -# Tags
+    .tagCloud__tags
+
+        -# Tag Cloud
+        = tagCloud()

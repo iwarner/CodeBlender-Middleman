@@ -1,0 +1,51 @@
+-##
+-# Checkbox
+-# Using more fancy checkboxes the label needs to be inline with the input
+-#
+-# @usage
+-# -# Checkbox
+-# = partial "./atom/checkbox/angularCheckbox"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://flatlogic.github.io/awesome-bootstrap-checkbox/demo/
+-#
+-# @todo Allow for the classes to be altered, i.e. not just circle
+-# @todo Radio can use the same controls I think
+-# @todo Allow for Input classes to be altered
+-# @todo Give instructions on what needs to be installed to make these work
+-##
+
+-# Variables
+- input = locals[ :input ]
+- label = locals[ :label ]
+
+-# Check for Aria - requires input to be present
+- if input && input[ :aria ].present?
+    - aria = input[ :aria ]
+
+-# Checkbox Class
+.checkbox.checkbox-info.checkbox-circle{ class: locals[ :extraClass ] ? extraClass : false }
+
+    -# Input
+    %input{ aria:      aria                ? aria               : false,
+            autofocus: input[ :autofocus ] ? "autofocus"        : false,
+            class:     "checkOne",
+            disabled:  input[ :disabled ]  ? "disabled"         : false,
+            id:        input[ :name ]      ? input[ :name ]     : false,
+            name:      input[ :name ]      ? input[ :name ]     : false,
+            required:  input[ :required ]  ? "required"         : false,
+            tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
+            type:      "checkbox",
+            value:     input[ :value ]     ? input[ :value ]    : false }
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
+        = string label[ :title ]
+
+    -# Help Block
+    -# Sometimes this should be hidden to allow errors to be added inside.
+    -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
+    - if locals[ :help ]
+
+        %span.help-block{ ng: locals[ :help ][ :ng ] }
+            = locals[ :help ][ :content ]

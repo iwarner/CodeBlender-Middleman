@@ -98,9 +98,8 @@ todo :
 
 /     -# Submit
 /     = partial "./atom/button/button",
-/                :locals => { :block   => false,
-/                             :context => "primary",
-/                             :text    => "Save" }
+/                locals: { context: "primary",
+/                          text:    "Save" }
 
 / .row.prototype
 
@@ -201,12 +200,12 @@ todo :
 
 /         -# Button to toggle the display of the Borders
 /         = partial "./atom/button/button",
-/                    :locals => { :context    => "primary",
-/                                 :text       => "Toggle Regions",
-/                                 :extraClass => "toggleRegion" }
+/                    locals: { context:    "primary",
+/                              text:       "Toggle Regions",
+/                              extraClass: "toggleRegion" }
 
 /         -# Button to toggle the display of the Borders
 /         = partial "./atom/button/button",
-/                    :locals => { :context    => "primary",
-/                                 :text       => "Toggle JCrop",
-/                                 :extraClass => "toggleJCrop" }
+/                    locals: { context:    "primary",
+/                              text:       "Toggle JCrop",
+/                              extraClass: "toggleJCrop" }

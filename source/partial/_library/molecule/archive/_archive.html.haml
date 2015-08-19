@@ -1,38 +1,46 @@
 -##
 -# Blog Archive
+-# Shows the years and month and number of blogs in each
 -#
 -# @usage
 -# -# Blog Archive
+-# = partial "./molecule/archive/archive"
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo Make the list expandable and each year
+-# @tdo  Should use the DT partial for this
 -##
 
--# Start unstyled list
-%ul.list-unstyled
+%section.blogArchive
 
-    -# Loop through Site Blog Posts
-    -  blog.articles.group_by { | y | y.date.year }.each do | year, articles |
+    -# Heading
+    = partial "./molecule/heading/heading", locals: { extraClass: "heading--noMargin", tag: "h4", text: "Archive" }
 
-        -# List
-        %li
+    -# Unstyled list
+    %ul.list-unstyled
 
-            -# Link to the Blog post Via Year
-            = link_to year, blog_year_path( year )
+        -# Loop through Site Blog Posts
+        -  blog.articles.group_by { | y | y.date.year }.each do | year, articles |
 
-            -# Badge
-            = partial "./atom/badge/badge", locals: { content: articles.size }
+            -# List
+            %li
 
-            -# Loop through the articles by Month
-            - articles.group_by { | a | a.date.month }.each do | month, monthArticles |
+                -# Link to the Blog post Via Year
+                = link_to year, blog_year_path( year )
 
-                -# Start unstyled list
-                %ul
+                -# Loop through the articles by Month
+                - articles.group_by { | a | a.date.month }.each do | month, monthArticles |
 
                     -# List
-                    %li
+                    %ul
 
-                        -# Link Via Month
-                        = link_to monthArticles.first.date.strftime( "%b" ), blog_month_path( year, month )
+                        -# List
+                        %li
 
-                        -# Badge
-                        = partial "./atom/badge/badge", locals: { content: monthArticles.size }
+                            -# Link Via Month
+                            = link_to monthArticles.first.date.strftime( "%b" ), blog_month_path( year, month )
+
+                            -# Badge
+                            = partial "./atom/badge/badge", locals: { content: monthArticles.size }

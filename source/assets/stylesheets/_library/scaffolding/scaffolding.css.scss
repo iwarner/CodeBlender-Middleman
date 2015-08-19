@@ -25,7 +25,7 @@ html {
 //----------------------------------------------------------------------------//
 body {
 
-    // Add Padding - required if using the fixed NavBar
+    // Add Padding required if using the fixed NavBar
     //------------------------------------------------------------------------//
     padding-top : 70px;
     height      : 100%;
@@ -57,11 +57,4 @@ a {
 //----------------------------------------------------------------------------//
 hr {
     margin : 5px 0;
-}
-
-// Outline - Remove Bootstrap 3 Defaults
-//----------------------------------------------------------------------------//
-a:focus, textarea:hover, input:hover, textarea:active, input:active, textarea:focus, input:focus, button:focus, button:active, button:hover {
-    // outline            : 0px !important;
-    // -webkit-appearance : none;
 }

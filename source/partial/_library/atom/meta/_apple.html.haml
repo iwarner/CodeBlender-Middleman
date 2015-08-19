@@ -6,12 +6,9 @@
 -# @see    http://goo.gl/ErCZIL
 -##
 
--# Variables
-- dc = data.config.apple
-
 -# Implementing a Smart App Banner on Your Website
-- if dc.present? and dc.app.id.present?
-    %meta{ name: "apple-itunes-app", content: dc.app.id }
+- if dataApple.present? and dataApple.app.id.present?
+    %meta{ name: "apple-itunes-app", content: dataApple.app.id }
 
 -# If content is set to yes, the web application runs in full-screen mode;
 %meta{ name: "apple-mobile-web-app-capable", content: "yes" }

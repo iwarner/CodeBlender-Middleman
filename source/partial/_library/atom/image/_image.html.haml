@@ -1,7 +1,9 @@
 -##
 -# Image
--#
 -# Provides Icon, Logo and text if required
+-#
+-# Rules
+-# if we have an angular - ng-src then the src should be false
 -#
 -# @usage
 -# -# Image
@@ -10,30 +12,37 @@
 -# @category atom
 -# @stub     image
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo Sort out the image Tag here
 -##
 
--# src:  value[ 0 ].start_with?( "holder" ) ? false      : value[ 0 ],
--# data: value[ 0 ].start_with?( "holder" ) ? value[ 0 ] : false }
+- attributes = { alt:       locals[ :alt ]        ? string( alt ) : "Image",
+                 class:     locals[ :extraClass ] ? extraClass    : false,
+                 data:      locals[ :data ]       ? data          : false,
+                 draggable: locals[ :draggable ]  ? draggable     : false,
+                 height:    locals[ :size ]       ? size[ 1 ]     : false,
+                 id:        locals[ :id ]         ? id            : false,
+                 itemprop:  "contentUrl",
+                 ng:        locals[ :ng ]         ? ng            : false,
+                 width:     locals[ :size ]       ? size[ 0 ]     : false }
 
-- if locals[ :src ]
+-# Figure
+%figure{ itemprop: "image", itemscope: true, itemtype: "http://schema.org/ImageObject" }
 
-    = image_tag locals[ :src ],
-        alt:       locals[ :alt ]        ? string( alt ) : "Image",
-        class:     locals[ :extraClass ] ? extraClass    : false,
-        data:      locals[ :data ]       ? data          : false,
-        draggable: locals[ :draggable ]  ? draggable     : false,
-        height:    locals[ :size ]       ? size[ 1 ]     : false,
-        id:        locals[ :id ]         ? id            : false,
-        ng:        locals[ :ng ]         ? ng            : false,
-        width:     locals[ :size ]       ? size[ 0 ]     : false
+    -# Assume Angular
+    - if ! locals[ :src ]
 
-- else
+        -# Image Tag
+        %img{ attributes }
 
-    %img{ alt:       locals[ :alt ]        ? string( alt ) : "Image",
-          class:     locals[ :extraClass ] ? extraClass    : false,
-          data:      locals[ :data ]       ? data          : false,
-          draggable: locals[ :draggable ]  ? draggable     : false,
-          height:    locals[ :size ]       ? size[ 1 ]     : false,
-          id:        locals[ :id ]         ? id            : false,
-          ng:        locals[ :ng ]         ? ng            : false,
-          width:     locals[ :size ]       ? size[ 0 ]     : false }
+    - else
+
+        -# Image Tag
+        = image_tag locals[ :src ], attributes
+
+    -# Check for Caption
+    - if locals[ :caption ]
+
+        -# Caption
+        %figcaption{ itemprop: "caption" }
+            = caption

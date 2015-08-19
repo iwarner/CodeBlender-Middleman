@@ -1,13 +1,13 @@
 ---
 
 heading :
-    small : "Accessibility"
-    title : "Accessibility"
+    small : "A better user experience for all"
+    title : "Accessibility first"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Accessibility"
+    title  : "Accessibility first"
     type   : ""
 
 date     : 2014-01-20

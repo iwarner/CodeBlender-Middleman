@@ -1,19 +1,19 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : ""
+    title : "Testing"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Testing"
     type   : ""
 
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Testing"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ testing, tdd ]
 
 ---
 

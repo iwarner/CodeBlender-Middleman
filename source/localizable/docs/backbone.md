@@ -1,19 +1,19 @@
 ---
 
 heading :
-    small : "Accessibility"
-    title : "Accessibility"
+    small : ""
+    title : "Backbone"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Accessibility"
+    title  : "Backbone"
     type   : ""
 
 date     : 2014-01-20
-excerpt  : "Accessibility"
+excerpt  : "Backbone"
 modified : 2014-02-09
-tags     : [ accessibility ]
+tags     : backbone, javascript
 
 ---
 

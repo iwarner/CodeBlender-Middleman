@@ -1,0 +1,40 @@
+---
+
+stub : calendar
+
+heading :
+    small : Articles by Date
+    title : Calendar
+
+see :
+    - - "Google Analytics"
+      - "https://www.google.com/analytics"
+
+layout   : "_library/tag"
+pageable : true
+per_page : 12
+date     : 2001-03-31
+
+---
+
+-# Latest
+%ul.list-unstyled
+
+    -# Loop through the Articles
+    - page_articles.each do | article |
+
+        %li
+
+            -# Label
+            = partial "./atom/label/label", locals: { context: "info", content: article.date.strftime( '%b %e' ), icon: "fa-tag", itemprop: "keywords" }
+            = link_to article.data.heading.title, article
+
+
+.text-center
+
+    -# Variables
+    - prevPage = prev_page ? prev_page.url : false
+    - nextPage = next_page ? next_page.url : false
+
+    -# Pagination
+    = partial "./molecule/pagination/pagination", locals: { nextPage: "#{ prevPage }", prevPage: "#{ nextPage }", pageNo: "#{ page_number }", pages: "#{ num_pages }" }

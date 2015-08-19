@@ -12,14 +12,12 @@
 -##
 
 -# Variables
-- cp   = current_page
-- dc   = data.config
-- path = cp.path
-- m    = cp.data.stub
+- cp = current_page
+- m  = cp.data.stub
 
 -# Meta
 %meta{ name: "dcterms.title",       content: string( :"meta.#{ m }.title" ) }
 %meta{ name: "dcterms.description", content: string( :"meta.#{ m }.description" ) }
 %meta{ name: "dcterms.publisher",   content: string( :"meta.#{ m }.author" ) }
-%meta{ name: "dcterms.language",    content: dc.lang }
+%meta{ name: "dcterms.language",    content: dataConfig.lang }
 %meta{ name: "dcterms.creator",     content: string( :"meta.#{ m }.author" ) }

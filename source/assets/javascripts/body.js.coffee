@@ -4,8 +4,45 @@
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 
-# Holder
-#require holderjs/holder
+# JQuery
+//= require jquery/dist/jquery
+
+# DataTables
+//= require DataTables/media/js/jquery.dataTables
+
+# Angular JS
+//= require angular/angular
+//= require angular-ui-router/release/angular-ui-router
+//= require angular-resource/angular-resource
+//= require angular-sanitize/angular-sanitize
+//= require angular-bootstrap-checkbox/angular-bootstrap-checkbox
+//= require ngstorage/ngStorage
+
+# Angular Bootstrap DataTables
+//= require angular-datatables/dist/angular-datatables
+//= require angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap
+
+# Angular Clipboard
+//= require zeroclipboard/dist/ZeroClipboard
+//= require ng-clip/dest/ng-clip.min
+
+# Firebase
+//= require firebase/firebase
+
+# Angular Fire
+//= require angularfire/dist/angularfire
+
+# Bootstrap
+//= require bootstrap-sprockets
+
+# App
+//= require ./_lib/angular/app
+
+# Molecule
+//= require molecule/facebook/facebook
+
+# Organism
+//= require organism/dataTable/dataTable
 
 # Google Material Design Lite
 #require material-design-lite/material
@@ -18,11 +55,6 @@
 
 # JCrop
 # require jcrop/js/jquery.Jcrop
-
-# Backbone and Underscore
-#require underscore/underscore
-# require backbone/backbone
-# require backbone-validation/dist/backbone-validation
 
 # AMCharts
 # require amcharts/dist/amcharts/amcharts

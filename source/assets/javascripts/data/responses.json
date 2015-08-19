@@ -1,16 +1,17 @@
 {
-    "metadata": {
+    "metadata" : {
         "serverTime"        : 1435915386119,
         "totalResponseTime" : "23314 ms",
         "totalRowCount"     : 598
     },
-    "result": [
+
+    "result" : [
 
         {
             "prospectId" : "11111",
             "responseId" : "11111",
             "read"       : false,
-            "firstName"  : "APeter",
+            "firstName"  : "Peter",
             "lastName"   : "Ingleson",
             "role"       : "Telecoms Manager",
             "company"    : "Atradius Credit Insurance N.V",
@@ -21,7 +22,7 @@
                 "date" : 1434480583000
             },
 
-            "buyingStage" : "learn",
+            "buyingStage"    : "learn",
             "nextBestAction" : "callScheduled"
 
         },
@@ -30,7 +31,7 @@
             "prospectId"      : "21112674777482806MOD161",
             "responseId"      : "900506485",
             "read"            : false,
-            "firstName"       : "BNick",
+            "firstName"       : "Nick",
             "lastName"        : "Broomfield",
             "role"            : "Marketing Strategist",
             "company"         : "Coca-Cola",
@@ -39,7 +40,7 @@
                 "type" : "closedResponse",
                 "date" : 1434380583000
             },
-            "buyingStage"    : "try",
+            "buyingStage"    : "buy",
             "nextBestAction" : "setBuyingStage"
         },
 
@@ -47,7 +48,7 @@
             "prospectId"      : "21090308677482806CDOC250",
             "responseId"      : "910606145",
             "read"            : false,
-            "firstName"       : "CPeter",
+            "firstName"       : "Peter",
             "lastName"        : "Mcnally",
             "role"            : "MR",
             "company"         : "goldcrestdesign&engineering",
@@ -56,42 +57,26 @@
                 "type" : "closedResponse",
                 "date" : 1434114174000
             },
-            "buyingStage"    : "buy",
-            "nextBestAction" : "handedOver"
+            "buyingStage"    : "learn",
+            "nextBestAction" : "unknown"
         },
 
         {
             "prospectId"      : "21185649277482806CDOC250",
             "responseId"      : "914405482",
             "read"            : false,
-            "firstName"       : "DJagpal",
-            "lastName"        : "Zheeta",
+            "firstName"       : "Jagpal",
+            "lastName"        : "Jheeta",
             "role"            : "CIO",
             "company"         : "Marks and Spencer PLC",
             "tacticCode"      : "C25000KT",
             "lastInteraction" : {
-                "type" : "closedResponse",
-                "date" : 1434114174000
+                "type": "closedResponse",
+                "date": 1434114174000
             },
-            "buyingStage"    : "validated",
-            "nextBestAction" : "setBuyingStage"
-        },
-
-        {
-            "prospectId"      : "21232954777482806CDOC250",
-            "responseId"      : "906505601",
-            "read"            : false,
-            "firstName"       : "EOmar",
-            "lastName"        : "Khan",
-            "role"            : "Data Director",
-            "company"         : "WPP",
-            "tacticCode"      : "C25000KT",
-            "lastInteraction" : {
-                "type" : "closedResponse",
-                "date" : 1434114174000
-            },
-            "buyingStage"    : "",
+            "buyingStage"    : "try",
             "nextBestAction" : "setBuyingStage"
         }
+
     ]
 }

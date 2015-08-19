@@ -1,0 +1,18 @@
+##
+# Facebook YAML
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+app :
+    id     : false
+    secret : false
+
+page :
+    id  : "835310269859992"
+    url : "https://www.facebook.com/codeblender"
+
+locale :
+    en : "en_GB"

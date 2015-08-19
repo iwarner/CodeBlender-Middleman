@@ -5,9 +5,11 @@
 -# dc.disqusShortName - String - Required - Given by Disqus
 -#
 -# Usage
--# = partial "social/disqus/comments"
+-# -# Disqus Comments
+-# = partial "./molecule/disqus/comments"
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Variables
@@ -19,9 +21,9 @@
 -# JavaScript
 :coffee
     (->
-        dsq       = document.createElement("script")
+        dsq       = document.createElement( "script" )
         dsq.type  = "text/javascript"
         dsq.async = true
         dsq.src   = "//#{ dc.disqusShortName }.disqus.com/embed.js"
-        (document.getElementsByTagName("head")[0] or document.getElementsByTagName("body")[0]).appendChild dsq
+        (document.getElementsByTagName( "head" )[ 0 ] or document.getElementsByTagName( "body" )[ 0 ] ).appendChild dsq
     )()

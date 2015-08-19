@@ -1,5 +1,12 @@
 # Project : CodeBlender
 
+Amazon.co.uk,
+Customer Services,
+60 Holborn Viaduct
+London
+EC1A 2FD
+United Kingdom
+
 # Middleman : http://middlemanapp.com/
 
     $ /var/www/codeblender.net/www

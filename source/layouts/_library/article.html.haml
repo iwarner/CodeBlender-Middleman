@@ -5,7 +5,9 @@
 -# -# Article layout
 -# = wrap_layout "_library/article" do
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category template
+-#
 -# @todo - Add in search - Add in tags - Add in social links - facebook like and share, tweet and pin - Add in report page button
 -# @todo - Add in video / image - could be carousel - Add in title - Add in price - Add in content - Add in Ribbons on some products
 -# @todo - Add in Trending Today - Add in Buy Now - Add in Add to Wishlist - Add in Comments - Add in related products - Add in newsletter
@@ -18,49 +20,53 @@
 -# Article
 = wrap_layout "_library/fullWidth" do
 
-    .row
+    .container
 
-        .col-md-3
+        .row
 
-            %aside
+            .col-md-3
 
-                -# Tags
-                .tagCloud
+                %aside
 
-                    -# Tag Cloud
-                    = tagCloud()
+                    -# Tags
+                    .tagCloud
 
-                -# Latest Posts
-                .blogLatest
+                        -# Tag Cloud
+                        = tagCloud()
 
-                    -# Recent Articles
-                    = partial "./blog/recent"
+                    -# Latest Posts
+                    .blogLatest
 
-        .col-md-6
+                        -# Recent Articles
+                        = partial "./molecule/recent/recent"
 
-            %article
+            .col-md-6
 
-                -# Heading
-                = partial "./molecule/heading/heading", locals: { extraClass: "noMargin", small: heading.small, text: heading.title }
+                -# Blog Post
+                %article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
 
-                -# Details
-                = partial "./blog/detail/detail", locals: { more: false }
+                    -# Heading - Article H1
+                    = partial "./molecule/heading/heading", locals: { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
 
-                -# Image
-                = partial "./blog/image"
+                    -# Blog Detail Footer
+                    = partial "./molecule/detail/detail", locals: { author: true, cal: true, comment: true, social: true, tags: true }
 
-                -# Yield
-                = yield
+                    -# Blog Image
+                    = partial "./molecule/image/image"
 
-                -# Pager
-                = partial "./bootstrap/component/pager"
+                    -# Yield
+                    %span{ itemprop: "text" }
+                        = yield
 
-                -# Discus Comments
-                = partial "./social/disqus/comments"
+                    -# Pager
+                    = partial "./molecule/pager/pager"
 
-        .col-md-3
+                    -# Discus Comments
+                    = partial "./molecule/disqus/comments"
 
-            %aside
+            .col-md-3
 
-                -# Archive
-                = partial "./blog/archive"
+                %aside
+
+                    -# Blog Archive
+                    = partial "./molecule/archive/archive"

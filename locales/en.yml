@@ -9,12 +9,24 @@
 # English
 en:
 
+    # Locale
     locale : "en"
 
     # Pagination
     pagination :
+        first    : "First"
         next     : "Next"
         previous : "Previous"
+        last     : "Last"
+
+    # MailChimp
+    mailChimp :
+        title     : "Newsletter"
+        small     : "Get our products/news earlier than others, let's get in touch."
+        button    : "Subscribe"
+        email     : "Enter your email address"
+        firstName : "First name"
+        lastName  : "Last name"
 
     # Meta
     # Automatically configures the Meta based on page name
@@ -24,7 +36,7 @@ en:
         publisher        : "DryKISS Ltd"
         publisherAddress : "ian.warner@drykiss.com"
         rights           : "&copy; 2015, DryKISS Ltd. All rights reserved."
-        itemType         : "LocalBusiness"
+        itemType         : "WebPage"
 
         # Index
         index :
@@ -75,23 +87,14 @@ en:
                   link : { url: "/organism/organism.html" }
                 - text : "Template"
                   link : { url: "/template/template.html" }
-                - text : "Page"
-                  link : { url: "/page/page.html" }
 
             # Knowledge Base
             - dropdown : "Knowledge Base"
               items    :
                 - text : "Articles"
-                  link : { url: "/prototyping/blog/articles.html" }
+                  link : { url: "/" }
                 - text : "Tags"
-                  link : { url: "/prototyping/blog/tags.html" }
-
-        # Right
-        right :
-
-            # Notification Dropdown
-            - text : "Blah"
-              link : { url: "/index.html" }
+                  link : { url: "/tags.html" }
 
     # Home
     home :

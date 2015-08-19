@@ -1,25 +1,23 @@
 //
-// Blog Details
+// Blog Detail
 //
 // @author Ian Warner <ian.warner@drykiss.com>
+// @todo   Need a way for the user to change icons with ease
 //----------------------------------------------------------------------------//
 
-// Blog Details
+// Blog Detail
 //----------------------------------------------------------------------------//
-.blogDetails {
+.blogDetail {
 
-    font-size : 12px;
+    border-top    : 1px solid $gray-lighter;
+    border-bottom : 1px solid $gray-lighter;
+    padding       : 10px 0;
+    margin        : 10px 0;
 
-    i {
-        vertical-align : text-top;
+    // Tag
+    //------------------------------------------------------------------------//
+    &__tag {
+        margin-top : 5px;
     }
 
-    .label {
-        font-size : 12px;
-        padding   : 4px;
-    }
-
-    hr {
-        padding-bottom : 5px;
-    }
 }

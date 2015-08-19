@@ -20,7 +20,12 @@
 
 // Bootstrap
 //----------------------------------------------------------------------------//
+@import "bootstrap-sprockets";
 @import "bootstrap";
+
+// Angular DataTables
+//----------------------------------------------------------------------------//
+@import "angular-datatables/dist/plugins/bootstrap/datatables.bootstrap";
 
 // Google Material Design Lite
 //----------------------------------------------------------------------------//
@@ -38,11 +43,6 @@
 //----------------------------------------------------------------------------//
 // @import "yamm3/yamm/yamm";
 
-// Blog
-//----------------------------------------------------------------------------//
-// @import "_library/blog/article";
-// @import "_library/blog/tag";
-
 // Bootstrap Overrides
 //----------------------------------------------------------------------------//
 // @import "_library/bootstrap/components/alerts";
@@ -57,12 +57,6 @@
 // E-Commerce
 //----------------------------------------------------------------------------//
 // @import "_library/e-commerce/simple-cart";
-
-// DataTables
-//----------------------------------------------------------------------------//
-@import "DataTables/media/css/jquery.dataTables";
-@import "datatables-colvis/css/dataTables.colVis";
-@import "datatables-colreorder/css/dataTables.colReorder";
 
 // Dropzone
 //----------------------------------------------------------------------------//
@@ -104,20 +98,26 @@
 
 // Molecule
 //----------------------------------------------------------------------------//
+@import "molecule/archive/archive";
 @import "molecule/brand/brand";
 @import "molecule/detail/detail";
 @import "molecule/dropdown/dropdown";
 @import "molecule/heading/heading";
+@import "molecule/mailChimp/subscription";
 @import "molecule/navbar/navbar";
 @import "molecule/search/search";
+@import "molecule/tagCloud/tagCloud";
 @import "molecule/topIcon/topIcon";
-
 
 // Organism
 //----------------------------------------------------------------------------//
 @import "organism/code/code";
-@import "organism/dataTable/dataTable";
+// @import "organism/dataTable/dataTable";
 @import "organism/footer/footer";
 @import "organism/jumbotron/jumbotron";
 @import "organism/navAbove/navAbove";
 @import "organism/subnavigation/subnavigation";
+
+// Template
+//----------------------------------------------------------------------------//
+@import "template/article/article";

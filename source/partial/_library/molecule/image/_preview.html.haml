@@ -9,11 +9,7 @@
 - buttonAppend = capture_html do
 
     -# button
-    = partial "./atom/button/button",
-               locals: { extraClass: "image-preview-clear",
-                         text:       "Clear",
-                         context:    info",
-                         icon:       "fa-times" }
+    = partial "./atom/button/button", locals: { extraClass: "image-preview-clear", text: "Clear", context: "info", icon: { prepend: "fa-times" } }
 
     -# Browse Button
     %div.btn.btn-default.image-preview-input

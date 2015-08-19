@@ -3,7 +3,7 @@
 -#
 -# Usage
 -# -# Button
--# = partial "./atom/button/button", locals: { text: "Default" }
+-# = partial "./atom/button/button", locals: { icon: { prepend: "fa-credit-card" }, text: "Default" }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://www.plugolabs.com/twitter-bootstrap-button-generator/
@@ -38,16 +38,19 @@
 -# Capture Content
 - captureHTML = capture_html do
 
+    -# Prepend Icon
+    - if locals[ :icon ] and locals[ :icon ][ :prepend ]
+        = icon locals[ :icon ][ :prepend ]
+
     -# Content
     - if locals[ :text ] == "close"
         %span{ aria: { hidden: "true" } } &times;
-
     - elsif locals[ :text ]
         = string text
 
-    -# Icon
-    - if locals[ :icon ]
-        = icon locals[ :icon ]
+    -# Append Icon
+    - if locals[ :icon ] && locals[ :icon ][ :append ]
+        = icon locals[ :icon ][ :append ]
 
     -# Image
     - if locals[ :image ]
@@ -60,27 +63,29 @@
 -# Link
 - if ! ( locals[ :href ] or locals[ :ui ] )
 
-    %button{ aria:   locals[ :aria ]     ? aria                 : false,
-             class:  locals[ :extraClass ] == "close" ? "close" : "btn #{ classes }",
-             clip:   locals[ :clip ]     ? clip                 : false,
-             data:   locals[ :data ]     ? data                 : false,
-             hidden: locals[ :hidden ]   ? "hidden"             : false,
-             id:     locals[ :id ]       ? id                   : false,
-             ng:     locals[ :ng ]       ? ng                   : false,
-             title:  locals[ :title ]    ? string( title )      : false,
-             type:   locals[ :type ]     ? type                 : "submit" }
+    %button{ aria:     locals[ :aria ]     ? aria                 : false,
+             class:    locals[ :extraClass ] == "close" ? "close" : "btn #{ classes }",
+             clip:     locals[ :clip ]     ? clip                 : false,
+             data:     locals[ :data ]     ? data                 : false,
+             hidden:   locals[ :hidden ]   ? "hidden"             : false,
+             id:       locals[ :id ]       ? id                   : false,
+             itemprop: locals[ :itemprop ] ? itemprop             : false,
+             ng:       locals[ :ng ]       ? ng                   : false,
+             title:    locals[ :title ]    ? string( title )      : false,
+             type:     locals[ :type ]     ? type                 : "submit" }
         = captureHTML
 
 - else
 
     = link_to( captureHTML,
                locals[ :href ],
-               aria:   locals[ :aria ]     ? aria            : false,
-               class:  "btn #{ classes }",
-               clip:   locals[ :clip ]     ? clip            : false,
-               data:   locals[ :data ]     ? data            : false,
-               hidden: locals[ :hidden ]   ? "hidden"        : false,
-               id:     locals[ :id ]       ? id              : false,
-               ng:     locals[ :ng ]       ? ng              : false,
-               title:  locals[ :title ]    ? string( title ) : false,
-               ui:     locals[ :ui ]       ? ui              : false )
+               aria:     locals[ :aria ]     ? aria            : false,
+               class:    "btn #{ classes }",
+               clip:     locals[ :clip ]     ? clip            : false,
+               data:     locals[ :data ]     ? data            : false,
+               hidden:   locals[ :hidden ]   ? "hidden"        : false,
+               id:       locals[ :id ]       ? id              : false,
+               itemprop: locals[ :itemprop ] ? itemprop        : false,
+               ng:       locals[ :ng ]       ? ng              : false,
+               title:    locals[ :title ]    ? string( title ) : false,
+               ui:       locals[ :ui ]       ? ui              : false )

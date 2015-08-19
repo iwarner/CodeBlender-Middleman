@@ -32,7 +32,6 @@ heading       : false
 lang          : en
 manifest      : false
 modernizr     : false
-navbar        : true
 resources     : true
 todo          : true
 topIcon       : true
@@ -63,11 +62,6 @@ footer :
     active     : true
     extraClass : "noBackground"
 
-# Apple
-apple :
-    app :
-        id : false
-
 # Atom
 atom :
     title : "Code Blender"
@@ -75,17 +69,6 @@ atom :
 # Coderwall
 coderwall :
     username : false
-
-# Facebook
-facebook :
-    app :
-        id     : false
-        secret : false
-    page :
-        id  : "835310269859992"
-        url : "https://www.facebook.com/codeblender"
-    locale :
-        en : "en_GB"
 
 # Formspree : http://formspree.io/
 formspree :
@@ -95,25 +78,6 @@ formspree :
 # Disqus
 disqus :
     shortName : false
-
-# Google
-google  :
-    api            : false
-    analytics      :
-        code : false
-        url  : false
-    adsense        : "ca-pub-4390370568784157"
-    search         : "partner-pub-4390370568784157:1349230888"
-    webmasterTools : false
-    client :
-        id     : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"
-        secret : "ERR0xB-H_csJEdn2IPZ4MxWW"
-
-# MailChimp
-mailChimp :
-    path : false
-    u    : false
-    id   : false
 
 # Open Weather Map
 openWeatherMap : false

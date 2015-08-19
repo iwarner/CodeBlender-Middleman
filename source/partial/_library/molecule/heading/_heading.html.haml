@@ -22,9 +22,11 @@
     -# Heading
     -# Defaults to H1
     - haml_tag locals[ :tag ] ? tag : "h1",
-               { class: locals[ :extraClass ] ? "heading #{extraClass}" : "heading",
-                 id:    locals[ :id ]         ? id                      : false,
-                 ng:    locals[ :ng ]         ? ng                      : false } do
+               { class:    locals[ :extraClass ] ? "heading #{extraClass}" : "heading",
+                 id:       locals[ :id ]         ? id                      : false,
+                 itemprop: locals[ :itemprop ]   ? itemprop                : false,
+                 ng:       locals[ :ng ]         ? ng                      : false,
+                 rel:      locals[ :rel ]        ? rel                     : false } do
 
         -# Icon
         - if locals[ :icon ]

@@ -17,12 +17,10 @@
 
 -# Variables
 - cp = current_page
-- dc = data.config
 - m  = cp.data.stub
-- fb = dc.facebook
 
 -# Site Name
-%meta{ content: string( dc.brand ), property: "og:site_name" }
+%meta{ content: string( dataConfig.brand ), property: "og:site_name" }
 
 -# Title
 %meta{ content: string( :"meta.#{ m }.title" ), property: "og:title" }
@@ -34,14 +32,14 @@
 %meta{ content: string( :"meta.#{ m }.type" ), property: "og:type" }
 
 -# URL
-%meta{ content: dc.url + File.dirname( URI.parse( cp.url ).path ), property: "og:url" }
+%meta{ content: dataConfig.url + File.dirname( URI.parse( cp.url ).path ), property: "og:url" }
 
 -# Image
 %meta{ content: string( :"meta.#{ m }.image" ), property: "og:image" }
 
 -# Facebook Page ID
-%meta{ content: fb.page.id, property: "fb:page_id" }
+%meta{ content: dataFacebook.page.id, property: "fb:page_id" }
 
 -# Facebook App ID
-- if fb.app.id
-    %meta{ content: fb.app.id, property: "fb:app_id" }
+- if dataFacebook.app.id
+    %meta{ content: dataFacebook.app.id, property: "fb:app_id" }

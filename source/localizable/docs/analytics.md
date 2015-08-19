@@ -1,19 +1,19 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : ""
+    title : "Analytics"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Analytics"
     type   : ""
 
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Analytics"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ analytics ]
 
 ---
 

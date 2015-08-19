@@ -1,7 +1,7 @@
 ---
 
 heading :
-    small : "Alerting"
+    small : "Server and service notifications"
     title : "Alerting"
 
 meta :

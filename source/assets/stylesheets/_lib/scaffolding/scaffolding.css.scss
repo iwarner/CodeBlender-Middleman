@@ -15,6 +15,10 @@ body {
 
 }
 
-.iconActive {
-    color : red;
+// Highlight
+//------------------------------------------------------------------------//
+table.table  {
+    .highlight {
+        background-color : white !important;
+    }
 }

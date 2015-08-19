@@ -1,11 +1,8 @@
 ---
 
-angular :
-    controller : "DataTableCtrl"
-
 heading :
-    small : "JQuery grid"
-    title : "DataTables"
+    small : "JQuery data grid"
+    title : "DataTable"
 
 see :
     - - "DataTables"
@@ -35,15 +32,35 @@ todo :
     DataTables is the de-facto front-end table enhancement script on the market
     it comes with an MIT license : https://www.datatables.net/license/mit
 
-%hr
+%div{ ng: { controller: "DataTableCtrl as table" } }
 
--# Create Array
-- array = { cols: [ "<input type='checkbox' id='checkall' title='Select all'>", "Prospect ID", :"table.client", :"table.lastContact", :"table.buyingStage", :"table.nextAction", "Expand" ] }
+    %p.text-danger You selected the following rows:</p>
+    %pre {{ table.selected | json }}
 
--# DataGrid
-.table-responsive
+    -# DataGrid
+    .table-responsive
 
-    -# Table
-    = partial "./molecule/table/table",
-               locals: { array:  array,
-                         id:     "dataTable"}
+        / -# Toolbar
+        / .nurture__toolbar
+
+        /     -# Button Archive
+        /     = partial "./atom/button/button",
+        /                locals: { context: "success",
+        /                          size:    "lg",
+        /                          icon:    { prepend: "fa-archive" },
+        /                          href:    "/#/interaction",
+        /                          text:    :"nurture.archiveButton" }
+
+        -# Table
+        %table.table.table-hover.table-striped{ role: "grid", datatable: "", dt: { options: "table.dtOptions", columns: "table.dtColumns", instance: "table.dtInstance" } }
+
+/ -# Create Array
+/ - array = { cols: [ "<input type='checkbox' id='checkall' title='Select all'>", "Prospect ID", :"table.client", :"table.lastContact", :"table.buyingStage", :"table.nextAction", "Expand" ] }
+
+/ -# DataGrid
+/ .table-responsive
+
+/     -# Table
+/     = partial "./molecule/table/table",
+/                locals: { array:  array,
+/                          id:     "dataTable"}

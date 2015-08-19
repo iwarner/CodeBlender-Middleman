@@ -3,7 +3,8 @@
 -#
 -# Locals
 -#
--# Usage
+-# @Usage
+-# -# Search Google
 -# = partial "./molecule/search/search"
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
@@ -21,7 +22,7 @@
 
         %input.form-control{ type: "text", placeholder: "Search", name: "q" }
 
-        %input{ type: "hidden", name: "cx", value: dataConfig.google.search }
+        %input{ type: "hidden", name: "cx", value: dataGoogle.search }
 
         %input{ type: "hidden", name: "cof", value: "FORID:10" }
 

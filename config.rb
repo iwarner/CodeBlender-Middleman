@@ -4,17 +4,22 @@
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 
-# Config Variables
-set :dataConfig, data.config
-set :dataNav,    data.nav.navigation
-set :version,    dataConfig.version
+# Data Variables
+set :dataConfig,    data.config
+set :dataApple,     data.apple
+set :dataFacebook,  data.facebook
+set :dataGoogle,    data.google
+set :dataMailChimp, data.mailChimp
+set :dataNav,       data.navigation
+set :dataSubNav,    data.subnavigation
+set :version,       dataConfig.version
 
 # Config
 config[ :partials_dir ] = "partial/_library/"
 
 # Variables
-set :relative_links,   false
-set :strip_index_file, false
+# set :relative_links,   false
+# set :strip_index_file, false
 set :syntaxScheme,     "ThankfulEyes"
 set :path,             "assets"
 set :css_dir,          "#{ path }/stylesheets"
@@ -76,25 +81,23 @@ activate :blog do | blog |
     blog.default_extension = ".md"
 
     blog.permalink         = "{category}{title}.html"
-
-    # blog.permalink         = ":title.html"
     blog.sources           = ":title.html"
 
     blog.layout            = "_library/article"
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 
-    blog.calendar_template = "/blog/calendar/template.html"
-    blog.year_link         = "/blog/calendar/:year.html"
-    blog.month_link        = "/blog/calendar/:year/:month.html"
-    blog.day_link          = "/blog/calendar/:year/:month/:day.html"
+    blog.calendar_template = "template/calendar.html"
+    blog.year_link         = "/calendar/:year.html"
+    blog.month_link        = "/calendar/:year/:month.html"
+    blog.day_link          = "/calendar/:year/:month/:day.html"
 
-    blog.tag_template      = "/blog/tag/template.html"
-    blog.taglink           = "/blog/tag/:tag.html"
+    blog.tag_template      = "template/tag.html"
+    blog.taglink           = "/tag/:tag.html"
 
     blog.paginate          = true
     blog.per_page          = 5
-    blog.page_link         = "page/:num"
+    blog.page_link         = "page/{num}"
 
 end
 
@@ -125,19 +128,19 @@ end
 configure :build do
 
     # Use relative URLs
-    # activate :relative_assets
+    activate :relative_assets
 
     # GZIP Files
     # activate :gzip
 
     # For example, change the Compass output style for deployment
-    # activate :minify_css
+    activate :minify_css
 
     # Minify Javascript on build
-    # activate :minify_javascript
+    activate :minify_javascript
 
     # Minify HTML
-    # activate :minify_html
+    activate :minify_html
 
     # Favicon
     # activate :favicon_maker, icons: {
@@ -171,27 +174,27 @@ end
 
 # end
 
-# # Create Product Pages
-if data.products.products
+# # # Create Product Pages
+# if data.products.products
 
-    # Loop through the products
-    data.products.products.each do | product |
+#     # Loop through the products
+#     data.products.products.each do | product |
 
-        # Create the Pages if status is active
-        if product.status == "active"
+#         # Create the Pages if status is active
+#         if product.status == "active"
 
-            # Page Name
-            page = product.title.downcase.gsub( /[^a-z0-9\- ]/, ' ').gsub( / /, '-' )
+#             # Page Name
+#             page = product.title.downcase.gsub( /[^a-z0-9\- ]/, ' ').gsub( / /, '-' )
 
-            # Debug
-            # p product
-            # p page
+#             # Debug
+#             # p product
+#             # p page
 
-            # Proxy Pages
-            proxy "/shop/#{ page }/index.html", "templates/product/product.html", :locals => { :product => product }, :ignore => true
+#             # Proxy Pages
+#             proxy "/shop/#{ page }/index.html", "template/product/product.html", :locals => { :product => product }, :ignore => true
 
-        end
+#         end
 
-    end
+#     end
 
-end
+# end

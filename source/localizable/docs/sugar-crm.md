@@ -1,19 +1,19 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : ""
+    title : "Sugar CRM"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Sugar CRM"
     type   : ""
 
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Sugar CRM"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ sugarcrm, crm ]
 
 ---
 

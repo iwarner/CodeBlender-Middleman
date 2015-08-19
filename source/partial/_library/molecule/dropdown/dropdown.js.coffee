@@ -2,10 +2,10 @@
 # Dropdown
 # Default JavaScript to give Dropdowns some added functionality
 #
-# @author Ian Warner <ian.warner@drykiss.com>
-#
 # @usage
 # require molecule/dropdown/dropdown
+#
+# @author Ian Warner <ian.warner@drykiss.com>
 ##
 
 ##

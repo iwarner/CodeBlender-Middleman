@@ -19,6 +19,8 @@
 # Lib Controller
 //= require_tree ./controller
 
-# Library Controllers
-//= require ../../../../partial/_library/molecule/topIcon/topIcon
-//= require ../../../../partial/_library/organism/dataTable/dataTable
+# Atomic Controllers
+//= require molecule/topIcon/topIcon
+//= require organism/dataTable/dataTable
+//= require organism/dataTable/checkboxSelect
+//= require molecule/mailchimp/subscription

@@ -1,5 +1,8 @@
 ##
 # Validation States
+# Will validate any bootstrap form control
+#
+# @author Ian Warner <ian.warner@drykiss.com>
 ##
 
 ##
@@ -87,7 +90,7 @@ angular.module 'app'
     {
     restrict : 'A'
     require  : '^form'
-    compile: ( elem, attrs ) ->
+    compile  : ( elem, attrs ) ->
         if !elem.hasClass( 'form-group' )
             throw 'show-errors element does not have the \'form-group\' class'
         linkFn

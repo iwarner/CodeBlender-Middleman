@@ -18,17 +18,23 @@
 angular.module 'app',  [
 
     'ui.router'
+    'ui.checkbox'
 
     'app.controllers'
     'app.config'
     'app.security'
-
-    'firebase'
-
     'app.auth'
     'app.filters'
     'app.utilities'
 
+    'firebase'
+
     'ngClipboard'
+    'ngStorage'
+
+    'mailChimp'
+
+    'datatables'
+    'datatables.bootstrap'
 
 ]

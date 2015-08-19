@@ -1,0 +1,97 @@
+-##
+-# Mailchimp Subscription Form
+-#
+-# Log into your Mailchimp Account
+-# Click on Lists and then on the  List you want
+-# Click "Signup forms"
+-# Select "Embedded forms"
+-# Select "Naked"
+-#
+-# Copy the form action elements into the mailChimp.yaml file in the data folder
+-# username - Your MailChimp username, immediately follows http://
+-# dc       - Your MailChimp distribution center, immediately follows your username
+-# u        - Unique string that identifies your account. It is obtained from
+-# id       - A unique string that identifies your list.
+-#
+-# @usage
+-# -# Mailchimp Subscription
+-# = partial "./molecule/mailchimp/subscription"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://mailchimp.com/
+-#
+-# @todo Check out the Schema org microformat for this component
+-# @todo Design the success and error messages better
+-# @todo Look at the bootstrap panel installation for this module
+-##
+
+-# If Action if not supplied - get details from Config.yaml
+- if ! locals[ :action ]
+
+    -# Check path exists in config
+    - if dataMailChimp.username
+
+        -# Create the action variable
+        - action = "//" + dataMailChimp.username + "." + dataMailChimp.dc + ".list-manage.com/subscribe/post-json" + "?u=" + dataMailChimp.u + "&id=" + dataMailChimp.id + "&c=JSON_CALLBACK"
+
+-# Mailchimp Subscription section
+%section.mailChimpSubscription
+
+    -# Heading
+    = partial "./molecule/heading/heading", locals: { extraClass: "heading--noMargin", tag: "h4", text: :"mailChimp.title" }
+
+    -# Tag line
+    %p= string :"mailChimp.small"
+
+    -# Subscription Form
+    %form{ action: action, name: "mailChimpSubscriptionForm", novalidate: true, ng: { submit: "submitSubscription( mailChimp, $event )", controller: "mailChimpSubscriptionCtrl" }, role: "form" }
+
+        -# Hide the Form if the subscription was successful
+        %div{ ng: { hide: "mailChimp.result === 'success'" } }
+
+            -# Input - Email Address
+            = partial "./atom/input/input",
+                       locals: { icon:  { prepend: "fa-envelope" },
+                                 input: { inputGroupClass: "input-group",
+                                          name:            "EMAIL",
+                                          ng:              { model: "mailChimp.EMAIL" },
+                                          placeholder:     :"mailChimp.email",
+                                          required:        "",
+                                          type:            "email" },
+                                 label: { extraClass: "sr-only", title: "Email" } }
+
+            -# Whether to show the name elements
+            - if locals[ :name ]
+
+                -# Input - First Name
+                = partial "./atom/input/input",
+                           locals: { icon:  { prepend: "fa-user" },
+                                     input: { inputGroupClass: "input-group",
+                                              name:            "FNAME",
+                                              ng:              { model: "mailChimp.FNAME" },
+                                              placeholder:     :"mailChimp.firstName" },
+                                     label: { extraClass: "sr-only", title: :"mailChimp.firstName" } }
+
+                -# Input - Last Name
+                = partial "./atom/input/input",
+                           locals: { icon:  { prepend: "fa-user" },
+                                     input: { inputGroupClass: "input-group",
+                                              name:            "LNAME",
+                                              ng:              { model: "mailChimp.LNAME" },
+                                              placeholder:     :"mailChimp.lastName" },
+                                     label: { extraClass: "sr-only", title: :"mailChimp.lastName" } }
+
+            -# Button - Subscription
+            = partial "./atom/button/button",
+                       locals: { block:   true,
+                                 context: "info",
+                                 ng:      { disabled: "mailChimpSubscriptionForm.$invalid" },
+                                 text:    :"mailChimp.button" }
+
+        -# Show error message
+        .mailChimpSubscription__error{ ng: { show: "mailChimp.result === 'error'", cloak: "" } }
+            %span{ ng: { bind: { html: "mailChimp.errorMessage" } } }
+
+        -# Show success message
+        .mailChimpSubscription__success{ ng: { show: "mailChimp.result === 'success'", cloak: "" } }
+            %span{ ng: { bind: { html: "mailChimp.successMessage" } } }

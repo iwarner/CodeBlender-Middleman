@@ -8,6 +8,9 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
+-# Variables
+- heading = current_page.data.heading
+
 -# Layout - Calls Sidebar Layout
 = wrap_layout "_library/sidebarLeft" do
 
@@ -17,11 +20,8 @@
         -# Sidebar
         - partial "./organism/subnavigation/subnavigation"
 
-    -# Heading
-    = partial "./molecule/heading/heading",
-               locals: { small: current_page.data.heading.small,
-                         tag:   "h2",
-                         text:  current_page.data.heading.title }
+    -# Heading - H2
+    = partial "./molecule/heading/heading", locals: { small: heading.small, tag: "h2", text: heading.title }
 
     -# Yield
     = yield

@@ -1,7 +1,12 @@
 -##
 -# Blog Recent Articles
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @usage
+-# -# Blog Recent
+-# = partial "./molecule/recent/recent"
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Count Default
@@ -9,7 +14,7 @@
     - count = 10
 
 -# Latest
-%ul.list-unstyled.labelList
+%ul.list-unstyled
 
     -# Loop through the Blog Posts
     - blog.articles[ 0...count.to_i ].each do | article |
@@ -18,9 +23,7 @@
         %li
 
             -# Label
-            = partial "./bootstrap/component/label",
-                       locals: { context: "info",
-                                 content: article.date.strftime( '%b %e' ) }
+            = partial "./atom/label/label", locals: { context: "info", content: article.date.strftime( '%b %e' ) }
 
             -# Link to the Article
-            = link_to string( article.title ), article
+            = link_to string( article.data.heading.title ), article

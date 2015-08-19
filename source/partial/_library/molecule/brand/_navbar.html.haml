@@ -39,4 +39,5 @@
 
         -# Show Brand
         - if brand.text.active
-            = string brand.text.text
+            %span{ itemprop: "headline" }
+                = string brand.text.text

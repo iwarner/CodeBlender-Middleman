@@ -2,6 +2,15 @@
 -# Facebook Like Button
 -# Requires the JS script to include the FacebookJS SDK
 -#
+-# @usage
+-# -# Like Button
+-# = partial "./molecule/facebook/like-button",
+-#            locals: { action:      "recommend",
+-#                      colorscheme: "dark",
+-#                      href:        "http://google.com",
+-#                      layout:      "button",
+-#                      share:       "false" }
+-#
 -# Locals
 -# action            : The verb to display on the button. Options: 'like', 'recommend'
 -# colorscheme       : The colour scheme for the like button. Options: 'light', 'dark'
@@ -36,20 +45,9 @@
 -#                     (standard layout only) - Requires that you have liked the page also.
 -# width             : The width of the Like button.
 -#
--# Usage
--# -# Like Button
--# = partial "./social/facebook/like-button",
--#            locals: { action:      "recommend",
--#                      colorscheme: "dark",
--#                      href:        "http://google.com",
--#                      layout:      "button",
--#                      share:       "false" }
--#
 -# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/like-button
 -##
-
--# Variables
-- dc = data.config
 
 -# Action
 - if ! locals[ :action ]
@@ -61,7 +59,7 @@
 
 -# HREF - default to Config URL
 - if ! locals[ :href ]
-    - href = dc.url
+    - href = dataConfig.url
 
 -# kid_directed_site
 - if ! locals[ :kid_directed_site ]
@@ -83,24 +81,13 @@
 - if ! locals[ :width ]
     - width = "450"
 
--# Debug
--# = action
--# = extraClass
--# = colorscheme
--# = href
--# = kid_directed_site
--# = layout
--# = share
--# = show_faces
--# = width
-
 -# Like Button
-.fb-like{ :class => locals[ :extraClass ] ? extraClass : false,
-          :data  => { :action              => action,
-                      :colorscheme         => colorscheme,
-                      :href                => href,
-                      :"kid-directed-site" => kid_directed_site,
-                      :layout              => layout,
-                      :share               => share,
-                      :"show-faces"        => show_faces,
-                      :width               => width } }
+.fb-like{ class: locals[ :extraClass ] ? extraClass : false,
+          data:  { action:      action,
+                   colorscheme: colorscheme,
+                   href:        href,
+                   kid:         { directed: { site: kid_directed_site } },
+                   layout:      layout,
+                   share:       share,
+                   show:        { faces: show_faces },
+                   width:       width } }

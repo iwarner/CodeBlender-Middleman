@@ -1,6 +1,6 @@
 -##
 -# Google Universal Analytics
--# Place the locals in the data/config.yaml file
+-# Place the locals in the data/google.yaml file
 -#
 -# Locals
 -# googleAnalytics    - String - Required - Analytics ID
@@ -11,11 +11,9 @@
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://www.google.com/analytics/
+-#
 -# @todo   Put the various ways of including the Analytics code into here
 -##
-
--# Variables
-- dc = data.config
 
 -# Analytics
 :javascript
@@ -24,6 +22,6 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga( 'create',  '#{ dc.google.analytics.code }', '#{ dc.google.analytics.url }' );
+    ga( 'create',  '#{ dataGoogle.analytics.code }', '#{ dataGoogle.analytics.url }' );
     ga( 'require', 'displayfeatures' );
     ga( 'send',    'pageview' );

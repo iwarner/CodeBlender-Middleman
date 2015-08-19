@@ -1,19 +1,19 @@
 ---
 
 heading :
-    small : "Angular"
-    title : "Angular"
+    small : ""
+    title : "Angular development"
 
 meta :
     author : "Ian Warner"
-    image  : ""
+    image  : "docs/angular/angularjs.png"
     title  : "Angular"
     type   : ""
 
 date     : 2015-04-08
-excerpt  : "Angular"
+excerpt  : "Excerpt on Angular"
 modified : 2015-04-08
-tags     : [ Angular ]
+tags     : [ angular ]
 
 ---
 

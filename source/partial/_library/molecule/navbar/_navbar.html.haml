@@ -22,11 +22,13 @@
 -# uLClass    : "navbar-left"
 -# wrapper    : false
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo Move this to an Organism
 -##
 
 -# Variables
-- dc    = data.config
 - nav   = locals
 - links = t( :navigation )
 
@@ -37,7 +39,7 @@
              ng:    nav.ng ? ng : false }
 
     -# Bootstrap Container - drawn from config container
-    %div{ class: nav.container.present? ? nav.container : dc.container }
+    %div{ class: nav.container.present? ? nav.container : dataConfig.container }
 
         -# Navbar Header
         .navbar-header
@@ -122,6 +124,8 @@
                                                      navBar:     true,
                                                      extraClass: side[ :extraClass ] }
 
-                -# Google Search Bar
-                - if dc.google.search
+                -# Check if search is required
+                - if dataGoogle && dataGoogle.search
+
+                    -# Search Google
                     = partial "./molecule/search/search"

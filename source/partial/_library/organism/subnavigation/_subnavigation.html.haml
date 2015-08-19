@@ -1,16 +1,15 @@
 -##
 -# Sub Navigation
 -#
--# Usage
+-# @usage
+-# -# Sub Navigation
 -# = partial "./scaffolding/subnavigation"
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Sub Navigation
-- if data[ "scaffolding" ][ "subnavigation" ].present?
-
-    - subNav = data.scaffolding.subnavigation
+- if dataSubNav.present?
 
     -# Get correct URL path
     - if ! relative_links
@@ -19,15 +18,15 @@
         - url = current_page.url
 
     -# Create the Sub Navigation section
-    - array = url == "/" ? subNav[ "default" ] : subNav[ url[ 1..-2 ] ]
+    - array = url == "/" ? dataSubNav[ "default" ] : dataSubNav[ url[ 1..-2 ] ]
 
     -# If no array is present then revert back to base navigation
     - if ! array
 
-        - split = current_page.url.split( "/" )
+        - split = current_page.url.split "/"
         - split.shift
         - split.pop
-        - array = subNav[ split.join( "/" ) ]
+        - array = dataSubNav[ split.join "/" ]
 
     -# Check if array exists
     - if array
@@ -39,7 +38,7 @@
             - if value.url
 
                 -# Get URI
-                - uri = URI.parse( value.url )
+                - uri = URI.parse value.url
 
                 -# Active element
                 - array[ index ][ "active" ] = ( uri.path == url ) ? true : false

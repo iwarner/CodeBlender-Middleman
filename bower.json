@@ -9,58 +9,58 @@
 
     "dependencies" : {
 
-        "amcharts"                 : "",
+        "amcharts"                   : "",
 
-        "angular"                  : "",
-        "angular-ui-router"        : "",
-        "angularfire"              : "",
-        "ng-clip"                  : "",
+        "angular"                    : "",
+        "angular-ui-router"          : "",
+        "angular-resource"           : "",
+        "angular-sanitize"           : "",
+        "angular-bootstrap-checkbox" : "",
+        "angular-datatables"         : "",
 
-        "backbone"                 : "",
-        "backbone-validation"      : "",
+        "angularfire"                : "",
+        "ng-clip"                    : "",
+        "ngstorage"                  : "",
 
-        "bootstrap-sass-official"  : "",
-        "bootstrapx-clickover-bs3" : "",
+        "bootstrap-sass-official"    : "",
+        "bootstrapx-clickover-bs3"   : "",
 
-        "card"                     : "",
-        "ckeditor"                 : "",
+        "card"                       : "",
+        "ckeditor"                   : "",
 
-        "comma-separated-values"   : "",
+        "comma-separated-values"     : "",
 
-        "DataTables"               : "",
-        "datatables-colreorder"    : "",
-        "datatables-colvis"        : "",
-        "datatables-tabletools"    : "",
+        "dropzone"                   : "",
 
-        "dropzone"                 : "",
+        "firebase"                   : "",
 
-        "firebase"                 : "",
-        "font-awesome"             : "",
+        "font-awesome"               : "",
 
-        "gsap"                     : "",
+        "gsap"                       : "",
 
-        "holderjs"                 : "",
+        "holderjs"                   : "",
 
-        "jcrop"                    : "",
+        "jcrop"                      : "",
 
-        "jquery"                   : "",
-        "jquery.payment"           : "",
-        "jquery-validation"        : "",
+        "jquery"                     : "",
+        "jquery.payment"             : "",
+        "jquery-validation"          : "",
 
-        "lunr.js"                  : "",
+        "lunr.js"                    : "",
 
-        "material-design-lite"     : "",
+        "material-design-lite"       : "",
 
-        "modernizr"                : "",
+        "modernizr"                  : "",
 
-        "notify.js"                : "",
+        "notify.js"                  : "",
 
-        "simplecart-js"            : "",
+        "simplecart-js"              : "",
 
-        "Snap.svg"                 : "",
-        "underscore"               : "",
+        "Snap.svg"                   : "",
+        "underscore"                 : "",
 
-        "yamm3"                    : ""
+        "yamm3"                      : ""
+
     },
 
     "license" : "MIT",

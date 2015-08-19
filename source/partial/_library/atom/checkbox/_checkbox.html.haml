@@ -1,44 +1,54 @@
 -##
 -# Checkbox
+-# Using more fancy checkboxes the label needs to be inline with the input
+-#
+-# @usage
+-# -# Checkbox
+-# = partial "./atom/checkbox/checkbox"
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
--# @see    http://montrezorro.github.io/bootstrap-checkbox/
--# @see    http://arthurgouveia.com/prettyCheckable/
+-# @see    http://flatlogic.github.io/awesome-bootstrap-checkbox/demo/
+-# @see    http://getbootstrap.com/css/#forms-controls
+-#
+-# @todo Allow for the classes to be altered, i.e. not just circle
+-# @todo Radio can use the same controls I think
+-# @todo Allow for Input classes to be altered
 -##
 
 -# Variables
-- l  = locals
-- la = l[ :aria ]
+- input = locals[ :input ]
+- label = locals[ :label ]
 
--# Form Group
-.checkbox{ class: l[ :extraClass ] ? extraClass : false }
+-# Check for Aria - requires input to be present
+- if input && input[ :aria ].present?
+    - aria = input[ :aria ]
 
-    -# Input
-    %input{ aria:      { label:      ! la.blank? && ! la[ :label ].blank?      ? la[ :label ]      : false,
-                         labelledby: ! la.blank? && ! la[ :labelledby ].blank? ? la[ :labelledby ] : "#{ l[ :name ] }ID" },
-            autofocus: l[ :autofocus ] ? "autofocus" : false,
-            disabled:  l[ :disabled ]  ? "disabled"  : false,
-            id:        l[ :name ]      ? name        : false,
-            name:      l[ :name ]      ? name        : false,
-            required:  l[ :required ]  ? "required"  : false,
-            tabindex:  l[ :tabindex ]  ? tabindex    : false,
-            type:      "checkbox",
-            value:     l[ :value ]     ? value       : false }
+-# Checkbox Class
+.checkbox{ class: locals[ :extraClass ] ? extraClass : false }
 
-    -# Label
-    %label{ class: l[ :inline ] ? "checkbox-inline" : false, for: l[ :name ] }
+    -# Label - note this is an array as it contains flag for screen reader
+    %label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
 
-        -# Text
-        - if l[ :text ]
-            %span{ id: "#{ l[ :name ] }ID" }= string text
+        -# Input
+        %input{ aria:      aria                ? aria               : false,
+                autofocus: input[ :autofocus ] ? "autofocus"        : false,
+                class:     "checkOne",
+                disabled:  input[ :disabled ]  ? "disabled"         : false,
+                id:        input[ :name ]      ? input[ :name ]     : false,
+                name:      input[ :name ]      ? input[ :name ]     : false,
+                required:  input[ :required ]  ? "required"         : false,
+                tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
+                type:      "checkbox",
+                value:     input[ :value ]     ? input[ :value ]    : false }
+
+        -# Text
+        - if label[ :title ]
+            = string label[ :title ]
 
     -# Help Block
     -# Sometimes this should be hidden to allow errors to be added inside.
-    -# Assume if l[ :help ] is a "true" Bool only then add class hidden and no text
-    - if l[ :help ]
+    -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
+    - if locals[ :help ]
 
-        %span.help-block{ class: !!help == help ? "hidden" : false }
-
-            -# Help should be a string to show the text otherwise leave blank
-            - if help.is_a?( String )
-                = help
+        %span.help-block{ ng: locals[ :help ][ :ng ] }
+            = locals[ :help ][ :content ]

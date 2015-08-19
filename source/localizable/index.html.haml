@@ -4,6 +4,10 @@
 layout : "_library/fullWidth"
 stub   : "index"
 
+# Blog
+pageable : true
+per_page : 5
+
 # See
 see :
     - - "Metronic"
@@ -11,6 +15,7 @@ see :
 
 ---
 
+-# Bootstrap Container
 .container
 
     .text-center
@@ -21,49 +26,53 @@ see :
     -# Heading - H2
     = partial "./molecule/heading/heading", locals: { extraClass: "text-center", tag: "h2", text: "Hand crafted HAML partials" }
 
-    %hr
-
+    -# Bootstrap Row
     .row
 
+        -# Bootstrap Columns
         .col-md-4.text-center
-            = partial "./atom/button/button", locals: { icon: "fa-github", text: "Github", size: "lg" }
 
-        .col-md-4.text-center
-            = partial "./atom/button/button", locals: { icon: "fa-download", text: "Download", size: "lg" }
+            -# Button Github
+            = partial "./atom/button/button", locals: { icon: { prepend: "fa-github" }, text: "Github", size: "lg" }
 
+        -# Bootstrap Columns
         .col-md-4.text-center
-            = partial "./atom/button/button", locals: { icon: "fa-folder", text: "Docs", size: "lg" }
+
+            -# Button Download
+            = partial "./atom/button/button", locals: { icon: { prepend: "fa-download" }, text: "Download", size: "lg" }
+
+        -# Bootstrap Columns
+        .col-md-4.text-center
+
+            -# Button Docs
+            = partial "./atom/button/button", locals: { icon: { prepend: "fa-folder" }, text: "Docs", size: "lg" }
 
     %hr
 
-    SHARING
+    -# Bootstrap Row
+    .row
 
-    WHY
-    Alternatives
-    Extensability
+        -# Bootstrap Columns
+        .col-md-9.col-sm-9
 
+            -# Article
+            = partial "./template/article/article", locals: { page_articles: page_articles }
 
-    CORE EXAMPLE
+            -# Variables
+            - prevPage = prev_page ? prev_page : false
+            - nextPage = next_page ? next_page : false
 
-    FOOTER
+            -# Pagination
+            = partial "./molecule/pagination/pagination", locals: { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
 
-    / -# Links
-    / = partial "./atom/thumbnail/thumbnail", locals: { array: data.scaffolding.portalLinks.thumbs, columns: "col-md-2 col-sm-3 col-xs-4" }
+        -# Bootstrap Columns
+        .col-md-3.col-sm-3
 
-    / -# Heading
-    / = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Tools" }
+            -# Archive
+            = partial "./molecule/archive/archive"
 
-    / -# Tools
-    / = partial "./atom/thumbnail/thumbnail", locals: { array: data.scaffolding.portalLinks.tools, columns: "col-md-2 col-sm-3 col-xs-4" }
+            -# MailChimp
+            = partial "./molecule/mailchimp/subscription"
 
-    / -# Capture Configuration Elements
-    / - content_for :configuration do
-
-    /     -# Dropdown to select background
-    /     - array = [ [ "Select Background", "-1" ] ]
-
-    /     - ( 1..10 ).each do | index |
-    /         - array << [ "bg-hero#{ index }.jpg" ]
-
-    /     -# Select
-    /     = partial "./atom/select/select", locals: { array: array, name: "backgroundSelector", label: { title: "Background" } }
+            -# Tag Cloud
+            = partial "./molecule/tagCloud/tagCloud"

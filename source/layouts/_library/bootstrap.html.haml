@@ -20,8 +20,6 @@
 
 -# HTML Section
 %html{ lang:      string( :locale ),
-       itemscope: true,
-       itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
        manifest:  dataConfig.manifest ? "/offline.manifest" : false,
        ng:        { app: ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false },
        xmlns:     "http://www.w3.org/1999/xhtml",
@@ -48,16 +46,20 @@
         %base{ href: "/" }
 
     -# Body with Page Class
-    %body{ id:    dataConfig.body.id ? dataConfig.body.id : false,
-           class: dataConfig.body.extraClass ? dataConfig.body.extraClass + " " + page_classes : page_classes,
-           data:  { lang:   locale,
-                    locale: ( ! dataConfig.facebook.locale.blank? ) ? dataConfig.facebook.locale[ locale ] : false },
-           ng:    { controller: d.angular ? d.angular.controller ? d.angular.controller : false : false } }
+    -# Contains the main Itemscope of the current page
+    -#
+    %body{ id:        dataConfig.body.id ? dataConfig.body.id : false,
+           class:     dataConfig.body.extraClass ? dataConfig.body.extraClass + " " + page_classes : page_classes,
+           data:      { lang:   locale,
+                        locale: dataFacebook && dataFacebook.locale.present? ? dataFacebook.locale[ locale ] : false },
+           itemscope: true,
+           itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
+           ng:        { controller: d.angular ? d.angular.controller ? d.angular.controller : false : false } }
 
         %a{ id: "top" }
 
         -# Facebook Root - Requires an AppID
-        - if dataConfig.facebook.app.id
+        - if dataFacebook && dataFacebook.app.id
             #fb-root
 
         -# Section - Above Nav
@@ -65,7 +67,7 @@
             = partial dataNav.above
 
         -# Section - Navbar
-        - if ! dataConfig.navbar.blank? and d.navbar != false
+        - if dataNav.navbar
             = partial "./molecule/navbar/navbar", locals: dataNav
 
         -# Section - Below Navigation
@@ -79,7 +81,7 @@
         - if dataConfig.footer.active or dataConfig.copyright
             = partial "./organism/footer/footer"
 
-        -# Icon
+        -# Top Icon
         - if dataConfig.topIcon
             = partial "./molecule/topIcon/topIcon"
 
@@ -87,14 +89,10 @@
         - if dataConfig.configuration
             = partial "./scaffolding/configuration"
 
-        -# Cordova
-        - if build? and dataConfig.cordova
-            %script{ src: "cordova.js" }
-
         -# JavaScript
         -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
         = javascript_include_tag :body
 
         -# Google Analytics
-        - if dataConfig.google.analytics.active
+        - if dataGoogle and dataGoogle.analytics.active
             = partial "./google/analytics"

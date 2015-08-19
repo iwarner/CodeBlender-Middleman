@@ -1,64 +1,76 @@
 -##
--# Blog Details Partial
+-# Blog Detail Partial
 -#
 -# @usage
 -# -# Blog Detail
--# = partial "./blog/detail", locals: { current_page: article }
+-# = partial "./molecule/detail/detail", locals: { current_page: article }
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @param author  Show the Meta author and icon
+-# @param cal     Show the blog time and icon
+-# @param comment Show the number of comments
+-# @param social  Show the social buttons
+-# @param tags    Show the tags
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @see      http://schema.org/BlogPosting
+-# @see      https://developers.google.com/structured-data/
+-# @see      http://www.designhive.com/blog/using-schemaorg-microdata
+-# @see      https://gist.github.com/gregrickaby/5917114
+-#
+-# @todo   Consider putting the tags in a DL element
+-# @todo   Should link up the Author to show articles by Authors name - finish of link
+-# @todo   Include more social link options
+-# @todo   Need to distinguish the types of Articles / Posts and change template accordingly and microdata, i.e. event
+-# @todo   Tags should scale with a reveal on the end - use overflow
+-# @todo   Tags should be in a list DL probably
+-# @todo   Need to check the scalability of the title and small description
+-# @todo   Complete the DataTime element
 -##
 
 -# Variables
-- dc = data.config
+- page = current_page
+- data = page.data
+- url  = dataConfig.url + page.url
 
 -# Blog Footer
-.blogDetails
+.blogDetail
 
     -# Date
     - if locals[ :cal ]
-        = icon( "fa-calendar" )
-        = current_page.data.date.strftime( '%Y-%m-%d' )
+        = icon "fa-calendar"
+        %time{ itemprop: "datePublished", datetime: "2015-03-26T10:43:39Z" }
+            = data.date.strftime '%B %e, %Y'
 
     -# Author
-    - if locals[ :user ]
+    - if locals[ :author ]
         |
-        = icon( "fa-user" )
+        = icon "fa-user"
         by
-        = current_page.data.meta.author
+        %span{ itemprop: "author",  itemscope: true,  itemptype: "http://schema.org/Person" }
+            %a{ itemprop: "url", rel: "author" }
+                %span{ itemprop: "name" }= data.meta.author
 
-    -# Show Comments
-    - if locals[ :comments ]
+    -# Show Comment
+    - if locals[ :comment ]
         |
-        = icon( "fa-comment" )
+        = icon "fa-comment"
         X Comments
 
     -# Like Button
     - if locals[ :social ]
+        = partial "./molecule/facebook/like-button", locals: { extraClass: "pull-right", href: url, layout: "button_count", share: "false" }
 
-        = partial "./social/facebook/like-button",
-                   locals: { extraClass: "pull-right",
-                             href:       dc.url + current_page.url,
-                             layout:     "button_count",
-                             share:      "false" }
-
-    %hr
-
-    -# Read More Button
-    - if locals[ :more ]
-        .pull-right= link_to "Read More", "/current_page.url", class: "btn btn-primary btn-mini"
-
-    -# Tags
+    -# Tag
     - if locals[ :tags ]
-        .tags
+
+        %footer.blogDetail__tag
+
+            = icon "fa-tags"
 
             -# Loop through tags
             - current_page.data.tags.each do | tag |
 
                 -# Label
-                = partial "./bootstrap/component/label",
-                           locals: { context: "primary",
-                                     content: tag,
-                                     href:    tag_path( tag ),
-                                     icon:    "fa-tag" }
+                = partial "./atom/label/label", locals: { context: "primary", content: tag, href: tag_path( tag ), itemprop: "keywords" }
 
-.clearfix

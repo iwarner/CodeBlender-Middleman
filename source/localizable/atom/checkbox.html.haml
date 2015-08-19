@@ -34,63 +34,71 @@ todo :
 
 ---
 
--# Heading
+-# Heading - H2
 = partial "./molecule/heading/heading", locals: { tag:  "h2", text: "Checkbox" }
 
 -# Form
 %form{ novalidate: false }
 
-    -# Checkbox
-    = partial "./form/checkbox", locals: { name: "checkbox", text: "Textual description here" }
+    %checkbox{ ng: { model: "checkboxModel" } }
 
--# Code
-:code
-    #lang: ruby
-    -# Checkbox
-    = partial "./form/checkbox", locals: { name: "checkbox", text: "Textual description here" }
+    / <checkbox
+    /     ng-model=""
+    /     name="custom-name"              (Optional)
+    /     ng-true-value="The Truth"       (Optional)
+    /     ng-false-value="The Untruth"    (Optional)
+    /     ng-change="onChange()"          (Optional)
+    / ></checkbox>
 
--# Heading
-= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Disabled Checkbox" }
-
--# Form
-%form{ novalidate: false }
-
-    -# Checkbox
-    = partial "./form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
-
--# Code
-:code
-    #lang: ruby
-    -# Checkbox
-    = partial "./form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
+/ -# Code
+/ :code
+/     #lang: ruby
+/     -# Checkbox
+/     = partial "./atom/checkbox/checkbox", locals: { name: "checkbox", text: "Textual description here" }
 
 
--# Heading
-= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Fancy Checkbox" }
+/ -# Heading
+/ = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Disabled Checkbox" }
 
--# Form
-%form{ :novalidate => false }
+/ -# Form
+/ %form{ novalidate: false }
 
-    -# Checkbox
-    = partial "./form/checkbox", locals: { extraClass: "fancy", name: "checkbox2", text: "Textual description here" }
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
 
--# Code
-:code
-    #lang: ruby
-    -# Checkbox
-    = partial "./form/checkbox", locals: { extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
+/ -# Code
+/ :code
+/     #lang: ruby
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
 
--# Heading
-= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Disabled Fancy Checkbox" }
 
--# Form
-%form{ novalidate: false }
+/ -# Heading
+/ = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Fancy Checkbox" }
 
-    -# Checkbox
-    = partial "./form/checkbox", locals: { disabled: true, extraClass: "fancy", name: "checkbox3", text: "Textual description here" }
+/ -# Form
+/ %form{ :novalidate => false }
 
--# Code
-:code
-    #lang: ruby
-    -# Checkbox
-    = partial "./form/checkbox", locals: { disabled: true, extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { extraClass: "fancy", name: "checkbox2", text: "Textual description here" }
+
+/ -# Code
+/ :code
+/     #lang: ruby
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
+
+/ -# Heading
+/ = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Disabled Fancy Checkbox" }
+
+/ -# Form
+/ %form{ novalidate: false }
+
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { disabled: true, extraClass: "fancy", name: "checkbox3", text: "Textual description here" }
+
+/ -# Code
+/ :code
+/     #lang: ruby
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { disabled: true, extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }

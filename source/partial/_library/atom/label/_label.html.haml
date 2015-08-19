@@ -1,13 +1,12 @@
 -##
--# Labels
+-# Label
 -#
 -# @usage
 -# -# Label
--# = partial "./bootstrap/component/label",
--#            locals: { context: "info",
--#                      content: article.date.strftime( '%b %e' ) }
+-# = partial "./atom/label/label", locals: { context: "info", content: article.date.strftime( '%b %e' ) }
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Variables
@@ -24,17 +23,17 @@
 
     -# Icon
     - if locals[ :icon ]
-        = icon( locals[ :icon ] )
+        = icon locals[ :icon ]
 
     -# Content
     = string locals[ :content ]
 
 -# Link
 - if locals[ :href ]
-    = link_to( captureHTML, locals[ :href ], class: extraClass )
+    = link_to( locals[ :href ], class: extraClass, itemprop: locals[ :itemprop ] ? itemprop : false ) do
+        = captureHTML
 
     -# Span
 - else
 
-    %span{ class: extraClass }
-        = captureHTML
+    %span{ class: extraClass }= captureHTML
