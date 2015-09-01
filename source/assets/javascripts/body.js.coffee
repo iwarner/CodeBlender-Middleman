@@ -36,13 +36,7 @@
 //= require bootstrap-sprockets
 
 # App
-//= require ./_lib/angular/app
-
-# Molecule
-//= require molecule/facebook/facebook
-
-# Organism
-//= require organism/dataTable/dataTable
+//= require ./_lib/app
 
 # Google Material Design Lite
 #require material-design-lite/material

@@ -5,6 +5,8 @@
 # icon( "fa-phone extraClass" )
 #
 # @author Ian Warner <ian.warner@drykiss.com>
+#
+# @todo Move this to a partial helper in Library
 ##
 module Icon
 
@@ -21,9 +23,16 @@ module Icon
 
         # Check whether this is an icon
         if iconName =~ /^fa-|^timeline-|^headline-|^icon-|^glyphicon-/i
-            result = Haml::Engine.new( "%span{ class: \"#{ iconLibrary[ 0 ] } #{ iconName } fa-fw\", ng: #{ ng } }" )
+
+            if iconLibrary[ 0 ] == 'fa'
+                result = Haml::Engine.new( "%span{ class: \"#{ iconLibrary[ 0 ] } #{ iconName } fa-fw\", ng: #{ ng } }" )
+            else
+                result = Haml::Engine.new( "%span{ class: \"#{ iconName }\", ng: #{ ng } }" )
+            end
+
         else
             result = Haml::Engine.new( iconName )
+
         end
 
         result.render
@@ -31,7 +40,7 @@ module Icon
     end
 
     ##
-    # Stacked Icon
+    # Font Awesome Stacked Icon
     # Currently works with Font Awesome
     #
     # @see http://fortawesome.github.io/Font-Awesome/examples/#stacked
@@ -40,7 +49,7 @@ module Icon
 
         capture_haml do
 
-            haml_tag :span, :class => "fa-stack #{ size }" do
+            haml_tag :span, class: "fa-stack #{ size }" do
 
                 haml_concat icon( "fa-circle-thin fa-stack-2x" )
                 haml_concat icon( iconName )

@@ -64,7 +64,6 @@ class App.Classes.UrlParams
 
         $( '[name="' + name + '"]' ).val( value )
 
-
     ##
     # Get's the app's absolute URL
     # @return base url

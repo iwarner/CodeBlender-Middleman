@@ -13,7 +13,7 @@
 'use strict'
 
 # Module
-angular.module 'app.controllers'
+angular.module 'app.controller'
 
 ##
 # Top Icon Controller

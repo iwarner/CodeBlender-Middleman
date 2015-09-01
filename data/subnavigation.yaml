@@ -54,6 +54,9 @@ organism :
     - title : "DataTable"
       url   : "/organism/datatable.html"
 
+    - title : "Pricing Table"
+      url   : "/organism/pricing-table.html"
+
 #     - title  : "Blog"
 #       url    : "/prototyping/blog/index.html"
 #     - title  : "Bootstrap"

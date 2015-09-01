@@ -21,6 +21,11 @@ angular:
 head :
     prefix : "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# dcterms: http://purl.org/dc/terms/#"
 
+# JavaScript
+javascript :
+    head : false
+    body : true
+
 # Sections
 breadcrumbs   : true
 container     : "container"

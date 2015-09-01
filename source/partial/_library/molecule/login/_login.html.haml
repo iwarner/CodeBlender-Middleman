@@ -25,8 +25,12 @@
 -# @todo Sort out Microformat
 -##
 
--# Log In Form
-%form.loginForm{ name: "loginForm", novalidate: true }
+-##
+-# Login Form
+-##
+%form{ name: "loginForm", novalidate: true, ng: { controller: "LoginController as login", cloak: "" } }
+
+    {{ login.name }}
 
     -# Email Input
     = partial "./atom/input/input",

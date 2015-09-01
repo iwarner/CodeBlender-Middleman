@@ -20,7 +20,7 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://mailchimp.com/
 -#
--# @todo Check out the Schema org microformat for this component
+-# @todo Check out the Schema org micro-format for this component
 -# @todo Design the success and error messages better
 -# @todo Look at the bootstrap panel installation for this module
 -##
@@ -38,7 +38,8 @@
 %section.mailChimpSubscription
 
     -# Heading
-    = partial "./molecule/heading/heading", locals: { extraClass: "heading--noMargin", tag: "h4", text: :"mailChimp.title" }
+    - if t( :"mailChimp.title" ).empty?
+        = partial "./molecule/heading/heading", locals: { extraClass: "heading--noMargin", tag: "h4", text: :"mailChimp.title" }
 
     -# Tag line
     %p= string :"mailChimp.small"

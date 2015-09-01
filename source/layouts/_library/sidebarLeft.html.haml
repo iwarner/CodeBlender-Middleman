@@ -9,8 +9,7 @@
 -##
 
 -# Variables
-- d  = current_page.data
-- dc = data.config
+- d = current_page.data
 
 -# Layout - Calls Wrapper Layout
 = wrap_layout "_library/bootstrap" do
@@ -29,32 +28,32 @@
             .col-md-9.mainContent
 
                 -# Breadcrumbs
-                - if dc.breadcrumbs
+                - if dataConfig.breadcrumbs
                     = partial "./molecule/breadcrumb/breadcrumb"
 
                 -# Heading
-                - if dc.heading
-                    = partial "./molecule/heading/heading", locals: { small: string( d.small ), text: string( d.title ) }
+                - if dataConfig.heading
+                    = partial "./molecule/heading/heading", locals: { small: d.small, text: d.title }
 
                 -# Details
-                - if dc.description
+                - if dataConfig.description
                     %p= string d.description
 
                 -# Locals
-                - if dc.locals
+                - if dataConfig.locals
                     = partial "./organism/local/local"
 
                 -# Yield
                 = yield
 
                 -# Resources
-                - if dc.resources
+                - if dataConfig.resources
                     = partial "./organism/resource/resource"
 
                 -# Assets
-                - if dc.assets
+                - if dataConfig.assets
                     = partial "./organism/asset/asset"
 
                 -# Todo
-                - if dc.todo
+                - if dataConfig.todo
                     = partial "./organism/todo/todo"

@@ -18,7 +18,6 @@ DataTable = ( $compile, $filter, $scope, $resource, DTOptionsBuilder, DTColumnBu
     # Scope
     vm = this
 
-
     ##
     # Checkbox Toggle All
     ##
@@ -249,13 +248,12 @@ DataTable = ( $compile, $filter, $scope, $resource, DTOptionsBuilder, DTColumnBu
     return
 
 # Module
-angular.module 'app.controllers'
+angular.module 'app.controller'
 
 ##
 # DataTable
 ##
 .controller 'DataTableCtrl', DataTable
-
 
 # # Save the lastID
 # lastIdx = null

@@ -21,7 +21,7 @@
 -# HTML Section
 %html{ lang:      string( :locale ),
        manifest:  dataConfig.manifest ? "/offline.manifest" : false,
-       ng:        { app: ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false },
+       ng:        { strict: { di: "" }, app: ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false },
        xmlns:     "http://www.w3.org/1999/xhtml",
        xml:       { lang: string( :locale ) } }
 
@@ -39,15 +39,15 @@
         - if content_for? :siteHead
             = yield_content :siteHead
 
-        -# Javascript Head
-        = javascript_include_tag :head
+        -# JavaScript Head
+        - if dataConfig.javascript.head
+            = javascript_include_tag :head
 
         -# Base
         %base{ href: "/" }
 
     -# Body with Page Class
     -# Contains the main Itemscope of the current page
-    -#
     %body{ id:        dataConfig.body.id ? dataConfig.body.id : false,
            class:     dataConfig.body.extraClass ? dataConfig.body.extraClass + " " + page_classes : page_classes,
            data:      { lang:   locale,
@@ -91,8 +91,9 @@
 
         -# JavaScript
         -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
-        = javascript_include_tag :body
+        - if dataConfig.javascript.body
+            = javascript_include_tag :body
 
         -# Google Analytics
         - if dataGoogle and dataGoogle.analytics.active
-            = partial "./google/analytics"
+            = partial "./atom/analytics/analytics"

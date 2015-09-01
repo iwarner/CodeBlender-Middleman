@@ -30,6 +30,7 @@ set :fonts_dir,        "#{ path }/font"
 set :haml,             { ugly: true, format: :html5 }
 set :build_dir,        "www"
 set :layout,           "_lib/sidebarLeft"
+set :debug_assets,     true
 
 # Markdown Engine
 set :markdown_engine, :kramdown
