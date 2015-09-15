@@ -7,7 +7,7 @@
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 #
-# @todo Remove the Jquery stuff
+# @todo Remove the JQuery stuff
 # @todo Should be a directive as manipulating the DOM
 ##
 
@@ -16,40 +16,36 @@
 ##
 'use strict'
 
-# Module
-angular.module 'app.controller'
-
 ##
-# Top Icon Controller
+# Suggested Action Controller
 ##
-.controller 'DropdownController', [
+CBDropdownController = ->
 
-    '$scope'
+    # This
+    vm = this
 
-    ( $scope ) ->
+    ##
+    # Dropdown List Click
+    # This will place the selected text as the title of the dropdown
+    ##
+    vm.dropdown = ( event ) ->
 
-        ##
-        # Dropdown List Click
-        # This will place the selected text as the title of the dropdown
-        ##
-        $scope.dropdown = ( event ) ->
+        # Target
+        target = jQuery event.currentTarget
 
-            # Target
-            target = jQuery event.currentTarget
+        # Selected text
+        selText = target.html()
 
-            # Selected text
-            selText = target.html()
-
-            # console.log target.closest( '.dropdown' ).find( '.dropdown-toggle' ).replaceWith( selText )
-            # <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;"><span class="fa fa-bars fa-fw"></span>
-            # Menu
-            # <span class="fa fa-chevron-down fa-fw"></span>
-            # </a>
-
-            # Set Text
-            target.closest( 'div' ).find( 'button[data-toggle="dropdown"]' ).html( selText + ' <span class="dropdown__icon"></span>' )
-
-            return
+        # Set Text
+        target.closest( 'div' ).find( 'button[data-toggle="dropdown"]' ).html( selText + ' <span class="dropdown__icon"></span>' )
 
         return
-]
+
+    return
+
+##
+# Module
+##
+angular
+    .module     'app.controller'
+    .controller 'CBDropdownController', CBDropdownController

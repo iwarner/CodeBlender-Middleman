@@ -27,6 +27,9 @@ atom :
     - title : "Input"
       url   : "/atom/input.html"
 
+    - title : "Select"
+      url   : "/atom/select.html"
+
     - title : "Zero Clipboard"
       url   : "/atom/zero-clipboard.html"
 

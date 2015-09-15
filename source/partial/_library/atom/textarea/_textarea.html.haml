@@ -9,7 +9,7 @@
 -##
 
 -# Group
-.form-group
+.form-group{ show: { errors: "{showSuccess: true}" } }
 
     -# Label - note this is an array as it contains flag for screen reader
     %label.control-label{ for: locals[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
@@ -28,11 +28,15 @@
                    disabled:       locals[ :disabled ]       ? true                  : false,
                    id:             locals[ :name ]           ? name                  : false,
                    name:           locals[ :name ]           ? name                  : false,
+                   ng:             locals[ :ng ]             ? ng                    : false,
                    pattern:        locals[ :pattern ]        ? pattern               : false,
                    placeholder:    locals[ :placeholder ]    ? string( placeholder ) : false,
                    required:       locals[ :required ]       ? "required"            : false,
-                   rows:           locals[ :rows ]           ? rows                  : false,
-                   value:          locals[ :value ]          ? value                 : false }
+                   rows:           locals[ :rows ]           ? rows                  : false }
+
+            -# Default text
+            - if locals[ :text ]
+                = string locals[ :text ]
 
     -# Help Block
     -# Sometimes this should be hidden to allow errors to be added inside.
