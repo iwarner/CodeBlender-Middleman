@@ -2,10 +2,6 @@
 -# Form Select
 -# Supports HTML5 elements, such as Placeholder, Autofocus.
 -#
--# @usage
--# -# Select
--# = partial "./atom/select/select"
--#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
@@ -13,7 +9,7 @@
 - label = locals[ :label ]
 
 -# Form Group
-.form-group{ show: { errors: "{showSuccess: true}" } }
+.form-group
 
     -# Label - note this is an array as it contains flag for screen reader
     %label.control-label{ for: locals[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
@@ -22,8 +18,7 @@
     -# Select
     %select.form-control{ id:       locals[ :name ]     ? name : false,
                           multiple: locals[ :multiple ] ? true : false,
-                          name:     locals[ :name ]     ? name : false,
-                          ng:       locals[ :ng ]       ? ng   : false }
+                          name:     locals[ :name ]     ? name : false }
 
         -# Check that array is defined
         - if locals[ :array ]

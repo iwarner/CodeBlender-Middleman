@@ -7,7 +7,7 @@
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 #
-# @todo Remove the JQuery stuff
+# @todo Remove the Jquery stuff
 # @todo Should be a directive as manipulating the DOM
 ##
 
@@ -17,7 +17,7 @@
 'use strict'
 
 ##
-# Suggested Action Controller
+# Dropdown Controller
 ##
 CBDropdownController = ->
 
