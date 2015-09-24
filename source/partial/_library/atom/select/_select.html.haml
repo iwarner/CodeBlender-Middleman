@@ -9,16 +9,17 @@
 - label = locals[ :label ]
 
 -# Form Group
-.form-group
+.form-group{ show: { errors: "{showSuccess: true}" } }
 
     -# Label - note this is an array as it contains flag for screen reader
     %label.control-label{ for: locals[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
         = string label[ :title ]
 
     -# Select
-    %select.form-control{ id:       locals[ :name ]     ? name : false,
-                          multiple: locals[ :multiple ] ? true : false,
-                          name:     locals[ :name ]     ? name : false }
+    %select.form-control{ id:       locals[ :name ]     ? name          : false,
+                          multiple: locals[ :multiple ] ? true          : false,
+                          name:     locals[ :name ]     ? name          : false,
+                          ng:       locals[ :ng ]       ? locals[ :ng ] : false }
 
         -# Check that array is defined
         - if locals[ :array ]
