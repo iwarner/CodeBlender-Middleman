@@ -13,57 +13,57 @@ see :
 
 ---
 
--# Product Object
-= product
+/ -# Product Object
+/ = product
 
--# Media
-.media.simpleCart_shelfItem
+/ -# Media
+/ .media.simpleCart_shelfItem
 
-    -# Product Image
-    = partial "./atom/image/image",
-               locals: { alt:        product.title,
-                         src:        "products/#{product.image}",
-                         extraClass: "pull-left thumbnail media-object img-polaroid" }
+/     -# Product Image
+/     = partial "./atom/image/image",
+/                locals: { alt:        product.title,
+/                          src:        "products/#{product.image}",
+/                          extraClass: "pull-left thumbnail media-object img-polaroid" }
 
-    -# Media Body
-    .media-body
+/     -# Media Body
+/     .media-body
 
-        -# Heading
-        = partial "./molecule/heading/heading",
-                   locals: { extraClass: "item_name",
-                             small:      "&pound;#{product.cost}",
-                             text:       product.title }
+/         -# Heading
+/         = partial "./molecule/heading/heading",
+/                    locals: { extraClass: "item_name",
+/                              small:      "&pound;#{product.cost}",
+/                              text:       product.title }
 
-        -# Product Description
-        %p= product.description
+/         -# Product Description
+/         %p= product.description
 
-        -# Quantity
-        %input.item_quantity{ type: "text", value: "1" }
+/         -# Quantity
+/         %input.item_quantity{ type: "text", value: "1" }
 
-        -# Price
-        %span.item_price= product.cost
+/         -# Price
+/         %span.item_price= product.cost
 
-        -# Add to Cart
-        = partial "./atom/button/button",
-                   locals: { context:    "primary",
-                             text:       "Add to Cart",
-                             extraClass: "item_add",
-                             href:       "javascript:;" }
+/         -# Add to Cart
+/         = partial "./atom/button/button",
+/                    locals: { context:    "primary",
+/                              text:       "Add to Cart",
+/                              extraClass: "item_add",
+/                              href:       "javascript:;" }
 
-%hr
+/ %hr
 
--# Empty Cart
-= partial "./atom/button/button",
-           locals: { context:    "warning",
-                     text:       "Empty Cart",
-                     extraClass: "simpleCart_empty",
-                     href:       "javascript:;" }
+/ -# Empty Cart
+/ = partial "./atom/button/button",
+/            locals: { context:    "warning",
+/                      text:       "Empty Cart",
+/                      extraClass: "simpleCart_empty",
+/                      href:       "javascript:;" }
 
--# View Cart
-= partial "./atom/button/button",
-           locals: { context: "info",
-                     text:    "View Cart",
-                     href:    "/simple-cart/cart" }
+/ -# View Cart
+/ = partial "./atom/button/button",
+/            locals: { context: "info",
+/                      text:    "View Cart",
+/                      href:    "/simple-cart/cart" }
 
--# Checkout
-= partial "./atom/button/button", locals: { context: "primary", text: "Checkout", extraClass: "simpleCart_checkout", href: "javascript:;" }
+/ -# Checkout
+/ = partial "./atom/button/button", locals: { context: "primary", text: "Checkout", extraClass: "simpleCart_checkout", href: "javascript:;" }

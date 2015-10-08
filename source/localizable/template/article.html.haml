@@ -93,7 +93,7 @@ todo :
                                          text:       string( article.data.heading.title ) }
 
                     -# Details
-                    = partial "./blog/detail", locals: { current_page: article }
+                    = partial "./molecule/detail/detail", locals: { current_page: article }
 
                     -# Excerpt
                     %p= string article.data.excerpt
@@ -109,7 +109,7 @@ todo :
         -# Pagination
         .text-center
 
-            = partial "./bootstrap/component/pagination",
+            = partial "./molecule/pagination/pagination",
                        locals: { nextPage: next_page,
                                  prevPage: prev_page,
                                  pageNo:   page_number,
@@ -118,19 +118,13 @@ todo :
     .col-md-4.col-sm-4
 
         -# Heading
-        = partial "./molecule/heading/heading",
-                   locals: { extraClass: "noMargin",
-                             tag:        "h3",
-                             text:       string( "Archive" ) }
+        = partial "./molecule/heading/heading", locals: { extraClass: "noMargin", tag: "h3", text: "Archive" }
 
         -# Archive
-        = partial "./blog/archive"
+        = partial "./molecule/archive/archive"
 
         -# Heading
-        = partial "./molecule/heading/heading",
-                   locals: { extraClass: "noMargin",
-                             tag:        "h3",
-                             text:       string( "Tags" ) }
+        = partial "./molecule/heading/heading", locals: { extraClass: "noMargin", tag: "h3", text: "Tags" }
 
         -# Tag Cloud
         = tagCloud()

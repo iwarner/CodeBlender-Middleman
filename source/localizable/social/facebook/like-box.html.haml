@@ -26,12 +26,12 @@ todo :
 = partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
 
 -# Like Button
-= partial "./social/facebook/like-box"
+= partial "./molecule/facebook/like-box"
 
 -# Code
 :code
     #lang: ruby
-    = partial "./social/facebook/like-box"
+    = partial "./molecule/facebook/like-box"
 
 -# Customised
 %hr
@@ -40,7 +40,7 @@ todo :
 = partial "./molecule/heading/heading", locals: { text: "Customised", tag: "h2" }
 
 -# Like Box
-= partial "./social/facebook/like-box",
+= partial "./molecule/facebook/like-box",
            :locals => { :colorscheme => "dark",
                         :force_wall  => "true",
                         :header      => "false",
@@ -54,7 +54,7 @@ todo :
 -# Code
 :code
     #lang: ruby
-    = partial "./social/facebook/like-box",
+    = partial "./molecule/facebook/like-box",
                :locals => { :colorscheme => "dark",
                             :force_wall  => "true",
                             :header      => "false",

@@ -76,9 +76,11 @@ locals :
 
 ---
 
+- id = 1
+
 / -# Default Thumbnail
 / :ruby
-/     code = %{partial "./bootstrap/component/thumbnails",
+/     code = %{partial "./atom/thumbnail/thumbnail",
 /                       locals: { array: [ { image: { data: { src: "holder.js/300x200/auto" } } },
 /                                          { image: { data: { src: "holder.js/100x100/auto" } } },
 /                                          { image: { data: { src: "holder.js/100x100/auto" } } },
@@ -86,24 +88,16 @@ locals :
 /                                          { image: { data: { src: "holder.js/300x200/auto" } } } ] }}
 
 / -# Code
-/ = partial "organism/code/code",
-/            locals: { id:      1,
-/                      code:    code,
-/                      heading: { small: "Just an array of images",
-/                                 text:  "Default" } }
+/ = partial "organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Just an array of images", text: "Default" } }
 
 -# Linked Thumbnail
 :ruby
-    code = %{partial "./bootstrap/component/thumbnails",
+    code = %{partial "./atom/thumbnail/thumbnail",
                       locals: { array: [ { image:     { src: "footer/background1.png" },
                                            thumbnail: { href: image_path( "footer/background1.png" ) } } ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      2,
-                     code:    code,
-                     heading: { small: "Provide an HREF for the image",
-                                text:  "Linked Thumbnail" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Provide an HREF for the image", text: "Linked Thumbnail" } }
 
 -# Captioned Thumbnail
 -# Get the list of categories of the products
@@ -113,36 +107,29 @@ locals :
     - @captureHTML = capture_html do
 
         -# Blog Details
-        = partial "./blog/detail", locals: { current_page: article }
+        = partial "./molecule/detail/detail", locals: { current_page: article }
 
 -# Thumbnails
-= partial "./bootstrap/component/thumbnails",
+= partial "./atom/thumbnail/thumbnail",
            locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" }, href: "HERE" },
                                 thumbnail: { caption: @captureHTML } } ] }
 
 -# Code
 :ruby
-    code = %{partial "./bootstrap/component/thumbnails",
+    code = %{partial "./atom/thumbnail/thumbnail",
                       locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" } },
                                            thumbnail: { caption: @captureHTML, href: "HERE" } } ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      3,
-                     code:    code,
-                     heading: { small: "Push an HTML element into the Tumb array",
-                                text:  "Captioned Thumbnail" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Push an HTML element into the Tumb array", text: "Captioned Thumbnail" } }
 
 -# Zoomix Thumbnail
 :ruby
-    code = %{partial "./bootstrap/component/thumbnails",
+    code = %{partial "./atom/thumbnail/thumbnail",
                       locals: {  array: [ { image:     { data: { src: "holder.js/300x200/auto" } },
                                             thumbnail: { zoomix: true,
                                                          href:   image_path( "footer/background1.png" ),
                                                          data:   { toggle: "lightbox" } } } ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      4,
-                     code:    code,
-                     heading: { small: "Provide a Gallery", text: "Zoomix Thumbnail" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Provide a Gallery", text: "Zoomix Thumbnail" } }

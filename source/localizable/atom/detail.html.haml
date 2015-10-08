@@ -15,10 +15,10 @@ see :
 -# Heading
 = partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
 
--# Details
-= partial "./scaffolding/details", locals: { summary: "Summary", content: "Content" }
+-# Detail
+= partial "./atom/detail/detail", locals: { summary: "Summary", content: "Content" }
 
 -# Code
 :code
     #lang: ruby
-    = partial "./scaffolding/details", locals: { summary: "Summary", content: "Content" }
+    = partial "./atom/detail/detail", locals: { summary: "Summary", content: "Content" }

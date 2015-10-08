@@ -29,27 +29,22 @@ locals :
 
 ---
 
+- id = 1
+
 -# Default
 :ruby
-    code = %{partial "./bootstrap/component/label",
-                      locals: { content: "Default" }}
+    code = %{partial "./atom/label/label", locals: { content: "Default" }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { text: "Default" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 -# Partial
 :ruby
-    code = %{partial "./bootstrap/component/label",
+    code = %{partial "./atom/label/label",
                       locals: { context: "primary",
                                 content: "Tag",
                                 href:    "#",
                                 icon:    "fa-tag" }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      2,
-                     code:    code,
-                     heading: { text: "Tags" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Tags" } }

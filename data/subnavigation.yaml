@@ -45,6 +45,9 @@ molecule :
     - title : "Molecule"
       url   : "/molecule/molecule.html"
 
+    - title : "Alert"
+      url   : "/molecule/alert.html"
+
     - title : "Dropdown"
       url   : "/molecule/dropdown.html"
 

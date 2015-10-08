@@ -30,12 +30,12 @@ todo :
 = partial "./molecule/heading/heading", locals: { text: "Like Button", tag: "h2" }
 
 -# Like Button
-= partial "./social/facebook/like-button"
+= partial "./molecule/facebook/like-button"
 
 -# Code
 :code
     #lang: ruby
-    = partial "./social/facebook/like-button"
+    = partial "./molecule/facebook/like-button"
 
 -# Customised
 %hr
@@ -44,7 +44,7 @@ todo :
 = partial "./molecule/heading/heading", locals: { text: "Customised Button", tag: "h2" }
 
 -# Like Button
-= partial "./social/facebook/like-button",
+= partial "./molecule/facebook/like-button",
            locals: { action:      "recommend",
                      colorscheme: "dark",
                      href:        "http://google.com",
@@ -54,7 +54,7 @@ todo :
 -# Code
 :code
     #lang: ruby
-    = partial "./social/facebook/like-button",
+    = partial "./molecule/facebook/like-button",
                locals: { action:      "recommend",
                          colorscheme: "dark",
                          href:        "http://google.com",
@@ -68,13 +68,13 @@ todo :
 = partial "./molecule/heading/heading", locals: { text: "Customised Button", tag: "h2" }
 
 -# Like Button
-= partial "./social/facebook/like-button",
+= partial "./molecule/facebook/like-button",
            locals: { :href         => "https://www.facebook.com/onlyasmile?ref=stream",
                      :"show_faces" => "true" }
 
 -# Code
 :code
     #lang: ruby
-    = partial "./social/facebook/like-button",
+    = partial "./molecule/facebook/like-button",
                locals: { :href         => "https://www.facebook.com/onlyasmile?ref=stream",
                          :"show_faces" => "true" }

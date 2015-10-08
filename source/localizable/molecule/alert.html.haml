@@ -32,75 +32,58 @@ locals :
 
 ---
 
+- id = 1
+
 -# Success Alert
 :ruby
-    code = %{partial "./bootstrap/component/alerts",
+    code = %{partial "./molecule/alert/alert",
                       locals: { text: "Well done! You successfully read this important alert message." }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { text: "Success Alert" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Success Alert" } }
 
 -# Info Alert
 :ruby
-    code = %{partial "./bootstrap/component/alerts",
+    code = %{partial "./molecule/alert/alert",
                       locals: { context: "info",
                                 text:    "Heads up! This alert needs your attention, but it's not super important." }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      2,
-                     code:    code,
-                     heading: { text: "Info Alert" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Info Alert" } }
 
 -# Warning Alert
 :ruby
-    code = %{partial "./bootstrap/component/alerts",
+    code = %{partial "./molecule/alert/alert",
                       locals: { context: "warning",
                                 text:    "Warning! Better check yourself, you're not looking too good." }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      3,
-                     code:    code,
-                     heading: { text: "Warning Alert" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Warning Alert" } }
 
 -# Danger Alert
 :ruby
-    code = %{partial "./bootstrap/component/alerts",
+    code = %{partial "./molecule/alert/alert",
                       locals: { context: "danger",
                                 text:    "Oh snap! Change a few things up and try submitting again." }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      4,
-                     code:    code,
-                     heading: { text: "Danger Alert" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Danger Alert" } }
 
 -# Dismissable Alert
 :ruby
-    code = %{partial "./bootstrap/component/alerts",
+    code = %{partial "./molecule/alert/alert",
                       locals: { context: "warning",
                                 dismiss: true,
                                 text:    "Warning! Better check yourself, you're not looking too good." }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      5,
-                     code:    code,
-                     heading: { small: "Closeable Alert, require JavaScript",
-                                text:  "Dismissable" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Closeable Alert, require JavaScript", text:  "Dismissable" } }
 
 -# In-line Links
 :ruby
-    code = %{partial "./bootstrap/component/alerts",
+    code = %{partial "./molecule/alert/alert",
                       locals: { context: "success",
                                 text:    "Well done! You successfully <a href='#' class='alert-link'>Link</a> read this important alert message." }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      6,
-                     code:    code,
-                     heading: { text: "Inline Links" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Inline Links" } }

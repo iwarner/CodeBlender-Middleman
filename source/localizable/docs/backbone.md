@@ -13,7 +13,7 @@ meta :
 date     : 2014-01-20
 excerpt  : "Backbone"
 modified : 2014-02-09
-tags     : backbone, javascript
+tags     : [ backbone, javascript ]
 
 ---
 

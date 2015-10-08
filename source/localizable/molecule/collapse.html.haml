@@ -34,9 +34,11 @@ locals :
 
 ---
 
+- id = 1
+
 -# Collapse
 :ruby
-    code = %{partial "./bootstrap/javascript/collapse", locals: { openIn: 0 } }
+    code = %{partial "./molecule/collapse/collapse", locals: { openIn: 0 } }
 
 -# Code
-= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Default" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

@@ -18,8 +18,10 @@ todo :
 
 ---
 
+- id = 1
+
 -# Archive
 :ruby
-    code = %{partial "./blog/archive"}
+    code = %{partial "./molecule/archive/archive"}
 
-= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Archive" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Archive" } }

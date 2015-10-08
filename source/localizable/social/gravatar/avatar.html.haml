@@ -24,7 +24,7 @@ todo :
 = partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
 
 -# Avatar
-= partial "./social/gravatar/avatar", locals: { email: "ian.warner@drykiss.com" }
+= partial "./molecule/gravatar/avatar", locals: { email: "ian.warner@drykiss.com" }
 
 %br
 %br
@@ -32,7 +32,7 @@ todo :
 -# Code
 :code
     #lang: ruby
-    = partial "./social/gravatar/avatar", locals: { email: "ian.warner@drykiss.com" }
+    = partial "./molecule/gravatar/avatar", locals: { email: "ian.warner@drykiss.com" }
 
 %hr
 
@@ -40,7 +40,7 @@ todo :
 = partial "./molecule/heading/heading", locals: { text: "Size", tag: "h2" }
 
 -# Avatar
-= partial "./social/gravatar/avatar", locals: { email: "iwarner@triangle-solutions.com", size: "200" }
+= partial "./molecule/gravatar/avatar", locals: { email: "iwarner@triangle-solutions.com", size: "200" }
 
 %br
 %br
@@ -48,6 +48,6 @@ todo :
 -# Code
 :code
     #lang: ruby
-    = partial "./social/gravatar/avatar",
+    = partial "./molecule/gravatar/avatar",
                :locals => { :email => "iwarner@triangle-solutions.com",
                             :size  => "200" }

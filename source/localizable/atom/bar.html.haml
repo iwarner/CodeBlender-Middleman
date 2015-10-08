@@ -24,9 +24,7 @@ locals :
 
 -# Bar
 :ruby
-    code = %{partial "./scaffolding/bar", locals: { array: current_page.data.bar }}
+    code = %{partial "./organism/bar/bar", locals: { array: current_page.data.bar }}
 
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { text: "Default" } }
+-# Code
+= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Default" } }

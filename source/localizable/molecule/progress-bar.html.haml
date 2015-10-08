@@ -37,6 +37,8 @@ locals :
 
 ---
 
+- id = 1
+
 :markdown
     Cross-browser compatibility
 
@@ -47,47 +49,36 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./bootstrap/component/progress-bar",
-                      locals: { array: [ width: 33 ] }}
+    code = %{partial "./molecule/progressBar/progressBar",locals: { array: [ width: 33 ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { text: "Default" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 -# Attributes
 :ruby
-    code = %{partial "./bootstrap/component/progress-bar",
+    code = %{partial "./molecule/progressBar/progressBar",
                       locals: { array: [ animated: :true,
                                          context:  "success",
                                          striped:  :true,
                                          width:    33 ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      2,
-                     code:    code,
-                     heading: { text: "Attributes" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Attributes" } }
 
 -# Low Percentage
 :ruby
-    code = %{partial "./bootstrap/component/progress-bar",
+    code = %{partial "./molecule/progressBar/progressBar",
                       locals: { array: [ animated: :true,
                                          context:  "warning",
                                          label:    true,
                                          width:    2 ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      3,
-                     code:    code,
-                     heading: { small: "Shows label",
-                                text:  "Low Percentage" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Shows label", text: "Low Percentage" } }
 
 -# Stacked
 :ruby
-    code = %{partial "./bootstrap/component/progress-bar",
+    code = %{partial "./molecule/progressBar/progressBar",
                       locals: { array: [ { animated: :true,
                                            context:  "warning",
                                            label:    true,
@@ -99,8 +90,4 @@ locals :
                                            width:    33 } ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      4,
-                     code:    code,
-                     heading: { small: "Multiple bars into the same Progress",
-                                text:  "Stacked" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Multiple bars into the same Progress", text: "Stacked" } }

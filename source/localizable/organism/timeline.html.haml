@@ -87,10 +87,7 @@ Clicked : {{ msg }}
                 -# Date Picker
 
                 -# Select Day
-                = partial "./form/select",
-                           locals: { array: days,
-                                     label: { title: "Day" },
-                                     name:  "day" }
+                = partial "./atom/select/select", locals: { array: days, label: { title: "Day" }, name: "day" }
 
                 -# Select Month
                 -# Select Year
@@ -126,7 +123,7 @@ Clicked : {{ msg }}
             Download
 
 -# Modal
-= partial "./bootstrap/javascript/modal", locals: { id: "myModal", body: body, title: title }
+= partial "./molecule/modal/modal", locals: { id: "myModal", body: body, title: title }
 
 -# Button
 = partial "./atom/button/button",

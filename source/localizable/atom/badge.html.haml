@@ -17,13 +17,15 @@ locals :
 
 ---
 
+- id = 1
+
 %p
     Badges won't self collapse in Internet Explorer 8 because it lacks support
     for the :empty selector.
 
 -# Badge
 :ruby
-    code = %{partial "./bootstrap/component/badges", locals: { content: "88" }}
+    code = %{partial "./atom/badge/badge", locals: { content: "88" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Default" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

@@ -11,12 +11,9 @@
 -# @todo
 -##
 
--# Variables
-- dc = data.config
-
 -# AppID
 - if ! locals[ :app_id ]
-    - app_id = dc.facebook.app.id
+    - app_id = dataFacebook.app.id
 
 -# Type
 - if ! locals[ :type ]

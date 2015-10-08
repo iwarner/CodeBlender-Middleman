@@ -33,9 +33,6 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
--# Variables
-- dc = data.config
-
 -# Colorscheme
 - if ! locals[ :colorscheme ]
     - colorscheme = "light"
@@ -52,9 +49,9 @@
 - if ! locals[ :height ]
     - height = 556
 
--# HREF default to dc.facebook.page.url
+-# HREF default to dataFacebook.page.url
 - if ! locals[ :href ]
-    - href = dc.facebook.page.url
+    - href = dataFacebook.page.url
 
 -# Show Border - default to true
 - if ! locals[ :showBorder ]
@@ -91,15 +88,15 @@
 -# HTML5
 - if type == "html5"
 
-    .fb-like-box{ :data => { :colorscheme   => colorscheme,
-                             :"force-wall"  => force_wall,
-                             :header        => header,
-                             :height        => height,
-                             :href          => href,
-                             :"show-border" => showBorder,
-                             :"show-faces"  => showFaces,
-                             :stream        => stream,
-                             :width         => width } }
+    .fb-like-box{ data: { :colorscheme   => colorscheme,
+                          :"force-wall"  => force_wall,
+                          :header        => header,
+                          :height        => height,
+                          :href          => href,
+                          :"show-border" => showBorder,
+                          :"show-faces"  => showFaces,
+                          :stream        => stream,
+                          :width         => width } }
 
     -# XFBML
 - elsif type == "xfbml"

@@ -17,9 +17,11 @@ todo :
 
 ---
 
+- id = 1
+
 -# Media
 :ruby
-    code = %{partial "./bootstrap/component/media"}
+    code = %{partial "./molecule/media/media"}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Default" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

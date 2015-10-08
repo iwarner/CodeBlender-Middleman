@@ -108,8 +108,8 @@ end
 
 # Middleman Deploy
 activate :deploy do | deploy |
-    deploy.deploy_method = :git
-    deploy.remote        = 'git@github.com:DryKISS/codeblender.net.git'
+    deploy.method = :git
+    deploy.remote = 'git@github.com:DryKISS/codeblender.net.git'
 end
 
 # Create GZIP Content
@@ -150,12 +150,12 @@ configure :build do
     # Minify HTML
     activate :minify_html
 
-    # Favicon
-    activate :favicon_maker, icons: {
-        "favicon_template.png" => [
-            { icon: "favicon.png", size: "32x32" },
-            { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" },
-        ]
-    }
+    # # Favicon
+    # activate :favicon_maker, icons: {
+    #     "favicon_template.png" => [
+    #         { icon: "favicon.png", size: "32x32" },
+    #         { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" },
+    #     ]
+    # }
 
 end

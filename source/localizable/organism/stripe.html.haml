@@ -27,17 +27,17 @@ todo :
 
 ---
 
+- id = 1
+
 -# Default Alert
 :ruby
-    code = %{partial "./bootstrap/component/thumbnails",
-           :locals => { :array => [ { :image     => { :data     => "holder.js/252x100" },
-                                      :thumbnail => { :caption  => "Caption 1",
-                                                      :title      => "Product 1" },
-                                      :button    => { :content    => "Buy",
-                                                      :extraClass => "customButton",
-                                                      :href       => "#" } } ] }}
+    code = %{partial "./atom/thumbnail/thumbnail",
+           locals: { array: [ { image:     { data:    "holder.js/252x100" },
+                                thumbnail: { caption: "Caption 1",
+                                             title:   "Product 1" },
+                                button:    { content:    "Buy",
+                                             extraClass: "customButton",
+                                             href:       "#" } } ] }}
 
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { small: "Stripe Test", text: "Default" } }
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Stripe Test", text: "Default" } }
