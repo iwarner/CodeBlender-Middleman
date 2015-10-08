@@ -1,0 +1,23 @@
+---
+
+stub : googleAnalytics
+
+heading :
+    small : "Google Analytics site statistics and reporting"
+    title : "Analytics"
+
+see :
+    - - "Google Analytics"
+      - "https://www.google.com/analytics"
+
+---
+
+-# Default
+:ruby
+    code = %{partial "./google/analytics"}
+
+-# Code
+= partial "./organism/code/code",
+           locals: { id:      1,
+                     code:    code,
+                     heading: { text: "Default" } }

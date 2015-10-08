@@ -1,0 +1,51 @@
+-##
+-# Portfolio
+-#
+-# @usage
+-# -# Portfolio layout
+-# = wrap_layout "_library/portfolio" do
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category template
+-##
+
+-# Variables
+- cp      = current_page.data
+- heading = cp.heading
+
+-# Portfolio
+= wrap_layout "_library/fullWidth" do
+
+    .container
+
+        .row
+
+            .col-md-3
+
+                %aside
+
+                    Side bar with nav to other projects
+
+            .col-md-9
+
+                -# Blog Post
+                %article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
+
+                    -# Heading - Article H1
+                    = partial "./molecule/heading/heading", locals: { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+
+                    -# Blog Detail Footer
+                    = partial "./molecule/detail/detail", locals: { author: true, cal: true, comment: true, social: true, tags: true }
+
+                    -# Blog Image
+                    = partial "./molecule/image/image"
+
+                    -# Yield
+                    %span{ itemprop: "text" }
+                        = yield
+
+                    -# Pager
+                    = partial "./molecule/pager/pager"
+
+                    -# Discus Comments
+                    = partial "./molecule/disqus/comments"

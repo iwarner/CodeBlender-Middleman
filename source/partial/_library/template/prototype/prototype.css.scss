@@ -1,0 +1,80 @@
+//
+// Mobile Prototype
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Mobile
+//----------------------------------------------------------------------------//
+.mobilePrototype {
+
+    // Set Size for iPhone Retina
+    //------------------------------------------------------------------------//
+    height   : 568px;
+    position : relative;
+    width    : 320px;
+
+    // A
+    //------------------------------------------------------------------------//
+    a {
+        position : absolute;
+        border   : 1px solid red;
+        z-index  : 1000;
+    }
+
+    // No Border
+    //------------------------------------------------------------------------//
+    .noBorder {
+        border : 0;
+    }
+
+}
+
+// iPhone Container
+//----------------------------------------------------------------------------//
+.iphoneSection {
+
+    background-color : white;
+    height           : 796px;
+    width            : 378px;
+    margin           : 1em auto 3em;
+    border-radius    : 55px;
+    border           : 4px solid #beccd9;
+    position         : relative;
+    z-index          : 2;
+
+    &:after {
+        content            : '';
+        text-align         : center;
+        display            : block;
+        position           : absolute;
+        bottom             : 24px;
+        margin             : 0 0 0 156px;
+        width              : 60px;
+        height             : 60px;
+        border-radius      : 50%;
+        background         : white;
+        -webkit-box-shadow : #2c363f 0 -699px 0 -27px, #222222 0 -699px 0 -23px, black -50px -670px 0 -25px, #222222 -27px -670px 0 -26px, #222222 -24px -670px 0 -26px, #222222 -21px -670px 0 -26px, #222222 -18px -670px 0 -26px, #222222 -15px -670px 0 -26px, #222222 -12px -670px 0 -26px, #222222 -9px -670px 0 -26px, #222222 -6px -670px 0 -26px, #222222 -3px -670px 0 -26px, #222222 0 -670px 0 -26px, #222222 3px -670px 0 -26px, #222222 6px -670px 0 -26px, #222222 9px -670px 0 -26px, #222222 12px -670px 0 -26px, #222222 15px -670px 0 -26px, #222222 18px -670px 0 -26px, #222222 21px -670px 0 -26px, #222222 24px -670px 0 -26px, #222222 27px -670px 0 -26px, #beccd9 67px -739px 0 -26px, #beccd9 70px -739px 0 -26px, #beccd9 73px -739px 0 -26px, #beccd9 76px -739px 0 -26px, #beccd9 79px -739px 0 -26px, #beccd9 82px -739px 0 -26px, #beccd9 85px -739px 0 -26px, #beccd9 88px -739px 0 -26px, #beccd9 91px -739px 0 -26px, #beccd9 94px -739px 0 -26px, #beccd9 97px -739px 0 -26px, #beccd9 100px -739px 0 -26px, #beccd9 103px -739px 0 -26px, #beccd9 106px -739px 0 -26px, #beccd9 109px -739px 0 -26px, #beccd9 112px -739px 0 -26px, #beccd9 115px -739px 0 -26px, #beccd9 118px -739px 0 -26px, #beccd9 121px -739px 0 -26px, #beccd9 -191px -626px 0 -26px, #beccd9 -191px -623px 0 -26px, #beccd9 -191px -620px 0 -26px, #beccd9 -191px -617px 0 -26px, #beccd9 -191px -614px 0 -26px, #beccd9 -191px -611px 0 -26px, #beccd9 -191px -608px 0 -26px, #beccd9 -191px -605px 0 -26px, #beccd9 -191px -602px 0 -26px, #beccd9 -191px -599px 0 -26px, #beccd9 -191px -596px 0 -26px, #beccd9 -191px -550px 0 -26px, #beccd9 -191px -547px 0 -26px, #beccd9 -191px -544px 0 -26px, #beccd9 -191px -541px 0 -26px, #beccd9 -191px -538px 0 -26px, #beccd9 -191px -535px 0 -26px, #beccd9 -191px -532px 0 -26px, #beccd9 -191px -529px 0 -26px, #beccd9 -191px -483px 0 -26px, #beccd9 -191px -480px 0 -26px, #beccd9 -191px -477px 0 -26px, #beccd9 -191px -474px 0 -26px, #beccd9 -191px -471px 0 -26px, #beccd9 -191px -468px 0 -26px, #beccd9 -191px -465px 0 -26px, #beccd9 -191px -462px 0 -26px, #beccd9 0 0 0 4px;
+        box-shadow         : #2c363f 0 -699px 0 -27px, #222222 0 -699px 0 -23px, black -50px -670px 0 -25px, #222222 -27px -670px 0 -26px, #222222 -24px -670px 0 -26px, #222222 -21px -670px 0 -26px, #222222 -18px -670px 0 -26px, #222222 -15px -670px 0 -26px, #222222 -12px -670px 0 -26px, #222222 -9px -670px 0 -26px, #222222 -6px -670px 0 -26px, #222222 -3px -670px 0 -26px, #222222 0 -670px 0 -26px, #222222 3px -670px 0 -26px, #222222 6px -670px 0 -26px, #222222 9px -670px 0 -26px, #222222 12px -670px 0 -26px, #222222 15px -670px 0 -26px, #222222 18px -670px 0 -26px, #222222 21px -670px 0 -26px, #222222 24px -670px 0 -26px, #222222 27px -670px 0 -26px, #beccd9 67px -739px 0 -26px, #beccd9 70px -739px 0 -26px, #beccd9 73px -739px 0 -26px, #beccd9 76px -739px 0 -26px, #beccd9 79px -739px 0 -26px, #beccd9 82px -739px 0 -26px, #beccd9 85px -739px 0 -26px, #beccd9 88px -739px 0 -26px, #beccd9 91px -739px 0 -26px, #beccd9 94px -739px 0 -26px, #beccd9 97px -739px 0 -26px, #beccd9 100px -739px 0 -26px, #beccd9 103px -739px 0 -26px, #beccd9 106px -739px 0 -26px, #beccd9 109px -739px 0 -26px, #beccd9 112px -739px 0 -26px, #beccd9 115px -739px 0 -26px, #beccd9 118px -739px 0 -26px, #beccd9 121px -739px 0 -26px, #beccd9 -191px -626px 0 -26px, #beccd9 -191px -623px 0 -26px, #beccd9 -191px -620px 0 -26px, #beccd9 -191px -617px 0 -26px, #beccd9 -191px -614px 0 -26px, #beccd9 -191px -611px 0 -26px, #beccd9 -191px -608px 0 -26px, #beccd9 -191px -605px 0 -26px, #beccd9 -191px -602px 0 -26px, #beccd9 -191px -599px 0 -26px, #beccd9 -191px -596px 0 -26px, #beccd9 -191px -550px 0 -26px, #beccd9 -191px -547px 0 -26px, #beccd9 -191px -544px 0 -26px, #beccd9 -191px -541px 0 -26px, #beccd9 -191px -538px 0 -26px, #beccd9 -191px -535px 0 -26px, #beccd9 -191px -532px 0 -26px, #beccd9 -191px -529px 0 -26px, #beccd9 -191px -483px 0 -26px, #beccd9 -191px -480px 0 -26px, #beccd9 -191px -477px 0 -26px, #beccd9 -191px -474px 0 -26px, #beccd9 -191px -471px 0 -26px, #beccd9 -191px -468px 0 -26px, #beccd9 -191px -465px 0 -26px, #beccd9 -191px -462px 0 -26px, #beccd9 0 0 0 4px;
+    }
+
+    .iphoneContainer {
+        position         : absolute;
+        top              : 106px;
+        left             : 21px;
+        margin-left      : 0;
+        width            : 328px;
+        height           : 576px;
+        background-color : #344a5f;
+        border-radius    : 5px;
+        border           : 4px solid #222222;
+        overflow         : hidden;
+        overflow-y       : auto;
+        z-index          : 3;
+    }
+
+    .iphoneContainer::-webkit-scrollbar {
+        width: 0;
+    }
+
+}

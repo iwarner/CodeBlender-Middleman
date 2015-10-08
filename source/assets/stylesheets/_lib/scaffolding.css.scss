@@ -1,0 +1,28 @@
+//
+// Scaffolding
+// Creates the CSS for the main elements of the site
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Body
+//----------------------------------------------------------------------------//
+body {
+
+    // Add Padding - required if using the fixed NavBar
+    //------------------------------------------------------------------------//
+    padding-top : 0;
+
+}
+
+// Highlight
+//----------------------------------------------------------------------------//
+table.table  {
+    .highlight {
+        background-color : white !important;
+    }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}

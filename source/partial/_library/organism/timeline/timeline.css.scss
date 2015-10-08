@@ -1,0 +1,137 @@
+//
+// Timeline
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Variables
+//----------------------------------------------------------------------------//
+$ldr      : #ff6a6c;
+$response : #786cf2;
+$stage    : #28bade;
+
+// Legend
+//----------------------------------------------------------------------------//
+.legend {
+
+    .ldr {
+        display : inline-block;
+        @include shape( square, 20px, $ldr );
+    }
+
+    .response {
+        display : inline-block;
+        @include shape( circle, 20px, $response );
+    }
+
+    .stage {
+        display : inline-block;
+        @include shape( diamond, 10px, $stage );
+    }
+}
+
+ul.timelineList {
+
+    margin           : 0;
+    padding          : 0;
+    list-style       : none;
+    position         : relative;
+    background-color : $body-bg;
+
+    &:not(.nobar) {
+
+        &:before {
+            content     : "";
+            position    : absolute;
+            width       : 1px;
+            margin-left : -10px;
+            left        : -20px;
+            background  : linear-gradient(to bottom, transparent, transparent 50%, #D5D5D5 50%, #D5D5D5) repeat scroll 0% 0% / 100% 10px transparent;
+            top         : 65px;
+            bottom      : 60px;
+        }
+
+        li {
+            .card:before {
+                content          : "";
+                position         : absolute;
+                left             : -36px;
+                border-radius    : 50%;
+                width            : 11px;
+                height           : 11px;
+                background-color : $body-bg;
+                top              : 22px;
+                border           : 1px solid #D5D5D5;
+            }
+        }
+    }
+
+    li {
+        position : relative;
+
+        h2 {
+            margin  : 0;
+            padding : 20px 0px;
+        }
+
+        // Heading
+        //--------------------------------------------------------------------//
+        h2 {
+            background-color : $body-bg;
+            color            : $text-color;
+            font-weight      : 500;
+            font-size        : 17px;
+            margin           : 0;
+            padding          : 10px 0;
+        }
+
+        span.last-future-arrow {
+            position  : absolute;
+            left      : -34px;
+            bottom    : 50px;
+            color     : #D5D5D5;
+            font-size : 9px;
+        }
+
+        span.time.overdue {
+            background-color : #F14C2E;
+            color            : white;
+            padding          : 1px 5px;
+        }
+
+        a#actions {
+            cursor : pointer;
+        }
+    }
+
+    &.past {
+
+        &:before {
+            background-color : #D5D5D5;
+            bottom           : 0;
+        }
+
+        li {
+            &:last-child .card:after {
+                content          : "";
+                position         : absolute;
+                width            : 1px;
+                margin-left      : -10px;
+                left             : -21px;
+                background-color : $body-bg;
+                top              : 33px;
+                bottom           : 0px;
+            }
+
+            .card:before {
+                background-color : #D5D5D5;
+            }
+
+            &:first-child .card:before {
+                background-color : #F14C2E;
+                border           : 1px solid #F14C2E;
+            }
+        }
+
+    }
+}
