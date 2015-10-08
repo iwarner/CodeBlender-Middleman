@@ -1,5 +1,5 @@
 ##
-# Application Combined JavaScript
+# JavaScript for the Body Area
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##

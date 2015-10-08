@@ -1,34 +1,21 @@
 ##
-# Thumbnails
+# Thumbnail
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @see
-# @todo
 ##
+class App.Views.Thumbnails extends Backbone.View
 
-##
-# JS Lint
-##
-'use strict'
+    ##
+    # Initialize
+    ##
+    initialize : ->
 
-# Module
-angular.module 'app.controller'
+        log.info "Thumbnail"
 
-##
-# Top Icon Controller
-##
-.controller 'ThumbnailCtrl', [
-
-    '$scope'
-    '$log'
-
-    ( $scope, $log ) ->
-
-        # Delegate call to data-toggle="lightbox"
+        # Delegate calls to data-toggle="lightbox"
         $( document ).delegate "*[data-toggle=\"lightbox\"]", "click", ( event ) ->
 
-            $log.info "Click Recorded"
+            log.info "Click Recorded"
 
             # Prevent Default
             event.preventDefault()
@@ -36,6 +23,3 @@ angular.module 'app.controller'
             # Delegate to CBLightBox
             $( this ).CBLightbox onShown : ->
                 return
-
-        return
-]

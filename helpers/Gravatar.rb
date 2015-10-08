@@ -1,7 +1,7 @@
 ##
 # Grvatar Avatar
 #
-# Usage
+# @usage
 # -# Gravatar
 # = Gravtar( "email@domain.com" )
 #

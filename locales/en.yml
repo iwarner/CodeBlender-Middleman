@@ -75,6 +75,13 @@ en:
 
         # Left
         left :
+            # Hero
+            - text : "Home"
+              link : { url: "/", ui: { sref: { active: "/" } } }
+
+            # What We Do
+            - text : "What We Do"
+              link : { url: "/what-we-do" }
 
             # Prototyping
             - dropdown : "Prototyping"

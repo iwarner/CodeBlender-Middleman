@@ -4,7 +4,7 @@
 # Core Methods
 # .constructor() Used to initialize and setup the confirm fields
 #
-# @author Pratomchai P
+# @author Ian Warner <ian.warner@drykiss.com>
 ##
 class App.Classes.ConfirmField
 

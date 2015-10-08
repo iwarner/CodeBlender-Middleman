@@ -4,40 +4,50 @@
 # @author Ian Warner <ian.warner@drykiss.com>
 #
 # @usage
-# require ../../../partial/_library/molecule/topIcon/topIcon
+# require molecule/topIcon/topIcon.controller
 #
 # @see  https://docs.angularjs.org/api/ng/service/$anchorScroll
+#
 # @todo Look at a more angular way to do a smooth transition.
 ##
-
-### jshint eqnull: true, eqeqeq: false ###
-
 
 ##
 # JS Lint
 ##
 'use strict'
 
-# Module
-angular.module 'app.controller'
-
 ##
 # Top Icon Controller
 ##
-.controller 'TopIconController', [
+TopIconController = ->
 
-    '$scope'
+    # This
+    vm = this
 
-    ( $scope ) ->
+    vm.gotoTop = ->
 
-        $scope.gotoTop = ->
-
-            # JQuery Animate
-            $( "body, html" ).animate
-                scrollTop : 0
-            , 1000
-
-            return
+        # JQuery Animate
+        $( "body, html" ).animate
+            scrollTop : 0
+        , 1000
 
         return
-]
+
+        # scrollTop : ( reference, offset = 60 ) ->
+
+        #     # Debug
+        #     # log.info $( "#" + reference ).offset().top - offset
+
+        #     # Animate To Benefits
+        #     $( "html, body" ).clearQueue().animate
+        #         scrollTop : $( "#" + reference ).offset().top - offset
+        #     , 1000, "easeInOutQuint"
+
+    return
+
+##
+# Module
+##
+angular
+    .module     'app.controller'
+    .controller 'TopIconController', TopIconController

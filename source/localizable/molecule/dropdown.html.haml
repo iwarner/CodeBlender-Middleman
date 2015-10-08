@@ -66,7 +66,7 @@ list :
     The
     %a{ href: "/atom/button.html" } Button
     and
-    %a{ href: "/atom/list.html" } List.
+    %a{ href: "/atom/list.dropdown.html" } List.
 
 %p
     Made interactive with the Bootstrap dropdown.js plugin
@@ -74,7 +74,7 @@ list :
 -# Dropdown
 :ruby
     code = %{partial "./molecule/dropdown/dropdown",
-               locals: { button: { content: "Dropdown" },
+               locals: { button: { text: "Dropdown" },
                          list:   { array: [ { text: "Action 1", link: { url: "#" } }, { text: "Action 2", link: { url: "#" } } ] } }}
 
 -# Code
@@ -83,8 +83,7 @@ list :
 -# Dropdown Alignment
 :ruby
     code = %{partial "./molecule/dropdown/dropdown",
-               locals: { button:     { content: "Dropdown" },
-                         extraClass: "dropdown",
+               locals: { button:     { text: "Dropdown" },
                          list:       { array: current_page.data.list, extraClass: "dropdown-menu-right" } }}
 
 -# Code
@@ -93,7 +92,7 @@ list :
 -# Dropup
 :ruby
     code = %{partial "./molecule/dropdown/dropdown",
-                      locals: { button:     { content: "Dropdown" },
+                      locals: { button:     { text: "Dropdown" },
                                 extraClass: "dropup",
                                 list:       { array: current_page.data.list } }}
 
@@ -103,7 +102,7 @@ list :
 -# Button Group
 :ruby
     code = %{partial "./molecule/dropdown/dropdown",
-                      locals: { button:     { content: "Dropdown" },
+                      locals: { button:     { text: "Dropdown" },
                                 extraClass: "btn-group",
                                 list:       { array: current_page.data.list } }}
 

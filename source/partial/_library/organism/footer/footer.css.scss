@@ -4,16 +4,14 @@
 // @author Ian Warner <ian.warner@drykiss.com>
 //
 // @todo   Do this in BEM
-// @todo   Text Color should be extracted from here or use better variable
 //----------------------------------------------------------------------------//
 
 // Footer
 //----------------------------------------------------------------------------//
 .footer {
 
-    border-top : 4px solid rgba( 247, 182, 0, 0.5 );
+    border-top : 4px solid rgba( 240, 0, 0, 0.7 );
     color      : $gray-lighter;
-    font-size  : 16px;
 
     // Background
     //------------------------------------------------------------------------//
@@ -23,13 +21,7 @@
         background : $gray-dark;
     }
 
-    // Footer Section
-    //------------------------------------------------------------------------//
-    .footerSection {
-        min-height : 100%;
-    }
-
-    // Separators
+    // Separator
     //------------------------------------------------------------------------//
     .footerSection:not:first-child {
         border-left : 2px solid $gray-darker;
@@ -47,13 +39,13 @@
     //------------------------------------------------------------------------//
     h4 {
         display       : block;
-        font-size     : 20px;
+        font-size     : 18px;
         line-height   : 32px;
         margin-bottom : 10px;
         padding       : 2px 0;
     }
 
-    // Social Elements
+    // Social Element
     //------------------------------------------------------------------------//
     .socialList  {
 
@@ -69,12 +61,12 @@
             border-radius   : 50%;
             display         : inline-block;
             font-size       : 30px;
-            height          : 70px;
-            line-height     : 70px;
+            height          : 50px;
+            line-height     : 50px;
             margin          : 0 10px 15px;
             text-decoration : none;
             transition      : all .2s ease-in-out;
-            width           : 70px;
+            width           : 50px;
 
         }
 
@@ -83,7 +75,7 @@
 }
 
 //
-// Scaffolding Copyright
+// Copyright
 //
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
@@ -103,16 +95,10 @@
         display : inline;
     }
 
-    // Links
+    // Link
     //------------------------------------------------------------------------//
     a {
-        color : #fff;
-    }
-
-    // To Top icon
-    //------------------------------------------------------------------------//
-    span i {
-        cursor : pointer;
+        color : $gray-lighter;
     }
 
     // Link List

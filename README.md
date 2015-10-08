@@ -1,14 +1,8 @@
 # Project : CodeBlender
 
-Amazon.co.uk,
-Customer Services,
-60 Holborn Viaduct
-London
-EC1A 2FD
-United Kingdom
-
 # Middleman : http://middlemanapp.com/
 
+    Start
     $ /var/www/codeblender.net/www
     $ bundle exec middleman server
 
@@ -19,6 +13,7 @@ United Kingdom
     $ ps aux | grep middleman
     $ sudo kill -9
 
+    Template
     $ middleman init -T tdreyno/my-middleman-starter ~/Sites/new-site
 
 # Firebase : https://www.firebase.com
@@ -29,27 +24,24 @@ United Kingdom
 
 # GitHub : http://github.com
 
-    $ dig tml.footyjapan.com   | grep -E '(207.97.227.245|204.232.175.78|199.27.73.133)' || echo "OK"
-    $ dig dontpoisonmyskin.com | grep -E '(207.97.227.245|204.232.175.78|199.27.73.133)' || echo "OK"
+    Test DNS
+    $ dig codeblender.net | grep -E '(207.97.227.245|204.232.175.78|199.27.73.133)' || echo "OK"
 
 # BitBucket : http://bitbucket.com
 
-    git@bitbucket.org:TriangleSolutions/codeblender.net.git
-
+    Add Origin
     $ /var/www/codeblender.net/www
     $ git remote add origin git@bitbucket.org:TriangleSolutions/codeblender.net.git
     $ git push -u origin --all
     $ git push -u origin --tags
 
-# Managing remotes
-
+    Add Orgin
     $ git remote -v
     $ git remote add bitbucket git@bitbucket.org:DryKISS/codeblender.net.git
 
 # Bundler : http://bundler.io/
 
     This must be installed, it manages the projects required Gems.
-
     $ gem install bundler
     $ bundle install
 
@@ -57,15 +49,12 @@ United Kingdom
 
     This must be installed, it manages the projects front end dependencies. To install
     this Node must be installed : http://nodejs.org/ use the binary.
-
     $ npm install -g bower
 
     Initially you will want to install the bower components
-
     $ bower install
 
     Updating can be dangerous and it may update packages that could break features
-
     $ bower update
     $ bower prune
 
@@ -73,17 +62,17 @@ United Kingdom
 
 # File System
 
+    Delete SVN directories
     $ find . -name .svn -exec echo {} \;
     $ find . -name .svn -exec rm -rf {} \;
 
+    Delete GIT directories
     $ find . -name .git -exec echo {} \;
     $ find . -name .git -exec rm -rf {} \;
 
+    Delete Windows Thumbs
     $ find . -name Thumbs.db -exec echo {} \;
     $ find . -name Thumbs.db -exec rm -rf {} \;
 
-# HAML : http://haml.info/
-
-# CoffeeScript : http://coffeescript.org/
-
-# SCSS : http://sass-lang.com/
+    Google Icon
+    $ find ~/Google\ Drive/ -name Icon? -exec rm -f {} \;

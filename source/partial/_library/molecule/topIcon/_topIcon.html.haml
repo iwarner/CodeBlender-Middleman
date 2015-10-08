@@ -8,9 +8,9 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
-%ul.nav.pull-right.scrollTop{ ng: { controller: "TopIconController" } }
+%ul.nav.pull-right.scrollTop{ ng: { controller: "TopIconController as topIcon" } }
 
     %li
 
-        = link_to( "javascript:;", title: "Scroll to top", ng: { click: "gotoTop()" } ) do
+        = link_to( "javascript:;", title: "Scroll to top", ng: { click: "topIcon.gotoTop()" } ) do
             - icon "fa-chevron-up"

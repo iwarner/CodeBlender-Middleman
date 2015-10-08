@@ -2,6 +2,8 @@
 # Config YAML
 #
 # @author Ian Warner <ian.warner@drykiss.com>
+#
+# @todo Sort out the elements in here a little better and create new files if required.
 ##
 
 ---
@@ -70,23 +72,3 @@ footer :
 # Atom
 atom :
     title : "Code Blender"
-
-# Coderwall
-coderwall :
-    username : false
-
-# Formspree : http://formspree.io/
-formspree :
-    action : "//formspree.io/ian.warner@drykiss.com"
-    next   : "http://codeblender.net/contactus/?f=s"
-
-# Disqus
-disqus :
-    shortName : false
-
-# Open Weather Map
-openWeatherMap : false
-
-# Twitter
-twitter :
-    account : false

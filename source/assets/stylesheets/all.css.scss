@@ -4,7 +4,12 @@
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
 
+// Variables / Mixins
+//----------------------------------------------------------------------------//
+@import "atom/scaffolding/scaffolding";
+
 // Library & Lib
 //----------------------------------------------------------------------------//
-@import "_lib/library";
-@import "_lib/lib";
+@import "bower";
+@import "library";
+@import "lib";

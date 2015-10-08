@@ -10,16 +10,11 @@
 # Router
 //= require_tree ./router
 
-# Directive
-//= require_tree ./directive
-
 # Service
 //= require_tree ./service
 
-# Lib Controller
-//= require_tree ./controller
+# Atom
 
-# Atomic Controllers
 # Molecule
 //= require molecule/facebook/facebook
 //= require molecule/login/login.controller

@@ -3,10 +3,9 @@
 -#
 -# @usage
 -# -# Dropdown
--# = partial "./molecule/dropdown/dropdown",
--#            locals: { extraClass: "btn-group clearfix",
--#                      title:      "Drop Down",
--#                      list:       { array: current_page.data.list, dropdown: true }}
+-# = partial "./molecule/dropdown/dropdown",
+-#            locals: { button: { text: "Dropdown" },
+-#                      list:   { array: [ { text: "Action 1", link: { url: "#" } }, { text: "Action 2", link: { url: "#" } } ] } }}
 -#
 -# @param list       Array of the menu list data
 -# @param button     Accepts the full button locals with overides
@@ -38,6 +37,5 @@
     -# Button Partial
     = partial "./atom/button/button", locals: button
 
-    -# List Partial | Dropdown : true
-    - list[ :dropdown ]  = "true"
-    = partial "./atom/list/ul", locals: list
+    -# Dropdown List Partial
+    = partial "./atom/list/list.dropdown", locals: list

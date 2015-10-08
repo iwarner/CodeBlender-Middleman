@@ -106,22 +106,22 @@ end
 activate :deploy do | deploy |
 end
 
-# # Create GZIP Content
-# helpers do
+# Create GZIP Content
+helpers do
 
-#     def gzip_css_on_build( key, media = "screen" )
-#         o = stylesheet_link_tag( key, { :media => media } )
-#         o.sub!( ".css", ".css.gz" ) if build?
-#         o
-#     end
+    def gzip_css_on_build( key, media = "screen" )
+        o = stylesheet_link_tag( key, { :media => media } )
+        o.sub!( ".css", ".css.gz" ) if build?
+        o
+    end
 
-#     def gzip_js_on_build( key )
-#         o = javascript_include_tag( key )
-#         o.sub!( ".js", ".js.gz" ) if build?
-#         o
-#     end
+    def gzip_js_on_build( key )
+        o = javascript_include_tag( key )
+        o.sub!( ".js", ".js.gz" ) if build?
+        o
+    end
 
-# end
+end
 
 # activate :directory_indexes
 
@@ -194,6 +194,29 @@ end
 #             # Proxy Pages
 #             proxy "/shop/#{ page }/index.html", "template/product/product.html", :locals => { :product => product }, :ignore => true
 
+#         end
+
+#     end
+
+# end
+
+# Create the Portfolio Category Pages
+# ready do
+
+#     # Create the Articles for the Portfolio
+#     articles = portfolio( [ "portfolio" ] )
+
+#     # Articles in each Subcategory
+#     sitemap.resources.group_by { | p | p.data[ "subcategory" ] }.each do |subcategory, pages|
+
+#         # Check that a Subcategory exists
+#         if !subcategory.nil?
+
+#             proxy "/our-work/#{ subcategory }.html",
+#                   "templates/portfolio.html", :locals => { :subcategories => articles[ "subcategories" ],
+#                                                            :subcategory   => subcategory,
+#                                                            :pages         => pages },
+#                                               :ignore => true
 #         end
 
 #     end

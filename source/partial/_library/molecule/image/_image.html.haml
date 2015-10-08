@@ -21,7 +21,7 @@
     - if image.is_a?( Array )
 
         -# Carousel
-        = partial "./bootstrap/javascript/carousel", locals: { id: "carousel1", array: image, indicator: :true }
+        = partial "./molecule/carousel/carousel", locals: { id: "carousel1", array: image, indicator: :true }
 
     - elsif ! image.is_a?( Array )
 

@@ -15,15 +15,23 @@ class Project < Thor
 
     ##
     # Middleman Build and Deploy
+    # @todo Increment the version number if deployed
     ##
     desc "middlemanDeploy", "Middleman Build and Deploy"
     def middlemanDeploy
 
         system( "clear" )
 
+        # Load the Config File
+        config = YAML::load_file( "data/config.yaml" )
+
+        # Increment Version
+
+        # Build
         say( "\n\t Middleman Build Clean\n\t" )
         system( "bundle exec middleman build --clean" )
 
+        # Deploy
         say( "\n\t Middleman Deploy\n\t" )
         system( "bundle exec middleman deploy" )
 
@@ -37,7 +45,7 @@ class Project < Thor
     def middlemanPackage
 
         # Load the Config File
-        config  = YAML::load_file( "data/config.yaml" )
+        config = YAML::load_file( "data/config.yaml" )
 
         # Get the version
         version = config[ :version ]
@@ -46,7 +54,7 @@ class Project < Thor
         fileName = "vme-gwp-proto-v" + version
 
         # Clear
-        system("clear")
+        system( "clear" )
 
         # Build Middleman
         say( "\n\t Middleman Build Clean\n\t" )
@@ -74,10 +82,6 @@ class Project < Thor
         # JavaScript
         system( "rm -R source/assets/javascripts/_library")
         system( "ln -s #{ path }source/assets/javascripts/_library source/assets/javascripts")
-
-        # CSS
-        system( "rm -R source/assets/stylesheets/_library")
-        system( "ln -s #{ path }source/assets/stylesheets/_library source/assets/stylesheets/")
 
         # Layouts
         system( "rm -R source/layouts/_library")
@@ -303,47 +307,33 @@ class Project < Thor
     end
 
     ##
-    # Tide Build
+    # Open Server
     ##
-    desc "tideBuild", "Create a Tide Build"
-    def tideBuild
+    desc "openServer", "Open Server"
+    def openServer
 
-        system("clear")
+        system( "clear" )
+        say( "\n\tOpening Server\n\t" )
 
-        say("\n\t Middleman Build Clean\n\t")
-        system("bundle exec middleman build --clean")
+        require 'Launchy'
 
-        say("\n\t Create directories\n\t")
-        system("mkdir -p packages/osx/network")
-        system("mkdir -p packages/osx/bundle")
+        file = File.expand_path( '~/middleman-server.yaml', __FILE__ )
 
-        # say("\n\t dmg with app package within\n\t")
-        system("tidebuilder.py -p -n -t network -d packages/osx/network -o osx ~/Google\ Drive/www/studioportal.com")
-        system("tidebuilder.py -p -n -t bundle -d packages/osx/bundle -o osx ~/Google\ Drive/www/studioportal.com")
+        begin
 
-        # say("\n\t click-to-run\n\t")
-        system("mkdir -p packages/osx/run")
-        system("tidebuilder.py -r -t bundle -d packages/osx/run -o osx ~/Google\ Drive/www/studioportal.com")
+            port = Psych.load_file( file ).fetch( :port )
+            $stderr.puts %( Reading server-config file "#{ file }". )
 
-        say("\n")
+        rescue
 
-    end
+            $stderr.puts %( Creating server-config file "#{ file }". )
+            port = ( 1_024..65_535 ).to_a.sample
+            File.write( file, Psych.dump( port: port ) )
 
-    ##
-    # Tide Stage
-    ##
-    desc "tideStage", "Create a Tide Stage"
-    def tideStage
+        end
 
-        system("clear")
-
-        say("\n\t Middleman Build Clean\n\t")
-        system("bundle exec middleman build --clean")
-
-        say("\n\t Stage Project\n\t")
-        system("tidebuilder.py -d . -r ~/Dropbox/www/studioportal.com")
-
-        say("\n")
+        Launchy.open "http://localhost:#{ port }"
+        system( "bundle exec middleman server -p #{ port }" )
 
     end
 

@@ -27,6 +27,12 @@ atom :
     - title : "Input"
       url   : "/atom/input.html"
 
+    - title : "List DT"
+      url   : "/atom/list-dt.html"
+
+    - title : "List UL"
+      url   : "/atom/list-ul.html"
+
     - title : "Select"
       url   : "/atom/select.html"
 
