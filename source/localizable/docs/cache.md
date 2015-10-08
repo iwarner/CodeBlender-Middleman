@@ -43,12 +43,7 @@ So rather than happening sequentially, the browser can download all at the same 
 
 ## APC
 
-APC provides an admin interface at the root of the project this can be accessed
-with the following credentials
-
-    Host     :
-    Username : apc
-    password : af_apc=2013
+APC provides an admin interface at the root of the project.
 
 ## Slim Framework
 

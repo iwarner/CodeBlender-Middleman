@@ -39,11 +39,15 @@ set :markdown, layout_engine: :haml, tables: true, autolink: true, smartypants: 
 # Syntax Highlighting
 activate :syntax
 
-# i18n
-I18n.enforce_available_locales = true
-I18n.default_locale            = :en
-Time.zone                      = "Europe/London"
-activate :i18n, langs: [ :en ], mount_at_root: :en
+# Time Zone
+Time.zone = "Europe/London"
+
+# I18n
+# @see http://www.rubydoc.info/github/svenfuchs/i18n/I18n
+activate :i18n do | options |
+    options.langs         = [ :en ]
+    options.mount_at_root = :en
+end
 
 # Live reload
 activate :livereload
@@ -123,6 +127,7 @@ helpers do
 
 end
 
+# Directory Indexes
 # activate :directory_indexes
 
 # Build-specific configuration
@@ -144,81 +149,11 @@ configure :build do
     activate :minify_html
 
     # Favicon
-    # activate :favicon_maker, icons: {
-    #     "favicon_template.png" => [
-    #         { icon: "favicon.png", size: "32x32" },
-    #         { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" },
-    #     ]
-    # }
+    activate :favicon_maker, icons: {
+        "favicon_template.png" => [
+            { icon: "favicon.png", size: "32x32" },
+            { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" },
+        ]
+    }
 
 end
-
-# # VCard Creation
-# if data.scaffolding.vcards
-
-#     data.scaffolding.vcards.each do | vCard |
-
-#         vcard           = VCardigan.create( :version => '3.0' )
-#         vcard.name      "#{ vCard.name.l }", "#{ vCard.name.f }"
-#         vcard.title     "#{ vCard.title }"
-#         vcard.org       "IBM"
-#         vcard.fullname  "#{ vCard.name.f } #{ vCard.name.l }"
-#         vcard.email     "#{ vCard.email.ibm }", :type => 'work', :preferred => 1
-#         vcard.tel       "#{ vCard.tel }", :type => 'mobile', :preferred => 1
-#         vcard.impp      "#{ vCard.skype }", :"X-SERVICE-TYPE" => "Skype", :type => "home", :preferred => 1
-#         vcard.add('X-Skype', "#{ vCard.skype }")
-
-#         # @todo Output a file
-#         # puts vcard
-
-#     end
-
-# end
-
-# # # Create Product Pages
-# if data.products.products
-
-#     # Loop through the products
-#     data.products.products.each do | product |
-
-#         # Create the Pages if status is active
-#         if product.status == "active"
-
-#             # Page Name
-#             page = product.title.downcase.gsub( /[^a-z0-9\- ]/, ' ').gsub( / /, '-' )
-
-#             # Debug
-#             # p product
-#             # p page
-
-#             # Proxy Pages
-#             proxy "/shop/#{ page }/index.html", "template/product/product.html", :locals => { :product => product }, :ignore => true
-
-#         end
-
-#     end
-
-# end
-
-# Create the Portfolio Category Pages
-# ready do
-
-#     # Create the Articles for the Portfolio
-#     articles = portfolio( [ "portfolio" ] )
-
-#     # Articles in each Subcategory
-#     sitemap.resources.group_by { | p | p.data[ "subcategory" ] }.each do |subcategory, pages|
-
-#         # Check that a Subcategory exists
-#         if !subcategory.nil?
-
-#             proxy "/our-work/#{ subcategory }.html",
-#                   "templates/portfolio.html", :locals => { :subcategories => articles[ "subcategories" ],
-#                                                            :subcategory   => subcategory,
-#                                                            :pages         => pages },
-#                                               :ignore => true
-#         end
-
-#     end
-
-# end

@@ -13,14 +13,10 @@
     $ ps aux | grep middleman
     $ sudo kill -9
 
-    Template
+    Template install
     $ middleman init -T tdreyno/my-middleman-starter ~/Sites/new-site
 
 # Firebase : https://www.firebase.com
-
-    Test User
-    User : ian.warner@drykiss.com
-    Pass : dkTestUser15
 
 # GitHub : http://github.com
 
@@ -35,7 +31,7 @@
     $ git push -u origin --all
     $ git push -u origin --tags
 
-    Add Orgin
+    Add Origin
     $ git remote -v
     $ git remote add bitbucket git@bitbucket.org:DryKISS/codeblender.net.git
 

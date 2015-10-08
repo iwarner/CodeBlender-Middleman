@@ -2,23 +2,16 @@
 
 ## Middleman
 
-* Check out the next version of Middleman ASAP
+* Check out the next version of Middleman v4
 
 ## CodeBlender Examples
 
 * This should be used as test pages for Jasmine to test front end elements
 * Link Bootstrap documentation into here
 * Symlink into each project
-* Send in Array to Navlist to create
 * Need relative assets on for the documentation area
-* Make some relative images for the Bootstrap Carousel test
-* Show Grid needs the CSS also
 * Make CodeBlender Project Like thus:
     http://www.fork-cms.com/extensions/apps
-
-## Hosting
-
-* Check out Amazon Beanstalk
 
 ## Config
 

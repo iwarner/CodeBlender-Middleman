@@ -19,4 +19,4 @@ webmasterTools : false
 
 client :
     id     : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"
-    secret : "ERR0xB-H_csJEdn2IPZ4MxWW"
+    secret : false

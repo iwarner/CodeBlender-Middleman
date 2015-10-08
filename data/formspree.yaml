@@ -7,5 +7,5 @@
 
 ---
 
-action : "//formspree.io/ian.warner@drykiss.com"
-next   : "http://codeblender.net/contactus/?f=s"
+action : false
+next   : false

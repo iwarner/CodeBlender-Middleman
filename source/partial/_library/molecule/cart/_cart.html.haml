@@ -9,3 +9,28 @@
 -##
 
 CART
+
+/ # # # Create Product Pages
+/ # if data.products.products
+
+/ #     # Loop through the products
+/ #     data.products.products.each do | product |
+
+/ #         # Create the Pages if status is active
+/ #         if product.status == "active"
+
+/ #             # Page Name
+/ #             page = product.title.downcase.gsub( /[^a-z0-9\- ]/, ' ').gsub( / /, '-' )
+
+/ #             # Debug
+/ #             # p product
+/ #             # p page
+
+/ #             # Proxy Pages
+/ #             proxy "/shop/#{ page }/index.html", "template/product/product.html", :locals => { :product => product }, :ignore => true
+
+/ #         end
+
+/ #     end
+
+/ # end

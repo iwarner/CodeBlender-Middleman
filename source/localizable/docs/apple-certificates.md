@@ -107,5 +107,3 @@ Join the Apple Developer Program - https://developer.apple.com/programs/register
     ** In iTunes, select File > Add To Library, and browse to the mobile provisioning profile file (.mobileprovision filename extension)
     ** In iTunes, select File > Add To Library, and browse to the debug IPA file.
     ** Sync your iOS device with iTunes by selecting File > Sync.
-
-* Password   = poipoi
