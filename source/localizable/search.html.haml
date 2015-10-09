@@ -1,7 +1,8 @@
 ---
 
 # Variables
-stub : "search"
+stub   : "search"
+layout : "_library/fullWidth"
 
 # Heading
 heading :
@@ -15,21 +16,14 @@ see :
 
 ---
 
--# Search Results DIV
-#cse-search-results
+-# Bootstrap Container
+.container
 
--# Script Variables
-:javascript
-    var googleSearchIframeName = "cse-search-results";
-    var googleSearchFormName   = "cse-search-box";
-    var googleSearchFrameWidth = 1130;
-    var googleSearchDomain     = "www.google.co.uk";
-    var googleSearchPath       = "/cse";
+    -# Bootstrap Container
+    .row
 
--# Javascript
-%script{ src: "http://www.google.com/afsonline/show_afs_search.js" }
+        -# Bootstrap Column
+        .col-md-12
 
--# Popular Queries
-%script{ src: "http://www.google.com/cse/query_renderer.js" }
-#queries
-%script{ src: "http://www.google.com/cse/api/#{data.config.googleSearch}/cse/5919031289/queries/js?oe=UTF-8&amp;callback=(new+PopularQueryRenderer(document.getElementById(%22queries%22))).render" }
+            -# Search Google
+            = partial "./molecule/search/search"

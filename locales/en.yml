@@ -138,26 +138,51 @@ en:
     # Footer
     footer :
 
-        # Column 1
+        # Column One
         - title       : "About"
-          icon        : "fa-info-circle"
+          icon        : "fa-info"
           description : |
-            The UX Portal is a destination for
+            DryKISS is a full service internet and mobile digital production house.
+            Our core services span consulting, strategy; planning; development;
+            testing and analytics. We developed CodeBlender to provide a Rapid
+            and repeatable platform for our frontend work.
 
-        # Column 2
+        # Column Two
         - title       : "What We Do"
           icon        : "fa-cogs"
           description : |
-            These panels have a minimum height
+            DryKISS develops hybrid mobile apps (iOS &amp; Android); responsive
+            internet sites; administration systems and social applications. Using
+            our platform we tune for SEO, accessibility and conversion from the
+            very outset.
 
-        # Column 3
+        # Column Three
         - title       : "Social"
-          icon        : "fa-facebook"
+          icon        : "fa-twitter"
+          extraClass  : "social"
           description : |
-            Background image is automatically drawn from footer/background.png
 
-        # Column 4
+            <div class="socialList">
+                <a href="https://www.facebook.com/DryKISSLtd" target="_blank" title="Facebook">
+                    <span class="fa fa-facebook"></span>
+                </a>
+                <a href="https://twitter.com/DryKISSLtd" target="_blank" title="Twitter">
+                    <span class="fa fa-twitter"></span>
+                </a>
+            </div>
+
+        # Column Four
         - title       : "Contact"
           icon        : "fa-phone"
           description : |
-            Icons and extra classes are assigned within the data file also
+            If you have a brief, and want to discuss how we would approach it.
+            [Please get in touch](/contact).
+
+            <i class="fa fa-map-marker"></i>
+            Colliers Wood, London, UK
+
+            <i class="fa fa-phone"></i>
+            [+44 (0) 778 043 5329](tel:+447780435329)
+
+            <i class="fa fa-envelope"></i>
+            [info@drykiss.com](mailto:info@drykiss.com)

@@ -25,7 +25,7 @@ module Icon
         if iconName =~ /^fa-|^timeline-|^headline-|^icon-|^glyphicon-/i
 
             if iconLibrary[ 0 ] == 'fa'
-                result = Haml::Engine.new( "%span{ class: \"#{ iconLibrary[ 0 ] } #{ iconName } fa-fw\", ng: #{ ng } }" )
+                result = Haml::Engine.new( "%span{ class: \"#{ iconLibrary[ 0 ] } #{ iconName }\", ng: #{ ng } }" )
             else
                 result = Haml::Engine.new( "%span{ class: \"#{ iconName }\", ng: #{ ng } }" )
             end

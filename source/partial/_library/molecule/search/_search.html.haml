@@ -1,5 +1,6 @@
 -##
--# Google Custom Search
+-# Google custom search results
+-# Add th CX tag to the google.yaml - search : "CX"
 -#
 -# Locals
 -#
@@ -9,23 +10,25 @@
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    https://www.google.com/cse/all
+-# @see    https://www.google.com/webmasters/
 -#
--# @todo   Use the partial form elements
--# @todo   Search bar should not just be for navbar
--# @todo   Bring in the results via AJAX probably
+-# @todo change to coffeescript
+-# @todo Provide the context file to change the look and feel
+-# @todo Add a title
+-# @todo Create the entity in Search Console
 -##
 
--# Search
-%form#cse-search-box.navbar-form.navbar-right{ action: "/search", role: "search" }
+-# Google Search Script
+:javascript
+    ( function() {
+      var cx     = '#{ dataGoogle.search }';
+      var gcse   = document.createElement( 'script' );
+      gcse.type  = 'text/javascript';
+      gcse.async = true;
+      gcse.src   = ( document.location.protocol == 'https:' ? 'https:' : 'http:' ) + '//cse.google.com/cse.js?cx=' + cx;
+      var s      = document.getElementsByTagName( 'script' )[ 0 ];
+      s.parentNode.insertBefore( gcse, s );
+    } )();
 
-    .form-group
-
-        %input.form-control{ type: "text", placeholder: "Search", name: "q" }
-
-        %input{ type: "hidden", name: "cx", value: dataGoogle.search }
-
-        %input{ type: "hidden", name: "cof", value: "FORID:10" }
-
-        %input{ type: "hidden", name: "ie", value: "UTF-8" }
-
-    %input.btn.btn-default{ name: "sa", type: "submit", value: "Search" }
+-# Google Search Tag
+%gcse:searchresults-only
