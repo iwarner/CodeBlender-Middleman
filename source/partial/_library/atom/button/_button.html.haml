@@ -1,5 +1,11 @@
 -##
 -# Button / Link Partial
+-# While button classes can be used on <a> and <button> elements,
+-# only <button> elements are supported within our nav and navbar components.
+-#
+-# If the <a> elements are used to act as buttons – triggering in-page
+-# functionality, rather than navigating to another document or section within
+-# the current page – they should also be given an appropriate role="button".
 -#
 -# Usage
 -# -# Button
@@ -8,6 +14,8 @@
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://www.plugolabs.com/twitter-bootstrap-button-generator/
 -#
+-# @todo   Explain in here all the places a button can be used
+-# @todo   Change Href to Link and create a new Link Partial
 -# @todo   Allow for an image or icon before also
 -# @todo   locals[ :text ] seems to be required but what if we just want an icon button provide option and graceful fallback on errors
 -##
@@ -65,7 +73,7 @@
 - if ! ( locals[ :href ] or locals[ :ui ] )
 
     %button{ aria:     locals[ :aria ]     ? aria                 : false,
-             class:    locals[ :extraClass ] == "close" ? "close" : "btn #{ classes }",
+             class:    locals[ :extraClass ] == "close" ? "close" : "btn#{ classes }",
              clip:     locals[ :clip ]     ? clip                 : false,
              data:     locals[ :data ]     ? data                 : false,
              hidden:   locals[ :hidden ]   ? "hidden"             : false,
@@ -73,15 +81,14 @@
              itemprop: locals[ :itemprop ] ? itemprop             : false,
              ng:       locals[ :ng ]       ? ng                   : false,
              title:    locals[ :title ]    ? string( title )      : false,
-             type:     locals[ :type ]     ? type                 : "submit" }
-        = captureHTML
+             type:     locals[ :type ]     ? type                 : "submit" }= captureHTML
 
 - else
 
     = link_to( captureHTML,
                locals[ :href ],
                aria:     locals[ :aria ]     ? aria            : false,
-               class:    "btn #{ classes }",
+               class:    "btn#{ classes }",
                clip:     locals[ :clip ]     ? clip            : false,
                data:     locals[ :data ]     ? data            : false,
                hidden:   locals[ :hidden ]   ? "hidden"        : false,

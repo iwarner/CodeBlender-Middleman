@@ -41,10 +41,10 @@ en:
         # Index
         index :
             author      : "DryKISS"
-            description : "CodeBlender"
+            description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
             image       : "Image"
             subject     : "DryKISS"
-            title       : "CodeBlender"
+            title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
             type        : "website"
 
         # Dropdown
@@ -75,33 +75,23 @@ en:
 
         # Left
         left :
-            # Hero
-            - text : "Home"
-              link : { url: "/", ui: { sref: { active: "/" } } }
 
-            # What We Do
-            - text : "What We Do"
-              link : { url: "/what-we-do" }
+            # Home
+            - text : "Home"
+              link : { url: "/" }
 
             # Prototyping
-            - dropdown : "Prototyping"
-              items    :
-                - text : "Atom"
-                  link : { url: "/atom/atom.html" }
-                - text : "Molecule"
-                  link : { url: "/molecule/molecule.html" }
-                - text : "Organism"
-                  link : { url: "/organism/organism.html" }
-                - text : "Template"
-                  link : { url: "/template/template.html" }
+            - text : "Atom"
+              link : { url: "/atom/atom.html" }
 
-            # Knowledge Base
-            - dropdown : "Knowledge Base"
-              items    :
-                - text : "Articles"
-                  link : { url: "/" }
-                - text : "Tags"
-                  link : { url: "/tags.html" }
+            - text : "Molecule"
+              link : { url: "/molecule/molecule.html" }
+
+            - text : "Organism"
+              link : { url: "/organism/organism.html" }
+
+            - text : "Template"
+              link : { url: "/template/template.html" }
 
     # Home
     home :

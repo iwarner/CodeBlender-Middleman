@@ -108,8 +108,9 @@ end
 
 # Middleman Deploy
 activate :deploy do | deploy |
-    deploy.method = :git
-    deploy.remote = 'git@github.com:DryKISS/codeblender.net.git'
+    deploy.method       = :git
+    deploy.remote       = 'git@github.com:DryKISS/codeblender.net.git'
+    deploy.build_before = true
 end
 
 # Create GZIP Content

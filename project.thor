@@ -28,8 +28,8 @@ class Project < Thor
         # Increment Version
 
         # Build
-        say( "\n\t Middleman Build Clean\n\t" )
-        system( "bundle exec middleman build --clean" )
+        say( "\n\t Middleman Build\n\t" )
+        system( "bundle exec middleman build" )
 
         # Deploy
         say( "\n\t Middleman Deploy\n\t" )

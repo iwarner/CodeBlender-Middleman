@@ -37,13 +37,23 @@ todo :
 -# Bootstrap Container
 .container
 
+    -# Heading - H2
+    = partial "./molecule/heading/heading", locals: { extraClass: "text-center", tag: "h2", text: "Middleman hand crafted Bootstrap HAML partials" }
+
     .text-center
 
-        -# Brand
-        = partial "./molecule/brand/brand"
+        %p
+            CodeBlender aims to provide simple atomic site structures, that can be
+            reused across multiple projects. Built upon the fantastic Middleman
+            these HAML partials are created to be understood; the main reason we
+            did not encapsulate them into a GEM. Simply symlink the partial/_library
+            folder into the new project and include them.
 
-    -# Heading - H2
-    = partial "./molecule/heading/heading", locals: { extraClass: "text-center", tag: "h2", text: "Hand crafted HAML partials" }
+        %p
+            Utilising the Bootstrap CSS framework each partial encompasses many defaults, such as accessibility, micro-formats
+            and layout. Making this project a must when it comes to rapid prototyping
+            of UX ideas. Still work in progress we aim to have full coverage of
+            all Bootstrap elements and more.
 
     -# Bootstrap Row
     .row
@@ -52,13 +62,13 @@ todo :
         .col-md-4.text-center
 
             -# Button Github
-            = partial "./atom/button/button", locals: { icon: { prepend: "fa-github" }, text: "Github", size: "lg" }
+            = partial "./atom/button/button", locals: { href: "https://github.com/iwarner/CodeBlender-Middleman", icon: { prepend: "fa-github" }, text: "Github", size: "lg" }
 
         -# Bootstrap Columns
         .col-md-4.text-center
 
             -# Button Download
-            = partial "./atom/button/button", locals: { icon: { prepend: "fa-download" }, text: "Download", size: "lg" }
+            = partial "./atom/button/button", locals: { href: "https://github.com/iwarner/CodeBlender-Middleman/archive/master.zip", icon: { prepend: "fa-download" }, text: "Download", size: "lg" }
 
         -# Bootstrap Columns
         .col-md-4.text-center

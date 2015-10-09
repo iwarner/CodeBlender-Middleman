@@ -13,7 +13,7 @@ atom :
       url   : "/atom/atom.html"
 
     - title : "Adsense"
-      url   : "/atom/adsense.html"
+      url   : "/atom/google-adsense.html"
 
     - title : "Button"
       url   : "/atom/button.html"
@@ -68,6 +68,12 @@ organism :
 
     - title : "Pricing Table"
       url   : "/organism/pricing-table.html"
+
+# Organism
+template :
+
+    - title : "Template"
+      url   : "/template/template.html"
 
 #     - title  : "Blog"
 #       url    : "/prototyping/blog/index.html"
