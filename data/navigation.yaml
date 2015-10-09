@@ -19,24 +19,24 @@ below  : false
 # Brand
 brand :
 
-    active : true
+    active : false
 
     link :
         url : "/"
 
     icon :
-        active : true
-        icon   : "fa-eyedropper"
+        active : false
+        icon   : false
 
     logo :
         active : false
-        alt    : "CodeBlender"
-        width  : 100
-        height : 100
+        alt    : false
+        width  : false
+        height : false
 
     text :
-        active : true
-        text   : "Home"
+        active : false
+        text   : false
 
 extraClass : "navbar-inverse navbar-static-top"
 

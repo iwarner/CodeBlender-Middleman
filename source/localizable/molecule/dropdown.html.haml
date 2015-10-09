@@ -22,17 +22,6 @@ see :
     - - "Dropdown PSDs"
       - "http://thedesigninspiration.com/articles/40-free-dropdown-and-select-box-psd-designs/"
 
-todo :
-    - - "Split Dropdown markup out of the list partial - create a dropdown list partial instead as easier to maintain"
-      - "2014-04-28"
-      - { "context" : "info" }
-    - - "Enable the caret to be modified - could be an icon, image or the default caret."
-      - "2014-04-28"
-      - { "context" : "info" }
-    - - "Dropdowns are present in the Components and JavaScript side of things"
-      - "2014-04-28"
-      - { "context" : "info" }
-
 locals :
     - - "array"
       - "array"
@@ -59,6 +48,8 @@ list :
 
 ---
 
+- id = 1
+
 %p
     Dropdown molecule is collated from two
     %a{ href: "/atom" } atoms.
@@ -78,7 +69,7 @@ list :
                          list:   { array: [ { text: "Action 1", link: { url: "#" } }, { text: "Action 2", link: { url: "#" } } ] } }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Dropdown" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Dropdown" } }
 
 -# Dropdown Alignment
 :ruby
@@ -87,7 +78,7 @@ list :
                          list:       { array: current_page.data.list, extraClass: "dropdown-menu-right" } }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 2, code: code, heading: { text: "Dropdown Alignment" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Dropdown Alignment" } }
 
 -# Dropup
 :ruby
@@ -97,7 +88,7 @@ list :
                                 list:       { array: current_page.data.list } }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 3, code: code, heading: { text: "Dropup" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Dropup" } }
 
 -# Button Group
 :ruby
@@ -107,7 +98,7 @@ list :
                                 list:       { array: current_page.data.list } }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 4, code: code, heading: { text: "Button Group" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Button Group" } }
 
 / -# Nav Bar Dropdown
 / :ruby
@@ -117,4 +108,4 @@ list :
 /                                 list:       { array: current_page.data.list } }}
 
 / -# Code
-/ = partial "./organism/code/code", locals: { id: 5, code: code, heading: { text: "Navbar Dropdown" } }
+/ = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Navbar Dropdown" } }
