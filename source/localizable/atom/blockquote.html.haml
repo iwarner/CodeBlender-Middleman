@@ -9,7 +9,6 @@ meta :
     type        : "website"
 
 heading :
-    small : ""
     title : "Blockquote"
 
 see :
@@ -32,23 +31,25 @@ locals :
 
 ---
 
+- id = 1
+
 -# Default
 :ruby
     code = %{partial "./atom/blockquote/blockquote", locals: { text: "Standard Blockquote" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Default" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 -# Small Text
 :ruby
-    code = %{partial "./atom/blockquote/blockquote", locals: { text: "Blockquote with secondary small text" }}
+    code = %{partial "./atom/blockquote/blockquote", locals: { small: "Small Text", text: "Blockquote with secondary small text" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 2, code: code, heading: { text: "Blockquote with secondary small text" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Blockquote with secondary small text" } }
 
 -# Pulled Right
 :ruby
     code = %{partial "./atom/blockquote/blockquote", locals: { right: true, small: "Right handed secondary text", text:  "Blockquote pulled right" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 3, code: code, heading: { text: "Blockquote pulled right" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Blockquote pulled right" } }

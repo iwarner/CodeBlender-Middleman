@@ -41,14 +41,14 @@ locals :
 
 ---
 
+- id = 1
+
 -# Default
 :ruby
     code = %{partial "./molecule/heading/heading", locals: { text: "Default H1 Tag" }}
 
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { text: "" } }
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code }
 
 -# H2 With Small
 :ruby
@@ -57,10 +57,8 @@ locals :
                                 text:  "H2 with Secondary Text",
                                 tag:   "h2" }}
 
-= partial "./organism/code/code",
-           locals: { id:      2,
-                     code:    code,
-                     heading: { text: "" } }
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code }
 
 -# H4
 :ruby
@@ -69,10 +67,8 @@ locals :
                                 text:  "H4",
                                 tag:   "h4" }}
 
-= partial "./organism/code/code",
-           locals: { id:      3,
-                     code:    code,
-                     heading: { text: "" } }
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code }
 
 -# Heading With Link
 :ruby
@@ -82,7 +78,5 @@ locals :
                                 text:  "Linked Heading",
                                 tag:   "h2" }}
 
-= partial "./organism/code/code",
-           locals: { id:      4,
-                     code:    code,
-                     heading: { text: "" } }
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code }

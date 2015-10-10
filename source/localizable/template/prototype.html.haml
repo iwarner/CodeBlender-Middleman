@@ -96,122 +96,104 @@ todo :
 -# Form
 %form{ novalidate: false }
 
-/     -# Project Name
-/     = partial "./atom/input",
-/                :locals => { :input => { :name        => "project",
-/                                         :placeholder => "Enter project name" },
-/                             :label => { :title => "Project Name" } }
+    -# Input - Project Name
+    = partial "./atom/input/input",
+               locals: { input: { name:        "project",
+                                  placeholder: "Enter project name" },
+                         label: { title: "Project Name" } }
 
-/     -# Submit
-/     = partial "./atom/button/button",
-/                locals: { context: "primary",
-/                          text:    "Save" }
+    -# Button - Save
+    = partial "./atom/button/button", locals: { context: "primary", text: "Save" }
 
-/ .row.prototype
+.row.prototype
 
-/     .col-md-7.phoneSection
+    .col-md-7.phoneSection
 
-/         -# Heading
-/         = partial "./molecule/heading/heading",
-/                    :locals => { :text => "iPhone5 - 320x568",
-/                                 :tag  => "h2" }
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { text: "iPhone5 - 320x568", tag: "h2" }
 
-/         -# iPhone Container
-/         %section.iphoneSection
+        -# iPhone Container
+        %section.iphoneSection
 
-/             %article.iphoneContainer.mobilePrototype.scrollBox
+            %article.iphoneContainer.mobilePrototype.scrollBox
 
-/                 -# Check that data exists
-/                 - if data.prototype01
+                / -# Check that data exists
+                / - if data.prototype01
 
-/                     -# Create Options container
-/                     - options = [ ]
+                /     -# Create Options container
+                /     - options = [ ]
 
-/                     -# Loop through the array
-/                     - data.prototype01.each do | entry |
+                /     -# Loop through the array
+                /     - data.prototype01.each do | entry |
 
-/                         -# Options
-/                         - options << [ entry.extraClass ]
+                /         -# Options
+                /         - options << [ entry.extraClass ]
 
-/                         -# Container
-/                         %div{ :class  => entry.extraClass,
-/                               :hidden => entry.hidden ? false : true }
+                /         -# Container
+                /         %div{ class: entry.extraClass, hidden: entry.hidden ? false : true }
 
-/                             -# Check that regions exist
-/                             - if entry.region
+                /             -# Check that regions exist
+                /             - if entry.region
 
-/                                 -# Loop Through the regions
-/                                 - entry.region.each do | region |
+                /                 -# Loop Through the regions
+                /                 - entry.region.each do | region |
 
-/                                     -# Link To
-/                                     = link_to( "",
-/                                                "#",
-/                                                :class => region.extraClass,
-/                                                :style => region.coords ? "height:#{ region.coords[ 0 ] }px; width:#{ region.coords[ 1 ] }px; left:#{ region.coords[ 2 ] }px; top:#{ region.coords[ 3 ] }px;" : false,
-/                                                :data  => { :goto => region.goto } )
+                /                     -# Link To
+                /                     = link_to( "",
+                /                                "#",
+                /                                class: region.extraClass,
+                /                                style: region.coords ? "height:#{ region.coords[ 0 ] }px; width:#{ region.coords[ 1 ] }px; left:#{ region.coords[ 2 ] }px; top:#{ region.coords[ 3 ] }px;" : false,
+                /                                data:  { goto: region.goto } )
 
-/                             -# Image
-/                             = partial "./atom/image/image",
-/                                        :locals => { :alt        => "Image",
-/                                                     :extraClass => "img-responsive",
-/                                                     :src        => "prototype01/#{ entry.image }.png" }
+                /             -# Image
+                /             = partial "./atom/image/image",
+                /                        locals: { alt:        "Image",
+                /                                  extraClass: "img-responsive",
+                /                                  src:        "prototype01/#{ entry.image }.png" }
 
-/     .col-md-5.phoneToolsSection
+    .col-md-5.phoneToolsSection
 
-/         -# Description
-/         = partial "./molecule/heading/heading",
-/                    :locals => { :text => "Description",
-/                                 :tag  => "h2" }
+        -# Description
+        = partial "./molecule/heading/heading", locals: { text: "Description", tag: "h2" }
 
-/         :markdown
+        :markdown
 
-/             **Learn More**
+            **Learn More**
 
-/             Learn more is where the user is introduced to the application, a carousel
-/             gives the user the opportunity to swipe between many screens that provides
-/             information on what the app is about, how to use it and benefits.
+            Learn more is where the user is introduced to the application, a carousel
+            gives the user the opportunity to swipe between many screens that provides
+            information on what the app is about, how to use it and benefits.
 
-/             * Carousel
-/             * Hero Image
-/             * Buttons
+            * Carousel
+            * Hero Image
+            * Buttons
 
-/         -# Heading
-/         = partial "./molecule/heading/heading",
-/                    :locals => { :text => "Screen Selection",
-/                                 :tag  => "h2" }
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { text: "Screen Selection", tag: "h2" }
 
-/         -# Change the screen
-/         - if options
+        -# Change the screen
+        - if options
 
-/             -# Select
-/             = partial "./form/select",
-/                        :locals => { :array => options ,
-/                                     :label => [ "Screen Selection", true ],
-/                                     :name  => "screenSelection" }
+            -# Select
+            / = partial "./atom/select/select", locals: { array: options, label: { title: "Screen Selection" }, name: "screenSelection" }s
 
-/         -# Heading
-/         = partial "molecule/heading/heading",
-/                    :locals => { :text => "Co-Ordinates",
-/                                 :tag  => "h2" }
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { text: "Co-Ordinates", tag: "h2" }
 
-/         -# Input
-/         = partial "./form/textarea",
-/                    :locals => { :name => "coords",
-/                                 :rows => "2"}
+        -# Input
+        = partial "./atom/textarea/textarea", locals: { name: "coords", rows: "2", label: { title: "Co-Ords" } }
 
-/         -# Heading
-/         = partial "molecule/heading/heading",
-/                    :locals => { :text => "Actions",
-/                                 :tag  => "h2" }
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { text: "Actions", tag: "h2" }
 
-/         -# Button to toggle the display of the Borders
-/         = partial "./atom/button/button",
-/                    locals: { context:    "primary",
-/                              text:       "Toggle Regions",
-/                              extraClass: "toggleRegion" }
+        -# Button - Toggle the display of the Borders
+        = partial "./atom/button/button",
+                   locals: { context:    "primary",
+                             text:       "Toggle Regions",
+                             extraClass: "toggleRegion" }
 
-/         -# Button to toggle the display of the Borders
-/         = partial "./atom/button/button",
-/                    locals: { context:    "primary",
-/                              text:       "Toggle JCrop",
-/                              extraClass: "toggleJCrop" }
+        -# Button - Toggle the display of the Borders
+        = partial "./atom/button/button",
+                   locals: { context:    "primary",
+                             text:       "Toggle JCrop",
+                             extraClass: "toggleJCrop" }

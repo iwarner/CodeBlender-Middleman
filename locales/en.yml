@@ -158,14 +158,15 @@ en:
                 <a href="https://twitter.com/DryKISSLtd" target="_blank" title="Twitter">
                     <span class="fa fa-twitter"></span>
                 </a>
+                <a href="https://google.com/DryKISSLtd" target="_blank" title="Google">
+                    <span class="fa fa-google"></span>
+                </a>
             </div>
 
         # Column Four
         - title       : "Contact"
           icon        : "fa-phone"
           description : |
-            If you have a brief, and want to discuss how we would approach it.
-            [Please get in touch](/contact).
 
             <i class="fa fa-map-marker"></i>
             Colliers Wood, London, UK

@@ -32,7 +32,7 @@ locals :
     - - "array"
       - "array"
       - "required"
-      - "Required - Tab Names - [ { :path => \"\", :name => \"\" } ]"
+      - "Required - Tab Names - [ { path: \"\", name: \"\" } ]"
     - - "pills"
       - "bool"
       - "optional"
@@ -44,9 +44,11 @@ locals :
     - - "toggle"
       - "bool"
       - "optional"
-      - "Toggle tab sections - used in Javascript Tabs"
+      - "Toggle tab sections - used in JavaScript Tabs"
 
 ---
+
+- id = 1
 
 -# Tabs
 :ruby
@@ -55,10 +57,7 @@ locals :
                                          { path: "javascript:;", name: "Download"} ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { text: "Tabs" } }
+= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Tabs" } }
 
 -# Pills
 :ruby
@@ -68,10 +67,7 @@ locals :
                                          { path: "javascript:;", name: "Download"} ] }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      2,
-                     code:    code,
-                     heading: { text: "Pills" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Pills" } }
 
 -# Stackable Pills
 :ruby
@@ -81,10 +77,7 @@ locals :
                                 array:      [ { path: "javascript:;", name: "Details" },
                                               { path: "javascript:;", name: "Download"} ] }}
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      3,
-                     code:    code,
-                     heading: { text: "Stackable Pills" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Stackable Pills" } }
 
 -# Togglable tabs tab.js
 :ruby
@@ -97,16 +90,10 @@ locals :
 .tab-content
 
     -# Code
-    .tab-pane.active{ id: "details4" }
-        details4
+    .tab-pane.active{ id: "details4" } details4
 
     -# Output
-    .tab-pane{ id: "download4" }
-        Download
+    .tab-pane{ id: "download4" } Download
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      4,
-                     code:    code,
-                     heading: { small: "Requires tab.js",
-                                text:  "Togglable tabs" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Requires tab.js", text: "Togglable tabs" } }

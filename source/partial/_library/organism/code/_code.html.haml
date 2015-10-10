@@ -23,14 +23,13 @@
 -# Language - default Ruby
 - lang = locals[ :lang ] ? lang : "ruby"
 
--# Heading Tag default
-- locals[ :heading ][ :tag ] = "h2"
-
 -# Code
 .code
 
     -# Heading - Main
-    = partial "./molecule/heading/heading", locals: locals[ :heading ]
+    - if locals[ :heading ]
+        - locals[ :heading ][ :tag ] = "h2"
+        = partial "./molecule/heading/heading", locals: locals[ :heading ]
 
     -# Example
     .code__example

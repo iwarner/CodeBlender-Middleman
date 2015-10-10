@@ -129,6 +129,8 @@ locals :
 
 ---
 
+- id = 1
+
 -# Text Type
 :ruby
     code = %{partial "./atom/input/input",
@@ -138,10 +140,7 @@ locals :
                                  label: { title: "Text Input" } }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { small: "Generic default type", text: "Text Type" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Generic default type", text: "Text Type" } }
 
 -# Password Type
 :ruby
@@ -152,10 +151,7 @@ locals :
                                 label: { title: "Password" } } }
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      2,
-                     code:    code,
-                     heading: { small: "Also contains some help text", text: "Password Type" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Also contains some help text", text: "Password Type" } }
 
 -# Email Type
 :ruby
@@ -166,7 +162,4 @@ locals :
                                 label: { title: "Email" } }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      3,
-                     code:    code,
-                     heading: { small: "Also contains a group icon", text: "Email Type" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Also contains a group icon", text: "Email Type" } }

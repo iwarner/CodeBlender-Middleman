@@ -105,7 +105,6 @@ angular.module( 'mailChimp', [
 
             ), ( error ) ->
                 $log.error 'MailChimp Error: %o', error
-
                 return
 
             return

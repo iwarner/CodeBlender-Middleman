@@ -39,6 +39,8 @@ todo :
 
 ---
 
+- id = 1
+
 :markdown
 
     Adsense instructions
@@ -48,4 +50,4 @@ todo :
     code = %{partial "./atom/adsense/adsense", locals: { slot: 9670063286, width: 468, height: 60 }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Default" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

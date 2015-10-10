@@ -85,10 +85,7 @@ todo :
 /             .simpleCart_shelfItem
 
 /                 -# Heading
-/                 = partial "./molecule/heading/heading",
-/                            :locals => { :extraClass => "item_name",
-/                                         :tag        => "h3",
-/                                         :text       => product.title }
+/                 = partial "./molecule/heading/heading", locals: { extraClass: "item_name", tag: "h3", text: product.title }
 
 /                 -# Excerpt
 /                 %p= product.excerpt
@@ -116,5 +113,5 @@ todo :
 
 / -# Thumbnails
 / = partial "./bootstrap/component/thumbnails",
-/            :locals => { :array      => thumbnails,
-/                         :thumbClass => "styled text-center product" }
+/            locals: { array:      thumbnails,
+/                      thumbClass: "styled text-center product" }

@@ -18,8 +18,10 @@ see :
 
 ---
 
+- id = 1
+
 / -# Plus Button
 / :ruby
 /     code = %{partial "./molecule/search/search"}
 
-/ = partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "Default" } }
+/ = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

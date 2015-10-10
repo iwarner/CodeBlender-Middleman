@@ -9,7 +9,6 @@ meta :
     type        : "website"
 
 heading :
-    small : "Form Checkbox"
     title : "Form Checkbox"
 
 see :
@@ -41,7 +40,7 @@ todo :
 ---
 
 -# Heading - H2
-= partial "./molecule/heading/heading", locals: { tag:  "h2", text: "Checkbox" }
+= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Checkbox" }
 
 -# Form
 %form{ novalidate: false }
@@ -62,7 +61,6 @@ todo :
 /     -# Checkbox
 /     = partial "./atom/checkbox/checkbox", locals: { name: "checkbox", text: "Textual description here" }
 
-
 / -# Heading
 / = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Disabled Checkbox" }
 
@@ -78,12 +76,11 @@ todo :
 /     -# Checkbox
 /     = partial "./form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
 
-
 / -# Heading
 / = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Fancy Checkbox" }
 
 / -# Form
-/ %form{ :novalidate => false }
+/ %form{ novalidate: false }
 
 /     -# Checkbox
 /     = partial "./form/checkbox", locals: { extraClass: "fancy", name: "checkbox2", text: "Textual description here" }

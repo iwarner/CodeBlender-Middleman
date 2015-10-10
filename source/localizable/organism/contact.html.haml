@@ -9,11 +9,10 @@ meta :
     type        : "website"
 
 heading :
-    small : :metaSmallContact
-    title : :metaTitleContact
+    title : "Contact Form"
 
 see :
-    - - "Contact page example"
+    - - "Example contact page"
       - "http://www.keenthemes.com/preview/metronic_admin/page_contact.html"
     - - "FormSpree"
       - "http://www.formspree.com/"
@@ -31,7 +30,7 @@ todo :
       - "Contact"
       - "2014-03-02"
       - { "context" : "warning" }
-    - - "Place a simple captcha on the form - recaptcha partial"
+    - - "Place an optional simple captcha on the form - recaptcha partial"
       - "Contact"
       - "2014-03-12"
       - { "context" : "warning" }
@@ -47,163 +46,116 @@ todo :
 
     * Title and Small text can be found in the localised file.
 
--# Heading
-= partial "./molecule/heading/heading", locals: { small: :headingSmall, text: :headingText }
+%hr
 
 -# Introduction
 %p
-    Whatever your feedback or questions we’d love to hear from you, please
+    Whatever your feedback or questions we would love to hear from you, please
     e-mail us at :
-    = mailTo( "info@greentouchpi.com" )
+    = mailTo "ian.warner@drykiss.com"
 
 .row
 
     -# Map and Address
     .col-md-8.map
 
-        -# Tabs Nav
+        -# Nav Tabs - Display various branch locations if required
         = partial "./molecule/nav/nav",
-                   locals: { active:  "Wimbledon",
-                             array:   [ { path: "#wimbledon", name: "Wimbledon" } ],
+                   locals: { active:  "Colliers Wood",
+                             array:   [ { path: "#colliers", name: "Colliers Wood" } ],
                              stacked: false,
                              toggle:  true }
 
-/         -# Tab Content
-/         .tab-content
+        -# Tab Content
+        .tab-content
 
-/             .tab-pane.active#wimbledon
+            .tab-pane.active#colliers
 
-/                 -# Map
-/                 .gMap.thumbnail
+                -# Map
+                .gMap.thumbnail
 
-/                 -# Under Map
-/                 .row
+                -# Under Map
+                .row
 
-/                     .col-md-6.col-sm-6.col-xs-6
+                    .col-md-6.col-sm-6.col-xs-6
 
-/                         -# Address
-/                         %address
+                        -# Address
+                        %address
 
-/                             -# Heading
-/                             = partial "molecule/heading/heading",
-/                                        :locals => { :text => "Greentouch PI Ltd",
-/                                                     :tag  => "h3" }
+                            -# Heading
+                            = partial "./molecule/heading/heading", locals: { text: "DryKISS Ltd", tag: "h3" }
 
-/                             -# Address
-/                             %i.fa.fa-map-marker.fa-fw
-/                             1B Kings Road, Wimbledon, SW19 8PL
-/                             %br
-/                             %small
-/                                 (opposite AL Forno restaurant)
+                            -# Icon - Map Marker
+                            = partial "./atom/icon/icon", locals: { icon: "fa-map-marker fa-fw" }
+                            Colliers Wood, London, SW19
 
-/                             %br
+                            %br
 
-/                             -# Call
-/                             %i.fa.fa-phone.fa-fw
-/                             = callLink( "+442085403888")
+                            -# Icon - Call
+                            = partial "./atom/icon/icon", locals: { icon: "fa-phone fa-fw" }
+                            = callLink "+447780435329"
 
-/                             %br
+                            %br
 
-/                             %i.fa.fa-envelope.fa-fw
-/                             = mailTo( "info@greentouchpi.com" )
+                            -# Icon - Mail
+                            = partial "./atom/icon/icon", locals: { icon: "fa-envelope fa-fw" }
+                            = mailTo "ian.warner@drykiss.com"
 
-/                     .col-md-6.col-sm-6.col-xs-6
+                    .col-md-6.col-sm-6.col-xs-6
 
-/                         -# Opening Times
-/                         = partial "molecule/heading/heading",
-/                                    :locals => { :small => "Open 7 days a week!",
-/                                                 :text  => "Opening Times",
-/                                                 :tag   => "h3" }
+                        -# Opening Times
+                        = partial "./molecule/heading/heading", locals: { text: "Opening Times", tag: "h3" }
 
-/                         %i.fa.fa-clock-o.fa-fw
-/                         Monday - Saturday : 11am - 9pm
-/                         %br
-/                         %i.fa.fa-clock-o.fa-fw
-/                         Sunday and Bank Holidays : 11am - 8pm
+                        -# Icon - Clock
+                        = partial "./atom/icon/icon", locals: { icon: "fa-clock-o fa-fw" }
+                        Monday - Saturday : 11am - 9pm
 
-/                 -# Heading
-/                 = partial "molecule/heading/heading",
-/                            :locals => { :small => "On Facebook and Twitter for exclusive promtions!",
-/                                         :text  => "Follow Us",
-/                                         :tag   => "h3" }
+                        %br
 
-/                 -# Social Icons
-/                 %i.fa.fa-facebook-square
-/                 %i.fa.fa-twitter-square
+                        -# Icon - Clock
+                        = partial "./atom/icon/icon", locals: { icon: "fa-clock-o fa-fw" }
+                        Sunday and Bank Holidays : 11am - 8pm
 
-/     -# Form
-/     .col-md-4
+                -# Heading
+                = partial "molecule/heading/heading", locals: { small: "On Facebook and Twitter for exclusive promotions!", text:  "Follow Us", tag: "h3" }
 
-/         -# Heading
-/         = partial "molecule/heading/heading",
-/                    :locals => { :extraClass => "noMargin",
-/                                 :text       => "Booking Form",
-/                                 :tag        => "h2" }
+                -# Icon - Facebook
+                = partial "./atom/icon/icon", locals: { icon: "fa-facebook-square" }
 
-/         -# Form
-/         %form{ :action     => "//api.formspree.com/ian.warner@drykiss.com",
-/                :method     => "POST",
-/                :novalidate => false }
+                -# Icon - Facebook
+                = partial "./atom/icon/icon", locals: { icon: "fa-twitter-square" }
 
-/             -# Name
-/             = partial "./atom/input",
-/                        :locals => { :label       => [ "Name" ],
-/                                     :name        => "name",
-/                                     :placeholder => "Enter name",
-/                                     :required    => true }
+    -# Form
+    .col-md-4
 
-/             -# Mobile Number
-/             = partial "./atom/input",
-/                        :locals => { :label       => [ "Mobile Number" ],
-/                                     :placeholder => "Enter your mobile phone number",
-/                                     :name        => "mobile",
-/                                     :required    => true,
-/                                     :type        => "tel" }
+        -# Heading
+        = partial "molecule/heading/heading", locals: { extraClass: "noMargin", text: "Contact Form", tag: "h2" }
 
-/             -# Email
-/             = partial "./atom/input",
-/                        :locals => { :label       => [ "Email" ],
-/                                     :placeholder => "Enter email address",
-/                                     :name        => "_replyto",
-/                                     :required    => true,
-/                                     :type        => "email" }
+        -# Form
+        %form{ action: "//api.formspree.com/ian.warner@drykiss.com", method: "POST", novalidate: false }
 
-/             -# Treatment
-/             = partial "./atom/select",
-/                        :locals => { :array       => [ [ "Green Touch Thai Massage", "Green Touch Thai Massage" ],
-/                                                       [ "Anti-Stress Swedish Massage", "Anti-Stress Swedish Massage" ],
-/                                                       [ "Rejuvenating Deep Tissue Massage", "Rejuvenating Deep Tissue Massage" ],
-/                                                       [ "Green Touch Signature Massage", "Green Touch Signature Massage" ],
-/                                                       [ "Sports Massage", "Sports Massage" ],
-/                                                       [ "Reflexology", "Reflexology" ],
-/                                                       [ "Aromatherapy Indulgence Massage", "Aromatherapy Indulgence Massage" ] ],
-/                                     :label       => [ "Treatment" ],
-/                                     :name        => "treatment" }
+            -# Input - Name
+            = partial "./atom/input/input",
+                       locals: { input: { name:  "name" },
+                                 label: { title: "Name" } }
 
-/             -# Date Time
-/             = partial "./atom/input",
-/                        :locals => { :label       => [ "Date and Time" ],
-/                                     :placeholder => "Date and time",
-/                                     :name        => "date",
-/                                     :type        => "date" }
+            -# Input - Mobile
+            = partial "./atom/input/input",
+                       locals: { input: { name:  "mobile", type: "tel" },
+                                 label: { title: "Mobile" } }
 
-/             -# Message
-/             = partial "./atom/input",
-/                        :locals => { :label       => [ "Message" ],
-/                                     :placeholder => "Enter message",
-/                                     :name        => "message",
-/                                     :required    => true,
-/                                     :rows        => "5",
-/                                     :tag         => "textarea" }
+            -# Input - Email
+            = partial "./atom/input/input",
+                       locals: { input: { name:  "_replyto", type: "email" },
+                                 label: { title: "Email" } }
 
-/             -# Hidden Next
-/             = partial "./atom/input",
-/                        :locals => { :name  => "_next",
-/                                     :type  => "hidden",
-/                                     :value => "//localhost/contact" }
+            -# TextArea - Message
+            = partial "./atom/textarea/textarea", locals: { label: { title: "Message" }, name: "message" }
 
-/             -# Submit
-/             = partial "./bootstrap/css/button",
-/                        :locals => { :block   => false,
-/                                     :color   => "primary",
-/                                     :content => "Submit" }
+            -# Input - Next - Hidden
+            = partial "./atom/input/input",
+                       locals: { input: { name:  "_next", type: "hidden", value: "//localhost:4567//organism/contact.html" },
+                                 label: { title: "Email", extraClass: "sr-only" } }
+
+            -# Button - Submit
+            = partial "./atom/button/button", locals: { context: "primary", text: "Submit" }

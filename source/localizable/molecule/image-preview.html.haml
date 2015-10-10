@@ -22,8 +22,10 @@ see :
 
 ---
 
+- id = 1
+
 / -# Text Type
 / :ruby
 /     code = %{partial "./form/imagePreview"}
 
-/ = partial "./organism/code/code", locals: { id: 1, code: code, heading: { text: "File Image Preview" } }
+/ = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "File Image Preview" } }

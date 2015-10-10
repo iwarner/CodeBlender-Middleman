@@ -210,9 +210,6 @@ organism :
     - title : "Contact"
       url   : "/organism/contact.html"
 
-    - title : "Copyright"
-      url   : "/organism/copyright.html"
-
     - title : "DataTable"
       url   : "/organism/datatable.html"
 

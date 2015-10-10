@@ -1,6 +1,10 @@
 -##
 -# Blockquote
 -#
+-# @usage
+-# -# Blockquote
+-# = partial "./atom/blockquote/blockquote", locals: { text: "Standard Blockquote" }
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
@@ -8,7 +12,7 @@
 %blockquote{ class: locals[ :right ] ? "blockquote-reverse" : false }
 
     -# Main headline text
-    %p= string text
+    %p= string locals[ :text ]
 
     -# Add the small text if required
     -if locals[ :small ]

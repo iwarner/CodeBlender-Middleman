@@ -88,6 +88,8 @@ locals :
 
 ---
 
+- id = 1
+
 %p
     JavaScript is required for the Nav Collapse
     Be sure to add a role="navigation" to the navbar to help with accessibility.
@@ -102,10 +104,7 @@ locals :
 /                                 position: "static-top" }}
 
 / -# Code
-/ = partial "./organism/code/code",
-/            locals: { id:      1,
-/                      code:    code,
-/                      heading: { text: "Default" } }
+/ = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 / -# Logo
 / :ruby
@@ -116,10 +115,7 @@ locals :
 /                                 position: "static-top" }}
 
 / -# Code
-/ = partial "./organism/code/code",
-/            locals: { id:      2,
-/                      code:    code,
-/                      heading: { text: "Logo" } }
+/ = partial "./organism/code/code", locals: { id: id += 1,code: code, heading: { text: "Logo" } }
 
 / -# Inverted
 / :ruby
@@ -131,7 +127,4 @@ locals :
 /                                 type:     "inverse" }}
 
 / -# Code
-/ = partial "./organism/code/code",
-/            locals: { id:      3,
-/                      code:    code,
-/                      heading: { text: "Inverted" } }
+/ = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Inverted" } }

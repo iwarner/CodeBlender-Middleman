@@ -113,7 +113,7 @@ For example, creating a new widget would require creating the following files:
     * Sort out the small Text CSS / Padding too large
 * Sidebar
     * Sort out what gets pushed into this section
-    * Sort out the affix issues here - { :data => { :spy => "affix", :"offset-top" => "10", :"offset-bottom" => "250" } }
+    * Sort out the affix issues here - { data: { spy: "affix", :"offset-top" => "10", :"offset-bottom" => "250" } }
         * This requires additional styling to be implemented for each state
 * Login
     * Add the ability to login via other Open IDs such as Facebook / Google

@@ -75,12 +75,12 @@ todo :
 
 -# Like Button
 = partial "./molecule/facebook/like-button",
-           locals: { :href         => "https://www.facebook.com/onlyasmile?ref=stream",
+           locals: { href:         "https://www.facebook.com/onlyasmile?ref=stream",
                      :"show_faces" => "true" }
 
 -# Code
 :code
     #lang: ruby
     = partial "./molecule/facebook/like-button",
-               locals: { :href         => "https://www.facebook.com/onlyasmile?ref=stream",
+               locals: { href:         "https://www.facebook.com/onlyasmile?ref=stream",
                          :"show_faces" => "true" }
