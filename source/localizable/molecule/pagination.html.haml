@@ -39,25 +39,9 @@ locals :
 
 ---
 
-/ - id = 1
+-# Pagination Variables
+- prevPage = prev_page ? prev_page : false
+- nextPage = next_page ? next_page : false
 
-/ -# Variables
-/ - prev_page = prev_page ? prev_page.url : false
-/ - next_page = next_page ? next_page.url : false
-
-/ = partial "./molecule/pagination/pagination",
-/                       locals: { nextPage: "#{ next_page }",
-/                                 prevPage: "#{ prev_page }",
-/                                 pageNo:   "#{ page_number }",
-/                                 pages:    "#{ num_pages }" }
-
-/ -# Tabs
-/ :ruby
-/     code = %{partial "./molecule/pagination/pagination",
-/                       locals: { nextPage: "#{ next_page }",
-/                                 prevPage: "#{ prev_page }",
-/                                 pageNo:   "#{ page_number }",
-/                                 pages:    "#{ num_pages }" }}
-
-/ -# Code
-/ = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+-# Pagination
+= partial "./molecule/pagination/pagination", locals: { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }

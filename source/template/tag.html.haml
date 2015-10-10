@@ -38,9 +38,9 @@ date     : 2001-03-31
 
 .text-center
 
-    / -# Variables
-    / - prevPage = prev_page ? prev_page.url : false
-    / - nextPage = next_page ? next_page.url : false
+    -# Pagination Variables
+    - prevPage = prev_page ? prev_page : false
+    - nextPage = next_page ? next_page : false
 
-    / -# Pagination
-    / = partial "./molecule/pagination/pagination", locals: { nextPage: "#{ prevPage }", prevPage: "#{ nextPage }", pageNo: "#{ page_number }", pages: "#{ num_pages }" }
+    -# Pagination
+    = partial "./molecule/pagination/pagination", locals: { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
