@@ -46,8 +46,8 @@ do ( angular ) ->
 
             console.log "Security When Authenticated"
 
-            # credits for this idea: https://groups.google.com/forum/#!msg/angular/dPr9BpIZID0/MgWVluo_Tg8J
-            # unfortunately, a decorator cannot be use here because they are not applied until after
+            # Credits for this idea: https://groups.google.com/forum/#!msg/angular/dPr9BpIZID0/MgWVluo_Tg8J
+            # unfortunately, a decorator cannot be used here because they are not applied until after
             # the .config calls resolve, so they can't be used during route configuration, so we have
             # to hack it directly onto the $routeProvider object
             $urlRouterProvider.whenAuthenticated = ( path, route ) ->
@@ -92,11 +92,13 @@ do ( angular ) ->
                 console.log 'authRequired?', path, securedRoutes.indexOf( path )
                 securedRoutes.indexOf( path ) != -1
 
-            auth.$onAuth check
+            # auth.$onAuth check
 
             # some of our routes may reject resolve promises with the special {authRequired: true} error
             # this redirects to the login page whenever that is encountered
             $rootScope.$on '$routeChangeError', ( e, next, prev, err ) ->
+
+                console.log 'routeChangeError'
 
                 if err == 'AUTH_REQUIRED'
                     $location.path loginRedirectPath

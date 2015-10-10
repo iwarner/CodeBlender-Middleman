@@ -49,17 +49,22 @@
 
     -# Prepend Icon
     - if locals[ :icon ] and locals[ :icon ][ :prepend ]
-        = icon locals[ :icon ][ :prepend ]
+
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: locals[ :icon ][ :prepend ] }
 
     -# Content
     - if locals[ :text ] == "close"
         %span{ aria: { hidden: "true" } } &times;
+
     - elsif locals[ :text ]
         = string text
 
     -# Append Icon
     - if locals[ :icon ] && locals[ :icon ][ :append ]
-        = icon locals[ :icon ][ :append ]
+
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: locals[ :icon ][ :append ] }
 
     -# Image
     - if locals[ :image ]

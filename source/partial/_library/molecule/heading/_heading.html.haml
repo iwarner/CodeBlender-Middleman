@@ -30,7 +30,9 @@
 
         -# Icon
         - if locals[ :icon ]
-            = icon icon
+
+            -# Icon
+            = partial "./atom/icon/icon", locals: { icon: icon }
 
         -# Link
         - if locals[ :href ]

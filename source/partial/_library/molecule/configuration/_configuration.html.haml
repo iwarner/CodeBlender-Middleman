@@ -30,7 +30,9 @@
 
     -# Icon
     .skin-toolbox-toggle
-        = icon( "fa-flask" )
+
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: "fa-flask" }
 
     -# Panel
     .skin-toolbox-panel

@@ -61,7 +61,9 @@
 
                         -# Icon
                         - if list[ :icon ]
-                            = icon list[ :icon ]
+
+                            -# Icon
+                            = partial "./atom/icon/icon", locals: { icon: list[ :icon ] }
 
                         - if list[ :text ]
                             = string list[ :text ]

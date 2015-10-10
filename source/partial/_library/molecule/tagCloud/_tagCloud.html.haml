@@ -7,9 +7,19 @@
 -#
 -# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# 
+-#
 -# @todo Make the font colour change with the size also
+-# @todo Allow for counting tags in different blogs, i.e. blog( "portfolio" ) - middleman bug?
+-# @todo Allow for local to change the options
 -##
+
+-# Variables
+- sizeMin   = 80
+- sizeMax   = 200
+- precision = 0
+- unit      = '%'
+- threshold = 1
+- tags      = blog().tags
 
 -# Section - Tag Cloud
 %section.tagCloud
@@ -20,5 +30,21 @@
     -# Tags
     .tagCloud__tags
 
-        -# Tag Cloud
-        = tagCloud()
+        -# Count the Blog Tags, if they appear more than the threshold variable - default 1
+        - tagMap = tags.map do | tag, articles |
+            - [ tag, articles.count ] if articles.count >= threshold
+
+        -# Get the minimum, and maximum tag counts
+        - min, max = tagMap.map( &:last ).minmax
+
+        -# Get the weight for each Tag
+        - tagWeight = tagMap.map do | tag, count |
+
+            -# Logarithmic distribution
+            - weight = ( Math.log( count ) - Math.log( min ) ) / ( Math.log( max ) - Math.log( min ) )
+
+            -# Get percentage size of the Tag
+            - size = sprintf( "%.#{ precision }f", sizeMin + ( ( sizeMax - sizeMin ) * weight ).to_f )
+
+            -# Render the Tag
+            = link_to( tag, tag_path( tag ), style: "font-size: #{ size }#{ unit }" )

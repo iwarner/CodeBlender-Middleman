@@ -1,5 +1,5 @@
 ##
-# DataTable Controllers
+# DataTable Controller
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 # @see     http://stackoverflow.com/questions/23637586/datatables-1-10-check-all-via-jquery
@@ -11,9 +11,9 @@
 'use strict'
 
 ##
-# DataTableCtrl
+# DataTableController
 ##
-DataTable = ( $compile, $filter, $scope, $resource, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder ) ->
+DataTableController = ( $compile, $filter, $scope, $resource, DTOptionsBuilder, DTColumnBuilder, DTColumnDefBuilder ) ->
 
     # Scope
     vm = this
@@ -251,9 +251,9 @@ DataTable = ( $compile, $filter, $scope, $resource, DTOptionsBuilder, DTColumnBu
 angular.module 'app.controller'
 
 ##
-# DataTable
+# DataTableController
 ##
-.controller 'DataTableCtrl', DataTable
+.controller 'DataTableController', DataTableController
 
 # # Save the lastID
 # lastIdx = null

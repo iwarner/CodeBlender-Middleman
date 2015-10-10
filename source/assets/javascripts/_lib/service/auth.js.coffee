@@ -21,6 +21,9 @@ angular
 
     ( $firebaseAuth, utilities ) ->
 
-        $firebaseAuth utilities.ref()
+        # $firebaseAuth utilities.ref()
+
+        # Just added for now so it does not error remove when uncomment above
+        return false
 
 ]

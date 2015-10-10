@@ -39,8 +39,8 @@ A Tag Cloud helper and extension has been created to automatically create the cl
 with the following command
 
 ~~~ruby
--# Tag Cloud
-= tagCloud()
+-# Tag Cloud
+= partial "./molecule/tagCloud/tagCloud"
 ~~~
 
 ## Footer

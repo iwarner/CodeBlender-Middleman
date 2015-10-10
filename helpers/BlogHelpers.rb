@@ -1,18 +1,8 @@
 ##
 # Blog Helpers
 #
-# Usage
-# -# Tag Cloud
-# = tagCloud()
-#
 # @author Ian Warner <ian.warner@drykiss.com>
-# @todo   Move the Flikr helpers out of here
 ##
-
-##
-# Require
-##
-# require "lib/flickr"
 
 ##
 #
@@ -63,20 +53,6 @@ module BlogHelpers
     #     all_pages = blog.tags.slice( *page.tags ).values.first
     #     return [] if all_pages.blank?
     #     all_pages.delete_if { | p | p == page }
-    # end
-
-    # ##
-    # #
-    # ##
-    # def flickr_photo( *photo_ids )
-    #     Flickr::Renderer.new( Flickr::Fetcher.new.by_photo_ids( photo_ids ) ).render
-    # end
-
-    # ##
-    # #
-    # ##
-    # def flickr_set( set_id )
-    #     Flickr::Renderer.new( Flickr::Fetcher.new.by_set_id( set_id ) ).render
     # end
 
 end

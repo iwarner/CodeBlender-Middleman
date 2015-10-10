@@ -26,7 +26,10 @@
 
                     -# Zoomix - requires HREF and data-toggle light box on the thumbnail array
                     - if thumb[ :zoomix ].present?
-                        .zoomix= icon( "fa-search" )
+                        .zoomix
+
+                            -# Icon
+                            = partial "./atom/icon/icon", locals: { icon: "fa-search" }
 
                 -# Caption
                 - if thumb[ :caption ].present?

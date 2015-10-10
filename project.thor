@@ -79,10 +79,6 @@ class Project < Thor
 
         say( "\n\t Create Symlinks\n\t" )
 
-        # JavaScript
-        system( "rm -R source/assets/javascripts/_library")
-        system( "ln -s #{ path }source/assets/javascripts/_library source/assets/javascripts")
-
         # Layouts
         system( "rm -R source/layouts/_library")
         system( "ln -s #{ path }source/layouts/_library source/layouts")
@@ -94,18 +90,6 @@ class Project < Thor
         # Helpers
         system( "rm -R helpers")
         system( "ln -s #{ path }helpers/ helpers")
-
-        # Lib
-        system( "rm -R lib")
-        system( "ln -s #{ path }lib/ lib")
-
-        # Humans.txt
-        system( "rm source/humans.txt")
-        system( "ln -s #{ path }source/humans.txt source")
-
-        # Robots.txt
-        system( "rm source/robots.txt")
-        system( "ln -s #{ path }source/robots.txt source")
 
         # Gemfile
         system( "rm GEMFILE")

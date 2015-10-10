@@ -47,24 +47,6 @@ en:
             title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
             type        : "website"
 
-        # Dropdown
-        dropdown :
-            author      : "DryKISS"
-            description : "Dropdown"
-            image       : "Image"
-            subject     : "DryKISS"
-            title       : "Dropdown"
-            type        : "website"
-
-        # Zero Clipboard
-        zeroClipboard :
-            author      : "DryKISS"
-            description : "Zero Clipboard"
-            image       : "Image"
-            subject     : "DryKISS"
-            title       : "Zero Clipboard"
-            type        : "website"
-
     # Nav Above
     navAbove :
         strapLine : "An atomic Middleman partials library"
@@ -80,18 +62,25 @@ en:
             - text : "Home"
               link : { url: "/" }
 
-            # Prototyping
+            # Atom
             - text : "Atom"
               link : { url: "/atom/atom.html" }
 
+            # Molecule
             - text : "Molecule"
               link : { url: "/molecule/molecule.html" }
 
+            # Organism
             - text : "Organism"
               link : { url: "/organism/organism.html" }
 
+            # Template
             - text : "Template"
               link : { url: "/template/template.html" }
+
+            # Social
+            - text : "Social"
+              link : { url: "/social/social.html" }
 
     # Home
     home :

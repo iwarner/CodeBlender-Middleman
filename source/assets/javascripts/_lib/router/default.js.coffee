@@ -30,15 +30,15 @@ config = ( $stateProvider, $urlRouterProvider, ngClipProvider ) ->
 #
 # @see https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-onauthcallback-context
 ##
-run = ( $rootScope, $state, $stateParams, $log, auth ) ->
+run = ( $rootScope, $state, $stateParams, auth ) ->
 
     # Track status of authentication
-    auth.$onAuth ( user ) ->
+    # auth.$onAuth ( user ) ->
 
-        $log.info "Loggind In:", user
+    #     console.log "Loggind In:", user
 
-        $rootScope.loggedIn = ! !user
-        return
+    #     $rootScope.loggedIn = ! !user
+    #     return
 
 ##
 # Module
@@ -58,6 +58,5 @@ run.$inject = [
     '$rootScope'
     '$state'
     '$stateParams'
-    '$log'
     'auth'
 ]

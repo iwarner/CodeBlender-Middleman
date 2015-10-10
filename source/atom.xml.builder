@@ -10,7 +10,7 @@
 #     xml.updated blog.articles.first.date.to_time.iso8601
 #     xml.author { xml.name "Ian Warner" }
 
-#     blog.articles[0..5].each do |article|
+#     blog.articles[ 0..5 ].each do | article |
 
 #         xml.entry do
 

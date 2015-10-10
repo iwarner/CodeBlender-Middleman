@@ -4,13 +4,9 @@
 -# @usage
 -# -# Input
 -# = partial "./atom/input/input",
--#            locals: { help:  true,
--#                      icon:  { prepend: "fa-credit-card" },
--#                               input: { inputGroupClass: "input-group",
--#                                        name:            "text",
--#                                        placeholder:     "Enter Text" },
+-#            locals: { input: { name:  "text" },
 -#                      label: { title: "Text Input", extraClass: "sr-only" } }
--# 
+-#
 -# Made up of several sections - need to create a way to have these all working together
 -# Form Group
 -# Label
@@ -23,9 +19,15 @@
 -#
 -# Validation .has-warning, .has-error to form-group
 -#
--# @category atom
--# @author   Ian Warner <ian.warner@drykiss.com>
--# @todo     There are two many container divs being produced use content capture.
+-# @category    atom
+-# @subcategory form
+-# @author      Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo        There are two many container divs being produced use content capture.
+-# @todo        Make it so it produces something with zero configuration
+-# @todo        Clear button should be an option
+-# @todo        The Help block needs more documentation with validation and error messages - it expects array
+-# @todo        Split out the attributes of an input, they follow a common pattern in most areas, display local or false
 -##
 
 -# Variables
@@ -54,7 +56,10 @@
 
             -# Prepend Icon
             - if locals[ :icon ] and locals[ :icon ][ :prepend ]
-                .input-group-addon= icon locals[ :icon ][ :prepend ]
+                .input-group-addon
+
+                    -# Icon
+                    = partial "./atom/icon/icon", locals: { icon: locals[ :icon ][ :prepend ] }
 
             -# Prepend Button
             - if locals[ :button ] and locals[ :button ][ :prepend ]
@@ -82,7 +87,9 @@
 
             -# Append Icon
             - if locals[ :icon ] && locals[ :icon ][ :append ]
-                .input-group-addon= icon locals[ :icon ][ :append ]
+
+                -# Icon
+                = partial "./atom/icon/icon", locals: { icon: locals[ :icon ][ :append ] }
 
             -# Append Button
             - if locals[ :button ] && locals[ :button ][ :append ]
@@ -95,7 +102,9 @@
             -# Form Feedback Icon
             -# Change the class of the icon
             - if locals[ :feedback ]
-                = icon "fa- form-control-feedback ng-hide"
+
+                -# Icon
+                = partial "./atom/icon/icon", locals: { icon: "fa- form-control-feedback ng-hide" }
 
         -# Help Block
         -# Sometimes this should be hidden to allow errors to be added inside.

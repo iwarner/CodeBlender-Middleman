@@ -13,4 +13,6 @@
     %li
 
         = link_to( "javascript:;", title: "Scroll to top", ng: { click: "topIcon.gotoTop()" } ) do
-            - icon "fa-chevron-up"
+
+            -# Icon
+            = partial "./atom/icon/icon", locals: { icon: "fa-chevron-up" }

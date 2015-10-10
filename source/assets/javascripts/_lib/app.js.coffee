@@ -22,5 +22,6 @@
 //= require molecule/topIcon/topIcon.controller
 
 # Organism
-//= require organism/dataTable/checkboxSelect
-//= require organism/dataTable/dataTable
+//= require organism/code/code.controller
+
+# Template

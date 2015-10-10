@@ -1,5 +1,6 @@
 -##
 -# Bar
+-# Create an icon bar similar to that seen on a mobile footer
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -10,7 +11,7 @@
     -# Loop through the elements to display
     - if locals[ :array ]
 
-        -# Loop through the Footer Yaml
+        -# Loop through the Footer YAML
         - array.each do | entry |
 
             -# Title
@@ -18,7 +19,7 @@
 
                 .element.text
 
-                    -# Suplementary
+                    -# Supplementary
                     - if entry.sup
                         .sup= entry.sup
 
@@ -30,7 +31,9 @@
 
                 -# Link To
                 = link_to( entry.href, title: entry.icon ) do
-                    - icon( "fa-bookmark-o" )
+
+                    -# Icon
+                    = partial "./atom/icon/icon", locals: { icon: "fa-bookmark-o" }
 
 -# Clear Fix
 .clearfix

@@ -26,7 +26,9 @@
 
         -# Icon
         - if brand.icon.active
-            = icon brand.icon.icon
+
+            -# Icon
+            = partial "./atom/icon/icon", locals: { icon: brand.icon.icon }
 
         -# Show Image
         - if brand.logo.active

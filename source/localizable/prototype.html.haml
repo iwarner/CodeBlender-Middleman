@@ -1,7 +1,12 @@
 ---
 
-# Variables
-stub : "prototyping"
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
 
 # Heading
 heading :
@@ -121,4 +126,4 @@ todo :
         = partial "./molecule/heading/heading", locals: { text: "Tags", tag: "h3" }
 
         -# Tag Cloud
-        = tagCloud()
+        = partial "./molecule/tagCloud/tagCloud"

@@ -38,14 +38,18 @@
 
     -# Date
     - if locals[ :cal ]
-        = icon "fa-calendar"
+
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: "fa-calendar" }
+
         %time{ itemprop: "datePublished", datetime: "2015-03-26T10:43:39Z" }
             = data.date.strftime '%B %e, %Y'
 
     -# Author
     - if locals[ :author ]
         |
-        = icon "fa-user"
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: "fa-user" }
         by
         %span{ itemprop: "author",  itemscope: true,  itemptype: "http://schema.org/Person" }
             %a{ itemprop: "url", rel: "author" }
@@ -54,7 +58,8 @@
     -# Show Comment
     - if locals[ :comment ]
         |
-        = icon "fa-comment"
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: "fa-comment" }
         X Comments
 
     -# Like Button
@@ -66,7 +71,8 @@
 
         %footer.blogDetail__tag
 
-            = icon "fa-tags"
+            -# Icon
+            = partial "./atom/icon/icon", locals: { icon: "fa-tags" }
 
             -# Loop through tags
             - current_page.data.tags.each do | tag |

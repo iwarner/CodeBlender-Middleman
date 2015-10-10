@@ -1,5 +1,6 @@
 ##
 # Contact
+# Create the Google Map on the contact page
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##

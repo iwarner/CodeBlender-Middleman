@@ -1,6 +1,12 @@
 ---
 
-stub : zeroClipboard
+meta:
+    author      : "DryKISS"
+    description : "Zero Clipboard"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Zero Clipboard"
+    type        : "website"
 
 heading :
     title : "Zero Clipboard"
@@ -11,40 +17,52 @@ see :
     - - "NG Clip"
       - "https://github.com/asafdav/ng-clip"
 
+todo :
+    - - "Move the required ngClipProvider.setPath to the controller if possible"
+    - - "Create the DOM interaction as an angular directive"
+    - - "Move text into locale"
+    - - "Need to be able to get at the contents of the tab panel from the copy button in the JavaScript controller"
+
 ---
 
+- id = 1
+
+-# Markdown
 :markdown
 
     To facilitate a copy to clipboard pattern, we will utilise NGClip, which in
     turn installs the ZeroClipboard library.
 
     - Add "ng-clip" : "" to bower.json
-    - run $ bower install
+    - $ bower install
 
-    To set up correctly add the correct path to the SWF file in the angular app config
+    Add the path to the SWF file into your angular app config
 
     - ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'
 
-    Include the correct JavaScript files in the JavasScript sprockets
+    Include the correct JavaScript files in the JavaScript sprockets
 
     - //= require zeroclipboard/dist/ZeroClipboard
     - //= require ng-clip/dest/ng-clip.min
 
-    Set ngClipboard as a dependency in your module
+    Set ngClipboard as a dependency
 
     - angular.module 'app', [ 'ngClipboard' ]
 
-    Add clip-copy directive to the wanted element, example:
+    Add clip-copy directive to the desired element, example:
 
+    - clip-copy="NGModel"
     - clip-copy="getTextToCopy()"
     - clip-click="doSomething()"
 
+-# Input
+= partial "./atom/input/input",
+           locals: { input: { name: "text", ng: { model: "copy1" } },
+                     label: { title: "Enter Text" } }
+
 -# Default
 :ruby
-    code = %{partial "./atom/zeroClipboard/zeroClipboard" }
+    code = %{partial "./atom/zeroClipboard/zeroClipboard", locals: { model: "copy1" }}
 
 -# Code
-= partial "./organism/code/code",
-           locals: { id:      1,
-                     code:    code,
-                     heading: { text: "Zero Clipboard" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

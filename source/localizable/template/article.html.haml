@@ -1,6 +1,12 @@
 ---
 
-stub : article
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
 
 heading :
     small : "List of articles sorted by date"
@@ -127,4 +133,4 @@ todo :
         = partial "./molecule/heading/heading", locals: { extraClass: "noMargin", tag: "h3", text: "Tags" }
 
         -# Tag Cloud
-        = tagCloud()
+        = partial "./molecule/tagCloud/tagCloud"

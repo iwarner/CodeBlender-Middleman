@@ -24,7 +24,10 @@
                 %aside
 
                     -# Tags
-                    .tagCloud= tagCloud()
+                    .tagCloud
+
+                        -# Tag Cloud
+                        = partial "./molecule/tagCloud/tagCloud"
 
                     .blogLatest
 

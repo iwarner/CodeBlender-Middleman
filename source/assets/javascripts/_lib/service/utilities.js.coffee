@@ -41,11 +41,11 @@ angular
 
             args.join '/'
 
-        ###*
+        ##
         # Example:
         # <code>
-        # function(firebaseRef) {
-        # *       var ref = firebaseRef('path/to/data');
+        # function( firebaseRef ) {
+        # *       ref = firebaseRef 'path/to/data'
         # *    }
         # </code>
         #
@@ -53,7 +53,7 @@ angular
         # @name firebaseRef
         # @param {String|Array...} path relative path to the root folder in Firebase instance
         # @return a Firebase instance
-        ###
+        ##
         firebaseRef = ( path ) ->
 
             ref  = new ( $window.Firebase )( FBURL )

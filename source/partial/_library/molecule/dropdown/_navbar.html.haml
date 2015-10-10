@@ -51,7 +51,9 @@
 
             -# Icon
             - if locals[ :icon ]
-                = icon locals[ :icon ]
+
+                -# Icon
+                = partial "./atom/icon/icon", locals: { icon: locals[ :icon ] }
 
             -# Dropdown Title / HTML
             = string locals[ :title ]
