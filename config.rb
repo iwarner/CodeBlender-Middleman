@@ -88,7 +88,7 @@ activate :blog do | blog |
     blog.permalink         = "{category}{title}.html"
     blog.sources           = ":title.html"
 
-    blog.layout            = "_library/article"
+    blog.layout            = "/partial/_library/template/article/article.layout"
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 

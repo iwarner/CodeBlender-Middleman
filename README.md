@@ -1,6 +1,9 @@
 # Project : CodeBlender
 
-https://dineshramitc.wordpress.com/2015/09/28/mastering-your-inbox-with-the-gmail-javascript-api/
+# Check
+
+    https://dineshramitc.wordpress.com/2015/09/28/mastering-your-inbox-with-the-gmail-javascript-api/
+    http://www.adgold.co.uk/#contacthome
 
 # Middleman : http://middlemanapp.com/
 

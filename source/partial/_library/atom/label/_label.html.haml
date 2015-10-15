@@ -10,13 +10,10 @@
 -##
 
 -# Variables
-- extraClass = "label"
+- extraClass = locals[ :extraClass ] ? " " + locals[ :extraClass ] : ""
 
 -# Context
-- if locals[ :context ]
-    - extraClass += " label-" + locals[ :context ]
-- else
-    - extraClass += " label-default"
+- extraClass += locals[ :context ] ? " label-" + locals[ :context ] : " label-default"
 
 -# Capture HTML
 - captureHTML = capture_html do
@@ -30,12 +27,15 @@
     -# Content
     = string locals[ :content ]
 
--# Link
+-# Check if Link required
 - if locals[ :href ]
-    = link_to( locals[ :href ], class: extraClass, itemprop: locals[ :itemprop ] ? itemprop : false ) do
-        = captureHTML
+
+    -# Link To
+    = link_to( locals[ :href ], class: "label#{ extraClass }", itemprop: locals[ :itemprop ] ? itemprop : false ) do
+        - captureHTML
 
     -# Span
 - else
 
-    %span{ class: extraClass }= captureHTML
+    %span{ class: "label#{ extraClass }" }
+        = captureHTML

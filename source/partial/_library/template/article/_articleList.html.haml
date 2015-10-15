@@ -1,5 +1,5 @@
 -##
--# Article Template
+-# Article List Template
 -#
 -# Rules
 -# - Images are taken from the meta image element. It can then be used by social media also
@@ -7,7 +7,7 @@
 -#
 -# @usage
 -# -# Article
--# = partial "./template/article/article", locals: { page_articles: page_articles }
+-# = partial "./template/article/articleList", locals: { page_articles: page_articles }
 -#
 -# @param  page_articles | Need to pass in the paginated pages 'page_articles'
 -#
@@ -56,7 +56,7 @@
                     = partial "./molecule/heading/heading", locals: { extraClass: "media-heading", href: article.url, small: heading.small, text: heading.title, rel: "nofollow bookmark", itemprop: "name" }
 
                     -# Blog Detail Footer
-                    = partial "./molecule/detail/detail", locals: { author: true, cal: true, comment: true, more: true, social: true, tags: true, current_page: article }
+                    = partial "./molecule/detail/detail", locals: { author: true, cal: true, comment: false, more: true, social: true, tags: true, current_page: article }
 
                     -# Excerpt
                     %p{ itemprop: "description" }= string data.excerpt

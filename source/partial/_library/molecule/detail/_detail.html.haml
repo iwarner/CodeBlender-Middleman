@@ -18,14 +18,13 @@
 -# @see      http://www.designhive.com/blog/using-schemaorg-microdata
 -# @see      https://gist.github.com/gregrickaby/5917114
 -#
--# @todo   Consider putting the tags in a DL element
+-# @todo   Consider putting the tags in a DL / LI
 -# @todo   Should link up the Author to show articles by Authors name - finish of link
 -# @todo   Include more social link options
 -# @todo   Need to distinguish the types of Articles / Posts and change template accordingly and microdata, i.e. event
 -# @todo   Tags should scale with a reveal on the end - use overflow
--# @todo   Tags should be in a list DL probably
 -# @todo   Need to check the scalability of the title and small description
--# @todo   Complete the DataTime element
+-# @todo   Maybe move this partial into a more inclusive Blog section
 -##
 
 -# Variables
@@ -69,7 +68,7 @@
     -# Tag
     - if locals[ :tags ]
 
-        %footer.blogDetail__tag
+        %footer.blogDetail__tags
 
             -# Icon
             = partial "./atom/icon/icon", locals: { icon: "fa-tags" }
@@ -78,5 +77,4 @@
             - current_page.data.tags.each do | tag |
 
                 -# Label
-                = partial "./atom/label/label", locals: { context: "primary", content: tag, href: tag_path( tag ), itemprop: "keywords" }
-
+                = partial "./atom/label/label", locals: { extraClass: "blogDetail__tag", context: "primary", content: tag, href: tag_path( tag ), itemprop: "keywords" }

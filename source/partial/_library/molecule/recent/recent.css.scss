@@ -1,28 +1,19 @@
 //
-// Blog Detail
+// Blog Recent
 //
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
 
-// Blog Detail
+// Blog Recent
 //----------------------------------------------------------------------------//
-.blogDetail {
-
-    border-top    : 1px solid $gray-lighter;
-    border-bottom : 1px solid $gray-lighter;
-    padding       : 10px 0;
-    margin        : 10px 0;
+.blogRecent {
 
     // Tags
     //------------------------------------------------------------------------//
-    &__tags {
-        margin-top : 5px;
-    }
+    &__label {
 
-    // Tag
-    //------------------------------------------------------------------------//
-    &__tag {
         margin-right : 5px;
+
     }
 
 }
