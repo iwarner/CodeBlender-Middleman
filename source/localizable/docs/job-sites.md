@@ -36,22 +36,17 @@ the best sites to update to gain recruiter exposure.
 
 ## CW Jobs
 
-- [CWJobs](http://www.cwjobs.co.uk/)
-- [PHP](http://www.cwjobs.co.uk/JobSearch/Results.aspx?Keywords=php&JobType1=20&LTxt=London&Radius=10)
-- [Angular](http://www.cwjobs.co.uk/JobSearch/Results.aspx?Keywords=angular&JobType1=20&LTxt=London&Radius=10)
-- [Remote](http://www.cwjobs.co.uk/JobSearch/Results.aspx?Keywords=remote&JobType1=20)
-
-CW is my go to destination when looking for a new contract. It seems to have one
-of the most thorough databases, and I also believe quality recruitment agents subscribe
-to the database. So when I literally update my details I am pinged to all these
-recruiters for matches against the jobs they have.
+[CWJobs](http://www.cwjobs.co.uk/) is my go to destination when looking for a new
+contract. It seems to have one of the most thorough databases, and I also believe
+quality recruitment agents subscribe to the database. So when I literally update
+my details I am pinged to all these recruiters for matches against the jobs they have.
 
 The job alerts via email are also a very good option, but they do have a feature
 called instant job match, which will email you a relevant job as soon as it is listed.
 
-    Angular | London | Contract = 60 vacancies
-    PHP     | London | Contract = 22 vacancies
-    Remote  | London | Contract = 24 vacancies
+- [Angular](http://goo.gl/znDP1g) - London - Contract = 60 vacancies
+- [PHP](http://goo.gl/oDwdpc)     - London - Contract = 22 vacancies
+- [Remote](http://goo.gl/6uD3Uj)  - Contract = 67 vacancies
 
 CW also has a nice quick apply once your profile is complete successfully.
 
@@ -59,15 +54,14 @@ No specific search for remote jobs unfortunately.
 
 ## TechnoJobs
 
-- [TechnoJobs](https://www.technojobs.co.uk/)
-- [Remote](https://www.technojobs.co.uk/search.phtml/remote/searchfield/location/radius/salary/jobtypecontract)
+[TechnoJobs](https://www.technojobs.co.uk/) registration and profile completion
+on this site is easy. Giving access to a good search engine and plenty of varied
+jobs across all sectors. I personally like the job alerts from this site; setting
+up the following.
 
-Registration and profile completion on this site is easy. Giving access to a good
-search engine and plenty of varied jobs across all sectors. I personally like the
-job alerts from this site; setting up the following.
-
-    Angular | London | Contract = 29 vacancies
-    PHP     | London | Contract = 20 vacancies
+- [Angular](https://goo.gl/ddfYPD) - London - Contract = 28 vacancies
+- [PHP](https://goo.gl/z6yVM1)     - London - Contract = 15 vacancies
+- [Remote](https://goo.gl/GLNvCB)  - London - Contract = 126 vacancies
 
 No specific search for remote jobs unfortunately.
 
@@ -77,13 +71,39 @@ completed.
 However I have not had much traction from the jobs applied from this site. On asking
 where recruiters found my details few are from here.
 
+## Direct
+
+A direct site is my eyes is one that acts as a recruitment in-between. Companies such
+as digital agencies will post their briefs directly onto these portals and as long
+as your profile matches, you will get alerted to the project.
+
+They will then also provide timesheet and invoice processes.
+
+[YunoJuno](https://app.yunojuno.com/p/ian-warner) is one such site. I have completed
+one full contract through them and it was seamless. As long as timesheets were
+completed on time I would get paid weekly.
+
+[Elevate Direct](http://elevatedirect.com/) Similar to YJ in terms of concept. I
+have however found their platform to be really buggy.
+
 ## Glass Door
 
-- [Glass Door](https://www.glassdoor.co.uk/)
+[Glass Door](https://www.glassdoor.co.uk/) provides more than just jobs, it is a
+[company](https://goo.gl/IUk7p7) and [salary](https://goo.gl/nwmxWQ) review site also.
+
+Found the Job search cumbersome, and was unable to bookmark the exact search from the
+URL.
+
+- [JavaScript](https://goo.gl/Ec9d1l) - London - Contract = 36 vacancies
 
 ## Indeed
 
-- [Indeed](http://www.indeed.co.uk/)
+[Indeed](http://www.indeed.co.uk/)
+
+- [Remote PHP](http://goo.gl/uewqNU)                  - London - Contract = 24 vacancies
+- [Remote Angular](http://goo.gl/uewqNU)              - London - Contract = 24 vacancies
+- [Remote JavaScript](http://goo.gl/DQ9QCx)           - London - Contract = 491 vacancies
+- [Remote JavaScript Developer](http://goo.gl/43izFg) - London - Contract = 67 vacancies
 
 ## Monster
 
@@ -95,15 +115,16 @@ where recruiters found my details few are from here.
 
 ## LinkedIn
 
-- [Improve LinkedIn](http://www.socialmediaexaminer.com/5-simple-steps-for-improving-your-linkedin-visibility/)
+- [Improve LinkedIn](http://goo.gl/QkEC7F)
 
 ## Recruitment
 
 - [Hired](https://hired.com/)
 
-## Startups
+## Startups
 
 - [Work in Startups](http://workinstartups.com/)
+- [Angel List](https://angel.co/)
 
 ## Remote
 
@@ -118,6 +139,7 @@ states very clearly the ones that are Anywhere.
 - [Remotive](http://jobs.remotive.io/)
 - [Stack Overflow Careers](http://careers.stackoverflow.com/uk/jobs/remote)
 - [Guardian](https://jobs.theguardian.com/landingpage/2879819/jobs-remote-html/)
+- [Escape the City](http://www.escapethecity.org/)
 
 ## Email Lists
 

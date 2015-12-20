@@ -10,8 +10,8 @@ www/
 ############
 vendor
 
-# Bower    #
-############
+# Bower #
+#########
 bower_components
 
 # GIT #
@@ -21,6 +21,12 @@ bower_components
 # Sublime #
 ###########
 *.sublime-*
+
+# Cordova #
+###########
+node_modules/
+platforms/
+plugins/
 
 # Compiled source #
 ###################

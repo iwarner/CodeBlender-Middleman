@@ -1,6 +1,5 @@
 -##
--# Brand Above
--#
+-# Brand
 -# Provides Icon, Logo and text if required
 -#
 -# @usage
@@ -10,13 +9,18 @@
 -# @category molecule
 -# @stub     brand
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo Uses the same navigation YAML file at moment make this separate
 -##
 
 -# Variables
 - brand = dataNav.brand
 
--# Heading H1
-= partial "./molecule/heading/heading", locals: { icon: brand.icon.icon, href: brand.link.url, text: :"navAbove.title", itemprop: "headline" }
+-# Show Heading
+- if brand.heading.active
+
+    -# Heading H1
+    = partial "./molecule/heading/heading", locals: { icon: brand.icon.icon, href: brand.link.url, text: :"navAbove.title", itemprop: "headline" }
 
 -# Show Image
 - if brand.logo.active

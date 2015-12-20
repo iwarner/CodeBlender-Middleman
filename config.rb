@@ -14,7 +14,7 @@ set :dataNav,       data.navigation
 set :dataSubNav,    data.subnavigation
 set :version,       dataConfig.version
 
-# Config
+# Configuration
 config[ :partials_dir ] = "partial/_library/"
 
 # Variables
@@ -76,6 +76,7 @@ after_configuration do
     sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/stylesheets/"
     sprockets.append_path File.join "#{ root }", "bower_components/font-awesome/scss/"
     sprockets.append_path File.join "#{ root }", "source/partial/_library/"
+    sprockets.append_path File.join "#{ root }", "source/partial/_lib/"
     sprockets.append_path "/assets/font"
 end
 
@@ -145,10 +146,10 @@ configure :build do
     # For example, change the Compass output style for deployment
     activate :minify_css
 
-    # Minify Javascript on build
+    # Minimise JavaScript on build
     activate :minify_javascript
 
-    # Minify HTML
+    # Minimise HTML
     activate :minify_html
 
     # # Favicon

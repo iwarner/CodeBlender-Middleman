@@ -30,7 +30,7 @@
 
 -# Variables
 - nav   = locals
-- links = t( :navigation )
+- links = t :navigation
 
 -# Navbar
 %nav.navbar{ id:    nav.id ? id : "navbar",
@@ -125,7 +125,7 @@
                                                      extraClass: side[ :extraClass ] }
 
                 -# Check if search is required
-                - if dataGoogle && dataGoogle.search
+                - if dataGoogle.present? && dataGoogle.search
 
                     -# Search Google
                     = partial "./molecule/search/searchNavbar"

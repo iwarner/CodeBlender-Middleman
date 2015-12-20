@@ -94,8 +94,9 @@ carouselArray :
 -# Carousel
 :ruby
     code = %{partial "./molecule/carousel/carousel",
-                      locals: { array:     [{ image: { extraClass: "img-responsive", data: { src: "holder.js/1028x400/auto" }}}],
-                                data:      { interval: "false" },
+                      locals: { array:     [ { image: { extraClass: "img-responsive", src: "home/01.jpeg" } },
+                                             { image: { extraClass: "img-responsive", src: "home/02.jpeg" } } ],
+                                data:      { ride: "carousel", interval: "3000" },
                                 control:   true,
                                 indicator: true }}
 

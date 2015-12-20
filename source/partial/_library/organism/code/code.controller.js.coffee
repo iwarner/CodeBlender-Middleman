@@ -30,8 +30,8 @@ CodeController = ->
         console.log angular.element( '#copy' + id ).html()
         console.log angular.element( '#copy' + id ).text()
         console.log angular.element( '#copy' + id ).val()
-
         console.log id
+
         return
 
     return

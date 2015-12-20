@@ -72,16 +72,16 @@ class App.Classes.GeoLocation
     success : ( position ) ->
 
         # Render the content - should be in a callback
-        element = document.getElementById "geoUpdate"
+        el = document.getElementById "geoUpdate"
 
-        element.innerHTML = 'Latitude: '          + position.coords.latitude         + '<br>' +
-                            'Longitude: '         + position.coords.longitude        + '<br>' +
-                            'Altitude: '          + position.coords.altitude         + '<br>' +
-                            'Accuracy: '          + position.coords.accuracy         + '<br>' +
-                            'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br>' +
-                            'Heading: '           + position.coords.heading          + '<br>' +
-                            'Speed: '             + position.coords.speed            + '<br>' +
-                            'Timestamp: '         + position.timestamp               + '<br>'
+        el.innerHTML = 'Latitude: '          + position.coords.latitude         + '<br>' +
+                       'Longitude: '         + position.coords.longitude        + '<br>' +
+                       'Altitude: '          + position.coords.altitude         + '<br>' +
+                       'Accuracy: '          + position.coords.accuracy         + '<br>' +
+                       'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br>' +
+                       'Heading: '           + position.coords.heading          + '<br>' +
+                       'Speed: '             + position.coords.speed            + '<br>' +
+                       'Timestamp: '         + position.timestamp               + '<br>'
 
     ##
     # Error

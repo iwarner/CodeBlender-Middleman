@@ -2,8 +2,11 @@
 
 # Check
 
+    http://ux.edx.org/
     https://dineshramitc.wordpress.com/2015/09/28/mastering-your-inbox-with-the-gmail-javascript-api/
     http://www.adgold.co.uk/#contacthome
+
+    http://ux.flydubai.com/rebrand/html_ui_toolkit/
 
 # Middleman : http://middlemanapp.com/
 
@@ -23,22 +26,33 @@
 
 # Firebase : https://www.firebase.com
 
-# GitHub : http://github.com
+# BitBucket : http://bitbucket.com - Used for private source code
 
-    Test DNS
-    $ dig codeblender.net | grep -E '(207.97.227.245|204.232.175.78|199.27.73.133)' || echo "OK"
+    Repositories
+    $ curl --user DryKISS:Password https://api.bitbucket.org/1.0/user/repositories
 
-# BitBucket : http://bitbucket.com
+    Create Repository
+    $ curl -X POST -v -u DryKISS:Password -H "Content-Type: application/json" \ https://api.bitbucket.org/2.0/repositories/DryKISS/codeblender.net \ -d '{"scm": "git", "is_private": "true", "fork_policy": "no_public_forks" }'
+
+    Initialise
+    $ git init
 
     Add Origin
-    $ /var/www/codeblender.net/www
     $ git remote add origin git@bitbucket.org:TriangleSolutions/codeblender.net.git
     $ git push -u origin --all
     $ git push -u origin --tags
 
-    Add Origin
+    Add Remote
     $ git remote -v
     $ git remote add bitbucket git@bitbucket.org:DryKISS/codeblender.net.git
+
+# GitHub : http://github.com - Used for page hosting
+
+    Test DNS
+    $ dig codeblender.net | grep -E '(207.97.227.245|204.232.175.78|199.27.73.133)' || echo "OK"
+
+    Create Repository
+    @todo - use API to create the repository - https://developer.github.com/v3/
 
 # Bundler : http://bundler.io/
 

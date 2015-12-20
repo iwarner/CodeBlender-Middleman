@@ -39,7 +39,7 @@ angular
 #     ( $scope, $log, $firebaseAuth, $firebaseArray, FBURL ) ->
 
 #         $scope.save = ->
-#             $scope.$broadcast 'show-errors-check-validity'
+#             $scope.$emit 'show-errors-check-validity'
 
 #             if $scope.loginForm.$valid
 #               $log.info 'User saved'
@@ -47,7 +47,7 @@ angular
 #             return
 
 #         $scope.reset = ->
-#             $scope.$broadcast 'show-errors-reset'
+#             $scope.$emit 'show-errors-reset'
 #             $scope.user =
 #                 email    : ''
 #                 password : ''

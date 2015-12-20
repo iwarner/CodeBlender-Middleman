@@ -9,6 +9,7 @@
 -#
 -# @todo Need to put the body data tags back into the layout
 -# @todo Need to be able to change the doctype and HTML aspects from the config
+-# @todo Add the base ref to the config
 -##
 
 -# Variables
@@ -21,7 +22,7 @@
 -# HTML Section
 %html{ lang:      string( :locale ),
        manifest:  dataConfig.manifest ? "/offline.manifest" : false,
-       ng:        { strict: { di: "" }, app: ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false },
+       ng:        { app: ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false },
        xmlns:     "http://www.w3.org/1999/xhtml",
        xml:       { lang: string( :locale ) } }
 
@@ -44,14 +45,13 @@
             = javascript_include_tag :head
 
         -# Base
-        %base{ href: "/" }
+        -# %base{ href: "/" }
 
     -# Body with Page Class
     -# Contains the main Itemscope of the current page
     %body{ id:        dataConfig.body.id ? dataConfig.body.id : false,
-           class:     dataConfig.body.extraClass ? dataConfig.body.extraClass + " " + page_classes : page_classes,
-           data:      { lang:   locale,
-                        locale: dataFacebook && dataFacebook.locale.present? ? dataFacebook.locale[ locale ] : false },
+           class:     dataConfig.body.extraClass ? dataConfig.body.extraClass : false,
+           data:      { lang: locale, locale: defined? dataFacebook && dataFacebook.locale.present? ? dataFacebook.locale[ locale ] : false },
            itemscope: true,
            itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
            ng:        { controller: d.angular ? d.angular.controller ? d.angular.controller : false : false } }
@@ -59,19 +59,19 @@
         %a{ id: "top" }
 
         -# Facebook Root - Requires an AppID
-        - if dataFacebook && dataFacebook.app.id
+        - if defined? dataFacebook && dataFacebook.app.id
             #fb-root
 
         -# Section - Above Nav
-        - if dataNav.above
+        - if dataNav.present? && dataNav.above
             = partial dataNav.above
 
         -# Section - Navbar
-        - if dataNav.navbar
+        - if dataNav.present? && dataNav.navbar
             = partial "./molecule/navbar/navbar", locals: dataNav
 
         -# Section - Below Navigation
-        - if dataNav.below
+        - if dataNav.present? && dataNav.below
             = partial dataNav.below
 
         -# Section - Yield
@@ -95,5 +95,5 @@
             = javascript_include_tag :body
 
         -# Google Analytics
-        - if dataGoogle and dataGoogle.analytics.active
+        - if dataGoogle.present? and dataGoogle.analytics.active
             = partial "./atom/analytics/analytics"

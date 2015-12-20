@@ -58,8 +58,8 @@
                 -# Check to see if there is a context
                 - context = false
 
-                - if row.is_a?( Array )
-                    - context = row.detect { | f | f[ "context" ] }
+                / - if row.is_a?( Array )
+                /     - context = row.detect { | f | f[ "context" ] }
 
                 -# Table Row
                 %tr{ class: context ? context[ :context ] : false }

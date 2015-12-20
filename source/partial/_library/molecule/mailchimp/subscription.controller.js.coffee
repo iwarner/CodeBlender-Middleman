@@ -98,8 +98,8 @@ angular.module( 'mailChimp', [
 
                     mailChimp.successMessage = response.msg
 
-                # Broadcast the result for global msgs
-                $rootScope.$broadcast 'mailChimp-response', response.result, response.msg
+                # Emit the result for global msgs
+                $rootScope.$emit 'mailChimp-response', response.result, response.msg
 
                 return
 
