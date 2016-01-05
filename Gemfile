@@ -9,7 +9,7 @@
 source 'https://rubygems.org'
 
 # Middleman
-gem "middleman"
+gem "middleman", '~> 3'
 gem "middleman-autoprefixer"
 gem "middleman-blog"
 gem "middleman-livereload"
