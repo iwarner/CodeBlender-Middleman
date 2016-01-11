@@ -57,3 +57,24 @@ javascript:document.getElementById( "quickPayPurchaseInvoiceInclude:quickPayExpe
 [Crunch]:http://www.crunch.co.uk/referrals/?c2c=iw15428d
 [Snap]:https://itunes.apple.com/gb/app/snap/id507080414?mt=8
 [Flat rate]:https://www.gov.uk/vat-flat-rate-scheme/overview
+
+
+Sun 31st Jan 2016
+Self Assessment filing and payment deadline
+Annual filing and payment deadline for personal Self Assessment tax returns
+
+Tue 5th Apr 2016
+Final Payment Submission to HMRC
+Deadline for submitting the Final Payment Submission to HMRC
+
+Tue 5th Apr 2016
+End of the tax year
+This is an annual event and is not related to your company's year end unless amended
+
+Thur 7th Apr 2016
+VAT filing/payment deadline
+This is the deadline for submitting a VAT return and making payment to HMRC
+
+Tue 31st May 2016
+Accounts due
+Your year end accounts must be filed with Companies House by this date

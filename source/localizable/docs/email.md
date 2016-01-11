@@ -26,4 +26,21 @@ tags     : [ alerting ]
 
 http://www.campaignmonitor.com/guides/mobile/
 
+## SPF
+
+## DKIM
+
+## Mail Tester
+
+    http://www.mail-tester.com/
+
+## Is Not Spam
+
+    http://isnotspam.com/
+    https://www.arclab.com/en/kb/email/how-to-read-and-analyze-the-email-header-fields-spf-dkim.html
+
 ## Todo
+
+https://17hats.uservoice.com/knowledgebase/articles/554766-what-do-i-do-if-my-emails-are-going-to-spam-folder
+http://www.mail-tester.com/
+
