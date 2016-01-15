@@ -2,15 +2,15 @@
 
 meta :
     author      : "DryKISS"
-    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    description : "Thumbnail - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "Thumbnail - CodeBlender"
     type        : "website"
 
 heading :
-    small : "Responsive media components"
-    title : "Thumbnails"
+    small : "Responsive media component"
+    title : "Thumbnail"
 
 bar :
     - sup  : Expires
@@ -21,26 +21,19 @@ bar :
       href : "#bookmark"
 
 see :
-    - - "Bootstrap Thumbnails"
-      - "http://getbootstrap.com/component/#thumbnails"
+    - - "Bootstrap Thumbnail"
+      - "http://getbootstrap.com/components/#thumbnails"
 
 todo :
-    - - "Needs revisiting as a component so it allows for all the possibilites of usage"
-      - "Thumbnail"
-      - "2014-06-27"
-      - { "context" : "danger" }
+    - - "Need to sort out the zoomix"
+    - - "Path to image not working"
+    - - "Needs revisiting as a component so it allows for all the possibilities of usage"
     - - "Need to link whole image to destination"
-      - "Thumbnail"
-      - "2014-02-15"
-      - { "context" : "warning" }
     - - "Add image Ribbon to thumbnail"
-      - "Thumbnail"
-      - "2014-02-15"
-      - { "context" : "info" }
     - - "Options to remove thumbnail border"
-      - "Thumbnail"
-      - "2014-02-15"
-      - { "context" : "info" }
+    - - "Provide the ability to show just one thumbnail without the row etc"
+    - - "Put this into BEM"
+    - - "Do I want repsonsive image to be the default for these"
 
 locals :
     - - "array"
@@ -82,25 +75,26 @@ locals :
 
 ---
 
-- id = 1
+-# ID
+- id = 0
 
-/ -# Default Thumbnail
-/ :ruby
-/     code = %{partial "./atom/thumbnail/thumbnail",
-/                       locals: { array: [ { image: { data: { src: "holder.js/300x200/auto" } } },
-/                                          { image: { data: { src: "holder.js/100x100/auto" } } },
-/                                          { image: { data: { src: "holder.js/100x100/auto" } } },
-/                                          { image: { data: { src: "holder.js/100x100/auto" } } },
-/                                          { image: { data: { src: "holder.js/300x200/auto" } } } ] }}
+-# Default Thumbnail
+:ruby
+    code = %{partial "./molecule/thumbnail/thumbnail",
+                      locals: { array: [ { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+                                         { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+                                         { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+                                         { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+                                         { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} } ] }}
 
-/ -# Code
-/ = partial "organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Just an array of images", text: "Default" } }
+-# Code
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Just an array of images", text: "Default" } }
 
 -# Linked Thumbnail
 :ruby
-    code = %{partial "./atom/thumbnail/thumbnail",
-                      locals: { array: [ { image:     { src: "footer/background1.png" },
-                                           thumbnail: { href: image_path( "footer/background1.png" ) } } ] }}
+    code = %{partial "./molecule/thumbnail/thumbnail",
+                      locals: { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+                                           thumbnail: { href: "footer/background1.png" } } ] }}
 
 -# Code
 = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Provide an HREF for the image", text: "Linked Thumbnail" } }
@@ -115,26 +109,21 @@ locals :
         -# Blog Details
         = partial "./molecule/detail/detail", locals: { current_page: article }
 
--# Thumbnails
-= partial "./atom/thumbnail/thumbnail",
-           locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" }, href: "HERE" },
-                                thumbnail: { caption: @captureHTML } } ] }
-
 -# Code
 :ruby
-    code = %{partial "./atom/thumbnail/thumbnail",
-                      locals: { array: [ { image:     { data: { src: "holder.js/300x200/auto" } },
-                                           thumbnail: { caption: @captureHTML, href: "HERE" } } ] }}
+    code = %{partial "./molecule/thumbnail/thumbnail",
+                      locals: { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+                                           thumbnail: { caption: "Caption", href: "HERE" } } ] }}
 
 -# Code
 = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Push an HTML element into the Tumb array", text: "Captioned Thumbnail" } }
 
 -# Zoomix Thumbnail
 :ruby
-    code = %{partial "./atom/thumbnail/thumbnail",
-                      locals: {  array: [ { image:     { data: { src: "holder.js/300x200/auto" } },
+    code = %{partial "./molecule/thumbnail/thumbnail",
+                      locals: {  array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
                                             thumbnail: { zoomix: true,
-                                                         href:   image_path( "footer/background1.png" ),
+                                                         href:   "footer/background1.png",
                                                          data:   { toggle: "lightbox" } } } ] }}
 
 -# Code

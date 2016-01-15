@@ -1,9 +1,5 @@
 # TODO
 
-## Middleman
-
-* Check out the next version of Middleman v4
-
 ## CodeBlender Examples
 
 * This should be used as test pages for Jasmine to test front end elements
@@ -48,8 +44,6 @@
 * Like Button
     * Take the HREF from the config by default append the path or use the canonical in the front matter
     * Complete the different code types
-* Adsense
-    * Need to work on the defaults
 * Analytics
     * Need to distinguish the code blocks Google can give the user
 * Plus
@@ -248,7 +242,7 @@
 
 ## Modules
 
-### Portfolio
+### Portfolio
 
 * This really needs looking at in terms of replicated code
 
@@ -470,14 +464,14 @@ http://www.feedthebot.com/pagespeed/optimize-css-delivery.html
 
 ### Helpers / Lib / Extensions
 
-* Database Javascript needs to be refactored to remove queries from it
-* JavaScript Recaptcha service intergration
+* Database JavaScript needs to be refactored to remove queries from it
+* JavaScript Recaptcha service integration
 * Link Helper that takes into account the locale path
 * Article Iteration
     * Need to return an array of articles based on inputs
         * Language, Category, Subcategory, Tags
 * Portfolio Iteration
     * Helper Method to get all articles within the portfolio category
-    * Need to check that subcategory exists when there is a cateogory or it fails
+    * Need to check that subcategory exists when there is a category or it fails
 * Create helper methods such as exists and is array
 * GitHub helper to get the repos for a given user or organisation

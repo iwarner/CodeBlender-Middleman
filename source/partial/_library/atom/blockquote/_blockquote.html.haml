@@ -5,15 +5,19 @@
 -# -# Blockquote
 -# = partial "./atom/blockquote/blockquote", locals: { text: "Standard Blockquote" }
 -#
+-# @locals
+-# @param right - Pushes the content to the right hand side of the container
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/css/?#type-blockquotes
 -##
 
 -# Blockquote
-%blockquote{ class: locals[ :right ] ? "blockquote-reverse" : false }
+%blockquote.blockquote{ class: locals[ :right ] ? "blockquote-reverse" : false }
 
     -# Main headline text
-    %p= string locals[ :text ]
+    %p.blockquote__text= string locals[ :text ]
 
     -# Add the small text if required
     - if locals[ :small ]
-        %footer= string small
+        %footer.blockquote__footer= string small

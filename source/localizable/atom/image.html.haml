@@ -2,10 +2,10 @@
 
 meta :
     author      : "DryKISS"
-    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    description : "Image - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "Image - CodeBlender"
     type        : "website"
 
 heading :
@@ -26,9 +26,11 @@ see :
 
 todo :
     - - "Add a Responsive image example"
-      - "Images"
-      - "2014-02-12"
-      - { "context" : "info" }
+    - - "Include details on the micro format and use of figure in this partial"
+    - - "Sort out the image Tag here"
+    - - "Allow for the caption to be at the top or the bottom"
+    - - "Allow for the removal of the rounded corners on the thumbnail i.e. image--notRounded"
+    - - "Need to sort out the image caption design - over just using a thumbnail"
 
 locals :
     - - "alt"
@@ -58,50 +60,56 @@ locals :
 
 ---
 
-- id = 1
+- id = 0
 
 :markdown
 
-    Middleman contains some placeholer image shortcuts to use during quick
-    blocking out
+    Middleman contains some placeholder image shortcuts to use during quick
+    blocking out.
 
-    * lorem.image('300x400')
-    * lorem.image('300x400', :background_color => '333', :color => 'fff')
-    * lorem.image('300x400', :random_color => true)
-    * lorem.image('300x400', :text => 'blah')
+    * lorem.image( '300x400' )
+    * lorem.image( '300x400', :background_color => '333', :color => 'fff' )
+    * lorem.image( '300x400', :random_color => true)
+    * lorem.image( '300x400', :text => 'blah')
 
 -# Default Image
 :ruby
     code = %{partial "./atom/image/image", locals: { src: loremPixel() }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default Image" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default image" } }
 
+-# Caption Image
+:ruby
+    code = %{partial "./atom/image/image", locals: { src: loremPixel(), extraClass: "img-thumbnail", caption: "HERE" }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Caption image" } }
 
 -# Angular Image
 :ruby
     code = %{partial "./atom/image/image", locals: { ng: { src: loremPixel() } }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Angular Image" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Angular image" } }
 
 -# Thumbnail Image
 :ruby
-    code = %{partial "./atom/image/image", locals: { src: lorem.image( "200x200" ), extraClass: "img-thumbnail" }}
+    code = %{partial "./atom/image/image", locals: { src: loremPixel(), extraClass: "img-thumbnail" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Place Hold It 200x200", text: "Thumbnail Image" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Thumbnail image" } }
 
 -# Circle Image
 :ruby
-    code = %{partial "./atom/image/image", locals: { data: { src: holder( "200x200" ) }, extraClass: "img-circle" }}
+    code = %{partial "./atom/image/image", locals: { src: loremPixel(), extraClass: "img-circle" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Holder.js 200x200", text: "Circle Image" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Circle image" } }
 
 -# Rounded Image
 :ruby
     code = %{partial "./atom/image/image", locals: { src: loremPixel( "200/200", "Rounded", "abstract" ), extraClass: "img-rounded" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Holder.js 200x200", text: "Rounded Image" } }
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Rounded image" } }

@@ -15,9 +15,6 @@ atom :
     - title : "Badge"
       url   : "/atom/badge.html"
 
-    - title : "Bar"
-      url   : "/atom/bar.html"
-
     - title : "Blockquote"
       url   : "/atom/blockquote.html"
 

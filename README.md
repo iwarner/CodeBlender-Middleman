@@ -2,12 +2,11 @@
 
 # Check
 
+    http://fengyuanchen.github.io/cropper/
     http://flatfull.com/themes/angulr/angular/#/app/dashboard-v1
-
     http://ux.edx.org/
     https://dineshramitc.wordpress.com/2015/09/28/mastering-your-inbox-with-the-gmail-javascript-api/
     http://www.adgold.co.uk/#contacthome
-
     http://ux.flydubai.com/rebrand/html_ui_toolkit/
 
 # Middleman : http://middlemanapp.com/

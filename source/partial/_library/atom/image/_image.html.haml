@@ -1,6 +1,6 @@
 -##
 -# Image
--# Provides Icon, Logo and caption if required
+-# Provides icon, logo and caption if required
 -#
 -# Rules
 -# if we have an angular - ng-src then the src should be false
@@ -9,17 +9,22 @@
 -# -# Image
 -# = partial "./atom/image/image", locals: { src: loremPixel() }
 -#
--# @param    caption - Image caption
+-# @locals
+-# @param caption - Image caption
 -#
 -# @category atom
 -# @stub     image
 -# @author   Ian Warner <ian.warner@drykiss.com>
--#
--# @todo Sort out the image Tag here
+-# @see      http://getbootstrap.com/css/?#images
+-# @see      https://middlemanapp.com/basics/helper_methods/
 -##
 
+-# Extra class
+- extraClass = locals[ :extraClass ] ? "#{ locals[ :extraClass ] } image__img" : "image__img"
+
+-# Attributes
 - attributes = { alt:       locals[ :alt ]        ? string( alt ) : "Image",
-                 class:     locals[ :extraClass ] ? extraClass    : false,
+                 class:     locals[ :extraClass ],
                  data:      locals[ :data ]       ? data          : false,
                  draggable: locals[ :draggable ]  ? draggable     : false,
                  height:    locals[ :size ]       ? size[ 1 ]     : false,
@@ -29,22 +34,21 @@
                  width:     locals[ :size ]       ? size[ 0 ]     : false }
 
 -# Figure
-%figure{ itemprop: "image", itemscope: true, itemtype: "http://schema.org/ImageObject" }
+%figure.image{ itemprop: "image", itemscope: true, itemtype: "http://schema.org/ImageObject" }
 
-    -# Assume Angular
+    -# Assume angular
     - if ! locals[ :src ]
 
-        -# Image Tag
+        -# Image tag
         %img{ attributes }
 
     - else
 
-        -# Image Tag
+        -# Image tag
         = image_tag locals[ :src ], attributes
 
-    -# Check for Caption
+    -# Check for caption
     - if locals[ :caption ]
 
         -# Caption
-        %figcaption{ itemprop: "caption" }
-            = caption
+        %figcaption.image__caption{ itemprop: "caption" }= caption

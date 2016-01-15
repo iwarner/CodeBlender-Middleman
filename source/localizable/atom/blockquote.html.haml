@@ -2,17 +2,17 @@
 
 meta :
     author      : "DryKISS"
-    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    description : "Blockquote, quote blocks of textual content - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "Blockquote, quote blocks of textual content - CodeBlender"
     type        : "website"
 
 heading :
     title : "Blockquote"
 
 see :
-    - - "Bootstrap Blockquotes"
+    - - "Bootstrap blockquote"
       - "http://getbootstrap.com/css/#type-blockquotes"
 
 locals :
@@ -31,7 +31,7 @@ locals :
 
 ---
 
-- id = 1
+- id = 0
 
 -# Default
 :ruby
@@ -49,7 +49,7 @@ locals :
 
 -# Pulled Right
 :ruby
-    code = %{partial "./atom/blockquote/blockquote", locals: { right: true, small: "Right handed secondary text", text:  "Blockquote pulled right" }}
+    code = %{partial "./atom/blockquote/blockquote", locals: { right: true, small: "Right handed secondary text", text: "Blockquote pulled right" }}
 
 -# Code
 = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Blockquote pulled right" } }

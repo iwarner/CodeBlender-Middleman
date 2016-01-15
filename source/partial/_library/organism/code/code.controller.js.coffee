@@ -24,15 +24,7 @@ CodeController = ->
     # Copy to Clipboard
     ##
     vm.copy = ( id ) ->
-
-        console.log '#copy' + id
-        console.log angular.element( '#copy' + id + ' .tab-pane.active' )
-        console.log angular.element( '#copy' + id ).html()
-        console.log angular.element( '#copy' + id ).text()
-        console.log angular.element( '#copy' + id ).val()
-        console.log id
-
-        return
+        return angular.element( "#codeCopy#{ id } .tab-pane.active" ).text()
 
     return
 

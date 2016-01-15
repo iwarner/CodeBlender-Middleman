@@ -7,14 +7,15 @@
 -# -# Portfolio Recent
 -# = partial "./template/portfolio/recent", locals: { total: "3" }
 -#
--# @param total - How many columns of items to display.
+-# @locals
+-# @param heading - Heading
+-# @param total   - How many columns of items to display.
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -#
 -# @todo Find a way to include the language elements from this module also
--# @todo Put the default amount into a portfolio config - at the moment 3
--# @todo Need to calculate the columns based on the default amount
--# @todo Sort out the design of the blockquote caption and thumbnail image
+-# @todo Sort out the design of the blockquote caption and thumbnail image
+-# @todo Use the link_to feature for the link section
 -##
 
 -# Portfolio
@@ -35,12 +36,17 @@
         -# Bootstrap Row
         .row
 
+            -# Columns count
+            - total      = locals[ :total ] ? locals[ :total ] : 3
+            - count      = 12 / total
+            - extraClass = "col-md-#{ count } "
+
             -# Loop through the Portfolio Category finding the first 3
             -# Sorting is done by date as a default
-            - blog( 'portfolio' ).articles.first( locals[ :total ] ? locals[ :total ] : 3 ).each do | portfolio |
+            - blog( 'portfolio' ).articles.first( total ).each_with_index do | portfolio, index |
 
                 -# Bootstrap Columns
-                .col-md-4.col-sm-4
+                .portfolio__segment{ class: extraClass }
 
                     -# Link to Portfolio
                     %a{ href: portfolio.url, title: portfolio.data.heading.title }

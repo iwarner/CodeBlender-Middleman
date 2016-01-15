@@ -2,10 +2,10 @@
 
 meta:
     author      : "DryKISS"
-    description : "Zero Clipboard"
+    description : "ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface."
     image       : "Image"
     subject     : "DryKISS"
-    title       : "Zero Clipboard"
+    title       : "ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface."
     type        : "website"
 
 heading :
@@ -21,48 +21,63 @@ todo :
     - - "Move the required ngClipProvider.setPath to the controller if possible"
     - - "Create the DOM interaction as an angular directive"
     - - "Move text into locale"
-    - - "Need to be able to get at the contents of the tab panel from the copy button in the JavaScript controller"
+    - - "Make this more angular - use ng-class to change tabs for instance and scope to access the contents"
 
 ---
 
-- id = 1
+- id = 0
 
--# Markdown
-:markdown
+-# Bootstrap row
+.row
 
-    To facilitate a copy to clipboard pattern, we will utilise NGClip, which in
-    turn installs the ZeroClipboard library.
+    -# Bootstrap column
+    .col-md-6
 
-    - Add "ng-clip" : "" to bower.json
-    - $ bower install
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { tag: "h3", text: "Installation" }
 
-    Add the path to the SWF file into your angular app config
+        -# Markdown
+        :markdown
 
-    - ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'
+            To facilitate a copy to clipboard pattern, we will utilise NGClip, which in
+            turn uses the ZeroClipboard library.
 
-    Include the correct JavaScript files in the JavaScript sprockets
+            - Add "ng-clip" : "" to bower.json
+            - $ bower install
 
-    - //= require zeroclipboard/dist/ZeroClipboard
-    - //= require ng-clip/dest/ng-clip.min
+            Add the path to the SWF file into your angular app config
 
-    Set ngClipboard as a dependency
+            - ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'
 
-    - angular.module 'app', [ 'ngClipboard' ]
+            Include the correct JavaScript files in the JavaScript sprockets
 
-    Add clip-copy directive to the desired element, example:
+            - //= require zeroclipboard/dist/ZeroClipboard
+            - //= require ng-clip/dest/ng-clip.min
 
-    - clip-copy="NGModel"
-    - clip-copy="getTextToCopy()"
-    - clip-click="doSomething()"
+            Set ngClipboard as a dependency
 
--# Input
-= partial "./atom/input/input",
-           locals: { input: { name: "text", ng: { model: "copy1" } },
-                     label: { title: "Enter Text" } }
+            - angular.module 'app', [ 'ngClipboard' ]
 
--# Default
-:ruby
-    code = %{partial "./atom/zeroClipboard/zeroClipboard", locals: { model: "copy1" }}
+            Add clip-copy directive to the desired element, example:
 
--# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+            - clip-copy="NGModel"
+            - clip-copy="getTextToCopy()"
+            - clip-click="doSomething()"
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { tag: "h3", text: "Example" }
+
+        -# Input
+        = partial "./atom/input/input",
+                   locals: { input: { name: "text", ng: { model: "copy1" } },
+                             label: { title: "Enter Text" } }
+
+        -# Default
+        :ruby
+            code = %{partial "./atom/zeroClipboard/zeroClipboard", locals: { model: "copy1" }}
+
+        -# Code
+        = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

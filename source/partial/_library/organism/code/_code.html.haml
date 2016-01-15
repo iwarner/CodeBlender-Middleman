@@ -3,12 +3,12 @@
 -# Provides a code block that shows the partial and output code usage
 -#
 -# @usage
--# -# Code
+-# -# Code
 -# = partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Text" } }
--# 
+-#
 -# Please make sure to add - id = 1 in the page where the code partial is being applied
 -#
--# @param id      Follow rule above to auto increment this
+-# @param id      Follow rule above to auto increment this
 -# @param code    The captured code fragment
 -# @param heading Textual heading
 -# @param lang    Code fragment language | default: haml
@@ -28,7 +28,7 @@
 
     -# Heading - Main
     - if locals[ :heading ]
-        - locals[ :heading ][ :tag ] = "h2"
+        - locals[ :heading ][ :tag ] = "h3"
         = partial "./molecule/heading/heading", locals: locals[ :heading ]
 
     -# Example
@@ -58,7 +58,7 @@
             = eval code
 
         -# Tab Content
-        .tab-content{ ng: { model: "copy#{ locals[ :id ] }" } }
+        .tab-content{ id: "codeCopy#{ locals[ :id ] }" }
 
             -# Code Tab
             .tab-pane.active{ id: locals[ :id ] ? "code#{ id }" : "code1" }

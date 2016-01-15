@@ -2,10 +2,10 @@
 
 meta :
     author      : "DryKISS"
-    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    description : "Badges atom highlights a number for user messaging - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "Badges atom highlights a number for user messaging - CodeBlender"
     type        : "website"
 
 heading :
@@ -13,7 +13,10 @@ heading :
 
 see :
     - - "Bootstrap Badges"
-      - "http://getbootstrap.com/component/#badges"
+      - "http://getbootstrap.com/components/#badges"
+
+todo :
+    - - "Complete more examples such as in-line in a button"
 
 locals :
     - - "content"
@@ -23,7 +26,8 @@ locals :
 
 ---
 
-- id = 1
+-# Code ID
+- id = 0
 
 %p
     Badges won't self collapse in Internet Explorer 8 because it lacks support
@@ -31,7 +35,7 @@ locals :
 
 -# Badge
 :ruby
-    code = %{partial "./atom/badge/badge", locals: { content: "88" }}
+    code = %{partial "./atom/badge/badge", locals: { text: "88" }}
 
 -# Code
 = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

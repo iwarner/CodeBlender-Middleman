@@ -1,20 +1,22 @@
 -##
--# Thumbnails
+-# Thumbnail
 -#
+-# @usage
+-# -# Tag Cloud
+-# = partial "./molecule/tagCloud/tagCloud"
+-#
+-# @category molecule
 -# @author Ian Warner <ian.warner@drykiss.com>
--#
--# @todo Provide the ability to show just one thumbnail without the row etc
--# @todo Put this into BEM
 -##
 
 -# Bootstrap row
 .row{ class: locals[ :extraClass ] ? extraClass : false }
 
     -# Loop through the array
-    - array.each do | entry |
+    - array.each_with_index do | thumbnail, index |
 
-        -# Variables
-        - thumb = entry[ :thumbnail ]
+        -# Variable
+        - thumb = thumbnail[ :thumbnail ]
 
         %div{ class: locals[ :columns ] ? columns        : "col-xs-12 col-sm-6 col-md-4",
               data:  thumb[ :data ]     ? thumb[ :data ] : false,
@@ -24,8 +26,8 @@
             .thumbnail{ class: thumb[ :extraClass ].present? ? thumb[ :extraClass ] : false }
 
                 -# Image
-                = link_to( image_path( entry[ :image ][ :href ] ), target: thumb[ :target ] ? thumb[ :target ] : false ) do
-                    = partial "./atom/image/image", locals: entry[ :image ]
+                = link_to( image_path( thumbnail[ :image ][ :href ] ), target: thumb[ :target ] ? thumb[ :target ] : false ) do
+                    = partial "./atom/image/image", locals: thumbnail[ :image ]
 
                     -# Zoomix - requires HREF and data-toggle light box on the thumbnail array
                     - if thumb[ :zoomix ].present?
