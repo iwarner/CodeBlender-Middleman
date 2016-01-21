@@ -13,8 +13,9 @@
 navbar : true
 
 # Paths to the partials to display navigation above and below
-above  : "organism/navAbove/navAbove"
-below  : false
+above     : "organism/navAbove/navAbove"
+below     : false
+container : "container"
 
 # Brand
 brand :

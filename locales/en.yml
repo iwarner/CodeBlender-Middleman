@@ -82,6 +82,23 @@ en:
             - text : "Social"
               link : { url: "/social/social.html" }
 
+            # Language dropdown
+            - dropdown : "Language"
+              icon     : "icon-menu"
+              items    :
+
+                  - text : "English"
+                    link : { ui: { sref: "#" } }
+                    icon : "icon-Overview"
+
+                  - text : "Chinese"
+                    link : { ui: { sref: "#" } }
+                    icon : "icon-nurture"
+
+                  - text : "Japanese"
+                    link : { ui: { sref: "#" } }
+                    icon : "icon-Help"
+
     # Home
     home :
 

@@ -1,5 +1,5 @@
 ##
-# JavaScript for the Body Area
+# JavaScript for the body area
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##

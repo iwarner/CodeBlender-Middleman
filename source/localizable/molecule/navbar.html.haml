@@ -2,10 +2,10 @@
 
 meta :
     author      : "DryKISS"
-    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    description : "Navbar navigation component - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "Navbar navigation component - CodeBlender"
     type        : "website"
 
 heading :
@@ -32,21 +32,10 @@ see :
 
 todo :
     - - "General images and icons need to work for each item and as an item in there own right"
-      - "Navbar"
-      - "2014-02-15"
-      - { "context" : "warning" }
     - - "When multiple items are floated right then they cross over - need to batch these up in one section - right or left in the YAML"
-      - "Navbar"
-      - "2014-02-15"
-      - { "context" : "warning" }
     - - "Need the ability to add images as placeholders."
-      - "Navbar"
-      - "2014-02-15"
-      - { "context" : "info" }
     - - "Active links for dropdown menus needs sorting"
-      - "Navbar"
-      - "2014-03-06"
-      - { "context" : "danger" }
+    - - "Active menu item needs to be completed"
 
 locals :
     - - "array"
@@ -88,23 +77,25 @@ locals :
 
 ---
 
-- id = 1
+-# ID
+- id = 0
 
 %p
-    JavaScript is required for the Nav Collapse
+    JavaScript is required for the navigation collapse
     Be sure to add a role="navigation" to the navbar to help with accessibility.
 
     Requires a /data/navigation.yaml file to be present. Basically checks the
     YAML for Divider, Dropdown or Menu Item then displays according to the YAML.
 
-/ -# Default
-/ :ruby
-/     code = %{partial "./molecule/navbar/navbar",
-/                       locals: { fluid:    true,
-/                                 position: "static-top" }}
+-# Set globally want per nav bar....
+- dataNav[ :container ] = "container"
 
-/ -# Code
-/ = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+-# Default
+:ruby
+    code = %{partial "./molecule/navbar/navbar", locals: dataNav}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 / -# Logo
 / :ruby
