@@ -1,11 +1,11 @@
 -##
--# Navigation Above
+-# Navigation above
 -#
 -# Provides a placement for content above a navigation bar
 -# Should include branding, logo, strap line and background image.
 -#
 -# @usage
--# -# Navigation Above
+-# -# Navigation above
 -# = partial "./organism/nav-above/nav-above"
 -#
 -# @category organism
@@ -16,7 +16,7 @@
 -# Header navAbove
 %header{ role: "banner", itemscope: true, itemtype: "http://schema.org/WPHeader" }
 
-    -# Placed in a Fluid to give full image bleed if required
+    -# Placed in a fluid to give full image bleed if required
     .container-fluid
 
         .row.navAbove
@@ -26,13 +26,13 @@
 
                 .navAbove__row
 
-                    -# Left Column
+                    -# Left column
                     .navAbove__leftColumn
 
                         -# Brand
                         = partial "./molecule/brand/brand"
 
-                    -# Right Column
+                    -# Right column
                     .navAbove__rightColumn
 
                         -# Heading H2

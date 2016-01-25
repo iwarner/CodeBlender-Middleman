@@ -75,6 +75,9 @@ atom :
     - title : "Textarea"
       url   : "/atom/textarea/textarea.html"
 
+    - title : "Well"
+      url   : "/atom/well/well.html"
+
     - title : "Zero Clipboard"
       url   : "/atom/zero-clipboard/zero-clipboard.html"
 
@@ -191,9 +194,6 @@ molecule :
 
     - title : "Tooltip"
       url   : "/molecule/tooltip/tooltip.html"
-
-    - title : "Well"
-      url   : "/molecule/well/well.html"
 
     - title : "Widget"
       url   : "/molecule/widget/widget.html"

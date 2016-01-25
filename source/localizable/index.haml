@@ -14,6 +14,28 @@ see :
       - "http://www.keenthemes.com/preview/metronic/theme/templates/admin4/angularjs/#/dashboard.html"
     - - "Angular Style Guide"
       - "https://github.com/johnpapa/angular-styleguide"
+    - - "Bootstrap Cards"
+      - "http://bootcards.org/"
+    - - "Bootstrap SASS Official"
+      - "https://github.com/twbs/bootstrap-sass"
+    - - "Stardom Theme"
+      - "http://admindesigns.com/stardom/"
+    - - "Animate CSS"
+      - "http://daneden.github.io/animate.css/"
+    - - "String Augmented Reality"
+      - "http://www.poweredbystring.com/"
+    - - "Resource Space"
+      - "http://www.resourcespace.org/"
+    - - "Middleman Hacks"
+      - "https://www.discovermeteor.com/blog/three-middleman-hacks-were-using-on-this-site/"
+    - - "Middleman Help"
+      - "http://joshwlewis.com/slides/middleman/index.html#/title"
+    - - "Themes"
+      - "http://themetrust.com/themes"
+    - - "Off Canvas"
+      - "http://demo.siterepo.com/store/css/verion/verion.php"
+    - - "Scroll Example"
+      - "http://www.bootply.com/T2jYl0an06"
 
 # Todo
 todo :
@@ -21,6 +43,20 @@ todo :
     - - "Look at Flikr Badges - https://www.flickr.com/about/goodies/"
     - - "Create an AddThis partial in social section"
     - - "Complete Coderwall Partial https://coderwall.com/welcome"
+    - - "Complete the prototype home page"
+    - - "Check out https://github.com/mledoze/countries - include into dropdowns etc"
+    - - "Check out how to recurse through filesystem - http://goo.gl/EWnvLr"
+    - - "Translate all partials"
+    - - "Add 5 blog articles to home page"
+    - - "Code highlighter - sometimes misaligned"
+    - - "Add a margin top to code partial"
+    - - "Add a variable for the theme of the syntax highlighter in the config file"
+    - - "Include the JS / CSS for the widget in the page also, can link file directly"
+    - - "Create the codeblender logo / icon"
+    - - "Could couple the Meta Tags up into one partial and do work from that"
+    - - "Sort out what to do with the main overlay"
+    - - "Sniff JavaScript and append the JS class to the body tag"
+    - - "Create a partial to display a cookie panel on the page"
 
 ---
 
@@ -75,7 +111,7 @@ todo :
         .col-md-9.col-sm-9
 
             -# Article list
-            = partial "./template/article/articleList", locals: { page_articles: page_articles }
+            = partial "./template/article/article-list", locals: { page_articles: page_articles }
 
             -# Pagination variables
             - prevPage = prev_page ? prev_page : false

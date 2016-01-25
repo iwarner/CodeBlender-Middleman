@@ -1,5 +1,5 @@
 ##
-# JQuery Ajax Setup
+# JQuery ajax setup
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 # @see    http://api.jquery.com/jquery.ajaxsetup/
@@ -11,7 +11,7 @@ class App.Utils.Ajax
     ##
     constructor : ->
 
-        # Ajax Setup
+        # Ajax set-up
         $.ajaxSetup
             cache       : false
             crossDomain : true
