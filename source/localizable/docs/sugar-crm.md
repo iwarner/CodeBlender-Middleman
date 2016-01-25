@@ -10,6 +10,7 @@ meta :
     title  : "Sugar CRM"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
 excerpt  : "Sugar CRM"
 modified : 2014-02-09

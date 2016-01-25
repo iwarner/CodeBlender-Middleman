@@ -1,25 +1,26 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Project management"
+    title : "Project management"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Project management"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Project management"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ project-management ]
 
 ---
 
-## Asana
+## Asana
 
-Asana is the project mananement and bug tracking tool of choice
+Asana is the project management and bug tracking tool of choice
 for Alpha Founders. Understanding the mechanics and best usage
 policy is vital for the smooth running of the projects
 
@@ -73,4 +74,4 @@ on top of the wishes of management.
 
 # Communication
 
-Skype and Google Hangouts should be setup for each employee
+Skype and Google Hangouts should be set-up for each employee

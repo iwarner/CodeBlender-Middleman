@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "MySQL"
+    title : "MySQL"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "MySQL"
     type   : ""
 
+category : "database"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "MySQL"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ mysql ]
 
 ---
 

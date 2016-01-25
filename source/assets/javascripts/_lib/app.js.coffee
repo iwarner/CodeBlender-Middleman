@@ -1,5 +1,5 @@
 ##
-# Angular Initialisation
+# Angular initialisation
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
@@ -19,9 +19,14 @@
 //= require molecule/facebook/facebook
 //= require molecule/login/login.controller
 //= require molecule/mailchimp/subscription.controller
-//= require molecule/topIcon/topIcon.controller
+//= require molecule/top-icon/top-icon.controller
+//= require molecule/popover/popover.directive
+//= require molecule/tooltip/tooltip.directive
 
 # Organism
 //= require organism/code/code.controller
 
 # Template
+
+# Portfolio
+//= require template/portfolio/portfolio.controller

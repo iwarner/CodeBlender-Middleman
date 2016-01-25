@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Gollum"
+    title : "Gollum"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Gollum"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Gollum"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ gollum ]
 
 ---
 
@@ -29,4 +30,4 @@ tags     : [ alerting ]
 
 ## Todo
 
-* Setup a Gollum instance up on the server to display this wiki.
+* Set-up a Gollum instance up on the server to display this wiki.

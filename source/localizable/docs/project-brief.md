@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Project brief"
+    title : "Project brief"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Project brief"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Project brief"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ project-brief ]
 
 ---
 

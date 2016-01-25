@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "File system"
+    title : "File system"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "File system"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "File system"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ file-system ]
 
 ---
 

@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "RBenv"
+    title : "RBenv"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "RBenv"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "RBenv"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ rbenv ]
 
 ---
 

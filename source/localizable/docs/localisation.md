@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Localisation"
+    title : "Localisation"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Localisation"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Localisation"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ localisation ]
 
 ---
 

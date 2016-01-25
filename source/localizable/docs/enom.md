@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Enom"
+    title : "Enom"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Enom"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Enom"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ enom ]
 
 ---
 

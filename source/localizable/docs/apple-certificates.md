@@ -2,16 +2,17 @@
 
 heading :
     small : ""
-    title : "Apple"
+    title : "Apple certificate"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Apple"
+    title  : "Apple certificate"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
-excerpt  : "Apple"
+excerpt  : "Apple certificate"
 modified : 2014-02-09
 tags     : [ apple ]
 

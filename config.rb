@@ -15,7 +15,7 @@ set :dataSubNav,    data.subnavigation
 set :version,       dataConfig.version
 
 # Configuration
-config[ :partials_dir ] = "partial/_library/"
+# config[ :partials_dir ] = "partial/_library/"
 
 # Variables
 # set :relative_links,   false
@@ -75,21 +75,21 @@ after_configuration do
     sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/javascripts/"
     sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/stylesheets/"
     sprockets.append_path File.join "#{ root }", "bower_components/font-awesome/scss/"
-    sprockets.append_path File.join "#{ root }", "source/partial/_library/"
-    sprockets.append_path File.join "#{ root }", "source/partial/_lib/"
+    sprockets.append_path File.join "#{ root }", "source/localizable/"
     sprockets.append_path "/assets/font"
 end
 
 # BLOG
 activate :blog do | blog |
 
+    blog.name              = "portfolio"
     blog.prefix            = "docs"
     blog.default_extension = ".md"
 
     blog.permalink         = "{category}{title}.html"
     blog.sources           = ":title.html"
 
-    blog.layout            = "/partial/_library/template/article/article.layout"
+    blog.layout            = "_library/article.layout"
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 

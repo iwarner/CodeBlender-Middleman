@@ -10,6 +10,7 @@ meta :
     title  : "Sublime"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
 excerpt  : "Sublime"
 modified : 2014-02-09

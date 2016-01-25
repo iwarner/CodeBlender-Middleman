@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Cache"
+    title : "Cache"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Cache"
     type   : ""
 
+category : "infrastructure"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Cache"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ cache ]
 
 ---
 

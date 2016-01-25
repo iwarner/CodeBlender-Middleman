@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "HAML"
+    title : "HAML"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "HAML"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "HAML"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ haml ]
 
 ---
 

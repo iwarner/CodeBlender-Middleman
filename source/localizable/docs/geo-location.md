@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Geolocation"
+    title : "Geolocation"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Geolocation"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Geolocation"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ geo-location ]
 
 ---
 

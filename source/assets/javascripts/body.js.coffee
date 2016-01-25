@@ -7,6 +7,9 @@
 # JQuery
 //= require jquery/dist/jquery
 
+# Mix It Up
+//= require mixitup/build/jquery.mixitup.min
+
 # DataTables
 //= require DataTables/media/js/jquery.dataTables
 

@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Virtualisation"
+    title : "Virtualisation"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Virtualisation"
     type   : ""
 
+category : "infrastructure"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Virtualisation"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ virtualisation ]
 
 ---
 
@@ -38,12 +39,12 @@ of scenarios.
 Vagrant can be used to bring up several VMs on the local machines to
 replicate the full production infrastructure.
 
-* Create Scripts based on the current production setup.
+* Create Scripts based on the current production set-up.
 * [Vagrant Tutorial](http://iostudio.github.com/LunchAndLearn/2012/03/21/vagrant.html)
-* [Vagarant Boxes](https://github.com/mitchellh/vagrant/wiki/Available-Vagrant-Boxes)
+* [Vagrant Boxes](https://github.com/mitchellh/vagrant/wiki/Available-Vagrant-Boxes)
 * [Vagrant on Windows](http://www.enrise.com/2012/12/git-and-vagrant-in-a-windows-environment/)
 
-To poweroff a started vagrant machine thats perhaps in error
+To power off a started vagrant machine that is perhaps in error
 
     VBoxManage controlvm VMNAME poweroff
 

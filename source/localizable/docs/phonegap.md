@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Phonegap"
+    title : "Phonegap"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Phonegap"
     type   : ""
 
+category : "back-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Phonegap"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ phonegap ]
 
 ---
 

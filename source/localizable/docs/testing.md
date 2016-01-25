@@ -10,6 +10,7 @@ meta :
     title  : "Testing"
     type   : ""
 
+category : "infrastructure"
 date     : 2014-01-20
 excerpt  : "Testing"
 modified : 2014-02-09

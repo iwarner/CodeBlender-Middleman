@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Bourbon"
+    title : "Bourbon"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Bourbon"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Bourbon"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ bourbon ]
 
 ---
 

@@ -10,6 +10,7 @@ meta :
     title  : "Thor"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
 excerpt  : "Thor"
 modified : 2014-02-09

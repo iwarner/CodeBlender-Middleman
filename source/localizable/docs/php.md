@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "PHP"
+    title : "PHP"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "PHP"
     type   : ""
 
+category : "back-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "PHP"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ php ]
 
 ---
 

@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Nginx"
+    title : "Nginx"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Nginx"
     type   : ""
 
+category : "infrastructure"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Nginx"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ nginx ]
 
 ---
 

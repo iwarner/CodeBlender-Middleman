@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Ripple"
+    title : "Ripple"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Ripple"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Ripple"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ ripple ]
 
 ---
 

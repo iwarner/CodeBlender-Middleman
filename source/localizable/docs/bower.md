@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Bower"
+    title : "Bower"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Bower"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Bower"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ bower ]
 
 ---
 

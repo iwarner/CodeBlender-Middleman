@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Infographic"
+    title : "Infographic"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Infographic"
     type   : ""
 
+category : "design"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Infographic"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ infographic ]
 
 ---
 
@@ -22,6 +23,6 @@ tags     : [ alerting ]
 {:toc}
 
 ## Introduction
-List of the best resources for inforgraphics
+List of the best resources for infographic
 
 http://monetate.com/infographic/responsive-design-the-next-great-hope-or-all-hype/

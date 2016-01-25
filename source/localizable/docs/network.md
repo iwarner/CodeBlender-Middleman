@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Network"
+    title : "Network"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Network"
     type   : ""
 
+category : "infrastructure"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Network"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ network ]
 
 ---
 

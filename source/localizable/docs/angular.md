@@ -10,6 +10,7 @@ meta :
     title  : "Angular"
     type   : ""
 
+category : "front-end"
 date     : 2015-04-08
 excerpt  : "Excerpt on Angular"
 modified : 2015-04-08

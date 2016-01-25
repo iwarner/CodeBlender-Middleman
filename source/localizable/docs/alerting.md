@@ -10,6 +10,7 @@ meta :
     title  : "Alerting"
     type   : ""
 
+category : "infrastructure"
 date     : 2014-01-20
 excerpt  : "Alerting"
 modified : 2014-02-09

@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Accessibility"
-    title : "Accessibility"
+    small : "Apple"
+    title : "Apple"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Accessibility"
+    title  : "Apple"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
-excerpt  : "Accessibility"
+excerpt  : "Apple"
 modified : 2014-02-09
-tags     : [ accessibility ]
+tags     : [ apple ]
 
 ---
 

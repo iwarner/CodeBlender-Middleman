@@ -13,70 +13,70 @@ atom :
       url   : "/atom/atom.html"
 
     - title : "Badge"
-      url   : "/atom/badge.html"
+      url   : "/atom/badge/badge.html"
 
     - title : "Blockquote"
-      url   : "/atom/blockquote.html"
+      url   : "/atom/blockquote/blockquote.html"
 
     - title : "Button"
-      url   : "/atom/button.html"
+      url   : "/atom/button/button.html"
 
     - title : "Checkbox"
-      url   : "/atom/checkbox.html"
+      url   : "/atom/checkbox/checkbox.html"
 
     - title : "Detail"
-      url   : "/atom/detail.html"
+      url   : "/atom/detail/detail.html"
 
     - title : "Firebase"
-      url   : "/atom/firebase.html"
+      url   : "/atom/firebase/firebase.html"
 
     - title : "Geolocation"
-      url   : "/atom/geolocation.html"
+      url   : "/atom/geolocation/geolocation.html"
 
     - title : "Google Adsense"
-      url   : "/atom/google-adsense.html"
+      url   : "/atom/google-adsense/google-adsense.html"
 
     - title : "Google Analytics"
-      url   : "/atom/google-analytics.html"
+      url   : "/atom/google-analytics/google-analytics.html"
 
     - title : "Icon"
-      url   : "/atom/icon.html"
+      url   : "/atom/icon/icon.html"
 
     - title : "Image"
-      url   : "/atom/image.html"
+      url   : "/atom/image/image.html"
 
     - title : "Input"
-      url   : "/atom/input.html"
+      url   : "/atom/input/input.html"
 
     - title : "Label"
-      url   : "/atom/label.html"
+      url   : "/atom/label/label.html"
 
     - title : "List DT"
-      url   : "/atom/list-dt.html"
+      url   : "/atom/list/list-dt.html"
 
     - title : "List UL"
-      url   : "/atom/list-ul.html"
+      url   : "/atom/list/list-ul.html"
 
     - title : "Local Storage"
-      url   : "/atom/local-storage.html"
+      url   : "/atom/local-storage/local-storage.html"
 
     - title : "Melon JS"
-      url   : "/atom/melon-js.html"
+      url   : "/atom/melon-js/melon-js.html"
 
     - title : "Select"
-      url   : "/atom/select.html"
+      url   : "/atom/select/select.html"
 
     - title : "Snap"
-      url   : "/atom/snap.html"
+      url   : "/atom/snap/snap.html"
 
     - title : "Speech"
-      url   : "/atom/speech.html"
+      url   : "/atom/speech/speech.html"
 
     - title : "Textarea"
-      url   : "/atom/textarea.html"
+      url   : "/atom/textarea/textarea.html"
 
     - title : "Zero Clipboard"
-      url   : "/atom/zero-clipboard.html"
+      url   : "/atom/zero-clipboard/zero-clipboard.html"
 
 # Molecules
 molecule :
@@ -85,115 +85,118 @@ molecule :
       url   : "/molecule/molecule.html"
 
     - title : "Alert"
-      url   : "/molecule/alert.html"
+      url   : "/molecule/alert/alert.html"
 
     - title : "AmChart"
-      url   : "/molecule/amchart.html"
+      url   : "/molecule/amchart/amchart.html"
 
     - title : "Archive"
-      url   : "/molecule/archive.html"
+      url   : "/molecule/archive/archive.html"
 
     - title : "Breadcrumb"
-      url   : "/molecule/breadcrumb.html"
+      url   : "/molecule/breadcrumb/breadcrumb.html"
 
     - title : "Card"
-      url   : "/molecule/card.html"
+      url   : "/molecule/card/card.html"
 
     - title : "Carousel"
-      url   : "/molecule/carousel.html"
+      url   : "/molecule/carousel/carousel.html"
 
     - title : "Cart"
-      url   : "/molecule/cart.html"
+      url   : "/molecule/cart/cart.html"
 
     - title : "Coderwall"
-      url   : "/molecule/coderwall.html"
+      url   : "/molecule/coderwall/coderwall.html"
 
     - title : "Collapse"
-      url   : "/molecule/collapse.html"
+      url   : "/molecule/collapse/collapse.html"
 
     - title : "Dropdown"
-      url   : "/molecule/dropdown.html"
+      url   : "/molecule/dropdown/dropdown.html"
 
     - title : "Flot"
-      url   : "/molecule/flot.html"
+      url   : "/molecule/flot/flot.html"
 
     - title : "Forgot Password"
-      url   : "/molecule/forgot-password.html"
+      url   : "/molecule/forgot-password/forgot-password.html"
 
     - title : "Google Plus"
-      url   : "/molecule/google-plus.html"
+      url   : "/molecule/google-plus/google-plus.html"
 
     - title : "Google Search"
-      url   : "/molecule/google-search.html"
+      url   : "/molecule/google-search/google-search.html"
 
     - title : "Heading"
-      url   : "/molecule/heading.html"
+      url   : "/molecule/heading/heading.html"
 
     - title : "Image Preview"
-      url   : "/molecule/image-preview.html"
+      url   : "/molecule/image/image-preview.html"
 
     - title : "Image Zoom"
-      url   : "/molecule/image-zoom.html"
+      url   : "/molecule/image/image-zoom.html"
 
     - title : "List Group"
-      url   : "/molecule/list-group.html"
+      url   : "/molecule/list-group/list-group.html"
 
     - title : "Login"
-      url   : "/molecule/login.html"
+      url   : "/molecule/login/login.html"
 
     - title : "Media"
-      url   : "/molecule/media.html"
+      url   : "/molecule/media/media.html"
 
     - title : "Modal"
-      url   : "/molecule/modal.html"
+      url   : "/molecule/modal/modal.html"
 
     - title : "Nav"
-      url   : "/molecule/nav.html"
+      url   : "/molecule/nav/nav.html"
 
     - title : "NavBar"
-      url   : "/molecule/navbar.html"
+      url   : "/molecule/navbar/navbar.html"
 
     - title : "Notification"
-      url   : "/molecule/notification.html"
+      url   : "/molecule/notification/notification.html"
 
     - title : "Pager"
-      url   : "/molecule/pager.html"
+      url   : "/molecule/pager/pager.html"
 
     - title : "Pagination"
-      url   : "/molecule/pagination.html"
+      url   : "/molecule/pagination/pagination.html"
 
     - title : "Panel"
-      url   : "/molecule/panel.html"
+      url   : "/molecule/panel/panel.html"
 
     - title : "Password Strength"
-      url   : "/molecule/password-strength.html"
+      url   : "/molecule/password-strength/password-strength.html"
 
     - title : "Popover"
-      url   : "/molecule/popover.html"
+      url   : "/molecule/popover/popover.html"
 
     - title : "Progress Bar"
-      url   : "/molecule/progress-bar.html"
+      url   : "/molecule/progress-bar/progress-bar.html"
 
     - title : "Recent"
-      url   : "/molecule/recent.html"
+      url   : "/molecule/recent/recent.html"
 
     - title : "Tab"
-      url   : "/molecule/tab.html"
+      url   : "/molecule/tab/tab.html"
 
     - title : "Table"
-      url   : "/molecule/table.html"
+      url   : "/molecule/table/table.html"
 
     - title : "Tag Cloud"
-      url   : "/molecule/tag-cloud.html"
+      url   : "/molecule/tag-cloud/tag-cloud.html"
 
     - title : "Thumbnail"
-      url   : "/molecule/thumbnail.html"
+      url   : "/molecule/thumbnail/thumbnail.html"
+
+    - title : "Tooltip"
+      url   : "/molecule/tooltip/tooltip.html"
 
     - title : "Well"
-      url   : "/molecule/well.html"
+      url   : "/molecule/well/well.html"
 
     - title : "Widget"
-      url   : "/molecule/widget.html"
+      url   : "/molecule/widget/widget.html"
 
 # Organism
 organism :
@@ -202,70 +205,70 @@ organism :
       url   : "/organism/organism.html"
 
     - title : "Calendar"
-      url   : "/organism/calendar.html"
+      url   : "/organism/calendar/calendar.html"
 
     - title : "Contact"
-      url   : "/organism/contact.html"
+      url   : "/organism/contact/contact.html"
 
     - title : "DataTable"
-      url   : "/organism/datatable.html"
+      url   : "/organism/datatable/datatable.html"
 
     - title : "Detail"
-      url   : "/organism/detail.html"
+      url   : "/organism/detail/detail.html"
 
     - title : "Disqus Comment"
-      url   : "/organism/disqus-comment.html"
+      url   : "/organism/disqus-comment/disqus-comment.html"
 
     - title : "Dropzone"
-      url   : "/organism/dropzone.html"
+      url   : "/organism/dropzone/dropzone.html"
 
     - title : "Editor"
-      url   : "/organism/editor.html"
+      url   : "/organism/editor/editor.html"
 
     - title : "Footer"
-      url   : "/organism/footer.html"
+      url   : "/organism/footer/footer.html"
 
     - title : "Gallery"
-      url   : "/organism/gallery.html"
+      url   : "/organism/gallery/gallery.html"
 
     - title : "Google Login"
-      url   : "/organism/google-signin.html"
+      url   : "/organism/google-signin/google-signin.html"
 
     - title : "iPhone"
-      url   : "/organism/iphone.html"
+      url   : "/organism/iphone/iphone.html"
 
     - title : "Jumbotron"
-      url   : "/organism/jumbotron.html"
+      url   : "/organism/jumbotron/jumbotron.html"
 
     - title : "Local"
-      url   : "/organism/local.html"
+      url   : "/organism/local/local.html"
 
     - title : "Off Canvas"
-      url   : "/organism/offcanvas.html"
+      url   : "/organism/off-canvas/off-canvas.html"
 
     - title : "Pricing Table"
-      url   : "/organism/pricing-table.html"
+      url   : "/organism/pricing-table/pricing-table.html"
 
     - title : "Registration"
-      url   : "/organism/registration.html"
+      url   : "/organism/registration/registration.html"
 
-    - title : "Resources"
-      url   : "/organism/resources.html"
+    - title : "Resource"
+      url   : "/organism/resource/resource.html"
 
     - title : "Search"
-      url   : "/organism/search.html"
+      url   : "/organism/search/search.html"
 
     - title : "Shop"
-      url   : "/organism/shop.html"
+      url   : "/organism/shop/shop.html"
 
     - title : "Stripe"
-      url   : "/organism/stripe.html"
+      url   : "/organism/stripe/stripe.html"
 
     - title : "Tasks"
-      url   : "/organism/tasks.html"
+      url   : "/organism/tasks/tasks.html"
 
     - title : "Timeline"
-      url   : "/organism/timeline.html"
+      url   : "/organism/timeline/timeline.html"
 
 # Social
 social :
@@ -328,7 +331,10 @@ template :
       url   : "/template/template.html"
 
     - title : "Article"
-      url   : "/template/article.html"
+      url   : "/template/article/article.html"
+
+    - title : "Portfolio"
+      url   : "/template/portfolio/portfolio.html"
 
     - title : "Prototype"
-      url   : "/template/prototype.html"
+      url   : "/template/prototype/prototype.html"

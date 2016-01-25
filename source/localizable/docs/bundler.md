@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Bundler"
+    title : "Bundler"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Bundler"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Bundler"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ bundler ]
 
 ---
 

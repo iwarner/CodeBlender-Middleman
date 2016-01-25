@@ -12,9 +12,9 @@ meta :
     title       : "Mandrill email"
     type        : "article"
 
+category : "business"
 date     : 2014-01-20
 modified : 2015-10-14
-
 excerpt  : "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ideal for sending data-driven transactional emails, including targeted e-commerce and personalized one-to-one messages."
 tags     : [ email, newsletter, marketing ]
 

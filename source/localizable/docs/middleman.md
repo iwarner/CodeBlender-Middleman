@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Middleman"
+    title : "Middleman"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Middleman"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Middleman"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ middleman ]
 
 ---
 

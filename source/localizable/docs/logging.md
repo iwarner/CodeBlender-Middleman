@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Logging"
+    title : "Logging"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Logging"
     type   : ""
 
+category : "infrastructure"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Logging"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ logging ]
 
 ---
 

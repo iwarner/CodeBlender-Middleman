@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Parallax"
+    title : "Parallax"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Parallax"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Parallax"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ parallax ]
 
 ---
 

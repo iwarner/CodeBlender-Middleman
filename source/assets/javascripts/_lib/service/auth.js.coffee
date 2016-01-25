@@ -17,11 +17,11 @@ angular
 .factory 'auth', [
 
     '$firebaseAuth'
-    'utilities'
+    'utility'
 
-    ( $firebaseAuth, utilities ) ->
+    ( $firebaseAuth, utility ) ->
 
-        # $firebaseAuth utilities.ref()
+        # $firebaseAuth utility.ref()
 
         # Just added for now so it does not error remove when uncomment above
         return false

@@ -1,20 +1,20 @@
 ##
-# Firebase Utilities
+# Firebase utility
 ##
 
 ##
-# JS Lint
+# JS lint
 ##
 'use strict'
 
 # Module
 angular
-    .module 'app.utilities'
+    .module 'app.utility'
 
 ##
 #
 ##
-.factory 'utilities', [
+.factory 'utility', [
 
     '$window'
     'FBURL'

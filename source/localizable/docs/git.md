@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "GIT"
+    title : "GIT"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "GIT"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "GIT"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ git ]
 
 ---
 
@@ -25,7 +26,7 @@ tags     : [ alerting ]
 The next task to tackle is how we get the latest files for the project. These
 should all be contained within a [GIT][] repository.
 
-The project manager will setup the required account. You should then be able to
+The project manager will set-up the required account. You should then be able to
 find and use the SSH Clone URL
 
 Once the project is cloned, it will automatically look for the Library files
@@ -50,7 +51,7 @@ Please read this as an intro into Git usage
 
 Especially the Basics and Branching chapters.
 
-[Git Setup](http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup)
+[Git Set-up](http://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup)
 [Git Attributes](http://git-scm.com/docs/gitattributes#_checking-out_and_checking-in)
 
 ## Line Endings
@@ -63,11 +64,13 @@ List all the ones currently in the organisation
     $ git clone git@github.com:AlphaFounders/alphafounders.com.git
 
 ### Adding New Files
+
 If you have new files, you can add them all with:
 
     $ git add .
 
 ### Update web.wiki
+
     $ git clone git@github.com:AlphaFounders/alphafounders.com.wiki.git
     $ git status
     $ git commit -am "updates to wiki"
@@ -75,6 +78,7 @@ If you have new files, you can add them all with:
     $ git push
 
 ### Resolving Conflicts
+
 If you have any conflicts you can edit the files and then commit again.
 
     $ git add {file.txt}

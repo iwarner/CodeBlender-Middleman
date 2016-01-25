@@ -10,6 +10,7 @@ meta :
     title  : "Search"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
 excerpt  : "Search"
 modified : 2014-02-09

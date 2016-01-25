@@ -10,6 +10,7 @@ meta :
     title  : "Social"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
 excerpt  : "Social"
 modified : 2014-02-09

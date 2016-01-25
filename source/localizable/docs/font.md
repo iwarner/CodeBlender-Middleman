@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Font"
+    title : "Font"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Font"
     type   : ""
 
+category : "design"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Font"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ font ]
 
 ---
 

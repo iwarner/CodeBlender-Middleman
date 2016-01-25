@@ -10,6 +10,7 @@ meta :
     title  : "Analytics"
     type   : ""
 
+category : "reporting"
 date     : 2014-01-20
 excerpt  : "Analytics"
 modified : 2014-02-09

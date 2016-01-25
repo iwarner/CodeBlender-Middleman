@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "User experience"
+    title : "User experience"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "User experience"
     type   : ""
 
+category : "design"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "User experience"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ user-experience ]
 
 ---
 

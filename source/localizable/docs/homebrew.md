@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Homebrew"
+    title : "Homebrew"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Homebrew"
     type   : ""
 
+category : "developer"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Homebrew"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ homebrew ]
 
 ---
 
@@ -22,10 +23,10 @@ tags     : [ alerting ]
 {:toc}
 
 ## Introduction
-Ustilising [Homebrew][] will speed up the setup process for the requirements
+Utilising [Homebrew][] will speed up the set-up process for the requirements
 to run Middleman. Please Read the [docs][].
 
-Homebrew has one dependancy; Command Line Tools for Xcode or [Xcode][] itself.
+Homebrew has one dependency; Command Line Tools for Xcode or [Xcode][] itself.
 Xcode can be installed through the App Store; then add the command line tools
 within Xcode with the following steps
 

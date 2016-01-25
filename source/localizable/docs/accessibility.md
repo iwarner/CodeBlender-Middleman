@@ -10,6 +10,7 @@ meta :
     title  : "Accessibility first"
     type   : ""
 
+category : "user-experience"
 date     : 2014-01-20
 excerpt  : "Accessibility (WCAG) is crucial for both the website and the mobile apps."
 modified : 2014-02-09
@@ -28,7 +29,7 @@ The full [W3C Guidelines 2008][] can be found here and the older
 [W3C Guidelines 1999][]
 
 These include users who have visual, physical or age-related limitations that prevent
-them from fully seeing or using a touchscreen, and users with hearing loss who may
+them from fully seeing or using a touch screen, and users with hearing loss who may
 not be able to perceive audible information and alerts.
 
 An itemised checklist of the main points for the web can be found at [W3C Chcklist][].
@@ -41,7 +42,7 @@ they are engaged with. This could be a mobile, tablet or desktop device.
 ### High Level Goals
 
 * Set up and use the application without sighted assistance.
-* All task workflows in the application can be easily navigated using directional
+* All task work flows in the application can be easily navigated using directional
 controls and provide clear and appropriate feedback
 
 ## Organisations
@@ -54,7 +55,7 @@ controls and provide clear and appropriate feedback
 Emulating screen readers is important for testing the Web Version of the TMS
 project.
 
-The softwarre is mostly geared towards windows users, but through virtualisation
+The software is mostly geared towards windows users, but through virtualisation
 or emulation we can achieve a good result through a Mac
 
 Please read [Screen Reader Testing][] tutorial for more information.
@@ -75,14 +76,14 @@ Please read the [Accessibility iOS][] documentation for an overview and
 [Testing Accessibility iOS][] on how to test accessibility points.
 And the more generic [Marketing iOS][] text
 
-### iOS Barclays App Testing
+### iOS Barclay's App Testing
 
 Firstly switched on the default setting for VoiceOver - equivalent of TalkBack in Android.
-Testing Barlcays Banking Application
+Testing Barclay's Banking Application
 
 Two finger swipe down explains all elements on the page.
 
-* App Name is simply Banking so not desriptive enough. Should be "Barclays Banking"
+* App Name is simply Banking so not descriptive enough. Should be "Barclays Banking"
 * Open Up and again states "Banking"
 * Clicking on buttons VoiceOver states "Button Name" then "Type" i.e. Button
 * When an Alert (popup) opens VoiceOver states "Alert" and then "Name of first button"

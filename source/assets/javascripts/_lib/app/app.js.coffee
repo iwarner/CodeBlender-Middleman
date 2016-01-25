@@ -1,16 +1,16 @@
 ##
-# Application Initialisation
+# Application initialisation
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 
 ##
-# JS Lint
+# JS lint
 ##
 'use strict'
 
 ##
-# Set Modules
+# Set modules
 #
 # @param ngRoute Router
 # @param codeBlenderControllers Controller
@@ -25,9 +25,9 @@ angular
         'app.config'
         'app.controller'
         'app.directive'
-        'app.filters'
+        'app.filter'
         'app.security'
-        'app.utilities'
+        'app.utility'
 
         'firebase'
 
@@ -46,6 +46,6 @@ angular.module 'app.auth',       []
 angular.module 'app.config',     []
 angular.module 'app.controller', []
 angular.module 'app.directive',  []
-angular.module 'app.filters',    []
+angular.module 'app.filter',     []
 angular.module 'app.security',   []
-angular.module 'app.utilities',  []
+angular.module 'app.utility',    []

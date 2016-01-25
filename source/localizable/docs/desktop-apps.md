@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Desktop applications"
+    title : "Desktop applications"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Desktop applications"
     type   : ""
 
+category : "back-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Desktop applications"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ desktop ]
 
 ---
 

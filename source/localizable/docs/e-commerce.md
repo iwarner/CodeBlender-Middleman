@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "E-commerce"
+    title : "E-commerce"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "E-commerce"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "E-commerce"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ e-commerce ]
 
 ---
 

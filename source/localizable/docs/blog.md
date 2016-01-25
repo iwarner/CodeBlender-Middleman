@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Blog"
+    title : "Blog"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Blog"
     type   : ""
 
+category : "user-experience"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Blog"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ blog ]
 
 ---
 
@@ -27,7 +28,7 @@ tags     : [ alerting ]
 
 ## Table of Contents
 The ToC is an automatic [Kramdown utility][], simply including the following
-withing a markdown document will create an indexed contents element.
+within a markdown document will create an indexed contents element.
 
 ~~~markdown
 * ToC
@@ -40,7 +41,7 @@ with the following command
 
 ~~~ruby
 -# Tag Cloud
-= partial "./molecule/tagCloud/tagCloud"
+= partial "./molecule/tag-cloud/tag-cloud"
 ~~~
 
 ## Footer

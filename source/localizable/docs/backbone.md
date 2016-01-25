@@ -10,6 +10,7 @@ meta :
     title  : "Backbone"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
 excerpt  : "Backbone"
 modified : 2014-02-09

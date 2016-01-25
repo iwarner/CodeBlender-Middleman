@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Node"
+    title : "Node"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Node"
     type   : ""
 
+category : "back-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Node"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ node ]
 
 ---
 

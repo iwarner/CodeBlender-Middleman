@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Laravel"
+    title : "Laravel"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Laravel"
     type   : ""
 
+category : "back-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Laravel"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ laravel ]
 
 ---
 

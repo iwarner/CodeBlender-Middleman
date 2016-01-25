@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Continuous integration"
+    title : "Continuous integration"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Continuous integration"
     type   : ""
 
+category : "continuous-integration"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Continuous integration"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ continuous-integration ]
 
 ---
 
@@ -43,12 +44,12 @@ Either of these are compatible with Mac OSX Server
 
 ## Thor
 Within each project is a [Thor][] script. This provides a means to conduct local
-CI and should be updated in regards to what happend on the [Jenkins][] Instance.
+CI and should be updated in regards to what happened on the [Jenkins][] Instance.
 
 Please read the [Thor][] wiki page for more information
 
 ## Todo
-* Setup a [Jenkins][] instance on the server to lint, build and test the app and site.
+* Set-up a [Jenkins][] instance on the server to lint, build and test the app and site.
 * Check out Ansible Works more
 * Check out Team City more
 
@@ -66,7 +67,7 @@ Please read the [Thor][] wiki page for more information
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/php+jenkins)
 
 Develop Branch
-Some would call this the “integration branch”. This is where any automatic nightly builds are built from.
+Some would call this the "integration branch". This is where any automatic nightly builds are built from.
 
 ## CI Server
 
@@ -127,7 +128,7 @@ PHPUnit is the de-facto standard for unit testing in PHP projects. It provides b
 
 ## Configuration
 
-* Add System Message "Welcome to  our Continuous Intergration Server"
+* Add System Message "Welcome to  our Continuous Integration Server"
 * Enable Security
     * Security Realm : Jenkins's own user database
         * Make sure Allows Users to Sign Up is checked

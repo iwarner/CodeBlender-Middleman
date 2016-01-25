@@ -13,7 +13,7 @@
 navbar : true
 
 # Paths to the partials to display navigation above and below
-above     : "organism/navAbove/navAbove"
+above     : "organism/nav-above/nav-above"
 below     : false
 container : "container"
 

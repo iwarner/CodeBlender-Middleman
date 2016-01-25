@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Phantom JS"
+    title : "Phantom JS"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Phantom JS"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Phantom JS"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ phantomjs ]
 
 ---
 

@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Blog post"
+    title : "Blog post"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Blog post"
     type   : ""
 
+category : "user-experience"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Blog post"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ blog ]
 
 ---
 

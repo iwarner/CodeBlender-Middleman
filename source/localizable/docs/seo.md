@@ -10,6 +10,7 @@ meta :
     title  : "SEO"
     type   : ""
 
+category : "business"
 date     : 2014-01-20
 excerpt  : "SEO"
 modified : 2014-02-09

@@ -1,19 +1,20 @@
 ---
 
 heading :
-    small : "Alerting"
-    title : "Alerting"
+    small : "Front end"
+    title : "Front end"
 
 meta :
     author : "Ian Warner"
     image  : ""
-    title  : "Alerting"
+    title  : "Front end"
     type   : ""
 
+category : "front-end"
 date     : 2014-01-20
-excerpt  : "Alerting"
+excerpt  : "Front end"
 modified : 2014-02-09
-tags     : [ alerting ]
+tags     : [ front-end ]
 
 ---
 
@@ -106,7 +107,7 @@ List and link any extensions used in the development
 * Correct Doctype
 * HTML5 Shim
 
-## Javascript
+## JavaScript
 
 * Coding Standards
 * Minification
@@ -114,7 +115,7 @@ List and link any extensions used in the development
 * JQuery Only
     * Use Google AJAX Libraries to serve this
 * Unit Tests
-* Utilise Javacript Templates - dot / plates etc
+* Utilise JavaScript Templates - dot / plates etc
 
 ## Validation of Code
 
