@@ -2,10 +2,10 @@
 
 meta :
     author      : "DryKISS"
-    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    description : "Panel - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "Panel - CodeBlender"
     type        : "website"
 
 heading :
@@ -13,17 +13,11 @@ heading :
 
 see :
     - - "Bootstrap Panel"
-      - "http://getbootstrap.com/component/#panels"
+      - "http://getbootstrap.com/components/#panels"
 
 todo :
-    - - "Header bar should have a collapseable element to the left hand side"
-      - "Panel"
-      - "2014-04-30"
-      - { "context" : "info" }
+    - - "Header bar should have a collapsible element to the left hand side"
     - - "Look at integration with tables and lists"
-      - "Panel"
-      - "2014-03-24"
-      - { "context" : "info" }
 
 locals :
     - - "body"
@@ -65,14 +59,14 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./atom/panel/panel", locals: { body: "Body" }}
+    code = %{partial "molecule/panel/panel", locals: { body: "Body" }}
 
 -# Code
 = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 -# Full Panel
 :ruby
-    code = %{partial "./atom/panel/panel",
+    code = %{partial "molecule/panel/panel",
                       locals: { body:    "Body",
                                 context: "primary",
                                 footer:  "Footer",
@@ -84,7 +78,7 @@ locals :
 
 -# Panel with Image as Heading
 :ruby
-    code = %{partial "./atom/panel/panel",
+    code = %{partial "molecule/panel/panel",
                       locals: { body:    "Body",
                                 context: "primary",
                                 footer:  "Footer",
@@ -104,12 +98,11 @@ locals :
     = partial "./atom/button/button", locals: { text: "Primary", context: "primary" }
 
 :ruby
-    code = %{partial "./atom/panel/panel",
+    code = %{partial "molecule/panel/panel",
                       locals: { body:    [ @captureHTML ],
                                 context: "primary",
                                 footer:  "Footer",
-                                heading: { text: "Heading",
-                                           tag:  "h3" },
+                                heading: { text: "Heading", tag: "h3" },
                                 tools:   true }}
 
 -# Code

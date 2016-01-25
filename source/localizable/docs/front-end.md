@@ -55,7 +55,7 @@ http://www.feedthebot.com/pagespeed/optimize-css-delivery.html
 * Sort out I18n Paths for the navigation
 * If the language is the mount at root language then we don't need it in the path
 
-We will be utilising Middleman App for the frontend development.
+We will be utilising Middleman App for the front-end development.
 It automatically processes the HTML with some of the elements below.
 
 ## Vendor

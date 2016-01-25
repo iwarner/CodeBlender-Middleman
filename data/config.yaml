@@ -57,7 +57,7 @@ meta :
     favicon  : false
     feed     : false
     google   : false
-    mobile   : false
+    mobile   : true
     touch    : false
     twitter  : false
 

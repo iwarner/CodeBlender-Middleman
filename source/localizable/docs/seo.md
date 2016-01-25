@@ -82,3 +82,4 @@ the keywords and phrases targetted
 
 http://thenextweb.com/socialmedia/2014/02/28/get-found-guide-getting-everlasting-traffic-keyword-research/?fromcat=all#!xUQMZ
 http://www.transversal.com/solutions/seo
+Search Console
