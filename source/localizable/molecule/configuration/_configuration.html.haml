@@ -1,0 +1,47 @@
+-##
+-# Configuration
+-# Allow for certain aspects of the site to be changed via classes
+-#
+-# @usage
+-# -# Configuration
+-# = partial "./molecule/configuration/configuration"
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @see      http://www.keenthemes.com/preview/metronic/theme/templates/admin4/page_blog.html
+-#
+-# @todo Get this working again
+-##
+
+-# Capture Configuration Elements
+- content_for :configuration do
+
+    -# Dropdown to select background
+    - array = [ [ "Select Background", "-1" ] ]
+
+    - ( 1..10 ).each do | index |
+        - array << [ "bg-hero#{ index }.jpg" ]
+
+    -# Select
+    = partial "./atom/select/select", locals: { array: array, name: "backgroundSelector", label: { title: "Background" } }
+
+-# Configuration Toolbox
+#skin-toolbox{ style: "right: -182px;" }
+
+    -# Icon
+    .skin-toolbox-toggle
+
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: "fa-flask" }
+
+    -# Panel
+    .skin-toolbox-panel
+
+        -# Heading
+        = partial "./molecule/heading/heading", locals: { tag: "h5", text: "Site Options" }
+
+        -# Form
+        %form#skin-toolbox-form
+
+            -# Yield Content
+            = yield_content :configuration

@@ -1,0 +1,76 @@
+-##
+-# Bootstrap Table
+-#
+-# @usage
+-# Frontmatter Array
+-# see :
+-#     - - "DataTables"
+-#       - "https://www.datatables.net/"
+-#
+-# -# Create Array
+-# - array = { cols: [ "Title", "URL" ],
+-#             data: array ? array : current_page.data.see }
+-#
+-# -# Table
+-# = partial "./molecule/table/table",
+-#            locals: { array:      array,
+-#                      extraClass: "table-striped table-condensed" }
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Table
+%table.table{ aria:   { describedby: "dataTable_info" },
+              role:   "grid",
+              id:     locals[ :id ]         ? id         : false,
+              class:  locals[ :extraClass ] ? extraClass : false,
+              hidden: locals[ :hidden ]     ? "hidden"   : false  }
+
+    -# Header
+    %thead
+
+        %tr
+
+            -# Loop through the columns section to create the Header Row
+            - array[ :cols ].each do | col |
+                %th= string col
+
+    -# Footer
+    - if locals[ :footer ]
+        %tfoot
+
+            %tr
+
+                -# Loop through the columns section to create the Header Row
+                - array[ :cols ].each do | col |
+                    %th= string col
+
+
+    -# Body
+    - if array[ :data ]
+
+        %tbody
+
+            -# Loop through the data rows
+            - array[ :data ].each do | row |
+
+                -# Check to see if there is a context
+                - context = false
+
+                / - if row.is_a?( Array )
+                /     - context = row.detect { | f | f[ "context" ] }
+
+                -# Table Row
+                %tr{ class: context ? context[ :context ] : false }
+
+                    -# Loop through the data cells
+                    - row.each do | cell |
+
+                        -# Decorate the URL element into a link
+                        - if  cell.include? "http"
+                            - cell = "<a href=\"#{ cell }\" target=\"_blank\">#{ cell }</a>"
+
+                        -# Do not want to show the contextual
+                        - if ! cell.is_a?( Hash )
+                            %td= cell

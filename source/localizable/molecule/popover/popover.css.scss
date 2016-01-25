@@ -1,0 +1,30 @@
+//
+// Popover
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+// @see    http://getbootstrap.com/javascript/#popovers
+//----------------------------------------------------------------------------//
+
+// Pop Me
+//----------------------------------------------------------------------------//
+.popMe {
+    cursor : pointer;
+}
+
+// Popover
+//----------------------------------------------------------------------------//
+.popover {
+
+    .popover__title {
+        color : #FFF;
+    }
+
+    // Popover
+    //------------------------------------------------------------------------//
+    .popover__close {
+        position : absolute;
+        right    : 8px;
+        top      : 5px;
+    }
+
+}

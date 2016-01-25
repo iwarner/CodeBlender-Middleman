@@ -1,0 +1,19 @@
+//
+// Collapse
+// Overides for the Bootstrap Collapse
+//
+//----------------------------------------------------------------------------//
+
+// Collapse
+//----------------------------------------------------------------------------//
+.panel-group {
+
+    .panel-heading {
+        cursor : pointer;
+
+        .panel-title > a:hover {
+            text-decoration : none;
+        }
+    }
+
+}

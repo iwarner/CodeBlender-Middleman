@@ -1,0 +1,24 @@
+//
+// Scroll Top
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//
+// @todo Needs to be BEM - not really called ScrollTop
+//----------------------------------------------------------------------------//
+.scrollTop {
+
+    position   : fixed;
+    bottom     : 0;
+    right      : 6%;
+    z-index    : 100;
+    background : $link-hover-color;
+    font-size  : 24px;
+
+    border-top-left-radius  : 3px;
+    border-top-right-radius : 3px;
+
+    a:link, a:visited {
+        color : #222;
+    }
+
+}

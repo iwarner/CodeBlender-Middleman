@@ -1,0 +1,65 @@
+-##
+-# Form Checkbox
+-#
+-# Locals
+-# aria      - Aria Elements
+-#     label     - string - optioanl - If no elements describe this then add text
+-#     labeledby - string - optional - Use a list of ids that describe this element
+-# autofocus - bool   - optional - Whether this input should be autofocussed
+-# disabled  - bool   - optional - Disabled
+-# help      - string - optional - Help text
+-# inline    - bool   - optional - Whether the checkboxes should be inline
+-# name      - string - required - Name of the field
+-# required  - bool   - optional - If validation is required
+-# tabindex  - int    - optional - Tabindex for the element
+-# text      - string - optional - Text next to the checkbox if required
+-# value     - string - optional - Input value
+-#
+-# Usage
+-# -# Checkbox
+-# = partial "./form/checkbox",
+-#            :locals => { :aria => { :label => "HERE", },
+-#                         :name => "checkbox",
+-#                         :text => "Textual description here" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- l  = locals
+- la = l[ :aria ]
+
+-# Form Group
+.checkbox.control-label.has-success
+
+    -# Label
+    %label{ :class => l[ :inline] ? "checkbox-inline" : false,
+            :for   => l[ :name ] }
+
+        -# Input
+        %input{ :aria      => { :label      => ! la.blank? && ! la[ :label ].blank?      ? la[ :label ]      : false,
+                                :labelledby => ! la.blank? && ! la[ :labelledby ].blank? ? la[ :labelledby ] : "#{ l[ :name ] }ID" },
+                :autofocus => l[ :autofocus ] ? "autofocus" : false,
+                :disabled  => l[ :disabled ]  ? "disabled"  : false,
+                :id        => l[ :name ]      ? name        : false,
+                :name      => l[ :name ]      ? name        : false,
+                :required  => l[ :required ]  ? "required"  : false,
+                :tabindex  => l[ :tabindex ]  ? tabindex    : false,
+                :type      => "checkbox",
+                :value     => l[ :value ]     ? value       : false }
+
+        -# Text
+        - if l[ :text ]
+            %span{ :id => "#{ l[ :name ] }ID" }
+                = string text
+
+    -# Help Block
+    -# Sometimes this should be hidden to allow errors to be added inside.
+    -# Assume if l[ :help ] is a "true" Bool only then add class hidden and no text
+    - if l[ :help ]
+
+        %span.help-block{ :class => !!help == help ? "hidden" : false }
+
+            -# Help should be a string to show the text otherwise leave blank
+            - if help.is_a?( String )
+                = help

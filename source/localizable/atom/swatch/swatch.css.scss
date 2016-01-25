@@ -1,0 +1,62 @@
+//
+// Swatch
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Colour Swatch
+//----------------------------------------------------------------------------//
+.swatches {
+
+    padding : 0;
+    clear   : both;
+    float   : left;
+    width   : 100%;
+
+    &__swatch {
+        float            : left;
+        width            : 15em;
+        margin-right     : 1em;
+        list-style-type  : none;
+        font-size        : 0.8em;
+        line-height      : 1.2em;
+        margin-bottom    : 1em;
+        background-color : #fff;
+        height           : 13em;
+        border-radius    : 3px;
+        position         : relative;
+        overflow         : hidden;
+    }
+
+    &__preview {
+        height           : 5em;
+        width            : 103%;
+        display          : table-cell;
+        margin-bottom    : 0.5em;
+        border-radius    : 3px 3px 0 0;
+        padding          : 0;
+        font-size        : 2em;
+        text-align       : center;
+        line-height      : 1.1;
+        vertical-align   : middle;
+        overflow         : hidden;
+        float            : none;
+        position         : absolute;
+        top              : -0.25em;
+        left             : -1.5%;
+        right            : -1.5%;
+        background-color : black;
+        color            : white;
+    }
+
+    &__detail {
+        padding          : 0.7em 5% 0;
+        margin-bottom    : 0.5em;
+        display          : block;
+        position         : absolute;
+        bottom           : 0;
+        background-color : white;
+        color            : #999;
+    }
+
+}

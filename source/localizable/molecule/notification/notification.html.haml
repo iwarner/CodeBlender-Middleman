@@ -1,0 +1,55 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    small : "Local alerts for users, using modern browsers"
+    title : "Scaffolding Notifications partial"
+
+see :
+    - - "Pusher"
+      - "http://pusher.com/"
+    - - "HTML5 Notifications"
+      - "http://www.paulund.co.uk/html5-notifications"
+    - - "Safari Push Notifications"
+      - "https://developer.apple.com/notifications/safari-push-notifications/"
+    - - "Notification Spec"
+      - "https://developer.mozilla.org/en-US/docs/Web/API/notification"
+    - - "Notify JS"
+      - "http://alxgbsn.co.uk/2013/02/20/notify-js-a-handy-wrapper-for-the-web-notifications-api/"
+
+---
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Test Notification" }
+
+%p{ contenteditable: "true" }
+    The process is, test if Notification is supported, see if the user
+    has either granted, denied or are in a default state in terms of
+    notification permissions. Ask for permissions if not granted.
+    Lastly process the sending of the Notification.
+
+-# Notification
+= partial "./atom/button/button", locals: { text: "Test Notification", extraClass: "touchNotification", size: "lg" }
+
+%br
+%br
+
+-# Code
+:code
+    #lang: coffee
+    # CoffeeScript Code
+    # Instantiate Notification Class
+    notification = new App.Classes.Notification
+
+    # Create Notification in JavaScript
+    notification.create "Hello",
+        body : "Body of the Notification"
+        tag  : "CodeBlender"
+        icon : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWYGX6PCYhae1Sm6rhkA_UB9lLCTczhtx4mDa6ghPcEHIOwCHL2A"

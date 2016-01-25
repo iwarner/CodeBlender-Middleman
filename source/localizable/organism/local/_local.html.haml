@@ -1,0 +1,23 @@
+-##
+-# Locals
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Create Array
+- array = { columns: [ { label: "Attribute" },
+                       { label: "Type" },
+                       { label: "Required?" },
+                       { label: "Description" } ],
+            data:    current_page.data.locals }
+
+-# Table
+- body = partial "./molecule/table/table", locals: { array: array, tableClass: "table-striped table-condensed" }
+
+-# Locals Panel
+= partial "./bootstrap/component/panels",
+           locals: { table:    body,
+                     collapse: true,
+                     context:  "primary",
+                     heading:  { extraClass: "panel-title", text: "Locals", tag: "h2" },
+                     tools:    true }

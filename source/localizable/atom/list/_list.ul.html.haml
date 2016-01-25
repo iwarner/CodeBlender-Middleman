@@ -1,0 +1,79 @@
+-##
+-# List UL Partial
+-# Navbar usage will exclude the UL tag
+-#
+-# Possible Bootstrap classes
+-# list-unstyled (This only applies to immediate children list items)
+-# list-inline
+-#
+-# @usage
+-# -# List
+-# = partial "./atom/list/list.ul", locals: { array: current_page.data.list, type: "ol" }
+-#
+-# @param array
+-# @param extraClass
+-# @param type
+-#
+-# @category atom
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @see      http://getbootstrap.com/css/#type-lists
+-##
+
+-# Type UL or OL
+- if ! locals[ :type ]
+    - type = "ul"
+
+-# Capture Content
+- captureHTML = capture_html do
+
+    -# Loop through the list array
+    - locals[ :array ].each do | list |
+
+        -# Active
+        - classes = list[ :active ] ? "active" : ""
+
+        -# Extra Classes
+        - classes += list[ :extraClass ] ? " #{ list[ :extraClass ] }" : ""
+
+        -# Status
+        - classes += list[ :status ] ? " #{ list[ :status ] }" : ""
+
+        -# List Item
+        %li{ class: ! classes.empty?    ? classes                        : false,
+             data:  list[ :data ]       ? list[ :data ]                  : false,
+             ng:    list[ :ng ]         ? list[ :ng ]                    : false,
+             ui:    list[ :ui ]         ? { sref: { active: "active" } } : false,
+             role:  locals[ :dropdown ] ? "presentation"                 : false }
+
+            -# If URL is present then show a link
+            - if list[ :link ]
+
+                -# Link To
+                = link_to( string( list[ :link ][ :url ] ),
+                           { ng:     list[ :link ][ :ng ]     ? list[ :link ][ :ng ]     : false,
+                             target: list[ :link ][ :target ] ? list[ :link ][ :target ] : false,
+                             ui:     list[ :link ][ :ui ]     ? list[ :link ][ :ui ]     : false } ) do
+
+                    -# Icon
+                    - if list[ :icon ]
+
+                        -# Icon
+                        = partial "./atom/icon/icon", locals: { icon: list[ :icon ] }
+
+                    - if list[ :text ]
+                        = string list[ :text ]
+
+                -# No Link Required
+            - else
+                = string list[ :text ]
+
+-# Navbar flag
+- if locals[ :navBar ]
+
+    = captureHTML
+
+- else
+
+    -# HAML Tag
+    - haml_tag type, { class: locals[ :extraClass ] } do
+        = captureHTML

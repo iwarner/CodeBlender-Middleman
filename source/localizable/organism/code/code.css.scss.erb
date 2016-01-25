@@ -1,0 +1,78 @@
+//
+// Pygments Syntax Highlighting
+// Rouge has ThankfulEyes, Colorful, Github, Base16, Base16::Solarized, Base16::Monokai, and Monokai themes.
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//
+// @todo   Add the URL for the pygments instructions and middleman syntax highlighting and Rouge
+// @todo   Tab Nav need a better active colour - check bootstrap docs
+//----------------------------------------------------------------------------//
+
+// Rouge
+//----------------------------------------------------------------------------//
+<%= Rouge::Themes::Github.render( scope: '.highlight' ) %>
+
+// Code
+//----------------------------------------------------------------------------//
+.code {
+
+    // Example Area
+    //------------------------------------------------------------------------//
+    &__example {
+        background-color : #fff;
+        border           : 1px solid #DDD;
+        border-bottom    : 0;
+        border-radius    : 4px 4px 0 0;
+        padding          : 5px 15px 15px;
+    }
+
+    // Code Area
+    //------------------------------------------------------------------------//
+    &__code {
+        background-color : #f7f7f9;
+        border           : 1px solid #DDD;
+        border-radius    : 0 0 4px 4px;
+    }
+
+    // Copy Button
+    //------------------------------------------------------------------------//
+    &__clip {
+        float  : right;
+        margin : 3px;
+    }
+
+    // Bootstrap Nav Tabs
+    //------------------------------------------------------------------------//
+    .nav-tabs {
+
+        > li {
+
+            margin : -1px;
+
+            &.active {
+                > a {
+                    border-bottom-color : #DDD;
+                }
+            }
+
+            > a {
+                border-radius : 0;
+            }
+        }
+    }
+
+    // Tab Content
+    //------------------------------------------------------------------------//
+    .tab-content {
+        background-color : #fff;
+    }
+
+    // Highlight
+    //------------------------------------------------------------------------//
+    .highlight {
+        background-color : inherit;
+        border           : 0;
+        margin           : 0;
+    }
+
+}

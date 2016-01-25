@@ -1,0 +1,25 @@
+-##
+-# Google Universal Analytics
+-# Place the locals in the data/google.yaml file
+-#
+-# @usage
+-# -# Google Analytics
+-# = partial "./atom/analytics/analytics"
+-#
+-# @param googleAnalytics    - String - Required - Analytics ID
+-# @param googleAnalyticsURL - String - Required - Associated Domain
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://www.google.com/analytics/
+-##
+
+-# Analytics
+:javascript
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga( 'create',  '#{ dataGoogle.analytics.code }', '#{ dataGoogle.analytics.url }' );
+    ga( 'require', 'displayfeatures' );
+    ga( 'send',    'pageview' );

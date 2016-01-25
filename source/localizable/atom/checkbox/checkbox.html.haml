@@ -1,0 +1,99 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Checkbox - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Checkbox - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Form Checkbox"
+
+see :
+    - - "Bootstrap Supported Controls"
+      - "http://getbootstrap.com/css/#forms-controls"
+    - - "W3 Specification"
+      - "http://www.w3.org/TR/html-markup/input.checkbox.html"
+    - - "Bootstrap Switch"
+      - "http://www.bootstrap-switch.org/"
+
+todo :
+    - - "Work out how to do in-line checkboxes with the current partial"
+    - - "Allow the checkbox look and feel to be overridden i.e. a larger checkbox area"
+    - - "Figure out how to use validation messages with Checkboxes"
+    - - "Fancy checkboxes are breaking the normal ones"
+    - - "Allow for the classes to be altered, i.e. not just circle"
+    - - "Radio can use the same controls I think"
+    - - "Allow for Input classes to be altered"
+    - - "Give instructions on what needs to be installed to make these work"
+
+---
+
+-# Heading - H2
+= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Checkbox" }
+
+-# Form
+%form{ novalidate: false }
+
+    %checkbox{ ng: { model: "checkboxModel" } }
+
+    / <checkbox
+    /     ng-model=""
+    /     name="custom-name"              (Optional)
+    /     ng-true-value="The Truth"       (Optional)
+    /     ng-false-value="The Untruth"    (Optional)
+    /     ng-change="onChange()"          (Optional)
+    / ></checkbox>
+
+/ -# Code
+/ :code
+/     #lang: ruby
+/     -# Checkbox
+/     = partial "./atom/checkbox/checkbox", locals: { name: "checkbox", text: "Textual description here" }
+
+/ -# Heading
+/ = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Disabled Checkbox" }
+
+/ -# Form
+/ %form{ novalidate: false }
+
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
+
+/ -# Code
+/ :code
+/     #lang: ruby
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
+
+/ -# Heading
+/ = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Fancy Checkbox" }
+
+/ -# Form
+/ %form{ novalidate: false }
+
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { extraClass: "fancy", name: "checkbox2", text: "Textual description here" }
+
+/ -# Code
+/ :code
+/     #lang: ruby
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
+
+/ -# Heading
+/ = partial "./molecule/heading/heading", locals: { tag: "h2", text: "Disabled Fancy Checkbox" }
+
+/ -# Form
+/ %form{ novalidate: false }
+
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { disabled: true, extraClass: "fancy", name: "checkbox3", text: "Textual description here" }
+
+/ -# Code
+/ :code
+/     #lang: ruby
+/     -# Checkbox
+/     = partial "./form/checkbox", locals: { disabled: true, extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }

@@ -1,0 +1,41 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    title : "Widget"
+
+see :
+    - - "Simple Cart"
+      - "https://github.com/wojodesign/simplecart-js"
+
+todo :
+    - - "Need to allow more than one on a page - doesnt show cart items on first one"
+      - "Simple Cart"
+      - "2014-02-12"
+      - { "context" : "danger" }
+    - - "Spinner can this be a form spinner - increase size of arrows anyway - make icons"
+      - "Simple Cart"
+      - "2014-02-12"
+      - { "context" : "info" }
+    - - "When there are no items the arrows color is not correct"
+      - "Simple Cart"
+      - "2014-02-19"
+      - { "context" : "warning" }
+
+---
+
+- id = 1
+
+-# Archive
+:ruby
+    code = %{partial "./molecule/widget/widget"}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

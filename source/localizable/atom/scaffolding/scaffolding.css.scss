@@ -1,0 +1,85 @@
+//
+// Bootstrap
+// Creates the CSS for the main elements of the site
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Variables
+//----------------------------------------------------------------------------//
+
+// Font Awesome
+//----------------------------------------------------------------------------//
+$fa-font-path : font-url( ".", true ) !default;
+
+// Scaffolding
+//----------------------------------------------------------------------------//
+$body-bg : whitesmoke !default;
+
+// Global
+//----------------------------------------------------------------------------//
+* {
+    -webkit-font-smoothing      : antialiased;
+    -webkit-tap-highlight-color : rgba( 0, 0, 0, 0 );
+    -webkit-text-size-adjust    : none;
+    -webkit-touch-callout       : none;
+    -moz-osx-font-smoothing     : grayscale;
+}
+
+// HTML
+//----------------------------------------------------------------------------//
+html {
+    height : 100%;
+}
+
+// Body
+//----------------------------------------------------------------------------//
+body {
+
+    // Add Padding required if using the fixed NavBar
+    //------------------------------------------------------------------------//
+    padding-top : 70px;
+    height      : 100%;
+    min-height  : 100%;
+    width       : 100%;
+}
+
+// Links
+//----------------------------------------------------------------------------//
+// a {
+
+//     text-decoration : none;
+
+//     i {
+//         font-size      : 12px;
+//         vertical-align : middle;
+//         padding-left   : 2px;
+//     }
+
+//     &.anchor {
+//         display    : block;
+//         position   : relative;
+//         top        : 0;
+//         visibility : hidden;
+//     }
+// }
+
+// Horizontal rules
+//----------------------------------------------------------------------------//
+// hr {
+//     margin : 5px 0;
+// }
+
+// Mobile Prototype Region
+// @include region( "Back", 100, 100, 100, 100 );
+//----------------------------------------------------------------------------//
+@mixin region( $region, $height, $width, $left : 0, $top : 0 ) {
+
+    .region#{ $region } {
+        height : #{ $height }px;
+        width  : #{ $width }px;
+        left   : #{ $left }px;
+        top    : #{ $top }px;
+    }
+
+}

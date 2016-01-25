@@ -1,0 +1,42 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    title : "Icon"
+
+see :
+    - - "Font Awesome"
+      - "http://fortawesome.github.io/Font-Awesome/"
+    - - "Fontello"
+      - "http://fontello.com/"
+    - - "Zocial Icons"
+      - "http://zocial.smcllns.com/"
+
+todo :
+    - - "Make tabs for the different icons sets we utilise - Font Awesome"
+      - "Icon"
+      - "2014-02-20"
+      - { "context" : "warning" }
+    - - "Present the icons into usable grids - copy from bootstrap"
+      - "Icon"
+      - "2014-02-20"
+      - { "context" : "warning" }
+    - - "Understand the license of Font Awesome"
+      - "Icon"
+      - "2014-02-20"
+      - { "context" : "warning" }
+
+---
+
+-# Icon
+= partial "./atom/icon/icon", locals: { icon: "fa-shopping-cart" }
+
+-# Icon Stacked
+= partial "./atom/icon/iconStacked", locals: { icon: "fa-shopping-cart", size: "fa-2x" }

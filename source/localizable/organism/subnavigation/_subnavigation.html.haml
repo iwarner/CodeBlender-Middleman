@@ -1,0 +1,54 @@
+-##
+-# Sub navigation
+-# Create a sub navigation menu based on what is contained within the subnavigation.yaml
+-# Script looks for the first word after the domain in the URL and links this to
+-# the data
+-#
+-# @usage
+-# -# Sub navigation
+-# = partial "organism/scaffolding/subnavigation"
+-#
+-# @category organism
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @see      http://bootsnipp.com/snippets/featured/responsive-navigation-menu
+-#
+-# @todo Need to check that this works with relative links or directory indexes
+-# @todo If page refreshes directly on hash of menu then it does not expand
+-# @todo Sub menu should not be active
+-# @todo Redo the CSS so its in BEM - need to pass through the relevant CSS classes to the List Group partial
+-# @todo Get the affix working again
+-# @todo Sort out the javascript controlling the submenu hide and show
+-# @todo Create the submenu sections again
+-# @todo This should probably be a molecule
+-# @todo Create a documentation page on codeblender for this partial
+-# @todo Should put this into an aside tag also
+-# @todo See what micro formats and accessibility we need on this partial
+-# @todo Add scroll spy to this also, if the submenu happens to be link reference to the current page
+-# @todo Check out Visa implementation of the submenu as a lot of work was done in this
+-# @todo On pagination the active sub navigation is lost - fix this
+-##
+
+-# Check that the dataSubNav is set
+- if dataSubNav.present?
+
+    -# Want to get the current section based on the path
+    - section = current_page.path.split "/"
+
+    -# Loop through the sub navigation section
+    - dataSubNav[ section[ 0 ] ].each_with_index do | value, index |
+
+        -# Check path is equal and assign active bool
+        - dataSubNav[ section[ 0 ] ][ index ][ "active" ] = ( value.url == current_page.url ) ? true : false
+
+    -# Sub navigation
+    %nav.subNavigation
+
+        -# Nav list group
+        = partial "molecule/list-group/list-group", locals: { array: dataSubNav[ section[ 0 ] ], list: true }
+
+-# Debug
+-# %br= section[ 0 ]
+-# %br= dataSubNav[ section[ 0 ] ]
+-# %br= current_page.path
+-# %br= current_page.url
+-# %br= current_page.url.length

@@ -1,0 +1,40 @@
+//
+// One Page Sections
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+section {
+
+    &.section {
+        min-height : 100%;
+        position   : relative;
+        width      : 100%;
+    }
+
+    &.next {
+
+        path {
+            fill       : #178bfb;
+            z-index    : 1000;
+            transition : fill .4s ease;
+        }
+
+        &:hover {
+            path {
+                fill : red;
+            }
+        }
+
+        background    : transparent;
+        border-radius : 75px 75px 0 0;
+        bottom        : 0;
+        display       : block;
+        height        : 53px;
+        left          : 50%;
+        margin-left   : -40px;
+        position      : absolute;
+        width         : 80px;
+    }
+
+}

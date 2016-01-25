@@ -1,0 +1,230 @@
+//
+// Flex Slider
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Container
+//----------------------------------------------------------------------------//
+$flexsliderMaskLeft     : 20px;
+$flexsliderMaskWidth    : 367px;
+$flexsliderDeviceWidth  : 318px;
+$flexsliderWidth        : 286px;
+$leftEdgeDevice         : round( ($flexsliderMaskWidth - $flexsliderDeviceWidth)/2px ) + px;
+$flexsliderLeftEdge     : $flexsliderMaskLeft + round( ($flexsliderMaskWidth - $flexsliderDeviceWidth)/2px ) + 16px;
+
+.scaffolding {
+    .benefitsFlexSlider {
+        background-color: #666;
+    };
+}
+
+.benefitsFlexSlider {
+
+    // Position
+    //------------------------------------------------------------------------//
+    height   : 670px;
+    position : relative;
+
+    h2.sliderTitle {
+        font-family : "HouschkaRoundedMedium";
+        font-size   : 48px;
+        color       : #fff;
+        position    : absolute;
+        top         : 20px;
+        left        : 480px;
+    }
+
+    // Phone Mask
+    //------------------------------------------------------------------------//
+    .flexsliderMask {
+        position    : absolute;
+        top         : 0px;
+        left        : $flexsliderMaskLeft;
+        width       : $flexsliderMaskWidth;
+        height      : 634px;
+        background  : image-url( "slides/shadow-mobile.png" ) no-repeat 50% 100%;
+
+        b {
+            position    : absolute;
+            top         : 0;
+            left        : $leftEdgeDevice;
+            width       : $flexsliderDeviceWidth;
+            height      : 625px;
+            background  : image-url( "slides/mobile-mask.png" ) no-repeat 0 0;
+        }
+    }
+
+    .arrowPointer {
+        width: 96px;
+        height: 256px;
+        position: absolute;
+        top: 233px;
+        left: 370px;
+        b {
+            position    : absolute;
+            right       : 0;
+            top         : 0;
+            width       : 0;
+            height      : 256px;
+            background  : image-url( "slides/arrow-pointer-1.png" ) no-repeat 100% 0;
+        }
+        b.slide-1 {
+            background  : image-url( "slides/arrow-pointer-2.png" ) no-repeat 100% 0;
+        }
+        b.slide-2 {
+            background  : image-url( "slides/arrow-pointer-3.png" ) no-repeat 100% 0;
+        }
+        b.slide-3 {
+            background  : image-url( "slides/arrow-pointer-4.png" ) no-repeat 100% 0;
+        }
+    }
+    // Flex Slider
+    //------------------------------------------------------------------------//
+    .flexslider {
+
+        // Position
+        //--------------------------------------------------------------------//
+        position : absolute;
+        top      : 54px;
+        left     : $flexsliderLeftEdge ;
+        width    : $flexsliderWidth;
+        height   : 463px;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        -o-border-radius: 0;
+        border-radius: 0;
+        margin: 0;
+        background: #fff;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -o-box-shadow: none;
+        box-shadow: none;
+        border: none;
+
+
+        // Controls - needs to be responsive
+        //--------------------------------------------------------------------//
+        .flex-control-nav {
+            bottom : -170px;
+            left   : 346px;
+        }
+
+
+        // Direction Nav
+        //--------------------------------------------------------------------//
+        .flex-direction-nav {
+
+            .flex-prev {
+                left : -150px;
+            }
+
+            .flex-next {
+                left  : auto;
+                right : -550px;
+            }
+
+            a {
+                width      : 56px;
+                height     : 56px;
+                background : image-url( "slides/arrow-left.png" ) 50% 50% no-repeat;
+                text-shadow: none;
+
+                &.flex-next {
+                    background : image-url( "slides/arrow-right.png" ) 50% 50% no-repeat;
+                }
+
+                &.flex-next:before,
+                &:before {
+                    font-family: "arial";
+                    content: ""
+                }
+            }
+        }
+
+        // Paging
+        //--------------------------------------------------------------------//
+        .flex-control-paging {
+
+            li {
+
+                display    : block;
+                float      : left;
+                margin     : 0;
+                height     : 24px;
+                width      : 28px;
+
+                a {
+                    background : #8e9cd3;
+                    border     : none;
+                    box-shadow : none;
+                    display    : block;
+                    height     : 12px;
+                    width      : 12px;
+
+                    &.flex-active {
+                        background : #0023a0;
+                    }
+                }
+            }
+        }
+
+        // Slides
+        //--------------------------------------------------------------------//
+        .slides {
+
+            // Images
+            //----------------------------------------------------------------//
+            img {
+                width : auto;
+            }
+
+        }
+
+    }
+
+    // Slides
+    //------------------------------------------------------------------------//
+    .slidesCopy {
+
+        color       : #fff;
+        position    : absolute;
+        left        : 480px;    // 460px;
+        top         : 218px;    // 200px;
+        width       : 400px;
+
+        h3 {
+            font-family : "HouschkaDemiBold";
+            font-size   : 24px;
+            margin      : 0 0 20px;
+            color       : #fff;
+        }
+
+        p {
+            font-family : "arial";
+            font-size   : 16px;
+            line-height : 24px;
+        }
+
+        li {
+            position  : absolute;
+            width     : 380px;
+            top       : 0;
+            left      : 0;
+            opacity   : 0;
+
+            &.animate {
+                opacity : 0;
+                left    : -400px;
+                @include transition ( all 0.5s linear );
+            }
+
+            &.active {
+                opacity : 1;
+                left    : 0;
+                @include transition ( all 1s linear );
+            }
+        }
+    }
+
+}

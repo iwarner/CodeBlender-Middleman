@@ -1,0 +1,55 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    small : "Recognition and Synthesis"
+    title : "Speech"
+
+see :
+    - - "Web Speech API Specification"
+      - "https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html"
+    - - "Voice Driven Web Apps"
+      - "http://updates.html5rocks.com/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API"
+    - - "Recognizing Speech"
+      - "https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Speech/Articles/RecognizeSpeech.html#//apple_ref/doc/uid/20002081-BCIHEBFH"
+    - - "PhoneGap Speech Recognition"
+      - "http://phonegap.com/blog/2013/10/10/speech-recognition/"
+    - - "Web apps that talk"
+      - "http://updates.html5rocks.com/2014/01/Web-apps-that-talk---Introduction-to-the-Speech-Synthesis-API"
+    - - "Sppech Recognition API"
+      - "http://shapeshed.com/html5-speech-recognition-api/"
+
+---
+
+%p
+    HTML5 Speech Recognition API allows JavaScript to have access to a browser's
+    audio stream and convert it to text.
+
+-# Synthesis
+= partial "./molecule/heading/heading", locals: { text: "Synthesis", tag: "h2" }
+
+-# Submit
+= partial "./atom/button/button", locals: { context: "primary", text: "Say", extraClass: "synthesis" }
+
+-# Recognition
+= partial "./molecule/heading/heading", locals: { text: "Recognition", tag: "h2" }
+
+-# Form
+%form.recognition{ action: "", method: "POST", novalidate: true }
+
+    -# Username
+    / = partial "./atom/input/input",
+    /            locals: { name:        "speech",
+    /                      label:       [ "Speech" ],
+    /                      placeholder: "Enter text to Speak",
+    /                      speech:      true }
+
+    -# Submit
+    = partial "./atom/button/button", locals: { context: "primary", text: "Speak" }

@@ -1,0 +1,40 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+angular :
+    controller : "FirebaseCtrl"
+
+heading :
+    small : "Firebase connection with Angular"
+    title : "Firebase"
+
+see :
+    - - "Angular Firebase"
+      - "https://www.firebase.com/tutorial/#tutorial/angular/0"
+    - - "Angular Starter Pack"
+      - "https://github.com/firebase/firebase-angular-starter-pack"
+    - - "Angular Seed"
+      - "https://github.com/firebase/angularfire-seed"
+
+todo :
+    - - ""
+      - "Firebase"
+      - "2015-06-12"
+      - { "context" : "info" }
+
+---
+
+%ul{ id: "example-messages", class: "example-chat-messages" }
+
+    %li{ ng: { repeat: "msg in messages" } }
+
+        %strong{ class: "example-chat-username" }
+            {{ msg }}
+            {{ msg.text }}

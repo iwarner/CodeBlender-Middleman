@@ -1,0 +1,39 @@
+-##
+-# Progress Bar
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Progress Bar
+.progress
+
+    -# Check for Multiple Elements to Progress Bar
+    - if locals[ :array ]
+
+        -# Loop through the Array
+        - array.each do | bar |
+
+            -# Class variable
+            - extraClass = ""
+
+            -# Set it animation is required
+            - if bar[ :animated ]
+                - extraClass += " active"
+
+            -# Add any additional colours
+            - if bar[ :context ]
+                - extraClass += " progress-bar-#{ bar[ :context ] }"
+
+            -# Set it striped if required
+            - if bar[ :striped ]
+                - extraClass += " progress-bar-striped"
+
+            .progress-bar{ aria:  { valuenow: bar[ :width ],
+                                    valuemin: "0",
+                                    valuemax: "100" },
+                           class: extraClass ? extraClass : false,
+                           role:  "progressbar",
+                           style: bar[ :width ] ? "width:#{ bar[ :width ] }%" : false }
+
+                %span{ class: ! bar[ :label ] ? "sr-only" : false }
+                    #{ bar[ :width ] }%

@@ -1,0 +1,53 @@
+//
+// Configuration
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Skin Toolbox
+//----------------------------------------------------------------------------//
+#skin-toolbox {
+    background-color : #fff;
+    border-radius    : 5px 0 0 5px;
+    border           : 3px solid $link-hover-color;
+    box-shadow       : 0 2px 10px rgba( 0, 0, 0, 0.2 );
+    overflow         : visible !important;
+    position         : fixed;
+    right            : -182px;
+    top              : 220px;
+    width            : 180px;
+    z-index          : 999;
+}
+
+.skin-toolbox-toggle {
+    background-color : $link-hover-color;
+    border-right     : 0;
+    border-radius    : 3px 0 0 3px;
+    border           : 1px solid #e69b2f;
+    cursor           : pointer;
+    height           : 43px;
+    left             : -43px;
+    line-height      : 49px;
+    position         : absolute;
+    text-shadow      : 1px -1px #cb7f12;
+    top              : 30px;
+    width            : 40px;
+}
+
+.skin-toolbox-toggle .fa {
+    color        : #fff;
+    font-size    : 28px;
+    padding-left : 7px;
+}
+
+.skin-toolbox-panel {
+    padding : 20px 13px 0;
+}
+
+.skin-toolbox-panel .form-group {
+    margin-bottom : 8px;
+}
+
+.skin-toolbox-panel label {
+    font-size : 12px;
+}

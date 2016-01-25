@@ -1,0 +1,33 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    small : "Blog archive by year and month"
+    title : "Archive"
+
+see :
+    - - "Archive UI Pattern"
+      - "http://ui-patterns.com/patterns/Archive"
+
+todo :
+    - - "Can I show these by day also - or in a nice calendar format?"
+      - "Blog"
+      - "2014-02-27"
+      - { context: "danger" }
+
+---
+
+- id = 1
+
+-# Archive
+:ruby
+    code = %{partial "./molecule/archive/archive"}
+
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Archive" } }

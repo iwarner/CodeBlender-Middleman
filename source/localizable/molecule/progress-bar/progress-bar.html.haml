@@ -1,0 +1,99 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    title : "Progress Bar"
+
+see :
+    - - "Bootstrap Progress Bar"
+      - "http://getbootstrap.com/components/#progress"
+
+locals :
+    - - "animated"
+      - "bool"
+      - "optional"
+      - "Whether to animate the Progress bar"
+    - - "array"
+      - "array"
+      - "optional"
+      - "Use to create stacked Progress bars"
+    - - "context"
+      - "string"
+      - "optional"
+      - "Addition colour for the progress bar. info, success, warning, danger"
+    - - "label"
+      - "bool"
+      - "optional"
+      - "Whether to show the percentage label"
+    - - "striped"
+      - "bool"
+      - "optional"
+      - "Whether the progress bar should be striped"
+    - - "width"
+      - "int"
+      - "optional"
+      - "Width of the initial progress bar. Default : 0"
+
+---
+
+- id = 1
+
+:markdown
+    Cross-browser compatibility
+
+    Progress bars use CSS3 transitions and animations to achieve some of their
+    effects. These features are not supported in Internet Explorer 9 and below
+    or older versions of Firefox. Opera 12 does not support animations.
+
+
+-# Default
+:ruby
+    code = %{partial "./molecule/progress-bar/progress-bar",locals: { array: [ width: 33 ] }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+
+-# Attributes
+:ruby
+    code = %{partial "./molecule/progress-bar/progress-bar",
+                      locals: { array: [ animated: :true,
+                                         context:  "success",
+                                         striped:  :true,
+                                         width:    33 ] }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Attributes" } }
+
+-# Low Percentage
+:ruby
+    code = %{partial "./molecule/progress-bar/progress-bar",
+                      locals: { array: [ animated: :true,
+                                         context:  "warning",
+                                         label:    true,
+                                         width:    2 ] }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Shows label", text: "Low Percentage" } }
+
+-# Stacked
+:ruby
+    code = %{partial "./molecule/progress-bar/progress-bar",
+                      locals: { array: [ { animated: :true,
+                                           context:  "warning",
+                                           label:    true,
+                                           width:    33 },
+                                         { animated: :true,
+                                           context:  "success",
+                                           label:    false,
+                                           striped:  :true,
+                                           width:    33 } ] }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Multiple bars into the same Progress", text: "Stacked" } }

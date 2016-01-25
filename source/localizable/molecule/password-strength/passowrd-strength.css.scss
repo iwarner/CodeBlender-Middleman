@@ -1,0 +1,78 @@
+//
+// Password Strength Meter
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Password Strength
+//----------------------------------------------------------------------------//
+.form-group-password-strength {
+
+    position : relative;
+
+    input {
+        border-right: none;
+    }
+
+    .input-group-addon {
+        background-color : #fff;
+        padding          : 6px 15px;
+        box-shadow       : rgba( 0, 0, 0, 0.0745098 ) 0px 1px 1px 0px inset;
+        border-left      : none;
+    }
+}
+
+// Container
+//----------------------------------------------------------------------------//
+.password-strength-container {
+
+    display : none;
+
+    .password-strength-text {
+        bottom   : -16px;
+        position : absolute;
+        right    : 5px;
+        @include transition ( all 0.5s ease-in );
+    }
+
+    .icon-password-weak, .icon-password-medium, .icon-password-strong {
+        position           : absolute;
+        bottom             : 17px;
+        right              : 5px;
+        height             : 10px !important;
+        padding            : 0;
+        margin             : 0;
+        border             : none;
+        @include transition( all .5s ease-in );
+    }
+}
+
+.icon-password-weak, .password-weak {
+    color : #CD2B3E;
+}
+
+.icon-password-medium, .password-medium {
+    color : #E67700;
+}
+
+.icon-password-strong, .password-strong {
+    color : #457D22;
+}
+
+// This is for the password confirmation field icon
+.form-group .icon-ok-sign {
+    color              : #457D22;
+    position           : absolute;
+    bottom             : 26px;
+    right              : 5px;
+    display            : none;
+    height             : 10px !important;
+    padding            : 0;
+    margin             : 0;
+    border             : none;
+    @include transition( all .5s ease-in );
+}
+
+.form-group div .icon-ok-sign {
+    right : 20px;
+}

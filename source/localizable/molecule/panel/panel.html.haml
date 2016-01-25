@@ -1,0 +1,116 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    title : "Panel"
+
+see :
+    - - "Bootstrap Panel"
+      - "http://getbootstrap.com/component/#panels"
+
+todo :
+    - - "Header bar should have a collapseable element to the left hand side"
+      - "Panel"
+      - "2014-04-30"
+      - { "context" : "info" }
+    - - "Look at integration with tables and lists"
+      - "Panel"
+      - "2014-03-24"
+      - { "context" : "info" }
+
+locals :
+    - - "body"
+      - "string"
+      - "optional"
+      - "Body text"
+    - - "bodyClass"
+      - "string"
+      - "optional"
+      - "Body class"
+    - - "collapse"
+      - "bool"
+      - "optional"
+      - "Whether the panel starts of in an collapsed state - tools should be true"
+    - - "context"
+      - "string"
+      - "optional"
+      - "Color context for the panel, primary, success, info, warning, danger"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "Extra class"
+    - - "footer"
+      - "string"
+      - "optional"
+      - "Footer text"
+    - - "heading"
+      - "array"
+      - "optional"
+      - "See Heading Partial"
+    - - "tools"
+      - "bool"
+      - "optional"
+      - "Whether to show the panel icon tools"
+
+---
+
+- id = 1
+
+-# Default
+:ruby
+    code = %{partial "./atom/panel/panel", locals: { body: "Body" }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+
+-# Full Panel
+:ruby
+    code = %{partial "./atom/panel/panel",
+                      locals: { body:    "Body",
+                                context: "primary",
+                                footer:  "Footer",
+                                heading: { text: "Heading", tag: "h3" },
+                                tools:   true }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Contains the Tools also", text: "Full Panel" } }
+
+-# Panel with Image as Heading
+:ruby
+    code = %{partial "./atom/panel/panel",
+                      locals: { body:    "Body",
+                                context: "primary",
+                                footer:  "Footer",
+                                heading: { extraClass: "text-center", image: { data: holder( "300x40" ) } },
+                                tools:   true }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Panel with Image Heading" } }
+
+-# Panel with HTML Body Copy
+- @captureHTML = capture_html do
+
+    %p
+        Choose Provider
+
+    -# Button
+    = partial "./atom/button/button", locals: { text: "Primary", context: "primary" }
+
+:ruby
+    code = %{partial "./atom/panel/panel",
+                      locals: { body:    [ @captureHTML ],
+                                context: "primary",
+                                footer:  "Footer",
+                                heading: { text: "Heading",
+                                           tag:  "h3" },
+                                tools:   true }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Panel with HTML Body" } }

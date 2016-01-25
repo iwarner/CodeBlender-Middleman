@@ -1,0 +1,59 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    small : "Series of entities with lightbox and details features"
+    title : "Media Gallery"
+
+see :
+    - - "Keen Themes Example"
+      - "http://keenthemes.com/preview/index.php?theme=metronic_frontend"
+    - - "SwipeJS"
+      - "http://swipejs.com/"
+    - - "Dynamic Gallery"
+      - "http://admindesigns.com/stardom/dynamic-gallery.html"
+    - - "Stardom Gallery"
+      - "http://admindesigns.com/stardom/gallery.html"
+
+todo :
+    - - "Need to allow the image to be placed onto the screen also in a placeholder space i.e. for mobile prototypes"
+    - - "Add Tooltips to the image to show certain details about the image"
+    - - "Favicon fall out of this gallery as they are not in the assets path"
+    - - "Select a specific directory to look under"
+    - - "Provide a drop down of a directory to check"
+    - - "Add a selector to change the column widths and height dynamically"
+    - - "Icon class is hard coded in the CSS - fix this"
+    - - "Gallery should have pagination, filter and search coupled with it"
+
+---
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
+
+-# Create Array
+- thumbnails = []
+
+-# Loop through Image Resources
+- sitemap.resources.select { | r | [ ".png", ".jpg" ].include?( r.ext ) and ! r.path.scan( "assets/images/prototype01" ).empty? }.each do | resource |
+
+    -# URL
+    - src = resource.url.sub! "/assets/images/", ""
+
+    -# Append to Thumbnails Array
+    - if src
+        - thumbnails << { :image     => { :src    => src },
+                          :thumbnail => { :href   => src,
+                                          :zoomix => true } }
+
+-# Thumbnails
+= partial "./molecule/thumbnail/thumbnail",
+           locals: { array:    thumbnails,
+                     columns:  "col-xs-12 col-sm-6 col-md-1",
+                     rowClass: "gallery" }

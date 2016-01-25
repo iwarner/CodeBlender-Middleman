@@ -1,0 +1,115 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Image - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Image - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Classes, including circle, responsive and thumbnail"
+    title : "Images"
+
+see :
+    - - "Bootstrap Images"
+      - "http://getbootstrap.com/css/#images"
+    - - "Responsive Images"
+      - "http://getbootstrap.com/css/#overview-responsive-images"
+    - - "PlaceHoldIt"
+      - "http://placehold.it/"
+    - - "Lorem Pixel"
+      - "http://lorempixel.com/"
+    - - "Middleman Helpers"
+      - "https://middlemanapp.com/basics/helper_methods/"
+
+todo :
+    - - "Add a Responsive image example"
+    - - "Include details on the micro format and use of figure in this partial"
+    - - "Sort out the image Tag here"
+    - - "Allow for the caption to be at the top or the bottom"
+    - - "Allow for the removal of the rounded corners on the thumbnail i.e. image--notRounded"
+    - - "Need to sort out the image caption design - over just using a thumbnail"
+
+locals :
+    - - "alt"
+      - "string"
+      - "required"
+      - "Alternative text of the images"
+    - - "data"
+      - "string"
+      - "optional"
+      - "Use this for placeholder HolderJS images"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "img-rounded, img-circle, and img-responsive"
+    - - "id"
+      - "string"
+      - "optional"
+      - "ID of the image"
+    - - "size"
+      - "string"
+      - "optional"
+      - "Width and Height of the image [ w, h ]"
+    - - "src"
+      - "string"
+      - "optional"
+      - "Source of the image"
+
+---
+
+- id = 0
+
+:markdown
+
+    Middleman contains some placeholder image shortcuts to use during quick
+    blocking out.
+
+    * lorem.image( '300x400' )
+    * lorem.image( '300x400', :background_color => '333', :color => 'fff' )
+    * lorem.image( '300x400', :random_color => true)
+    * lorem.image( '300x400', :text => 'blah')
+
+-# Default Image
+:ruby
+    code = %{partial "./atom/image/image", locals: { src: loremPixel() }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default image" } }
+
+-# Caption Image
+:ruby
+    code = %{partial "./atom/image/image", locals: { src: loremPixel(), extraClass: "img-thumbnail", caption: "HERE" }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Caption image" } }
+
+-# Angular Image
+:ruby
+    code = %{partial "./atom/image/image", locals: { ng: { src: loremPixel() } }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Angular image" } }
+
+-# Thumbnail Image
+:ruby
+    code = %{partial "./atom/image/image", locals: { src: loremPixel(), extraClass: "img-thumbnail" }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Thumbnail image" } }
+
+-# Circle Image
+:ruby
+    code = %{partial "./atom/image/image", locals: { src: loremPixel(), extraClass: "img-circle" }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Circle image" } }
+
+-# Rounded Image
+:ruby
+    code = %{partial "./atom/image/image", locals: { src: loremPixel( "200/200", "Rounded", "abstract" ), extraClass: "img-rounded" }}
+
+-# Code
+= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Rounded image" } }

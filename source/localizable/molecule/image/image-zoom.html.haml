@@ -1,0 +1,42 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    title : "Image Zoom"
+
+see :
+    - - "JQuery Image Zoom"
+      - "http://www.elevateweb.co.uk/image-zoom"
+
+todo :
+    - - "Produce examples in etalage and elevate"
+      - "ImageZoom"
+      - "2014-02-19"
+      - { "context" : "warning" }
+
+---
+
+%ul#etalage
+
+    %li
+
+        <img class="etalage_thumb_image" src="demo_files/images/image1_thumb.jpg" />
+
+        -# Image
+        = partial "./atom/image/image",
+                   locals: { alt:        "Image",
+                             src:        "http://friquemag.net/demos/etalage/demo_files/images/image1_thumb.jpg",
+                             extraClass: "etalage_thumb_image" }
+
+        -# Image
+        = partial "./atom/image/image",
+                   locals: { alt:        "Image",
+                             src:        "http://friquemag.net/demos/etalage/demo_files/images/image1_large.jpg",
+                             extraClass: "etalage_source_image" }

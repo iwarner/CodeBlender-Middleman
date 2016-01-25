@@ -1,0 +1,99 @@
+-##
+-# Bootstrap
+-#
+-# @usage
+-# -# Bootstrap
+-# = wrap_layout "_library/article" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo Need to put the body data tags back into the layout
+-# @todo Need to be able to change the doctype and HTML aspects from the config
+-# @todo Add the base ref to the config
+-##
+
+-# Variables
+- locale = I18n.locale.to_s
+- d      = current_page.data
+
+-# HTML5 DocType
+!!!
+
+-# HTML Section
+%html{ lang:      string( :locale ),
+       manifest:  dataConfig.manifest ? "/offline.manifest" : false,
+       ng:        { app: ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false },
+       xmlns:     "http://www.w3.org/1999/xhtml",
+       xml:       { lang: string( :locale ) } }
+
+    -# Head Section
+    %head{ prefix: ( dataConfig.head.present? and dataConfig.head.prefix.present? ) ? dataConfig.head.prefix : false }
+
+        -# Meta Tags
+        = partial "./atom/meta/all"
+
+        -# Main Stylesheet
+        -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
+        = stylesheet_link_tag :all, media: "all"
+
+        -# Process Head Content from Pages
+        - if content_for? :siteHead
+            = yield_content :siteHead
+
+        -# JavaScript Head
+        - if dataConfig.javascript.head
+            = javascript_include_tag :head
+
+        -# Base
+        -# %base{ href: "/" }
+
+    -# Body with Page Class
+    -# Contains the main Itemscope of the current page
+    %body{ id:        dataConfig.body.id ? dataConfig.body.id : false,
+           class:     dataConfig.body.extraClass ? dataConfig.body.extraClass : false,
+           data:      { lang: locale, locale: defined? dataFacebook && dataFacebook.locale.present? ? dataFacebook.locale[ locale ] : false },
+           itemscope: true,
+           itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
+           ng:        { controller: d.angular ? d.angular.controller ? d.angular.controller : false : false } }
+
+        %a{ id: "top" }
+
+        -# Facebook Root - Requires an AppID
+        - if defined? dataFacebook && dataFacebook.app.id
+            #fb-root
+
+        -# Section - Above Nav
+        - if dataNav.present? && dataNav.above
+            = partial dataNav.above
+
+        -# Section - Navbar
+        - if dataNav.present? && dataNav.navbar
+            = partial "./molecule/navbar/navbar", locals: dataNav
+
+        -# Section - Below Navigation
+        - if dataNav.present? && dataNav.below
+            = partial dataNav.below
+
+        -# Section - Yield
+        = yield
+
+        -# Section - Footer
+        - if dataConfig.footer.active or dataConfig.copyright
+            = partial "./organism/footer/footer"
+
+        -# Top Icon
+        - if dataConfig.topIcon
+            = partial "./molecule/top-icon/top-icon"
+
+        -# Configuration
+        - if dataConfig.configuration
+            = partial "./scaffolding/configuration"
+
+        -# JavaScript
+        -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
+        - if dataConfig.javascript.body
+            = javascript_include_tag :body
+
+        -# Google Analytics
+        - if dataGoogle.present? and dataGoogle.analytics.active
+            = partial "./atom/google-analytics/google-analytics"

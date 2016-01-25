@@ -1,0 +1,46 @@
+-##
+-# Core Meta Tags
+-#
+-# Tags can be set via the current_page.data elements or through locale stub method
+-# the latter is especially useful for localized pages where the front matter
+-# will change dynamically for the language.
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- cp   = current_page
+- data = cp.data
+
+-# If there is Meta Tabs present then override the stub method
+- if data.meta
+    - m = data.meta
+- else
+    - m = "meta.#{ data.stub }"
+
+-# Title
+%title= data.meta ? m.title : string( :"#{ m }.title" )
+
+-# Encoding
+%meta{ charset: "utf-8" }
+
+-# Meta Tags for IE2
+%meta{ content: "IE=edge,chrome=1", http: { equiv: "X-UA-Compatible" } }
+
+-# Description
+%meta{ name: "description", content: data.meta ? m.description : string( :"#{ m }.description" ) }
+
+-# Keywords
+%meta{ name: "keywords", content: data.meta ? m.description : string( :"#{ m }.description" ) }
+
+-# Author
+%meta{ name: "author", content: data.meta ? m.author : string( :"#{ m }.author" ) }
+
+-# Robots
+%meta{ name: "robots", content: "index,follow,archive" }
+
+-# CSRF Token
+%meta{ name: "csrf-token", content: Random.new_seed }
+
+-# Canonical
+%meta{ rel: "canonical", href: dataConfig.url + cp.url }

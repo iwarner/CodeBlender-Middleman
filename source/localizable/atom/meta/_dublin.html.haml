@@ -1,0 +1,23 @@
+-##
+-# Dublin Core Meta Tags
+-#
+-# Tags can be set via the current_page.data elements or through content yield
+-# the latter is especially useful for localized pages where the front
+-# matter will change dynamically for the language.
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://dublincore.org/documents/dces/
+-# @see    http://www.dublincoregenerator.com/generator.html
+-# @see    http://schema.org/LocalBusiness
+-##
+
+-# Variables
+- cp = current_page
+- m  = cp.data.stub
+
+-# Meta
+%meta{ name: "dcterms.title",       content: string( :"meta.#{ m }.title" ) }
+%meta{ name: "dcterms.description", content: string( :"meta.#{ m }.description" ) }
+%meta{ name: "dcterms.publisher",   content: string( :"meta.#{ m }.author" ) }
+%meta{ name: "dcterms.language",    content: dataConfig.lang }
+%meta{ name: "dcterms.creator",     content: string( :"meta.#{ m }.author" ) }

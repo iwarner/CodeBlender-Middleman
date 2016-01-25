@@ -1,0 +1,35 @@
+-##
+-# Facebook Comments
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://developers.facebook.com/docs/plugins/comments/
+-##
+
+-# Colorscheme
+- if ! locals[ :colorscheme ]
+    - colorscheme = "light"
+
+-# Type
+- if ! locals[ :type ]
+    - type = "html5"
+
+-# Debug
+-# = colorscheme
+-# = type
+
+-# HTML5
+- if type == "html5"
+
+    .fb-comments{ :data => { :colorscheme => colorscheme } }
+
+    -# XFBML
+- elsif type == "xfbml"
+    XFBML
+
+    -# iFrame
+- elsif type == "iframe"
+    iFrame
+
+    -# URL
+- elsif type == "url"
+    URL

@@ -1,0 +1,48 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    small : "Simple Cart Shopping Cart"
+    title : "Cart"
+
+see :
+    - - "Simple Cart"
+      - "https://github.com/wojodesign/simplecart-js"
+    - - "E-Commerce Template"
+      - "http://www.keenthemes.com/preview/metronic_ecommerce/shopping-cart.html"
+
+todo :
+    - - "Add thumbnail image to the columns"
+      - "E-Commerce"
+      - "2014-02-12"
+    - - "Change quantity to a spinner"
+      - "E-Commerce"
+      - "2014-02-12"
+    - - "Price should be in a currency"
+      - "E-Commerce"
+      - "2014-02-12"
+    - - "Make remove an icon in the actions column to the right"
+      - "E-Commerce"
+      - "2014-02-12"
+    - - "Add a total, shipping and tax calculations under the table"
+      - "E-Commerce"
+      - "2014-02-12"
+    - - "Add checkout and continue shopping buttons to the page also"
+      - "E-Commerce"
+      - "2014-02-12"
+
+---
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { tag: "h2", text: "Simple Cart" }
+
+-# Simple Cart Default Cart
+.simpleCart_items
+    HERE

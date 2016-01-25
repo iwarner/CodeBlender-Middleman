@@ -1,0 +1,28 @@
+-##
+-# Popover
+-# Add small overlays of content, like those on the iPad, to any element for
+-# housing secondary information. Popovers whose both title and content are
+-# zero-length are never displayed.
+-#
+-# @usage
+-# -# Popover
+-# = partial "./molecule/popover/popover", locals: { content: "Default", popBody: "Popover Body Copy", popTitle: "Popover Default" }
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Popover
+%div{ "popover-directive" => true }
+
+    -# Button
+    = partial "./atom/button/button",
+               locals: { data:       { content:   locals[ :popBody ],
+                                       placement: locals[ :placement ] ? placement : "auto",
+                                       toggle:    "popover" },
+                         extraClass: "popMe",
+                         href:       "javascript:;",
+                         tabindex:   "0",
+                         title:      locals[ :popTitle ],
+                         text:       locals[ :content ],
+                         type:       "button" }

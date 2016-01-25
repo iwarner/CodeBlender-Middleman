@@ -1,0 +1,104 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    small : "A better credit card form in one line of code"
+    title : "Card"
+
+see :
+    - - "Interactive Card"
+      - "http://jessepollak.github.io/card/"
+    - - "Jquery Card Validator"
+      - "http://jquerycreditcardvalidator.com/"
+
+todo :
+    - - "Format the card to be natwest specific - make up another that overides CSS"
+      - "Card"
+      - "2014-07-09"
+      - { "context" : "info" }
+
+---
+
+-# Variables
+- colsLarge = "col-sm-9"
+- colsSmall = "col-sm-3"
+
+.row
+
+    .col-md-6
+
+        :markdown
+
+            * Animations for 4 different card types
+            * An intuitive experience for your users
+            * Pure CSS, HTML, and Javascript (no images)
+
+    .col-md-6
+
+        -# Helpful Numbers
+        :markdown
+
+            * Mastercard : 5444 4444 4444 4444
+            * Visa       : 4242 4242 4242 4242
+            * Discover   : 6555 5555 5555 5555
+            * Amex       : 3444 444444 4444
+
+-# Card Wrapper Started from JS File
+.card-wrapper
+
+-# Form
+.form-container.active
+
+    %br
+
+    -# Form
+    %form.form-horizontal{ novalidate: false }
+
+        .row
+
+            .col-md-6
+
+                -# Card Number
+                = partial "./atom/input/input",
+                           locals: { icon:           { prepend: "fa-credit-card" },
+                                     input:          { name:        "number",
+                                                       placeholder: "Card number" },
+                                     inputContainer: { extraClass: colsLarge },
+                                     label:          { extraClass: colsSmall,
+                                                       title:      "Number" } }
+
+                -# Expiry
+                = partial "./atom/input/input",
+                           locals: { icon:           { prepend: "fa-calendar" },
+                                     input:          { name:        "expiry",
+                                                       placeholder: "MM/YY" },
+                                     inputContainer: { extraClass: colsLarge },
+                                     label:          { extraClass: colsSmall,
+                                                       title:      "Expiry Date" } }
+
+            .col-md-6
+
+                -# Full Name
+                = partial "./atom/input/input",
+                           locals: { icon:           { prepend: "fa-user" },
+                                     input:          { name:        "name",
+                                                       placeholder: "Full Name" },
+                                     inputContainer: { extraClass: colsLarge },
+                                     label:          { extraClass: colsSmall,
+                                                       title:      "Full Name" } }
+
+                -# CVC
+                = partial "./atom/input/input",
+                           locals: { icon:           { prepend: "fa-credit-card" },
+                                     input:          { name:        "cvc",
+                                                       placeholder: "CVC" },
+                                     inputContainer: { extraClass: colsLarge },
+                                     label:          { extraClass: colsSmall,
+                                                       title:      "CVC" } }

@@ -1,0 +1,111 @@
+-##
+-# Facebook Like Box
+-#
+-# Locals
+-# colorscheme - The color scheme for the plugin. Options: 'light', 'dark'
+-# force_wall  - For Places, specifies whether the stream contains posts from the
+-#               place's wall or just checkins from friends. Default value: false.
+-# header      - Specifies whether to display the Facebook header at the top of the plugin.
+-# height      - The height of the plugin in pixels. The default height varies based
+-#               on number of faces to display, and whether the stream is displayed.
+-#               With the stream displayed, and 10 faces the default height is 556px.
+-#               With no faces, and no stream the default height is 63px.
+-# href        - The absolute URL of the Facebook Page for this Like Box.
+-# showBorder  - Specifies whether or not to show a border around the plugin,
+-#               default true. Set to false to style the iframe with your custom CSS.
+-# showFaces   - Specifies whether or not to display profile photos in the plugin. Default value: true.
+-# stream      - specifies whether to display a stream of the latest posts from the Page's wall
+-# width       - The width of the plugin in pixels. Default width: 300px.
+-# type        - The version of the Like Box to use - html5, xfbml, iframe, url
+-#
+-# Usage
+-# = partial "./social/facebook/like-box",
+-#            :locals => { :colorscheme => "dark",
+-#                         :force_wall  => "true",
+-#                         :header      => "false",
+-#                         :height      => "63",
+-#                         :href        => "https://www.facebook.com/onlyasmile",
+-#                         :showBorder  => "false",
+-#                         :showFaces   => "false",
+-#                         :stream      => "false",
+-#                         :width       => "200" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Colorscheme
+- if ! locals[ :colorscheme ]
+    - colorscheme = "light"
+
+-# Force Wall
+- if ! locals[ :force_wall ]
+    - force_wall = "false"
+
+-# Header
+- if ! locals[ :header ]
+    - header = "true"
+
+-# Height
+- if ! locals[ :height ]
+    - height = 556
+
+-# HREF default to dataFacebook.page.url
+- if ! locals[ :href ]
+    - href = dataFacebook.page.url
+
+-# Show Border - default to true
+- if ! locals[ :showBorder ]
+    - showBorder = "true"
+
+-# Show Faces - default to true
+- if ! locals[ :showFaces ]
+    - showFaces = "true"
+
+-# Stream - default to true
+- if ! locals[ :stream ]
+    - stream = "true"
+
+-# Width default to 300
+- if ! locals[ :width ]
+    - width = 300
+
+-# Type - default to HTML5
+- if ! locals[ :type ]
+    - type = "html5"
+
+-# Debug
+-# = colorscheme
+-# = force_wall
+-# = header
+-# = height
+-# = href
+-# = showBorder
+-# = showFaces
+-# = stream
+-# = width
+-# = type
+
+-# HTML5
+- if type == "html5"
+
+    .fb-like-box{ data: { :colorscheme   => colorscheme,
+                          :"force-wall"  => force_wall,
+                          :header        => header,
+                          :height        => height,
+                          :href          => href,
+                          :"show-border" => showBorder,
+                          :"show-faces"  => showFaces,
+                          :stream        => stream,
+                          :width         => width } }
+
+    -# XFBML
+- elsif type == "xfbml"
+    XFBML
+
+    -# iFrame
+- elsif type == "iframe"
+    iFrame
+
+    -# URL
+- elsif type == "url"
+    URL

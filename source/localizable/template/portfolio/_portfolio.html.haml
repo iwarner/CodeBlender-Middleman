@@ -1,0 +1,86 @@
+-##
+-# Portfolio Template
+-#
+-# @usage
+-# -# Portfolio
+-# = partial "template/portfolio/portfolio"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://mixitup.kunkalabs.com/
+-# @see    http://www.keenthemes.com/preview/metronic/theme/templates/admin4/page_portfolio.html
+-##
+
+-# Portfolio section
+.portfolio.portfolio__all{ itemscope: true, itemtype: "http://schema.org/Blog" }
+
+    -# Bootstrap row
+    .row
+
+        -# Bootstrap column
+        .col-md-12.col-sm-12
+
+            -# Portfolio blockquote
+            = partial "./atom/blockquote/blockquote", locals: string( :"portfolio.recent.heading" )
+
+    -# Bootstrap row
+    .row
+
+        -# Bootstrap column
+        .col-md-12.col-sm-12
+
+            -# Portfolio filter
+            .portfolio__filter
+
+                -# Create list
+                - list = []
+
+                -# Create the all filter
+                - list << { data: { filter: "all" }, extraClass: "filter", link: { url: "javascript:;" }, text: "All" }
+
+                -# Get the unique subcategories in the portfolio
+                - blog( 'portfolio' ).articles.uniq{ | r | r.data.category }.each do | article |
+
+                    -# Variable
+                    - data = article.data
+
+                    -# Make sure article has a category assigned
+                    - if ! data.category.nil?
+
+                        - category = data.category
+                        - list << { data: { filter: ".category-#{ category }" }, extraClass: "filter", link: { url: "javascript:;" }, text: category }
+
+                -# List - filter
+                = partial "./atom/list/list.ul", locals: { array: list, extraClass: "nav nav-pills" }
+
+    -# Bootstrap row
+    .row
+
+        -# Portfolio grid
+        .portfolio__grid
+
+            -# Loop through the portfolio category
+            -# Sorting is done by date as a default
+            - blog( 'portfolio' ).articles.each do | article |
+
+                -# Variable
+                - data = article.data
+
+                -# Bootstrap column
+                .col-md-3.col-sm-3.mix{ class: "category-#{ data.category }" }
+
+                    -# Check there is an image
+                    - if data.meta.image != ""
+
+                        -# Link to the article
+                        %a{ href: article.url, title: data.heading.title }
+
+                            -# Image
+                            = partial "./atom/image/image",
+                                       locals: { alt:        data.heading.title,
+                                                 caption:    data.heading.title,
+                                                 extraClass: "img-thumbnail",
+                                                 src:        data.meta.image }
+
+                        -# Just display the title
+                    - else
+                        = data.heading.title

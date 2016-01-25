@@ -1,0 +1,30 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    type        : "website"
+
+heading :
+    small : "Click to show an expanded area."
+    title : "Scaffolding Details partial"
+
+see :
+    - - "Details Tag"
+      - "http://www.paulund.co.uk/html5-details-tag"
+
+---
+
+-# Heading
+= partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
+
+-# Detail
+= partial "./atom/detail/detail", locals: { summary: "Summary", content: "Content" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "./atom/detail/detail", locals: { summary: "Summary", content: "Content" }

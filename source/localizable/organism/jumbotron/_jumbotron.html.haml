@@ -1,0 +1,21 @@
+-##
+-# Jumbotron
+-#
+-# @usage
+-# -# Jumbotron
+-# = partial "./organism/jumbotron/jumbotron",
+-#            locals: { desc: "Description", heading: { text: "Title" } }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Jumbotron
+.jumbotron{ class: locals[ :extraClass ] ? extraClass : false }
+
+    -# Heading
+    - if locals[ :heading ]
+        = partial "./molecule/heading/heading", locals: locals[ :heading ]
+
+    -# Description
+    - if locals[ :desc ]
+        %p= string desc

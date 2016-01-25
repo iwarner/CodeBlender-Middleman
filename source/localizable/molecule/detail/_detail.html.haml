@@ -1,0 +1,80 @@
+-##
+-# Blog Detail Partial
+-#
+-# @usage
+-# -# Blog Detail
+-# = partial "./molecule/detail/detail", locals: { current_page: article }
+-#
+-# @param author  Show the Meta author and icon
+-# @param cal     Show the blog time and icon
+-# @param comment Show the number of comments
+-# @param social  Show the social buttons
+-# @param tags    Show the tags
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @see      http://schema.org/BlogPosting
+-# @see      https://developers.google.com/structured-data/
+-# @see      http://www.designhive.com/blog/using-schemaorg-microdata
+-# @see      https://gist.github.com/gregrickaby/5917114
+-#
+-# @todo   Consider putting the tags in a DL / LI
+-# @todo   Should link up the Author to show articles by Authors name - finish of link
+-# @todo   Include more social link options
+-# @todo   Need to distinguish the types of Articles / Posts and change template accordingly and microdata, i.e. event
+-# @todo   Tags should scale with a reveal on the end - use overflow
+-# @todo   Need to check the scalability of the title and small description
+-# @todo   Maybe move this partial into a more inclusive Blog section
+-##
+
+-# Variables
+- page = current_page
+- data = page.data
+- url  = dataConfig.url + page.url
+
+-# Blog Footer
+.blogDetail
+
+    -# Date
+    - if locals[ :cal ]
+
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: "fa-calendar" }
+
+        %time{ itemprop: "datePublished", datetime: "2015-03-26T10:43:39Z" }
+            = data.date.strftime '%B %e, %Y'
+
+    -# Author
+    - if locals[ :author ]
+        |
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: "fa-user" }
+        by
+        %span{ itemprop: "author",  itemscope: true,  itemptype: "http://schema.org/Person" }
+            %a{ itemprop: "url", rel: "author" }
+                %span{ itemprop: "name" }= data.meta.author
+
+    -# Show Comment
+    - if locals[ :comment ]
+        |
+        -# Icon
+        = partial "./atom/icon/icon", locals: { icon: "fa-comment" }
+        X Comments
+
+    -# Like Button
+    - if locals[ :social ]
+        = partial "./molecule/facebook/like-button", locals: { extraClass: "pull-right", href: url, layout: "button_count", share: "false" }
+
+    -# Tag
+    - if locals[ :tags ]
+
+        %footer.blogDetail__tags
+
+            -# Icon
+            = partial "./atom/icon/icon", locals: { icon: "fa-tags" }
+
+            -# Loop through tags
+            - current_page.data.tags.each do | tag |
+
+                -# Label
+                = partial "./atom/label/label", locals: { extraClass: "blogDetail__tag", context: "primary", content: tag, href: tag_path( tag ), itemprop: "keywords" }
