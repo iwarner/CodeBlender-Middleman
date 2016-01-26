@@ -32,7 +32,7 @@
         -# Meta Tags
         = partial "./atom/meta/all"
 
-        -# Main Stylesheet
+        -# Main stylesheet
         -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
         = stylesheet_link_tag :all, media: "all"
 
@@ -48,7 +48,7 @@
         -# %base{ href: "/" }
 
     -# Body with Page Class
-    -# Contains the main Itemscope of the current page
+    -# Contains the main itemscope of the current page
     %body{ id:        dataConfig.body.id ? dataConfig.body.id : false,
            class:     dataConfig.body.extraClass ? dataConfig.body.extraClass : false,
            data:      { lang: locale, locale: defined? dataFacebook && dataFacebook.locale.present? ? dataFacebook.locale[ locale ] : false },
@@ -68,7 +68,7 @@
 
         -# Section - Navbar
         - if dataNav.present? && dataNav.navbar
-            = partial "./molecule/navbar/navbar", locals: dataNav
+            = partial "molecule/navbar/navbar", locals: dataNav
 
         -# Section - Below Navigation
         - if dataNav.present? && dataNav.below

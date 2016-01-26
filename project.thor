@@ -24,7 +24,7 @@ class Project < Thor
     # @todo Increment the version number if deployed
     ##
     desc "ionicDeploy", "Middleman Build and Deploy"
-    def middlemanDeploy
+    def ionicDeploy
 
         # Increment Version
 
@@ -41,11 +41,13 @@ class Project < Thor
 
     ##
     # Middleman Build and Deploy
+    # thor project:middlemanDeploy
     # @todo Increment the version number if deployed
     ##
     desc "middlemanDeploy", "Middleman Build and Deploy"
     def middlemanDeploy
 
+        # Clear
         system( "clear" )
 
         # Load the Config File
@@ -53,8 +55,16 @@ class Project < Thor
 
         # Increment Version
 
+        # Build
+        say( "\n\t Middleman build\n\t" )
+        system( "bundle exec middleman build" )
+
+        # UnCSS
+        say( "\n\t UnCSS\n\t" )
+        system( "gulp buildcss" )
+
         # Deploy
-        say( "\n\t Middleman Deploy\n\t" )
+        say( "\n\t Middleman deploy\n\t" )
         system( "bundle exec middleman deploy" )
 
     end
@@ -120,7 +130,7 @@ class Project < Thor
     end
 
     ##
-    # Node Webkit Build
+    # Node webkit build
     ##
     desc "webkitBuild", "Node WebKit Desktop Build"
     def webkitBuild
@@ -136,7 +146,7 @@ class Project < Thor
     end
 
     ##
-    # Cordova Build
+    # Cordova build
     ##
     desc "cordovaBuild", "Cordova Build"
     def cordovaBuild
@@ -158,7 +168,7 @@ class Project < Thor
     end
 
     ##
-    # PhoneGap Build via Zip
+    # PhoneGap build via zip
     ##
     desc "phoneGapBuildZip", "PhoneGap Build Via Zip"
     def phoneGapBuildZip
@@ -188,7 +198,7 @@ class Project < Thor
     end
 
     ##
-    # PhoneGap Build Remote
+    # PhoneGap build remote
     # thor project:pgBuildRemote
     ##
     desc "phoneGapBuildRemote", "Create a PhoneGap Build Remote"

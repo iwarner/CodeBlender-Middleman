@@ -2,7 +2,11 @@
 # Middleman Configuration File
 #
 # @author Ian Warner <ian.warner@drykiss.com>
+# @see    https://hellojason.net/blog/remove-unused-css-from-middleman-before-deploying/
 ##
+
+# Require
+require "uglifier"
 
 # Data Variables
 set :dataConfig,    data.config
@@ -30,7 +34,7 @@ set :fonts_dir,        "#{ path }/font"
 set :haml,             { ugly: true, format: :html5 }
 set :build_dir,        "www"
 set :layout,           "_lib/sidebarLeft"
-set :debug_assets,     true
+# set :debug_assets,     true
 
 # Markdown Engine
 set :markdown_engine, :kramdown
@@ -71,11 +75,11 @@ end
 
 # Sprockets
 after_configuration do
-    sprockets.append_path File.join "#{ root }", "bower_components"
-    sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/javascripts/"
-    sprockets.append_path File.join "#{ root }", "bower_components/bootstrap-sass-official/assets/stylesheets/"
-    sprockets.append_path File.join "#{ root }", "bower_components/font-awesome/scss/"
-    sprockets.append_path File.join "#{ root }", "source/localizable/"
+    sprockets.append_path File.join( root, "bower_components" )
+    sprockets.append_path File.join( root, "bower_components/bootstrap-sass-official/assets/javascripts/" )
+    sprockets.append_path File.join( root, "bower_components/bootstrap-sass-official/assets/stylesheets/" )
+    sprockets.append_path File.join( root, "bower_components/font-awesome/scss/" )
+    sprockets.append_path File.join( root, "source/localizable/" )
     sprockets.append_path "/assets/font"
 end
 
@@ -86,7 +90,7 @@ activate :blog do | blog |
     blog.prefix            = "docs"
     blog.default_extension = ".md"
 
-    blog.permalink         = "{category}{title}.html"
+    blog.permalink         = "{category}/{title}.html"
     blog.sources           = ":title.html"
 
     blog.layout            = "_library/article.layout"
@@ -111,7 +115,7 @@ end
 activate :deploy do | deploy |
     deploy.method       = :git
     deploy.remote       = 'git@github.com:DryKISS/codeblender.net.git'
-    deploy.build_before = true
+    deploy.build_before = false
 end
 
 # Create GZIP Content
@@ -144,20 +148,42 @@ configure :build do
     # activate :gzip
 
     # For example, change the Compass output style for deployment
-    activate :minify_css
+    activate :minify_css, inline: true
 
     # Minimise JavaScript on build
-    activate :minify_javascript
+    # @see https://github.com/crtvhd/middleboy
+    activate :minify_javascript, inline: true, compressor: Uglifier.new( mangle: false, comments: :none )
 
     # Minimise HTML
+    # https://github.com/middleman/middleman-minify-html
     activate :minify_html
 
-    # # Favicon
-    # activate :favicon_maker, icons: {
-    #     "favicon_template.png" => [
-    #         { icon: "favicon.png", size: "32x32" },
-    #         { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" },
-    #     ]
-    # }
+    # Auto-generate multiple favicon versions
+    activate :favicon_maker do | icon |
+
+        # Templates
+        icon.template_dir = File.join( root, 'source/assets/images/favicon/_template' )
+        icon.output_dir   = File.join( root, 'www/assets/images/favicon' )
+
+        # Icon
+        icon.icons = {
+
+            # High resolution icon
+            "favicon_template_hires.png" => [
+                { icon: "favicon-152x152.png" },
+                { icon: "favicon-120x120.png" },
+                { icon: "favicon-76x76.png"   },
+                { icon: "favicon-60x60.png"   },
+            ],
+
+            # Low resolution icon
+            "favicon_template_lores.png" => [
+                { icon: "favicon-32x32.png" },
+                { icon: "favicon-16x16.png" },
+                { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
+            ]
+        }
+
+    end
 
 end

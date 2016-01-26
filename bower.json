@@ -45,6 +45,7 @@
         "jquery"                     : "",
         "jquery.payment"             : "",
         "jquery-validation"          : "",
+        "jquery-lazy-script"         : "https://github.com/hayageek/jquery-lazy-script.git",
 
         "lunr.js"                    : "",
 

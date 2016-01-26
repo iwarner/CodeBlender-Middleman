@@ -6,6 +6,7 @@
 
 # JQuery
 //= require jquery/dist/jquery
+//= require jquery-lazy-script/jquery.lazyscript.min.js
 
 # Mix It Up
 //= require mixitup/build/jquery.mixitup.min

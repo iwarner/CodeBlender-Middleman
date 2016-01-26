@@ -6,7 +6,7 @@ heading :
 
 meta :
     author : "Ian Warner"
-    image  : ""
+    image  : "/docs/haml-template/haml-template.png"
     title  : "HAML"
     type   : ""
 

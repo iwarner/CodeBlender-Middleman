@@ -7,7 +7,7 @@ heading :
 meta :
     author      : "DryKISS"
     description : "Technical job search in London, what sites are best?"
-    image       : "docs/job-sites/vacancies.jpg"
+    image       : "/docs/job-sites/vacancies.jpg"
     subject     : "Job"
     title       : "Getting a technical job in 2015"
     type        : "article"

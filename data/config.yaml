@@ -49,12 +49,12 @@ body       :
 
 # Meta
 meta :
-    apple    : false
+    apple    : true
     core     : true
     dublin   : false
     facebook : false
     fancy    : false
-    favicon  : false
+    favicon  : true
     feed     : false
     google   : false
     mobile   : true

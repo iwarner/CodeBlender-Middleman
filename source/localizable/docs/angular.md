@@ -6,7 +6,7 @@ heading :
 
 meta :
     author : "Ian Warner"
-    image  : "docs/angular/angularjs.png"
+    image  : "/docs/angular/angularjs.png"
     title  : "Angular"
     type   : ""
 

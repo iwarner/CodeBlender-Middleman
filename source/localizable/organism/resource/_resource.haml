@@ -20,6 +20,8 @@
     - array = { cols: [ "Title", "URL" ], data: array ? array : cp.see }
 
     -# Table
-    = partial "./molecule/table/table",
-               locals: { array:      array,
-                         tableClass: "table-striped table-condensed" }
+    .table-responsive
+
+        = partial "./molecule/table/table",
+                   locals: { array:      array,
+                             extraClass: "table-striped table-condensed" }
