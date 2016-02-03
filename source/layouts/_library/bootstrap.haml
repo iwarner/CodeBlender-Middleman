@@ -1,5 +1,5 @@
 -##
--# Bootstrap
+-# Bootstrap layout
 -#
 -# @usage
 -# -# Bootstrap
@@ -10,6 +10,7 @@
 -# @todo Need to put the body data tags back into the layout
 -# @todo Need to be able to change the doctype and HTML aspects from the config
 -# @todo Add the base ref to the config
+-# @todo Make the control statements more like the facebook one as it seems to work better and can remove the config set statements that don't work in v4
 -##
 
 -# Variables
@@ -17,80 +18,83 @@
 - d       = current_page.data
 - angular = ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false
 
--# HTML5 DocType
+-# HTML5 doctype
 !!!
 
--# HTML Section
+-# HTML section
 %html{ lang:      string( :locale ),
        manifest:  dataConfig.manifest ? "/offline.manifest" : false,
        ng:        { app: angular },
        xmlns:     "http://www.w3.org/1999/xhtml",
        xml:       { lang: string( :locale ) } }
 
-    -# Head Section
+    -# Head section
     %head{ prefix: ( dataConfig.head.present? and dataConfig.head.prefix.present? ) ? dataConfig.head.prefix : false }
 
-        -# Meta Tags
+        -# Meta tag
         = partial "./atom/meta/all"
 
-        -# Main stylesheet
+        -# Main style sheet
         -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
         = stylesheet_link_tag :all, media: "all"
 
-        -# Process Head Content from Pages
+        -# Process head content from pages
         - if content_for? :siteHead
             = yield_content :siteHead
 
-        -# JavaScript Head
+        -# JavaScript head
         - if dataConfig.javascript.head
             = javascript_include_tag :head
 
         -# Base
         -# %base{ href: "/" }
 
-    -# Locale
-    - localFB = ( defined? dataFacebook && dataFacebook.locale.present? ) ? dataFacebook.locale[ locale ] : false
+    -# Facebook locale
+    - if data.has_key? "facebook"
+        - localFB = data.facebook.locale.present? ? data.facebook.locale[ locale ] : false
+    - else
+        - localFB = false
 
     -# Angular controller
     - if d.angular
-        - angular  = d.angular.controller   ? d.angular.controller            : false
-        - angular += d.angular.controllerAs ? " as " + d.angular.controllerAs : false
+        - angularController  = d.angular.controller   ? d.angular.controller            : false
+        - angularController += d.angular.controllerAs ? " as " + d.angular.controllerAs : false
 
-    -# Body with Page Class
+    -# Body with page class
     -# Contains the main itemscope of the current page
     %body{ id:        dataConfig.body.id ? dataConfig.body.id : false,
            class:     dataConfig.body.extraClass ? dataConfig.body.extraClass : false,
            data:      { lang: locale, locale: localFB },
            itemscope: true,
            itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
-           ng:        { controller: angular } }
+           ng:        { controller: angularController } }
 
         %a{ id: "top" }
 
-        -# Facebook Root - Requires an AppID
-        - if defined? dataFacebook && dataFacebook.app.id
+        -# Facebook root, requires an AppID
+        - if localFB
             #fb-root
 
-        -# Section - Above Nav
+        -# Section - above navigation
         - if dataNav.present? && dataNav.above
             = partial dataNav.above
 
-        -# Section - Navbar
+        -# Section - navigation bar
         - if dataNav.present? && dataNav.navbar
             = partial "molecule/navbar/navbar", locals: dataNav
 
-        -# Section - Below Navigation
+        -# Section - below navigation
         - if dataNav.present? && dataNav.below
             = partial dataNav.below
 
-        -# Section - Yield
+        -# Section - yield
         = yield
 
-        -# Section - Footer
+        -# Section - footer
         - if dataConfig.footer.active or dataConfig.copyright
             = partial "./organism/footer/footer"
 
-        -# Top Icon
+        -# Top icon
         - if dataConfig.topIcon
             = partial "./molecule/top-icon/top-icon"
 
@@ -103,6 +107,6 @@
         - if dataConfig.javascript.body
             = javascript_include_tag :body
 
-        -# Google Analytics
+        -# Google analytics
         - if dataGoogle.present? and dataGoogle.analytics.active
             = partial "./atom/google-analytics/google-analytics"

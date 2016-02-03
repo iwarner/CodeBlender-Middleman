@@ -11,7 +11,6 @@ require "uglifier"
 # Data Variables
 set :dataConfig,    data.config
 set :dataApple,     data.apple
-set :dataFacebook,  data.facebook
 set :dataGoogle,    data.google
 set :dataMailChimp, data.mailChimp
 set :dataNav,       data.navigation
