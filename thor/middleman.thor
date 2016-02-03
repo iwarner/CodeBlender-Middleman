@@ -96,20 +96,20 @@ class Middleman < Thor
         say( "\n\t Create symbolic link\n\t" )
 
         # Layout
-        system( "rm -R source/layouts/_library")
-        system( "ln -s #{ path }source/layouts/_library source/layouts")
+        system( "rm -R ../source/layouts/_library")
+        system( "ln -s #{ path }source/layouts/_library ../source/layouts")
 
         # Partial
-        system( "rm -R source/partial/_library")
-        system( "ln -s #{ path }source/localizable source/partial/_library")
+        system( "rm -R ../source/partial/_library")
+        system( "ln -s #{ path }source/localizable ../source/partial/_library")
 
         # Helper
-        system( "rm -R helpers")
-        system( "ln -s #{ path }helpers/ helpers")
+        system( "rm -R ../helpers")
+        system( "ln -s #{ path }helpers/ ../helpers")
 
         # Gemfile
-        system( "rm GEMFILE")
-        system( "ln -s #{ path }Gemfile .")
+        system( "rm ../Gemfile")
+        system( "ln -s #{ path }Gemfile ../")
 
     end
 
