@@ -15,13 +15,13 @@ uncss = require 'gulp-uncss'
 csso = require 'gulp-csso'
 
 # Minify css
-gulp.task 'uncss', ->
+gulp.task 'buildCSS', ->
 
     # Locate css and run commands
-    gulp.src( '../www/assets/stylesheets/all.css' )
-        .pipe( uncss( html: [ '../www/**/*.html' ] ) )
+    gulp.src( 'www/assets/stylesheets/**/*.css' )
+        .pipe( uncss( html: [ 'www/**/*.html' ] ) )
         .pipe( csso() )
-        .pipe gulp.dest( '../www/assets/stylesheets' )
+        .pipe gulp.dest( './www/assets/stylesheets' )
 
 # Scan site, remove unused css, minify css, gzip css
 gulp.task 'uncss', [ 'uncss' ]

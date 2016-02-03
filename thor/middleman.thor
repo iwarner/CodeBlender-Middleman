@@ -34,7 +34,7 @@ class Middleman < Thor
 
         # UnCSS
         say( "\n\t UnCSS\n\t" )
-        system( "gulp uncss" )
+        system( "gulp buildCSS" )
 
         # Deploy
         say( "\n\t Middleman deploy\n\t" )
