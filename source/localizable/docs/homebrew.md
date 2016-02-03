@@ -62,3 +62,5 @@ Will update the system
 
 ## Todo
 * Instructions on Brew Doctor and how to clean up.
+
+* Document i.e. when update OSX and links disappear brew list -1 | while read line; do brew unlink $line; brew link $line; done

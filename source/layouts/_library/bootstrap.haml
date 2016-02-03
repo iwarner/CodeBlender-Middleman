@@ -13,8 +13,9 @@
 -##
 
 -# Variables
-- locale = I18n.locale.to_s
-- d      = current_page.data
+- locale  = I18n.locale.to_s
+- d       = current_page.data
+- angular = ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false
 
 -# HTML5 DocType
 !!!
@@ -22,7 +23,7 @@
 -# HTML Section
 %html{ lang:      string( :locale ),
        manifest:  dataConfig.manifest ? "/offline.manifest" : false,
-       ng:        { app: ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false },
+       ng:        { app: angular },
        xmlns:     "http://www.w3.org/1999/xhtml",
        xml:       { lang: string( :locale ) } }
 
@@ -47,14 +48,22 @@
         -# Base
         -# %base{ href: "/" }
 
+    -# Locale
+    - localFB = ( defined? dataFacebook && dataFacebook.locale.present? ) ? dataFacebook.locale[ locale ] : false
+
+    -# Angular controller
+    - if d.angular
+        - angular  = d.angular.controller   ? d.angular.controller            : false
+        - angular += d.angular.controllerAs ? " as " + d.angular.controllerAs : false
+
     -# Body with Page Class
     -# Contains the main itemscope of the current page
     %body{ id:        dataConfig.body.id ? dataConfig.body.id : false,
            class:     dataConfig.body.extraClass ? dataConfig.body.extraClass : false,
-           data:      { lang: locale, locale: defined? dataFacebook && dataFacebook.locale.present? ? dataFacebook.locale[ locale ] : false },
+           data:      { lang: locale, locale: localFB },
            itemscope: true,
            itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
-           ng:        { controller: d.angular ? d.angular.controller ? d.angular.controller : false : false } }
+           ng:        { controller: angular } }
 
         %a{ id: "top" }
 

@@ -2,6 +2,7 @@
 # Sub-Navigation
 #
 # @author Ian Warner <ian.warner@drykiss.com>
+# @todo   Make this file automatically by looping through the files and creating
 ##
 
 ---
@@ -204,8 +205,17 @@ organism :
     - title : "Organism"
       url   : "/organism/organism.html"
 
+    - title : "Angular UI Grid"
+      url   : "/organism/angular-ui-grid/angular-ui-grid.html"
+
+    - title : "Asset"
+      url   : "/organism/asset/asset.html"
+
     - title : "Calendar"
       url   : "/organism/calendar/calendar.html"
+
+    - title : "Code"
+      url   : "/organism/code/code.html"
 
     - title : "Contact"
       url   : "/organism/contact/contact.html"
@@ -224,6 +234,9 @@ organism :
 
     - title : "Editor"
       url   : "/organism/editor/editor.html"
+
+    - title : "Flex slider"
+      url   : "/organism/flex-slider/flex-slider.html"
 
     - title : "Footer"
       url   : "/organism/footer/footer.html"
@@ -254,6 +267,9 @@ organism :
 
     - title : "Resource"
       url   : "/organism/resource/resource.html"
+
+    - title : "Ribbon"
+      url   : "/organism/ribbon/ribbon.html"
 
     - title : "Search"
       url   : "/organism/search/search.html"

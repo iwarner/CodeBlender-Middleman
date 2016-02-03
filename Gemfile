@@ -1,8 +1,12 @@
 ##
 # This is the Global Middleman Gemfile
+# It requires OpenSSL to be installed to use the https:// source.
+# Use $ brew install openssl && brew link openssl --force
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 # @see    https://github.com/middleman/middleman-autoprefixer
+#
+# @todo   Update this for middleman 4
 ##
 
 # Source

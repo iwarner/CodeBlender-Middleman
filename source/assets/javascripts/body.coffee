@@ -5,7 +5,7 @@
 ##
 
 # JQuery
-//= require jquery/dist/jquery
+//= require jquery/dist/jquery.min
 //= require jquery-lazy-script/jquery.lazyscript.min.js
 
 # Mix It Up
@@ -15,12 +15,14 @@
 //= require DataTables/media/js/jquery.dataTables
 
 # Angular JS
-//= require angular/angular
-//= require angular-ui-router/release/angular-ui-router
-//= require angular-resource/angular-resource
-//= require angular-sanitize/angular-sanitize
+//= require angular/angular.min
+//= require angular-animate/angular-animate.min
+//= require angular-ui-router/release/angular-ui-router.min
+//= require angular-ui-grid/ui-grid.min
+//= require angular-resource/angular-resource.min
+//= require angular-sanitize/angular-sanitize.min
 //= require angular-bootstrap-checkbox/angular-bootstrap-checkbox
-//= require ngstorage/ngStorage
+//= require ngstorage/ngStorage.min
 
 # Angular Bootstrap DataTables
 //= require angular-datatables/dist/angular-datatables
@@ -38,6 +40,10 @@
 
 # Bootstrap
 //= require bootstrap-sprockets
+
+# Angular UI
+//= require angular-bootstrap/ui-bootstrap.min
+//= require angular-bootstrap/ui-bootstrap-tpls.min
 
 # App
 //= require ./_lib/app

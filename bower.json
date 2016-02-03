@@ -12,9 +12,12 @@
         "amcharts"                   : "",
 
         "angular"                    : "",
+        "angular-animate"            : "",
         "angular-ui-router"          : "",
+        "angular-ui-grid"            : "",
         "angular-resource"           : "",
         "angular-sanitize"           : "",
+        "angular-bootstrap"          : "",
         "angular-bootstrap-checkbox" : "",
         "angular-datatables"         : "",
 

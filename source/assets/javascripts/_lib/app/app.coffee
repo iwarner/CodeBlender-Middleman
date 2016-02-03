@@ -18,8 +18,10 @@
 angular
     .module 'app',  [
 
-        'ui.router'
+        'ui.bootstrap'
         'ui.checkbox'
+        'ui.grid'
+        'ui.router'
 
         'app.auth'
         'app.config'
@@ -27,10 +29,12 @@ angular
         'app.directive'
         'app.filter'
         'app.security'
+        'app.service'
         'app.utility'
 
         'firebase'
 
+        'ngAnimate'
         'ngClipboard'
         'ngStorage'
 
@@ -48,4 +52,5 @@ angular.module 'app.controller', []
 angular.module 'app.directive',  []
 angular.module 'app.filter',     []
 angular.module 'app.security',   []
+angular.module 'app.service',    []
 angular.module 'app.utility',    []
