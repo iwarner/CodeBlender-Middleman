@@ -15,63 +15,66 @@
 ##
 AngularUIGridController = ( $scope, $filter, AngularUIGridService ) ->
 
+    # Debug
     console.log "Angular UI grid - controller"
 
-    # # This
-    # vm = this
+    # This
+    vm = this
 
-    # # Service calls row
-    # vm.editModal = ContentService.editModal
-    # vm.addModal  = ContentService.addModal
-    # vm.delete    = ContentService.delete
+    # Service calls row
+    vm.editModal = AngularUIGridService.editModal
+    vm.addModal  = AngularUIGridService.addModal
+    vm.delete    = AngularUIGridService.delete
 
-    # # Grid options
-    # vm.gridOptions =
+    # Grid options
+    vm.gridOptions =
 
-    #     enableFiltering   : true
-    #     enableSorting     : true
-    #     enableColumnMenus : false
-    #     minRowsToShow     : 15
+        enableFiltering   : true
+        enableSorting     : true
+        enableColumnMenus : false
+        minRowsToShow     : 15
 
-    #     columnDefs        : [
-    #         { field : '_id', width : 200 }
-    #         { field : 'title' }
-    #         { field : 'id', name: 'Actions', cellTemplate : 'content.button.html', width : 68, enableSorting: false, enableFiltering : false }
-    #     ]
+        columnDefs : [
+            { field : 'name' }
+            { field : 'id', name: 'Actions', cellTemplate : 'content.button.html', width : 68, enableSorting: false, enableFiltering : false }
+        ]
 
-    #     onRegisterApi : ( gridApi ) ->
-    #         vm.gridApi = gridApi
-    #         return
+        onRegisterApi : ( gridApi ) ->
+            vm.gridApi = gridApi
+            return
 
-    # ##
-    # # Broadcast update
-    # ##
-    # $scope.$on 'updated', ( event ) ->
-    #     activate()
-    #     return
+    ##
+    # Broadcast update
+    ##
+    $scope.$on 'updated', ( event ) ->
+        activate()
+        return
 
-    # ##
-    # # Get all promise
-    # ##
-    # activate = ->
+    ##
+    # Get all promise
+    ##
+    activate = ->
 
-    #     ContentService.read().then ( data ) ->
+        AngularUIGridService.read().then ( data ) ->
 
-    #         # Set Data
-    #         vm.gridOptions.data = data.result
-    #         vm.total            = data.result.length
+            # Debug
+            console.log data
 
-    #         ##
-    #         # Filter data
-    #         ##
-    #         vm.filterData = ->
-    #             vm.gridOptions.data = $filter( 'filter' )( data.result, vm.searchText, undefined )
-    #             return
+            # Set data
+            vm.gridOptions.data = data
+            vm.total            = data.length
 
-    # ##
-    # # Activate
-    # ##
-    # activate()
+            ##
+            # Filter data
+            ##
+            vm.searchData = ->
+                vm.gridOptions.data = $filter( 'filter' )( data, vm.searchText, undefined )
+                return
+
+    ##
+    # Activate
+    ##
+    activate()
 
     return
 

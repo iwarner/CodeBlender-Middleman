@@ -19,7 +19,7 @@ do ( angular ) ->
     ##
     #
     ##
-    angular.module 'app.security', []
+    angular.module 'app.security'
 
     ##
     #
@@ -43,8 +43,6 @@ do ( angular ) ->
         '$urlRouterProvider'
 
         ( $urlRouterProvider ) ->
-
-            console.log "Security When Authenticated"
 
             # Credits for this idea: https://groups.google.com/forum/#!msg/angular/dPr9BpIZID0/MgWVluo_Tg8J
             # unfortunately, a decorator cannot be used here because they are not applied until after
@@ -89,7 +87,7 @@ do ( angular ) ->
                 return
 
             authRequired = ( path ) ->
-                console.log 'authRequired?', path, securedRoutes.indexOf( path )
+                # console.log 'authRequired?', path, securedRoutes.indexOf( path )
                 securedRoutes.indexOf( path ) != -1
 
             # auth.$onAuth check
@@ -98,7 +96,7 @@ do ( angular ) ->
             # this redirects to the login page whenever that is encountered
             $rootScope.$on '$routeChangeError', ( e, next, prev, err ) ->
 
-                console.log 'routeChangeError'
+                # console.log 'routeChangeError'
 
                 if err == 'AUTH_REQUIRED'
                     $location.path loginRedirectPath

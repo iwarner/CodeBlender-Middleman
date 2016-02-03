@@ -30,7 +30,7 @@ PopoverDirective = ->
     ##
     link : ( scope, element, attributes, controller, transclude ) ->
 
-        console.log "Popover directive"
+        # console.log "Popover directive"
 
         # Create a close icon on the popover
         # template  : """

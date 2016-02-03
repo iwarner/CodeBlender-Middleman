@@ -15,180 +15,178 @@
 ##
 AngularUIGridService = ( $rootScope, $q, $http, $uibModal ) ->
 
+    # URL
+    url = "/assets/javascripts/data/phones.json?"
+
     # Debug
-    console.log "Angular UI grid - service"
+    console.log "Angular UI grid - service", url
 
-    # # URL
-    # url = PATH.API + PATH.OFFER
+    # Return
+    {
+        ##
+        # Create
+        #
+        # @param  formData
+        # @return array
+        ##
+        create : ( formData ) ->
 
-    # # Return
-    # {
-    #     ##
-    #     # Create
-    #     #
-    #     # @param  formData
-    #     # @return array
-    #     ##
-    #     create : ( formData ) ->
+            # Push in scope
+            that = @
 
-    #         # Push in scope
-    #         that = @
+            # Create promise
+            deferred = $q.defer()
 
-    #         # Create promise
-    #         deferred = $q.defer()
+            # Remove unwanted nodes from the form data
+            delete formData.header
+            delete formData.button
+            delete formData.submitForm
 
-    #         # Remove unwanted nodes from the form data
-    #         delete formData.header
-    #         delete formData.button
-    #         delete formData.submitForm
+            # Convert data to milliseconds
+            formData.date = formData.date.getTime()
 
-    #         # Convert data to milliseconds
-    #         formData.date = formData.date.getTime()
+            # Add array brackets
+            formData.interestCodes = "[" + formData.interestCodes + "]"
+            formData.tags          = "[" + formData.tags + "]"
+            formData.countries     = "[" + formData.countries + "]"
 
-    #         # Add array brackets
-    #         formData.interestCodes = "[" + formData.interestCodes + "]"
-    #         formData.tags          = "[" + formData.tags + "]"
-    #         formData.countries     = "[" + formData.countries + "]"
+            ##
+            # Create the content
+            ##
+            $http.put( url, [ formData ] )
 
-    #         ##
-    #         # Create the content
-    #         ##
-    #         $http.put( url, [ formData ] )
+            # Success
+            .success ( data ) ->
 
-    #         # Success
-    #         .success ( data ) ->
+                # Return success
+                deferred.resolve data
+                $rootScope.$broadcast 'updated'
 
-    #             # Return success
-    #             deferred.resolve data
-    #             $rootScope.$broadcast 'updated'
+                return
 
-    #             return
+            deferred.promise
 
-    #         deferred.promise
+        ##
+        # Read
+        #
+        # @return array
+        ##
+        read : ->
 
-    #     ##
-    #     # Read
-    #     #
-    #     # @return array
-    #     ##
-    #     read : ->
+            # Push in scope
+            that = @
 
-    #         # Push in scope
-    #         that = @
+            # Create promise
+            deferred = $q.defer()
 
-    #         # Create promise
-    #         deferred = $q.defer()
+            # Request the interests JSON
+            $http.get( url )
 
-    #         # Request the interests JSON
-    #         $http.get( PATH.API + PATH.OFFER )
+            # Success
+            .success ( data ) ->
 
-    #         # Success
-    #         .success ( data ) ->
+                deferred.resolve data
 
-    #             deferred.resolve data
+                return
 
-    #             return
+            deferred.promise
 
-    #         deferred.promise
+        ##
+        # Update
+        #
+        # @return array
+        # @see    http://stackoverflow.com/questions/12576798/how-to-watch-service-variables
+        ##
+        update : ( formData ) ->
 
-    #     ##
-    #     # Update
-    #     #
-    #     # @return array
-    #     # @see    http://stackoverflow.com/questions/12576798/how-to-watch-service-variables
-    #     ##
-    #     update : ( formData ) ->
+            # Push in scope
+            that = @
 
-    #         # Push in scope
-    #         that = @
+            # Create promise
+            deferred = $q.defer()
 
-    #         # Create promise
-    #         deferred = $q.defer()
+            # Remove unwanted nodes from the form data
+            delete formData.header
+            delete formData.button
+            delete formData.submitForm
 
-    #         # Remove unwanted nodes from the form data
-    #         delete formData.header
-    #         delete formData.button
-    #         delete formData.submitForm
+            ##
+            # Create the content
+            ##
+            $http.post( url + formData._id, formData )
 
-    #         ##
-    #         # Create the content
-    #         ##
-    #         $http.post( url + formData._id, formData )
+            # Success
+            .success ( data ) ->
 
-    #         # Success
-    #         .success ( data ) ->
+                # Return success
+                deferred.resolve data
+                $rootScope.$broadcast 'updated'
 
-    #             # Return success
-    #             deferred.resolve data
-    #             $rootScope.$broadcast 'updated'
+                return
 
-    #             return
+            deferred.promise
 
-    #         deferred.promise
+        ##
+        # Delete
+        #
+        # @return array
+        ##
+        delete : ( grid, row ) ->
 
-    #     ##
-    #     # Delete
-    #     #
-    #     # @return array
-    #     ##
-    #     delete : ( grid, row ) ->
+            # Push in scope
+            that = @
 
-    #         # Push in scope
-    #         that = @
+            # Create promise
+            deferred = $q.defer()
 
-    #         # Create promise
-    #         deferred = $q.defer()
+            # Request the interests JSON
+            $http.delete( PATH.API + PATH.OFFER + row.entity._id )
 
-    #         # Request the interests JSON
-    #         $http.delete( PATH.API + PATH.OFFER + row.entity._id )
+            # Success
+            .success ( data ) ->
 
-    #         # Success
-    #         .success ( data ) ->
+                deferred.resolve data
+                $rootScope.$broadcast 'updated'
 
-    #             deferred.resolve data
-    #             $rootScope.$broadcast 'updated'
+                return
 
-    #             return
+            deferred.promise
 
-    #         deferred.promise
+            return
 
-    #         return
+        ##
+        # Edit row
+        ##
+        addModal : ->
 
-    #     ##
-    #     # Edit row
-    #     ##
-    #     addModal : ->
+            $modal.open
+                templateUrl  : 'content.modal.html'
+                controller   : 'ContentAddController'
+                controllerAs : 'modal'
 
-    #         $modal.open
-    #             templateUrl  : 'content.modal.html'
-    #             controller   : 'ContentAddController'
-    #             controllerAs : 'modal'
+        ##
+        # Edit row
+        ##
+        editModal : ( grid, row ) ->
 
-    #     ##
-    #     # Edit row
-    #     ##
-    #     editModal : ( grid, row ) ->
+            $modal.open
+                templateUrl  : 'content.modal.html'
+                controller   : 'ContentEditController'
+                controllerAs : 'modal'
+                resolve :
+                    grid : ->
+                        grid
+                    row : ->
+                        row
 
-    #         $modal.open
-    #             templateUrl  : 'content.modal.html'
-    #             controller   : 'ContentEditController'
-    #             controllerAs : 'modal'
-    #             resolve :
-    #                 grid : ->
-    #                     grid
-    #                 row : ->
-    #                     row
+            return
 
-    #         return
-
-    # }
-
-    return
+    }
 
 # Module
 angular
     .module  'app.service'
-    .factory 'AngularUIGridService', AngularUIGridService
+    .service 'AngularUIGridService', AngularUIGridService
     .constant 'ContentSchema',
       type: 'object'
       properties:

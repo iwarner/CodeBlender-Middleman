@@ -24,11 +24,11 @@ ContentAddController = ( $scope, $filter, $modalInstance, $timeout, ContentServi
     vm.header = "Add Content"
     vm.button = "Add"
 
-    # Dummy Prefill - Comment out for production
+    # Dummy pre-fill - Comment out for production
     # vm._id           = "GBE03635USEN"
     # vm.title         = "Transforming procurement to drive the enterprise agenda"
     # vm.url           = "http://google.com"
-    vm.docType       = "offer"
+    # vm.docType       = "offer"
     # vm.interestCodes = "SWP10,CA108"
     # vm.tags          = "Big data, Predictive analytics"
     # vm.synopsis      = "To understand the underpinnings of their success, the IBM Institute for Business Value and Economist Intelligence Unit surveyed 1,023 CPOs from organizations with annual revenue in excess of US$1 billion. We also took a close look at the 100 companies that achieved the most impressive revenue and profit performance relative to their industry peers so that we could understand the strategies and actions that account for their uniquely valuable contributions to the enterprise."
@@ -65,9 +65,6 @@ ContentAddController = ( $scope, $filter, $modalInstance, $timeout, ContentServi
 
                 # Reload the grid
 
-        else
-            console.log "Not Valid"
-
         return
 
     return
@@ -81,11 +78,9 @@ angular
 # Inject
 ##
 ContentAddController.$inject = [
-
     '$scope'
     '$filter'
     '$modalInstance'
     '$timeout'
     'ContentService'
-
 ]

@@ -33,7 +33,7 @@ angular.module 'app'
         # Save into Local Storage
         $scope.save = ->
 
-            console.log $scope.get()
+            # console.log $scope.get()
 
             # @storage.counter = 10
 

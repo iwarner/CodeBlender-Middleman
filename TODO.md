@@ -1,5 +1,20 @@
 # TODO
 
+# Check
+
+    http://fengyuanchen.github.io/cropper/
+    http://flatfull.com/themes/angulr/angular/#/app/dashboard-v1
+    http://ux.edx.org/
+    https://dineshramitc.wordpress.com/2015/09/28/mastering-your-inbox-with-the-gmail-javascript-api/
+    http://www.adgold.co.uk/#contacthome
+    http://ux.flydubai.com/rebrand/html_ui_toolkit/
+    http://www.fork-cms.com/
+    http://anthonyterrien.com/knob/
+    http://retina-images.complexcompulsions.com/
+    http://www.idev101.com/
+    http://softwareas.com/is-this-what-the-app-of-2015-looks-like-html5-coffeescript-less-webstore-phonegap-apparatio
+    http://www.keenthemes.com/preview/index.php?theme=conquer
+
 ## CodeBlender Examples
 
 * This should be used as test pages for Jasmine to test front end elements

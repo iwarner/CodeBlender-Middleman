@@ -3,19 +3,17 @@
 ##
 
 ##
-# JS Lint
+# JS lint
 ##
 'use strict'
 
 ##
-# Config
+# Configuration
 #
 # @param routeProvider    NGRouter
 # @param locationProvider To remove the Hash
 ##
 config = ( $stateProvider, $urlRouterProvider, ngClipProvider ) ->
-
-    console.log "Config Loaded"
 
     # Zero Clipboard Setting
     ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'

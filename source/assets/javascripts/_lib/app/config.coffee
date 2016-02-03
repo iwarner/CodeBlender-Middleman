@@ -16,7 +16,7 @@
 # @param codeBlenderControllers Controller
 ##
 angular
-    .module   'app.config', []
+    .module   'app.config'
     .constant 'version', '1.0.0'
     .constant 'loginRedirectPath', '/login'
     .constant 'FBURL', 'https://codeblender.firebaseio.com/'

@@ -34,8 +34,8 @@
 
 # Angular UI grid
 //= require organism/angular-ui-grid/_angular-ui-grid_controller
-# //= require organism/angular-ui-grid/_angular-ui-grid-add_controller
-# //= require organism/angular-ui-grid/_angular-ui-grid-edit_controller
+#  require organism/angular-ui-grid/_angular-ui-grid-add_controller
+#  require organism/angular-ui-grid/_angular-ui-grid-edit_controller
 //= require organism/angular-ui-grid/_angular-ui-grid_service
 
 # Code

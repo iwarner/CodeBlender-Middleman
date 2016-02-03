@@ -22,7 +22,7 @@ angular.module( 'mailChimp', [
     'ngResource'
     'ngSanitize'
 
-]).controller 'mailChimpSubscriptionCtrl', [
+]).controller 'MailChimpSubscriptionController', [
 
     '$log'
     '$resource'

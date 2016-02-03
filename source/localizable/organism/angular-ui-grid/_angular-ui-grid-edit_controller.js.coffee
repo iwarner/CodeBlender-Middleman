@@ -57,9 +57,6 @@ ContentEditController = ( $scope, $filter, $modalInstance, $timeout, ContentServ
 
                 # Reload the grid
 
-        else
-            console.log "Not Valid"
-
         return
 
     return
@@ -73,7 +70,6 @@ angular
 # Inject
 ##
 ContentEditController.$inject = [
-
     '$scope'
     '$filter'
     '$modalInstance'
@@ -81,5 +77,4 @@ ContentEditController.$inject = [
     'ContentService'
     'grid'
     'row'
-
 ]

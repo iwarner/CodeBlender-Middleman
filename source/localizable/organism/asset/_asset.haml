@@ -2,13 +2,15 @@
 -# Assets
 -# Displays thumbnails of the design assets for this page, based on front-matter
 -#
+-# @usage
+-#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Variables
 - cp = current_page.data
 
--# Check Array Exists
+-# Check array exists
 - if cp.assets
 
     %hr
@@ -19,5 +21,4 @@
         = partial "./molecule/heading/heading", locals: { tag: "h3", text: "Assets" }
 
         -# Tools
-        = partial "./bootstrap/component/thumbnails",
-                   locals: { array: cp.assets, columns: "col-md-2 col-sm-3 col-xs-4" }
+        = partial "./bootstrap/component/thumbnails", locals: { array: cp.assets, columns: "col-md-2 col-sm-3 col-xs-4" }

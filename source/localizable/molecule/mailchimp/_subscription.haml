@@ -45,7 +45,7 @@
     %p= string :"mailChimp.small"
 
     -# Subscription Form
-    %form{ action: action, name: "mailChimpSubscriptionForm", novalidate: true, ng: { submit: "submitSubscription( mailChimp, $event )", controller: "mailChimpSubscriptionCtrl" }, role: "form" }
+    %form{ action: action, name: "mailChimpSubscriptionForm", novalidate: true, ng: { submit: "submitSubscription( mailChimp, $event )", controller: "MailChimpSubscriptionController" }, role: "form" }
 
         -# Hide the Form if the subscription was successful
         %div{ ng: { hide: "mailChimp.result === 'success'" } }

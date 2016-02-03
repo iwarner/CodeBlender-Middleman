@@ -20,7 +20,7 @@
 PortfolioController = ->
 
     # Debug
-    console.log "Portfolio controller"
+    # console.log "Portfolio controller"
 
     # Create the mix on the portfolio grid
     angular.element( '.portfolio__grid' ).mixItUp()

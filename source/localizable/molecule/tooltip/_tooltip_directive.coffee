@@ -30,7 +30,7 @@ TooltipDirective = ->
     ##
     link : ( scope, element, attributes, controller, transclude ) ->
 
-        console.log "Tooltip directive"
+        # console.log "Tooltip directive"
 
         # Instantiate the tooltip
         element.find( "button" ).tooltip
