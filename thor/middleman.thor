@@ -24,7 +24,7 @@ class Middleman < Thor
         system( "clear" )
 
         # Load the config File
-        config = YAML::load_file( "data/config.yaml" )
+        config = YAML::load_file( "../data/config.yaml" )
 
         # Increment version
 
@@ -34,7 +34,7 @@ class Middleman < Thor
 
         # UnCSS
         say( "\n\t UnCSS\n\t" )
-        system( "gulp buildcss" )
+        system( "gulp uncss" )
 
         # Deploy
         say( "\n\t Middleman deploy\n\t" )
@@ -54,7 +54,7 @@ class Middleman < Thor
     def package
 
         # Load the config File
-        config = YAML::load_file( "data/config.yaml" )
+        config = YAML::load_file( "../data/config.yaml" )
 
         # Get the version
         version = config[ :version ]

@@ -85,6 +85,17 @@
     $ bower update
     $ bower prune
 
+# Gulp
+
+    During the build cycle we run UnCSS to strip out unwanted CSS, this requires
+    gulp and related packages to be installed.
+
+    Install Gulp globally
+    $ npm install -g gulp
+
+    Run the local package.json file to get local node_modules
+    $ npm install
+
 # Thor : http://whatisthor.com/
 
 # File System

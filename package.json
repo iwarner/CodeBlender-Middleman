@@ -5,9 +5,10 @@
     "main"        : "gulpfile.js",
 
     "devDependencies" : {
-        "gulp"       : "",
-        "gulp-uncss" : "",
-        "gulp-csso"  : ""
+        "gulp"          : "",
+        "gulp-uncss"    : "",
+        "gulp-csso"     : "",
+        "coffee-script" : ""
     },
 
     "author"  : "Ian Warner",
