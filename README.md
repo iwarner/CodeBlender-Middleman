@@ -96,6 +96,9 @@
     Run the local package.json file to get local node_modules
     $ npm install
 
+    Command that will be run
+    $ gulp uncss
+
 # Thor : http://whatisthor.com/
 
 # File System
