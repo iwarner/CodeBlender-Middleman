@@ -18,11 +18,8 @@ set :dataNav,       data.navigation
 set :dataSubNav,    data.subnavigation
 set :version,       dataConfig.version
 
-# Configuration
-# config[ :partials_dir ] = "partial/_library/"
-
 # Variables
-# set :relative_links,   false
+set :relative_links,   false
 # set :strip_index_file, false
 set :syntaxScheme,     "ThankfulEyes"
 set :path,             "assets"
@@ -34,7 +31,7 @@ set :fonts_dir,        "#{ path }/font"
 set :haml,             { ugly: true, format: :html5 }
 set :build_dir,        "www"
 set :layout,           "_lib/sidebarLeft"
-# set :debug_assets,     true
+set :debug_assets,     true
 
 # Markdown Engine
 set :markdown_engine, :kramdown
