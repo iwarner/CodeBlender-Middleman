@@ -1,9 +1,8 @@
 ##
-# Config YAML
+# Configuration YAML
+# Contains the configuration for the core framework
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo Sort out the elements in here a little better and create new files if required.
 ##
 
 ---
@@ -22,6 +21,15 @@ angular:
 # Head
 head :
     prefix : "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# dcterms: http://purl.org/dc/terms/#"
+lang          : en
+manifest      : false
+modernizr     : false
+
+# Body
+body       :
+    spy    : false
+    target : false
+    offset : false
 
 # JavaScript
 javascript :
@@ -31,23 +39,17 @@ javascript :
 # Sections
 breadcrumbs   : true
 container     : "container"
-copyright     : true
-configuration : false
 description   : false
-favicon       : "favicon.ico"
 heading       : false
-lang          : en
-manifest      : false
-modernizr     : false
+topIcon       : true
+
+# Extras
+configuration : false
 resources     : true
 todo          : true
-topIcon       : true
-body       :
-    spy    : false
-    target : false
-    offset : false
 
 # Meta
+favicon       : "favicon.ico"
 meta :
     apple    : true
     core     : true
@@ -61,14 +63,8 @@ meta :
     touch    : false
     twitter  : false
 
-# Products
-productColumns : 3
-
 # Footer
+copyright     : true
 footer :
     active     : true
     extraClass : "noBackground"
-
-# Atom
-atom :
-    title : "Code Blender"

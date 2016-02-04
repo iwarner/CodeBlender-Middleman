@@ -2,9 +2,6 @@
 # Navigation
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo   Should calculate the height of what is above the Navbar
-# @todo   Calculate the margins dynamically
 ##
 # class App.Views.Navigation extends Backbone.View
 

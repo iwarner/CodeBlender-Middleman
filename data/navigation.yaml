@@ -2,9 +2,6 @@
 # Navigation, Navbar configuration
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo Confirm whether each of these are required now, comment them
-# @todo Can I move these into the Navbar partial also
 ##
 
 ---
