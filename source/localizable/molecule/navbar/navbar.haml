@@ -29,6 +29,8 @@ navigation1 :
 see :
     - - "Bootstrap navigation bar"
       - "http://getbootstrap.com/components/#navbar"
+    - - "Bootstrap example"
+      - "https://getbootstrap.com/examples/navbar/"
 
 todo :
     - - "Active menu item needs to be completed"
@@ -39,6 +41,10 @@ todo :
     - - "Icon to collapse any child sidebar"
     - - "Icons left or right to bring in offcanvas menus"
     - - "Confirm whether each of the elements in the YAML are required now, comment them"
+    - - "Add the shopping widget to the navigation again"
+    - - "Make sure navbar-btn is added to the button in a navbar - test"
+    - - "Make sure navbar-form is added to form elements in the navbar - test"
+    - - "Add the ability to do navbar-text and navbar-link in the navbar"
 
 locals :
     - - "array"
@@ -95,10 +101,10 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "./molecule/navbar/navbar", locals: dataNav}
+    code = %{partial "molecule/navbar/navbar", locals: dataNav}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 / -# Logo
 / :ruby

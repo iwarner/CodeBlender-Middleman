@@ -3,6 +3,8 @@
 -# Create a navigation array in the corresponding locale file, this will identify
 -#
 -# @usage
+-# -# Navigation bar
+-# = partial "molecule/navbar/navbar", locals: dataNav
 -#
 -# @locals
 -# brand      :
@@ -25,8 +27,6 @@
 -#
 -# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# @see      https://getbootstrap.com/examples/navbar/
--# @see      http://getbootstrap.com/components/#navbar
 -##
 
 -# Variables
@@ -36,6 +36,7 @@
 - extraClass = nav.extraClass ? extraClass : false
 - angular    = nav.ng ? ng : false
 - container  = nav.container ? nav.container : dataConfig.container
+- target     = nav.target ? "##{ target }" : "#navbar-collapse"
 
 -# Navigation bar
 %nav.navbar{ id: id, class: extraClass, role: "navigation", ng: angular }
@@ -47,20 +48,20 @@
         .navbar-header
 
             -# Create the collapsible menu - requires JS plug-in
-            %button.navbar-toggle.collapsed{ type: "button",
-                                             data: { toggle: "collapse",
-                                                     target: nav.target ? "##{ target }" : "#navbar-collapse" } }
+            %button.navbar-toggle.collapsed{ "aria-expanded" => "false", type: "button", data: { toggle: "collapse", target: target } }
+
+                -# Screen reader text
                 %span.sr-only Toggle Navigation
 
-                -# Loop through Spans
+                -# Loop through spans for menu icon
                 - 3.times do
                     %span.icon-bar
 
             -# Brand
-            = partial "./molecule/brand/navbar"
+            = partial "molecule/brand/navbar"
 
-        -# Create the collapse area
-        .navbar-collapse.collapse{ id: nav.target ? target : "navbar-collapse" }
+        -# Create the collapse area - target without the #
+        .navbar-collapse.collapse{ id: target[ 1..-1 ] }
 
             -# Loop through the left, centre and right sections
             - links.each do | entry |
@@ -71,18 +72,8 @@
                     -# Loop through entries
                     - entry[ 1 ].each do | side |
 
-                        -# Get correct URL path
-                        -# - if ! relative_links
-                        -#     - url = current_page.url.length > 1 ? current_page.url[ 0...-1 ] : current_page.url
-                        -# - else
-                        -#     - url = File.dirname( URI.parse( current_page.url ).path )
-
-                        -# Sort out what item is active
-                        -# - side[ :active ] = ( url == side[ :url ] ) ? true : false
-
-                        -# Process Array
-                        -# - array = []
-                        -# - array << side
+                        - if side[ :link ]
+                            - side[ :active ] = ( current_page.url == side[ :link ][ :url ] ) ? true : false
 
                         -# Dropdown menu
                         - if side[ :dropdown ]
@@ -99,7 +90,7 @@
                         - elsif side[ :shop ]
 
                             -# Simple Cart Widget
-                            %li= partial "./e-commerce/widget"
+                            %li= partial "e-commerce/widget"
 
                             -# Button
                         - elsif side[ :button ]
@@ -107,7 +98,7 @@
                             %div{ class: side[ :extraClass ] ? side[ :extraClass ] : false }
 
                                 -# Button
-                                = partial "./atom/button/button", locals: side[ :button ]
+                                = partial "atom/button/button", locals: side[ :button ]
 
                             -# Just show a Partial useful for Mega Menus
                         - elsif side[ :partial ]
@@ -118,13 +109,11 @@
                         - else
 
                             -# List
-                            = partial "./atom/list/list.ul",
-                                       locals: { array:      [ side ],
-                                                 navBar:     true,
-                                                 extraClass: side[ :extraClass ] }
+                            -# Expects the active element to be pushed into the array
+                            = partial "atom/list/list.ul", locals: { array: [ side ], navBar: true, extraClass: side[ :extraClass ] }
 
             -# Check if search is required
             - if dataGoogle.present? && dataGoogle.search
 
                 -# Search Google
-                = partial "./molecule/search/searchNavbar"
+                = partial "molecule/search/searchNavbar"

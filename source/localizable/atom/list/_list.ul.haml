@@ -1,9 +1,9 @@
 -##
--# List UL Partial
+-# List UL partial
 -# Navbar usage will exclude the UL tag
 -#
 -# Possible Bootstrap classes
--# list-unstyled (This only applies to immediate children list items)
+-# list-unstyled (This only applies to immediate children list items)
 -# list-inline
 -#
 -# @usage
@@ -16,14 +16,13 @@
 -#
 -# @category atom
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# @see      http://getbootstrap.com/css/#type-lists
 -##
 
 -# Type UL or OL
 - if ! locals[ :type ]
     - type = "ul"
 
--# Capture Content
+-# Capture content
 - captureHTML = capture_html do
 
     -# Loop through the list array
@@ -32,7 +31,7 @@
         -# Active
         - classes = list[ :active ] ? "active" : ""
 
-        -# Extra Classes
+        -# Extra class
         - classes += list[ :extraClass ] ? " #{ list[ :extraClass ] }" : ""
 
         -# Status
@@ -56,9 +55,7 @@
 
                     -# Icon
                     - if list[ :icon ]
-
-                        -# Icon
-                        = partial "./atom/icon/icon", locals: { icon: list[ :icon ] }
+                        = partial "atom/icon/icon", locals: { icon: list[ :icon ] }
 
                     - if list[ :text ]
                         = string list[ :text ]
