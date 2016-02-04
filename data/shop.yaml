@@ -1,0 +1,10 @@
+##
+# Shop YAML
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+##
+
+---
+
+# Products
+productColumns : 3
