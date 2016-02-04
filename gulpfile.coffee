@@ -19,8 +19,8 @@ gulp.task 'buildCSS', ->
 
     # Locate css and run commands
     gulp.src( 'www/assets/stylesheets/**/*.css' )
-        .pipe( uncss( html: [ 'www/**/*.html' ] ) )
-        .pipe( csso() )
+        .pipe uncss( html : [ 'www/**/*.html' ], ignore : [ '/fa-/', '/ui-grid/' ] )
+        .pipe csso()
         .pipe gulp.dest( './www/assets/stylesheets' )
 
 # Scan site, remove unused css, minify css, gzip css

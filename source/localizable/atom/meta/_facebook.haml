@@ -38,8 +38,8 @@
 %meta{ content: string( :"meta.#{ m }.image" ), property: "og:image" }
 
 -# Facebook Page ID
-%meta{ content: dataFacebook.page.id, property: "fb:page_id" }
+%meta{ content: data.facebook.page.id, property: "fb:page_id" }
 
 -# Facebook App ID
-- if dataFacebook.app.id
-    %meta{ content: dataFacebook.app.id, property: "fb:app_id" }
+- if data.facebook.app.id
+    %meta{ content: data.facebook.app.id, property: "fb:app_id" }

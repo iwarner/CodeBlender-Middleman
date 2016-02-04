@@ -22,31 +22,27 @@ see :
 
 todo :
     - - "Complete the other versions for the like box"
-      - "Like Box"
-      - "2014-04-22"
-      - { "context" : "info" }
-
 ---
 
 -# Heading
-= partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
+= partial "molecule/heading/heading", locals: { text: "Default", tag: "h2" }
 
--# Like Button
-= partial "./molecule/facebook/like-box"
+-# Like button
+= partial "molecule/facebook/like-box"
 
 -# Code
 :code
     #lang: ruby
-    = partial "./molecule/facebook/like-box"
+    = partial "molecule/facebook/like-box"
 
 -# Customised
 %hr
 
 -# Heading
-= partial "./molecule/heading/heading", locals: { text: "Customised", tag: "h2" }
+= partial "molecule/heading/heading", locals: { text: "Customised", tag: "h2" }
 
 -# Like Box
-= partial "./molecule/facebook/like-box",
+= partial "molecule/facebook/like-box",
            locals: { colorscheme: "dark",
                      force_wall:  "true",
                      header:      "false",
@@ -60,7 +56,7 @@ todo :
 -# Code
 :code
     #lang: ruby
-    = partial "./molecule/facebook/like-box",
+    = partial "molecule/facebook/like-box",
                locals: { colorscheme: "dark",
                          force_wall:  "true",
                          header:      "false",

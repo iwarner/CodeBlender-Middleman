@@ -2,22 +2,23 @@
 
 meta :
     author      : "DryKISS"
-    description : "List group - CodeBlender"
+    description : "List group displays complex and custom content in li and dt elements - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "List group - CodeBlender"
+    title       : "List group displays complex and custom content in li and dt elements - CodeBlender"
     type        : "website"
 
 heading :
     title : "List Group"
 
 see :
-    - - "Bootstrap List Group"
-      - "http://getbootstrap.com/component/#list-group"
+    - - "Bootstrap list group"
+      - "http://getbootstrap.com/components/#list-group"
 
 todo :
     - - "Link should be optional for the list group - either li or a depending of url specified"
     - - "Change contextual to colour or type"
+    - - "Change the hash-bangs for javascript:;"
 
 locals :
     - - "array"
@@ -31,64 +32,48 @@ locals :
 
 ---
 
-- id = 1
+-# ID
+- id = 0
 
 -# Default
 :ruby
-    code = %{partial "./molecule/list-group/list-group",
-                      locals: { array: [ { active: true,
-                                           title:  lorem.words( 2 ),
-                                           url:    "#" },
-                                         { title:  lorem.words( 2 ),
-                                           url:    "#" } ] }}
+    code = %{partial "molecule/list-group/list-group",
+                      locals: { array: [ { active: true, title:  lorem.words( 2 ), url: "index.html" },
+                                         { title:  lorem.words( 2 ), url: "index.html" } ] }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 -# With Badges
 :ruby
-    code = %{partial "./molecule/list-group/list-group",
-                      locals: { array: [ { badge: "14",
-                                           title: lorem.words( 2 ),
-                                           url:   "#" },
-                                         { active: true,
-                                           badge:  "14",
-                                           title:  lorem.words( 2 ),
-                                           url:    "#" } ] }}
+    code = %{partial "molecule/list-group/list-group",
+                      locals: { array: [ { badge: "14", title: lorem.words( 2 ), url: "#" },
+                                         { active: true, badge: "14", title: lorem.words( 2 ), url: "#" } ] }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "List Group With Badges" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "List Group With Badges" } }
 
 -# Contextual
 :ruby
-    code = %{partial "./molecule/list-group/list-group",
-                      locals: { array: [ { title:   lorem.words( 2 ),
-                                           url:     "#",
-                                           context: "success" },
-                                         { title:   lorem.words( 2 ),
-                                           url:     "#",
-                                           context: "danger" } ] }}
+    code = %{partial "molecule/list-group/list-group",
+                      locals: { array: [ { title: lorem.words( 2 ), url: "#", context: "success" },
+                                         { title: lorem.words( 2 ), url: "#", context: "danger" } ] }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Contextual" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Contextual" } }
 
 -# Content
 :ruby
-    code = %{partial "./molecule/list-group/list-group",
-                      locals: { array: [ { badge:   "14",
-                                           heading: lorem.words( 2 ),
-                                           text:    lorem.words( 20 ),
-                                           url:     "#" },
-                                         { heading: lorem.words( 2 ),
-                                           text:    lorem.words( 20 ),
-                                           url:     "#" } ] }}
+    code = %{partial "molecule/list-group/list-group",
+                      locals: { array: [ { badge: "14", heading: lorem.words( 2 ), text: lorem.words( 20 ), url: "#" },
+                                         { heading: lorem.words( 2 ), text: lorem.words( 20 ), url: "#" } ] }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Content" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Content" } }
 
 -# Non-Linked
 :ruby
-    code = %{partial "./molecule/list-group/list-group",
+    code = %{partial "molecule/list-group/list-group",
                       locals: { array: [ { title: lorem.words( 2 ) },
                                          { title: lorem.words( 2 ) } ],
                                 list:  true }}

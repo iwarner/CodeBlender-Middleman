@@ -120,24 +120,24 @@ class Middleman < Thor
     ##
     desc "blogPost", "Create a New Blog Post"
     method_option :editor, :default => "subl"
-    def blogPost(title, date = Time.now.strftime('%Y-%m-%d'))
+    def blogPost( title, date = Time.now.strftime( '%Y-%m-%d' ) )
 
         path     = "source/games/"
         title    = title
-        filename = path + "#{date}-#{title.to_url}.html.haml"
+        filename = path + "#{ date }-#{ title.to_url }.html.haml"
 
         if File.exist?(filename)
-            abort("#{filename} already exists!")
+            abort( "#{ filename } already exists!" )
         end
 
-        FileUtils.mkdir path + "#{date}-#{title.to_url}"
+        FileUtils.mkdir path + "#{ date }-#{ title.to_url }"
 
-        puts "Creating new post: #{filename}"
+        puts "Creating new post: #{ filename }"
 
-        open(filename, 'w') do |post|
+        open( filename, 'w' ) do | post |
 
             post.puts "---"
-            post.puts "title       : \"#{title.gsub(/&/,'&amp;')}\""
+            post.puts "title       : \"#{ title.gsub( /&/, '&amp;' ) }\""
             post.puts "category    :"
             post.puts "subcategory :"
             post.puts "data        :"
@@ -154,7 +154,7 @@ class Middleman < Thor
 
         end
 
-        system(options[:editor], filename)
+        system( options[ :editor ], filename )
 
     end
 

@@ -27,7 +27,7 @@ class App.Utils.Facebook
             # Initialise Facebook
             FB.init
 
-                appId      : "<%= dataFacebook.app.id %>"
+                appId      : "<%= data.facebook.app.id %>"
                 channelUrl : "<%= data.config.url %>channel.html"
                 status     : true
                 cookie     : true

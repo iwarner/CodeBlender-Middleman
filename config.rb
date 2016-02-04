@@ -18,7 +18,7 @@ set :dataSubNav,    data.subnavigation
 set :version,       dataConfig.version
 
 # Variables
-set :relative_links,   false
+set :relative_links,   true
 # set :strip_index_file, false
 set :syntaxScheme,     "ThankfulEyes"
 set :path,             "assets"
