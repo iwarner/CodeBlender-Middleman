@@ -23,7 +23,7 @@ tags     : [ testing, tdd ]
 {:toc}
 
 ## Introduction
-Testing flows into Continuous Intergration so please read that article also.
+Testing flows into Continuous Integration so please read that article also.
 
 ## Test-Driven Development
 TDD in its simplest form is just this:

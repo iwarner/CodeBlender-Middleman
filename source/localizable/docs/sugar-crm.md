@@ -25,8 +25,6 @@ tags     : [ sugarcrm, crm ]
 ## Introduction
 [Sugar CRM](http://www.sugarcrm.com/)
 
-afcrm8576
-
 ## Installing Sugar CRM
 
 [Installation Guide](http://support.sugarcrm.com/02_Documentation/01_Sugar_Editions/05_Sugar_Community_Edition/Sugar_Community_Edition_6.5/Sugar_Community_Edition_Installation_Guide_6.5.0)
@@ -93,14 +91,14 @@ Basically a configured LAMP system is required
 
 ## Email Configuration
 
-Sugar CRM requires an email solution to send and also recieve email into the system
+Sugar CRM requires an email solution to send and also receive email into the system
 
-Gmail can be used as an SMTP gateway or one can be setup on the server.
+Gmail can be used as an SMTP gateway or one can be set up on the server.
 
 [Mail Server](https://help.ubuntu.com/community/MailServer)
 [Postfic](https://help.ubuntu.com/community/Postfix) is the mail transport engine of choice for Ubuntu
 
-To edit confiiguration
+To edit configuration
 
     $ sudo nano /etc/postfix/main.cf
 

@@ -83,3 +83,5 @@ the keywords and phrases targetted
 http://thenextweb.com/socialmedia/2014/02/28/get-found-guide-getting-everlasting-traffic-keyword-research/?fromcat=all#!xUQMZ
 http://www.transversal.com/solutions/seo
 Search Console
+
+https://www.optimizely.com/optimization-glossary/website-optimization/?otm_source=google&otm_campaign=G_WW_Search_Shiva&otm_content=wot_bt=51064707332&gclid=CjwKEAiArdG1BRCLvs_q-IObwxMSJACXbLtzcrBorRYH1p21yikwxnEsFMIJ-MJLpAg6xUmLZy2mgxoCBx7w_wcB

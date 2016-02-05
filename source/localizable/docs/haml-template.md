@@ -37,3 +37,5 @@ simple, elegant and rapid.
 * Complete the sections
 
 [HAML]:http://haml.info/
+http://www.cheatography.com/specialbrand/cheat-sheets/haml/
+https://rivalfox.com/blog/haml-best-practices/

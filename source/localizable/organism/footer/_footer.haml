@@ -1,30 +1,38 @@
 -##
 -# Footer and Copyright elements
+-# Most of the configuration is driven from the locale file
 -#
 -# @usage
 -# -# Footer
--# = partial "./organism/footer/footer"
+-# = partial "organism/footer/footer"
+-#
+-# @param array  - Inject the content through the partial instead of using the locale
+-# @param center - Centre align the copyright text
+-# @param fluid  - Flag for bootstrap container, otherwise use the default in the config
+-# @param noYear - Remove the year
 -#
 -# @category organism
--# @stub     footer
 -# @author   Ian Warner <ian.warner@drykiss.com>
--#
--# @todo     BEM this file
 -##
 
-%footer
+-# Variable
+- extraClass = dataConfig.footer.extraClass ? dataConfig.footer.extraClass : false
+- container  = locals[ :fluid ] ? "container-fluid" : dataConfig.container
+
+-# Footer
+%footer{ role: "contentinfo" }
 
     -# Footer
-    .footer{ class: dataConfig.footer.extraClass ? dataConfig.footer.extraClass : false }
+    .footer{ class: extraClass }
 
         -# Container
-        %div{ class: dataConfig.container ? dataConfig.container : false }
+        %div{ class: container }
 
             -# Bootstrap Row
             .row
 
                 -# Check Footer YAML or locals is not blank
-                - if t( "footer" ) or locals[ :array ]
+                - if t "footer" or locals[ :array ]
 
                     -# Local array takes precedent
                     - array = locals[ :array ] ? locals[ :array ] : t( "footer" )
@@ -33,17 +41,18 @@
                     - count      = 12 / array.count
                     - extraClass = "col-md-#{ count } "
 
-                    -# Loop through the Footer Yaml
+                    -# Loop through the footer yaml
                     - array.each do | entry |
 
+                        -# Extra class
+                        - extraClass = entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass
+
                         -# Section
-                        .footerSection{ class: entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass }
+                        .footerSection{ class: extraClass }
 
                             -# Heading
-                            = partial "./molecule/heading/heading",
-                                       locals: { icon: entry[ :icon ] ? entry[ :icon ] : false,
-                                                 tag:  "h4",
-                                                 text: entry[ :title ] }
+                            - icon = entry[ :icon ] ? entry[ :icon ] : false
+                            = partial "./molecule/heading/heading", locals: { icon: icon, tag: "h4", text: entry[ :title ] }
 
                             -# Body
                             :markdown
@@ -53,14 +62,13 @@
     .copyright{ class: locals[ :center ] ? "text-center" : false }
 
         -# Container
-        %div{ class: dataConfig.container }
+        %div{ class: container }
 
             -# Year
             - if ! locals[ :noYear ]
 
-                -# Variables
+                -# Variable
                 - year = Time.now.strftime '%Y'
-
                 %time{ datetime: year } &copy; #{ year }
 
             -# Text

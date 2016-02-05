@@ -96,7 +96,7 @@ JavaScript file.
     $ sudo kill -9 15106
 
 ## Partials
-Check out overiding partial helpers
+Check out overriding partial helpers
 https://gist.github.com/vernonk/4969096
 
 Partials form the building blocks for each project, in a manner of speaking
@@ -138,18 +138,18 @@ For example, creating a new widget would require creating the following files:
 
 ## Helpers / Extensions
 
-* Create a helper that gets the page title in a better way - either form fontmatter that could be a translation symbol.
-* Database Javascript needs to be refactored to remove queries from it
-* JavaScript Recaptcha service intergration
+* Create a helper that gets the page title in a better way - either form frontmatter that could be a translation symbol.
+* Database JavaScript needs to be re-factored to remove queries from it
+* JavaScript Recaptcha service integration
 * Link Helper that takes into account the locale path
 * Article Iteration
     * Need to return an array of articles based on inputs
         * Language, Category, Subcategory, Tags
 * Portfolio Iteration
     * Helper Method to get all articles within the portfolio category
-    * Need to check that subcategory exists when there is a cateogory or it fails
+    * Need to check that subcategory exists when there is a category or it fails
 * Create helper methods such as exists and is array
-* GitHub helper to get the repos for a given user or organisation
+* GitHub helper to get the repositories for a given user or organisation
 
 ## Pages
 * Sort out the 404.html

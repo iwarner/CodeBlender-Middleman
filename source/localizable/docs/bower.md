@@ -28,7 +28,7 @@ process for libraries such as JQuery and Bootstrap.
 
 Especially useful for concatenating these files together locally through Middleman.
 
-A bower.json file shoudl exist in root which implies the libraries required for the
+A bower.json file should exist in root which implies the libraries required for the
 project. Running the following in the terminal will update and prune these:
 
     $ /Volumes/Groups/UX/tms.com/www
@@ -57,7 +57,7 @@ Also see [Bower Github][] for the latest development news.
 
 * Give more of a breakdown on the bower commands
 * Look at YeoMan as a replacement for Thor and Bower perhaps can this be
-  intergrated into Middleman or does it compete?
+  integrated into Middleman or does it compete?
 
 [Bower]:http://bower.io/
 [Bower Github]:https://github.com/bower/bower

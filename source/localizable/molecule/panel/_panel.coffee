@@ -1,50 +1,50 @@
-##
-# Panels
-#
-# @author Ian Warner <ian.warner@drykiss.com>
-##
-class App.Views.Panels extends Backbone.View
+# ##
+# # Panels
+# #
+# # @author Ian Warner <ian.warner@drykiss.com>
+# ##
+# class App.Views.Panels extends Backbone.View
 
-    ##
-    # el
-    ##
-    el : ".container"
+#     ##
+#     # el
+#     ##
+#     el : ".container"
 
-    ##
-    # Events
-    ##
-    events :
-        'click .tools .toggle' : "toggle"
+#     ##
+#     # Events
+#     ##
+#     events :
+#         'click .tools .toggle' : "toggle"
 
-    ##
-    # Expand
-    ##
-    toggle : ( e ) ->
+#     ##
+#     # Expand
+#     ##
+#     toggle : ( e ) ->
 
-        # Prevent default
-        e.preventDefault()
-        e.stopPropagation()
+#         # Prevent default
+#         e.preventDefault()
+#         e.stopPropagation()
 
-        # Current Target
-        current = $ e.currentTarget
+#         # Current Target
+#         current = $ e.currentTarget
 
-        # Element
-        el = current.closest( ".panel" ).find( ".content" )
+#         # Element
+#         el = current.closest( ".panel" ).find( ".content" )
 
-        # Check Class
-        if el.hasClass "collapse"
+#         # Check Class
+#         if el.hasClass "collapse"
 
-            # Toggle Icon
-            current.children( "i" ).removeClass( "fa-caret-down" ).addClass( "fa-caret-up" )
+#             # Toggle Icon
+#             current.children( "i" ).removeClass( "fa-caret-down" ).addClass( "fa-caret-up" )
 
-            # Remove Collapse
-            el.removeClass "collapse"
+#             # Remove Collapse
+#             el.removeClass "collapse"
 
-        #
-        else
+#         #
+#         else
 
-            # Toggle Icon
-            current.children( "i" ).removeClass( "fa-caret-up" ).addClass( "fa-caret-down" )
+#             # Toggle Icon
+#             current.children( "i" ).removeClass( "fa-caret-up" ).addClass( "fa-caret-down" )
 
-            # Add Collapse
-            el.addClass "collapse"
+#             # Add Collapse
+#             el.addClass "collapse"

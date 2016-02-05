@@ -22,7 +22,7 @@ tags     : [ composer ]
 * Table of Contents
 {:toc}
 
-## Introduction
+## Introduction
 To install:
 
     $ brew tap josegonzalez/homebrew-php

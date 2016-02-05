@@ -70,13 +70,13 @@ http://etc.usf.edu/techease/4all/web-accessibility/using-the-fangs-screen-reader
 * Trackball
 * Directional-pad navigation
 
-## iOS
+## iOS
 
 Please read the [Accessibility iOS][] documentation for an overview and
 [Testing Accessibility iOS][] on how to test accessibility points.
 And the more generic [Marketing iOS][] text
 
-### iOS Barclay's App Testing
+### iOS App Testing
 
 Firstly switched on the default setting for VoiceOver - equivalent of TalkBack in Android.
 Testing Barclay's Banking Application
@@ -102,7 +102,7 @@ Two finger swipe down explains all elements on the page.
 * Scolling the sliding panel states "Rows 5-10 of 17" useful
   Getting rid of the sliding panel is a pain as the user needs to find the more button again
 
-So the Barclays app seems to work very nicelt with VoiceOver for iPhone
+So the Barclays app seems to work very nicely with VoiceOver for iPhone
 
 * Tested Red Laser - the two finger swipe for the home page took about 10 minutes due
   to the amount of content needed to be read back - important to note this for
@@ -193,3 +193,7 @@ http://patstapestry.wordpress.com/2013/05/24/tips-for-accessibility-testing-of-i
 [RNIB]:http://www.rnib.org.uk/
 [Action Hearing Loss]:http://www.actiononhearingloss.org.uk/
 [Screen Reader Testing]:http://www.iheni.com/screen-reader-testing/
+
+https://github.com/yargalot/grunt-accessibility
+https://github.com/yargalot/gulp-accessibility
+http://tenon.io/

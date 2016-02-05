@@ -1,9 +1,7 @@
 //
-// Scaffolding Footer
+// Footer
 //
 // @author Ian Warner <ian.warner@drykiss.com>
-//
-// @todo   Do this in BEM
 //----------------------------------------------------------------------------//
 
 // Footer
@@ -27,7 +25,7 @@
         border-left : 2px solid $gray-darker;
     }
 
-    // Background Type
+    // Background type
     //------------------------------------------------------------------------//
     p i {
         display    : inline-block;
@@ -35,7 +33,7 @@
         width      : 20px;
     }
 
-    // Footer Heading
+    // Footer heading
     //------------------------------------------------------------------------//
     h4 {
         display       : block;
@@ -45,7 +43,7 @@
         padding       : 2px 0;
     }
 
-    // Social Element
+    // Social element
     //------------------------------------------------------------------------//
     .socialList  {
 
@@ -69,9 +67,7 @@
             width           : 50px;
 
         }
-
     }
-
 }
 
 //
@@ -101,10 +97,9 @@
         color : $gray-lighter;
     }
 
-    // Link List
+    // Link list
     //------------------------------------------------------------------------//
     ul {
         display : inline;
     }
-
 }

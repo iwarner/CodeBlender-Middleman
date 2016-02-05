@@ -1,6 +1,7 @@
 //
 // Panels
 //
+// @usage
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
 
@@ -8,17 +9,15 @@
 //----------------------------------------------------------------------------//
 .panel {
 
-    // Heading
+    // Position
     //------------------------------------------------------------------------//
-    h2 {
-        font-size : $font-size-h2;
-    }
+    margin-bottom : 0;
 
     // Heading
     //------------------------------------------------------------------------//
     .panel-heading {
 
-        // Overflow Ellipsis on Title
+        // Overflow ellipsis on title
         //--------------------------------------------------------------------//
         &.ellipsis .panel-title {
             white-space   : nowrap;
@@ -31,11 +30,9 @@
     // Panel Title
     //------------------------------------------------------------------------//
     .panel-title {
-
         span {
-            vertical-align: -10%;
+            vertical-align : -10%;
         }
-
     }
 
     // Panel Body
@@ -67,7 +64,5 @@
             color     : #fff;
             font-size : 20px;
         }
-
     }
-
 }

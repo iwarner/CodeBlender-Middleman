@@ -31,3 +31,7 @@ tags     : [ colour ]
 * List the main colours for the application
 
 [Colour contrast]:http://www.snook.ca/technical/colour_contrast/colour.html
+
+https://www.npmjs.com/package/grunt-colorguard
+http://subtlepatterns.com/
+https://en.wikipedia.org/wiki/Color_difference#CIEDE2000

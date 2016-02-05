@@ -134,3 +134,5 @@ server and several users connect to this.
 ## Checklist
 1. Investigate and purchase business class router
 2. Investigate a supplier of good quality cabling, trunking and
+
+http://www.techspot.com/downloads/5936-inssider.html
