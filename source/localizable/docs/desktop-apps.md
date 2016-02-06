@@ -33,7 +33,7 @@ and
 ## Ideas
 * Idea is to have a dashboard for each employee in the Studio.
 * This dashboard will contain the following tools, dependant on the logged in user.
-* Can control work station setup and environments.
+* Can control work station set up and environments.
 * Middleman front end - backs on to lan network server or local node setup and mongo. Mac only at the moment.
 * Log in is Via Facebook Connect.
 * Create specific project templates - such as Wordpress / Middleman - done by network administered Thor files.

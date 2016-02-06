@@ -22,3 +22,6 @@ tags     : [ trello ]
 {:toc}
 
 ## Introduction
+
+Want to make this article a use case on how DryKISS utilises trello for simple
+project management and creative workshops.

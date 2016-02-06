@@ -69,7 +69,7 @@ Please read the below site
 
 * [PHP Fig](http://www.php-fig.org/)
 
-Specifially
+Specifically
 
 * [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
 * [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1.md)
@@ -116,6 +116,58 @@ Install PHP5 - PHP-FPM
     pm.min_spare_servers = 2
     pm.max_spare_servers = 3
     pm.max_requests      = 500
+
+
+#### PHP 5.4
+
+If there are any pre-existing pear install outside of homebrew-php, and you are
+using a non-standard pear.conf location, installation may fail.
+
+For 10.5 and Apache:
+    Apache needs to run in 32-bit mode. You can either force Apache to start
+    in 32-bit mode or you can thin the Apache executable.
+
+To enable PHP in Apache add the following to httpd.conf and restart Apache:
+    LoadModule php5_module /usr/local/Cellar/php54/5.4.6/libexec/apache2/libphp5.so
+
+The php.ini file can be found in:
+    /usr/local/etc/php/5.4/php.ini
+
+PEAR
+
+If pear complains about permissions, 'Fix' the default PEAR permissions and config:
+    chmod -R ug+w /usr/local/Cellar/php54/5.4.6/lib/php
+    pear config-set php_ini /usr/local/etc/php/5.4/php.ini
+
+Extensions
+
+If you are having issues with custom extension compiling, ensure that this php is
+in your PATH:
+    PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"
+
+Extensions will never be compiled against this homebrew-php PHP. Please install them
+using --with-homebrew-php to enable compiling against this php.
+
+FPM
+
+If you have installed the formula with --with-fpm, to launch php-fpm on startup:
+    * If this is your first install:
+        mkdir -p ~/Library/LaunchAgents
+        cp /usr/local/Cellar/php54/5.4.6/homebrew-php.josegonzalez.php54.plist ~/Library/LaunchAgents/
+        launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist
+
+    * If this is an upgrade and you already have the homebrew-php.josegonzalez.php54.plist loaded:
+        launchctl unload -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist
+        cp /usr/local/Cellar/php54/5.4.6/homebrew-php.josegonzalez.php54.plist ~/Library/LaunchAgents/
+        launchctl load -w ~/Library/LaunchAgents/homebrew-php.josegonzalez.php54.plist
+
+Mountain Lion comes with php-fpm pre-installed, to ensure you are using the brew version you need to make sure /usr/local/sbin is before /usr/sbin in your PATH:
+
+  PATH="/usr/local/sbin:$PATH"
+
+You may also need to edit the plist to use the correct "UserName".
+
+Please note that the plist was called 'org.php-fpm.plist' in old versions of this formula.
 
 ## Todo
 * More notes on profilling, debugging, setup and standards required.

@@ -114,7 +114,7 @@ These should be performed within Postman, but are here for guidance:
             "from_name"  : "Ian",
             "to"         : [
                 {
-                    "email" : "iwarner@triangle-solutions.com",
+                    "email" : "ian.warner@drykiss.com",
                     "name"  : "Ian 2"
                 }
             ],
@@ -152,7 +152,7 @@ These should be performed within Postman, but are here for guidance:
             "from_name"  : "Ian",
             "to"         : [
                 {
-                    "email" : "iwarner@triangle-solutions.com",
+                    "email" : "ian.warner@drykiss.com",
                     "name"  : "Ian Warner"
                 }
             ],
@@ -182,7 +182,7 @@ These should be performed within Postman, but are here for guidance:
             "from_name"  : "Ian",
             "to"         : [
                 {
-                    "email" : "iwarner@triangle-solutions.com",
+                    "email" : "ian.warner@drykiss.com",
                     "name"  : "Ian 2"
                 }
             ],

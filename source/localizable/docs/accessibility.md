@@ -32,7 +32,7 @@ These include users who have visual, physical or age-related limitations that pr
 them from fully seeing or using a touch screen, and users with hearing loss who may
 not be able to perceive audible information and alerts.
 
-An itemised checklist of the main points for the web can be found at [W3C Chcklist][].
+An itemised checklist of the main points for the web can be found at [W3C Checklist][].
 As usual Wikipedia is a good place to start to understand the history of [WCAG][].
 For extra resources please see [Mobile Resources][]
 

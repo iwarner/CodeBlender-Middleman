@@ -47,20 +47,6 @@ website which will ideally result in a better search rank.
 On a Mac this should be pasted into the enter license section in the **help**
 tab.
 
-    ----- BEGIN LICENSE -----
-    Ian Warner
-    Single User License
-    EA7E-802260
-    88C3FD7D 3A9D24FD 48CD9802 FA28ABD9
-    C9ED4B2C 339B9D54 5488AC14 21D1F9B6
-    8BD2A1D3 E750DFB0 504BF1C5 2C3E243E
-    45F3317D 9F55578C 0A590910 13861C94
-    3684FF1D 529DD4C0 A5DB390F 12AFBE3B
-    A931DFAA A50383A2 8B500D83 7DBA9833
-    752BF1BD 6D6F04E5 B58E2772 D60B9D8E
-    04F34FCC C2EB5A14 F8160845 7D9722A8
-    ------ END LICENSE ------
-
 4. Get sublime package control code and enter it into the console
 [Package Control Download][]
 

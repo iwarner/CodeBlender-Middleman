@@ -26,7 +26,7 @@ tags     : [ file-system ]
 Establishing a file structure similar to other team members is crucial in terms
 of script creation and pair programming.
 
-The main setup is that of the Library code folder.
+The main set up is that of the Library code folder.
 This needs to be placed in : /var/www/Library
 
     $ sudo mkdir -p /var/www

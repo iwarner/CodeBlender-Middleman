@@ -25,18 +25,18 @@ tags     : [ analytics ]
 
 ## Introduction
 
-## Browser Stats
-Office for National Statistics Publications
+## Browser statistics
+Office for National statistics publications
 http://www.ons.gov.uk/ons/publications/index.html?pageSize=50&sortBy=none&sortDirection=none&newquery=internet
 
 W3 Schools
 http://www.w3schools.com/browsers/browsers_stats.asp
 
-Browser Stats
+Browser statistics
 2014    Internet Explorer   Firefox Chrome  Safari  Opera
 January 10.2 %              26.9 %  55.7 %  3.9 %   1.8 %
 
-OS Platform Statistics
+OS Platform statistics
 2014    Win8    Win7    Vista   NT*    WinXP   Linux   Mac   Mobile
 January 13.4%   55.3%   1.5%    0.3%   11.0%   4.9%    9.6%  4.0%
 
@@ -101,7 +101,7 @@ This includes :
 * Find out about the Analytics Requirements
 * Complete sections
 
-Investgiate the best analytics to use for the reporting required.
+Investigate the best analytics to use for the reporting required.
 
 There are many more tools than [Google Analyitcs](http://www.google.co.uk/analytics/)
 out there, some provide realtime reporting.
@@ -133,9 +133,9 @@ For instance to track the Car Insurance Form we could use the following:
 
     _trackEvent("CI", action, opt_label, opt_value, opt_noninteraction)
 
-## Database Stats
+## Database statistics
 
-Create a page that lists some arbitrary stats
+Create a page that lists some arbitrary statistics
 I.e. Orders over the past week, by day.
 
 ## Considerations

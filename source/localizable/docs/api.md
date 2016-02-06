@@ -35,13 +35,9 @@ Document the API nodes available. Utilise Flikr API docs as an example
 Below is an example of how REST works, and how it can be tested with command line CURL
 
 1. **Create** new $entity      `curl -XPUT $data http://api.alphafounders.com/v($version)/$entity`
-
 2. **Update** existing $entity `curl -XPOST $data http://api.alphafounders.com/v($version)/$entity/$id`
-
 3. **Delete** $entity          `curl -XDELETE http://api.alphafounders.com/v($version)/$entity/$id`
-
 4. **Get lists** $entity       `curl http://api.alphafounders.com/v($version)/$entity/*`
-
 5. **Get detail** $entity      `curl http://api.alphafounders.com/v($version)/$entity/$id`
 
 ## Considerations

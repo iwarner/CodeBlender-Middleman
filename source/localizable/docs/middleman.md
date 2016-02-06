@@ -22,7 +22,7 @@ tags     : [ middleman ]
 * Table of Contents
 {:toc}
 
-## Introduction
+## Introduction
 [Middleman][] runs from the source folder. However there are a few configuration
 files outside of this:
 

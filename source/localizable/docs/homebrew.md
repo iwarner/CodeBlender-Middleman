@@ -64,3 +64,27 @@ Will update the system
 * Instructions on Brew Doctor and how to clean up.
 
 * Document i.e. when update OSX and links disappear brew list -1 | while read line; do brew unlink $line; brew link $line; done
+
+## HOMEBREW
+
+* [HomeBrew](http://mxcl.github.com/homebrew/)
+* [HomeBrew Formulae](https://github.com/mxcl/homebrew/tree/master/Library/Formula)
+
+The following are helpful:
+
+* [GNU Core Utilities](http://www.gnu.org/software/coreutils/)
+* [GNU Find Utilities](http://www.gnu.org/software/findutils/)
+* [Bash 4](http://www.gnu.org/software/bash/)
+* [ZSH](http://www.zsh.org/)
+* [GNU Wget](http://www.gnu.org/software/wget/)
+* [OSX Dupes](https://github.com/Homebrew/homebrew-dupes)
+* [PHP](https://github.com/josegonzalez/homebrew-php)
+* [MySQL](https://github.com/mxcl/homebrew)
+* [ACK](http://betterthangrep.com/)
+* [GIT](http://git-scm.com)
+* [Lynx](http://lynx.isc.org/)
+* [Rename](http://plasmasturm.org/code/rename)
+* [Tree](http://mama.indstate.edu/users/ice/tree/)
+* [Webkit 2 PNG](http://www.paulhammond.org/webkit2png/)
+* [CDRTools]()
+* [Git Flow](https://github.com/nvie/gitflow)

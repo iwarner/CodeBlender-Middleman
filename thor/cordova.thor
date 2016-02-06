@@ -9,7 +9,7 @@
 class Cordova < Thor
 
     ##
-    # Variables
+    # Variable
     ##
     @@phoneGapToken = ""
     @@phoneGapAppID = ""

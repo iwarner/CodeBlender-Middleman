@@ -46,8 +46,6 @@ new Mac may only cost you £1600 !
 expenses a breeze; they call it [Snap][]. Simply take a photograph of the receipt
 and click upload and within hours it is usually on the [Crunch][] system.
 
-
-
 Whilst using [Crunch][] there are a few elements that I require shortcuts for, the
 first of these being creating an expense
 
@@ -58,7 +56,6 @@ javascript:document.getElementById( "quickPayPurchaseInvoiceInclude:quickPayExpe
 [Crunch]:http://www.crunch.co.uk/referrals/?c2c=iw15428d
 [Snap]:https://itunes.apple.com/gb/app/snap/id507080414?mt=8
 [Flat rate]:https://www.gov.uk/vat-flat-rate-scheme/overview
-
 
 Sun 31st Jan 2016
 Self Assessment filing and payment deadline

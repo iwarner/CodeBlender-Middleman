@@ -8,7 +8,17 @@
 #
 # @todo   Provide a way to compile a CSV into the translated yaml files
 ##
+
+require 'csv'
+require 'yaml'
+require 'open-uri'
+
 class Middleman < Thor
+
+    ##
+    # Variable
+    ##
+    @@googleLocaleKey = "1Z2VSgyUsSoGo6pqNL5ZxQT6SBjKXQEnvPha-EYeH3SQ"
 
     ##
     # Middleman build and deploy
@@ -110,6 +120,66 @@ class Middleman < Thor
         # Gemfile
         system( "rm ../Gemfile")
         system( "ln -s #{ path }Gemfile ../")
+
+    end
+
+    ##
+    # Middleman locale file creation from Google key
+    #
+    # @usage $ thor middleman:locale
+    # @see   https://gist.github.com/dhlavaty/6121814
+    # @see   http://commandercoriander.net/blog/2013/06/22/a-quick-path-from-csv-to-yaml/
+    #
+    # @todo  Increment the version number if deployed
+    ##
+    desc "locale", "Middleman locale creation"
+    def locale
+
+        # Clear
+        system( "clear" )
+
+        # Backup the current files
+
+        # URL
+        url = "https://docs.google.com/spreadsheets/d/#{ @@googleLocaleKey }/export?format=csv&id=#{ @@googleLocaleKey }"
+
+        # Download and iterate through the CSV
+        CSV.new( open( url ), headers: true ).each do | line |
+
+            puts "#{ line[ 0 ] } : #{ line[ 1 ] }"
+
+            # # Ignore blank, if first column is empty
+            # next if line[ 0 ].nil?
+
+            # # Strip strings
+            # line[ 0 ] = line[ 0 ].strip
+
+            # # Check if first character is a hash
+            # next if line[ 0 ][ 0, 1 ] == "#"
+
+            # # Puts line
+            # # puts line[ 0 ].force_encoding( 'utf-8' )
+            # # puts line[ 1 ].force_encoding( 'utf-8' )
+            # # puts line[ 2 ].force_encoding( 'utf-8' )
+
+        end
+
+        # Read CSV
+        data = CSV.parse( open( url ), headers: true )
+
+        # Change to column mode, filter by column name and change back to default mode of operation
+        data.by_col!.each do | col_name, col_values |
+
+            # Create the filename we will use all but the first column for locale creation
+            puts filename = col_name.scan(/\(([^\)]+)\)/).last.first + ".yml"
+            puts col_values
+
+        end
+
+        # puts data
+
+        # YAML creation
+        # File.open( 'weather_data.yml', 'w' ) { | f | f.write( data.to_yaml ) }
 
     end
 

@@ -9,6 +9,8 @@
 # English
 en:
 
+    hello : "HERE we go"
+
     # Locale
     locale : "en"
 
