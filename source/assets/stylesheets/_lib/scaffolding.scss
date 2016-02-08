@@ -23,6 +23,21 @@ table.table  {
     }
 }
 
+// Highlight
+//----------------------------------------------------------------------------//
+#markdown-toc:before {
+    // content     : "Table of Contents";
+    font-weight : bold;
+}
+
+ul#markdown-toc {
+    background-color : white;
+    float            : right;
+    list-style       : none;
+}
+
+// Angular
+//----------------------------------------------------------------------------//
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }

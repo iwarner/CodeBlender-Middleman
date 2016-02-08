@@ -18,11 +18,11 @@ tags     : [ tv ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 Model         : UE37D6530 WKXXU
 TV IP Address : 192.168.0.10
 DNS           : 8.8.8.8
@@ -31,6 +31,7 @@ Fireware      : 001018
 ## Firmware Update
 
 ## Samsung
+
 [Developer][]
 
 [Web API][] allows developing web applications which are capable of controlling

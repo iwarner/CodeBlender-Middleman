@@ -18,11 +18,11 @@ tags     : [ laravel ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 To start a new project you would run:
 
     $ composer create-project laravel/laravel --prefer-dist
@@ -35,7 +35,8 @@ Installing PHP5.4+ is a snip with [Homebrew PHP][]
     $ ~/Dropbox/www/PATH
     $ php -S localhost:8080
 
-## Laravel Setup
+## Set up
+
 Laravel provides excellent database migration support. These are created through the
 Artisan command line interface.
 

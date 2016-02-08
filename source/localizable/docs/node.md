@@ -18,7 +18,6 @@ tags     : [ node ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 

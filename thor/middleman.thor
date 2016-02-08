@@ -5,14 +5,173 @@
 # @usage  $ thor list
 # @author Ian Warner <ian.warner@drykiss.com>
 # @see    http://whatisthor.com/
-#
-# @todo   Provide a way to compile a CSV into the translated yaml files
 ##
 
+# Require
 require 'csv'
-require 'yaml'
 require 'open-uri'
+require 'yaml'
 
+##
+# GCSVToYaml
+#
+# @author Marek Piechocki <work@marek-piechocki.pl>
+##
+class GCSVToYaml
+
+    attr_accessor :google_local_key, :hash_results, :destination_folder, :column_names
+
+    ##
+    # Initialize
+    #
+    # @param google_local_key
+    # @param destination_folder
+    ##
+    def initialize( google_local_key, destination_folder = nil )
+
+        self.google_local_key = google_local_key
+
+        # Create nested hashes for all not initialized keys
+        self.hash_results = Hash.new { | hash, key | hash[ key ] = Hash.new( &hash.default_proc ) }
+
+        # Destination folder or default to root
+        self.destination_folder = destination_folder || './'
+
+        # { column_index: value } - e.g. { 1: 'en', 2: 'fr' }
+        self.column_names = {}
+
+    end
+
+    ##
+    # Parse
+    ##
+    def parse
+
+        # Step 1 - parse csv file
+        CSV.new( open( google_csv_url ) ).each_with_index do | line, row_index |
+
+        # Parse header - search column names
+        if row_index == 0
+
+            line.each_with_index do | header_cell, column_index |
+
+                # Skip first column
+                next if column_index == 0
+                    self.column_names[ column_index ] = header_cell.scan( /\(([^\)]+)\)/ ).last.first.strip
+                end
+
+                next
+
+            end
+
+            # Ignore blank, if first column is empty
+            next if line[ 0 ].nil?
+            next if line[ 0 ].strip == ''
+
+            # Check if first character is a hash
+            next if line[ 0 ].strip[ 0, 1 ] == '#'
+
+            line.each_with_index do | cell, column_index |
+
+                # Skip first column - it's our key
+                next if column_index == 0
+
+                # add cell value to hash. e.g. key format: 'en.pagination.next'
+                add_element_to_hash_results( "#{ column_names[ column_index ] }.#{ line[ 0 ].strip }", cell.to_s.strip )
+            end
+
+        end
+
+        # Step 2 - generate yml files from hash
+        column_names.values.each do | key |
+            File.open( File.join( destination_folder, "#{ key }.yml" ), 'w' ) { | f | f.write( { "#{ key }" => hash_results[ key ] }.to_yaml ) }
+        end
+
+    end
+
+    ##
+    # Add element to hash
+    ##
+    def add_element_to_hash_results( key, value )
+
+        collection_keys = key.split( '.' )
+        key_for_value   = collection_keys.pop
+
+
+        nested = collection_keys.inject( self.hash_results ) do | nested, collection_key |
+
+            if is_array?( collection_key )
+
+                array_key   = parse_array_key( collection_key )
+                array_index = parse_array_index( collection_key )
+
+                unless nested.has_key?( array_key )
+                    nested[ array_key ] = Array.new
+                end
+
+                unless nested[ array_key ][ array_index ]
+                    nested[ array_key ][ array_index ] = Hash.new { | hash, key | hash[ key ] = Hash.new( &hash.default_proc ) }
+                end
+
+                nested[ array_key ][ array_index ]
+
+            else
+                nested[ collection_key ]
+            end
+
+        end
+
+        if is_array?( key_for_value )
+
+            array_key   = parse_array_key(key_for_value)
+            array_index = parse_array_index(key_for_value)
+
+            unless nested.has_key?( array_key )
+                nested[ array_key ] = Array.new
+            end
+
+            nested[ array_key ][ array_index ] = value.force_encoding( 'UTF-8' )
+
+        else
+            nested[ key_for_value ] = value.force_encoding( 'UTF-8' )
+        end
+
+    end
+
+    ##
+    # Is array
+    ##
+    def is_array?( string )
+        string.scan( /\[\d+\]$/ ).first
+    end
+
+    ##
+    # Parse array key
+    ##
+    def parse_array_key( string )
+        string.gsub( /\[\d+\]$/, '' )
+    end
+
+    ##
+    # Parse array index
+    ##
+    def parse_array_index( string )
+        string.scan( /\[(\d+)\]$/ ).first.first.to_i
+    end
+
+    ##
+    # Google URL
+    # The sheet needs to be read only by everyone
+    ##
+    def google_csv_url
+        "https://docs.google.com/spreadsheets/d/#{ google_local_key }/export?format=csv&id=#{ google_local_key }"
+    end
+
+end
+
+##
+# Middleman thor
+##
 class Middleman < Thor
 
     ##
@@ -129,8 +288,6 @@ class Middleman < Thor
     # @usage $ thor middleman:locale
     # @see   https://gist.github.com/dhlavaty/6121814
     # @see   http://commandercoriander.net/blog/2013/06/22/a-quick-path-from-csv-to-yaml/
-    #
-    # @todo  Increment the version number if deployed
     ##
     desc "locale", "Middleman locale creation"
     def locale
@@ -138,48 +295,10 @@ class Middleman < Thor
         # Clear
         system( "clear" )
 
-        # Backup the current files
-
-        # URL
-        url = "https://docs.google.com/spreadsheets/d/#{ @@googleLocaleKey }/export?format=csv&id=#{ @@googleLocaleKey }"
-
-        # Download and iterate through the CSV
-        CSV.new( open( url ), headers: true ).each do | line |
-
-            puts "#{ line[ 0 ] } : #{ line[ 1 ] }"
-
-            # # Ignore blank, if first column is empty
-            # next if line[ 0 ].nil?
-
-            # # Strip strings
-            # line[ 0 ] = line[ 0 ].strip
-
-            # # Check if first character is a hash
-            # next if line[ 0 ][ 0, 1 ] == "#"
-
-            # # Puts line
-            # # puts line[ 0 ].force_encoding( 'utf-8' )
-            # # puts line[ 1 ].force_encoding( 'utf-8' )
-            # # puts line[ 2 ].force_encoding( 'utf-8' )
-
-        end
-
-        # Read CSV
-        data = CSV.parse( open( url ), headers: true )
-
-        # Change to column mode, filter by column name and change back to default mode of operation
-        data.by_col!.each do | col_name, col_values |
-
-            # Create the filename we will use all but the first column for locale creation
-            puts filename = col_name.scan(/\(([^\)]+)\)/).last.first + ".yml"
-            puts col_values
-
-        end
-
-        # puts data
-
-        # YAML creation
-        # File.open( 'weather_data.yml', 'w' ) { | f | f.write( data.to_yaml ) }
+        # CSV to YAML
+        # GCSVToYaml.new('1Z2VSgyUsSoGo6pqNL5ZxQT6SBjKXQEnvPha-EYeH3SQ').parse
+        GCSVToYaml.new( '1Z2VSgyUsSoGo6pqNL5ZxQT6SBjKXQEnvPha-EYeH3SQ', '.' ).parse
+        # GCSVToYaml.new( ARGV[ 0 ] || '1Z2VSgyUsSoGo6pqNL5ZxQT6SBjKXQEnvPha-EYeH3SQ', ARGV[ 1 ] ).parse
 
     end
 

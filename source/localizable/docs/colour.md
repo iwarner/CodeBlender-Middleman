@@ -18,16 +18,17 @@ tags     : [ colour ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
 
 ## Accessibility
+
 [Colour contrast][] is an important test for AAA compliance
 
 ## Todo
+
 * List the main colours for the application
 
 [Colour contrast]:http://www.snook.ca/technical/colour_contrast/colour.html

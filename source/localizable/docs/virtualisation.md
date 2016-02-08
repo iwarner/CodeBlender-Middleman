@@ -18,11 +18,11 @@ tags     : [ virtualisation ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 Cloud instances can be created from a CHEF script, this same script can
 be used to create Vagrant / VirtualBox VMs that can be used directly on
 the developers machine.

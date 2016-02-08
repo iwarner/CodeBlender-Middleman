@@ -18,7 +18,6 @@ tags     : [ localization, internationalization, i18n ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 

@@ -18,8 +18,6 @@ tags     : [ geo-location ]
 
 ---
 
-## Table of Contents
-
 * Table of Contents
 {:toc}
 

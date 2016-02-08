@@ -18,14 +18,14 @@ tags     : [ paypal ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 Business Details
 
-## Manage Addresses
+## Manage Addresses
 
 ## Manage Cards
 

@@ -18,8 +18,6 @@ tags     : [ bourbon ]
 
 ---
 
-## Table of Contents
-
 * Table of Contents
 {:toc}
 

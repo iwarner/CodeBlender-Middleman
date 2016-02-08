@@ -18,14 +18,15 @@ tags     : [ testing, tdd ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 Testing flows into Continuous Integration so please read that article also.
 
 ## Test-Driven Development
+
 TDD in its simplest form is just this:
 
 * Write your tests
@@ -37,9 +38,11 @@ TDD in its simplest form is just this:
 ## Behaviour-Driven Development
 
 ## Mobile
+
 http://www.flickr.com/photos/softwaretestingclub/7916949920/sizes/o/in/photostream/
 
 ## Front End
+
 http://net.tutsplus.com/tutorials/javascript-ajax/testing-your-javascript-with-jasmine/
 
 [Jasmine][]

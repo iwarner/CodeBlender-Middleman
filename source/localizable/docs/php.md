@@ -18,7 +18,6 @@ tags     : [ php ]
 
 ---
 
-<!-- ## Table of Contents
 * Table of Contents
 {:toc}
 
@@ -46,19 +45,22 @@ $ php -r "phpinfo();  " | grep -i "loaded configuration file"
 
 Configuration changes can also be supplied in the code and inside an .htaccess file
 
-### Inline
+### In-line
+
 ~~~php
 ini_set( 'post_max_size',       '64M' );
 ini_set( 'upload_max_filesize', '64M' );
 ~~~
 
 ### .htaccess
-~~~apache
+
+~~~apacheConf
 php_value upload_max_filesize 40M
 php_value post_max_size 42M
 ~~~
 
 ## Profiling
+
 * [FORP][]
 
 What versions are we running on the servers
@@ -117,7 +119,6 @@ Install PHP5 - PHP-FPM
     pm.max_spare_servers = 3
     pm.max_requests      = 500
 
-
 #### PHP 5.4
 
 If there are any pre-existing pear install outside of homebrew-php, and you are
@@ -170,9 +171,10 @@ You may also need to edit the plist to use the correct "UserName".
 Please note that the plist was called 'org.php-fpm.plist' in old versions of this formula.
 
 ## Todo
-* More notes on profilling, debugging, setup and standards required.
+
+* More notes on profiling, debugging, set up and standards required.
 
 [PHP: Hypertext Preprocessor]:http://php.net/
 [Wiki page]:http://en.wikipedia.org/wiki/PHP
 [FORP]:http://anthonyterrien.com/forp/
-[Jose Gonzalez]:https://github.com/josegonzalez/homebrew-php -->
+[Jose Gonzalez]:https://github.com/josegonzalez/homebrew-php

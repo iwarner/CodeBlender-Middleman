@@ -16,7 +16,7 @@
     = partial "./molecule/heading/heading", locals: { tag: "h3", text: "Tasks" }
 
     -# Create Columns Array
-    - array = { cols: [ "Task", "Date" ], data: locals[ :array ] ? array : cp.todo }
+    - array = { column: [ "Task", "Date" ], data: locals[ :array ] ? array : cp.todo }
 
     -# Table
     .table-responsive

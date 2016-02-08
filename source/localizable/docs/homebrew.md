@@ -18,11 +18,11 @@ tags     : [ homebrew ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 Utilising [Homebrew][] will speed up the set-up process for the requirements
 to run Middleman. Please Read the [docs][].
 
@@ -61,6 +61,7 @@ Running
 Will update the system
 
 ## Todo
+
 * Instructions on Brew Doctor and how to clean up.
 
 * Document i.e. when update OSX and links disappear brew list -1 | while read line; do brew unlink $line; brew link $line; done

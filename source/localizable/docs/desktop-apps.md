@@ -18,7 +18,6 @@ tags     : [ desktop ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 

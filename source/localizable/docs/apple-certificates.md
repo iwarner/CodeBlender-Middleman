@@ -18,6 +18,9 @@ tags     : [ apple ]
 
 ---
 
+* Table of Contents
+{:toc}
+
 # APPLE CERTIFICATES
 
 Join the Apple Developer Program - https://developer.apple.com/programs/register/

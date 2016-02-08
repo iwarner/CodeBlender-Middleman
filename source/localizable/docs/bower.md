@@ -18,11 +18,11 @@ tags     : [ bower ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 [Bower][] is a package manager for front-end development. It simplifies the update
 process for libraries such as JQuery and Bootstrap.
 
@@ -38,12 +38,15 @@ For a list of available packages please visit [Bower Components][]
 Also see [Bower Github][] for the latest development news.
 
 ## Install
+
     $ npm install -g bower
 
 ## Tutorials
+
 * [Meet Bower][]
 
 ## Packages
+
 [Backbone][]
 [Bootstrap SASS][]
 [Font Awesome][]

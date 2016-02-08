@@ -20,7 +20,6 @@ tags     : [ email, newsletter, marketing ]
 
 ---
 
-## Table of Content
 * Table of Contents
 {:toc}
 

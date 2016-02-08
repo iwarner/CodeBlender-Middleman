@@ -18,11 +18,11 @@ tags     : [ composer ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 To install:
 
     $ brew tap josegonzalez/homebrew-php

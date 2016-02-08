@@ -1,0 +1,9 @@
+season,competition,cup,date,time,referee,ground,team a,score a,team b,score b,scorers a,scorers b,yellow cards a,yellow cards b,red cards a,red cards b,penalties a,penalties b
+11, 1,   0, 2014-07-12, 19:10, Aaron Balogh, Hachioji Park, FC International,      -, Tokyo Hibernian FC,    -
+11, 1,   0, 2014-07-12, 19:10, Aaron Balogh, Hachioji Park, FC International,      1, Tokyo Hibernian FC,    0, Ian, Fred, John, Steve, Simon, Carl
+11, 1,   0, 2014-07-11, 19:10, Chuck Norris, Hachioji Park, British Football Club, 4, El Diego FC,           2, Ian, Fred, John, Steve, Simon, Carl
+11, 1,   0, 2014-07-12, 19:10, Aaron Balogh, Hachioji Park, Tokyo Hibernian FC,    1, FC International,      0, Ian, Fred, John, Steve, Simon, Carl
+11, 1,   0, 2014-07-11, 19:10, Chuck Norris, Hachioji Park, Tokyo Hibernian FC,    4, British Football Club, 2, Ian, Fred, John, Steve, Simon, Carl
+11, 1,   0, 2014-07-11, 19:10, Chuck Norris, Hachioji Park, El Diego FC,           4, British Football Club, 2, Ian, Fred, John, Steve, Simon, Carl
+11, 1,   0, 2014-07-11, 19:10, Chuck Norris, Hachioji Park, El Diego FC,           4, FC International,      6, Ian, Fred, John, Steve, Simon, Carl
+11, Cup, 1, 2014-07-11, 19:10, Chuck Norris, Hachioji Park, Tokyo Hibernian FC,    4, British Football Club, 2, Ian, Fred, John, Steve, Simon, Carl, 5, 4

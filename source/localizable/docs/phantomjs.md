@@ -18,7 +18,6 @@ tags     : [ phantomjs ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 

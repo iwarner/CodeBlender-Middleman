@@ -18,7 +18,6 @@ tags     : [ seo ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 

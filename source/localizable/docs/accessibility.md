@@ -18,9 +18,8 @@ tags     : [ accessibility ]
 
 ---
 
-## Table of Contents
 * Table of Contents
-{:toc}
+{ :toc }
 
 ## Introduction
 

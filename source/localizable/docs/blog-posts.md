@@ -18,7 +18,6 @@ tags     : [ blog ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 

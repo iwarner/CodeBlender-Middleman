@@ -3,16 +3,16 @@
 -#
 -# @usage
 -# Frontmatter Array
--# see :
+-# data :
 -#     - - "DataTables"
 -#       - "https://www.datatables.net/"
 -#
 -# -# Create Array
--# - array = { cols: [ "Title", "URL" ],
--#             data: array ? array : current_page.data.see }
+-# - array = { column: [ "Title", "URL" ],
+-#             data:    array ? array : current_page.data.data }
 -#
 -# -# Table
--# = partial "./molecule/table/table",
+-# = partial "molecule/table/table",
 -#            locals: { array:      array,
 -#                      extraClass: "table-striped table-condensed" }
 -#
@@ -33,8 +33,8 @@
         %tr
 
             -# Loop through the columns section to create the Header Row
-            - array[ :cols ].each do | col |
-                %th= string col
+            - array[ :column ].each do | column |
+                %th= string column
 
     -# Footer
     - if locals[ :footer ]
@@ -43,8 +43,8 @@
             %tr
 
                 -# Loop through the columns section to create the Header Row
-                - array[ :cols ].each do | col |
-                    %th= string col
+                - array[ :column ].each do | column |
+                    %th= string column
 
 
     -# Body

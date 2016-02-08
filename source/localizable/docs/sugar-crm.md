@@ -18,11 +18,11 @@ tags     : [ sugarcrm, crm ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 [Sugar CRM](http://www.sugarcrm.com/)
 
 ## Installing Sugar CRM

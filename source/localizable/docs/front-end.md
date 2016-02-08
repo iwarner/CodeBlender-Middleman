@@ -18,25 +18,28 @@ tags     : [ front-end ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 This document hopes to outline some of the design concepts from a development
 point of view. Highlighting design patterns that can be engineered to provide
 reusable widgets.
 
 ## Off Canvas
+
 [Off Canvas][]
 
 ## JS Framework
+
 * Decide upon using Backbone or framework such as Angular or custom
 * Use Jasmine or some other BDD testing suite for JS
 * Need to implement a View Cleaning script for backbone - take note that this
   should also clean child views correctly also.
 
 ## SCSS
+
 http://www.feedthebot.com/pagespeed/optimize-css-delivery.html
 
 * Sort out the naming conventions and comments for these files

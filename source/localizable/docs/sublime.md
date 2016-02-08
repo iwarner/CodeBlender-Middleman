@@ -18,11 +18,11 @@ tags     : [ sublime, text editor ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 [Sublime][] is the text / code editor of choice.
 It provides a flexible framework for many programming languages.
 

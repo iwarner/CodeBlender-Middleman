@@ -18,7 +18,6 @@ tags     : [ project-brief ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
@@ -30,6 +29,7 @@ recommendations by appropriate parties. It can be viewed as a "who, what, when,
 where, why, and how." piece of work.
 
 ## Parts of a Project Brief
+
 * Overview / Purpose / Background:
     Explains what the project is expected to achieve.
 * Organization:

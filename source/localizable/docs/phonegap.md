@@ -18,11 +18,11 @@ tags     : [ phonegap ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 [PhoneGap][] is a port of [Cordova][] a platform for building native mobile
 applications using HTML, CSS and JavaScript. PhoneGap essentially allows the user
 to utilise the [PhoneGap Build][] to create the applications. Whereas Cordova requires
@@ -32,6 +32,7 @@ The Wrapper gives the application access to some of the device's native features
 such as the geo-location. For a full list see the [PhoneGap Features][]
 
 ## Tutorials
+
 * Important to use the correct tools not only to build but to debug. Read
 [PhoneGap Debugging][] for a simple explanation of this process.
 

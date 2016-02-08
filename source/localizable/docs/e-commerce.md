@@ -18,8 +18,6 @@ tags     : [ e-commerce ]
 
 ---
 
-## Table of Contents
-
 * Table of Contents
 {:toc}
 

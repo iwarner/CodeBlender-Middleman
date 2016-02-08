@@ -17,12 +17,12 @@ modified : 2014-02-09
 tags     : [ mysql ]
 
 ---
-
-## Table of Contents
+s
 * Table of Contents
 {:toc}
 
-## Introduction
+## Introduction
+
 Database engine of choice is [MySQL][]. This can be installed with Homebrew
 
     $ brew install mysql

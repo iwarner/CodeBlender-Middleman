@@ -18,11 +18,11 @@ tags     : [ middleman ]
 
 ---
 
-## Table of Content
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 [Middleman][] runs from the source folder. However there are a few configuration
 files outside of this:
 
@@ -152,6 +152,7 @@ For example, creating a new widget would require creating the following files:
 * GitHub helper to get the repositories for a given user or organisation
 
 ## Pages
+
 * Sort out the 404.html
     * Need to remove Facebook and other external calls
     * http://bootsnipp.com/snipps/sample-404-page
@@ -165,6 +166,7 @@ For example, creating a new widget would require creating the following files:
     * HTML5 Sections allow for multiples - use these
 
 ## Todo
+
 * Complete the section
 * https://github.com/cavneb/middleman-backbone/tree/master/source/javascripts
 * http://www.padrinorb.com/api/Padrino/Helpers/RenderHelpers.html

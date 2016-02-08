@@ -49,10 +49,20 @@ en:
             title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
             type        : "website"
 
-    # Nav Above
+    # Navigation Above
     navAbove :
         strapLine : "An atomic Middleman partials library"
         title     : "Code Blender"
+
+    # Navigation
+    nav :
+        left :
+            home :
+                link : "tyext"
+            dropdown :
+                link : "test"
+            "molecule run" :
+                link : "test"
 
     # Navigation
     navigation :

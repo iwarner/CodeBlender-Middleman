@@ -20,7 +20,6 @@ tags     : [ job, education, skills ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
@@ -149,6 +148,7 @@ states very clearly the ones that are Anywhere.
 ## Project work
 
 Elance
+UpWork
 ODesk
 http://www.freelance.com/en/
 

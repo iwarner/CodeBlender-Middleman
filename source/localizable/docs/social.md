@@ -18,7 +18,6 @@ tags     : [ social, facebook ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 

@@ -18,11 +18,11 @@ tags     : [ file-system ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 Establishing a file structure similar to other team members is crucial in terms
 of script creation and pair programming.
 

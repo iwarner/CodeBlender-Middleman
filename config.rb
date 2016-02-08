@@ -7,6 +7,14 @@
 
 # Require
 require "uglifier"
+require "csv"
+
+# Helpers
+require "football/football"
+require "football/matrix"
+require "football/setting"
+require "football/table"
+require "football/fixture"
 
 # Data Variables
 set :dataConfig,    data.config

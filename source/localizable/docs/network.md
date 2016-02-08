@@ -18,11 +18,11 @@ tags     : [ network ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 At the moment we are planning a network of 30 odd Ad-Hoc computers connecting
 to a single point of access to enable connection to the Internet.
 

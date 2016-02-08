@@ -18,17 +18,18 @@ tags     : [ alerting ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 In the case of code exceptions occurring an alerting policy should be produced.
 
 This section is a natural follow on from [[Logging]]. As it is the logging that
 will fire the alerts.
 
 ## Levels
+
 As we utilise [Slim Framework][] for the back end architecture we should follow
 the log levels stated within this.
 
@@ -42,6 +43,7 @@ The log writer in Slim can be extended to process the alerts we require based
 on the level we encounter.
 
 ## Actions
+
 The following actions should occur when a log level is encountered by the system.
 All previous actions should also be performed.
 

@@ -18,11 +18,11 @@ tags     : [ git ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 The next task to tackle is how we get the latest files for the project. These
 should all be contained within a [GIT][] repository.
 
@@ -55,9 +55,11 @@ Especially the Basics and Branching chapters.
 [Git Attributes](http://git-scm.com/docs/gitattributes#_checking-out_and_checking-in)
 
 ## Line Endings
+
 [Dealing with Line Endings](https://help.github.com/articles/dealing-with-line-endings)
 
 ## GitHub
+
 Repositories
 List all the ones currently in the organisation
 
@@ -91,13 +93,14 @@ If you have any conflicts you can edit the files and then commit again.
     $ git branch -D master
     $ git push origin :master
 
-## Delete a Submodule
+## Delete a sub-module
 Delete the relevant section from the .gitmodules file.
 Delete the relevant section from .git/config.
 Run git rm --cached path_to_submodule (no trailing slash).
 Commit and delete the now untracked submodule files.
 
-## Example Workflow
+## Example work flow
+
 Make something similar with GitFlow
 
     git checkout -b develop
@@ -127,9 +130,11 @@ Make something similar with GitFlow
     git push origin :Bug#12
 
 ## Cost
+
 [GitHub Pricing](https://github.com/plans)
 
 ## Considerations
+
 * [Git Flow](https://github.com/nvie/gitflow) can provide a better management of a product with set
   guidelines for use for developers.
 * http://nvie.com/posts/a-successful-git-branching-model/
@@ -140,6 +145,7 @@ Make something similar with GitFlow
 sudo chmod -R +a "group:staff allow list,add_file,search,add_subdirectory,delete_child,readattr,writeattr,readextattr,writeextattr,readsecurity,file_inherit,directory_inherit" /var/www
 
 ## Todo
+
 * More information on Commit, Pull, Push, Merge and Branch
 * Set up the GIT server on the MAC OSX Server
 * Look at using GIT Flow

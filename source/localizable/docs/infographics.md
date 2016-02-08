@@ -18,11 +18,11 @@ tags     : [ infographic ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 List of the best resources for infographic
 
 http://monetate.com/infographic/responsive-design-the-next-great-hope-or-all-hype/

@@ -18,8 +18,6 @@ tags     : [ analytics ]
 
 ---
 
-## Table of Contents
-
 * Table of Contents
 {:toc}
 

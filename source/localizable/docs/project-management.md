@@ -18,6 +18,9 @@ tags     : [ project-management ]
 
 ---
 
+* Table of Contents
+{:toc}
+
 ## Asana
 
 Asana is the project management and bug tracking tool of choice

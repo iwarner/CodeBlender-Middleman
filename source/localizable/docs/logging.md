@@ -18,11 +18,11 @@ tags     : [ logging ]
 
 ---
 
-## Table of Content
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 Logging is the concept of creating entries for each user action, what
 the request and response once and the success of this. Logging should
 also encompass exceptions and other levels of code debug.

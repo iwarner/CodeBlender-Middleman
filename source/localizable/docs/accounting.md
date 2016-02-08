@@ -18,7 +18,6 @@ tags     : [ accounting, finances ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 

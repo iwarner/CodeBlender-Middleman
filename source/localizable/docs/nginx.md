@@ -18,11 +18,11 @@ tags     : [ nginx ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 Move code over to use NGinx - should be faster than apache with PHPFPM
 
 * Check that this is configured correctly., to support caching.
@@ -38,12 +38,12 @@ Run to test configuration
 
 Mime Types for font files should be added to mime.types
 
-    application/x-font-ttf                ttf;
-    application/x-font-opentype           otf;
-    application/vnd.ms-fontobject         eot;
-    application/font-woff                 woff;
+    application/x-font-ttf        ttf;
+    application/x-font-opentype   otf;
+    application/vnd.ms-fontobject eot;
+    application/font-woff         woff;
 
-Create configration file
+Create configuration file
 
     sudo nano /etc/nginx/sites-available/jenkins
 

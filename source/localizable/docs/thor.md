@@ -18,15 +18,16 @@ tags     : [ thor, ruby ]
 
 ---
 
-## Table of Contents
 * Table of Contents
 {:toc}
 
 ## Introduction
+
 [Thor][] is toolkit for building command-line interfaces.
 
 ## Install
-~~~ shell
+
+~~~shell
 $ gem install thor
 ~~~
 
@@ -34,7 +35,7 @@ $ gem install thor
 This script is shorthand for building middleman and deploying it through
 middlman deploy to GitHub.
 
-~~~ ruby
+~~~ruby
 desc "build", "build"
 def build
 
@@ -52,6 +53,7 @@ end
 ~~~
 
 ## Project Thor
+
 * Create global thor file to create the project template
 * Expand the post creation tool - should be global too
     * Allow for the post injection to come from a template
@@ -60,6 +62,7 @@ end
 * Create a script to produce the correct project template structure
 
 ## Todo
+
 * Complete the sections in these instructions
 * Add more sample scripts on how we use Thor as a task runner
 
