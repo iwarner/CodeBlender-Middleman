@@ -26,14 +26,14 @@ table.table  {
 // Highlight
 //----------------------------------------------------------------------------//
 #markdown-toc:before {
-    // content     : "Table of Contents";
+    content     : "Table of Contents";
     font-weight : bold;
 }
 
 ul#markdown-toc {
-    background-color : white;
-    float            : right;
-    list-style       : none;
+    float      : right;
+    margin     : 0;
+    list-style : none;
 }
 
 // Angular

@@ -1,22 +1,25 @@
 ##
-# Middleman Configuration File
+# Middleman configuration file
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 # @see    https://hellojason.net/blog/remove-unused-css-from-middleman-before-deploying/
+#
+# @todo Want to remove the data variables and set back to the data.example in the code
+# @todo Set the syntax highlighter for kramdown
 ##
 
 # Require
 require "uglifier"
 require "csv"
 
-# Helpers
+# Require football scripts
 require "football/football"
 require "football/matrix"
 require "football/setting"
 require "football/table"
 require "football/fixture"
 
-# Data Variables
+# Data variables
 set :dataConfig,    data.config
 set :dataApple,     data.apple
 set :dataGoogle,    data.google
@@ -40,18 +43,24 @@ set :build_dir,        "www"
 set :layout,           "_lib/sidebarLeft"
 set :debug_assets,     true
 
-# Markdown Engine
-set :markdown_engine, :kramdown
-set :markdown, layout_engine: :haml, tables: true, autolink: true, smartypants: true
-
 # Syntax Highlighting
 activate :syntax
 
 # Time Zone
 Time.zone = "Europe/London"
 
+##
+# Markdown engine and options
+# auto_ids, footnote_nr, entity_output, toc_levels, smart_quotes, kramdown_default_lang, input, hard_wrap
+# @see http://kramdown.gettalong.org/options.html
+##
+set :markdown_engine, :kramdown
+set :markdown, toc_levels: "2", auto_id_prefix: "#"
+
+##
 # I18n
 # @see http://www.rubydoc.info/github/svenfuchs/i18n/I18n
+##
 activate :i18n do | options |
     options.langs         = [ :en ]
     options.mount_at_root = :en
