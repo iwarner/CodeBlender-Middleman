@@ -354,3 +354,18 @@ template :
 
     - title : "Prototype"
       url   : "/template/prototype/prototype.html"
+
+# Football
+football :
+
+    - title : "Football"
+      url   : "/football/football.html"
+
+    - title : "Fixtures"
+      url   : "/football/fixture/fixture.html"
+
+    - title : "Matrix"
+      url   : "/football/matrix/matrix.html"
+
+    - title : "Table"
+      url   : "/football/table/table.html"

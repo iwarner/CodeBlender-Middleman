@@ -164,7 +164,7 @@ class GCSVToYaml
     # The sheet needs to be read only by everyone
     ##
     def google_csv_url
-        "https://docs.google.com/spreadsheets/d/#{ google_local_key }/export?format=csv&id=#{ google_local_key }"
+        "https://docs.google.com/spreadsheets/d/#{ google_local_key }/export?format=csv"
     end
 
 end

@@ -30,9 +30,7 @@ module Player
     # @return array
     ##
     def self.table( season, division, team )
-
         playerStats[ season ][ division ][ team ]
-
     end
 
     ##

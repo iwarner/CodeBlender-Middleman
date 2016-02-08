@@ -19,7 +19,6 @@ module Venue
     ##
     # Returns the history of games played at this venue
     #
-    #
     # @return array Tabular tally of stats for the season and division
     ##
     def self.venue( season, division )

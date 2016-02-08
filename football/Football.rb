@@ -3,7 +3,8 @@
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 #
-# @todo   Read CSV should merge all files under a folder - i.e. for Fixtures merge all the seasons
+# @todo Read CSV should merge all files under a folder - i.e. for Fixtures merge all the seasons
+# @todo Read CSV should have the option to drag this from a Google chart
 ##
 
 ##

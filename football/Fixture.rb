@@ -3,14 +3,19 @@
 #
 # Methods to access the fixtures and results direct from the Fixtures.csv
 #
+# @usage
+# puts Fixture.teamFixture(11, 1, 'Tokyo Hibernian FC')
+#
 # @author Ian Warner <ian.warner@drykiss.com>
 #
-# @todo   Data Time normalisation
-# @todo   Delimit and group fixtures by season, division, team and type or combination of these
-# @todo   i.e. for Team Need to get all the fixtures for a corresponding team in a season.
-# @todo   Type is cup, league or plate
-# @todo   Current Season - will be the max(season)
-# @todo   Unplayed games - these will be ones where scores are not updated
+# @todo Currently this does not work and needs a re-write to just return the correct fixtures required
+# @todo Data Time normalisation
+# @todo Delimit and group fixtures by season, division, team and type or combination of these
+# @todo i.e. for Team Need to get all the fixtures for a corresponding team in a season.
+# @todo Type is cup, league or plate
+# @todo Current Season - will be the max(season)
+# @todo Unplayed games - these will be ones where scores are not updated
+# @todo Ground should do a lookup
 ##
 
 ##
@@ -30,9 +35,12 @@ module Fixture
     # @param  string Type Identifier - cup, plate, league, unplayed
     # @return hash   Hash of fixtures
     ##
-    def self.fixture( season, division, team = nil, type = nil, unplayed = nil )
+    def self.fixture( season, competition, team = nil, type = nil, unplayed = nil )
 
-        fixtures = processFixtures[ season ][ division ]
+        puts season
+        puts competition
+
+        fixtures = processFixtures[ season ][ competition ]
 
         # Sort by date
         fixtures.sort_by{ | teamName, stats | [ stats[ :pts ] * -1, stats[ :gd ] * -1, teamName ] }
@@ -48,17 +56,15 @@ module Fixture
     # @param  string Type Identifier - cup, plate, league, unplayed
     # @return array  Array of fixtures
     ##
-    def self.teamFixture( season, division, team = nil, type = nil, unplayed = nil )
-
-       processFixtures[ season ][ division ][ team ]
-
+    def self.teamFixture( season, competition, team = nil, type = nil, unplayed = nil )
+       processFixtures[ season ][ competition ][ team ]
     end
 
     ##
     # Read the Fixtures CSV and simply return the rows in an array with some columns
     # normalised
     #
-    # @return array Returns all fixtures in { season_id => { division => { teama => {}, teamb => {} } } format
+    # @return array Returns all fixtures in { season_id => { competition => { teama => {}, teamb => {} } } format
     ##
     def self.processFixtures
 
@@ -68,54 +74,59 @@ module Fixture
         # Loop through the CSV
         CSV.foreach( Football::FIXTURES_CSV, headers: true ) do | row |
 
-            # Limit the fixtures by season, division team and type.
+            puts row
+
+            # Limit the fixtures by season, competition team and type.
 
             # Use the Type to exclude certain fixtures
             unless row[ 2 ].to_i == 1
 
                 # Assign to Variables
-                season     = row[ 'season' ].strip.to_i
-                division   = row[ 'competition' ].strip.to_i
-                #cup        = row[ 'cup' ].strip.to_i
-                # date
-                # time
-                # referee
-                # ground
-                teamA      = row[ 'team a' ].strip
-                scoreA     = row[ 'score a' ].to_i
-                teamB      = row[ 'team b' ].strip
-                scoreB     = row[ 'score b' ].to_i
-                # scorersA
-                # scorersB
-                # yellowA  = row[ 13 ].strip
-                # yellowB  = row[ 14 ].strip
-                # redA     = row[ 15 ].strip
-                # redB     = row[ 16 ].strip
-                penaltiesA = row[ 'penalties a' ].try( :strip )
-                penaltiesB = row[ 'penalties b' ].try( :strip )
+                season      = row[ 'season' ].strip.to_i
+                competition = row[ 'competition' ].strip.to_i
+                # cup         = row[ 'cup' ].strip.to_i
+                # date        = row[ 'date' ].strip
+                # time        = row[ 'time' ].strip
+                # referee     = row[ 'referee' ].strip
+                # ground      = row[ 'ground' ].strip
+
+                teamA       = row[ 'team a' ].strip
+                scoreA      = row[ 'score a' ].strip.to_i
+                teamB       = row[ 'team b' ].strip
+                scoreB      = row[ 'score b' ].strip.to_i
+                # scorerA     = row[ 'scorer a' ].strip
+                # scorerB     = row[ 'scorer b' ].strip
+
+                # yellowA     = row[ 'yellow a' ].strip
+                # yellowB     = row[ 'yellow b' ].strip
+                # redA        = row[ 'red a' ].strip
+                # redB        = row[ 'red b' ].strip
+                # penaltyA    = row[ 'penalty a' ].strip
+                # penaltyB    = row[ 'penalty b' ].strip
 
                 # Correlate the fixtures
-                divisionResults                   =  initiateSeasonDivision( fixtures, season, division )
+                divisionResults                   =  initiateSeasonDivision( fixtures, season, competition )
                 insertTeam( divisionResults, teamA )
                 insertTeam( divisionResults, teamB )
 
                 updateTeamStats( divisionResults[ teamA ], scoreA,  scoreB )
                 updateTeamStats( divisionResults[ teamB ], scoreB,  scoreA )
+
             end
 
         end
 
-        addTeams( fixtures )
+        # addTeams( fixtures )
 
         # Return the Fixtures array - this will return everything in a normalised way
-        return fixtures
+        # return fixtures
 
     end
 
     ##
     # Date and Time - normalise the returned event time
     #
-    # @return array Returns all fixtures in { season_id => { division => { teama => {}, teamb => {} } } format
+    # @return array Returns all fixtures in { season_id => { competition => { teama => {}, teamb => {} } } format
     ##
     def self.dateTime( date, time )
 
@@ -170,5 +181,3 @@ module Fixture
     end
 
 end
-
-puts "pppppppppppppppppppppp #{Fixture.teamFixture(11, 1,  'Tokyo Hibernian FC')}"

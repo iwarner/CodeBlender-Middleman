@@ -1,0 +1,74 @@
+-##
+-# Football table
+-#
+-# @usage
+-# -# Football table
+-# = partial "football/table/table"
+-#
+-# @category football
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Football table
+-# If there is a point deduction colour the number red or add a contextual badge
+-# Add a tooltip or some text underneath the table
+%table.table.table-bordered.table-hover.table-striped
+
+    -# Head
+    %thead
+        %tr
+            %th Team
+            %th P
+            %th W
+            %th D
+            %th L
+            %th F
+            %th A
+            %th GD
+            %th PTs
+
+    -# Body
+    %tbody
+
+        - data = Table.table( 11, 1 )
+        - count = data.count
+
+        -# Loop through the fixtures per division
+        - data.each_with_index do | row, index |
+
+            -# Context
+            - if index == count - 1
+                - extraClass = "danger"
+
+            - if index == 0
+                - extraClass = "success"
+
+            -# Row
+            %tr{ class: extraClass }
+
+                -# Team name
+                %td= row[ 0 ]
+
+                -# Played
+                %td= row[ 1 ][ :p ]
+
+                -# Won
+                %td= row[ 1 ][ :w ]
+
+                -# Draw
+                %td= row[ 1 ][ :d ]
+
+                -# Lost
+                %td= row[ 1 ][ :l ]
+
+                -# For
+                %td= row[ 1 ][ :f ]
+
+                -# Away
+                %td= row[ 1 ][ :a ]
+
+                -# Goal difference
+                %td= row[ 1 ][ :gd ]
+
+                -# Points
+                %td= row[ 1 ][ :pts ]

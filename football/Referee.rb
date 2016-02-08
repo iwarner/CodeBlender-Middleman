@@ -21,9 +21,7 @@ module Referee
     # @todo   Sort these stats by points - yellow = 1 - red = 3
     ##
     def self.table( season )
-
         refStats = processStats[ season ]
-
     end
 
     ##

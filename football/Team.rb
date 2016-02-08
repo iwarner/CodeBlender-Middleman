@@ -38,9 +38,7 @@ module Team
     # @return array Array showing just last and next game
     ##
     def self.lastNext( team )
-
         fixtures = processFixtures[ team ][ season ][ unplayed ]
-
     end
 
     ##
@@ -49,9 +47,7 @@ module Team
     # @return array
     ##
     def self.averageGoals( team, season )
-
         goal = processFixtures[ team ][ season ]
-
     end
 
     ##

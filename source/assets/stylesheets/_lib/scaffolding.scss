@@ -23,7 +23,28 @@ table.table  {
     }
 }
 
-// Highlight
+// Cards
+//----------------------------------------------------------------------------//
+.soccerCard {
+
+    display      : inline-block;
+    width        : 10px;
+    height       : 15px;
+    border-width : 1px;
+    border-style : solid;
+    border-color : rgba( 0, 0, 0,.2 );
+
+    &.soccerCard--yellow {
+        background-color : yellow;
+    }
+
+    &.soccerCard--red {
+        background-color : red;
+    }
+
+}
+
+// Kramdown table of contents
 //----------------------------------------------------------------------------//
 #markdown-toc:before {
     content     : "Table of Contents";
