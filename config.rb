@@ -218,52 +218,52 @@ end
 # Create the table pages
 # Loop through the defined divisions
 ( 1...3 ).each do | row |
-    proxy "/division/#{ row }.html", "localizable/football/table/table_template.html", locals: { season: 11, division: row }, ignore: true
+    proxy "/division/#{ row }.html", "template/football/table_template.html", locals: { season: 11, division: row }, ignore: true
 end
 
-# # Team pages
-# CSV.foreach( "csv/teams.csv", headers: true ) do | row |
+# Team pages
+CSV.foreach( "csv/teams.csv", headers: true ) do | row |
 
-#     # Team slug
-#     team = row[ 2 ].strip.downcase.gsub( /[^a-z0-9\- ]/, ' ' ).gsub( / /, '-' )
+    # Team slug
+    team = row[ 2 ].strip.downcase.gsub( /[^a-z0-9\- ]/, ' ' ).gsub( / /, '-' )
 
-#     # Proxy team pages
-#     proxy "/team/#{ team }.html", "templates/team.html", locals: { team: row }, ignore: true
+    # Proxy team pages
+    proxy "/team/#{ team }.html", "template/football/team.html", locals: { team: row }, ignore: true
 
-#     # Create a team iCal
-#     # Get the team Fixtures for the current season
+    # Create a team iCal
+    # Get the team Fixtures for the current season
 
-#     # Create a calendar with an event ( standard method )
-#     cal = Icalendar::Calendar.new
+    # Create a calendar with an event ( standard method )
+    cal = Icalendar::Calendar.new
 
-#     # Timezone set up
-#     cal.timezone do | t |
+    # Timezone set up
+    cal.timezone do | t |
 
-#         t.tzid = "Asia/Tokyo"
+        t.tzid = "Asia/Tokyo"
 
-#         t.standard do | s |
-#             s.tzoffsetfrom = "+0900"
-#             s.tzoffsetto   = "+0900"
-#             s.tzname       = "JST"
-#             s.dtstart      = "19701101T020000"
-#         end
+        t.standard do | s |
+            s.tzoffsetfrom = "+0900"
+            s.tzoffsetto   = "+0900"
+            s.tzname       = "JST"
+            s.dtstart      = "19701101T020000"
+        end
 
-#     end
+    end
 
-#     # Loop through the fixtures and create the events
-#     cal.event do | e |
-#         e.dtstart  = DateTime.new( 2014, 9, 2, 19, 10, 0 )
-#         e.dtend    = DateTime.new( 2014, 9, 2, 20, 10, 0 )
-#         e.summary  = "$v['team_a'] $v['score_a']  v $v['score_b'] $v['team_b']"
-#         e.location = "$v['ground']"
-#         e.geo      = "37.386013,122.082932"
-#     end
+    # Loop through the fixtures and create the events
+    cal.event do | e |
+        e.dtstart  = DateTime.new( 2014, 9, 2, 19, 10, 0 )
+        e.dtend    = DateTime.new( 2014, 9, 2, 20, 10, 0 )
+        e.summary  = "$v['team_a'] $v['score_a']  v $v['score_b'] $v['team_b']"
+        e.location = "$v['ground']"
+        e.geo      = "37.386013,122.082932"
+    end
 
-#     cal.append_custom_property( "X-WR-CALNAME", "#{team}" )
-#     cal.append_custom_property( "X-WR-CALDESC", "#{team}" )
-#     cal.append_custom_property( "X-WR-TIMEZONE", "Asia/Tokyo" )
+    cal.append_custom_property( "X-WR-CALNAME", "#{team}" )
+    cal.append_custom_property( "X-WR-CALDESC", "#{team}" )
+    cal.append_custom_property( "X-WR-TIMEZONE", "Asia/Tokyo" )
 
-#     # Proxy Team Pages
-#     proxy "/calendar/#{ team }.ics", "templates/calendar.html", locals: { data: cal.to_ical }, ignore: true
+    # Proxy Team Pages
+    proxy "/calendar/#{ team }.ics", "template/football/calendar.html", locals: { data: cal.to_ical }, ignore: true
 
-# end
+end

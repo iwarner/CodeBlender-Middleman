@@ -2,6 +2,7 @@
 # Methods to generate Football Sites
 #
 # @author Ian Warner <ian.warner@drykiss.com>
+# @see    https://github.com/iwarner/CodeBlender-Middleman/tree/master/football
 ##
 
 ##
