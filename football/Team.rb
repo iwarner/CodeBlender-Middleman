@@ -4,13 +4,6 @@
 # Create methods to get Results for Team, compare past fixtures between two teams
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-# @see    http://www.whoscored.com/Teams/26
-#
-# @todo   Simply return a list of the teams
-# @todo   Correlate Team stats - history of games played - players - top scorers for season or all time - honours
-# @todo   Last games played - win - lose or draw
-# @todo   Compare last results between two teams return array of all of these - include cup and league
-# @todo   Statistics for the team - Average Goal, top scorers ( playerModule ), Top Cards ( playerModule ),
 ##
 
 ##

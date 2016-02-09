@@ -361,11 +361,26 @@ football :
     - title : "Football"
       url   : "/football/football.html"
 
-    - title : "Fixtures"
+    - title : "Cup"
+      url   : "/football/cup/cup.html"
+
+    - title : "Fixture"
       url   : "/football/fixture/fixture.html"
 
     - title : "Matrix"
       url   : "/football/matrix/matrix.html"
 
+    - title : "Player"
+      url   : "/football/player/player.html"
+
+    - title : "Referee"
+      url   : "/football/referee/referee.html"
+
     - title : "Table"
       url   : "/football/table/table.html"
+
+    - title : "Team"
+      url   : "/football/team/team.html"
+
+    - title : "Venue"
+      url   : "/football/venue/venue.html"

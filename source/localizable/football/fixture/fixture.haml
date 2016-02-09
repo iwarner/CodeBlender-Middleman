@@ -11,10 +11,79 @@ meta :
 heading :
     title : "Football fixture"
 
+see :
+    - - "Example fixtures sheet"
+      - "https://docs.google.com/spreadsheets/d/1uTnHOsDCHwvxmxX41sxCsZDnkPNj_7ImUGYQb3yEMjo"
+    - - "Fixture Example"
+      - "http://support.themeboy.com/entries/21223131-fixtures-shortcode"
+
 todo :
-    - - ""
+    - - "Design the fixture table better - utilise angular grid for in-line search and filtering"
+    - - "Translate the elements in this"
+    - - "Complete the documentation for this widget and the automatically created pages. And how a user manages the spreadsheet"
+    - - "Currently this does not work and needs a re-write to just return the correct fixtures required"
+    - - "Data Time normalisation, Kick off time should be : Aug 18th @ 17:50 Produce a separate method to process this, from the fixtures date - 2014-09-04 and time 19:10"
+    - - "Delimit and group fixtures by season, division, team and type or combination of these"
+    - - "i.e. for Team Need to get all the fixtures for a corresponding team in a season."
+    - - "Type is cup, league or plate"
+    - - "Current Season - will be the max(season)"
+    - - "Unplayed games - these will be ones where scores are not updated"
+    - - "Ground should do a lookup"
+    - - "Scorers need to separate the names in this column by something"
+    - - "Make sure we can handle multi-byte characters in the process"
+    - - "Would like to stick each season in a different file / sheet Tab and then merge, is this possible?"
+    - - "Its a requirement that a team may need to have a point deduction Using another csv perhaps we can have - only valid for league season - team - deductions 11, bfc, -2 thoughts on this?"
+    - - "So when a user uploads the Fixtures.csv, needs to be some sanity checks. If possible - check against the teams.csv that they exist. There may be a players and referees csv also to check against - so for things like top scorers etc we need to make sure that the admins are typing in the correct names and teams to tally everything up correctly"
+    - - "Scan previous seasons and return in an array the last 5 meetings between the same teams, include cup or league. Can use this array to display on the team pages showing a nice stat."
+    - - "Need some methods in Fixtures.rb to simply return the following: Current Season - will be the max(season) Unplayed games - these will be ones where scores are not updated How many games played at each venue"
 
 ---
+
+:markdown
+
+    # Introduction
+    Fixtures are created in a google sheet, these can be separated by season by the
+    use of worksheets within the document.
+    An example can be found [here](https://docs.google.com/spreadsheets/d/1uTnHOsDCHwvxmxX41sxCsZDnkPNj_7ImUGYQb3yEMjo)
+
+    When setting up your league, team please use the sample sheet created by DryKISS
+    to benefit the most from our system.
+
+    # Managing the spreadsheet
+    Firstly the google sheet must be shared and viewable by all, but not editable.
+    Giving us the Key to the sheet will then allow us to start processing the information
+    contained.
+
+    We will help set up data validation rules for certain columns such as ground,
+    referee and teams. This will create dropdown lists on each row for easy selection,
+    but also to provide the consistency required by the system. It will highlight
+    where data is entered incorrectly.
+
+    # Goals scorers
+    Adding a list of players names for the goal scorers is possible, please make
+    sure that the names used are the same throughout all the results so we can
+    provide a total goals for each player. This list must be separated by a
+    semi-colon ;
+
+    # Yellow and red cards
+    Similar to the above the add the players who received a card to a list.
+
+    # Cup
+    Cup / plate rules and rounds, write in the competition the name of the cup
+    competition, this needs to be consistent within the sheet. The cup column
+    is where you indicate the round with 1 indicating the final. So the semi-final
+    would be 2 and so on.
+
+    # Date and time
+    It's just a matter of keeping this consistent throughout the sheet. Google
+    will often translate the date and time automatically.
+
+    # Ground
+    We will help set up Data validation rules so
+
+    # Season Pages
+    Based on each season created, the system will automatically create pages that
+    display each seasons fixtures, including cup competitions.
 
 -# Football fixture
 = partial "football/fixture/fixture"

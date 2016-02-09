@@ -1,21 +1,11 @@
 ##
 # Fixture
-#
 # Methods to access the fixtures and results direct from the Fixtures.csv
 #
 # @usage
 # puts Fixture.teamFixture(11, 1, 'Tokyo Hibernian FC')
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo Currently this does not work and needs a re-write to just return the correct fixtures required
-# @todo Data Time normalisation
-# @todo Delimit and group fixtures by season, division, team and type or combination of these
-# @todo i.e. for Team Need to get all the fixtures for a corresponding team in a season.
-# @todo Type is cup, league or plate
-# @todo Current Season - will be the max(season)
-# @todo Unplayed games - these will be ones where scores are not updated
-# @todo Ground should do a lookup
 ##
 
 ##

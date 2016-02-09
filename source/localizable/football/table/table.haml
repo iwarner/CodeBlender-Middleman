@@ -11,10 +11,51 @@ meta :
 heading :
     title : "Football table"
 
+see :
+    - - "BBC football table"
+      - "http://www.bbc.co.uk/sport/football/tables"
+    - - "Table Example"
+      - "http://support.themeboy.com/entries/21255628-standings-shortcode"
+
 todo :
-    - - ""
+
+    - - "Team badge"
+    - - "Make the details chevron based on the bootstrap collapsed state"
+
+    - - "Indication on the table that the team has gone up or down based on the previous set of results"
+    - - "See a state of the table based on a week selection or move a data slider"
+    - - "Sanity check that season and division are passed in correctly"
+    - - "Need to allow for the divisions to be shown per season per division or all together."
+    - - "Sort out the team point deductions"
+    - - "Create a blog / proxy collection for team profile pages"
+    - - "Details if the team have had points deducted"
+    - - "BBC has link that shows further statistics for the league"
+    - - "Average goals per match"
+    - - "Next game - date teams"
+    - - "Last game - teams - score - date"
+    - - "Top scorers in the team"
+    - - "Graph of league position"
+    - - "Last 10 games view - and legend of the colours - green = win, grey = draw, red = loss, Scan the last 10 games the club has played in the league and return back a series (comma seperated) i.e. W, W, W, L, D, W, L, L, W, W"
+    - - "Report links to the last game report"
+    - - "Choose to show all divisions on one page or selector or tab through them"
+    - - "Produce a helper for a team link - should create the correct stub for the team name"
+    - - "Read CSV should merge all files under a folder - i.e. for Fixtures merge all the seasons"
+    - - "Read CSV should have the option to drag this from a Google chart"
+    - - "Complete the honours section - move to Team profile"
+    - - "Check fixture and check team for QA"
+    - - "Need to make sure that the season and division are not nil or errors"
+    - - "If there is a point deduction colour the number red or add a contextual badge"
+    - - "Add a tooltip or some text underneath the table"
+    - - "Complete the translations for this widget"
 
 ---
 
+:markdown
+
+    This widget simply prints out the current standing for the division. It
+    iterates through the fixtures sheet and produces each division per season.
+
+    Automatically generated pages can be seen at /division/1.html
+
 -# Football table
-= partial "football/table/table"
+= partial "football/table/table", locals: { division: 1, season: 11 }

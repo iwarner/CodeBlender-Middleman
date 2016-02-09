@@ -1,17 +1,8 @@
 ##
 # Cup
-#
 # Methods to compile cup fixtures and results
 #
-# Remember there are several cup competitions that can happen, i.e. Cup and Plate
-# So need a way to distinguish between the two - also a team can start in the cup
-# and then move to the plate
-#
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo   Produce a matrix of the cup progress. Similar to a world cup wall chart : http://jwhunter.blogspot.co.uk/2014/05/world-cup-wall-chart.html
-# @todo   If a team losers in round 1 they move to the Plate competition - you may have seen this label already.
-# @todo   For cup games the penalties columns come into play also.
 ##
 
 ##

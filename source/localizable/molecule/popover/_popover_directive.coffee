@@ -23,13 +23,14 @@ PopoverDirective = ->
     ##
     # Option
     ##
-    restrict : 'A'
+    restrict : 'C'
 
     ##
     # Link
     ##
     link : ( scope, element, attributes, controller, transclude ) ->
 
+        # Debug
         # console.log "Popover directive"
 
         # Create a close icon on the popover
@@ -44,10 +45,10 @@ PopoverDirective = ->
         # content   : d
 
         # Instantiate the popover
-        element.find( "a" ).popover
+        element.popover
             animation : "true"
             container : "body"
-            html      : false
+            html      : true
             # placement : "right"
             trigger   : "hover"
 

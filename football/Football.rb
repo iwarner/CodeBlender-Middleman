@@ -2,10 +2,25 @@
 # Methods to generate Football Sites
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo Read CSV should merge all files under a folder - i.e. for Fixtures merge all the seasons
-# @todo Read CSV should have the option to drag this from a Google chart
 ##
+
+##
+# Helper
+##
+module FootballHelpers
+
+    # Team profile link
+    def teamProfileLink( team )
+
+        # Team stub
+        teamStub = team.strip.downcase.gsub( /[^a-z0-9\- ]/, ' ' ).gsub( / /, '-' )
+
+        # Link
+        link_to( team, "/team/#{ teamStub }" )
+
+    end
+
+end
 
 ##
 # Football

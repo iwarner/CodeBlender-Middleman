@@ -18,7 +18,6 @@ module Referee
     # Returns an array of the referees used in the season
     #
     # @return array Tabular tally of ref stats for the season
-    # @todo   Sort these stats by points - yellow = 1 - red = 3
     ##
     def self.table( season )
         refStats = processStats[ season ]

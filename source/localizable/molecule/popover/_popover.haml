@@ -1,7 +1,7 @@
 -##
 -# Popover
 -# Add small overlays of content, like those on the iPad, to any element for
--# housing secondary information. Popovers whose both title and content are
+-# housing secondary information. Popover whose both title and content are
 -# zero-length are never displayed.
 -#
 -# @usage
@@ -16,7 +16,7 @@
 %div{ "popover-directive" => true }
 
     -# Button
-    = partial "./atom/button/button",
+    = partial "atom/button/button",
                locals: { data:       { content:   locals[ :popBody ],
                                        placement: locals[ :placement ] ? placement : "auto",
                                        toggle:    "popover" },

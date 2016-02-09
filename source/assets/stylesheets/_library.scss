@@ -61,6 +61,7 @@
 //----------------------------------------------------------------------------//
 @import "molecule/archive/archive";
 @import "molecule/brand/brand";
+@import "molecule/breadcrumb/breadcrumb";
 @import "molecule/detail/detail";
 @import "molecule/dropdown/dropdown";
 @import "molecule/heading/heading";
@@ -86,3 +87,7 @@
 //----------------------------------------------------------------------------//
 @import "template/article/article";
 @import "template/portfolio/portfolio";
+
+// Football
+//----------------------------------------------------------------------------//
+@import "football/table/table";

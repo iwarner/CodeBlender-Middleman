@@ -1,9 +1,9 @@
 ##
 # Matrix
+# Methods to create a matrix of the results
 #
-# Methods to create a matrix of the reults
-#
-# Usage
+# @usage
+# -# Matrix
 # = matrix = Matrix.matrix( 11, 1 )
 #
 # @author Ian Warner <ian.warner@drykiss.com>
@@ -27,7 +27,7 @@ module Matrix
     end
 
     ##
-    # Returns results in { season_id => { division => {teama => {teamb => { f: 4, a: 5 } } } format
+    # Returns results in { season_id => { division => { teama => { teamb => { f: 4, a: 5 } } } format
     ##
     def self.processFixtures
 

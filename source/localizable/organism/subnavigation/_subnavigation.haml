@@ -34,17 +34,20 @@
     -# Want to get the current section based on the path
     - section = current_page.path.split "/"
 
-    -# Loop through the sub navigation section
-    - dataSubNav[ section[ 0 ] ].each_with_index do | value, index |
+    -# Make sure there is a section for this page
+    - if dataSubNav[ section[ 0 ] ]
 
-        -# Check path is equal and assign active bool
-        - dataSubNav[ section[ 0 ] ][ index ][ "active" ] = ( value.url == current_page.url ) ? true : false
+        -# Loop through the sub navigation section
+        - dataSubNav[ section[ 0 ] ].each_with_index do | value, index |
 
-    -# Sub navigation
-    %nav.subNavigation
+            -# Check path is equal and assign active bool
+            - dataSubNav[ section[ 0 ] ][ index ][ "active" ] = ( value.url == current_page.url ) ? true : false
 
-        -# Nav list group
-        = partial "molecule/list-group/list-group", locals: { array: dataSubNav[ section[ 0 ] ] }
+        -# Sub navigation
+        %nav.subNavigation
+
+            -# Nav list group
+            = partial "molecule/list-group/list-group", locals: { array: dataSubNav[ section[ 0 ] ] }
 
 -# Debug
 -# %br= section[ 0 ]

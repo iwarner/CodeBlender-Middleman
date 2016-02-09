@@ -4,14 +4,10 @@
 # Methods to compile tables for the league into divisions.
 #
 # @usage
+# -# Table
 # = table = Table.table( 11, 1 )
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo Sort out the team point deductions
-# @todo Complete the honours section
-# @todo Check fixture and check team for QA
-# @todo Need to make sure that the season and division are not nil or errors
 ##
 
 ##
@@ -82,8 +78,12 @@ module Table
                 insertTeamFixtures( divisionFixtures, teamB )
 
                 # Update the statistics
-                updateTeamStats( divisionFixtures[ teamA ], scoreA,  scoreB )
+                updateTeamStats( divisionFixtures[ teamA ], scoreA, scoreB )
                 updateTeamStats( divisionFixtures[ teamB ], scoreB, scoreA )
+
+                # Update the previous fixtures
+                previousGames( divisionFixtures[ teamA ] )
+                previousGames( divisionFixtures[ teamB ] )
 
             end
 
@@ -103,7 +103,7 @@ module Table
     def self.insertTeamFixtures( divisionFixtures, team )
 
         unless divisionFixtures.keys.include?( team )
-            divisionFixtures[ team ] = { p: 0, w: 0, d: 0, l: 0, f: 0, a: 0, gd: 0, pts: 0 }
+            divisionFixtures[ team ] = { p: 0, w: 0, d: 0, l: 0, f: 0, a: 0, gd: 0, pts: 0, previousGames: [] }
         end
 
     end
@@ -139,6 +139,19 @@ module Table
             team[ :d ]   += 1
             team[ :pts ] += Football::DRAW_POINTS
         end
+
+    end
+
+    ##
+    # Process previous 10 games
+    # Add the last 10 fixtures for use in the table details. Require state win,
+    # lose or draw, score, team versus and game date
+    #
+    # @return INT Amount of points to deduct
+    ##
+    def self.previousGames( team )
+
+        team[ :previousGames ] = 1
 
     end
 

@@ -12,9 +12,10 @@ heading :
     title : "Football matrix"
 
 todo :
+    - - "Sanity check that season and division are passed in correctly"
     - - "Want to use the nickname for the team instead of the full name so it fits"
 
 ---
 
 -# Football matrix
-= partial "football/matrix/matrix"
+= partial "football/matrix/matrix", locals: { division: 1, season: 11 }

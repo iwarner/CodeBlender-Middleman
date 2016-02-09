@@ -4,8 +4,6 @@
 # Compile the Venues used - get past matches and fixtures
 #
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo   How many games played at each venue - should allow to return all or by season, division
 ##
 
 ##

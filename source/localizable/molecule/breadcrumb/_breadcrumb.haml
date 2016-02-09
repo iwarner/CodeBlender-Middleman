@@ -1,12 +1,13 @@
 -##
--# Breadcrumbs
+-# Breadcrumb
 -#
 -# @usage
--# -# Breadcrumbs
--# = partial "./bootstrap/component/breadcrumbs",
+-# -# Breadcrumb
+-# = partial "molecule/breadcrumb/breadcrumb",
 -#            locals: { array: current_page.data.breadcrumbs }
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @category breadcrumb
+-# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Check if array exists otherwise use URL
@@ -15,13 +16,13 @@
     -# Get the url elements
     - split = current_page.url.split "/"
 
-    -# Count Items
+    -# Count items
     - count = split.count
 
-    -# Create Breadcrumbs array
+    -# Create breadcrumb array
     - array = []
 
-    -# Last Breadcrumb variables
+    -# Last breadcrumb variables
     - lastBreadcrumb = ""
 
     -# Check if split exists
@@ -55,15 +56,13 @@
                 -# Sort out the middle elements
             - else
 
-                -# Add the breadcrumbs Hash
+                -# Add the breadcrumb Hash
                 - array << { text: text, link: { url: "#{ lastBreadcrumb.sub( "//", "/" ) }/index.html" } }
 
     - else
 
-        -# Home page breadcrumbs
+        -# Home page breadcrumb
         - array << { active: true, text: "Home" }
 
-%ol{ class: "breadcrumb" }
-
-    -# List
-    = partial "./atom/list/list.ul", locals: { array: array, extraClass: "breadcrumb", tag: "ol" }
+-# List
+= partial "atom/list/list.ul", locals: { array: array, extraClass: "breadcrumb", type: "ol" }

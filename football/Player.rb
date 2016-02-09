@@ -2,15 +2,7 @@
 # Player
 # Each Fixture has scope to record players names for goals and cards
 #
-# Methods to access players from the Fixtures.csv - corelate goals and cards for
-# each.
-#
-# Totals should be kept for the different competitions - i.e. League & Cup.
-#
 # @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo Correlate the player stats - Method to get the bad boy players yellow and red cards - yellow = 1 point - Red = 3.
-# @todo Group by division, season, team as per most methods.
 ##
 
 ##

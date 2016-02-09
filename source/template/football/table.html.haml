@@ -1,0 +1,109 @@
+---
+
+heading :
+    small : ""
+    title : "Tables"
+
+meta :
+    author      : "DryKISS"
+    description : ""
+    title       : "Tables"
+
+see :
+    - - "Table Example"
+      - "http://support.themeboy.com/entries/21255628-standings-shortcode"
+    - - "BBC Tables"
+      - "http://www.bbc.co.uk/sport/football/tables"
+
+---
+
+-# Heading
+= partial "bootstrap/type/heading", :locals => { :tag  => "h2", :text => "Division #{ locals[ :division ] }" }
+
+-# Table
+%table.table.table-bordered.table-hover.table-striped
+
+    %thead
+
+        %tr
+
+            %th Team
+            %th P
+            %th W
+            %th D
+            %th L
+            %th F
+            %th A
+            %th GD
+            %th PTs
+
+    %tbody
+
+        -# Loop through the Fixtures Per Division
+        - Table.table( 11, locals[ :division ] ).each do | row |
+
+            -# Row
+            %tr
+
+                -# Team Name
+                %td= row[ 0 ]
+
+                -# Played
+                %td= row[ 1 ][ :p ]
+
+                -# Won
+                %td= row[ 1 ][ :w ]
+
+                -# Draw
+                %td= row[ 1 ][ :d ]
+
+                -# Lost
+                %td= row[ 1 ][ :l ]
+
+                -# For
+                %td= row[ 1 ][ :f ]
+
+                -# Away
+                %td= row[ 1 ][ :a ]
+
+                -# Goal Difference
+                %td= row[ 1 ][ :gd ]
+
+                -# Pts
+                %td= row[ 1 ][ :pts ]
+
+-# Results Matrix
+- results = Matrix.matrix( 11, locals[ :division ] )
+- teams   = results.keys.sort
+
+-# Table
+%table#results_table.table.table-bordered.table-hover.table-striped
+
+    -# Away Teams
+    %tr.away_teams
+
+        %td
+
+        - teams.each do | away_team |
+            %td
+                %div= away_team
+
+    -# Teams
+    - teams.each do | team |
+
+        - team_results = results[ team ]
+
+        %tr.home_team
+
+            %td= team
+
+            - teams.each do | home_team |
+
+                - if team_results[ home_team ]
+                    %td= "#{ team_results[ home_team ][ :f ]} - #{ team_results[ home_team ][ :a ]}"
+
+                - elsif team == home_team
+                    %td.same_team
+
+                - else
+                    %td.no_play
