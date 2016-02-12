@@ -8,6 +8,7 @@
 # = table = Table.table( 11, 1 )
 #
 # @author Ian Warner <ian.warner@drykiss.com>
+# @see    https://docs.google.com/spreadsheets/d/1uTnHOsDCHwvxmxX41sxCsZDnkPNj_7ImUGYQb3yEMjo/edit#gid=1756110922
 ##
 
 ##
@@ -57,18 +58,19 @@ module Table
         table = Hash.new
 
         # Loop through the CSV
-        CSV.foreach( Football::FIXTURES_CSV, headers: true ) do | row |
+        CSV.foreach( "csv/fixtures.csv", headers: true ) do | row |
+        # CSV.new( open( "https://docs.google.com/spreadsheets/d/1uTnHOsDCHwvxmxX41sxCsZDnkPNj_7ImUGYQb3yEMjo/export?format=csv&gid=1137121615" ) ).each_with_index do | row, row_index |
 
             # Exclude cup
-            unless row[ 2 ].to_i == 1
+            if row[ 2 ].to_i == 0 and ! row[ 8 ].nil?
 
                 # Assign to Variables
                 season   = row[ 0 ].strip.to_i
                 division = row[ 1 ].strip.to_i
                 teamA    = row[ 7 ].strip
                 scoreA   = row[ 8 ].to_i
-                teamB    = row[ 9 ].strip
-                scoreB   = row[ 10 ].to_i
+                teamB    = row[ 13 ].strip
+                scoreB   = row[ 14 ].to_i
 
                 #
                 divisionFixtures = initiateSeasonDivision( table, season, division )
@@ -82,8 +84,8 @@ module Table
                 updateTeamStats( divisionFixtures[ teamB ], scoreB, scoreA )
 
                 # Update the previous fixtures
-                previousGames( divisionFixtures[ teamA ] )
-                previousGames( divisionFixtures[ teamB ] )
+                # previousGames( divisionFixtures[ teamA ] )
+                # previousGames( divisionFixtures[ teamB ] )
 
             end
 

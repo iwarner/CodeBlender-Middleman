@@ -20,7 +20,7 @@ gulp.task 'buildCSS', ->
     # Locate css and run commands
     # Ignore CSS on angular templates such as the whole UI grid and certain font awesome icons
     gulp.src( 'www/assets/stylesheets/**/*.css' )
-        .pipe uncss( html : [ 'www/**/*.html' ], ignore : [ '.fa-minus', '.fa-edit', /ui-grid-/ ] )
+        .pipe uncss( html : [ 'www/**/*.html' ], ignore : [ '.popover-directive', '.fa-minus', '.fa-edit', /ui-grid-/ ] )
         .pipe csso()
         .pipe gulp.dest( './www/assets/stylesheets' )
 

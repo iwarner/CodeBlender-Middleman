@@ -233,6 +233,23 @@ CSV.foreach( "csv/teams.csv", headers: true ) do | row |
     # Create a team iCal
     # Get the team Fixtures for the current season
 
+    # Premier League site code
+
+    # BEGIN:VCALENDAR
+    # VERSION:2.0
+    # PRODID:jquery.icalendar
+    # METHOD:PUBLISH
+    # BEGIN:VEVENT
+    # UID:803414@premierleague.com
+    # DTSTAMP:20160209T232226Z
+    # TITLE:Sunderland v Manchester United
+    # DTSTART:20160213T124500Z
+    # DTEND:20160213T144500Z
+    # SUMMARY:Sunderland v Manchester United
+    # DESCRIPTION:Barclays Premier League
+    # END:VEVENT
+    # END:VCALENDAR
+
     # Create a calendar with an event ( standard method )
     cal = Icalendar::Calendar.new
 
@@ -259,8 +276,8 @@ CSV.foreach( "csv/teams.csv", headers: true ) do | row |
         e.geo      = "37.386013,122.082932"
     end
 
-    cal.append_custom_property( "X-WR-CALNAME", "#{team}" )
-    cal.append_custom_property( "X-WR-CALDESC", "#{team}" )
+    cal.append_custom_property( "X-WR-CALNAME", "#{ team }" )
+    cal.append_custom_property( "X-WR-CALDESC", "#{ team }" )
     cal.append_custom_property( "X-WR-TIMEZONE", "Asia/Tokyo" )
 
     # Proxy Team Pages

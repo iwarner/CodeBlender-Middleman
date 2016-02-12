@@ -96,6 +96,7 @@ JavaScript file.
     $ sudo kill -9 15106
 
 ## Partials
+
 Check out overriding partial helpers
 https://gist.github.com/vernonk/4969096
 
@@ -108,62 +109,21 @@ For example, creating a new widget would require creating the following files:
   folder or create a new folder.
 * In assets/javascripts/_library-js a correspondingly named file should be created
 * In assets/stylesheets/_library-scss a correspondingly named files should be created
-* All partials should use the il8n variables
-* Jumbotron
-    * Is in a Header section is this right?
-    * Sort out the small Text CSS / Padding too large
-* Sidebar
-    * Sort out what gets pushed into this section
-    * Sort out the affix issues here - { data: { spy: "affix", :"offset-top" => "10", :"offset-bottom" => "250" } }
-        * This requires additional styling to be implemented for each state
-* Login
-    * Add the ability to login via other Open IDs such as Facebook / Google
-* Complete the Media List partial
-* NavBar should be able to work from an array pushed in via the calling file also
-    * Need to sort out icon / logo and text brand to work in tandem - array them
-* Nav partials should be merged together there are lots of options for these
-    * Basically requires an array and options for classes
-* Like Box
-    * Complete the different types
-    * Expand type check to make sure it is one of the ones allowed
-* Like Button
-    * Take the HREF from the config by default append the path or use the canonical in the front matter
-    * Complete the different code types
-* Adsense
-    * Need to work on the defaults
-* Analytics
-    * Need to distinguish the code blocks Google can give the user
-* Plus
-    * Pass in the Lang to this
 
-## Helpers / Extensions
+## Wordpress to Middleman
 
-* Create a helper that gets the page title in a better way - either form frontmatter that could be a translation symbol.
-* Database JavaScript needs to be re-factored to remove queries from it
-* JavaScript Recaptcha service integration
-* Link Helper that takes into account the locale path
-* Article Iteration
-    * Need to return an array of articles based on inputs
-        * Language, Category, Subcategory, Tags
-* Portfolio Iteration
-    * Helper Method to get all articles within the portfolio category
-    * Need to check that subcategory exists when there is a category or it fails
-* Create helper methods such as exists and is array
-* GitHub helper to get the repositories for a given user or organisation
+[wp2middleman][] is a gem that can be installed that iterates through an exported
+wordpress XML file and produces compatible middleman blog posts.
 
-## Pages
+    https://github.com/jekyll/jekyll-import/blob/v0.10.0/lib/jekyll-import/importers/wordpressdotcom.rb
 
-* Sort out the 404.html
-    * Need to remove Facebook and other external calls
-    * http://bootsnipp.com/snipps/sample-404-page
-* Sort out the syntax highlighting
-    * Issue with line number alignment
-* Need to create a system to check that the front matter is correct in some pages / folders i.e. blog pages
-    * Alert if some elements are missing - should be an extension really
-* Create the page front matter docs for normal, blog, portfolio and contact pages
-    * This could mean there is specific config settings in the config.rb require too like for navigation
-* Sort out Heading Tags and placement of these
-    * HTML5 Sections allow for multiples - use these
+### Install
+
+    $ gem install wp2middleman
+
+### Run
+
+    $ wp2mm footyjapancompetitions.wordpress.2016-02-10.xml --body_to_markdown true --include_fields wp:post_id link
 
 ## Todo
 
@@ -172,3 +132,4 @@ For example, creating a new widget would require creating the following files:
 * http://www.padrinorb.com/api/Padrino/Helpers/RenderHelpers.html
 
 [Middleman]:http://middlemanapp.com/
+[wp2middleman]:https://github.com/mdb/wp2middleman

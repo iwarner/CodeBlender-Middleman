@@ -202,8 +202,8 @@ class Middleman < Thor
         system( "bundle exec middleman build --clean" )
 
         # UnCSS
-        say( "\n\t UnCSS\n\t" )
-        system( "gulp buildCSS" )
+        # say( "\n\t UnCSS\n\t" )
+        # system( "gulp buildCSS" )
 
         # Deploy
         say( "\n\t Middleman deploy\n\t" )

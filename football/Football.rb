@@ -3,6 +3,8 @@
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 # @see    https://github.com/iwarner/CodeBlender-Middleman/tree/master/football
+# @see    https://github.com/iwarner/CodeBlender-Middleman/tree/master/source/localizable/football
+# @see    http://codeblender.net/football/table/table.html
 ##
 
 ##
@@ -31,8 +33,17 @@ module Football
     # Constants
     WIN_POINTS   = 3
     DRAW_POINTS  = 1
-    FIXTURES_CSV = "csv/fixtures.csv"
+    SHEET        = "1uTnHOsDCHwvxmxX41sxCsZDnkPNj_7ImUGYQb3yEMjo"
+    FIXTURES_GID = "1137121615"
     TEAM_CSV     = "csv/teams.csv"
+
+    ##
+    # Google URL
+    # The sheet needs to be read only by everyone
+    ##
+    def google_csv_url
+        "https://docs.google.com/spreadsheets/d/#{ google_local_key }/export?format=csv#{ google_local_key }"
+    end
 
     ##
     # Read the defined file and return the array
@@ -43,7 +54,8 @@ module Football
 
         data = []
 
-        CSV.foreach( file, headers: true ) do | row |
+        CSV.new( open( "https://docs.google.com/spreadsheets/d/1uTnHOsDCHwvxmxX41sxCsZDnkPNj_7ImUGYQb3yEMjo/export?format=csv&gid=1137121615" ) ).each_with_index do | row, row_index |
+        # CSV.foreach( file, headers: true ) do | row |
             data << row
         end
 

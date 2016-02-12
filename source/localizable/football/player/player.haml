@@ -14,16 +14,38 @@ heading :
 see :
     - - "Player profile"
       - "http://www.readingfc.co.uk/team/player-profile/"
+    - - "ThemeBoy premier"
+      - "http://demo.themeboy.com/sportspress/premier"
+    - - "ThemeBoy football club"
+      - "http://demo.themeboy.com/sportspress/football-club"
 
 todo :
-    - - "Parse the names of the players in the following fields scorers a, scorers b, yellow cards a, yellow cards b, red cards a, red cards b cumulate the totals and sub-totals in an array"
-    - - "Correlate the player statistics, method to get the bad boy players yellow and red cards - yellow = 1 point - Red = 3."
-    - - "Group by division, season, team as per most methods."
-    - - "Methods to access players from the Fixtures.csv - correlate goals and cards for # each."
-    - - "Totals should be kept for the different competitions - i.e. League & Cup."
-    - - "Each Fixture has scope to record players names for goals and cards"
-    - - "Need a limit so we can get top ten scorers for the league, cup and total."
+    - - "API: Parse the names of the players in the following fields scorers a, scorers b, yellow cards a, yellow cards b, red cards a, red cards b cumulate the totals and sub-totals in an array"
+    - - "API: Admin has the choice to upload a players roster per team, match the above against this roster to A. sanitise it exists and B. accumulate against there profile"
+    - - "API: Correlate the player statistics, method to get the bad boy players yellow and red cards - yellow = 1 point - Red = 3."
+    - - "API: Group by division, season, team as per most methods."
+    - - "API: Totals should be kept for the different competitions - i.e. League & Cup."
+    - - "API: Need a limit so we can get top ten scorers for the league, cup and total."
 
 ---
 
-Player
+:markdown
+
+    Should firstly list all the players associated to one team, in a table or
+    gallery view. Should be a module that can also be included on a Team profile
+    page or tabbed too.
+
+    We also need to proxy each player into there own profile page also.
+
+    A player profile page could include
+
+    - Image
+    - Nationality
+    - Position
+    - Height
+    - Weight
+    - Age
+    - Team
+    - Description
+    - Current season stats - this and last
+    - Career stats - Season Team    Goals   Assists Yellow Cards    Red Cards win ratio
