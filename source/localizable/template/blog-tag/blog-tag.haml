@@ -2,19 +2,15 @@
 
 meta :
     author      : "DryKISS"
-    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    description : "Blog tags - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "Blog tags - CodeBlender"
     type        : "website"
 
 heading :
-    small : Articles by Date
-    title : Calendar
-
-see :
-    - - "Google Analytics"
-      - "https://www.google.com/analytics"
+    small : Articles by Tag
+    title : Tags
 
 layout   : "_library/tag"
 pageable : true
@@ -35,7 +31,7 @@ date     : 2001-03-31
             = partial "./atom/label/label", locals: { context: "info", content: article.date.strftime( '%b %e' ), icon: "fa-tag", itemprop: "keywords" }
             = link_to article.data.heading.title, article
 
-
+-# Pagination
 .text-center
 
     -# Pagination Variables

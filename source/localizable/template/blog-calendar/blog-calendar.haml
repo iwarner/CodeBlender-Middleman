@@ -2,19 +2,15 @@
 
 meta :
     author      : "DryKISS"
-    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    description : "Blog calendar - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "Blog calendar - CodeBlender"
     type        : "website"
 
 heading :
-    small : Articles by Tag
-    title : Tags
-
-see :
-    - - "Google Analytics"
-      - "https://www.google.com/analytics"
+    small : Articles by Date
+    title : Calendar
 
 layout   : "_library/tag"
 pageable : true
@@ -23,19 +19,22 @@ date     : 2001-03-31
 
 ---
 
--# Latest
+-# List - unstyled
 %ul.list-unstyled
 
     -# Loop through the Articles
     - page_articles.each do | article |
 
+        -# List
         %li
 
             -# Label
-            = partial "./atom/label/label", locals: { context: "info", content: article.date.strftime( '%b %e' ), icon: "fa-tag", itemprop: "keywords" }
+            = partial "./atom/label/label", locals: { context: "info", content: article.date.strftime( '%b %e' ), icon: "fa-calendar", itemprop: "keywords" }
+
+            -# Link
             = link_to article.data.heading.title, article
 
-
+-# Pagination
 .text-center
 
     -# Pagination Variables

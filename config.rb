@@ -113,12 +113,12 @@ activate :blog do | blog |
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 
-    blog.calendar_template = "template/calendar.html"
+    blog.calendar_template = "localizable/template/blog-calendar/blog-calendar.html"
     blog.year_link         = "/calendar/:year.html"
     blog.month_link        = "/calendar/:year/:month.html"
     blog.day_link          = "/calendar/:year/:month/:day.html"
 
-    blog.tag_template      = "template/tag.html"
+    blog.tag_template      = "localizable/template/blog-tag/blog-tag.html"
     blog.taglink           = "/tag/:tag.html"
 
     blog.paginate          = true
