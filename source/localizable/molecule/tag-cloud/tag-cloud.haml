@@ -15,23 +15,26 @@ heading :
 see :
     - - "Middleman Blogging"
       - "http://middlemanapp.com/blogging"
+    - - "Microformat Tag"
+      - "http://microformats.org/wiki/rel-tag"
 
 todo :
     - - "Options to put in a badge and add a tag icon on the tag element"
-      - "Tag"
-      - "2014-02-12"
-      - { "context" : "info" }
     - - "Options to remove the Heading - change text or tag"
-      - "Tag"
-      - "2014-02-12"
+    - - "Make the font colour change with the size also"
+    - - "Allow for counting tags in different blogs, i.e. blog( 'portfolio' ) - middleman bug?"
+    - - "Allow for local to change the options"
+    - - "CSS Do I need the section here?"
+    - - "Make links larger in accordance to touch areas for mobile"
 
 ---
 
-- id = 1
+-# ID
+- id = 0
 
 -# Tags
 :ruby
-    code = %{partial "./molecule/tag-cloud/tag-cloud"}
+    code = %{partial "molecule/tag-cloud/tag-cloud"}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

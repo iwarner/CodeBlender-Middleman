@@ -6,7 +6,7 @@
 
 ---
 
-# Whether to show the NavBar
+# Whether to show the navigation bar
 navbar : true
 
 # Paths to the partials to display navigation above and below

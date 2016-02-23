@@ -56,6 +56,7 @@
 // Atom
 //----------------------------------------------------------------------------//
 @import "atom/image/image";
+@import "atom/label/label";
 
 // Molecule
 //----------------------------------------------------------------------------//
@@ -81,11 +82,13 @@
 @import "organism/footer/footer";
 @import "organism/jumbotron/jumbotron";
 @import "organism/nav-above/nav-above";
+@import "organism/sidebar/sidebar";
 @import "organism/subnavigation/subnavigation";
 
 // Template
 //----------------------------------------------------------------------------//
 @import "template/article/article";
+@import "template/blog-calendar/blog-calendar";
 @import "template/portfolio/portfolio";
 
 // Football

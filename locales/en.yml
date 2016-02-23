@@ -1,5 +1,5 @@
 ##
-# English Locale File
+# English locale file
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
@@ -53,16 +53,6 @@ en:
     navAbove :
         strapLine : "An atomic Middleman partials library"
         title     : "Code Blender"
-
-    # Navigation
-    nav :
-        left :
-            home :
-                link : "tyext"
-            dropdown :
-                link : "test"
-            "molecule run" :
-                link : "test"
 
     # Navigation
     navigation :

@@ -128,27 +128,11 @@ activate :blog do | blog |
 end
 
 # Middleman Deploy
+# @see https://github.com/middleman-contrib/middleman-deploy
 activate :deploy do | deploy |
     deploy.method       = :git
     deploy.remote       = 'git@github.com:DryKISS/codeblender.net.git'
     deploy.build_before = false
-end
-
-# Create GZIP Content
-helpers do
-
-    def gzip_css_on_build( key, media = "screen" )
-        o = stylesheet_link_tag( key, { :media => media } )
-        o.sub!( ".css", ".css.gz" ) if build?
-        o
-    end
-
-    def gzip_js_on_build( key )
-        o = javascript_include_tag( key )
-        o.sub!( ".js", ".js.gz" ) if build?
-        o
-    end
-
 end
 
 # Directory Indexes
@@ -161,7 +145,8 @@ configure :build do
     activate :relative_assets
 
     # GZIP Files
-    # activate :gzip
+    # @see https://middlemanapp.com/advanced/file_size_optimization/
+    activate :gzip
 
     # For example, change the Compass output style for deployment
     activate :minify_css, inline: true

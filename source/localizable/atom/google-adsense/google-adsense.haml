@@ -22,16 +22,16 @@ see :
     - - "Managing Ads"
       - "https://support.google.com/adsense/topic/3384747?hl=en&ref_topic=1250102"
 
-
 todo :
     - - "Complete instructions"
     - - "List the available ad types - check the old Zend stuff too"
     - - "Do not require the JS for every advert I think."
-    - - "Javascript should probably placed in the JS file and loaded after the last button"
+    - - "JavaScript should probably placed in the JS file and loaded after the last button"
 
 ---
 
-- id = 1
+-# ID
+- id = 0
 
 :markdown
 
@@ -39,7 +39,7 @@ todo :
 
 -# Default
 :ruby
-    code = %{partial "./atom/google-adsense/google-adsense", locals: { slot: 9670063286, width: 468, height: 60 }}
+    code = %{partial "atom/google-adsense/google-adsense", locals: { slot: 9670063286, width: 468, height: 60 }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

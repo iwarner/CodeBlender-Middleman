@@ -1,5 +1,5 @@
 -##
--# Article list template
+-# Article list
 -#
 -# Rules
 -# - Images are taken from the meta image element. It can then be used by social media also
@@ -7,17 +7,18 @@
 -#
 -# @usage
 -# -# Article list
--# = partial "./template/article/article-list", locals: { page_articles: page_articles }
+-# = partial "template/article/article-list", locals: { page_articles: page_articles }
 -#
 -# @param  page_articles | Need to pass in the paginated pages 'page_articles'
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @category template
+-# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
 -# Section blog list
 %section.blogArticleList{ itemscope: true, itemtype: "http://schema.org/Blog" }
 
-    -# Loop through a list of paginated Articles
+    -# Loop through a list of paginated articles
     - page_articles.each_with_index do | article, i |
 
         -# Variables
@@ -41,19 +42,19 @@
                         %a{ href: article.url, rel: "nofollow" }
 
                             -# Image
-                            = partial "./atom/image/image", locals: { alt: article.title, extraClass: "media-object img-thumbnail img-responsive", size: [ 250 ], src: meta.image }
+                            = partial "atom/image/image", locals: { alt: article.title, extraClass: "media-object img-thumbnail img-responsive", size: [ 250 ], src: meta.image }
 
-                -# Media Body
+                -# Media body
                 .media-body
 
                     -# Heading - article H1
-                    = partial "./molecule/heading/heading", locals: { extraClass: "media-heading", href: article.url, small: heading.small, text: heading.title, rel: "nofollow bookmark", itemprop: "name" }
+                    = partial "molecule/heading/heading", locals: { extraClass: "heading--truncate media-heading", href: article.url, small: heading.small, text: heading.title, rel: "nofollow bookmark", itemprop: "name" }
 
                     -# Blog detail footer
-                    = partial "./molecule/detail/detail", locals: { author: true, cal: true, comment: false, more: true, social: true, tags: true, current_page: article }
+                    = partial "molecule/detail/detail", locals: { author: true, cal: true, comment: false, more: true, social: true, tags: true, current_page: article }
 
                     -# Excerpt
                     %p{ itemprop: "description" }= string data.excerpt
 
                     -# Button - read more
-                    %nav= partial "./atom/button/button", locals: { context: "primary", text: "Read More", extraClass: "pull-right", href: article.url, itemprop: "url" }
+                    %nav= partial "atom/button/button", locals: { context: "primary", text: "Read More", extraClass: "pull-right", href: article.url, itemprop: "url" }

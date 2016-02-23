@@ -26,7 +26,7 @@ locals :
 
 ---
 
--# Code ID
+-# ID
 - id = 0
 
 %p
@@ -35,7 +35,7 @@ locals :
 
 -# Badge
 :ruby
-    code = %{partial "./atom/badge/badge", locals: { text: "88" }}
+    code = %{partial "atom/badge/badge", locals: { text: "88" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

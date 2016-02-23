@@ -18,13 +18,15 @@ see :
 
 todo :
     - - "Can I show these by day also - or in a nice calendar format?"
+    - - "Should use the DT partial for this"
+    - - "Make the list expandable and each year"
 
 ---
 
-- id = 1
+- id = 0
 
 -# Archive
 :ruby
-    code = %{partial "./molecule/archive/archive"}
+    code = %{partial "molecule/archive/archive"}
 
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Archive" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Archive" } }

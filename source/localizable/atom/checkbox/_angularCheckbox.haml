@@ -1,13 +1,13 @@
 -##
 -# Checkbox
--# Using more fancy checkboxes the label needs to be inline with the input
+-# Using more fancy checkboxes the label needs to be in-line with the input
 -#
 -# @usage
--# -# Checkbox
--# = partial "./atom/checkbox/angularCheckbox"
+-# -# Angular checkbox
+-# = partial "atom/checkbox/angularCheckbox"
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @see    http://flatlogic.github.io/awesome-bootstrap-checkbox/demo/
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
 -##
 
 -# Variables
@@ -37,7 +37,7 @@
     %label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
         = string label[ :title ]
 
-    -# Help Block
+    -# Help block
     -# Sometimes this should be hidden to allow errors to be added inside.
     -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
     - if locals[ :help ]

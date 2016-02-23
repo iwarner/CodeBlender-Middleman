@@ -12,7 +12,7 @@ heading :
     title : "Label"
 
 see :
-    - - "Bootstrap Labels"
+    - - "Bootstrap Label"
       - "http://getbootstrap.com/components/#labels"
 
 locals :
@@ -40,7 +40,7 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "atom/label/label", locals: { content: "Default" }}
+    code = %{partial "atom/label/label", locals: { content: "Default", itemprop: "test" }}
 
 -# Code
 = partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

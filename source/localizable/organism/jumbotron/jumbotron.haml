@@ -15,6 +15,10 @@ see :
     - - "Bootstrap Jumbotron"
       - "http://getbootstrap.com/components/#jumbotron"
 
+todo :
+    - - "Is in a Header section is this right?"
+    - - "Sort out the small Text CSS / Padding too large"
+
 locals :
     - - "description"
       - "string"
@@ -39,32 +43,26 @@ locals :
 
 ---
 
-- id = 1
+-# ID
+- id = 0
 
 -# Default
 :ruby
-    code = %{partial "./organism/jumbotron/jumbotron",
-                      locals: { desc:  "Description",
-                                small: "Small Text",
-                                title: "Title" }}
+    code = %{partial "organism/jumbotron/jumbotron", locals: { desc:  "Description", small: "Small Text", title: "Title" }}
 
 -# Code
 = partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }
 
 -# Gradient
 :ruby
-    code = %{partial "./organism/jumbotron/jumbotron",
-                      locals: { desc:       "Description",
-                                extraClass: "gradient",
-                                small:      "Small Text",
-                                title:      "Title" }}
+    code = %{partial "organism/jumbotron/jumbotron", locals: { desc: "Description", extraClass: "gradient", small: "Small Text", title: "Title" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Gradient" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Gradient" } }
 
 -# Image Jumbotron
 :ruby
-    code = %{partial "./organism/jumbotron/jumbotron", locals: { extraClass: "image" }}
+    code = %{partial "organism/jumbotron/jumbotron", locals: { extraClass: "image" }}
 
 -# Code
-= partial "./organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Requires a CSS tag", text: "Image Jumbotron" } }
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { small: "Requires a CSS tag", text: "Image Jumbotron" } }

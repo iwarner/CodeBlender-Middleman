@@ -4,13 +4,13 @@
 -#
 -# @usage
 -# -# Icon stacked
--# = partial "./atom/icon/icon-stacked", locals: { icon: "fa-shopping-cart", size: "fa-2x" }
+-# = partial "atom/icon/icon-stacked", locals: { icon: "fa-shopping-cart", size: "fa-2x" }
 -#
--# @param    icon - Icon name, must include prefix of supplier
--# @param    size - Stack size
+-# @param icon - Icon name, must include prefix of supplier
+-# @param size - Stack size
 -#
--# @category atom
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
 -##
 
 -# Find out icon library
@@ -20,7 +20,7 @@
 %span{ class: "fa fa-stack #{ size }" }
 
     -# Icon - outer stack
-    = partial "./atom/icon/icon", locals: { icon: "fa-circle-thin fa-stack-2x" }
+    = partial "atom/icon/icon", locals: { icon: "fa-circle-thin fa-stack-2x" }
 
     -# Icon - inner stack
-    = partial "./atom/icon/icon", locals: { icon: iconName }
+    = partial "atom/icon/icon", locals: { icon: iconName }

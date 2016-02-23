@@ -2,10 +2,10 @@
 
 meta :
     author      : "DryKISS"
-    description : "Blog article - CodeBlender"
+    description : "Blog article list - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "Blog article - CodeBlender"
+    title       : "Blog article list - CodeBlender"
     type        : "website"
 
 heading :
@@ -36,10 +36,11 @@ todo :
     - - "Table of contents using hash does not work - directs to home path"
     - - "Provide a blank / random image if one is not found to keep the design"
     - - "Create a hover over state for the article to slightly grey it out"
-    - - "Add in some filtering for popular - most commented on etc"
+    - - "Add in some filtering for popular - most commented on"
     - - "Add in search - Add in tags - Add in social links - Facebook like and share, tweet and pin - Add in report page button"
     - - "Add in video / image - could be carousel - Add in title - Add in price - Add in content - Add in Ribbons on some products"
     - - "Add in Trending Today - Add in Buy Now - Add in Add to Wish list - Add in Comments - Add in related products - Add in newsletter"
+    - - "Article list partial should not be in this template folder"
 
 ---
 
@@ -50,7 +51,7 @@ todo :
     .col-md-8.col-sm-8
 
         -# Article list
-        = partial "./template/article/article-list", locals: { page_articles: page_articles }
+        = partial "template/article/article-list", locals: { page_articles: page_articles }
 
         -# Pagination variables
         - prevPage = prev_page ? prev_page : false
@@ -61,14 +62,14 @@ todo :
 
     .col-md-4.col-sm-4
 
-        -# Heading
-        = partial "./molecule/heading/heading", locals: { extraClass: "noMargin", tag: "h3", text: "Archive" }
+        -# Heading - H3
+        = partial "molecule/heading/heading", locals: { extraClass: "noMargin", tag: "h3", text: "Archive" }
 
         -# Archive
-        = partial "./molecule/archive/archive"
+        = partial "molecule/archive/archive"
 
-        -# Heading
-        = partial "./molecule/heading/heading", locals: { extraClass: "noMargin", tag: "h3", text: "Tags" }
+        -# Heading - H3
+        = partial "molecule/heading/heading", locals: { extraClass: "noMargin", tag: "h3", text: "Tags" }
 
         -# Tag cloud
-        = partial "./molecule/tag-cloud/tag-cloud"
+        = partial "molecule/tag-cloud/tag-cloud"

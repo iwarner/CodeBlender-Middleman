@@ -197,6 +197,10 @@ class Middleman < Thor
 
         # Increment version
 
+        # Delete build directory
+        say( "\n\t Remove build folder\n\t" )
+        system( "rm -r ../www" )
+
         # Build
         say( "\n\t Middleman build\n\t" )
         system( "bundle exec middleman build --clean" )
@@ -253,6 +257,7 @@ class Middleman < Thor
     #
     # @todo Place the path into a global variable in this script
     # @todo Need to run a check to make sure this is not on the CodeBlender project
+    # @todo Need to make sure the partial folder exists - otherwise it errors
     ##
     desc "symlink", "Symlink library elements into the project"
     def symlink

@@ -1,8 +1,10 @@
 ##
 # Configuration YAML
-# Contains the configuration for the core framework
+# Contains the configuration for the core framework layouts
 #
 # @author Ian Warner <ian.warner@drykiss.com>
+#
+# @todo Should rename this to layout config really as is should contain the config for the bootstrap layout file only or move to a new one
 ##
 
 ---
@@ -10,26 +12,26 @@
 # Version - This needs to be iterated on each distribution
 version : "2.0.1"
 
+# HTML tag
+html :
+    angular  : "app"
+    manifest : false
+
+# Head tag
+head :
+    prefix : "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# dcterms: http://purl.org/dc/terms/#"
+
+# Body tag
+body :
+    id         : false
+    extraClass : false
+    spy        : false
+    target     : false
+    offset     : false
+
 # Brand
 brand : "Code Blender"
 url   : "http://codeblender.net"
-
-# Angular
-angular:
-    appName : "app"
-
-# Head
-head :
-    prefix : "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# dcterms: http://purl.org/dc/terms/#"
-lang          : en
-manifest      : false
-modernizr     : false
-
-# Body
-body       :
-    spy    : false
-    target : false
-    offset : false
 
 # JavaScript
 javascript :

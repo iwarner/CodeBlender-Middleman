@@ -1,0 +1,60 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Blog article detail - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Blog article detail - CodeBlender"
+    type        : "website"
+
+heading :
+    small : Showcases the details, tags of the blog post
+    title : Blog detail
+
+see :
+    - - "Middleman blogging"
+      - "http://middlemanapp.com/blogging"
+    - - "Schema"
+      - "http://schema.org/BlogPosting"
+    - - "Structured data"
+      - "https://developers.google.com/structured-data/"
+    - - "Microdata"
+      - "http://www.designhive.com/blog/using-schemaorg-microdata"
+    - - "Schema Markup"
+      - "https://gist.github.com/gregrickaby/5917114"
+    - - "Blog Footer"
+      - "http://bootsnipp.com/snippets/featured/blog-post-footer"
+
+todo :
+    - - "Consider putting the tags in a DL / LI"
+    - - "Should link up the Author to show articles by Authors name - finish of link"
+    - - "Include more social link options"
+    - - "Add in social links - Twitter / Google+"
+    - - "Need to distinguish the types of Articles / Posts and change template accordingly and microdata, i.e. event"
+    - - "Tags should scale with a reveal on the end - use overflow or bootstrap collapse"
+    - - "Maybe move this partial into a more inclusive Blog section"
+    - - "Link Up Date, Author and Comments"
+    - - "Docs page not showing any data - add locals to show these"
+
+locals :
+    - - "comments"
+      - "bool"
+      - "optional"
+      - "Whether to show the comments"
+    - - "more"
+      - "bool"
+      - "optional"
+      - "Whether to show more detail"
+
+---
+
+-# ID
+- id = 0
+
+-# Detail
+:ruby
+    code = %{partial "molecule/detail/detail", locals: { more: true }}
+
+-# Code
+= partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Default" } }

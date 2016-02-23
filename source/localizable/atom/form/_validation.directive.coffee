@@ -1,17 +1,17 @@
 ##
-# Validation States
+# Validation states
 # Will validate any bootstrap form control
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##
 
 ##
-# JS Lint
+# JS lint
 ##
 'use strict'
 
 ##
-# Show Errors
+# Show errors
 ##
 showErrors = ( $timeout, showErrorsConfig ) ->
 
@@ -94,7 +94,7 @@ showErrors = ( $timeout, showErrorsConfig ) ->
     }
 
 ##
-# Config Provider
+# Configuration provider
 ##
 showErrorsConfig = ->
 

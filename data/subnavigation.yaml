@@ -115,6 +115,9 @@ molecule :
     - title : "Collapse"
       url   : "/molecule/collapse/collapse.html"
 
+    - title : "Detail"
+      url   : "/molecule/detail/detail.html"
+
     - title : "Dropdown"
       url   : "/molecule/dropdown/dropdown.html"
 
@@ -223,9 +226,6 @@ organism :
     - title : "DataTable"
       url   : "/organism/datatable/datatable.html"
 
-    - title : "Detail"
-      url   : "/organism/detail/detail.html"
-
     - title : "Disqus Comment"
       url   : "/organism/disqus-comment/disqus-comment.html"
 
@@ -276,6 +276,9 @@ organism :
 
     - title : "Shop"
       url   : "/organism/shop/shop.html"
+
+    - title : "Sidebar"
+      url   : "/organism/sidebar/sidebar.html"
 
     - title : "Stripe"
       url   : "/organism/stripe/stripe.html"

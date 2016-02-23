@@ -10,6 +10,20 @@
 module Helpers
 
     ##
+    # Proxy partial method
+    ##
+    def helper( partial, locals )
+
+        # Iterate through the directories to find the correct path
+
+        # Give some guidance on whether the locals are correct
+
+        # Return
+        partial "molecule/heading/" + partial, locals: locals
+
+    end
+
+    ##
     # Whether to translate a string of text from the Current Page Data
     ##
     def string( element )
@@ -17,19 +31,11 @@ module Helpers
     end
 
     ##
-    # Mail To Link
-    ##
-    def mailTo( email )
-        result = Haml::Engine.new( "%a{ :href => \"mailto:#{email}\" }\n " + email )
-        result.render
-    end
-
-    ##
     # Call Link
+    # Strip the spaces from the number
     ##
     def callLink( number )
-        result = Haml::Engine.new( "%a{ :href => \"tel:#{number}\" }\n " + number )
-        result.render
+        link_to number, "tel:#{ number }"
     end
 
     ##

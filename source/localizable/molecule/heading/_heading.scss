@@ -4,26 +4,41 @@
 // @author Ian Warner <ian.warner@drykiss.com>
 //----------------------------------------------------------------------------//
 
-// Heading Tags
+// Heading tags
 //----------------------------------------------------------------------------//
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
     &.heading {
 
-        // No Margin
+        // Heading truncation - need to set colour for ellipsis
+        //--------------------------------------------------------------------//
+        // &--truncate {
+        //     color         : $headings-small-color;
+        //     display       : inline-block;
+        //     overflow      : hidden;
+        //     text-overflow : ellipsis;
+        //     width         : 100%;
+        //     white-space   : nowrap;
+        //     word-break    : break-all;
+        //     word-wrap     : break-word;
+        // }
+
+        // No margin
         //--------------------------------------------------------------------//
         &--noMargin {
             margin : 0;
         }
 
+        // Line height
+        //--------------------------------------------------------------------//
         &--lineHeight {
             line-height : inherit;
         }
 
-        i {
+        // Icon
+        //--------------------------------------------------------------------//
+        span {
             margin-right : 5px;
         }
-
     }
-
 }

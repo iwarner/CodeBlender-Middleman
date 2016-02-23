@@ -1,9 +1,5 @@
 # Project : CodeBlender
 
-## Aim - 2016
-
-Build out an Admin and Front-end theme built on top of CodeBlender get it on Theme forest.
-
 ## Middleman : http://middlemanapp.com/
 
 Start

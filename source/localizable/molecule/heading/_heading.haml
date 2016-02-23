@@ -4,7 +4,7 @@
 -#
 -# @usage
 -# -# Heading
--# = partial "./molecule/heading/heading", locals: { text: "Default H1 Tag" }
+-# = partial "molecule/heading/heading", locals: { text: "Default H1 Tag" }
 -#
 -# @param href
 -# @param icon
@@ -12,27 +12,26 @@
 -# @param tag
 -# @param text
 -#
--# @category Molecule
+-# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
--# Required Text
+-# Required text
 - if ! locals[ :text ].blank?
 
-    -# Heading
-    -# Defaults to H1
+    -# Heading - defaults to H1
     - haml_tag locals[ :tag ] ? tag : "h1",
-               { class:    locals[ :extraClass ] ? "heading #{extraClass}" : "heading",
-                 id:       locals[ :id ]         ? id                      : false,
-                 itemprop: locals[ :itemprop ]   ? itemprop                : false,
-                 ng:       locals[ :ng ]         ? ng                      : false,
-                 rel:      locals[ :rel ]        ? rel                     : false } do
+               { class:    locals[ :extraClass ] ? "heading #{ extraClass }" : "heading",
+                 id:       locals[ :id ]         ? id                        : false,
+                 itemprop: locals[ :itemprop ]   ? itemprop                  : false,
+                 ng:       locals[ :ng ]         ? ng                        : false,
+                 rel:      locals[ :rel ]        ? rel                       : false } do
 
         -# Icon
         - if locals[ :icon ]
 
             -# Icon
-            = partial "./atom/icon/icon", locals: { icon: icon }
+            = partial "atom/icon/icon", locals: { icon: icon }
 
         -# Link
         - if locals[ :href ]

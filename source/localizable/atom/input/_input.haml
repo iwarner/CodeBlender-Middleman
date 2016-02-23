@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Input
--# = partial "./atom/input/input",
+-# = partial "atom/input/input",
 -#            locals: { input: { name:  "text" },
 -#                      label: { title: "Text Input", extraClass: "sr-only" } }
 -#
@@ -19,15 +19,8 @@
 -#
 -# Validation .has-warning, .has-error to form-group
 -#
--# @category    atom
--# @subcategory form
--# @author      Ian Warner <ian.warner@drykiss.com>
--#
--# @todo        There are two many container divs being produced use content capture.
--# @todo        Make it so it produces something with zero configuration
--# @todo        Clear button should be an option
--# @todo        The Help block needs more documentation with validation and error messages - it expects array
--# @todo        Split out the attributes of an input, they follow a common pattern in most areas, display local or false
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
 -##
 
 -# Variables
@@ -59,7 +52,7 @@
                 .input-group-addon
 
                     -# Icon
-                    = partial "./atom/icon/icon", locals: { icon: locals[ :icon ][ :prepend ] }
+                    = partial "atom/icon/icon", locals: { icon: locals[ :icon ][ :prepend ] }
 
             -# Prepend Button
             - if locals[ :button ] and locals[ :button ][ :prepend ]
@@ -89,7 +82,7 @@
             - if locals[ :icon ] && locals[ :icon ][ :append ]
 
                 -# Icon
-                = partial "./atom/icon/icon", locals: { icon: locals[ :icon ][ :append ] }
+                = partial "atom/icon/icon", locals: { icon: locals[ :icon ][ :append ] }
 
             -# Append Button
             - if locals[ :button ] && locals[ :button ][ :append ]
@@ -97,14 +90,14 @@
 
             -# Password Strength Meter
             - if locals[ :strengthMeter ]
-                = partial "./molecule/password-strength/password-strength"
+                = partial "molecule/password-strength/password-strength"
 
             -# Form Feedback Icon
             -# Change the class of the icon
             - if locals[ :feedback ]
 
                 -# Icon
-                = partial "./atom/icon/icon", locals: { icon: "fa- form-control-feedback ng-hide" }
+                = partial "atom/icon/icon", locals: { icon: "fa- form-control-feedback ng-hide" }
 
         -# Help Block
         -# Sometimes this should be hidden to allow errors to be added inside.

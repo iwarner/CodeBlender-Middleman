@@ -29,7 +29,8 @@ $body-bg : whitesmoke !default;
 // HTML
 //----------------------------------------------------------------------------//
 html {
-    height : 100%;
+    min-height : 100%;
+    position   : relative;
 }
 
 // Body
@@ -39,9 +40,6 @@ body {
     // Add Padding required if using the fixed NavBar
     //------------------------------------------------------------------------//
     padding-top : 70px;
-    height      : 100%;
-    min-height  : 100%;
-    width       : 100%;
 }
 
 // Links

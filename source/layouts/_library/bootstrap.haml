@@ -1,35 +1,34 @@
 -##
 -# Bootstrap layout
+-# HTML5 core layout file
 -#
 -# @usage
 -# -# Bootstrap
 -# = wrap_layout "_library/article" do
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--#
--# @todo Need to put the body data tags back into the layout
--# @todo Need to be able to change the doctype and HTML aspects from the config
--# @todo Add the base ref to the config
--# @todo Make the control statements more like the facebook one as it seems to work better and can remove the config set statements that don't work in v4
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
+-# @see http://www.tutorialspoint.com/html5/html5_microdata.htm
 -##
 
--# Variables
-- locale  = I18n.locale.to_s
-- d       = current_page.data
-- angular = ( dataConfig.angular.present? and dataConfig.angular.appName.present? ) ? dataConfig.angular.appName : false
+-# Variable
+- locale       = I18n.locale.to_s
+- d            = current_page.data
+- htmlAngular  = dataConfig.html.angular  ? dataConfig.html.angular : false
+- htmlManifest = dataConfig.html.manifest ? "/offline.manifest"     : false
+- headPrefix   = dataConfig.head.prefix   ? dataConfig.head.prefix  : false
 
 -# HTML5 doctype
 !!! 5
 
--# HTML section
-%html{ lang:      string( :locale ),
-       manifest:  dataConfig.manifest ? "/offline.manifest" : false,
-       ng:        { app: angular },
-       xmlns:     "http://www.w3.org/1999/xhtml",
-       xml:       { lang: string( :locale ) } }
+-# HTML5 root element
+-# Requires lang, manifest if option is created and angular app definition
+-# @see https://www.w3.org/TR/html-markup/html.html
+%html{ lang: string( :locale ), manifest: htmlManifest, ng: { app: htmlAngular } }
 
     -# Head section
-    %head{ prefix: ( dataConfig.head.present? and dataConfig.head.prefix.present? ) ? dataConfig.head.prefix : false }
+    -# Prefix is utilised for structures like Facebook
+    %head{ prefix: headPrefix }
 
         -# Meta tag
         = partial "./atom/meta/all"
@@ -38,16 +37,13 @@
         -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
         = stylesheet_link_tag :all, media: "all"
 
-        -# Process head content from pages
+        -# Process injected head content
         - if content_for? :siteHead
             = yield_content :siteHead
 
         -# JavaScript head
         - if dataConfig.javascript.head
             = javascript_include_tag :head
-
-        -# Base
-        -# %base{ href: "/" }
 
     -# Facebook locale
     - if data.has_key? "facebook"
@@ -64,11 +60,10 @@
     -# Contains the main itemscope of the current page
     %body{ id:        dataConfig.body.id ? dataConfig.body.id : false,
            class:     dataConfig.body.extraClass ? dataConfig.body.extraClass : false,
-           data:      { lang: locale, locale: localFB },
-           itemscope: true,
-           itemtype:  "http://schema.org/#{ string( :"meta.itemType" ) }",
+           itemscope: true, itemtype: "https://schema.org/WebPage",
            ng:        { controller: angularController } }
 
+        -# Top anchor
         %a{ id: "top" }
 
         -# Facebook root, requires an AppID

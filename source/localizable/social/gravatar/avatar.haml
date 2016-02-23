@@ -18,19 +18,22 @@ see :
 
 todo :
     - - "Need to pass through the image options for the avatar"
-      - "Gravatar"
-      - "2014-02-12"
     - - "Should have the option for HTTPs"
-      - "Gravatar"
-      - "2014-02-12"
+    - - "Check whether type=thumbnail works"
+    - - "Include gravatar links and docs"
+    - - "Configure the workaround for default image"
+    - - "Use code partial on docs page"
 
 ---
 
+-# ID
+- id = 0
+
 -# Heading
-= partial "./molecule/heading/heading", locals: { text: "Default", tag: "h2" }
+= partial "molecule/heading/heading", locals: { text: "Default", tag: "h2" }
 
 -# Avatar
-= partial "./molecule/gravatar/avatar", locals: { email: "ian.warner@drykiss.com" }
+= partial "molecule/gravatar/avatar", locals: { email: "ian.warner@drykiss.com" }
 
 %br
 %br
@@ -38,15 +41,15 @@ todo :
 -# Code
 :code
     #lang: ruby
-    = partial "./molecule/gravatar/avatar", locals: { email: "ian.warner@drykiss.com" }
+    = partial "molecule/gravatar/avatar", locals: { email: "ian.warner@drykiss.com" }
 
 %hr
 
 -# Heading
-= partial "./molecule/heading/heading", locals: { text: "Size", tag: "h2" }
+= partial "molecule/heading/heading", locals: { text: "Size", tag: "h2" }
 
 -# Avatar
-= partial "./molecule/gravatar/avatar", locals: { email: "iwarner@triangle-solutions.com", size: "200" }
+= partial "molecule/gravatar/avatar", locals: { email: "iwarner@triangle-solutions.com", size: "200" }
 
 %br
 %br
@@ -54,6 +57,6 @@ todo :
 -# Code
 :code
     #lang: ruby
-    = partial "./molecule/gravatar/avatar",
+    = partial "molecule/gravatar/avatar",
                locals: { email: "iwarner@triangle-solutions.com",
                          size:  "200" }
