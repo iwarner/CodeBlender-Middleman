@@ -1,0 +1,18 @@
+-##
+-# Navigation Below
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Check to see if data exists
+- if ! current_page.data.jumbotron
+    - description = :"prototyping.jumbotron.description"
+    - title       = :"prototyping.jumbotron.title"
+- else
+    - description = current_page.data.jumbotron.description
+    - title       = current_page.data.jumbotron.title
+
+%section.navBelow
+
+    -# Jumbotron For Brand Guidlines
+    = partial "bootstrap/component/jumbotron.haml", locals: { desc: description, heading: { text: title } }

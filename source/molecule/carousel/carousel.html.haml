@@ -1,0 +1,105 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Carousel - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Carousel - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Carousel"
+
+see :
+    - - "Bootstrap Carousel"
+      - "http://getbootstrap.com/javascript/#carousel"
+    - - "Swipe Support"
+      - "http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/"
+
+todo :
+    - - "Need to find a way to work with both ImageArray and a more Content Array"
+    - - "Should pass direct arrays for image and heading to the carousel"
+    - - "Heading for caption should use partial"
+
+locals :
+    - - "array"
+      - "array"
+      - "required"
+      - "Array containing the image and caption arrays"
+    - - "control"
+      - "bool"
+      - "optional"
+      - "Whether to show the controls - default: true"
+    - - "id"
+      - "string"
+      - "required"
+      - "ID of the carousel element - Default : myCarousel"
+    - - "indicator"
+      - "bool"
+      - "optional"
+      - "Whether to show the dot indicators - default: true"
+
+carouselArray :
+  - image :
+        extraClass : "img-responsive"
+        data       :
+            src : "holder.js/1028x400/auto"
+  - image :
+        extraClass : "img-responsive"
+        data       :
+            src : "holder.js/1028x400/auto"
+
+---
+
+-# ID
+- id = 0
+
+:markdown
+
+    **Accessibility**
+
+    The carousel component is generally not compliant with accessibility standards.
+    If you need to be compliant, please consider other options for presenting your content.
+
+:markdown
+
+    **Swipe**
+
+    On many occassions you will want to add Swipe support to the bootstrap carousel.
+
+    This can be easily achieved by adding the [JQuery Mobile](http://jquerymobile.com/download-builder/)
+    touch events as below to your backbone view.
+
+        events :
+            "swiperight #carouselID" : "swipeRight"
+            "swipeleft  #carouselID" : "swipeLeft"
+
+    Create the methods to handle the swipe events
+
+        swipeRight : ( event ) ->
+            $( event.currentTarget ).carousel "prev"
+
+        swipeLeft : ( event ) ->
+            $( event.currentTarget ).carousel "next"
+
+-# Carousel
+:ruby
+    code = %{partial "molecule/carousel/carousel.haml",
+                      locals: { array:     [ { image: { extraClass: "img-responsive", src: "home/01.jpeg" } },
+                                             { image: { extraClass: "img-responsive", src: "home/02.jpeg" } } ],
+                                data:      { ride: "carousel", interval: "3000" },
+                                control:   true,
+                                indicator: true }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+
+-# No Indicators
+:ruby
+    code = %{partial "molecule/carousel/carousel.haml",
+                      locals: { array: current_page.data.carouselArray,
+                                id:    "iPhoneCarousel" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "No Indicators or Controls" } }

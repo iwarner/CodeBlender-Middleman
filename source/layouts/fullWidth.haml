@@ -1,0 +1,45 @@
+-##
+-# Full Width
+-#
+-# @usage
+-# -# Full Width layout
+-# = wrap_layout "fullWidth" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- dataCurrent = current_page.data
+
+-# Layout - Calls Wrapper Layout
+= wrap_layout "bootstrap" do
+
+    -# Heading
+    - if data.config.heading
+        = partial "molecule/heading/heading.haml", locals: { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
+
+    -# Details
+    - if data.config.description
+        %p= string dataCurrent.description
+
+    -# Locals
+    - if dataCurrent.locals
+        = partial "organism/local/local.haml"
+
+    -# Yield
+    = yield
+
+    -# Resources
+    - if data.config.resources
+        .container
+            = partial "organism/resource/resource.haml"
+
+    -# Assets
+    - if data.config.assets
+        .container
+            = partial "organism/asset/asset.haml"
+
+    -# Todo
+    - if data.config.todo
+        .container
+            = partial "organism/todo/todo.haml"

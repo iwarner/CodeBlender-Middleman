@@ -1,0 +1,183 @@
+-##
+-# Football table
+-#
+-# @usage
+-# -# Football table
+-# = partial "football/table/table.haml"
+-#
+-# @param season
+-# @param division
+-#
+-# @category football
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Football table
+%table.footballTable.table.table-bordered.table-hover.table-striped
+
+    -# Head
+    %thead
+        %tr
+            %th
+            %th Pos
+            %th Team
+            %th P
+            %th W
+            %th D
+            %th L
+            %th F
+            %th A
+            %th GD
+            %th Pts
+            %th Last 10 games
+
+    -# Body
+    %tbody
+
+        -# Data
+        - data  = Table.table( locals[ :season ], locals[ :division ] )
+        - count = data.count
+
+        -# Loop through the fixtures per division
+        - data.each_with_index do | row, index |
+
+            -# Variable
+            - team = row[ 0 ]
+            - stat = row[ 1 ]
+
+            -# Context - first
+            - if index == count - 1
+                - extraClass = "danger"
+
+            -# Context - last
+            - if index == 0
+                - extraClass = "success"
+
+            -# Row - Statistics
+            %tr{ class: extraClass }
+
+                -# Details
+                %td
+
+                    -# Chevron
+                    %a{ class: "footballTable__link", href: "#footballTable__detail#{ index }", data: { toggle: "collapse" }, aria: { expanded: "false", controls: "footballTable__detail#{ index }" } }
+
+                        -# icon
+                        = partial "atom/icon/icon.haml", locals: { extraClass: "footballTable__linkFill", icon: "fa-chevron-right" }
+
+                -# Position
+                %td= index + 1
+
+                -# Team name
+                %td= teamProfileLink( team )
+
+                -# Played
+                %td= stat[ :p ]
+
+                -# Won
+                %td= stat[ :w ]
+
+                -# Draw
+                %td= stat[ :d ]
+
+                -# Lost
+                %td= stat[ :l ]
+
+                -# For
+                %td= stat[ :f ]
+
+                -# Away
+                %td= stat[ :a ]
+
+                -# Goal difference
+                %td= stat[ :gd ]
+
+                -# Points
+                %td= stat[ :pts ]
+
+                -# Last 10 games
+                %td
+
+                    -# Iterate over this teams maximum last 10 league games in current season
+                    -# Display a colour based on whether the team has won lost or drawn.
+                    -# Tooltip will display the state, score, vs and date - danger, success, default
+                    - ( 0...10 ).each do | state |
+
+                        -# Label with popover
+                        = partial "atom/label/label.haml", locals: { extraClass: "popover-directive footballTable__label", context: "danger", title: "Lost", data: { placement: "top", toggle: "popover", trigger: "focus", content: "1-2 v Aston Villa<br/>12th  December 2015" } }
+
+            -# Row - Details - collapsed panel
+            %tr
+
+                -# Panel
+                %td{ colspan: 12, style: "padding: 0" }
+
+                    -# Bootstrap container
+                    .container-fluid{ class: "collapse footballTable__detail", id: "footballTable__detail#{ index }" }
+
+                        -# Bootstrap row
+                        .row
+
+                            -# Bootstrap column
+                            .col-md-6
+
+                                Place a graph here of the position in the table
+                                Need to determine height here
+
+                            -# Bootstrap column
+                            .col-md-6
+
+                                -# Bootstrap row
+                                .row
+
+                                    -# Bootstrap column
+                                    .col-md-6
+
+                                        Last Game
+
+                                        %br
+
+                                        %strong
+                                            = team
+                                            = stat[ :f ]
+                                            \-
+                                            = stat[ :f ]
+                                            = team
+
+                                        %br
+
+                                        Sat 6 February 2016
+
+                                    -# Bootstrap column
+                                    .col-md-6
+
+                                        Next game
+
+                                        %br
+
+                                        %strong
+                                            = team
+                                            = stat[ :f ]
+                                            v
+                                            = stat[ :f ]
+                                            = team
+
+                                        %br
+
+                                        Sat 6 February 2016
+
+                                %hr
+
+                                -# Bootstrap row
+                                .row
+
+                                    -# Bootstrap column
+                                    .col-md-6
+
+                                        Team top scorers - max 3
+
+                                    -# Bootstrap column
+                                    .col-md-6
+
+                                        Average goals per game
+                                        Cards totals for whole team

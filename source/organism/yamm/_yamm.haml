@@ -1,0 +1,66 @@
+-##
+-# Mega Menu Products
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Mega Menu Content
+.yamm-content
+
+    -# Bootstrap Row
+    .row
+
+        -# Bootstrap Columns
+        .col-xs-6.col-sm-2.col-md-2
+
+            -# Link to
+            = link_to( "/style-guide/brand/index.html" ) do
+
+                = partial "atom/image/image.haml",
+                           :locals => { :alt        => "150x150",
+                                        :extraClass => "img-circle",
+                                        :data       => "holder.js/150x150/sky/text:Gateway Portal" }
+
+        -# Bootstrap Columns
+        .col-xs-6.col-sm-2.col-md-2
+
+            -# Link to
+            = link_to( "/style-guide/brand/index.html" ) do
+
+                = partial "atom/image/image.haml",
+                           :locals => { :alt        => "150x150",
+                                        :extraClass => "img-circle",
+                                        :data       => "holder.js/150x150/lava/text:VPP" }
+
+        -# Bootstrap Columns
+        .col-xs-6.col-sm-2.col-md-2
+
+            -# Link to
+            = link_to( "/style-guide/tms/index.html" ) do
+
+                = partial "atom/image/image.haml",
+                           :locals => { :alt        => "150x150",
+                                        :extraClass => "img-circle",
+                                        :data       => "holder.js/150x150/social/text:TMS" }
+
+        -# Bootstrap Columns
+        .col-xs-6.col-sm-2.col-md-2
+
+            -# Link to
+            = link_to( "/style-guide/brand/index.html" ) do
+
+                = partial "atom/image/image.haml",
+                           :locals => { :alt        => "150x150",
+                                        :extraClass => "img-circle",
+                                        :data       => "holder.js/150x150/sky/text:CCP" }
+
+        -# Bootstrap Columns
+        .col-xs-6.col-sm-2.col-md-2
+
+            -# Link to
+            = link_to( "/style-guide/vme/index.html" ) do
+
+                = partial "atom/image/image.haml",
+                           :locals => { :alt        => "150x150",
+                                        :extraClass => "img-circle",
+                                        :data       => "holder.js/150x150/lava/text:Visa Checkout" }

@@ -1,0 +1,149 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Contact - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Contact - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Contact Form"
+
+see :
+    - - "Example contact page"
+      - "http://www.keenthemes.com/preview/metronic_admin/page_contact.html"
+    - - "FormSpree"
+      - "http://www.formspree.com/"
+
+todo :
+    - - "Complete the Social icons addition for this contact page, should include at least Facebook, Google and Twitter"
+    - - "Check browser support for HTML5 form elements - pollyfill or do without"
+    - - "Need to validate this vis JS and then AJAX the form over to formspree"
+    - - "Place an optional simple captcha on the form - recaptcha partial"
+
+---
+
+-# Capture content for HEAD
+- content_for :siteHead do
+    %script{ src: "http://maps.google.com/maps/api/js?sensor=false" }
+
+:markdown
+    Elements that can be customised on this page are as follows:
+
+    * Title and Small text can be found in the localised file.
+
+%hr
+
+-# Introduction
+%p
+    Whatever your feedback or questions we would love to hear from you, please
+    e-mail us at :
+    = mail_to "ian.warner@drykiss.com"
+
+.row
+
+    -# Map and Address
+    .col-md-8.map
+
+        -# Navigation tabs - Display various branch locations if required
+        = partial "molecule/nav/nav.haml",
+                   locals: { active:  "Colliers Wood",
+                             array:   [ { path: "#colliers", name: "Colliers Wood" } ],
+                             stacked: false,
+                             toggle:  true }
+
+        -# Tab Content
+        .tab-content
+
+            .tab-pane.active#colliers
+
+                -# Map
+                .gMap.thumbnail
+
+                -# Under Map
+                .row
+
+                    .col-md-6.col-sm-6.col-xs-6
+
+                        -# Address
+                        %address
+
+                            -# Heading
+                            = partial "molecule/heading/heading.haml", locals: { text: "DryKISS Ltd", tag: "h3" }
+
+                            -# Icon - Map Marker
+                            = partial "atom/icon/icon.haml", locals: { icon: "fa-map-marker fa-fw" }
+                            Colliers Wood, London, SW19
+
+                            %br
+
+                            -# Icon - Call
+                            = partial "atom/icon/icon.haml", locals: { icon: "fa-phone fa-fw" }
+                            = callLink "+447780435329"
+
+                            %br
+
+                            -# Icon - Mail
+                            = partial "atom/icon/icon.haml", locals: { icon: "fa-envelope fa-fw" }
+                            = mail_to "ian.warner@drykiss.com"
+
+                    .col-md-6.col-sm-6.col-xs-6
+
+                        -# Opening Times
+                        = partial "molecule/heading/heading.haml", locals: { text: "Opening Times", tag: "h3" }
+
+                        -# Icon - Clock
+                        = partial "atom/icon/icon.haml", locals: { icon: "fa-clock-o fa-fw" }
+                        Monday - Saturday : 11am - 9pm
+
+                        %br
+
+                        -# Icon - Clock
+                        = partial "atom/icon/icon.haml", locals: { icon: "fa-clock-o fa-fw" }
+                        Sunday and Bank Holidays : 11am - 8pm
+
+                -# Heading
+                = partial "molecule/heading/heading.haml", locals: { small: "On Facebook and Twitter for exclusive promotions!", text:  "Follow Us", tag: "h3" }
+
+                -# Icon - Facebook
+                = partial "atom/icon/icon.haml", locals: { icon: "fa-facebook-square" }
+
+                -# Icon - Facebook
+                = partial "atom/icon/icon.haml", locals: { icon: "fa-twitter-square" }
+
+    -# Form
+    .col-md-4
+
+        -# Heading
+        = partial "molecule/heading/heading.haml", locals: { extraClass: "noMargin", text: "Contact Form", tag: "h2" }
+
+        -# Form
+        %form{ action: "//api.formspree.com/ian.warner@drykiss.com", method: "POST", novalidate: false }
+
+            -# Input - Name
+            = partial "atom/input/input.haml",
+                       locals: { input: { name:  "name" },
+                                 label: { title: "Name" } }
+
+            -# Input - Mobile
+            = partial "atom/input/input.haml",
+                       locals: { input: { name:  "mobile", type: "tel" },
+                                 label: { title: "Mobile" } }
+
+            -# Input - Email
+            = partial "atom/input/input.haml",
+                       locals: { input: { name:  "_replyto", type: "email" },
+                                 label: { title: "Email" } }
+
+            -# TextArea - Message
+            = partial "atom/textarea/textarea.haml", locals: { label: { title: "Message" }, name: "message" }
+
+            -# Input - Next - Hidden
+            = partial "atom/input/input.haml",
+                       locals: { input: { name:  "_next", type: "hidden", value: "//localhost:4567//organism/contact.html" },
+                                 label: { title: "Email", extraClass: "sr-only" } }
+
+            -# Button - Submit
+            = partial "atom/button/button.haml", locals: { context: "primary", text: "Submit" }

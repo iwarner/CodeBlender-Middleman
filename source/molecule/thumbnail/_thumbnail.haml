@@ -1,0 +1,60 @@
+-##
+-# Thumbnail
+-#
+-# @usage
+-# -# Thumbnail
+-# = partial "molecule/thumbnail/thumbnail.haml",
+-#            locals: { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+-#                                 thumbnail: { href: "path.png" } } ] }
+-#
+-# @locals
+-# @param columns    - String of responsive columns
+-# @param extraClass - Row extraClasses
+-# @param image      - Array of image parameters
+-# @param target     - HREF target
+-# @param thumbnail  - Array of thumbnail parameters
+-#
+-# @category molecule
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variable
+- extraClass = locals[ :extraClass ] ? extraClass : false
+- columns    = locals[ :columns ] ? columns : "col-xs-12 col-sm-6 col-md-4"
+
+-# Bootstrap row
+.row{ class: extraClass }
+
+    -# Loop through the thumbnail array
+    - array.each_with_index do | thumbnail, index |
+
+        -# Variable
+        - thumb      = thumbnail[ :thumbnail ]
+        - data       = thumb[ :data ] ? thumb[ :data ] : false
+        - href       = thumb[ :href ] ? image_path( thumb[ :href ] ) : false
+        - extraClass = thumb[ :extraClass ].present? ? thumb[ :extraClass ] : false
+        - target     = thumb[ :target ] ? thumb[ :target ] : false
+
+        -# Bootstrap columns
+        %div{ class: columns, data: data, href: href }
+
+            -# Thumbnail
+            .thumbnail{ class: extraClass }
+
+                -# Link to if link exists
+                = link_to( image_path( thumbnail[ :image ][ :href ] ), target: target ) do
+
+                    -# Image
+                    = partial "atom/image/image.haml", locals: thumbnail[ :image ]
+
+                    -# Zoomix - requires HREF and data-toggle light box on the thumbnail array
+                    - if thumb[ :zoomix ].present?
+                        .zoomix
+
+                            -# Icon
+                            = partial "atom/icon/icon.haml", locals: { icon: "fa-search" }
+
+                -# Caption
+                - if thumb[ :caption ].present?
+                    .caption= thumb[ :caption ]
+                    .clearfix

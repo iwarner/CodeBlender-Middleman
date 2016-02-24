@@ -1,0 +1,23 @@
+-##
+-# Alerts
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Alert
+.alert{ class: locals[ :context ] ? "alert-#{ context }" : "alert-success",
+        ng:    locals[ :ng ]      ? locals[ :ng ]        : false }
+
+    -# Dismissable
+    - if locals[ :dismiss ]
+
+        -# Button
+        = partial "atom/button/button.haml",
+                   locals: { aria:       { label: "Close" },
+                             text:       "&times;",
+                             data:       { dismiss: "alert" },
+                             extraClass: "close",
+                             type:       "button" }
+
+    -# Text
+    = string locals[ :text ]

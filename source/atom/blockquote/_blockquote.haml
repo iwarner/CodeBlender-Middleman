@@ -1,0 +1,23 @@
+-##
+-# Blockquote
+-#
+-# @usage
+-# -# Blockquote
+-# = codeBlender "blockquote", "atom", { text: "Standard Blockquote" }
+-#
+-# @locals
+-# @param right - Pushes the content to the right hand side of the container
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Blockquote
+%blockquote.blockquote{ class: locals[ :right ] ? "blockquote-reverse" : false }
+
+    -# Main headline text
+    %p.blockquote__text= string locals[ :text ]
+
+    -# Add the small text if required
+    - if locals[ :small ]
+        %footer.blockquote__footer= string small

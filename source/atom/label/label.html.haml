@@ -1,0 +1,53 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Label - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Label - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Label"
+
+see :
+    - - "Bootstrap Label"
+      - "http://getbootstrap.com/components/#labels"
+
+locals :
+    - - "context"
+      - "string"
+      - "optional"
+      - "Variations colour of the label, default, primary, success, info, warning, danger"
+    - - "content"
+      - "string"
+      - "required"
+      - "Label text"
+    - - "href"
+      - "string"
+      - "optional"
+      - "Whether this is a link"
+    - - "icon"
+      - "string"
+      - "optional"
+      - "Whether to include a Font Awesome icon"
+
+---
+
+-# ID
+- id = 0
+
+-# Default
+:ruby
+    code = %{partial "atom/label/label.haml", locals: { content: "Default", itemprop: "test" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+
+-# Partial
+:ruby
+    code = %{partial "atom/label/label.haml", locals: { context: "primary", content: "Tag", href: "#", icon: "fa-tag" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Tags" } }

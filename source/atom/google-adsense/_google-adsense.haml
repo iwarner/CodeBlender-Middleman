@@ -1,0 +1,28 @@
+-##
+-# Google adsense advert
+-#
+-# @usage
+-# -# Google Adsense
+-# = partial "atom/adsense/adsense.haml", locals: { slot: 9670063286, width: 468, height: 60 }
+-#
+-# @param google.adsense - string - required -
+-# @param slot           - string -
+-# @param width          - int    -
+-# @param height         - int    -
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Abort if googleAdsense is not defined or Blank
+- if ! data.google.adsense.present?
+    - p "Google Adsense - no googleAdsense defined"
+
+-# @todo change to HAML filter
+%script{ async: true, src: "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" }
+
+%ins.adsbygoogle{ style: "display:inline-block;width:#{ width }px;height:#{ height }px", data: { ad: { client: data.google.adsense, slot: slot } } }
+
+-# JavaScript
+:javascript
+    ( adsbygoogle = window.adsbygoogle || [] ).push( {} );

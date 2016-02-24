@@ -1,0 +1,129 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Button partial creates a call to action on a, button or list elements - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Button partial creates a call to action on a, button or list elements - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Button"
+
+see :
+    - - "Bootstrap button"
+      - "http://getbootstrap.com/css/#buttons"
+    - - "Button Generator"
+      - "http://www.plugolabs.com/twitter-bootstrap-button-generator-3/"
+
+todo :
+    - - "Complete the other buttons actions on bootstrap"
+    - - "Explain in here all the places a button can be used"
+    - - "Change href to Link and create a new Link Partial"
+    - - "Allow for an image or icon before also"
+    - - "locals[ :text ] seems to be required but what if we just want an icon button provide option and graceful fallback on errors"
+
+locals :
+    - - "active"
+      - "bool"
+      - "optional"
+      - "Whether button is in active state"
+    - - "block"
+      - "bool"
+      - "optional"
+      - "true or false Default: false"
+    - - "context"
+      - "string"
+      - "optional"
+      - "default, primary, success, info, warning, danger, link"
+    - - "content"
+      - "string"
+      - "required"
+      - "Content of the button"
+    - - "disabled"
+      - "bool"
+      - "optional"
+      - "Whether button is in disabled state"
+    - - "dropdown"
+      - "bool"
+      - "optional"
+      - "Button is a dropdown Button add correct elements"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "Extra Classes"
+    - - "href"
+      - "string"
+      - "optional"
+      - "HREF for an A Tag"
+    - - "id"
+      - "string"
+      - "optional"
+      - "ID for the button"
+    - - "icon"
+      - "string"
+      - "optional"
+      - "Whether to append an icon to the button"
+    - - "size"
+      - "string"
+      - "optional"
+      - "Either : xs, sm, lg or blank"
+    - - "toggle"
+      - "string"
+      - "optional"
+      - "Usually either dropdown or modal"
+
+---
+
+-# ID
+- id = 0
+
+-# Vanilla Button
+:ruby
+    code = %{partial "atom/button/button.haml", locals: { text: "Default" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Vanilla button", text: "Default" } }
+
+-# Link Button
+:ruby
+    code = %{partial "atom/button/button.haml", locals: { text: "Default", href: "#" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Changes button tag to a tag", text: "Link Button" } }
+
+-# Button with Context
+:ruby
+    code = %{partial "atom/button/button.haml", locals: { text: "Primary", context: "primary" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Primary context change", text: "Primary" } }
+
+-# Size variation with Success Context
+:ruby
+    code = %{partial "atom/button/button.haml", locals: { text: "Success large size", context: "success", size: "lg" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Success large Size", text: "Large Button" } }
+
+-# Small Block Info Button
+:ruby
+    code = %{partial "atom/button/button.haml", locals: { block: true, text: "Small block info button", context: "info", size: "sm" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Small block info button" } }
+
+-# Icon Button
+:ruby
+    code = %{partial "atom/button/button.haml", locals: { text: "info", icon: { prepend: "fa-times" } }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Icon Button" } }
+
+-# Image Button
+:ruby
+    code = %{partial "atom/button/button.haml", locals: { image: { data: { src: holder( "32x32" ) }}}}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Image Button" } }

@@ -1,0 +1,21 @@
+-##
+-# Zero Clipboard
+-#
+-# @usage
+-# -# Zero Clipboard
+-# = partial "atom/zero-clipboard/zero-clipboard.haml"
+-#
+-# @param model - Angular Model definition
+-#
+-# @category atom
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @see      https://github.com/zeroclipboard/zeroclipboard
+-##
+
+-# Button - Copy
+= partial "atom/button/button.haml",
+           locals: { clip:       { copy: locals[ :model ] },
+                     context:    "primary",
+                     extraClass: locals[ :extraClass ] ? extraClass : false,
+                     text:       "Copy",
+                     type:       "button" }

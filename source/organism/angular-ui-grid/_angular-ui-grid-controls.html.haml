@@ -1,0 +1,20 @@
+-##
+-# Angular UI grid controls
+-#
+-# @usage
+-# -# Angular UI grid controls
+-# = partial "organism/angular-ui-grid/angular-ui-grid-controls.haml"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Angular Template
+%script{ type: "text/ng-template", id: "content.button.html" }
+
+    .ui-grid-cell-contents
+
+        -# Button - Edit
+        = partial "atom/button/button.haml", locals: { context: "primary", size: "xs", icon: { prepend: "fa-edit" }, ng: { click: "grid.appScope.content.editModal( grid, row )" } }
+
+        -# Button - Delete
+        = partial "atom/button/button.haml", locals: { context: "danger", size: "xs", icon: { prepend: "fa-minus" }, ng: { really: { message: "Are you sure you want to delete?", click: "grid.appScope.content.delete( grid, row )" } } }

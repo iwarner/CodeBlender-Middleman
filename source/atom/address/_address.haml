@@ -1,0 +1,57 @@
+-##
+-# Address
+-# Provides a marked up address module complete with accessibility and schema
+-# markup in accordance with best practices.
+-#
+-# The <address> tag should NOT be used to describe a postal address, unless it
+-# is a part of the contact information.
+-#
+-# @usage
+-# -# Address
+-# = helper "address", "atom"
+-#
+-# @param poBox
+-# @param street
+-# @param city
+-# @param region
+-# @param postCode
+-# @param country
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-# @see      https://schema.org/PostalAddress
+-# @see      http://html5doctor.com/the-address-element/
+-##
+
+-# Address
+.address{ itemscope: true, itemtype: "http://schema.org/PostalAddress", itemprop: locals[ :itemprop ] }
+
+    -# Address PO box
+    -# @see https://schema.org/postOfficeBoxNumber
+    - if locals[ :poBox ]
+        .address__poBox{ itemprop: "postOfficeBoxNumber" }= locals[ :poBox ]
+
+    -# Address street
+    -# @see https://schema.org/streetAddress
+    - if locals[ :street ]
+        .address__street{ itemprop: "streetAddress" }= locals[ :street ]
+
+    -# Address city
+    -# @see https://schema.org/addressLocality
+    - if locals[ :city ]
+        .address__city{ itemprop: "addressLocality" }= locals[ :city ]
+
+    -# Address region
+    -# @see https://schema.org/addressRegion
+    - if locals[ :region ]
+        .address__city{ itemprop: "addressRegion" }= locals[ :region ]
+
+    -# Address postal code
+    -# @see https://schema.org/postalCode
+    - if locals[ :postCode ]
+        .address__city{ itemprop: "postalCode" }= locals[ :postCode ]
+
+    -# Address country
+    -# @see https://schema.org/addressCountry
+    - if locals[ :country ]
+        .address__country{ itemprop: "addressCountry" }= locals[ :country ]

@@ -8,9 +8,10 @@
 
 # Whether to show the navigation bar
 navbar : true
+id     : false
 
 # Paths to the partials to display navigation above and below
-above     : "organism/nav-above/nav-above"
+above     : "organism/nav-above/nav-above.haml"
 below     : false
 container : "container"
 

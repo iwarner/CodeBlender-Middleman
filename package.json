@@ -1,16 +1,37 @@
 {
-    "name"        : "www",
+    "author"      : "Ian Warner <ian.warner@drykiss.com>",
+    "license"     : "MIT",
+    "name"        : "CodeBlender",
     "version"     : "1.0.0",
-    "description" : "# Check",
-    "main"        : "gulpfile.js",
+    "description" : "Middleman partials built with AngularJS and Bootstrap",
+    "main"        : "source/javascripts/body.js",
+    "private"     : true,
+    "homepage"    : "https://codeblender.net",
+
+    "scripts" : {
+        "test" : "echo \"Error: no test specified\" && exit 1"
+    },
+
+    "repository": {
+        "type" : "git",
+        "url"  : "git+https://github.com/iwarner/CodeBlender-Middleman.git"
+    },
+
+    "bugs" : {
+        "url" : "https://github.com/iwarner/CodeBlender-Middleman/issues"
+    },
+
+    "dependencies" : {
+        "bootstrap-sass" : "",
+        "jquery"         : "",
+        "coffee-loader"  : "",
+        "webpack"        : ""
+    },
 
     "devDependencies" : {
         "gulp"          : "",
         "gulp-uncss"    : "",
         "gulp-csso"     : "",
         "coffee-script" : ""
-    },
-
-    "author"  : "Ian Warner",
-    "license" : "ISC"
+    }
 }

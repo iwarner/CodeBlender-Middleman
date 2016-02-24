@@ -1,0 +1,72 @@
+-##
+-# Simple Cart Widget
+-#
+-# Usage
+-# -# Simple Cart Widget
+-# = partial "e-commerce/widget.haml"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Widget
+.cartWidget
+
+    -# Cart Info
+    .cartInfo
+
+        Cart :
+        %span.simpleCart_quantity
+            __
+        items
+
+        -# Icon
+        %i.fa.fa-shopping-cart
+
+    -# Cart Popover
+    #cartPopover{ hidden: true }
+
+        -# Icon
+        %i.fa.fa-play.fa-rotate-270
+
+        -# Item List
+        .simpleCart_items
+
+        -# Cart Data
+        #cartData.clearfix
+
+            -# Quantity
+            .pull-left
+                %strong Items:
+                %span.simpleCart_quantity
+
+            -# Total
+            .pull-right
+                %strong Total:
+                %span.simpleCart_total
+
+        -# Button
+        #popoverButtons.clearfix
+
+            -# Button
+            = partial "atom/button/button.haml",
+                       locals: { context:    "warning",
+                                 text:       "Empty",
+                                 extraClass: "pull-left simpleCart_empty",
+                                 href:       "javascript:;",
+                                 size:       "sm" }
+
+            -# Button
+            = partial "atom/button/button.haml",
+                       locals: { context:    "success",
+                                 text:       "Checkout",
+                                 extraClass: "pull-right simpleCart_checkout",
+                                 href:       "javascript:;",
+                                 size:       "sm" }
+
+            -# Button
+            = partial "atom/button/button.haml",
+                       locals: { context:    "info",
+                                 text:       "View Cart",
+                                 extraClass: "pull-right",
+                                 href:       "/prototyping/e-commerce/cart.html",
+                                 size:       "sm" }

@@ -39,11 +39,11 @@ module Matrix
             # Exclude cup
             unless row[ 2 ].to_i == 1
 
-                season   = row[ 0 ].strip.to_i
-                division = row[ 1 ].strip.to_i
-                teamA    = row[ 7 ].strip
+                season   = row[ 0 ].to_i
+                division = row[ 1 ].to_i
+                teamA    = row[ 7 ]
                 scoreA   = row[ 8 ]
-                teamB    = row[ 9 ].strip
+                teamB    = row[ 9 ]
                 scoreB   = row[ 10 ]
 
                 divisionResults                   =  initiateSeasonDivision( matrix, season, division )

@@ -1,0 +1,45 @@
+-##
+-# Facebook Meta Tags
+-#
+-# Site Config
+-#     brand
+-#     url
+-#     facebookPageId
+-#
+-# Page front matter
+-#     type
+-#     image
+-#     title
+-#     description
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- cp = current_page
+- m  = cp.data.stub
+
+-# Site Name
+%meta{ content: string( data.config.brand ), property: "og:site_name" }
+
+-# Title
+%meta{ content: string( :"meta.#{ m }.title" ), property: "og:title" }
+
+-# Description
+%meta{ content: string( :"meta.#{ m }.description" ), name: "description", property: "og:description" }
+
+-# Type
+%meta{ content: string( :"meta.#{ m }.type" ), property: "og:type" }
+
+-# URL
+%meta{ content: data.config.url + File.dirname( URI.parse( cp.url ).path ), property: "og:url" }
+
+-# Image
+%meta{ content: string( :"meta.#{ m }.image" ), property: "og:image" }
+
+-# Facebook Page ID
+%meta{ content: data.facebook.page.id, property: "fb:page_id" }
+
+-# Facebook App ID
+- if data.facebook.app.id
+    %meta{ content: data.facebook.app.id, property: "fb:app_id" }

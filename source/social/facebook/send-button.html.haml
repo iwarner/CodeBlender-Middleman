@@ -1,0 +1,30 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Facebook send button - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Facebook send button - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "https://developers.facebook.com/docs/plugins/send-button/"
+    title : "Facebook Send Button Partial"
+
+see :
+    - - "Facebook Send Button"
+      - "https://developers.facebook.com/docs/plugins/send-button/"
+
+---
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+
+-# Send Button
+= partial "molecule/facebook/send-button.haml"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/facebook/send-button.haml"

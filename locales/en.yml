@@ -9,7 +9,7 @@
 # English
 en:
 
-    hello : "HERE we go"
+    hello: "Hello"
 
     # Locale
     locale : "en"
@@ -190,7 +190,7 @@ en:
                 <a href="https://twitter.com/DryKISSLtd" target="_blank">
                     <span class="fa fa-twitter" title="Twitter"></span>
                 </a>
-                <a href="https://google.com/DryKISSLtd" target="_blank" >
+                <a href="https://google.com/DryKISSLtd" target="_blank">
                     <span class="fa fa-google" title="Google"></span>
                 </a>
             </div>
@@ -200,11 +200,17 @@ en:
           icon        : "fa-phone"
           description : |
 
-            <i class="fa fa-map-marker"></i>
-            Colliers Wood, London, UK
+            <div>
+                <i class="fa fa-map-marker"></i>
+                Colliers Wood, London, UK
+            </div>
 
-            <i class="fa fa-phone"></i>
-            [+44 (0) 778 043 5329](tel:+447780435329)
+            <div>
+                <i class="fa fa-phone"></i>
+                [+44 (0) 778 043 5329](tel:+447780435329)
+            </div>
 
-            <i class="fa fa-envelope"></i>
-            [info@drykiss.com](mailto:info@drykiss.com)
+            <div>
+                <i class="fa fa-envelope"></i>
+                [info@drykiss.com](mailto:info@drykiss.com)
+            </div>

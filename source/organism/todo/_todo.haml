@@ -1,0 +1,28 @@
+-##
+-# Tasks
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- cp = current_page.data
+
+-# Check Array Exists
+- if cp.todo or locals[ :array ]
+
+    %hr
+
+    -# Heading
+    = partial "molecule/heading/heading.haml", locals: { tag: "h3", text: "Tasks" }
+
+    -# Create Columns Array
+    - array = { column: [ "Task", "Date" ], data: locals[ :array ] ? array : cp.todo }
+
+    -# Table
+    .table-responsive
+
+        = partial "molecule/table/table.haml",
+                   locals: { array:      array,
+                             id:         "dataTableTodo",
+                             hidden:     locals[ :hidden ] ? hidden : false,
+                             extraClass: "table-responsive table-striped table-condensed" }

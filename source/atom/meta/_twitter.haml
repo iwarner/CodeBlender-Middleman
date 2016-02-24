@@ -1,0 +1,24 @@
+-##
+-# Twitter Meta Tags
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- cp      = current_page
+- dc      = data.config
+- twitter = dc.twitter
+- m       = cp.data.stub
+
+-# Site
+%meta{ name: "twitter:site",        content: twitter.account }
+
+%meta{ name: "twitter:card",        content: "summary" }
+
+%meta{ name: "twitter:creator",     content: twitter.account }
+
+%meta{ name: "twitter:title",       content: string( :"meta.#{ m }.title" ) }
+
+%meta{ name: "twitter:description", content: string( :"meta.#{ m }.description" ) }
+
+%meta{ name: "twitter:image",       content: "" }

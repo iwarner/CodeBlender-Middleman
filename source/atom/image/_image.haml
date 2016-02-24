@@ -1,0 +1,58 @@
+-##
+-# Image
+-# Provides icon, logo and caption if required
+-#
+-# Rules
+-# if we have an angular - ng-src then the src should be false
+-#
+-# @usage
+-# -# Image
+-# = partial "atom/image/image.haml", locals: { src: loremPixel() }
+-#
+-# @param caption - Image caption
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Class
+- extraClass = "image__img"
+
+-# Responsive image
+- if locals[ :responsive ]
+    - extraClass += " img-responsive"
+
+-# Extra class
+- if locals[ :extraClass ]
+    - extraClass += " #{ locals[ :extraClass ] }"
+
+-# Attributes
+- attributes = { alt:       locals[ :alt ]        ? string( alt ) : "Image",
+                 class:     extraClass,
+                 data:      locals[ :data ]       ? data          : false,
+                 draggable: locals[ :draggable ]  ? draggable     : false,
+                 height:    locals[ :size ]       ? size[ 1 ]     : false,
+                 id:        locals[ :id ]         ? id            : false,
+                 itemprop:  "contentUrl",
+                 ng:        locals[ :ng ]         ? ng            : false,
+                 width:     locals[ :size ]       ? size[ 0 ]     : false }
+
+-# Figure
+%figure.image{ itemprop: "image", itemscope: true, itemtype: "http://schema.org/ImageObject" }
+
+    -# Assume angular
+    - if ! locals[ :src ]
+
+        -# Image tag
+        %img{ attributes }
+
+    - else
+
+        -# Image tag
+        = image_tag locals[ :src ], attributes
+
+    -# Check for caption
+    - if locals[ :caption ]
+
+        -# Caption
+        %figcaption.image__caption{ itemprop: "caption" }= caption

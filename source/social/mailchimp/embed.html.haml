@@ -1,0 +1,56 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Mailchimp - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Mailchimp - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Mailchimp General Form Partial"
+
+see :
+    - - "Mailchimp"
+      - "http://mailchimp.com/"
+
+todo :
+    - - "Translate this"
+    - - "Add the required locals for this : action, elements, icons, placeholders etc"
+    - - "Sort out whether Fname and Lname are required by locals"
+    - - "Need to catch the errors correctly for the AJAX and hook into Alert System"
+    - - "Wrap this up into a utility class for Mailchimp"
+    - - "Expand the checks on whether Email is Valid"
+    - - "Mailchimp allows for First Name, Last Name and Format include these"
+    - - "If the user is already signed up a URL comes back make this clickable"
+
+---
+
+-# Locals
+-# action      - String - Optional - URL string for the Mailchimp form
+-# buttonBlock - Bool   - Optional - Whether the button should be a block
+-# name        - Bool   - Optional - Whether to include the name fields or not
+-# novalidate  - Bool   - Optional - Whether to HTML5 validate the form
+
+-#
+-# Usage
+-# -# Mailchimp Form
+-# = partial "molecule/mailchimp/subscribe-form",
+-#            locals: { action: "http://drykiss.us7.list-manage1.com/subscribe/post-json?u=4862895059f8ff67d43123d97&id=9ea724a203&c=?",
+-#                      name:   true }
+
+-# -# List
+-# = partial "bootstrap/type/list",
+-#            locals: { array: [ { text: "They want a slick AJAXy call that doesn't cause a page transition" },
+-#                               { text: "They don't want the form to open a new window." },
+-#                               { text: "They don't want the user to see a domain that is not their own" } ] }
+
+-# Heading
+= partial "molecule/heading/heading.haml",
+           locals: { small: "Complete the form below and simply respond to the email.",
+                     text:  "Newsletter Signup",
+                     tag:   "h2" }
+
+-# Mailchimp subscription form
+= partial "molecule/mailchimp/subscription.haml"

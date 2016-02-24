@@ -1,0 +1,67 @@
+-##
+-# Blog detail
+-#
+-# @usage
+-# -# Blog detail
+-# = partial "molecule/detail/detail.haml", locals: { current_page: article }
+-#
+-# @param author    Show the meta author and icon
+-# @param calendar  Show the blog time and icon
+-# @param comment   Show the number of comments
+-# @param social    Show the social buttons
+-# @param tags      Show the tags
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variable
+- url = data.config.url + current_page.url
+
+-# Blog detail
+.blogDetail
+
+    -# Date
+    - if locals[ :cal ]
+
+        -# Icon
+        = partial "atom/icon/icon.haml", locals: { icon: "fa-calendar fa-fw" }
+
+        -# Time
+        %time{ itemprop: "datePublished", datetime: "#{ current_page.data.date.strftime( "%FT%T" ) }Z" }
+            = current_page.data.date.strftime '%B %e, %Y'
+
+    -# Author
+    - if locals[ :author ]
+        |
+        -# Icon
+        = partial "atom/icon/icon.haml", locals: { icon: "fa-user fa-fw" }
+        by
+        %span{ itemprop: "author",  itemscope: true,  itemptype: "http://schema.org/Person" }
+            %a{ itemprop: "url", rel: "author" }
+                %span{ itemprop: "name" }= current_page.data.meta.author
+
+    -# Show comment
+    - if locals[ :comment ]
+        |
+        -# Icon
+        = partial "atom/icon/icon.haml", locals: { icon: "fa-comment fa-fw" }
+        X Comments
+
+    -# Like button
+    - if locals[ :social ]
+        = partial "molecule/facebook/like-button.haml", locals: { extraClass: "pull-right", href: url, layout: "button_count", share: "false" }
+
+    -# Tag
+    - if locals[ :tags ]
+
+        %footer.blogDetail__tags
+
+            -# Icon
+            = partial "atom/icon/icon.haml", locals: { icon: "fa-tags fa-fw" }
+
+            -# Loop through tags
+            - current_page.data.tags.each do | tag |
+
+                -# Label
+                = partial "atom/label/label.haml", locals: { extraClass: "blogDetail__tag", context: "primary", content: tag, href: tag_path( tag ), itemprop: "keywords" }

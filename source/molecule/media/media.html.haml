@@ -1,0 +1,31 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Media - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Media - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Media"
+
+see :
+    - - "Bootstrap Media"
+      - "http://getbootstrap.com/components/#media"
+
+todo :
+    - - "Need to code this up - accepting an array to produce the items - hardcoded at the moment"
+
+---
+
+-# ID
+- id = 10
+
+-# Media
+:ruby
+    code = %{partial "molecule/media/media.haml"}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }

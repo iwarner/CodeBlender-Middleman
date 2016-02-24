@@ -36,6 +36,7 @@ module Football
     SHEET        = "1uTnHOsDCHwvxmxX41sxCsZDnkPNj_7ImUGYQb3yEMjo"
     FIXTURES_GID = "1137121615"
     TEAM_CSV     = "csv/teams.csv"
+    FIXTURES_CSV = "csv/fixtures.csv"
 
     ##
     # Google URL

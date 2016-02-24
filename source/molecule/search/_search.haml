@@ -1,0 +1,34 @@
+-##
+-# Google custom search results
+-# Add th CX tag to the google.yaml - search : "CX"
+-#
+-# Locals
+-#
+-# @Usage
+-# -# Search Google
+-# = partial "molecule/search/search"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://www.google.com/cse/all
+-# @see    https://www.google.com/webmasters/
+-#
+-# @todo change to coffeescript
+-# @todo Provide the context file to change the look and feel
+-# @todo Add a title
+-# @todo Create the entity in Search Console
+-##
+
+-# Google Search Script
+:javascript
+    ( function() {
+      var cx     = '#{ data.google.search }';
+      var gcse   = document.createElement( 'script' );
+      gcse.type  = 'text/javascript';
+      gcse.async = true;
+      gcse.src   = ( document.location.protocol == 'https:' ? 'https:' : 'http:' ) + '//cse.google.com/cse.js?cx=' + cx;
+      var s      = document.getElementsByTagName( 'script' )[ 0 ];
+      s.parentNode.insertBefore( gcse, s );
+    } )();
+
+-# Google Search Tag
+%gcse:searchresults-only

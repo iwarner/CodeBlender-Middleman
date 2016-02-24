@@ -1,0 +1,38 @@
+-##
+-# Description List Partial
+-#
+-# Possible Bootstrap classes
+-# dl-horizontal
+-#
+-# @usage
+-# -# DT List
+-# = partial "atom/list/list.dt.haml", locals: { array: current_page.data.list }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/css/#type-lists
+-##
+
+%dl{ class: locals[ :extraClass ] }
+
+    -# Loop through the array
+    - locals[ :array ].each do | list |
+
+        %dt
+
+            -# If URL then show link
+            - if list[ :link ]
+
+                -# Link To
+                = link_to( string( list[ :link ][ :url ] ),
+                           { ng:     list[ :link ][ :ng ]     ? list[ :link ][ :ng ]     : false,
+                             target: list[ :link ][ :target ] ? list[ :link ][ :target ] : false,
+                             title:  string( list[ :title ] ),
+                             ui:     list[ :link ][ :ui ]     ? list[ :link ][ :ui ]     : false } ) do
+
+                    = string list[ :title ]
+
+                -# Just the title
+            - else
+                = string list[ :title ]
+
+        %dd= string list[ :text ]

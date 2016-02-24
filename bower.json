@@ -1,72 +1,15 @@
 {
-    "name"     : "codeblender.net",
-    "version"  : "0.0.1",
+    "name"     : "CodeBlender",
+    "version"  : "1.0.0",
     "homepage" : "http://codeblender.net",
 
-    "authors"  : [
-        "Ian Warner <ian.warner@drykiss.com>"
-    ],
+    "authors"  : [ "Ian Warner <ian.warner@drykiss.com>" ],
 
     "dependencies" : {
-
-        "amcharts"                   : "",
-
-        "angular"                    : "",
-        "angular-animate"            : "",
-        "angular-ui-router"          : "",
-        "angular-ui-grid"            : "",
-        "angular-resource"           : "",
-        "angular-sanitize"           : "",
-        "angular-bootstrap"          : "",
-        "angular-bootstrap-checkbox" : "",
-        "angular-datatables"         : "",
-
-        "angularfire"                : "",
-        "ng-clip"                    : "",
-        "ngstorage"                  : "",
-
-        "bootstrap-sass-official"    : "",
-        "bootstrapx-clickover-bs3"   : "",
-
-        "card"                       : "",
-        "ckeditor"                   : "",
-
-        "comma-separated-values"     : "",
-
-        "dropzone"                   : "",
-
-        "firebase"                   : "",
-
-        "font-awesome"               : "",
-
-        "gsap"                       : "",
-
-        "holderjs"                   : "",
-
-        "jcrop"                      : "",
-
-        "jquery"                     : "",
-        "jquery.payment"             : "",
-        "jquery-validation"          : "",
-        "jquery-lazy-script"         : "https://github.com/hayageek/jquery-lazy-script.git",
-
-        "lunr.js"                    : "",
-
-        "material-design-lite"       : "",
-
-        "mixitup"                    : "",
-
-        "modernizr"                  : "",
-
-        "notify.js"                  : "",
-
-        "simplecart-js"              : "",
-
-        "Snap.svg"                   : "",
-        "underscore"                 : "",
-
-        "yamm3"                      : ""
-
+        "angular"                 : "",
+        "angular-ui-router"       : "",
+        "bootstrap-sass-official" : "",
+        "font-awesome"            : ""
     },
 
     "license" : "MIT",

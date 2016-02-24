@@ -1,0 +1,34 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Blog calendar, articles by date - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Blog calendar, articles by date - CodeBlender"
+    type        : "website"
+
+heading :
+    small : Articles by date
+    title : Calendar
+
+layout   : "tag"
+pageable : true
+per_page : 5
+
+---
+
+-# Blog calendar
+.blogCalendar
+
+    -# Article list
+    .blogCalendar__list
+        = partial "template/article/article-list.haml", locals: { page_articles: page_articles }
+
+    -# Pagination variable
+    - prevPage = prev_page ? prev_page : false
+    - nextPage = next_page ? next_page : false
+
+    -# Pagination
+    .blogCalendar__pagination
+        = partial "molecule/pagination/pagination.haml", locals: { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }

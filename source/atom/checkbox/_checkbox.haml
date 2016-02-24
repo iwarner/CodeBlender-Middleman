@@ -1,0 +1,49 @@
+-##
+-# Checkbox
+-# Using more fancy checkboxes the label needs to be inline with the input
+-#
+-# @usage
+-# -# Checkbox
+-# = partial "atom/checkbox/checkbox.haml"
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Variables
+- input = locals[ :input ]
+- label = locals[ :label ]
+
+-# Check for Aria - requires input to be present
+- if input && input[ :aria ].present?
+    - aria = input[ :aria ]
+
+-# Checkbox Class
+.checkbox{ class: locals[ :extraClass ] ? extraClass : false }
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
+
+        -# Input
+        %input{ aria:      aria                ? aria               : false,
+                autofocus: input[ :autofocus ] ? "autofocus"        : false,
+                class:     "checkOne",
+                disabled:  input[ :disabled ]  ? "disabled"         : false,
+                id:        input[ :name ]      ? input[ :name ]     : false,
+                name:      input[ :name ]      ? input[ :name ]     : false,
+                required:  input[ :required ]  ? "required"         : false,
+                tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
+                type:      "checkbox",
+                value:     input[ :value ]     ? input[ :value ]    : false }
+
+        -# Text
+        - if label[ :title ]
+            = string label[ :title ]
+
+    -# Help Block
+    -# Sometimes this should be hidden to allow errors to be added inside.
+    -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
+    - if locals[ :help ]
+
+        %span.help-block{ ng: locals[ :help ][ :ng ] }
+            = locals[ :help ][ :content ]

@@ -1,0 +1,141 @@
+---
+
+# Variables
+meta :
+    author      : "DryKISS"
+    description : "Input - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Input - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Core user data entry element"
+    title : "Form Input Fields"
+
+see :
+    - - "Bootstrap Forms"
+      - "http://getbootstrap.com/css/#forms"
+    - - "Bootstrap Forms"
+      - "http://getbootstrap.com/css/#forms"
+    - - "Formspree"
+      - "http://formspree.io/"
+    - - "HTML5 Forms"
+      - "http://diveintohtml5.info/forms.html"
+    - - "Touchspin"
+      - "http://www.virtuosoft.eu/code/bootstrap-touchspin/"
+    - - "Select Boxes Chosen"
+      - "http://harvesthq.github.io/chosen/"
+
+todo :
+    - - "Complete this page with all the relevant types available"
+    - - "Add the password pattern to the input"
+    - - "Password should be accompanied by the password validation element"
+    - - "On Submit all inputs should validate - contain them in one form element"
+    - - "Sort out Form groups and input groups - one should be nested in the other haml_tag?"
+    - - "Check box has a label around the input - maybe create new helper for this"
+    - - "If using .form-horizontal then need to address the column sizes that add up to 12 on label and input"
+    - - "Input groups can have a size attribute i.e. input-group-lg add this as a size attribute"
+    - - "Input Groups can have an associated input-group-btn with dropdowns etc"
+    - - "Make the pre and appended items interactive."
+    - - "There are two many container divs being produced use content capture."
+    - - "Make it so it produces something with zero configuration"
+    - - "Clear button should be an option"
+    - - "The Help block needs more documentation with validation and error messages - it expects array"
+    - - "Split out the attributes of an input, they follow a common pattern in most areas, display local or false"
+
+locals :
+    - - "autocapitalize"
+      - "String"
+      - "Optional"
+      - "Possible values are : none, sentences, words, characters"
+    - - "autocomplete"
+      - "String"
+      - "Optional"
+      - "On or off for autocomplete feature"
+    - - "autocorrect"
+      - "String"
+      - "Optional"
+      - "On or off for autocorrect feature"
+    - - "autofocus"
+      - "Bool"
+      - "Optional"
+      - "Whether this input should be autofocussed"
+    - - "disabled"
+      - "Bool"
+      - "Optional"
+      - "Disabled form field"
+    - - "group"
+      - "Array"
+      - "Optional"
+      - "Array of elements for prepending or appending icons"
+    - - "help"
+      - "String"
+      - "Optional"
+      - "Help text - sometimes used for error messages"
+    - - "label"
+      - "Array"
+      - "Optional"
+      - "Text and Flag for Screen Reader for the label"
+    - - "name"
+      - "String"
+      - "Required"
+      - "Name and ID of the field"
+    - - "pattern"
+      - "String"
+      - "Optional"
+      - "HTML5 Pattern regular expression"
+    - - "placeholder"
+      - "String"
+      - "Optional"
+      - "Placeholder text"
+    - - "required"
+      - "Bool"
+      - "Optional"
+      - "If validation is required"
+    - - "type"
+      - "String"
+      - "Optional"
+      - "Type of the form input, default to text, file, text, password, submit email, number, url, range, date, datetime, datetime-local month, week, time, search, color"
+    - - "value"
+      - "String"
+      - "Optional"
+      - "Value for the input"
+
+---
+
+-# ID
+- id = 0
+
+-# Text Type
+:ruby
+    code = %{partial "atom/input/input.haml",
+                       locals: { help:  {},
+                                 icon:  { prepend: "fa-credit-card" },
+                                 input: { inputGroupClass: "input-group", name: "text", placeholder: "Enter Text" },
+                                 label: { title: "Text Input" } }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Generic default type", text: "Text Type" } }
+
+-# Password Type
+:ruby
+    code = %{partial "atom/input/input.haml",
+                      locals: { help:  { text: "Enter 8 characters [a-zA-Z0-9]" },
+                                icon:  { prepend: "fa-credit-card" },
+                                input: { name: "password", placeholder: "Enter password", type: "password" },
+                                label: { title: "Password" } } }
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Also contains some help text", text: "Password Type" } }
+
+-# Email Type
+:ruby
+    code = %{partial "atom/input/input.haml",
+                      locals: { help:  {},
+                                icon:  { prepend: "fa-envelope" },
+                                input: { name: "email", placeholder: "Enter email", type: "email" },
+                                label: { title: "Email" } }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Also contains a group icon", text: "Email Type" } }

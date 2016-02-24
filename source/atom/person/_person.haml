@@ -1,0 +1,48 @@
+-##
+-# Person
+-# Provides a marked up person module complete with accessibility and schema
+-# markup in accordance with best practices.
+-#
+-# @usage
+-# -# Person
+-# = partial "atom/person/person.haml"
+-#
+-# @param name
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-# @see      https://schema.org/Person
+-##
+
+-# Person
+.person{ itemscope: true, itemtype: "http://schema.org/Person" }
+
+    -# Person name
+    - if locals[ :name ]
+        .person__name{ itemprop: "name" }
+            = locals[ :name ]
+
+    -# Person job title
+    - if locals[ :jobTitle ]
+        .person__name{ itemprop: "jobTitle" }
+            = locals[ :jobTitle ]
+
+    -# Person telephone
+    - if locals[ :telephone ]
+        .person__name{ itemprop: "telephone" }
+            = locals[ :telephone ]
+
+    -# Person email
+    - if locals[ :email ]
+        .person__name{ itemprop: "email" }
+            = mail_to locals[ :email ]
+
+    -# Person url
+    - if locals[ :url ]
+        .person__name{ itemprop: "url" }
+            = locals[ :url ]
+
+    -# Person nationality
+    - if locals[ :nationality ]
+        .person__name{ itemprop: "nationality" }
+            = locals[ :nationality ]

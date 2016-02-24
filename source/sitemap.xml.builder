@@ -1,3 +1,9 @@
+---
+
+layout : false
+
+---
+
 # XML document - encoding: utf-8
 # @see https://gist.github.com/tommysundstrom/5756032
 # http://www.sitemaps.org/en_GB/protocol.html
@@ -14,7 +20,7 @@ xml.urlset xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" do
 
             # Create the details
             xml.url do
-                xml.loc        "#{ dataConfig.url }#{ page.url }"
+                xml.loc        "#{ data.config.url }#{ page.url }"
                 xml.lastmod    Date.today.to_time.iso8601
                 xml.changefreq page.data.changefreq || "weekly"
                 xml.priority   page.data.priority   || "0.5"

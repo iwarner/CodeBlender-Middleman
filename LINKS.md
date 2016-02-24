@@ -1,5 +1,7 @@
 # Links
 
+- https://github.com/petehunt/webpack-howto
+- https://middlemanapp.com/community/built_using_middleman/
 - http://helloworldgroup.co.uk/protoshop
 - http://innovify.com/
 - http://zurb.com/playground/twentytwenty

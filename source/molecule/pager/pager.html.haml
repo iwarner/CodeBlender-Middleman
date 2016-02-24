@@ -1,0 +1,33 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Pager - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Pager - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Pager"
+
+see :
+    - - "Bootstrap Pager"
+      - "http://getbootstrap.com/components/#pagination-pager"
+
+todo :
+    - - "Add the disabled state"
+    - - "Add the centred pager style"
+    - - "Need to pass through the links correctly"
+
+---
+
+-# ID
+- id = 0
+
+-# Tabs
+:ruby
+    code = %{partial "molecule/pager/pager.haml"}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }

@@ -1,0 +1,32 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Google analytics - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Google analytics - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Google Analytics site statistics and reporting"
+    title : "Analytics"
+
+see :
+    - - "Google Analytics"
+      - "https://www.google.com/analytics"
+
+todo :
+    - - "Put the various ways of including the Analytics code into here"
+
+---
+
+-# ID
+- id = 0
+
+-# Default
+:ruby
+    code = %{partial "atom/google-analytics/google-analytics.haml"}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }

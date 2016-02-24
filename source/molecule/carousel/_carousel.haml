@@ -1,0 +1,74 @@
+-##
+-# Carousel
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    http://getbootstrap.com/javascript/#carousel
+-##
+
+-# Default ID
+- if ! locals[ :id ]
+    - id = "myCarousel"
+
+-# Carousel
+.carousel.slide{ id:    id,
+                 class: id,
+                 data:  locals[ :data ] ? locals[ :data ] : false }
+
+    -# Indicators
+    - if locals[ :indicator ]
+
+        %ol.carousel-indicators
+
+            -# Array Loop
+            - array.each_with_index do | slide, i |
+
+                -# If this is the first slide make it active
+                %li{ class: i == 0 ? "active" : false,
+                     data:  { target: "." + id,
+                              slide:  { to: i } } }
+
+    -# Inner Content
+    .carousel-inner{ role: "listbox" }
+
+        -# Array Loop
+        - array.each_with_index do | slide, i |
+
+            -# If this is the first one make it active
+            .item{ class: i == 0 ? "active" : false }
+
+                -# Image
+                - if slide[ :image ]
+
+                    -# Overides
+                    - if ! slide[ :image ][ :alt ]
+                        - slide[ :image ][ :alt ] = "Carousel #{ i }"
+
+                    -# Image
+                    = partial "atom/image/image.haml", locals: slide[ :image ]
+
+                -# Caption
+                - if slide[ :image ][ :caption ]
+
+                    -# Caption
+                    .carousel-caption
+
+                        %h3= slide[ :image ][ :caption ][ :title ]
+                        %p= slide[ :image ][ :caption ][ :body ]
+
+                        - if slide[ :image ][ :caption ][ :button ]
+
+                            -# Button
+                            = partial "atom/button/button.haml", locals: slide[ :image ][ :caption ][ :button ]
+
+    -# Controls
+    - if locals[ :control ]
+
+        -# Prev Left Control
+        = link_to( ".#{ id }", class: "carousel-control left", data: { slide: "prev" }, role: "button" ) do
+            %span.fa.fa-chevron-left{ aria: { hidden: "true" } }
+            %span.sr-only Previous
+
+        -# Next Right Control
+        = link_to( ".#{ id }", class: "carousel-control right", data: { slide: "next" }, role: "button" ) do
+            %span.fa.fa-chevron-right{ aria: { hidden: "true" } }
+            %span.sr-only Next

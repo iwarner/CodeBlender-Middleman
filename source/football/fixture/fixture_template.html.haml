@@ -1,0 +1,17 @@
+---
+
+heading :
+    title : "Fixtures"
+
+meta :
+    author      : "DryKISS"
+    description : ""
+    title       : "Fixtures"
+
+---
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Season #{ locals[ :season ] }" }
+
+-# Football fixture
+= partial "football/fixture/fixture.haml"

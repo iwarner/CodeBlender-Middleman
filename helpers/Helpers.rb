@@ -12,14 +12,20 @@ module Helpers
     ##
     # Proxy partial method
     ##
-    def helper( partial, locals )
-
-        # Iterate through the directories to find the correct path
-
-        # Give some guidance on whether the locals are correct
+    def helper( name, type, locals = false, path = "partial/_library" )
 
         # Return
-        partial "molecule/heading/" + partial, locals: locals
+        partial "#{ path }/#{ type }/#{ name }/#{ name }.haml", locals: locals
+
+    end
+
+    ##
+    # Proxy partial method
+    ##
+    def codeBlender( name, type, locals = false )
+
+        # Return
+        partial "#{ type }/#{ name }/#{ name }.haml", locals: locals
 
     end
 

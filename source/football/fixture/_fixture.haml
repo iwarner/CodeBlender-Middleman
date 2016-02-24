@@ -1,0 +1,148 @@
+-##
+-# Football fixture
+-#
+-# @usage
+-# -# Football fixture
+-# = partial "football/fixture/fixture"
+-#
+-# @category football
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Fixture
+%table.table.table-bordered.table-hover.table-striped
+
+    %thead
+
+        %tr
+
+            %th Competition
+            %th Kick-off
+            %th Home Team
+            %th
+            %th
+            %th
+            %th Away Team
+
+    %tbody
+
+        / = Fixture.fixture( 11, 1 )
+
+        -# Loop through the CSV
+        - CSV.foreach( "csv/fixtures.csv", headers: true ) do | row |
+
+            -# Assign Rows
+            - season      = row[ 0 ]
+            - competition = row[ 1 ]
+            - cupFlag     = row[ 2 ]
+            - date        = row[ 3 ]
+            - time        = row[ 4 ]
+            - referee     = row[ 5 ]
+            - venue       = row[ 6 ]
+            - homeTeam    = row[ 7 ]
+            - homeScore   = row[ 8 ]
+            - awayTeam    = row[ 9 ]
+            - awayScore   = row[ 10 ]
+            - homeScorers = row[ 11 ]
+            - awayScorers = row[ 12 ]
+            - homeYellow  = row[ 13 ]
+            - awayYellow  = row[ 14 ]
+            - homeRed     = row[ 15 ]
+            - awayRed     = row[ 16 ]
+            - homePenalty = row[ 17 ]
+            - awayPenalty = row[ 18 ]
+
+            %tr
+
+                -# Competition
+                %td
+                    = link_to( "division/#{ competition }" ) do
+
+                        - if competition != "Cup" and competition != "plate"
+                            Division
+
+                        = competition
+
+                -# Kick Off
+                %td
+                    = date
+                    \-
+                    = time
+
+                    %br
+                    = link_to( "venue/#{ venue }" ) do
+                        = venue
+                    |
+                    = referee
+
+                -# Home Team
+                %td
+
+                    = link_to( "team/#{ homeTeam }" ) do
+                        = homeTeam
+
+                    %br
+
+                    - if homeScorers
+
+                        -# Icon
+                        = partial "atom/icon/icon.haml", locals: { icon: "fa-futbol-o" }
+                        = homeScorers
+
+                    - if homeYellow
+                        .soccerCard.soccerCard--yellow
+                        = homeYellow
+
+                    - if homeRed
+                        .soccerCard.soccerCard--red
+                        = homeRed
+
+                -# Home Score
+                %td.text-center
+
+                    = homeScore
+
+                    %br
+
+                    - if homePenalty
+                        (
+                        = homePenalty
+                        )
+
+                -# Versus
+                %td
+                    v
+
+                -# Away Score
+                %td.text-center
+
+                    = awayScore
+
+                    %br
+
+                    - if homePenalty
+                        (
+                        = awayPenalty
+                        )
+
+                -# Away Team
+                %td
+
+                    = link_to( "team/#{ awayTeam }" ) do
+                        = awayTeam
+
+                    %br
+
+                    - if awayScorers
+
+                        -# Icon
+                        = partial "atom/icon/icon.haml", locals: { icon: "fa-futbol-o" }
+                        = awayScorers
+
+                    - if awayYellow
+                        .soccerCard.soccerCard--yellow
+                        = awayYellow
+
+                    - if awayRed
+                        .soccerCard.soccerCard--red
+                        = awayRed

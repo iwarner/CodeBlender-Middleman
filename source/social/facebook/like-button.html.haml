@@ -1,0 +1,86 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Facebook like button - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Facebook like button - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "https://developers.facebook.com/docs/plugins/"
+    title : "Facebook Like Button Partial"
+
+see :
+    - - "Facebook Plugins"
+      - "https://developers.facebook.com/docs/plugins/"
+    - - "Like Button"
+      - "https://developers.facebook.com/docs/plugins/like-button/"
+    - - "Open Graph"
+      - "https://developers.facebook.com/docs/opengraph/using-objects/#creating"
+    - - "Media Content"
+      - "https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/"
+
+todo :
+    - - "Sort out the Reference elements"
+      - "Facebook"
+      - "2014-02-12"
+    - - "Sort out the correct default width based on the layout selected"
+      - "Facebook"
+      - "2014-02-12"
+
+---
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Like Button", tag: "h2" }
+
+-# Like Button
+= partial "molecule/facebook/like-button.haml"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/facebook/like-button.haml"
+
+-# Customised
+%hr
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Customised Button", tag: "h2" }
+
+-# Like Button
+= partial "molecule/facebook/like-button.haml",
+           locals: { action:      "recommend",
+                     colorscheme: "dark",
+                     href:        "http://google.com",
+                     layout:      "button",
+                     share:       "false" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/facebook/like-button.haml",
+               locals: { action:      "recommend",
+                         colorscheme: "dark",
+                         href:        "http://google.com",
+                         layout:      "button",
+                         share:       "false" }
+
+-# Show Faces
+%hr
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Customised Button", tag: "h2" }
+
+-# Like Button
+= partial "molecule/facebook/like-button.haml",
+           locals: { href:         "https://www.facebook.com/onlyasmile?ref=stream",
+                     :"show_faces" => "true" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/facebook/like-button.haml",
+               locals: { href:         "https://www.facebook.com/onlyasmile?ref=stream",
+                         :"show_faces" => "true" }

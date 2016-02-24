@@ -1,0 +1,40 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Tag cloud - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Tag cloud - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Displays the tags for blog posts"
+    title : "Tags"
+
+see :
+    - - "Middleman Blogging"
+      - "http://middlemanapp.com/blogging"
+    - - "Microformat Tag"
+      - "http://microformats.org/wiki/rel-tag"
+
+todo :
+    - - "Options to put in a badge and add a tag icon on the tag element"
+    - - "Options to remove the Heading - change text or tag"
+    - - "Make the font colour change with the size also"
+    - - "Allow for counting tags in different blogs, i.e. blog( 'portfolio' ) - middleman bug?"
+    - - "Allow for local to change the options"
+    - - "CSS Do I need the section here?"
+    - - "Make links larger in accordance to touch areas for mobile"
+
+---
+
+-# ID
+- id = 0
+
+-# Tags
+:ruby
+    code = %{partial "molecule/tag-cloud/tag-cloud.haml"}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }

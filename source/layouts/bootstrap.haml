@@ -1,0 +1,107 @@
+-##
+-# Bootstrap layout
+-# HTML5 core layout file
+-#
+-# @usage
+-# -# Bootstrap
+-# = wrap_layout "bootstrap" do
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
+-# @see http://www.tutorialspoint.com/html5/html5_microdata.htm
+-##
+
+-# Variable
+- locale       = I18n.locale.to_s
+- d            = current_page.data
+- htmlAngular  = data.config.html.angular  ? data.config.html.angular : false
+- htmlManifest = data.config.html.manifest ? "/offline.manifest"     : false
+- headPrefix   = data.config.head.prefix   ? data.config.head.prefix  : false
+
+-# HTML5 doctype
+!!! 5
+
+-# HTML5 root element
+-# Requires lang, manifest if option is created and angular app definition
+-# @see https://www.w3.org/TR/html-markup/html.html
+%html{ lang: string( :locale ), manifest: htmlManifest, ng: { app: htmlAngular } }
+
+    -# Head section
+    -# Prefix is utilised for structures like Facebook
+    %head{ prefix: headPrefix }
+
+        -# Meta tag
+        = partial "atom/meta/all.haml"
+
+        -# Main style sheet
+        -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
+        = stylesheet_link_tag :all, media: "all"
+
+        -# Process injected head content
+        - if content_for? :siteHead
+            = yield_content :siteHead
+
+        -# JavaScript head
+        - if data.config.javascript.head
+            = javascript_include_tag :head
+
+    -# Facebook locale
+    - if data.has_key? "facebook"
+        - localFB = data.facebook.locale.present? ? data.facebook.locale[ locale ] : false
+    - else
+        - localFB = false
+
+    -# Angular controller
+    - if d.angular
+        - angularController  = d.angular.controller   ? d.angular.controller            : false
+        - angularController += d.angular.controllerAs ? " as " + d.angular.controllerAs : false
+
+    -# Body with page class
+    -# Contains the main itemscope of the current page
+    %body{ id:        data.config.body.id ? data.config.body.id : false,
+           class:     data.config.body.extraClass ? data.config.body.extraClass : false,
+           itemscope: true, itemtype: "https://schema.org/WebPage",
+           ng:        { controller: angularController } }
+
+        -# Top anchor
+        %a{ id: "top" }
+
+        -# Facebook root, requires an AppID
+        - if localFB
+            #fb-root
+
+        -# Section - above navigation
+        - if data.has_key? "navigation" and data.navigation.above
+            = partial data.navigation.above
+
+        -# Section - navigation bar
+        - if data.has_key? "navigation" and data.navigation.navbar
+            = codeBlender "navbar", "molecule", locals: data.navigation
+
+        -# Section - below navigation
+        - if data.has_key? "navigation" and data.navigation.below
+            = partial data.navigation.below
+
+        -# Section - yield
+        = yield
+
+        -# Section - footer
+        - if data.config.footer.active or data.config.copyright
+            = partial "organism/footer/footer.haml"
+
+        -# Top icon
+        - if data.config.topIcon
+            = partial "molecule/top-icon/top-icon.haml"
+
+        -# Configuration
+        - if data.config.configuration
+            = partial "scaffolding/configuration.haml"
+
+        -# JavaScript
+        -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
+        - if data.config.javascript.body
+            = javascript_include_tag :body
+
+        -# Google analytics
+        - if data.has_key? "google" and data.google.analytics.active
+            = partial "atom/google-analytics/google-analytics.haml"

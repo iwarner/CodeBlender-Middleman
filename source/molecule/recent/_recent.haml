@@ -1,0 +1,37 @@
+-##
+-# Blog Recent Articles
+-#
+-# @usage
+-# -# Blog Recent
+-# = partial "molecule/recent/recent"
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo Should use the List partial
+-##
+
+-# Count Default
+- if ! locals[ :count ]
+    - count = 10
+
+-# Section - Blog Recent
+%section.blogRecent
+
+    -# Heading
+    = partial "molecule/heading/heading.haml", locals: { tag: "h4", text: "Recent" }
+
+    -# UL List - Unstyled
+    %ul.list-unstyled.blogRecent__ul
+
+        -# Loop through the Blog Posts - Order by Date
+        - blog.articles[ 0...count.to_i ].each do | article |
+
+            -# List
+            %li.blogRecent__list
+
+                -# Label
+                = partial "atom/label/label.haml", locals: { extraClass: "blogRecent__label", context: "info", content: article.date.strftime( '%b %e' ) }
+
+                -# Link to the Article
+                = link_to string( article.data.heading.title ), article

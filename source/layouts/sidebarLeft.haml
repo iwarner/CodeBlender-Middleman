@@ -1,0 +1,63 @@
+-##
+-# Sidebar Left
+-#
+-# @usage
+-# -# Side bar Left
+-# = wrap_layout "sidebarLeft" do
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-#
+-# @todo Should either move the container and row out or use the default container from config - ie could be fluid
+-##
+
+-# Variables
+- d = current_page.data
+
+-# Layout - Calls Wrapper Layout
+= wrap_layout "bootstrap" do
+
+    .container
+
+        .row
+
+            -# Navigation List
+            .col-md-3
+
+                -# Sub navigation
+                = codeBlender "subnavigation", "organism"
+
+            -# Main Content
+            .col-md-9.mainContent
+
+                -# Breadcrumbs
+                - if data.config.breadcrumbs
+                    = partial "molecule/breadcrumb/breadcrumb.haml"
+
+                -# Heading
+                - if data.config.heading
+
+                    -# Heading - H2
+                    = codeBlender "heading", "molecule", { small: d.heading.small, tag: "h2", text: d.heading.title }
+
+                -# Details
+                - if data.config.description
+                    %p= string d.description
+
+                -# Locals
+                - if data.config.locals
+                    = partial "organism/local/local.haml"
+
+                -# Yield
+                = yield
+
+                -# Resources
+                - if data.config.resources
+                    = partial "organism/resource/resource.haml"
+
+                -# Assets
+                - if data.config.assets
+                    = partial "organism/asset/asset.haml"
+
+                -# Todo
+                - if data.config.todo
+                    = partial "organism/todo/todo.haml"

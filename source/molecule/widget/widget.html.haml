@@ -1,0 +1,33 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Widget - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Widget - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Widget"
+
+see :
+    - - "Simple Cart"
+      - "https://github.com/wojodesign/simplecart-js"
+
+todo :
+    - - "Need to allow more than one on a page - doesn't show cart items on first one"
+    - - "Spinner can this be a form spinner - increase size of arrows anyway - make icons"
+    - - "When there are no items the arrows colour is not correct"
+
+---
+
+-# ID
+- id = 0
+
+-# Archive
+:ruby
+    code = %{partial "molecule/widget/widget.haml"}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }

@@ -1,0 +1,46 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Search - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Search - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Search"
+
+see :
+    - - "Lunr"
+      - "http://lunrjs.com/"
+    - - "Jekyll Lunr Search"
+      - "https://github.com/slashdotdash/jekyll-lunr-js-search"
+
+---
+
+-# Form
+%form.searchForm{ action: "", method: "POST", novalidate: true }
+
+    -# Input
+    = partial "atom/input/input.haml",
+               locals: { input: { name:  "search" },
+                         label: { title: "Search" } }
+
+    -# Button - Submit
+    = partial "atom/button/button.haml", locals: { context: "primary", text: "Submit" }
+
+-# Search Results Placeholder
+.searchResults
+
+-# Search Results Underscore Template
+%script#search_template{ type: "text/template" }
+
+    %ul.list-unstyled
+
+        %li{ :"data-question-id" => "{{ id }}" }
+
+            %h2
+                %a{ href: "#" } {{ title }}
+
+            %p {{ tags }}

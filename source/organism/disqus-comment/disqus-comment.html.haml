@@ -1,0 +1,41 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Disqus comment - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Disqus comment - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Social comment"
+    title : "Disqus comment partial"
+
+see :
+    - - "Disqus"
+      - "http://disqus.com/"
+    - - "Universal Embed Code"
+      - "http://help.disqus.com/customer/portal/articles/472097-universal-embed-code"
+    - - "JavaScript Variables"
+      - "http://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables"
+
+todo :
+    - - "Look at the AJAX loading of Disqus - required if more than one on a page"
+    - - "Fix the comment count element - deploy this into the article details"
+
+---
+
+-# Heading - h2
+= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+
+-# Disqus comment
+= partial "organism/disqus-comment/comment.haml"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "organism/disqus-comment/comment.haml"
+
+-# Disqus comment count
+= partial "organism/disqus-comment/comment-count.haml"

@@ -1,0 +1,132 @@
+-##
+-# Content Modal
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://scotch.io/tutorials/angularjs-form-validation
+-#
+-# @todo http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/
+-##
+
+-# Angular Template
+%script{ type: "text/ng-template", id: "content.modal.html" }
+
+    -# Display the Thank you message
+    .modalTakeover{ ng: { class: "{ 'show' : modal.showTakeover }" } }
+
+        .content
+
+            = icon "fa-check"
+
+            %div.text
+                Thank you
+
+    -# Modal Header
+    .modal-header
+
+        {{ modal.header }}
+
+    -# Modal Body
+    .modal-body
+
+        -# Log In Form
+        %form{ novalidate: true, name: "contentForm", ng: { submit: "modal.submitForm( contentForm.$valid )" } }
+
+            -# Input - Title
+            = partial "atom/input/input.haml",
+                       locals: { input: { inputGroupClass: "",
+                                          name:            "title",
+                                          ng:              { model: "modal.title" },
+                                          placeholder:     "Title",
+                                          required:        "true" },
+                                 label: { title: "Title" } }
+
+            .row
+
+                .col-md-6
+
+                    -# Input - ID
+                    = partial "atom/input/input.haml",
+                               locals: { input: { inputGroupClass: "",
+                                                  name:            "_id",
+                                                  ng:              { model: "modal._id" },
+                                                  placeholder:     "ID",
+                                                  required:        "true" },
+                                         label: { title: "ID" } }
+
+                    -# Select - Type
+                    = partial "atom/select/select.haml", locals: { array: data.type, label: { title: "Type" }, name: "type", ng: { model: "modal.type" } }
+
+                    -# Select - Buying Stage
+                    = partial "atom/select/select.haml", locals: { array: [ [ "learn" ], [ "try" ], [ "buy" ] ], label: { title: "Buying Stage" }, name: "buyingStage", ng: { model: "modal.buyingStage" } }
+
+                    -# Select - Format
+                    = partial "atom/select/select.haml", locals: { array: [ [ "pdf" ], [ "video" ], [ "link" ] ], label: { title: "Format" }, name: "format", ng: { model: "modal.format" } }
+
+                    -# Select - Solution Area
+                    = partial "atom/select/select.haml", locals: { array: [ [ "Analytics" ], [ "Commerce" ], [ "Systems" ] ], label: { title: "Solution Area" }, name: "solutionArea", ng: { model: "modal.solutionArea" } }
+
+                .col-md-6
+
+                    -# Input - Date
+                    = partial "atom/input/input.haml",
+                               locals: { input: { inputGroupClass: "",
+                                                  name:            "date",
+                                                  ng:              { model: "modal.date" },
+                                                  required:        "true",
+                                                  type:            "date" },
+                                         label: { title: "Date" } }
+
+                    -# Input - URL
+                    = partial "atom/input/input.haml",
+                               locals: { input: { inputGroupClass: "",
+                                                  name:            "url",
+                                                  ng:              { model: "modal.url" },
+                                                  placeholder:     "URL",
+                                                  type:            "url" },
+                                         label: { title: "URL" } }
+
+                    -# Input - DocType
+                    = partial "atom/input/input.haml",
+                               locals: { input: { inputGroupClass: "",
+                                                  name:            "docType",
+                                                  ng:              { model: "modal.docType" },
+                                                  placeholder:     "DocType",
+                                                  required:        "true" },
+                                         label: { title: "DocType" } }
+
+                    -# Input - Interest Codes
+                    = partial "atom/input/input.haml",
+                               locals: { input: { inputGroupClass: "",
+                                                  name:            "interestCode",
+                                                  ng:              { model: "modal.interestCodes" },
+                                                  placeholder:     "Comma separated list of codes",
+                                                  required:        "true" },
+                                         label: { title: "Interest Codes" } }
+
+
+                    -# Input - Countries
+                    = partial "atom/input/input.haml",
+                               locals: { input: { inputGroupClass: "",
+                                                  name:            "countries",
+                                                  ng:              { model: "modal.countries" },
+                                                  placeholder:     "Comma separated list of Countries",
+                                                  required:        "true" },
+                                         label: { title: "Countries" } }
+
+            -# Input - Tags
+            = partial "atom/input/input.haml",
+                       locals: { input: { inputGroupClass: "",
+                                          name:            "tag",
+                                          ng:              { model: "modal.tags" },
+                                          placeholder:     "Comma separated list of tags",
+                                          required:        "true" },
+                                 label: { title: "Tags" } }
+
+            -# TextArea - Synopsis
+            = partial "atom/textarea/textarea.haml", locals: { required: "true", text: "{{ modal.synopsis }}", rows: "4", label: { title: "Synopsis" }, name: "synopsis", ng: { model: "modal.synopsis" } }
+
+            -# Cancel Button
+            = partial "atom/button/button.haml", locals: { context: "warning", text: "Cancel", ng: { click: "$close()" } }
+
+            -# Save Button
+            = partial "atom/button/button.haml", locals: { type: "submit", context: "success", text: "{{ modal.button }}" }

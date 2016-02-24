@@ -1,0 +1,25 @@
+-##
+-# Resource
+-# Allows for a list of Websites; links to designs and wireframe snippets.
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @todo   Make this into a Datatable
+-##
+
+-# Variables
+- cp = current_page.data
+- dc = data.config
+
+-# Check Array Exists
+- if cp.see or locals[ :array ]
+
+    -# Heading
+    = partial "molecule/heading/heading.haml", locals: { small: "Useful websites and tutorials", tag: "h3", text:  "Resources" }
+
+    -# Create Array
+    - array = { column: [ "Title", "URL" ], data: array ? array : cp.see }
+
+    -# Table
+    .table-responsive
+
+        = partial "molecule/table/table.haml", locals: { array: array, extraClass: "table-striped table-condensed" }

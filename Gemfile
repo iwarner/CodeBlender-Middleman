@@ -1,40 +1,24 @@
-##
-# This is the Global Middleman Gemfile
-# It requires OpenSSL to be installed to use the https:// source.
-# Use $ brew install openssl && brew link openssl --force
-#
-# @author Ian Warner <ian.warner@drykiss.com>
-# @see    https://github.com/middleman/middleman-autoprefixer
-#
-# @todo   Update this for middleman 4
-##
-
-# Source
+# If you do not have OpenSSL installed, change
+# the following line to use 'http://'
 source 'https://rubygems.org'
 
-# Middleman
-gem "middleman", '~> 3'
-gem "middleman-autoprefixer"
-gem "middleman-blog"
-gem "middleman-livereload"
-gem "middleman-minify-html"
-gem "middleman-deploy"
+# For faster file watcher updates on Windows:
+gem 'wdm', '~> 0.1.0', platforms: [:mswin, :mingw]
+
+# Windows does not come with time zone data
+gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
+
+# Middleman Gems
+gem 'middleman', '>= 4.0.0'
+gem 'middleman-livereload'
+gem "middleman-blog",      github: "middleman/middleman-blog",           branch: "master"
+gem "middleman-sprockets", github: "middleman/middleman-sprockets",      branch: "master"
 gem "middleman-syntax"
-gem "middleman-sprockets"
+gem "middleman-deploy",    github: "middleman-contrib/middleman-deploy", branch: "master"
 gem "middleman-favicon-maker"
+gem "middleman-minify-html"
 
 # Tools
+gem "oj"
 gem "bourbon"
 gem "builder"
-gem "icalendar"
-gem "kramdown"
-gem "launchy"
-gem "less"
-gem "nokogiri"
-gem "oj"
-gem "slim"
-gem "stringex"
-gem "therubyracer"
-gem "thor"
-gem "uglifier"
-gem "vcardigan"

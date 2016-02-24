@@ -1,0 +1,32 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Tip the web - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Tip the web - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Community Supported Web"
+    title : "Tip the Web"
+
+see :
+    - - "Tip The Web"
+      - "http://tiptheweb.org/"
+
+---
+
+%p Simply sign up for an account with an OpenID such as Google or Facebook.
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+
+-# Tip the Web Button
+= partial "molecule/tiptheweb/button.haml"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/tiptheweb/button.haml"

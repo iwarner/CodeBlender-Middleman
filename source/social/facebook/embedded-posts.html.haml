@@ -1,0 +1,30 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Facebook embedded posts - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Facebook embedded posts - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "https://developers.facebook.com/docs/plugins/embedded-posts"
+    title : "Facebook Embedded Posts Partial"
+
+see :
+    - - "Facebook Comments"
+      - "https://developers.facebook.com/docs/plugins/embedded-posts/"
+
+---
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+
+-# Embedded Posts
+= partial "molecule/facebook/embedded-posts.haml"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/facebook/embedded-posts.haml"

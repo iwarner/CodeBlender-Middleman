@@ -1,0 +1,130 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Thumbnail - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Thumbnail - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Responsive media component"
+    title : "Thumbnail"
+
+bar :
+    - sup  : Expires
+      text : 485 Days
+    - sup  : Offer Type
+      text : Cashback
+    - icon : bookmark
+      href : "#bookmark"
+
+see :
+    - - "Bootstrap Thumbnail"
+      - "http://getbootstrap.com/components/#thumbnails"
+
+todo :
+    - - "Need to sort out the zoomix"
+    - - "Path to image not working"
+    - - "Needs revisiting as a component so it allows for all the possibilities of usage"
+    - - "Need to link whole image to destination"
+    - - "Add image Ribbon to thumbnail"
+    - - "Options to remove thumbnail border"
+    - - "Provide the ability to show just one thumbnail without the row etc"
+    - - "Put this into BEM"
+    - - "Do I want responsive image to be the default for these"
+
+locals :
+    - - "array"
+      - "array"
+      - "required"
+      - "Array of the Thumbnails"
+    - - "image"
+      - "array"
+      - "optional"
+      - "See Image Partial"
+    - - "thumbnail"
+      - "array"
+      - "optional"
+      - "options"
+    - - "caption"
+      - "string"
+      - "optional"
+      - "Content for the caption area"
+    - - "href"
+      - "string"
+      - "optional"
+      - "Link for whole Thumbnail, and zoomix"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "String of classes to append to Thumbnail"
+    - - "zoomix"
+      - "bool"
+      - "optional"
+      - "To allow zommix, a HREF to the image must be supplied also"
+    - - "columns"
+      - "string"
+      - "optional"
+      - "Columns string show the thumbnails in i.e. col-sm-6"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "Class for the row"
+
+---
+
+-# ID
+- id = 0
+
+-# Default Thumbnail
+:ruby
+    code = %{partial "molecule/thumbnail/thumbnail.haml",
+                      locals: { array: [ { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+                                         { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+                                         { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+                                         { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+                                         { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} } ] }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Just an array of images", text: "Default" } }
+
+-# Linked Thumbnail
+:ruby
+    code = %{partial "molecule/thumbnail/thumbnail.haml",
+                      locals: { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+                                           thumbnail: { href: "footer/background1.png" } } ] }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Provide an HREF for the image", text: "Linked Thumbnail" } }
+
+-# Captioned Thumbnail
+-# Get the list of categories of the products
+- blog.articles.each do | article |
+
+    -# Capture Content
+    - @captureHTML = capture_html do
+
+        -# Blog Details
+        = partial "molecule/detail/detail.haml", locals: { current_page: article }
+
+-# Code
+:ruby
+    code = %{partial "molecule/thumbnail/thumbnail.haml",
+                      locals: { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+                                           thumbnail: { caption: "Caption", href: "HERE" } } ] }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Push an HTML element into the Tumb array", text: "Captioned Thumbnail" } }
+
+-# Zoomix Thumbnail
+:ruby
+    code = %{partial "molecule/thumbnail/thumbnail.haml",
+                      locals: {  array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+                                            thumbnail: { zoomix: true,
+                                                         href:   "footer/background1.png",
+                                                         data:   { toggle: "lightbox" } } } ] }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Provide a Gallery", text: "Zoomix Thumbnail" } }

@@ -1,0 +1,30 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Facebook facepile - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Facebook facepile - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "https://developers.facebook.com/docs/plugins/facepile"
+    title : "Facebook Facepile Partial"
+
+see :
+    - - "Facebook Facepile"
+      - "https://developers.facebook.com/docs/plugins/facepile"
+
+---
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Facepile", tag: "h2" }
+
+-# Like Button
+= partial "molecule/facebook/facepile.haml"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/facebook/facepile.haml"

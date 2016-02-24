@@ -1,0 +1,29 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Textarea form element - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Textarea form element - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Form element"
+    title : "Textarea"
+
+see :
+    - - "Bootstrap Forms"
+      - "http://getbootstrap.com/css/#forms"
+
+---
+
+-# ID
+- id = 0
+
+-# Default
+:ruby
+    code = %{partial "atom/textarea/textarea.haml", locals: { label: { title: "Textarea" }, name: "textarea" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Different Value and Option", text: "Default" } }

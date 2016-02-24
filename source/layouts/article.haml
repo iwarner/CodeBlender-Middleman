@@ -1,0 +1,67 @@
+-##
+-# Article layout
+-#
+-# @usage
+-# -# Article layout
+-# = wrap_layout "article" do
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
+-##
+
+-# Variable
+- cp      = current_page.data
+- heading = cp.heading
+
+-# Article
+= wrap_layout "fullWidth" do
+
+    .container
+
+        .row
+
+            .col-md-3
+
+                %aside
+
+                    -# Tags
+                    .tagCloud
+
+                        -# Tag cloud
+                        = codeBlender "tag-cloud", "molecule"
+
+                    -# Latest posts
+                    .blogLatest
+
+                        -# Recent article
+                        = codeBlender "recent", "molecule"
+
+            .col-md-6
+
+                -# Blog Post
+                %article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
+
+                    -# Heading - article H1
+                    = partial "molecule/heading/heading.haml", locals: { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+
+                    -# Blog detail footer
+                    = partial "molecule/detail/detail.haml", locals: { author: true, cal: true, comment: true, social: true, tags: true }
+
+                    -# Blog image
+                    = partial "molecule/image/image.haml"
+
+                    -# Yield
+                    %span{ itemprop: "text" }= yield
+
+                    -# Pager
+                    = partial "molecule/pager/pager.haml"
+
+                    -# Discus comment
+                    = partial "organism/disqus-comment/comment.haml"
+
+            .col-md-3
+
+                %aside
+
+                    -# Blog archive
+                    = partial "molecule/archive/archive.haml"

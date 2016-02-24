@@ -1,0 +1,30 @@
+-##
+-# Disqus comment
+-#
+-# @param
+-# dc.shortName - String - Required - Given by Disqus
+-#
+-# @usage
+-# -# Disqus comment
+-# = partial "organism/disqus-comment/comment.haml"
+-#
+-# @category molecule
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variables
+- dc = data.disqus
+
+-# Disqus
+#disqus_thread
+
+-# JavaScript
+:coffee
+
+    do ->
+        d = document
+        s = d.createElement('script')
+        s.src = '//#{ dc.shortName }.disqus.com/embed.js'
+        s.setAttribute 'data-timestamp', +new Date
+        (d.head or d.body).appendChild s
+        return

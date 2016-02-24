@@ -1,0 +1,56 @@
+-##
+-# Portfolio recent
+-# Shows the latest 3 portfolio entries from the portfolio blog
+-# Useful as a home page block
+-#
+-# @usage
+-# -# Portfolio recent
+-# = partial "template/portfolio/portfolio-recent.haml", locals: { total: 4 }
+-#
+-# @locals
+-# @param heading - Heading
+-# @param total   - How many columns of items to display.
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Portfolio
+%section.portfolio.portfolio__recent
+
+    -# Bootstrap container
+    .container
+
+        -# Bootstrap row
+        .row
+
+            -# Bootstrap column
+            .col-md-12.col-sm-12
+
+                -# Blockquote
+                = partial "atom/blockquote/blockquote.haml", locals: t( :"portfolio.recent.heading" )
+
+        -# Bootstrap row
+        .row
+
+            -# Column count
+            - total      = locals[ :total ] ? locals[ :total ] : 3
+            - count      = 12 / total
+            - extraClass = "col-md-#{ count } "
+
+            -# Loop through the portfolio category finding the first X articles
+            -# Sorting is done by date as a default
+            - blog( 'portfolio' ).articles.first( total ).each_with_index do | article, index |
+
+                -# Variable
+                - data = article.data
+                - head = data.heading
+
+                -# Bootstrap column
+                .portfolio__segment{ class: extraClass }
+
+                    -# Link to portfolio article
+                    %a{ href: article.url, title: head.title }
+
+                        -# Image
+                        = partial "atom/image/image.haml",
+                                   locals: { alt: head.title, caption: head.title, extraClass: "img-thumbnail", src: data.meta.image }

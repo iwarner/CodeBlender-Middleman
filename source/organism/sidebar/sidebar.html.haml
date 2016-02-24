@@ -1,0 +1,66 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Sidebar - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Sidebar - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Interate through a JSON menu structure"
+    title : "Sidemenu helper"
+
+---
+
+-# ID
+- id = 0
+
+%aside
+
+    -# Main one
+    .sidebar
+        %ul#mainMenu
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { small: "Updated on click", tag: "h3", text: "Content" }
+
+-# Content
+#sidebar__content.sidebar__content
+    contactUs.html
+
+%hr
+
+.sidebar__code
+
+    -# Heading
+    = partial "molecule/heading/heading.haml", locals: { small: "Links to files created", tag: "h3", text: "Code" }
+
+    %p
+        I like to use a module file structure, so all the files can be found within
+        the following directory on GitHub:
+
+    %p.text-center
+        %a{ href: "" }
+            = codeBlender "icon", "atom", { icon: "fa-github fa-fw" }
+            Code
+
+:markdown
+
+    ### Notes
+
+    - Would set up a caching system for this JSON into localstorage as I cant see the menu change a lot
+        - Or manifest it
+    - Probably do not need 'leaf', as if menu is null thats enough
+    - For open JavaScript I would usually use :
+        - A template library like handlebars
+        - Or AngularJS these days
+        - Or create statically in Middleman, prototype and changes required
+    - Guess the in Mobile | Full site should be split links, so would explode on pipe
+    - I would refactor the creation of the menu more but there is enough difference to not bother for a prototype
+        - Would recurse through a single method to create the UL lists and contents
+    - Would usually create cross browser hasClass but for prototype, .contains is fine
+    - Expand the menu - would probably work some toggle() in here instead of if else but satisficed
+    - Would make more responsive by use of bootsrap classes
+    - Browser compatability - tested on Chrome, for prototypes this is my dev browser of choice

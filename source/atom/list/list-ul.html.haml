@@ -1,0 +1,96 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "List UL - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "List UL - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "http://getbootstrap.com/css/#type-lists"
+    title : "List UL Partial"
+
+list :
+    - text : "Lorem ipsum dolor sit amet"
+    - text : "Facilisis in pretium nisl aliquet"
+
+list1 :
+    - text       : "Lorem ipsum dolor sit amet"
+      extraClass : "popMe"
+      status     : "active"
+      data       :
+        container      : "body"
+        content        : "This feature is not available in this survey."
+        placement      : "auto"
+        original-title : "GfK Research"
+    - text : "Facilitates in pretium nisl aliquet"
+      link :
+        url    : "http://google.com"
+        target : "_blank"
+
+see :
+    - - "Bootstrap List"
+      - "http://getbootstrap.com/css/#type-lists"
+
+todo :
+    - - "Need to push in another list for unordered lists also"
+    - - "Show some examples of how to use frontmatter arrays, inline arrays, data arrays"
+
+locals :
+    - - "array"
+      - "array"
+      - "required"
+      - "Array of the list required"
+    - - "dropdown"
+      - "bool"
+      - "optional"
+      - "List is a dropdown menu list"
+    - - "extraClass"
+      - "string"
+      - "optional"
+      - "String of extra classes can be collection list-unstyled, list-inline, dl-horizontal"
+    - - "type"
+      - "string"
+      - "optional"
+      - "Unordered or Ordered - ul / ol / dl - default ul"
+
+---
+
+- id = 0
+
+-# Unordered List
+:ruby
+    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Unordered List" } }
+
+-# Ordered List
+:ruby
+    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list, type: "ol" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Ordered List" } }
+
+-# Unstyled List
+:ruby
+    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list, extraClass: "list-unstyled" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Unstyled List" } }
+
+-# In-line List
+:ruby
+    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list, extraClass: "list-inline" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "In-line List" } }
+
+-# Inline List Linked
+:ruby
+    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list1, extraClass: "list-inline" }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Inline List Linked" } }

@@ -1,0 +1,44 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Breadcrumb - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Breadcrumb - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Breadcrumb"
+
+see :
+    - - "Bootstrap breadcrumb"
+      - "http://getbootstrap.com/components/#breadcrumbs"
+    - - "Micro format"
+      - "https://developers.google.com/structured-data/breadcrumbs"
+    - - "Aria"
+      - "http://www.uvd.co.uk/blog/accessible-breadcrumbs-using-aria/"
+    - - "UX"
+      - "http://ui-patterns.com/patterns/Breadcrumbs"
+
+todo :
+    - - "Complete the Aria and Micro format for this partial"
+    - - "Sort out what the margin does here"
+
+locals :
+    - - "array"
+      - "array"
+      - "optional"
+      - "Array of list items"
+
+---
+
+-# ID
+- id = 0
+
+-# Default
+:ruby
+    code = %{partial "molecule/breadcrumb/breadcrumb.haml", locals: { array: current_page.data.breadcrumbs }}
+
+-# Code
+= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }

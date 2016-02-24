@@ -1,0 +1,42 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Blog tags - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Blog tags - CodeBlender"
+    type        : "website"
+
+heading :
+    small : Articles by Tag
+    title : Tags
+
+layout   : "tag"
+pageable : true
+per_page : 12
+date     : 2001-03-31
+
+---
+
+-# Latest
+%ul.list-unstyled
+
+    -# Loop through the Articles
+    - page_articles.each do | article |
+
+        %li
+
+            -# Label
+            = partial "atom/label/label.haml", locals: { context: "info", content: article.date.strftime( '%b %e' ), icon: "fa-tag", itemprop: "keywords" }
+            = link_to article.data.heading.title, article
+
+-# Pagination
+.text-center
+
+    -# Pagination Variables
+    - prevPage = prev_page ? prev_page : false
+    - nextPage = next_page ? next_page : false
+
+    -# Pagination
+    = partial "molecule/pagination/pagination.haml", locals: { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }

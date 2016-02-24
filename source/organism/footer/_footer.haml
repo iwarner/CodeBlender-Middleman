@@ -1,0 +1,81 @@
+-##
+-# Footer and Copyright elements
+-# Most of the configuration is driven from the locale file
+-#
+-# @usage
+-# -# Footer
+-# = partial "organism/footer/footer.haml"
+-#
+-# @param array  - Inject the content through the partial instead of using the locale
+-# @param center - Centre align the copyright text
+-# @param fluid  - Flag for bootstrap container, otherwise use the default in the config
+-# @param noYear - Remove the year
+-#
+-# @category organism
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-##
+
+-# Variable
+- extraClass = data.config.footer.extraClass ? data.config.footer.extraClass : false
+- container  = locals[ :fluid ] ? "container-fluid" : data.config.container
+
+-# Footer
+%footer{ role: "contentinfo" }
+
+    -# Footer
+    .footer{ class: extraClass }
+
+        -# Container
+        %div{ class: container }
+
+            -# Bootstrap Row
+            .row
+
+                -# Check Footer YAML or locals is not blank
+                - if t "footer" or locals[ :array ]
+
+                    -# Local array takes precedent
+                    - array = locals[ :array ] ? locals[ :array ] : t( "footer" )
+
+                    -# Columns count
+                    - count      = 12 / array.count
+                    - extraClass = "col-md-#{ count } "
+
+                    -# Loop through the footer yaml
+                    - array.each do | entry |
+
+                        -# Extra class
+                        - extraClass = entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass
+
+                        -# Section
+                        .footerSection{ class: extraClass }
+
+                            -# Heading
+                            - icon = entry[ :icon ] ? entry[ :icon ] : false
+                            = partial "molecule/heading/heading.haml", locals: { icon: icon, tag: "h4", text: entry[ :title ] }
+
+                            -# Body
+                            = string entry[ :description ]
+
+    -# Copyright
+    .copyright{ class: locals[ :center ] ? "text-center" : false }
+
+        -# Container
+        %div{ class: container }
+
+            -# Year
+            - if ! locals[ :noYear ]
+
+                -# Variable
+                - year = Time.now.strftime '%Y'
+                %time{ datetime: year } &copy; #{ year }
+
+            -# Text
+            = string :"copyright.brand"
+            = string :"copyright.rights"
+
+            -# Show any required links
+            - if locals[ :array ]
+
+                -# Horizontal list of links
+                = partial "atom/list/list.ul.haml", locals: { array: array, extraClass: "list-inline list-unstyled" }

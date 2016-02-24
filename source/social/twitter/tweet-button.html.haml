@@ -1,0 +1,30 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Twitter tweet button - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Twitter tweet button - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Tweet Button"
+    title : "Tweet Button Partial"
+
+see :
+    - - "Tweet Button"
+      - "https://dev.twitter.com/docs/tweet-button"
+
+---
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+
+-# Tweet Button
+= partial "molecule/twitter/tweet-button.haml"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/twitter/tweet-button.haml"

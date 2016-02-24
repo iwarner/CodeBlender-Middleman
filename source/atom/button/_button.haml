@@ -1,0 +1,98 @@
+-##
+-# Button / link partial
+-# While button classes can be used on <a> and <button> elements,
+-# only <button> elements are supported within our nav and navbar components.
+-#
+-# If the <a> elements are used to act as buttons triggering in-page
+-# functionality, rather than navigating to another document or section within
+-# the current page they should also be given an appropriate role="button".
+-#
+-# @usage
+-# -# Button
+-# = partial "atom/button/button.haml", locals: { icon: { prepend: "fa-credit-card" }, text: "Default" }
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Active
+- classes = locals[ :active ] ? " active" : ""
+
+-# Block level
+- classes += locals[ :block ] ? " btn-block" : ""
+
+-# Colour
+- classes += locals[ :context ] ? " btn-#{ context }" : " btn-default"
+
+-# Disabled
+- classes += locals[ :disabled ] ? " disabled" : ""
+
+-# Dropdown
+- classes += locals[ :dropdown ] ? " dropdown-toggle" : ""
+
+-# Extra class
+- classes += locals[ :extraClass ] ? " #{ extraClass }" : ""
+
+-# Size - lg, sm, xs
+- classes += locals[ :size ] ? " btn-#{ size }" : ""
+
+-# Tag
+- tag = locals[ :href ] ? "a" : "button"
+
+-# Capture content
+- captureHTML = capture_html do
+
+    -# Prepend icon
+    - if locals[ :icon ] and locals[ :icon ][ :prepend ]
+        = partial "atom/icon/icon.haml", locals: { icon: locals[ :icon ][ :prepend ] }
+
+    -# Content
+    - if locals[ :text ] == "close"
+        %span{ aria: { hidden: "true" } } &times;
+
+    - elsif locals[ :text ]
+        = string text
+
+    -# Append icon
+    - if locals[ :icon ] && locals[ :icon ][ :append ]
+        = partial "atom/icon/icon.haml", locals: { icon: locals[ :icon ][ :append ] }
+
+    -# Image
+    - if locals[ :image ]
+        = partial "atom/image/image.haml", locals: locals[ :image ]
+
+    -# Dropdown caret
+    - if locals[ :dropdown ]
+        %span{ class: "dropdown__icon" }
+
+-# Link
+- if ! ( locals[ :href ] or locals[ :ui ] )
+
+    %button{ aria:     locals[ :aria ]     ? aria                 : false,
+             class:    locals[ :extraClass ] == "close" ? "close" : "btn#{ classes }",
+             clip:     locals[ :clip ]     ? clip                 : false,
+             data:     locals[ :data ]     ? data                 : false,
+             hidden:   locals[ :hidden ]   ? "hidden"             : false,
+             id:       locals[ :id ]       ? id                   : false,
+             itemprop: locals[ :itemprop ] ? itemprop             : false,
+             ng:       locals[ :ng ]       ? ng                   : false,
+             tabindex: locals[ :tabindex ] ? locals[ :tabindex ]  : false,
+             title:    locals[ :title ]    ? string( title )      : false,
+             type:     locals[ :type ]     ? type                 : "submit" }= captureHTML
+
+- else
+
+    = link_to( captureHTML,
+               locals[ :href ],
+               aria:     locals[ :aria ]     ? aria                : false,
+               class:    "btn#{ classes }",
+               clip:     locals[ :clip ]     ? clip                : false,
+               data:     locals[ :data ]     ? data                : false,
+               hidden:   locals[ :hidden ]   ? "hidden"            : false,
+               id:       locals[ :id ]       ? id                  : false,
+               itemprop: locals[ :itemprop ] ? itemprop            : false,
+               ng:       locals[ :ng ]       ? ng                  : false,
+               role:     "button",
+               tabindex: locals[ :tabindex ] ? locals[ :tabindex ] : false,
+               title:    locals[ :title ]    ? string( title )     : false,
+               ui:       locals[ :ui ]       ? ui                  : false )

@@ -193,13 +193,13 @@ class Middleman < Thor
         system( "clear" )
 
         # Load the config File
-        config = YAML::load_file( "../data/config.yaml" )
+        # config = YAML::load_file( "../data/config.yaml" )
 
         # Increment version
 
         # Delete build directory
         say( "\n\t Remove build folder\n\t" )
-        system( "rm -r ../www" )
+        system( "rm -rf ../build" )
 
         # Build
         say( "\n\t Middleman build\n\t" )

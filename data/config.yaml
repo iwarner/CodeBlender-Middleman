@@ -42,7 +42,7 @@ javascript :
 breadcrumbs   : true
 container     : "container"
 description   : false
-heading       : false
+heading       : true
 topIcon       : true
 
 # Extras

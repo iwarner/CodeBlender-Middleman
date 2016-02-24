@@ -1,0 +1,32 @@
+-##
+-# Swatch
+-#
+-# @usage
+-# -# Swatch
+-# = partial "atom/swatch/swatch.haml", locals: { array: array
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://styleguide.barricade.io/styles.html#uielements
+-#
+-# @todo Create this into a list partial
+-# @todo Pass in the array of colours
+-# @todo Tidy up the CSS for the Swatches
+-# @todo Create the copy feature as in the @see
+-##
+
+-# List
+%ul.swatches
+
+    -# Loop thought the array
+    - locals[ :array ].each do | list |
+
+        -# Swatch
+        %li.swatches__swatch
+
+            -# Preview
+            %span.swatches__preview{ style: "background-color:#{ list[ :colour ] }" }
+
+            -# Detail
+            %span.swatches__detail
+                = list[ :colour ]
+                %code= list[ :var ]

@@ -1,0 +1,68 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Facebook like box - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Facebook like box - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "https://developers.facebook.com/docs/plugins/like-box-for-pages"
+    title : "Facebook Like Box Partial"
+
+see :
+    - - "Facebook Like Box"
+      - "https://developers.facebook.com/docs/plugins/like-box-for-pages"
+    - - "OpenGraph Objects"
+      - "https://developers.facebook.com/docs/opengraph/using-objects/#creating"
+    - - "Maximising Distribution"
+      - "https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/"
+
+todo :
+    - - "Complete the other versions for the like box"
+---
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+
+-# Like button
+= partial "molecule/facebook/like-box.haml"
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/facebook/like-box.haml"
+
+-# Customised
+%hr
+
+-# Heading
+= partial "molecule/heading/heading.haml", locals: { text: "Customised", tag: "h2" }
+
+-# Like Box
+= partial "molecule/facebook/like-box.haml",
+           locals: { colorscheme: "dark",
+                     force_wall:  "true",
+                     header:      "false",
+                     height:      "63",
+                     href:        "https://www.facebook.com/onlyasmile",
+                     showBorder:  "false",
+                     showFaces:   "false",
+                     stream:      "false",
+                     width:       "200" }
+
+-# Code
+:code
+    #lang: ruby
+    = partial "molecule/facebook/like-box.haml",
+               locals: { colorscheme: "dark",
+                         force_wall:  "true",
+                         header:      "false",
+                         height:      "63",
+                         href:        "https://www.facebook.com/onlyasmile",
+                         showBorder:  "false",
+                         showFaces:   "false",
+                         stream:      "false",
+                         width:       "200" }
