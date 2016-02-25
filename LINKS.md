@@ -1,5 +1,15 @@
 # Links
 
+## Social
+
+- Complete all these for backlinks
+- http://branded.me/ianwarner
+- Get about me link
+- Twitter
+- Google
+- Facebook
+- LinkedIn
+
 - https://github.com/petehunt/webpack-howto
 - https://middlemanapp.com/community/built_using_middleman/
 - http://helloworldgroup.co.uk/protoshop

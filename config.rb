@@ -5,6 +5,9 @@
 # Syntax Highlighting
 activate :syntax
 
+# Sprockets
+activate :sprockets
+
 # Require
 # require "uglifier"
 # require "csv"
