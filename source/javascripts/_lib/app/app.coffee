@@ -18,9 +18,9 @@
 angular
     .module 'app',  [
 
-        # 'ui.bootstrap'
-        # 'ui.checkbox'
-        # 'ui.grid'
+        'ui.bootstrap'
+        'ui.checkbox'
+        'ui.grid'
         'ui.router'
 
         'app.auth'
@@ -32,16 +32,16 @@ angular
         'app.service'
         'app.utility'
 
-        # 'firebase'
+        'firebase'
 
-        # 'ngAnimate'
-        # 'ngClipboard'
-        # 'ngStorage'
+        'ngAnimate'
+        'ngClipboard'
+        'ngStorage'
 
-        # 'mailChimp'
+        'mailChimp'
 
-        # 'datatables'
-        # 'datatables.bootstrap'
+        'datatables'
+        'datatables.bootstrap'
 
     ]
 

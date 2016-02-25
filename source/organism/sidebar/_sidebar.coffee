@@ -223,4 +223,5 @@ class menu
 ##
 # Instantiate menu class
 ##
-elite = new menu()
+if window.location.pathname == "/organism/sidebar/sidebar.html"
+    elite = new menu()

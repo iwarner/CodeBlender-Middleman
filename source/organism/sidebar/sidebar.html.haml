@@ -24,7 +24,7 @@ heading :
         %ul#mainMenu
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { small: "Updated on click", tag: "h3", text: "Content" }
+= codeBlender "heading", "molecule", { small: "Updated on click", tag: "h3", text: "Content" }
 
 -# Content
 #sidebar__content.sidebar__content
@@ -35,7 +35,7 @@ heading :
 .sidebar__code
 
     -# Heading
-    = partial "molecule/heading/heading.haml", locals: { small: "Links to files created", tag: "h3", text: "Code" }
+    = codeBlender "heading", "molecule", { small: "Links to files created", tag: "h3", text: "Code" }
 
     %p
         I like to use a module file structure, so all the files can be found within
