@@ -1,9 +1,9 @@
 -##
--# Facebook Like Button
+-# Facebook like button
 -# Requires the JS script to include the FacebookJS SDK
 -#
 -# @usage
--# -# Like Button
+-# -# Like button
 -# = partial "molecule/facebook/like-button",
 -#            locals: { action:      "recommend",
 -#                      colorscheme: "dark",
@@ -45,19 +45,20 @@
 -#                     (standard layout only) - Requires that you have liked the page also.
 -# width             : The width of the Like button.
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @see    https://developers.facebook.com/docs/plugins/like-button
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-# @see      https://developers.facebook.com/docs/plugins/like-button
 -##
 
 -# Action
 - if ! locals[ :action ]
     - action = "like"
 
--# Colorscheme
+-# Colour scheme
 - if ! locals[ :colorscheme ]
     - colorscheme = "light"
 
--# HREF - default to Config URL
+-# HREF - default to Configuration URL
 - if ! locals[ :href ]
     - href = data.config.url
 

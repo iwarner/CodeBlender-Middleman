@@ -8,14 +8,14 @@
 -#
 -# @usage
 -# -# List
--# = partial "atom/list/list.ul.haml", locals: { array: current_page.data.list, type: "ol" }
+-# = codeBlender "list-ul", "atom", { array: current_page.data.list, type: "ol" }
 -#
 -# @param array
 -# @param extraClass
 -# @param type
 -#
--# @category atom
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
 -##
 
 -# Type UL or OL
@@ -55,7 +55,7 @@
 
                     -# Icon
                     - if list[ :icon ]
-                        = partial "atom/icon/icon.haml", locals: { icon: list[ :icon ] }
+                        = codeBlender "icon", "atom", { icon: list[ :icon ] }
 
                     - if list[ :text ]
                         = string list[ :text ]
@@ -66,7 +66,6 @@
 
 -# Navbar flag
 - if locals[ :navBar ]
-
     = captureHTML
 
 - else

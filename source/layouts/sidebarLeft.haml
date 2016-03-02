@@ -1,63 +1,66 @@
 -##
--# Sidebar Left
+-# Sidebar left
 -#
 -# @usage
--# -# Side bar Left
--# = wrap_layout "sidebarLeft" do
+-# -# Side bar left
+-# = wrap_layout "_codeBlender/sidebarLeft" do
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
 -#
 -# @todo Should either move the container and row out or use the default container from config - ie could be fluid
 -##
 
--# Variables
+-# Variable
 - d = current_page.data
 
--# Layout - Calls Wrapper Layout
-= wrap_layout "bootstrap" do
+-# Layout - calls wrapper layout
+= wrap_layout "_codeBlender/bootstrap" do
 
+    -# Bootstrap container
     .container
 
+        -# Bootstrap row
         .row
 
-            -# Navigation List
+            -# Bootstrap column
             .col-md-3
 
                 -# Sub navigation
                 = codeBlender "subnavigation", "organism"
 
-            -# Main Content
+            -# Bootstrap column
             .col-md-9.mainContent
 
-                -# Breadcrumbs
                 - if data.config.breadcrumbs
-                    = partial "molecule/breadcrumb/breadcrumb.haml"
 
-                -# Heading
+                    -# Breadcrumb
+                    = codeBlender "breadcrumb", "molecule"
+
                 - if data.config.heading
 
                     -# Heading - H2
                     = codeBlender "heading", "molecule", { small: d.heading.small, tag: "h2", text: d.heading.title }
 
-                -# Details
+                -# Detail
                 - if data.config.description
                     %p= string d.description
 
-                -# Locals
+                -# Local
                 - if data.config.locals
-                    = partial "organism/local/local.haml"
+                    = codeBlender "local", "organism"
 
                 -# Yield
                 = yield
 
-                -# Resources
+                -# Resource
                 - if data.config.resources
-                    = partial "organism/resource/resource.haml"
+                    = codeBlender "resource", "organism"
 
-                -# Assets
+                -# Asset
                 - if data.config.assets
-                    = partial "organism/asset/asset.haml"
+                    = codeBlender "asset", "organism"
 
                 -# Todo
                 - if data.config.todo
-                    = partial "organism/todo/todo.haml"
+                    = codeBlender "todo", "organism"

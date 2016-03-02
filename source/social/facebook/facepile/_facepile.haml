@@ -1,8 +1,9 @@
 -##
--# Facebook Facepile
+-# Facebook facepile
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @see    https://developers.facebook.com/docs/plugins/facepile
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-# @see      https://developers.facebook.com/docs/plugins/facepile
 -##
 
 -# Action
@@ -17,16 +18,10 @@
 - if ! locals[ :type ]
     - type = "html5"
 
--# Debug
--# = action
--# = href
--# = type
-
 -# HTML5
 - if type == "html5"
 
-    .fb-facepile{ :data => { :action => action,
-                             :href   => href } }
+    .fb-facepile{ data: { action: action, href: href } }
 
     -# XFBML
 - elsif type == "xfbml"

@@ -1,18 +1,18 @@
 -##
--# Footer and Copyright elements
+-# Footer and copyright elements
 -# Most of the configuration is driven from the locale file
 -#
 -# @usage
 -# -# Footer
--# = partial "organism/footer/footer.haml"
+-# = codeBlender "footer", "organism"
 -#
 -# @param array  - Inject the content through the partial instead of using the locale
 -# @param center - Centre align the copyright text
 -# @param fluid  - Flag for bootstrap container, otherwise use the default in the config
 -# @param noYear - Remove the year
 -#
--# @category organism
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category organism
 -##
 
 -# Variable
@@ -52,7 +52,7 @@
 
                             -# Heading
                             - icon = entry[ :icon ] ? entry[ :icon ] : false
-                            = partial "molecule/heading/heading.haml", locals: { icon: icon, tag: "h4", text: entry[ :title ] }
+                            = codeBlender "heading", "molecule", { icon: icon, tag: "h4", text: entry[ :title ] }
 
                             -# Body
                             = string entry[ :description ]
@@ -78,4 +78,4 @@
             - if locals[ :array ]
 
                 -# Horizontal list of links
-                = partial "atom/list/list.ul.haml", locals: { array: array, extraClass: "list-inline list-unstyled" }
+                = codeBlender "list-ul" "atom", { array: array, extraClass: "list-inline list-unstyled" }

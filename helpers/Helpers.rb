@@ -12,20 +12,13 @@ module Helpers
     ##
     # Proxy partial method
     ##
-    def helper( name, type, locals = false, path = "partial/_library" )
+    def codeBlender( name, type, locals = false, path = "partial/_codeBlender" )
 
-        # Return
-        partial "#{ path }/#{ type }/#{ name }/#{ name }.haml", locals: locals
+        # Folder
+        folder = ( type.include? "/" ) ? "#{ name }" : "#{ name }/#{ name }"
 
-    end
-
-    ##
-    # Proxy partial method
-    ##
-    def codeBlender( name, type, locals = false )
-
-        # Return
-        partial "#{ type }/#{ name }/#{ name }.haml", locals: locals
+        # Partial return
+        partial "#{ path }/#{ type }/#{ folder }.haml", locals: locals
 
     end
 
@@ -33,7 +26,9 @@ module Helpers
     # Whether to translate a string of text from the Current Page Data
     ##
     def string( element )
+
         element.is_a?( Symbol ) ? t( element ) : element
+
     end
 
     ##

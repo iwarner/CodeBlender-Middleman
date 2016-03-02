@@ -1,0 +1,59 @@
+-##
+-# Meta
+-#
+-# @usage
+-# -# Meta
+-# = codeBlender "meta", "atom"
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-#
+-# @todo Use the site map to loop through the resources in the meta folder dynamically - can remove All then.
+-##
+
+-# Variable
+- m = data.config.meta
+
+-# Apple
+- if m.apple
+    = codeBlender "apple", "atom/meta"
+
+-# Core
+- if m.core
+    = codeBlender "core", "atom/meta"
+
+-# Dublin Core
+- if m.dublin
+    = codeBlender "dublin", "atom/meta"
+
+-# Facebook
+- if m.facebook
+    = codeBlender "facebook", "atom/meta"
+
+-# Fancy
+- if m.fancy
+    = codeBlender "fancy", "atom/meta"
+
+-# Favicon
+- if m.favicon
+    = codeBlender "icon-favicon", "atom/meta"
+
+-# Feed XML
+- if m.feed
+    = codeBlender "feed", "atom/meta"
+
+-# Google
+- if m.google
+    = codeBlender "google", "atom/meta"
+
+-# Mobile
+- if m.mobile
+    = codeBlender "mobile", "atom/meta"
+
+-# Touch Icons
+- if m.touch
+    = codeBlender "icon-touch", "atom/meta"
+
+-# Twitter
+- if m.twitter
+    = codeBlender "twitter", "atom/meta"

@@ -263,19 +263,25 @@ class Middleman < Thor
     def symlink
 
         # Variable
-        path = "/var/www/codeblender.net/www/"
+        path = "/var/www/CodeBlender/"
 
         system( "clear" )
 
         say( "\n\t Create symbolic link\n\t" )
 
         # Layout
-        system( "rm -R ../source/layouts/_library")
-        system( "ln -s #{ path }source/layouts/_library ../source/layouts")
+        system( "rm -R ../source/layouts/_codeBlender")
+        system( "ln -s #{ path }source/layouts/ ../source/layouts/_codeBlender")
 
         # Partial
-        system( "rm -R ../source/partial/_library")
-        system( "ln -s #{ path }source/localizable ../source/partial/_library")
+        system( "rm -R ../source/partial/_codeBlender")
+        system( "mkdir -p ../source/partial/_codeBlender")
+        system( "ln -sf #{ path }source/atom     ../source/partial/_codeBlender")
+        system( "ln -sf #{ path }source/football ../source/partial/_codeBlender")
+        system( "ln -sf #{ path }source/molecule ../source/partial/_codeBlender")
+        system( "ln -sf #{ path }source/organism ../source/partial/_codeBlender")
+        system( "ln -sf #{ path }source/social   ../source/partial/_codeBlender")
+        system( "ln -sf #{ path }source/template ../source/partial/_codeBlender")
 
         # Helper
         system( "rm -R ../helpers")

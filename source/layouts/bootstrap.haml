@@ -4,11 +4,11 @@
 -#
 -# @usage
 -# -# Bootstrap
--# = wrap_layout "bootstrap" do
+-# = wrap_layout "_codeBlender/bootstrap" do
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category layout
--# @see http://www.tutorialspoint.com/html5/html5_microdata.htm
+-# @see      http://www.tutorialspoint.com/html5/html5_microdata.htm
 -##
 
 -# Variable
@@ -31,7 +31,7 @@
     %head{ prefix: headPrefix }
 
         -# Meta tag
-        = partial "atom/meta/all.haml"
+        = codeBlender "meta", "atom"
 
         -# Main style sheet
         -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
@@ -87,15 +87,15 @@
 
         -# Section - footer
         - if data.config.footer.active or data.config.copyright
-            = partial "organism/footer/footer.haml"
+            = codeBlender "footer", "organism"
 
         -# Top icon
         - if data.config.topIcon
-            = partial "molecule/top-icon/top-icon.haml"
+            = codeBlender "top-icon", "molecule"
 
         -# Configuration
         - if data.config.configuration
-            = partial "scaffolding/configuration.haml"
+            = codeBlender "configuration", "molecule"
 
         -# JavaScript
         -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
@@ -104,4 +104,4 @@
 
         -# Google analytics
         - if data.has_key? "google" and data.google.analytics.active
-            = partial "atom/google-analytics/google-analytics.haml"
+            = codeBlender "google-analytics", "atom"

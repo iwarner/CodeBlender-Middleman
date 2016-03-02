@@ -40,7 +40,6 @@
 # Bootstrap
 //= require bootstrap-sass-official/assets/javascripts/bootstrap-sprockets
 
-
 # Angular UI
 //= require angular-bootstrap/ui-bootstrap.min
 //= require angular-bootstrap/ui-bootstrap-tpls.min

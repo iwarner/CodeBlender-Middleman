@@ -1,45 +1,50 @@
 -##
--# Blog Tags
+-# Blog Tag
 -#
 -# @usage
--# -# Tags
--# = wrap_layout "tag" do
+-# -# Tag
+-# = wrap_layout "_codeBlender/tag" do
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
 -##
 
--# Variables
+-# Variable
 - cp      = current_page.data
 - heading = current_page.data.heading
 
 -# Article
-= wrap_layout "fullWidth" do
+= wrap_layout "_codeBlender/fullWidth" do
 
+    -# Bootstrap container
     .container
 
+        -# Bootstrap row
         .row
 
+            -# Bootstrap column
             .col-md-3
 
+                -# Aside
                 %aside
 
-                    -# Tags
+                    -# Tag
                     .tagCloud
 
                         -# Tag Cloud
-                        = partial "molecule/tag-cloud/tag-cloud.haml"
+                        = codeBlender "tag-cloud", "molecule"
 
                     .blogLatest
 
-                        -# Recent Articles
-                        = partial "molecule/recent/recent.haml"
+                        -# Recent article
+                        = codeBlender "recent", "molecule"
 
             .col-md-6
 
                 %article
 
                     -# Heading
-                    = partial "molecule/heading/heading.haml", locals: { small: heading.small, text: heading.title, itemprop: "name" }
+                    = codeBlender "heading", "molecule", { small: heading.small, text: heading.title, itemprop: "name" }
 
                     -# Yield
                     = yield
@@ -48,5 +53,5 @@
 
                 %aside
 
-                    -# Blog Archive
-                    = partial "molecule/archive/archive.haml"
+                    -# Blog archive
+                    = codeBlender "archive", "molecule"

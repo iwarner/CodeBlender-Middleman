@@ -75,10 +75,11 @@ todo :
             folder into the new project and include them.
 
         %p
-            Utilising the Bootstrap CSS framework each partial encompasses many defaults, such as accessibility, micro-formats
-            and layout. Making this project a must when it comes to rapid prototyping
-            of UX ideas. Still work in progress we aim to have full coverage of
-            all Bootstrap elements and more.
+            Utilising the Bootstrap CSS framework each partial encompasses many
+            defaults, such as accessibility, micro-formats and layout. Making
+            this project a must when it comes to rapid prototyping of UX ideas.
+            Still work in progress we aim to have full coverage of all Bootstrap
+            elements and more.
 
     -# Bootstrap row
     .row
@@ -112,12 +113,12 @@ todo :
             -# Article list
             = partial "template/article/article-list.haml", locals: { page_articles: page_articles }
 
-            / -# Pagination variables
-            / - prevPage = prev_page ? prev_page : false
-            / - nextPage = next_page ? next_page : false
+            -# Pagination variables
+            - prevPage = prev_page ? prev_page : false
+            - nextPage = next_page ? next_page : false
 
-            / -# Pagination
-            / = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
+            -# Pagination
+            = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
 
         -# Bootstrap column
         .col-md-3.col-sm-3
@@ -125,8 +126,8 @@ todo :
             -# Archive
             = codeBlender "archive", "molecule"
 
-            / -# MailChimp
-            / = partial "molecule/mailchimp/subscription.haml"
+            -# MailChimp
+            = partial "molecule/mailchimp/subscription.haml"
 
             -# Tag cloud
             = codeBlender "tag-cloud", "molecule"

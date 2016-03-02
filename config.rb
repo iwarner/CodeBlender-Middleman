@@ -2,7 +2,7 @@
 # Page options, layouts, aliases and proxies
 ##
 
-# Syntax Highlighting
+# Syntax highlighting
 activate :syntax
 
 # Sprockets
@@ -27,9 +27,8 @@ set :layout,       "sidebarLeft"
 set :debug_assets, true
 # set :relative_links,   true
 # set :strip_index_file, false
-# set :syntaxScheme,     "ThankfulEyes"
+set :syntaxScheme,     "ThankfulEyes"
 set :haml,             { ugly: true, format: :html5 }
-# set :build_dir,        "www"
 
 # Per-page layout changes
 page '/*.xml',       layout: false

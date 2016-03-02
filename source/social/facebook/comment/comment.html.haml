@@ -1,0 +1,29 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Facebook comment - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Facebook comment - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "https://developers.facebook.com/docs/plugins/comments"
+    title : "Facebook comment"
+
+see :
+    - - "Facebook comment"
+      - "https://developers.facebook.com/docs/plugins/comments/"
+
+---
+
+-# ID
+- id = 0
+
+-# Default
+:ruby
+    code = %{partial "social/facebook/comment/comment.haml"}
+
+-# Code
+= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }

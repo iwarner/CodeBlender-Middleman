@@ -1,45 +1,46 @@
 -##
--# Full Width
+-# Full width
 -#
 -# @usage
--# -# Full Width layout
--# = wrap_layout "fullWidth" do
+-# -# Full width layout
+-# = wrap_layout "_codeBlender/fullWidth" do
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
 -##
 
--# Variables
+-# Variable
 - dataCurrent = current_page.data
 
--# Layout - Calls Wrapper Layout
-= wrap_layout "bootstrap" do
+-# Layout - calls wrapper layout
+= wrap_layout "_codeBlender/bootstrap" do
 
     -# Heading
     - if data.config.heading
-        = partial "molecule/heading/heading.haml", locals: { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
+        = codeBlender "heading", "molecule", { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
 
-    -# Details
+    -# Detail
     - if data.config.description
         %p= string dataCurrent.description
 
-    -# Locals
+    -# Local
     - if dataCurrent.locals
-        = partial "organism/local/local.haml"
+        = codeBlender "local", "organism"
 
     -# Yield
     = yield
 
-    -# Resources
+    -# Resource
     - if data.config.resources
         .container
-            = partial "organism/resource/resource.haml"
+            = codeBlender "resource", "organism"
 
-    -# Assets
+    -# Asset
     - if data.config.assets
         .container
-            = partial "organism/asset/asset.haml"
+            = codeBlender "asset", "organism"
 
     -# Todo
     - if data.config.todo
         .container
-            = partial "organism/todo/todo.haml"
+            = codeBlender "todo", "organism"

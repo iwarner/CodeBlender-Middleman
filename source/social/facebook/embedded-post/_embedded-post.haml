@@ -1,8 +1,9 @@
 -##
--# Facebook Recommendations Bar
+-# Facebook embedded post
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @see    https://developers.facebook.com/docs/plugins/recommendations-bar
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-# @see      https://developers.facebook.com/docs/plugins/embedded-posts/
 -##
 
 -# HREF
@@ -13,14 +14,10 @@
 - if ! locals[ :type ]
     - type = "html5"
 
--# Debug
--# = url
--# = type
-
 -# HTML5
 - if type == "html5"
 
-    .fb-recommendations-bar{ :data => { :href => href } }
+    .fb-post{ data: { href: href } }
 
     -# XFBML
 - elsif type == "xfbml"

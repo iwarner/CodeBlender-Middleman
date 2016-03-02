@@ -15,7 +15,7 @@
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -##
 
--# Section blog list
+-# Article list
 %section.blogArticleList{ itemscope: true, itemtype: "http://schema.org/Blog" }
 
     -# Loop through a list of paginated articles
@@ -51,7 +51,7 @@
                     = partial "molecule/heading/heading.haml", locals: { extraClass: "heading--truncate media-heading", href: article.url, small: heading.small, text: heading.title, rel: "nofollow bookmark", itemprop: "name" }
 
                     -# Blog detail footer
-                    / = partial "molecule/detail/detail.haml", locals: { author: true, cal: true, comment: false, more: true, social: true, tags: true, current_page: article }
+                    = partial "molecule/detail/detail.haml", locals: { author: true, cal: true, comment: false, more: true, social: true, tags: true, current_page: article }
 
                     -# Excerpt
                     %p{ itemprop: "description" }= string data.excerpt

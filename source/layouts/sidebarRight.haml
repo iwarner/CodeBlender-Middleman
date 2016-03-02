@@ -1,57 +1,61 @@
 -##
--# Sidebar Right
+-# Sidebar right
 -#
 -# @usage
--# -# Sidebar Right
--# = wrap_layout "sidebarRight" do
+-# -# Sidebar right
+-# = wrap_layout "_codeBlender/sidebarRight" do
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
 -##
 
--# Variables
+-# Variable
 - d = current_page.data
 
--# Layout - Calls Wrapper Layout
-= wrap_layout "bootstrap" do
+-# Layout - calls wrapper layout
+= wrap_layout "_codeBlender/bootstrap" do
 
+    -# Bootstrap row
     .row
 
-        -# Main Content
+        -# Bootstrap column
         .col-md-9.mainContent
 
-            -# Breadcrumbs
             - if dc.breadcrumbs
-                = partial "molecule/breadcurmb/breadcrumb.haml"
 
-            -# Heading
+                -# Breadcrumb
+                = codeBlender "breadcrumb", "molecule"
+
             - if dc.heading
-                = partial "molecule/heading/heading.haml", locals: { small: string( d.small ), text: string( d.title ) }
 
-            -# Details
+                -# Heading
+                = codeBlender "heading", "molecule", { small: string( d.small ), text: string( d.title ) }
+
+            -# Detail
             - if dc.description
                 %p= string d.description
 
-            -# Locals
+            -# Local
             - if dc.locals
-                = partial "organism/local/local.haml"
+                = codeBlender "local", "organism"
 
             -# Yield
             = yield
 
-            -# Resources
+            -# Resource
             - if dc.resources
-                = partial "organism/resource/resource.haml"
+                = codeBlender "resource", "organism"
 
             -# Assets
             - if dc.assets
-                = partial "organism/asset/asset.haml"
+                = codeBlender "asset", "organism"
 
             -# Todo
             - if dc.todo
-                = partial "organism/todo/todo.haml"
+                = codeBlender "todo", "organism"
 
-        -# Nav List
+        -# Bootstrap column
         .col-md-3
 
-            -# Subnavigation
+            -# Sub-navigation
             = yield_content :sidebar

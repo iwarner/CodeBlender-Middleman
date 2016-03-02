@@ -10,25 +10,21 @@ meta :
 
 heading :
     small : "https://developers.facebook.com/docs/plugins/"
-    title : "Facebook Like Button Partial"
+    title : "Facebook like button"
 
 see :
-    - - "Facebook Plugins"
+    - - "Facebook plugins"
       - "https://developers.facebook.com/docs/plugins/"
-    - - "Like Button"
+    - - "Like button"
       - "https://developers.facebook.com/docs/plugins/like-button/"
-    - - "Open Graph"
+    - - "Open graph"
       - "https://developers.facebook.com/docs/opengraph/using-objects/#creating"
-    - - "Media Content"
+    - - "Media content"
       - "https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/"
 
 todo :
-    - - "Sort out the Reference elements"
-      - "Facebook"
-      - "2014-02-12"
+    - - "Sort out the reference elements"
     - - "Sort out the correct default width based on the layout selected"
-      - "Facebook"
-      - "2014-02-12"
 
 ---
 
@@ -49,7 +45,7 @@ todo :
 -# Heading
 = partial "molecule/heading/heading.haml", locals: { text: "Customised Button", tag: "h2" }
 
--# Like Button
+-# Like button
 = partial "molecule/facebook/like-button.haml",
            locals: { action:      "recommend",
                      colorscheme: "dark",

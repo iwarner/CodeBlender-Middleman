@@ -9,9 +9,6 @@
 # @see    https://developers.facebook.com/docs/plugins
 # @see    http://blog.brunoscopelliti.com/facebook-authentication-in-your-angularjs-web-app/
 # @see    http://hayageek.com/jquery-lazy-loading-scripts/
-#
-# @todo Push the version into the config
-# @todo Sort out the local for this and the channel file
 ##
 
 ##

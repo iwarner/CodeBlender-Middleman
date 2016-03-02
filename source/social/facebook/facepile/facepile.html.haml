@@ -10,21 +10,23 @@ meta :
 
 heading :
     small : "https://developers.facebook.com/docs/plugins/facepile"
-    title : "Facebook Facepile Partial"
+    title : "Facebook facepile"
 
 see :
-    - - "Facebook Facepile"
+    - - "Facebook facepile"
       - "https://developers.facebook.com/docs/plugins/facepile"
 
+todo :
+    - - "Push the version into the config"
+    - - "Sort out the local for this and the channel file"
 ---
 
--# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Facepile", tag: "h2" }
+-# ID
+- id = 0
 
--# Like Button
-= partial "molecule/facebook/facepile.haml"
+-# Default
+:ruby
+    code = %{partial "social/facebook/facepile/facepile.haml"}
 
 -# Code
-:code
-    #lang: ruby
-    = partial "molecule/facebook/facepile.haml"
+= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }

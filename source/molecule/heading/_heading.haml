@@ -4,7 +4,7 @@
 -#
 -# @usage
 -# -# Heading
--# = partial "molecule/heading/heading.haml", locals: { text: "Default H1 Tag" }
+-# = codeBlender "heading", "molecule", { text: "Default H1 Tag" }
 -#
 -# @param href
 -# @param icon
@@ -12,8 +12,8 @@
 -# @param tag
 -# @param text
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# Required text
@@ -31,7 +31,7 @@
         - if locals[ :icon ]
 
             -# Icon
-            = partial "atom/icon/icon.haml", locals: { icon: icon }
+            = codeBlender "icon", "atom", { icon: icon }
 
         -# Link
         - if locals[ :href ]

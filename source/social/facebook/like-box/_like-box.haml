@@ -1,5 +1,5 @@
 -##
--# Facebook Like Box
+-# Facebook like box
 -#
 -# Locals
 -# colorscheme - The color scheme for the plugin. Options: 'light', 'dark'
@@ -19,7 +19,7 @@
 -# type        - The version of the Like Box to use - html5, xfbml, iframe, url
 -#
 -# Usage
--# = partial "social/facebook/like-box",
+-# = partial "social/facebook/like-box/like-box",
 -#            :locals => { :colorscheme => "dark",
 -#                         :force_wall  => "true",
 -#                         :header      => "false",
@@ -30,10 +30,11 @@
 -#                         :stream      => "false",
 -#                         :width       => "200" }
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
 -##
 
--# Colorscheme
+-# Colour scheme
 - if ! locals[ :colorscheme ]
     - colorscheme = "light"
 
@@ -72,18 +73,6 @@
 -# Type - default to HTML5
 - if ! locals[ :type ]
     - type = "html5"
-
--# Debug
--# = colorscheme
--# = force_wall
--# = header
--# = height
--# = href
--# = showBorder
--# = showFaces
--# = stream
--# = width
--# = type
 
 -# HTML5
 - if type == "html5"

@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Article layout
--# = wrap_layout "article" do
+-# = wrap_layout "_codeBlender/article" do
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category layout
@@ -14,7 +14,7 @@
 - heading = cp.heading
 
 -# Article
-= wrap_layout "fullWidth" do
+= wrap_layout "_codeBlender/fullWidth" do
 
     .container
 
@@ -42,26 +42,26 @@
                 %article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
 
                     -# Heading - article H1
-                    = partial "molecule/heading/heading.haml", locals: { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+                    = codeBlender "heading", "molecule", locals: { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
 
                     -# Blog detail footer
-                    = partial "molecule/detail/detail.haml", locals: { author: true, cal: true, comment: true, social: true, tags: true }
+                    = codeBlender "detail", "molecule", { author: true, cal: true, comment: true, social: true, tags: true }
 
                     -# Blog image
-                    = partial "molecule/image/image.haml"
+                    = codeBlender "image", "molecule"
 
                     -# Yield
                     %span{ itemprop: "text" }= yield
 
                     -# Pager
-                    = partial "molecule/pager/pager.haml"
+                    = codeBlender "pager", "molecule"
 
                     -# Discus comment
-                    = partial "organism/disqus-comment/comment.haml"
+                    = codeBlender "disqus-comment", "organism"
 
             .col-md-3
 
                 %aside
 
                     -# Blog archive
-                    = partial "molecule/archive/archive.haml"
+                    = codeBlender "archive", "molecule"

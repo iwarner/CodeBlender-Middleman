@@ -10,36 +10,37 @@ meta :
 
 heading :
     small : "https://developers.facebook.com/docs/plugins/like-box-for-pages"
-    title : "Facebook Like Box Partial"
+    title : "Facebook like box"
 
 see :
-    - - "Facebook Like Box"
+    - - "Facebook like box"
       - "https://developers.facebook.com/docs/plugins/like-box-for-pages"
-    - - "OpenGraph Objects"
+    - - "OpenGraph objects"
       - "https://developers.facebook.com/docs/opengraph/using-objects/#creating"
-    - - "Maximising Distribution"
+    - - "Maximising distribution"
       - "https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/"
 
 todo :
     - - "Complete the other versions for the like box"
+
 ---
 
--# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+-# ID
+- id = 0
 
--# Like button
-= partial "molecule/facebook/like-box.haml"
+-# Default
+:ruby
+    code = %{partial "social/facebook/like-box/like-box.haml"}
 
 -# Code
-:code
-    #lang: ruby
-    = partial "molecule/facebook/like-box.haml"
+= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }
 
--# Customised
-%hr
+-# Default
+:ruby
+    code = %{partial "social/facebook/like-box/like-box.haml"}
 
--# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Customised", tag: "h2" }
+-# Code
+= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Customised" } }
 
 -# Like Box
 = partial "molecule/facebook/like-box.haml",

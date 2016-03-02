@@ -1,0 +1,29 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Facebook embedded post - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Facebook embedded post - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "https://developers.facebook.com/docs/plugins/embedded-posts"
+    title : "Facebook embedded post"
+
+see :
+    - - "Facebook embedded post"
+      - "https://developers.facebook.com/docs/plugins/embedded-posts/"
+
+---
+
+-# ID
+- id = 0
+
+-# Default
+:ruby
+    code = %{partial "social/facebook/embedded-post/embedded-post.haml"}
+
+-# Code
+= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }

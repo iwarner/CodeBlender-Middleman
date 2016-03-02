@@ -10,21 +10,20 @@ meta :
 
 heading :
     small : "https://developers.facebook.com/docs/plugins/activity"
-    title : "Facebook Activity Feed Partial"
+    title : "Facebook activity feed"
 
 see :
-    - - "Facebook Activity"
+    - - "Facebook activity feed"
       - "https://developers.facebook.com/docs/plugins/activity"
 
 ---
 
--# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+-# ID
+- id = 0
 
--# Activity Feed
-= partial "molecule/facebook/activity-feed.haml"
+-# Default
+:ruby
+    code = %{partial "social/facebook/activity-feed/activity-feed.haml"}
 
 -# Code
-:code
-    #lang: ruby
-    = partial "molecule/facebook/activity-feed.haml"
+= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }

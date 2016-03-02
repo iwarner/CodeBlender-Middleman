@@ -10,21 +10,20 @@ meta :
 
 heading :
     small : "https://developers.facebook.com/docs/plugins/follow-button"
-    title : "Facebook Follow Button Partial"
+    title : "Facebook follow button"
 
 see :
-    - - "Facebook Follow Button"
+    - - "Facebook follow button"
       - "https://developers.facebook.com/docs/plugins/follow-button/"
 
 ---
 
--# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Follow Button", tag: "h2" }
+-# ID
+- id = 0
 
--# Follow Button
-= partial "molecule/facebook/follow-button.haml"
+-# Default
+:ruby
+    code = %{partial "social/facebook/follow-button/follow-button.haml"}
 
 -# Code
-:code
-    #lang: ruby
-    = partial "molecule/facebook/follow-button.haml"
+= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }
