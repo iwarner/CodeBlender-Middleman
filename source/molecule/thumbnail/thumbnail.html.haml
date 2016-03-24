@@ -75,29 +75,24 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Default Thumbnail
 :ruby
-    code = %{partial "molecule/thumbnail/thumbnail.haml",
-                      locals: { array: [ { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
+    code = %{codeBlender "thumbnail", "molecule", { array: [ { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
                                          { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
                                          { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
                                          { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} },
                                          { image: { extraClass: "img-responsive", src: loremPixel('300/200') }, thumbnail: {} } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Just an array of images", text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Just an array of images", text: "Default" } }
 
 -# Linked Thumbnail
 :ruby
-    code = %{partial "molecule/thumbnail/thumbnail.haml",
-                      locals: { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+    code = %{codeBlender "thumbnail", "molecule", { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
                                            thumbnail: { href: "footer/background1.png" } } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Provide an HREF for the image", text: "Linked Thumbnail" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Provide an HREF for the image", text: "Linked Thumbnail" } }
 
 -# Captioned Thumbnail
 -# Get the list of categories of the products
@@ -107,24 +102,22 @@ locals :
     - @captureHTML = capture_html do
 
         -# Blog Details
-        = partial "molecule/detail/detail.haml", locals: { current_page: article }
+        = codeBlender "detail", "molecule", { current_page: article }
 
 -# Code
 :ruby
-    code = %{partial "molecule/thumbnail/thumbnail.haml",
-                      locals: { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+    code = %{codeBlender "thumbnail", "molecule", { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
                                            thumbnail: { caption: "Caption", href: "HERE" } } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Push an HTML element into the Tumb array", text: "Captioned Thumbnail" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Push an HTML element into the Tumb array", text: "Captioned Thumbnail" } }
 
 -# Zoomix Thumbnail
 :ruby
-    code = %{partial "molecule/thumbnail/thumbnail.haml",
-                      locals: {  array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+    code = %{codeBlender "thumbnail", "molecule", {  array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
                                             thumbnail: { zoomix: true,
                                                          href:   "footer/background1.png",
                                                          data:   { toggle: "lightbox" } } } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Provide a Gallery", text: "Zoomix Thumbnail" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Provide a Gallery", text: "Zoomix Thumbnail" } }

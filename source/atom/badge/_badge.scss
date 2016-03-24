@@ -1,0 +1,39 @@
+//
+// Badge
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Badge
+//----------------------------------------------------------------------------//
+$module : 'badge';
+
+// Badge
+//----------------------------------------------------------------------------//
+.#{ $module } {
+
+    &:hover {
+        background-color : darken( $brand-primary, 10% );
+    }
+
+    &--primary {
+        background-color: $brand-primary;
+    }
+
+    &--success {
+        background-color: $brand-success;
+    }
+
+    &--info {
+        background-color: $brand-info;
+    }
+
+    &--warning {
+        background-color: $brand-warning;
+    }
+
+    &--danger {
+        background-color: $brand-danger;
+    }
+
+}

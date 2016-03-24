@@ -1,41 +1,48 @@
 -##
--# Dropdown Partial
+-# Dropdown
+-#
+-# Dropdowns                - dropdown
+-# Btn Group Dropdown       - btn-group
+-# Input Group Btn Dropdown - input-group-btn
 -#
 -# @usage
 -# -# Dropdown
--# = partial "molecule/dropdown/dropdown.haml",
--#            locals: { button: { text: "Dropdown" },
--#                      list:   { array: [ { text: "Action 1", link: { url: "#" } }, { text: "Action 2", link: { url: "#" } } ] } }}
+-# = codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, list: { array: [ { text: "Action 1", link: { url: "#" } } ] } }
 -#
 -# @param list       Array of the menu list data
--# @param button     Accepts the full button locals with overides
--# @param extraClass Extraclass for container div | default : dropdown
+-# @param button     Accepts the full button locals with overrides
+-# @param extraClass Extra class for container div | default : dropdown
 -# @param ng         Angular elements
 -#
--# @category Molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category Molecule
+-# @see      http://getbootstrap.com/components/#dropdowns
+-# @see      http://getbootstrap.com/components/#btn-dropdowns
+-# @see      http://getbootstrap.com/components/#input-groups-buttons-dropdowns
+-# @see      http://getbootstrap.com/javascript/#dropdowns
 -# @see      http://www.bootply.com/b4NKREUPkN
 -##
 
--# Variables
-- list = locals[ :list ]
+-# Variable
+- button     = locals[ :button ]     ? locals[ :button ]     : {}
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : "dropdown"
+- id         = button[ :id ]         ? button[ :id ]         : "dropdownMenu1"
+- list       = locals[ :list ]
+- ng         = locals[ :ng ]         ? locals[ :ng ]         : false
 
--# Button
-- button = locals[ :button ] ? button : {}
+-# Opening tag
+%div{ class: extraClass, ng: ng }
 
--# Opening Tag
-%div{ class: locals[ :extraClass ] ? extraClass : "dropdown", ng: locals[ :ng ] ? locals[ :ng ] : false }
-
-    -# Add defaults for Button for dropdown action
+    -# Add defaults for button for dropdown action
     - button[ :dropdown ] = true
     - button[ :toggle ]   = "dropdown"
     - button[ :data ]     = { toggle: "dropdown" }
     - button[ :type ]     = "button"
-    - button[ :id ]       = button[ :id ] ? button[ :id ] : "dropdownMenu1"
+    - button[ :id ]       = id
     - button[ :aria ]     = { haspopup: "true", expanded: "true" }
 
-    -# Button Partial
-    = partial "atom/button/button.haml", locals: button
+    -# Button
+    = codeBlender "button", "atom", button
 
-    -# Dropdown List Partial
-    = partial "atom/list/list.dropdown.haml", locals: list
+    -# Dropdown list
+    = codeBlender "list-dropdown", "atom", list

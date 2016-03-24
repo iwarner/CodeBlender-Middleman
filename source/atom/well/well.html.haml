@@ -23,25 +23,23 @@ locals :
 
 ---
 
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "atom/well/well.haml", locals: { text: "Well" }}
+    code = %{codeBlender "well", "atom", { text: "Well" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 -# Large
 :ruby
-    code = %{partial "atom/well/well.haml", locals: { extraClass: "well-lg", text: "Well" }}
+    code = %{codeBlender "well", "atom", { extraClass: "well-lg", text: "Well" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Large" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Large" } }
 
 -# Small
 :ruby
-    code = %{partial "atom/well/well.haml", locals: { extraClass: "well-sm", text: "Well" }}
+    code = %{codeBlender "well", "atom", { extraClass: "well-sm", text: "Well" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Small" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Small" } }

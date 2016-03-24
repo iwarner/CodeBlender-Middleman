@@ -6,7 +6,7 @@
 -#
 -# @usage
 -# -# Popover
--# = partial "molecule/popover/popover.haml", locals: { content: "Default", popBody: "Popover Body Copy", popTitle: "Popover Default" }
+-# = codeBlender "popover", "molecule", { content: "Default", popBody: "Popover Body Copy", popTitle: "Popover Default" }
 -#
 -# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
@@ -16,8 +16,7 @@
 %div{ "popover-directive" => true }
 
     -# Button
-    = partial "atom/button/button.haml",
-               locals: { data:       { content:   locals[ :popBody ],
+    = codeBlender "button", "atom", { data:       { content:   locals[ :popBody ],
                                        placement: locals[ :placement ] ? placement : "auto",
                                        toggle:    "popover" },
                          extraClass: "popMe",

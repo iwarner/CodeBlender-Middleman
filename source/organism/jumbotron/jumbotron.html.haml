@@ -43,26 +43,23 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "organism/jumbotron/jumbotron.haml", locals: { desc:  "Description", small: "Small Text", title: "Title" }}
+    code = %{codeBlender "jumbotron", "organism", { desc:  "Description", small: "Small Text", title: "Title" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 -# Gradient
 :ruby
-    code = %{partial "organism/jumbotron/jumbotron.haml", locals: { desc: "Description", extraClass: "gradient", small: "Small Text", title: "Title" }}
+    code = %{codeBlender "jumbotron", "organism", { desc: "Description", extraClass: "gradient", small: "Small Text", title: "Title" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Gradient" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Gradient" } }
 
 -# Image Jumbotron
 :ruby
-    code = %{partial "organism/jumbotron/jumbotron.haml", locals: { extraClass: "image" }}
+    code = %{codeBlender "jumbotron", "organism", { extraClass: "image" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Requires a CSS tag", text: "Image Jumbotron" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Requires a CSS tag", text: "Image Jumbotron" } }

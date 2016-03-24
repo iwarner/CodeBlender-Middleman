@@ -1,12 +1,12 @@
 -##
--# Blog Image
+-# Blog image
 -#
 -# @usage
--# -# Blog Image
--# = partial "molecule/image/image.haml"
+-# -# Blog image
+-# = codeBlender "image", "molecule"
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# Variables
@@ -21,9 +21,9 @@
     - if image.is_a?( Array )
 
         -# Carousel
-        = partial "molecule/carousel/carousel.haml", locals: { id: "carousel1", array: image, indicator: :true }
+        = codeBlender "carousel", "molecule", locals: { id: "carousel1", array: image, indicator: :true }
 
     - elsif ! image.is_a?( Array )
 
         -# Image
-        = partial "atom/image/image.haml", locals: { alt: title, src: image, extraClass: "img-responsive" }
+        = codeBlender "image", "atom", { alt: title, src: image, extraClass: "img-responsive" }

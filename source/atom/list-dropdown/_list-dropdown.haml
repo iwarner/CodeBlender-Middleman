@@ -1,0 +1,78 @@
+-##
+-# List dropdown partial
+-# Create the list elements required for dropdown
+-#
+-# @usage
+-# -# List
+-# = codeBlender "list-dropdown", "atom", { array: current_page.data.list }
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Variable
+- ariaLabel = locals[ :label ] ? locals[ :label ] : "dropdownMenu1"
+- ng        = locals[ :ng ]    ? locals[ :ng ]    : false
+
+-# Dropdown menu
+%ul.dropdown-menu{ aria: { labelledby: ariaLabel }, ng: ng, class: locals[ :extraClass ], role: "menu" }
+
+    -# Loop through the array
+    - locals[ :array ].each do | list |
+
+        -# Divider
+        - if list[ :divider ]
+            %li{ class: "divider", role: "separator" }
+
+            -# Header
+        - elsif list[ :header ]
+            %li.dropdown-header= string list[ :header ]
+
+            -# Local partial
+        - elsif list[ :partial ]
+            = partial "../_lib/#{ list[ :partial ] }"
+
+            -# Capture
+        - elsif list[ :capture ]
+            = list[ :capture ]
+
+            -# Text
+        - else
+
+            -# Active
+            - classes = list[ :active ] ? "active" : ""
+
+            -# Extra class
+            - classes += list[ :extraClass ] ? " #{ list[ :extraClass ] }" : ""
+
+            -# Status
+            - classes += list[ :status ] ? " #{ list[ :status ] }" : ""
+
+            -# List
+            %li{ class: ! classes.empty?    ? classes       : false,
+                 data:  list[ :data ]       ? list[ :data ] : false,
+                 ng:    list[ :ng ]         ? list[ :ng ]   : false,
+                 ui:    { sref: { active: "active" } } }
+
+                -# If URL is present then show a link
+                - if list[ :link ]
+
+                    -# Variable
+                    - ng     = list[ :link ][ :ng ]     ? list[ :link ][ :ng ]     : false
+                    - target = list[ :link ][ :target ] ? list[ :link ][ :target ] : false
+                    - ui     = list[ :link ][ :ui ]     ? list[ :link ][ :ui ]     : false
+
+                    -# Link
+                    = link_to( string( list[ :link ][ :url ] ), { ng: ng, target: target, ui: ui } ) do
+
+                        -# Icon
+                        - if list[ :icon ]
+                            = codeBlender "icon", "atom", { icon: list[ :icon ] }
+
+                        -# Text
+                        - if list[ :text ]
+                            = string list[ :text ]
+
+                    -# No link required
+                - else
+                    = string list[ :text ]

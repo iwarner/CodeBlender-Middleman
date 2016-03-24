@@ -49,47 +49,40 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Tabs
 :ruby
-    code = %{partial "molecule/nav/nav.haml",
-                      locals: { array: [ { url: "javascript:;", text: "Details" },
-                                         { url: "javascript:;", text: "Download"} ] }}
+    code = %{codeBlender "nav", "molecule", { array: [ { url: "javascript:;", text: "Details" },
+                                            { url:   "javascript:;", text: "Download"} ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Tabs" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Tabs" } }
 
 -# Pills
 :ruby
-    code = %{partial "molecule/nav/nav.haml",
-                      locals: { pills: true,
+    code = %{codeBlender "nav", "molecule", { pills: true,
                                 array: [ { url: "javascript:;", text: "Details" },
                                          { url: "javascript:;", text: "Download"} ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Pills" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Pills" } }
 
 -# Stackable pills
 :ruby
-    code = %{partial "molecule/nav/nav.haml",
-                      locals: { active:  "GitHub",
+    code = %{codeBlender "nav", "molecule", { active:  "GitHub",
                                 pills:   true,
                                 stacked: true,
                                 array:   [ { icon: { prepend: "fa-credit-card" }, url: "javascript:;", text: "Details" },
                                            { url: "javascript:;", text: "Download" },
                                            { icon: { append: "fa-github" }, url: "javascript:;", text: "GitHub"} ] }}
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: {  small: "With icons", text: "Stackable pills" } }
+= codeBlender "code", "organism", { code: code, heading: {  small: "With icons", text: "Stackable pills" } }
 
 -# Justified pills
 :ruby
-    code = %{partial "molecule/nav/nav.haml",
-                      locals: { pills:      true,
+    code = %{codeBlender "nav", "molecule", { pills:      true,
                                 extraClass: "nav-justified",
                                 array:      [ { url: "javascript:;", text: "Details" },
                                               { url: "javascript:;", text: "Download" },
                                               { extraClass: "disabled", url: "javascript:;", text: "GitHub"} ] }}
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "With disabled link", text: "Justified pills" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "With disabled link", text: "Justified pills" } }

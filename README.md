@@ -4,7 +4,7 @@
 
 Start
 
-    $ /var/www/codeblender.net/www
+    $ /var/www/CodeBlender
     $ bundle exec middleman server
 
 Variables

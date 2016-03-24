@@ -1,0 +1,36 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Google search - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Google search - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Using Google search"
+    title : "Search"
+
+see :
+    - - "Google search"
+      - "https://www.google.com/cse/all"
+
+todo :
+    - - "Use the partial form elements"
+    - - "Search bar should not just be for navbar"
+    - - "Bring in the results via AJAX probably"
+    - - "Localise this partial"
+    - - "There are two search folders and partials sort this out"
+    - - "change to coffee script"
+    - - "Provide the context file to change the look and feel"
+    - - "Add a title"
+    - - "Create the entity in Search Console"
+
+---
+
+-# Google search
+:ruby
+    code = %{codeBlender "search-google", "molecule"}
+
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

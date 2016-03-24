@@ -22,10 +22,16 @@
     },
 
     "dependencies" : {
-        "bootstrap-sass" : "",
-        "jquery"         : "",
-        "coffee-loader"  : "",
-        "webpack"        : ""
+        "bootstrap-sass"       : "",
+        "font-awesome"         : "",
+        "jquery"               : "",
+        "coffee-loader"        : "",
+        "css-loader"           : "",
+        "node-sass"            : "",
+        "sass-loader"          : "",
+        "style-loader"         : "",
+        "clean-webpack-plugin" : "",
+        "webpack"              : ""
     },
 
     "devDependencies" : {

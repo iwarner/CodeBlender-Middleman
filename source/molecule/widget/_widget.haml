@@ -3,7 +3,7 @@
 -#
 -# Usage
 -# -# Simple Cart Widget
--# = partial "e-commerce/widget.haml"
+-# = codeBlender "shop-widget", "molecule"
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -48,24 +48,21 @@
         #popoverButtons.clearfix
 
             -# Button
-            = partial "atom/button/button.haml",
-                       locals: { context:    "warning",
+            = codeBlender "button", "atom", { context:    "warning",
                                  text:       "Empty",
                                  extraClass: "pull-left simpleCart_empty",
                                  href:       "javascript:;",
                                  size:       "sm" }
 
             -# Button
-            = partial "atom/button/button.haml",
-                       locals: { context:    "success",
+            = codeBlender "button", "atom", { context:    "success",
                                  text:       "Checkout",
                                  extraClass: "pull-right simpleCart_checkout",
                                  href:       "javascript:;",
                                  size:       "sm" }
 
             -# Button
-            = partial "atom/button/button.haml",
-                       locals: { context:    "info",
+            = codeBlender "button", "atom", { context:    "info",
                                  text:       "View Cart",
                                  extraClass: "pull-right",
                                  href:       "/prototyping/e-commerce/cart.html",

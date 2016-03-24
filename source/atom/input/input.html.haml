@@ -104,38 +104,32 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Text Type
 :ruby
-    code = %{partial "atom/input/input.haml",
-                       locals: { help:  {},
+    code = %{codeBlender "input", "atom", { help: {},
                                  icon:  { prepend: "fa-credit-card" },
                                  input: { inputGroupClass: "input-group", name: "text", placeholder: "Enter Text" },
                                  label: { title: "Text Input" } }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Generic default type", text: "Text Type" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Generic default type", text: "Text Type" } }
 
 -# Password Type
 :ruby
-    code = %{partial "atom/input/input.haml",
-                      locals: { help:  { text: "Enter 8 characters [a-zA-Z0-9]" },
+    code = %{codeBlender "input", "atom", { help: { text: "Enter 8 characters [a-zA-Z0-9]" },
                                 icon:  { prepend: "fa-credit-card" },
                                 input: { name: "password", placeholder: "Enter password", type: "password" },
                                 label: { title: "Password" } } }
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Also contains some help text", text: "Password Type" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Also contains some help text", text: "Password Type" } }
 
 -# Email Type
 :ruby
-    code = %{partial "atom/input/input.haml",
-                      locals: { help:  {},
+    code = %{codeBlender "input", "atom", { help: {},
                                 icon:  { prepend: "fa-envelope" },
                                 input: { name: "email", placeholder: "Enter email", type: "email" },
                                 label: { title: "Email" } }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Also contains a group icon", text: "Email Type" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Also contains a group icon", text: "Email Type" } }

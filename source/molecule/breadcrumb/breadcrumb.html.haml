@@ -2,13 +2,14 @@
 
 meta :
     author      : "DryKISS"
-    description : "Breadcrumb - CodeBlender"
+    description : "Breadcrumb to highlight a navigation path - CodeBlender"
     image       : "Image"
     subject     : "DryKISS"
-    title       : "Breadcrumb - CodeBlender"
+    title       : "Breadcrumb to highlight a navigation path - CodeBlender"
     type        : "website"
 
 heading :
+    small : "Current page's location within a navigational hierarchy"
     title : "Breadcrumb"
 
 see :
@@ -16,14 +17,13 @@ see :
       - "http://getbootstrap.com/components/#breadcrumbs"
     - - "Micro format"
       - "https://developers.google.com/structured-data/breadcrumbs"
-    - - "Aria"
+    - - "Accessibility"
       - "http://www.uvd.co.uk/blog/accessible-breadcrumbs-using-aria/"
-    - - "UX"
+    - - "Usability"
       - "http://ui-patterns.com/patterns/Breadcrumbs"
 
 todo :
     - - "Complete the Aria and Micro format for this partial"
-    - - "Sort out what the margin does here"
 
 locals :
     - - "array"
@@ -33,12 +33,12 @@ locals :
 
 ---
 
--# ID
-- id = 0
+HERE
+-# Features
 
 -# Default
 :ruby
-    code = %{partial "molecule/breadcrumb/breadcrumb.haml", locals: { array: current_page.data.breadcrumbs }}
+    code = %{codeBlender "breadcrumb", "molecule", { array: current_page.data.breadcrumbs }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

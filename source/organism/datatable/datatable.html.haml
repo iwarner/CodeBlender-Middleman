@@ -40,8 +40,7 @@ todo :
         / .nurture__toolbar
 
         /     -# Button Archive
-        /     = partial "atom/button/button.haml",
-        /                locals: { context: "success",
+        /     = codeBlender "button", "atom", { context: "success",
         /                          size:    "lg",
         /                          icon:    { prepend: "fa-archive" },
         /                          href:    "/#/interaction",
@@ -57,6 +56,4 @@ todo :
 / .table-responsive
 
 /     -# Table
-/     = partial "molecule/table/table.haml",
-/                locals: { array:  array,
-/                          id:     "dataTable"}
+/     = codeBlender "table", "molecule", { array: array, id: "dataTable"}

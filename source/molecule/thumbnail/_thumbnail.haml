@@ -3,8 +3,7 @@
 -#
 -# @usage
 -# -# Thumbnail
--# = partial "molecule/thumbnail/thumbnail.haml",
--#            locals: { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+-# = codeBlender "thumbnail", "molecule", { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
 -#                                 thumbnail: { href: "path.png" } } ] }
 -#
 -# @locals
@@ -14,8 +13,8 @@
 -# @param target     - HREF target
 -# @param thumbnail  - Array of thumbnail parameters
 -#
--# @category molecule
 -# @author Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# Variable
@@ -45,14 +44,14 @@
                 = link_to( image_path( thumbnail[ :image ][ :href ] ), target: target ) do
 
                     -# Image
-                    = partial "atom/image/image.haml", locals: thumbnail[ :image ]
+                    = codeBlender "image", "atom", thumbnail[ :image ]
 
                     -# Zoomix - requires HREF and data-toggle light box on the thumbnail array
                     - if thumb[ :zoomix ].present?
                         .zoomix
 
                             -# Icon
-                            = partial "atom/icon/icon.haml", locals: { icon: "fa-search" }
+                            = codeBlender "icon", "atom", { icon: "fa-search" }
 
                 -# Caption
                 - if thumb[ :caption ].present?

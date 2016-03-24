@@ -3,28 +3,28 @@
 -#
 -# @usage
 -# -# Full width layout
--# = wrap_layout "_codeBlender/fullWidth" do
+-# = wrap_layout "#{ config[ :layout_dir ] }/fullWidth" do
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category layout
 -##
 
 -# Variable
-- dataCurrent = current_page.data
+- d = current_page.data
 
 -# Layout - calls wrapper layout
-= wrap_layout "_codeBlender/bootstrap" do
+= wrap_layout "#{ config[ :layout_dir ] }bootstrap" do
 
     -# Heading
-    - if data.config.heading
-        = codeBlender "heading", "molecule", { small: string( dataCurrent.small ), text: string( dataCurrent.title ) }
+    - if data.config.heading and d.heading
+        = codeBlender "heading", "molecule", { small: d.heading.small, text: d.heading.title }
 
     -# Detail
     - if data.config.description
-        %p= string dataCurrent.description
+        %p= string d.description
 
     -# Local
-    - if dataCurrent.locals
+    - if d.locals
         = codeBlender "local", "organism"
 
     -# Yield
@@ -32,15 +32,12 @@
 
     -# Resource
     - if data.config.resources
-        .container
-            = codeBlender "resource", "organism"
+        .container= codeBlender "resource", "organism"
 
     -# Asset
     - if data.config.assets
-        .container
-            = codeBlender "asset", "organism"
+        .container= codeBlender "asset", "organism"
 
     -# Todo
     - if data.config.todo
-        .container
-            = codeBlender "todo", "organism"
+        .container= codeBlender "todo", "organism"

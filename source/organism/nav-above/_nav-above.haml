@@ -6,11 +6,10 @@
 -#
 -# @usage
 -# -# Navigation above
--# = partial "organism/nav-above/nav-above.haml"
+-# = codeBlender "nav-above", "organism"
 -#
--# @category organism
--# @stub     navAbove
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category organism
 -##
 
 -# Header navAbove
@@ -30,10 +29,10 @@
                     .navAbove__leftColumn
 
                         -# Brand
-                        = partial "molecule/brand/brand.haml"
+                        = codeBlender "brand", "molecule"
 
                     -# Right column
                     .navAbove__rightColumn
 
                         -# Heading H2
-                        = partial "molecule/heading/heading.haml", locals: { extraClass: "text-right", tag: "h2", text: :"navAbove.strapLine", itemprop: "description" }
+                        = codeBlender "heading", "molecule", { extraClass: "text-right", tag: "h2", text: :"navAbove.strapLine", itemprop: "description" }

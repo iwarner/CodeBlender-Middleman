@@ -4,37 +4,42 @@
 -#
 -# @usage
 -# -# Checkbox
--# = partial "atom/checkbox/checkbox.haml"
+-# = codeBlender "checkbox", "atom"
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category atom
+-# @see      https://github.com/flatlogic/awesome-bootstrap-checkbox
 -##
 
--# Variables
-- input = locals[ :input ]
-- label = locals[ :label ]
+-# Variable
+- input      = locals[ :input ]
+- label      = locals[ :label ]
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ]  : false
 
 -# Check for Aria - requires input to be present
 - if input && input[ :aria ].present?
     - aria = input[ :aria ]
 
 -# Checkbox Class
-.checkbox{ class: locals[ :extraClass ] ? extraClass : false }
+.checkbox{ class: extraClass }
+
+    -# Input
+    %input{ aria:      aria                ? aria               : false,
+            autofocus: input[ :autofocus ] ? "autofocus"        : false,
+            disabled:  input[ :disabled ]  ? "disabled"         : false,
+            id:        input[ :name ]      ? input[ :name ]     : false,
+            name:      input[ :name ]      ? input[ :name ]     : false,
+            ng:        input[ :ng ]        ? input[ :ng ]       : false,
+            required:  input[ :required ]  ? "required"         : false,
+            tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
+            type:      "checkbox",
+            value:     input[ :value ]     ? input[ :value ]    : false }
+
+    -# Variable
+    - extraClass = label[ :extraClass ] ? label[ :extraClass ] : false
 
     -# Label - note this is an array as it contains flag for screen reader
-    %label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
-
-        -# Input
-        %input{ aria:      aria                ? aria               : false,
-                autofocus: input[ :autofocus ] ? "autofocus"        : false,
-                class:     "checkOne",
-                disabled:  input[ :disabled ]  ? "disabled"         : false,
-                id:        input[ :name ]      ? input[ :name ]     : false,
-                name:      input[ :name ]      ? input[ :name ]     : false,
-                required:  input[ :required ]  ? "required"         : false,
-                tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
-                type:      "checkbox",
-                value:     input[ :value ]     ? input[ :value ]    : false }
+    %label{  class: extraClass }
 
         -# Text
         - if label[ :title ]
@@ -44,6 +49,4 @@
     -# Sometimes this should be hidden to allow errors to be added inside.
     -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
     - if locals[ :help ]
-
-        %span.help-block{ ng: locals[ :help ][ :ng ] }
-            = locals[ :help ][ :content ]
+        %span.help-block{ ng: locals[ :help ][ :ng ] }= locals[ :help ][ :content ]

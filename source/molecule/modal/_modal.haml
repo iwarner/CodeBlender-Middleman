@@ -1,26 +1,24 @@
 -##
--# Bootstrap JavaScript
--# Modal Partial
+-# Modal
 -#
 -# @usage
 -# -# Body
 -# - body = capture_html do
 -#
 -#     -# Heading
--#     = partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Heading" }
+-#     = codeBlender "heading", "molecule", { tag: "h2", text: "Heading" }
 -#
 -#     %p
 -#         TEXT
 -#
 -# -# Modal
--# = partial "molecule/modal/modal.haml", locals: { id: "myModal", body: body }
+-# = codeBlender "modal", "molecule", { id: "myModal", body: body }
 -#
 -# -# Button
--# = partial "atom/button/button.haml",
--#            locals: { text: "Launch Modal",
--#                      data: { target: "#myModal", toggle: "modal" } }
+-# = codeBlender "button", "atom", { text: "Launch Modal", data: { target: "#myModal", toggle: "modal" } }
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# If ID is not defined or Blank
@@ -28,9 +26,7 @@
     - id = "myModal"
 
 -# Modal
-.modal{ aria:     { labelledby:  "#{ id }Label",
-                    hidden:      "true",
-                    describedby: "Overlay" },
+.modal{ aria: { labelledby: "#{ id }Label", hidden:"true", describedby: "Overlay" },
         class:    locals[ :noAnimation ] ? false : "fade",
         id:       id,
         role:     "dialog",
@@ -49,8 +45,7 @@
                 .modal-header
 
                     -# Close Button
-                    = partial "atom/button/button.haml",
-                               locals: { aria:       { label: "Close" },
+                    = codeBlender "button", "atom", { aria: { label: "Close" },
                                          text:       "close",
                                          extraClass: "close",
                                          data:       { dismiss: "modal" },
@@ -60,11 +55,7 @@
                     - if locals[ :title ]
 
                         -# Heading
-                        = partial "molecule/heading/heading.haml",
-                                   locals: { extraClass: "modal-title",
-                                             id:         "#{ id }Label",
-                                             text:       title,
-                                             tag:        "h4" }
+                        = codeBlender "heading", "molecule", { extraClass: "modal-title", id: "#{ id }Label", text: title, tag: "h4" }
 
             -# Modal Body
             - if locals[ :body ]

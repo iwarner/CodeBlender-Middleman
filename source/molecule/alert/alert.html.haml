@@ -35,59 +35,44 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Success Alert
 :ruby
-    code = %{partial "molecule/alert/alert.haml",
-                      locals: { text: "Well done! You successfully read this important alert message." }}
+    code = %{codeBlender "alert", "molecule", { text: "Well done! You successfully read this important alert message." }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Success Alert" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Success Alert" } }
 
 -# Info Alert
 :ruby
-    code = %{partial "molecule/alert/alert.haml",
-                      locals: { context: "info",
-                                text:    "Heads up! This alert needs your attention, but it's not super important." }}
+    code = %{codeBlender "alert", "molecule", { context: "info", text: "Heads up! This alert needs your attention, but it's not super important." }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Info Alert" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Info Alert" } }
 
 -# Warning Alert
 :ruby
-    code = %{partial "molecule/alert/alert.haml",
-                      locals: { context: "warning",
-                                text:    "Warning! Better check yourself, you're not looking too good." }}
+    code = %{codeBlender "alert", "molecule", { context: "warning", text: "Warning! Better check yourself, you're not looking too good." }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Warning Alert" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Warning Alert" } }
 
 -# Danger Alert
 :ruby
-    code = %{partial "molecule/alert/alert.haml",
-                      locals: { context: "danger",
-                                text:    "Oh snap! Change a few things up and try submitting again." }}
+    code = %{codeBlender "alert", "molecule", { context: "danger", text: "Oh snap! Change a few things up and try submitting again." }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Danger Alert" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Danger Alert" } }
 
--# Dismissable Alert
+-# Dismissible Alert
 :ruby
-    code = %{partial "molecule/alert/alert.haml",
-                      locals: { context: "warning",
-                                dismiss: true,
-                                text:    "Warning! Better check yourself, you're not looking too good." }}
+    code = %{codeBlender "alert", "molecule", { context: "warning", dismiss: true, text: "Warning! Better check yourself, you're not looking too good." }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Closeable Alert, require JavaScript", text:  "Dismissable" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Closable Alert, require JavaScript", text:  "Dismissible" } }
 
 -# In-line Links
 :ruby
-    code = %{partial "molecule/alert/alert.haml",
-                      locals: { context: "success",
-                                text:    "Well done! You successfully <a href='#' class='alert-link'>Link</a> read this important alert message." }}
+    code = %{codeBlender "alert", "molecule", { context: "success", text: "Well done! You successfully <a href='#' class='alert-link'>Link</a> read this important alert message." }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Inline Links" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Inline Links" } }

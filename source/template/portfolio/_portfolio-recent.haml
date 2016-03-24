@@ -5,7 +5,7 @@
 -#
 -# @usage
 -# -# Portfolio recent
--# = partial "template/portfolio/portfolio-recent.haml", locals: { total: 4 }
+-# = codeBlender "portfolio-recent", "template", { total: 4 }
 -#
 -# @locals
 -# @param heading - Heading
@@ -27,7 +27,7 @@
             .col-md-12.col-sm-12
 
                 -# Blockquote
-                = partial "atom/blockquote/blockquote.haml", locals: t( :"portfolio.recent.heading" )
+                = codeBlender "blockquote", "atom", t( :"portfolio.recent.heading" )
 
         -# Bootstrap row
         .row
@@ -52,5 +52,4 @@
                     %a{ href: article.url, title: head.title }
 
                         -# Image
-                        = partial "atom/image/image.haml",
-                                   locals: { alt: head.title, caption: head.title, extraClass: "img-thumbnail", src: data.meta.image }
+                        = codeBlender "image", "atom", { alt: head.title, caption: head.title, extraClass: "img-thumbnail", src: data.meta.image }

@@ -43,9 +43,6 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 :markdown
     Cross-browser compatibility
 
@@ -56,37 +53,34 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "molecule/progress-bar/progress-bar.haml",locals: { array: [ width: 33 ] }}
+    code = %{codeBlender "progress-bar", "molecule", { array: [ width: 33 ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 -# Attributes
 :ruby
-    code = %{partial "molecule/progress-bar/progress-bar.haml",
-                      locals: { array: [ animated: :true,
+    code = %{codeBlender "progress-bar", "molecule", { array: [ animated: :true,
                                          context:  "success",
                                          striped:  :true,
                                          width:    33 ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Attributes" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Attributes" } }
 
 -# Low Percentage
 :ruby
-    code = %{partial "molecule/progress-bar/progress-bar.haml",
-                      locals: { array: [ animated: :true,
+    code = %{codeBlender "progress-bar", "molecule", { array: [ animated: :true,
                                          context:  "warning",
                                          label:    true,
                                          width:    2 ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Shows label", text: "Low Percentage" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Shows label", text: "Low Percentage" } }
 
 -# Stacked
 :ruby
-    code = %{partial "molecule/progress-bar/progress-bar.haml",
-                      locals: { array: [ { animated: :true,
+    code = %{codeBlender "progress-bar", "molecule", { array: [ { animated: :true,
                                            context:  "warning",
                                            label:    true,
                                            width:    33 },
@@ -97,4 +91,4 @@ locals :
                                            width:    33 } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Multiple bars into the same Progress", text: "Stacked" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Multiple bars into the same Progress", text: "Stacked" } }

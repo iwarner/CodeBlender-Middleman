@@ -5,7 +5,7 @@
 -#
 -# @usage
 -# -# Person
--# = partial "atom/person/person.haml"
+-# = codeBlender "person", "atom"
 -#
 -# @param name
 -#
@@ -19,30 +19,24 @@
 
     -# Person name
     - if locals[ :name ]
-        .person__name{ itemprop: "name" }
-            = locals[ :name ]
+        .person__name{ itemprop: "name" }= locals[ :name ]
 
     -# Person job title
     - if locals[ :jobTitle ]
-        .person__name{ itemprop: "jobTitle" }
-            = locals[ :jobTitle ]
+        .person__name{ itemprop: "jobTitle" }= locals[ :jobTitle ]
 
     -# Person telephone
     - if locals[ :telephone ]
-        .person__name{ itemprop: "telephone" }
-            = locals[ :telephone ]
+        .person__name{ itemprop: "telephone" }= locals[ :telephone ]
 
     -# Person email
     - if locals[ :email ]
-        .person__name{ itemprop: "email" }
-            = mail_to locals[ :email ]
+        .person__name{ itemprop: "email" }= mail_to locals[ :email ]
 
     -# Person url
     - if locals[ :url ]
-        .person__name{ itemprop: "url" }
-            = locals[ :url ]
+        .person__name{ itemprop: "url" }= locals[ :url ]
 
     -# Person nationality
     - if locals[ :nationality ]
-        .person__name{ itemprop: "nationality" }
-            = locals[ :nationality ]
+        .person__name{ itemprop: "nationality" }= locals[ :nationality ]

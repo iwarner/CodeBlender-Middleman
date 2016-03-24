@@ -3,9 +3,7 @@
 -#
 -# @usage
 -# -# Input
--# = partial "atom/input/input.haml",
--#            locals: { input: { name:  "text" },
--#                      label: { title: "Text Input", extraClass: "sr-only" } }
+-# = codeBlender "input", "atom", { input: { name:  "text" }, label: { title: "Text Input", extraClass: "sr-only" } }
 -#
 -# Made up of several sections - need to create a way to have these all working together
 -# Form Group
@@ -47,16 +45,18 @@
         -# Should include the Sizing for the controls and addons
         %div{ class: input[ :inputGroupClass ] ? input[ :inputGroupClass ] : "input-group" }
 
-            -# Prepend Icon
+            -# Prepend icon
+            -# Any icon here will show refresh when loading say typeahead
             - if locals[ :icon ] and locals[ :icon ][ :prepend ]
-                .input-group-addon
+                = codeBlender "icon", "atom", { extraClass: "input-group-addon", icon: locals[ :icon ][ :prepend ], ng: { hide: "loading" } }
+                = codeBlender "icon", "atom", { extraClass: "input-group-addon", icon: "fa-refresh", ng: { show: "loading" } }
 
-                    -# Icon
-                    = partial "atom/icon/icon.haml", locals: { icon: locals[ :icon ][ :prepend ] }
-
-            -# Prepend Button
+            -# Prepend button
             - if locals[ :button ] and locals[ :button ][ :prepend ]
-                .input-group-btn= locals[ :button ][ :prepend ]
+                %div.input-group-btn= locals[ :button ][ :prepend ]
+
+            -# Variable
+            - extraClass = input[ :extraClass ] ? "form-control #{ input[ :extraClass ] }" : "form-control"
 
             -# Input
             %input{ autocapitalize: input[ :autocapitalize ] ? input[ :autocapitalize ]        : false,
@@ -64,8 +64,8 @@
                     autocorrect:    input[ :autocorrect ]    ? input[ :autocorrect ]           : false,
                     autofocus:      input[ :autofocus ]      ? "autofocus"                     : false,
                     accept:         input[ :accept ]         ? input[ :accept ]                : false,
-                    class:          input[ :extraClass ]     ? input[ :extraClass ]            : "form-control",
-                    :"clear-btn" => '',
+                    class:          extraClass,
+                    clear:          input[ :clear ]          ? { btn: true }                   : false,
                     disabled:       input[ :disabled ]       ? "disabled"                      : false,
                     id:             input[ :name ]           ? input[ :name ]                  : false,
                     name:           input[ :name ]           ? input[ :name ]                  : false,
@@ -76,33 +76,30 @@
                     src:            input[ :src ]            ? input[ :src ]                   : false,
                     title:          input[ :title ]          ? input[ :title ]                 : false,
                     type:           input[ :type ]           ? input[ :type ]                  : "text",
+                    typeahead:      input[ :typeahead ]      ? input[ :typeahead ]             : false,
+                    uib:            input[ :uib ]            ? input[ :uib ]                   : false,
                     value:          input[ :value ]          ? string( input[ :value ] )       : false }
 
-            -# Append Icon
+            -# Append icon
             - if locals[ :icon ] && locals[ :icon ][ :append ]
+                = codeBlender "icon", "atom", { extraClass: "input-group-addon", icon: locals[ :icon ][ :append ] }
 
-                -# Icon
-                = partial "atom/icon/icon.haml", locals: { icon: locals[ :icon ][ :append ] }
-
-            -# Append Button
+            -# Append button
             - if locals[ :button ] && locals[ :button ][ :append ]
-                .input-group-btn= locals[ :button ][ :append ]
+                %span.input-group-btn= locals[ :button ][ :append ]
 
-            -# Password Strength Meter
+            -# Password strength meter
             - if locals[ :strengthMeter ]
-                = partial "molecule/password-strength/password-strength.haml"
+                = codeBlender "password-strength", "molecule"
 
-            -# Form Feedback Icon
+            -# Form feedback icon
             -# Change the class of the icon
             - if locals[ :feedback ]
+                = codeBlender "icon", "atom", { icon: "fa- form-control-feedback ng-hide" }
 
-                -# Icon
-                = partial "atom/icon/icon.haml", locals: { icon: "fa- form-control-feedback ng-hide" }
-
-        -# Help Block
+        -# Help block
         -# Sometimes this should be hidden to allow errors to be added inside.
         -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
         - if locals[ :help ]
 
-            %span.help-block{ ng: locals[ :help ][ :ng ] }
-                = locals[ :help ][ :content ]
+            %span.help-block{ ng: locals[ :help ][ :ng ] }= locals[ :help ][ :content ]

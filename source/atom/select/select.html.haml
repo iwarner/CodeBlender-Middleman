@@ -61,21 +61,19 @@ selectArray2 :
 
 ---
 
-- id = 1
-
 -# Variables
 - @cd = current_page.data
 
 -# Default
 :ruby
-    code = %{partial "atom/select/select.haml", locals: { array: @cd.selectArray1, label: { title: "Label" }, name: "ID" }}
+    code = %{codeBlender "select", "atom", { array: @cd.selectArray1, label: { title: "Label" }, name: "ID" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Different Value and Option", text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Different Value and Option", text: "Default" } }
 
 -# Default
 :ruby
-    code = %{partial "atom/select/select.haml", locals: { array: @cd.selectArray2, label: { title: "Label" }, name: "ID" }}
+    code = %{codeBlender "select", "atom", { array: @cd.selectArray2, label: { title: "Label" }, name: "ID" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Same Value and Option", text: "Optimised" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Same Value and Option", text: "Optimised" } }

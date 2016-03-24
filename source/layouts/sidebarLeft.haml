@@ -12,10 +12,11 @@
 -##
 
 -# Variable
-- d = current_page.data
+- d  = current_page.data
+- dc = data.config
 
 -# Layout - calls wrapper layout
-= wrap_layout "_codeBlender/bootstrap" do
+= wrap_layout "#{ config[ :layout_dir ] }bootstrap" do
 
     -# Bootstrap container
     .container
@@ -32,35 +33,33 @@
             -# Bootstrap column
             .col-md-9.mainContent
 
-                - if data.config.breadcrumbs
+                -# Heading - H2
+                - if dc.heading
+                    = codeBlender "heading", "molecule", { extraClass: "heading--noMargin", pageHeader: true, small: d.heading.small, tag: "h2", text: d.heading.title }
 
-                    -# Breadcrumb
+                -# Breadcrumb
+                - if dc.breadcrumbs
                     = codeBlender "breadcrumb", "molecule"
 
-                - if data.config.heading
-
-                    -# Heading - H2
-                    = codeBlender "heading", "molecule", { small: d.heading.small, tag: "h2", text: d.heading.title }
-
                 -# Detail
-                - if data.config.description
+                - if dc.description
                     %p= string d.description
 
                 -# Local
-                - if data.config.locals
+                - if dc.locals
                     = codeBlender "local", "organism"
 
                 -# Yield
                 = yield
 
                 -# Resource
-                - if data.config.resources
+                - if dc.resources
                     = codeBlender "resource", "organism"
 
                 -# Asset
-                - if data.config.assets
+                - if dc.assets
                     = codeBlender "asset", "organism"
 
                 -# Todo
-                - if data.config.todo
+                - if dc.todo
                     = codeBlender "todo", "organism"

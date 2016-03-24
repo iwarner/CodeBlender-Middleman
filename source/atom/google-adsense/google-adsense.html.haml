@@ -30,16 +30,13 @@ todo :
 
 ---
 
--# ID
-- id = 0
-
 :markdown
 
     Adsense instructions
 
 -# Default
 :ruby
-    code = %{partial "atom/google-adsense/google-adsense.haml", locals: { slot: 9670063286, width: 468, height: 60 }}
+    code = %{codeBlender "google-adsense", "atom", { slot: 9670063286, width: 468, height: 60 }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

@@ -25,8 +25,7 @@ todo :
     .col-md-4
 
         -# Pricing Table
-        = partial "organism/pricing-table/pricing-table.haml",
-                   locals: { array:      [ { title: "Set treatment prices of &pound;60" } ],
+        = codeBlender "pricing-table", "organism", { array:      [ { title: "Set treatment prices of &pound;60" } ],
                              color:      "info",
                              footerText: "More Info >>",
                              heading:    { text: "Pay as You Go" },
@@ -35,8 +34,7 @@ todo :
 /     .col-md-4
 
 /         -# Pricing Table
-/         = partial "organism/pricing-table/pricing-table.haml",
-/                 locals { :array      [ { :title "Only &pound;60 per Month" },
+/         = codeBlender "pricing-table", "organism", { :array      [ { :title "Only &pound;60 per Month" },
 /                                                  { :title "One FREE massage per month" },
 /                                                  { :title "Every Treatment 33% off!" },
 /                                                  { :title "That's only &pound;40 per Treatment" },
@@ -48,8 +46,7 @@ todo :
 /     .col-md-4
 
 /         -# Pricing Table
-/         = partial "organism/pricing-table/pricing-table.haml",
-/                 locals { :array      [ { :title "Minimum £240 initial deposit" },
+/         = codeBlender "pricing-table", "organism", { :array      [ { :title "Minimum £240 initial deposit" },
 /                                                  { :title "Every treatment is 25% off!" } ],
 /                              color      "success",
 /                              footerText "More Info >>",
@@ -61,8 +58,7 @@ todo :
 /             the background image. In this example we are using holderJS
 
 /         -# Pricing Table
-/         = partial "organism/pricing-table/pricing-table.haml",
-/                 locals { :array      [ { :title "&pound;60 per hour" },
+/         = codeBlender "pricing-table", "organism", { :array      [ { :title "&pound;60 per hour" },
 /                                                  { :title "Increase flexibility" },
 /                                                  { :title "Increase blood circulation" },
 /                                                  { :title "Re-balancing body" },

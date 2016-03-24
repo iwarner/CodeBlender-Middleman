@@ -15,23 +15,16 @@ see :
     - - "Bootstrap Tab"
       - "http://getbootstrap.com/javascript/#tabs"
 
-todo :
-    - - ""
-
 ---
-
--# ID
-- id = 0
 
 -# Toggle tabs tab.js
 :ruby
-    code = %{partial "molecule/nav/nav.haml",
-                      locals: { array:  [ { url: "#details4",  text: "Details" },
+    code = %{codeBlender "nav", "molecule", { array:  [ { url: "#details4",  text: "Details" },
                                           { url: "#download4", text: "Download"} ],
                                 toggle: true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Requires tab.js", text: "Toggle tabs" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Requires tab.js", text: "Toggle tabs" } }
 
 -# Tab Content
 .tab-content

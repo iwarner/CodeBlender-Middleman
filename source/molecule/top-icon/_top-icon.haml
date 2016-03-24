@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Top Icon
--# = partial "molecule/top-icon/top-icon.haml"
+-# = codeBlender "top-icon", "molecule"
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -15,4 +15,4 @@
         = link_to( "javascript:;", title: "Scroll to top", ng: { click: "topIcon.gotoTop()" } ) do
 
             -# Icon
-            = partial "atom/icon/icon.haml", locals: { icon: "fa-chevron-up" }
+            = codeBlender "icon", "atom", { icon: "fa-chevron-up" }

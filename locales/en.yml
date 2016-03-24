@@ -21,6 +21,23 @@ en:
         previous : "Previous"
         last     : "Last"
 
+    # Search
+    search-input :
+        button :
+            text : "Search"
+        input:
+            placeholder : "Search..."
+        label :
+            label : "Search"
+
+    # Code
+    code :
+        tab :
+            - text : "Code"
+              url  : "#code"
+            - text : "Output"
+              url  : "#output"
+
     # MailChimp
     mailChimp :
         title     : "Newsletter"

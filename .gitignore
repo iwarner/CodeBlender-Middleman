@@ -1,11 +1,18 @@
 # Middleman #
 #############
-.sass-cache/
-.cache/
+.sass-cache
+.cache
 Gemfile.lock
 composer.lock
-www/
-build/
+build
+.bundle
+.divshot-cache
+.mm-pid-*
+.rbenv-version
+.ruby-version
+.rvmrc
+bin
+/.tmp/
 
 # Composer #
 ############
@@ -25,7 +32,6 @@ bower_components
 
 # Cordova #
 ###########
-node_modules/
 platforms/
 plugins/
 

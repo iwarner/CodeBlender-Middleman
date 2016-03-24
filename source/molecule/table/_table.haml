@@ -1,5 +1,5 @@
 -##
--# Bootstrap table
+-# Table
 -#
 -# @usage
 -# Frontmatter Array
@@ -12,20 +12,19 @@
 -#             data:    array ? array : current_page.data.data }
 -#
 -# -# Table
--# = partial "molecule/table/table.haml",
--#            locals: { array:      array,
--#                      extraClass: "table-striped table-condensed" }
+-# = codeBlender "table", "molecule", { array: array, extraClass: "table-striped table-condensed" }
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
+-# Variable
+- id         = locals[ :id ]         ? locals[ :id ]         : false
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false
+- hidden     = locals[ :hidden ]     ? "hidden"              : false
+
 -# Table
-%table.table{ aria:   { describedby: "dataTable_info" },
-              role:   "grid",
-              id:     locals[ :id ]         ? id         : false,
-              class:  locals[ :extraClass ] ? extraClass : false,
-              hidden: locals[ :hidden ]     ? "hidden"   : false  }
+%table.table{ role: "grid", id: id, class: extraClass, hidden: hidden, aria: { describedby: "dataTable_info" } }
 
     -# Header
     %thead
@@ -38,6 +37,7 @@
 
     -# Footer
     - if locals[ :footer ]
+
         %tfoot
 
             %tr
@@ -45,7 +45,6 @@
                 -# Loop through the columns section to create the Header Row
                 - array[ :column ].each do | column |
                     %th= string column
-
 
     -# Body
     - if array[ :data ]
@@ -58,10 +57,10 @@
                 -# Check to see if there is a context
                 - context = false
 
-                / - if row.is_a?( Array )
-                /     - context = row.detect { | f | f[ "context" ] }
+                -# - if row.is_a?( Array )
+                -#     - context = row.detect { | f | f[ "context" ] }
 
-                -# Table Row
+                -# Table row
                 %tr{ class: context ? context[ :context ] : false }
 
                     -# Loop through the data cells

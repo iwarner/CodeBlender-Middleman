@@ -21,16 +21,12 @@ todo :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "molecule/tooltip/tooltip.haml",
-                      locals: { content:   "Default",
+    code = %{codeBlender "tooltip", "molecule", { content: "Default",
                                 placement: "auto top",
                                 popBody:   "Tooltip Body Copy",
                                 popTitle:  "Tooltip Default" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Auto positioned tooltip", text: "Default tooltip" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Auto positioned tooltip", text: "Default tooltip" } }

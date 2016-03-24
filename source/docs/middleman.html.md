@@ -95,7 +95,7 @@ JavaScript file.
     $ ps aux | grep middleman
     $ sudo kill -9 15106
 
-## Partials
+## Partial
 
 Check out overriding partial helpers
 https://gist.github.com/vernonk/4969096

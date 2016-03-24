@@ -3,7 +3,7 @@
 -#
 -# Locals
 -# aria      - Aria Elements
--#     label     - string - optioanl - If no elements describe this then add text
+-#     label     - string - optional - If no elements describe this then add text
 -#     labeledby - string - optional - Use a list of ids that describe this element
 -# autofocus - bool   - optional - Whether this input should be autofocussed
 -# disabled  - bool   - optional - Disabled
@@ -17,10 +17,7 @@
 -#
 -# Usage
 -# -# Checkbox
--# = partial "atom/radio/radio.haml",
--#            :locals => { :aria => { :label => "HERE", },
--#                         :name => "checkbox",
--#                         :text => "Textual description here" }
+-# = codeBlender "radio", "atom", { :aria => { :label => "HERE", }, :name => "checkbox", :text => "Textual description here" }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##

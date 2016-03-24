@@ -40,7 +40,7 @@ with the following command
 
 ~~~ruby
 -# Tag Cloud
-= partial "molecule/tag-cloud/tag-cloud"
+= codeBlender "tag-cloud", "molecule"
 ~~~
 
 ## Footer

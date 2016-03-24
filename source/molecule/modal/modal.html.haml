@@ -57,14 +57,14 @@ locals :
 ---
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Overlapping modals not supported" }
+= codeBlender "heading", "molecule", { tag: "h2", text: "Overlapping modals not supported" }
 
 %p
     Be sure not to open a modal while another is still visible. Showing more than
     one modal at a time requires custom code.
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Modal markup placement" }
+= codeBlender "heading", "molecule", { tag: "h2", text: "Modal markup placement" }
 
 %p
     Always try to place a modal's HTML code in a top-level position in your
@@ -72,7 +72,7 @@ locals :
     functionality.
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Default" }
+= codeBlender "heading", "molecule", { tag: "h2", text: "Default" }
 
 -# Title
 - title = "Modal Title"
@@ -82,7 +82,7 @@ locals :
     %p Modal Body
 
 -# Modal
-= partial "molecule/modal/modal.haml", locals: { id: "myModal", body: body, title: title }
+= codeBlender "modal", "molecule", { id: "myModal", body: body, title: title }
 
 -# Button
-= partial "atom/button/button.haml", locals: { context: "primary", text: "Launch Modal", data: { target: "#myModal", toggle: "modal" } }
+= codeBlender "button", "atom", { context: "primary", text: "Launch Modal", data: { target: "#myModal", toggle: "modal" } }

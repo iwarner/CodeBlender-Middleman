@@ -9,7 +9,7 @@ meta :
     type        : "website"
 
 heading :
-    title : "Form Checkbox"
+    title : "Checkbox"
 
 see :
     - - "Bootstrap supported controls"
@@ -34,7 +34,7 @@ todo :
 ---
 
 -# Heading - H2
-= partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Checkbox" }
+= codeBlender "heading", "molecule", { tag: "h2", text: "Checkbox" }
 
 -# Form
 %form{ novalidate: false }
@@ -53,49 +53,49 @@ todo :
 / :code
 /     #lang: ruby
 /     -# Checkbox
-/     = partial "atom/checkbox/checkbox", locals: { name: "checkbox", text: "Textual description here" }
+/     = codeBlender "checkbox", "atom", { name: "checkbox", text: "Textual description here" }
 
 / -# Heading
-/ = partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Disabled Checkbox" }
+/ = codeBlender "heading", "molecule", { tag: "h2", text: "Disabled Checkbox" }
 
 / -# Form
 / %form{ novalidate: false }
 
 /     -# Checkbox
-/     = partial "form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
+/     = codeBlender "checkbox", "atom", { disabled: true, name: "checkbox1", text: "Textual description here" }
 
 / -# Code
 / :code
 /     #lang: ruby
 /     -# Checkbox
-/     = partial "form/checkbox", locals: { disabled: true, name: "checkbox1", text: "Textual description here" }
+/     = codeBlender "checkbox", "atom", { disabled: true, name: "checkbox1", text: "Textual description here" }
 
 / -# Heading
-/ = partial "molecule/heading/heading", locals: { tag: "h2", text: "Fancy Checkbox" }
+/ = codeBlender "heading", "molecule", { tag: "h2", text: "Fancy Checkbox" }
 
 / -# Form
 / %form{ novalidate: false }
 
 /     -# Checkbox
-/     = partial "form/checkbox", locals: { extraClass: "fancy", name: "checkbox2", text: "Textual description here" }
+/     = codeBlender "checkbox", "atom", { extraClass: "fancy", name: "checkbox2", text: "Textual description here" }
 
 / -# Code
 / :code
 /     #lang: ruby
 /     -# Checkbox
-/     = partial "form/checkbox", locals: { extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
+/     = codeBlender "checkbox", "atom", { extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
 
 / -# Heading
-/ = partial "molecule/heading/heading", locals: { tag: "h2", text: "Disabled Fancy Checkbox" }
+/ = codeBlender "heading", "molecule", { tag: "h2", text: "Disabled Fancy Checkbox" }
 
 / -# Form
 / %form{ novalidate: false }
 
 /     -# Checkbox
-/     = partial "form/checkbox", locals: { disabled: true, extraClass: "fancy", name: "checkbox3", text: "Textual description here" }
+/     = codeBlender "checkbox", "atom", { disabled: true, extraClass: "fancy", name: "checkbox3", text: "Textual description here" }
 
 / -# Code
 / :code
 /     #lang: ruby
 /     -# Checkbox
-/     = partial "form/checkbox", locals: { disabled: true, extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
+/     = codeBlender "checkbox", "atom", { disabled: true, extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }

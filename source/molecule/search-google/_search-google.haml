@@ -1,0 +1,28 @@
+-##
+-# Google custom search results
+-# Add the CX tag to the google.yaml - search : "CX"
+-#
+-# @usage
+-# -# Search Google
+-# = codeBlender "search-google", "molecule"
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
+-# @see      https://www.google.com/cse/all
+-# @see      https://www.google.com/webmasters/
+-##
+
+-# Google Search Script
+:javascript
+    ( function() {
+      var cx     = '#{ data.google.search }';
+      var gcse   = document.createElement( 'script' );
+      gcse.type  = 'text/javascript';
+      gcse.async = true;
+      gcse.src   = ( document.location.protocol == 'https:' ? 'https:' : 'http:' ) + '//cse.google.com/cse.js?cx=' + cx;
+      var s      = document.getElementsByTagName( 'script' )[ 0 ];
+      s.parentNode.insertBefore( gcse, s );
+    } )();
+
+-# Google Search Tag
+%gcse:searchresults-only

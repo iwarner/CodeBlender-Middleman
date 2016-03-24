@@ -9,13 +9,13 @@ meta :
     type        : "website"
 
 heading :
-    small : "Button and Navbar dropdown"
+    small : "Button and navigation dropdown"
     title : "Dropdown"
 
 see :
-    - - "Dropdowns"
+    - - "Drop down"
       - "http://getbootstrap.com/components/#dropdowns"
-    - - "Button Dropdowns"
+    - - "Button drop down"
       - "http://getbootstrap.com/components/#btn-dropdowns"
     - - "JavaScript Dropdown"
       - "http://getbootstrap.com/javascript/#dropdowns"
@@ -28,15 +28,9 @@ see :
     - - "Dropdown PSDs"
       - "http://thedesigninspiration.com/articles/40-free-dropdown-and-select-box-psd-designs/"
 
-locals :
-    - - "array"
-      - "array"
-      - "required"
-      - "Array of list items"
-    - - "listClass"
-      - "string"
-      - "optional"
-      - "String of classes for the List element"
+todo :
+    - - "Need to sort out the btn group, dropdown or input btn group elements"
+    - - "Move the see sections to here and todo elements"
 
 list :
     - header  : "Header"
@@ -54,8 +48,6 @@ list :
 
 ---
 
-- id = 1
-
 %p
     Dropdown molecule is collated from two
     %a{ href: "/atom" } atoms.
@@ -65,53 +57,39 @@ list :
     and
     %a{ href: "/atom/list.dropdown.html" } List.
 
-%p
-    Made interactive with the Bootstrap dropdown.js plugin
+%p Made interactive with the Bootstrap dropdown.js plug-in
 
 -# Dropdown
 :ruby
-    code = %{partial "molecule/dropdown/dropdown.haml",
-               locals: { button: { text: "Dropdown" },
-                         list:   { array: [ { text: "Action 1", link: { url: "#" } }, { text: "Action 2", link: { url: "#" } } ] } }}
+    code = %{codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, list: { array: [ { text: "Action 1", link: { url: "#" } }, { text: "Action 2", link: { url: "#" } } ] } }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Dropdown" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Dropdown" } }
 
 -# Dropdown Alignment
 :ruby
-    code = %{partial "molecule/dropdown/dropdown.haml",
-               locals: { button:     { text: "Dropdown" },
-                         list:       { array: current_page.data.list, extraClass: "dropdown-menu-right" } }}
+    code = %{codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, list: { array: current_page.data.list, extraClass: "dropdown-menu-right" } }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Dropdown Alignment" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Dropdown Alignment" } }
 
 -# Dropup
 :ruby
-    code = %{partial "molecule/dropdown/dropdown.haml",
-                      locals: { button:     { text: "Dropdown" },
-                                extraClass: "dropup",
-                                list:       { array: current_page.data.list } }}
+    code = %{codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, extraClass: "dropup", list: { array: current_page.data.list } }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Dropup" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Dropup" } }
 
 -# Button Group
 :ruby
-    code = %{partial "molecule/dropdown/dropdown.haml",
-                      locals: { button:     { text: "Dropdown" },
-                                extraClass: "btn-group",
-                                list:       { array: current_page.data.list } }}
+    code = %{codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, extraClass: "btn-group", list: { array: current_page.data.list } }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Button Group" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Button Group" } }
 
-/ -# Nav Bar Dropdown
-/ :ruby
-/     code = %{partial "molecule/dropdown/dropdown.haml",
-/                       locals: { extraClass: "clearfix",
-/                                 title:      "Drop Down",
-/                                 list:       { array: current_page.data.list } }}
+-# Navigation Bar Dropdown
+:ruby
+    code = %{codeBlender "dropdown", "molecule", { extraClass: "clearfix", title: "Drop Down", list: { array: current_page.data.list } }}
 
-/ -# Code
-/ = partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Navbar Dropdown" } }
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Navbar Dropdown" } }

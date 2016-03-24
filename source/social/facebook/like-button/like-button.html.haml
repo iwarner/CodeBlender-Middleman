@@ -29,10 +29,10 @@ todo :
 ---
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Like Button", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Like Button", tag: "h2" }
 
 -# Like Button
-= partial "molecule/facebook/like-button.haml"
+= codeBlender "molecule/facebook/like-button.haml"
 
 -# Code
 :code
@@ -43,7 +43,7 @@ todo :
 %hr
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Customised Button", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Customised Button", tag: "h2" }
 
 -# Like button
 = partial "molecule/facebook/like-button.haml",
@@ -67,7 +67,7 @@ todo :
 %hr
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Customised Button", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Customised Button", tag: "h2" }
 
 -# Like Button
 = partial "molecule/facebook/like-button.haml",

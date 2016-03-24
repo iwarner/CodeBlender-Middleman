@@ -1,9 +1,4 @@
 ##
-# GeoLocation
-#
-# @author Ian Warner <ian.warner@drykiss.com>
-##
-##
 # GeoLocation Class
 # The geolocation object provides access to location data based on the device's
 # GPS sensor or inferred from network signals.
@@ -25,7 +20,7 @@
 class App.Classes.GeoLocation
 
     ##
-    # Options
+    # Option
     #
     # @see https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions
     ##

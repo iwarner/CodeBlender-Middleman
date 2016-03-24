@@ -18,12 +18,9 @@ see :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
     code = %{partial "social/facebook/follow-button/follow-button.haml"}
 
 -# Code
-= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

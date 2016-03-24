@@ -46,7 +46,7 @@ todo :
 
 -# Widget
 / .row
-/     .col-md-3= partial "e-commerce/widget"
+/     .col-md-3= codeBlender "widget", "organsim"
 
 / -# Check Products exists
 / - if data.products
@@ -64,7 +64,7 @@ todo :
 /             .simpleCart_shelfItem
 
 /                 -# Heading
-/                 = partial "molecule/heading/heading.haml", locals: { extraClass: "item_name", tag: "h3", text: product.title }
+/                 = codeBlender "heading", "molecule", { extraClass: "item_name", tag: "h3", text: product.title }
 
 /                 -# Excerpt
 /                 %p= product.excerpt
@@ -78,8 +78,7 @@ todo :
 /                     = product.cost
 
 /                 -# Button
-/                 = partial "atom/button/button.haml",
-/                            locals: { text:       "Buy",
+/                 = codeBlender "button", "atom", { text:       "Buy",
 /                                      context:    "primary",
 /                                      href:       "javascript:;",
 /                                      extraClass: "item_add pull-right" }
@@ -91,6 +90,5 @@ todo :
 /                                           :zoomix     => true } }
 
 / -# Thumbnails
-/ = partial "bootstrap/component/thumbnails.haml",
-/            locals: { array:      thumbnails,
+/ = codeBlender "thumbnail", "molecule", { array:      thumbnails,
 /                      thumbClass: "styled text-center product" }

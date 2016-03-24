@@ -21,12 +21,9 @@ todo :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "atom/google-analytics/google-analytics.haml"}
+    code = %{codeBlender "google-analytics", "atom"}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

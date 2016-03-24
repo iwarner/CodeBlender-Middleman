@@ -14,7 +14,7 @@ heading :
 see :
     - - "Bootstrap button"
       - "http://getbootstrap.com/css/#buttons"
-    - - "Button Generator"
+    - - "Button generator"
       - "http://www.plugolabs.com/twitter-bootstrap-button-generator-3/"
 
 todo :
@@ -76,54 +76,51 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Vanilla Button
 :ruby
-    code = %{partial "atom/button/button.haml", locals: { text: "Default" }}
+    code = %{codeBlender "button", "atom", { text: "Default" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Vanilla button", text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Vanilla button", text: "Default" } }
 
 -# Link Button
 :ruby
-    code = %{partial "atom/button/button.haml", locals: { text: "Default", href: "#" }}
+    code = %{codeBlender "button", "atom", { text: "Default", href: "#" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Changes button tag to a tag", text: "Link Button" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Changes button tag to a tag", text: "Link Button" } }
 
 -# Button with Context
 :ruby
-    code = %{partial "atom/button/button.haml", locals: { text: "Primary", context: "primary" }}
+    code = %{codeBlender "button", "atom", { text: "Primary", context: "primary" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Primary context change", text: "Primary" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Primary context change", text: "Primary" } }
 
 -# Size variation with Success Context
 :ruby
-    code = %{partial "atom/button/button.haml", locals: { text: "Success large size", context: "success", size: "lg" }}
+    code = %{codeBlender "button", "atom", { text: "Success large size", context: "success", size: "lg" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Success large Size", text: "Large Button" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Success large Size", text: "Large Button" } }
 
 -# Small Block Info Button
 :ruby
-    code = %{partial "atom/button/button.haml", locals: { block: true, text: "Small block info button", context: "info", size: "sm" }}
+    code = %{codeBlender "button", "atom", { block: true, text: "Small block info button", context: "info", size: "sm" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Small block info button" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Small block info button" } }
 
 -# Icon Button
 :ruby
-    code = %{partial "atom/button/button.haml", locals: { text: "info", icon: { prepend: "fa-times" } }}
+    code = %{codeBlender "button", "atom", { text: "info", icon: { prepend: "fa-times" } }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Icon Button" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Icon Button" } }
 
 -# Image Button
 :ruby
-    code = %{partial "atom/button/button.haml", locals: { image: { data: { src: holder( "32x32" ) }}}}
+    code = %{codeBlender "button", "atom", { image: { data: { src: holder( "32x32" ) }}}}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Image Button" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Image Button" } }

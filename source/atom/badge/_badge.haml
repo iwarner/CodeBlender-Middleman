@@ -9,5 +9,8 @@
 -# @category atom
 -##
 
+-# Variable
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false
+
 -# Badge
-%span.badge= string locals[ :text ]
+%span.badge{ class: extraClass }= string locals[ :text ]

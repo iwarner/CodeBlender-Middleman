@@ -1,26 +1,23 @@
 -##
--# Pricing Table
+-# Pricing table
 -#
 -# Locals
 -# array      - Array  - Required - Array of items to show in the list
--# context    - String - Optional - Color of the panel from the global rules
+-# context    - String - Optional - Colour of the panel from the global rules
 -# footerText - String - Optional - Footer Text
 -# heading    - String - Required - Heading text
 -# imageClass - String - Optional - Add an image to the background of the heading
 -# subheading - String - Required - Heading for the body panel
 -#
 -# Usage
--# -# Pricing Table
--# = partial "scaffolding/pricing-table.haml",
--#            locals: { array:      array,
--#                      heading:    "Heading",
--#                      subheading: "Sub Heading" }
+-# -# Pricing table
+-# = codeBlender "pricing-table", "organism", { array: array, heading: "Heading", subheading: "Sub Heading" }
 -#
--# @category organism
 -# @author Ian Warner <ian.warner@drykiss.com>
+-# @category organism
 -##
 
--# Pricing Table
+-# Pricing table
 .panel{ class: locals[ :context ] ? "panel-#{ context }" : "panel-warning" }
 
     -# Heading
@@ -28,16 +25,16 @@
 
         -# Heading
         - heading[ :extraClass ] = "panel-title"
-        = partial "molecule/heading/heading.haml", locals: heading
+        = codeBlender "heading", "molecule", heading
 
     -# Body
     .panel-body{ class: locals[ :imageClass ] ? imageClass : false }
 
         -# Heading
-        = partial "molecule/heading/heading.haml", locals: { text: locals[ :subheading ], tag: "h4" }
+        = codeBlender "heading", "molecule", { text: locals[ :subheading ], tag: "h4" }
 
     -# List Group
-    = partial "molecule/list-group/list-group.haml", locals: { array: array, extraClass: "list-unstyled text-center", list: true }
+    = codeBlender "list-group", "molecule", { array: array, extraClass: "list-unstyled text-center", list: true }
 
     -# Footer
     - if locals[ :footerText ]

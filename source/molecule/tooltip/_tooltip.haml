@@ -3,19 +3,17 @@
 -#
 -# @usage
 -# -# Tooltip
--# = partial "molecule/tooltip/tooltip.haml", locals: { content: "Default", popBody: "Tooltip body", popTitle: "Tooltip" }
+-# = codeBlender "tooltip", "molecule", { content: "Default", popBody: "Tooltip body", popTitle: "Tooltip" }
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# Tooltip
 %div{ "tooltip-directive" => true }
 
     -# Button
-    = partial "atom/button/button.haml",
-               locals: { data:       { placement: locals[ :placement ] ? placement : "auto",
-                                       toggle:    "tooltip" },
+    = codeBlender "button", "atom", { data: { placement: locals[ :placement ] ? placement : "auto", toggle: "tooltip" },
                          extraClass: "popMe",
                          title:      locals[ :popTitle ],
                          text:       locals[ :content ],

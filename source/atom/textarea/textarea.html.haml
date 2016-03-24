@@ -18,12 +18,9 @@ see :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "atom/textarea/textarea.haml", locals: { label: { title: "Textarea" }, name: "textarea" }}
+    code = %{codeBlender "textarea", "atom", { label: { title: "Textarea" }, name: "textarea" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Different Value and Option", text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Different Value and Option", text: "Default" } }

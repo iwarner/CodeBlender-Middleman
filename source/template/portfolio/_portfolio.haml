@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Portfolio
--# = partial "template/portfolio/portfolio.haml"
+-# = codeBlender "portfolio", "template"
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    https://mixitup.kunkalabs.com/
@@ -20,7 +20,7 @@
         .col-md-12.col-sm-12
 
             -# Portfolio blockquote
-            = partial "atom/blockquote/blockquote.haml", locals: string( :"portfolio.recent.heading" )
+            = codeBlender "blockquote", "atom", t :"portfolio.recent.heading"
 
     -# Bootstrap row
     .row
@@ -50,7 +50,7 @@
                         - list << { data: { filter: ".category-#{ category }" }, extraClass: "filter", link: { url: "javascript:;" }, text: category }
 
                 -# List - filter
-                = partial "atom/list/list.ul.haml", locals: { array: list, extraClass: "nav nav-pills" }
+                = codeBlender "list-ul", "atom", { array: list, extraClass: "nav nav-pills" }
 
     -# Bootstrap row
     .row
@@ -75,8 +75,7 @@
                         %a{ href: article.url, title: data.heading.title }
 
                             -# Image
-                            = partial "atom/image/image.haml",
-                                       locals: { alt: data.heading.title, caption: data.heading.title, extraClass: "img-thumbnail", src: data.meta.image }
+                            = codeBlender "image", "atom", { alt: data.heading.title, caption: data.heading.title, extraClass: "img-thumbnail", src: data.meta.image }
 
                         -# Just display the title
                     - else

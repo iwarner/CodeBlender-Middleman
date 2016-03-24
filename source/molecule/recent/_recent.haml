@@ -1,12 +1,12 @@
 -##
--# Blog Recent Articles
+-# Blog recent articles
 -#
 -# @usage
--# -# Blog Recent
--# = partial "molecule/recent/recent"
+-# -# Blog recent
+-# = codeBlender "recent", "molecule"
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -#
 -# @todo Should use the List partial
 -##
@@ -19,7 +19,7 @@
 %section.blogRecent
 
     -# Heading
-    = partial "molecule/heading/heading.haml", locals: { tag: "h4", text: "Recent" }
+    = codeBlender "heading", "molecule", { tag: "h4", text: "Recent" }
 
     -# UL List - Unstyled
     %ul.list-unstyled.blogRecent__ul
@@ -31,7 +31,7 @@
             %li.blogRecent__list
 
                 -# Label
-                = partial "atom/label/label.haml", locals: { extraClass: "blogRecent__label", context: "info", content: article.date.strftime( '%b %e' ) }
+                = codeBlender "label", "atom", { extraClass: "blogRecent__label", context: "info", content: article.date.strftime( '%b %e' ) }
 
                 -# Link to the Article
                 = link_to string( article.data.heading.title ), article

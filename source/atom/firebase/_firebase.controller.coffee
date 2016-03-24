@@ -1,20 +1,21 @@
 ##
-# Firebase Controller
+# Firebase controller
 #
-# @author Ian Warner <ian.warner@drykiss.com>
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category atom
 ##
 
 ##
-# JS Lint
+# JS lint
 ##
 'use strict'
 
 ##
-# Firebase Controller
+# Firebase controller
 ##
 FirebaseController = ( $log, $firebaseAuth, $firebaseArray, FBURL ) ->
 
-    $log.info "Firebase Controller"
+    $log.info "Firebase"
 
     # Instantiate
     fireBase = new Firebase FBURL
@@ -66,7 +67,7 @@ FirebaseController = ( $log, $firebaseAuth, $firebaseArray, FBURL ) ->
     # , remember: 'sessionOnly'
 
     ##
-    # Change Email
+    # Change email
     ##
     # fireBase.changeEmail {
 

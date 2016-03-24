@@ -60,9 +60,6 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 :markdown
 
     Middleman contains some placeholder image shortcuts to use during quick
@@ -75,42 +72,42 @@ locals :
 
 -# Default Image
 :ruby
-    code = %{partial "atom/image/image.haml", locals: { src: loremPixel() }}
+    code = %{codeBlender "image", "atom", { src: loremPixel() }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default image" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default image" } }
 
 -# Caption Image
 :ruby
-    code = %{partial "atom/image/image.haml", locals: { src: loremPixel(), extraClass: "img-thumbnail", caption: "HERE" }}
+    code = %{codeBlender "image", "atom", { src: loremPixel(), extraClass: "img-thumbnail", caption: "HERE" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Caption image" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Caption image" } }
 
 -# Angular Image
 :ruby
-    code = %{partial "atom/image/image.haml", locals: { ng: { src: loremPixel() } }}
+    code = %{codeBlender "image", "atom", { ng: { src: loremPixel() } }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Angular image" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Angular image" } }
 
 -# Thumbnail Image
 :ruby
-    code = %{partial "atom/image/image.haml", locals: { src: loremPixel(), extraClass: "img-thumbnail" }}
+    code = %{codeBlender "image", "atom", { src: loremPixel(), extraClass: "img-thumbnail" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Thumbnail image" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Thumbnail image" } }
 
 -# Circle Image
 :ruby
-    code = %{partial "atom/image/image.haml", locals: { src: loremPixel(), extraClass: "img-circle" }}
+    code = %{codeBlender "image", "atom", { src: loremPixel(), extraClass: "img-circle" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Circle image" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Circle image" } }
 
 -# Rounded Image
 :ruby
-    code = %{partial "atom/image/image.haml", locals: { src: loremPixel( "200/200", "Rounded", "abstract" ), extraClass: "img-rounded" }}
+    code = %{codeBlender "image", "atom", { src: loremPixel( "200/200", "Rounded", "abstract" ), extraClass: "img-rounded" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Rounded image" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Rounded image" } }

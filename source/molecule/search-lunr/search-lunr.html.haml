@@ -1,0 +1,50 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Search lunr - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Search lunr - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Search lunr"
+
+see :
+    - - "Lunr"
+      - "http://lunrjs.com/"
+    - - "Jekyll Lunr Search"
+      - "https://github.com/slashdotdash/jekyll-lunr-js-search"
+
+---
+
+-# Search lunr
+:ruby
+    code = %{codeBlender "search-lunr", "molecule"}
+
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+
+-# Form
+%form.searchForm{ action: "", method: "POST", novalidate: true }
+
+    -# Input
+    = codeBlender "input", "atom",  { input: { name:  "search" }, label: { title: "Search" } }
+
+    -# Button - Submit
+    = codeBlender "button", "atom", { context: "primary", text: "Submit" }
+
+-# Search Results Placeholder
+.searchResults
+
+-# Search Results Underscore Template
+%script#search_template{ type: "text/template" }
+
+    %ul.list-unstyled
+
+        %li{ :"data-question-id" => "{{ id }}" }
+
+            %h2
+                %a{ href: "#" } {{ title }}
+
+            %p {{ tags }}

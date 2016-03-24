@@ -32,51 +32,43 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "molecule/list-group/list-group.haml",
-                      locals: { array: [ { active: true, title:  lorem.words( 2 ), url: "index.html" },
+    code = %{codeBlender "list-group", "molecule", { array: [ { active: true, title:  lorem.words( 2 ), url: "index.html" },
                                          { title:  lorem.words( 2 ), url: "index.html" } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 -# With Badges
 :ruby
-    code = %{partial "molecule/list-group/list-group.haml",
-                      locals: { array: [ { badge: "14", title: lorem.words( 2 ), url: "#" },
+    code = %{codeBlender "list-group", "molecule", { array: [ { badge: "14", title: lorem.words( 2 ), url: "#" },
                                          { active: true, badge: "14", title: lorem.words( 2 ), url: "#" } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "List Group With Badges" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "List Group With Badges" } }
 
 -# Contextual
 :ruby
-    code = %{partial "molecule/list-group/list-group.haml",
-                      locals: { array: [ { title: lorem.words( 2 ), url: "#", context: "success" },
+    code = %{codeBlender "list-group", "molecule", { array: [ { title: lorem.words( 2 ), url: "#", context: "success" },
                                          { title: lorem.words( 2 ), url: "#", context: "danger" } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Contextual" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Contextual" } }
 
 -# Content
 :ruby
-    code = %{partial "molecule/list-group/list-group.haml",
-                      locals: { array: [ { badge: "14", heading: lorem.words( 2 ), text: lorem.words( 20 ), url: "#" },
+    code = %{codeBlender "list-group", "molecule", { array: [ { badge: "14", heading: lorem.words( 2 ), text: lorem.words( 20 ), url: "#" },
                                          { heading: lorem.words( 2 ), text: lorem.words( 20 ), url: "#" } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Content" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Content" } }
 
 -# Non-Linked
 :ruby
-    code = %{partial "molecule/list-group/list-group.haml",
-                      locals: { array: [ { title: lorem.words( 2 ) },
+    code = %{codeBlender "list-group", "molecule", { array: [ { title: lorem.words( 2 ) },
                                          { title: lorem.words( 2 ) } ],
                                 list:  true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Non-Linked" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Non-Linked" } }

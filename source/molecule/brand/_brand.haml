@@ -4,7 +4,7 @@
 -#
 -# @usage
 -# -# Brand
--# = partial "molecule/brand/brand.haml"
+-# = codeBlender "brand", "molecule"
 -#
 -# @category molecule
 -# @stub     brand
@@ -13,20 +13,17 @@
 -# @todo Uses the same navigation YAML file at moment make this separate
 -##
 
--# Variables
+-# Variable
 - brand = data.navigation.brand
 
 -# Show Heading
 - if brand.heading.active
 
     -# Heading H1
-    = partial "molecule/heading/heading.haml", locals: { icon: brand.icon.icon, href: brand.link.url, text: :"navAbove.title", itemprop: "headline" }
+    = codeBlender "heading", "molecule", { icon: brand.icon.icon, href: brand.link.url, text: :"navAbove.title", itemprop: "headline" }
 
 -# Show Image
 - if brand.logo.active
 
     -# Image
-    = partial "atom/image/image.haml",
-               locals: { alt:  brand.logo.alt,
-                         size: [ brand.logo.width, brand.logo.height ],
-                         src:  brand.logo.url ? brand.logo.url : "logo/logo.png" }
+    = codeBlender "image", "atom", { alt:  brand.logo.alt, size: [ brand.logo.width, brand.logo.height ], src: brand.logo.url ? brand.logo.url : "logo/logo.png" }

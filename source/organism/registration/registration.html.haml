@@ -23,7 +23,7 @@ see :
     .col-md-6
 
         -# Heading
-        = partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Sign Up" }
+        = codeBlender "heading", "molecule", { tag: "h2", text: "Sign Up" }
 
         -# Register Form
         %form.registerForm{ action: "#", method: "post", novalidate: true }
@@ -32,8 +32,7 @@ see :
                 Enter your personal details
 
 /             -# Full Name
-/             = partial "atom/input/input.haml",
-/                        :locals => { :help  => { true },
+/             = codeBlender "input", "atom", { :help  => { true },
 /                                     :icon  => { :prepend => "fa-font fa-fw" },
 /                                     :input => { :autocomplete    => "on",
 /                                                 :inputGroupClass => "input-group",
@@ -45,8 +44,7 @@ see :
 /                                                 :title      => "Name" } }
 
 /             -# Address 1
-/             = partial "atom/input/input.haml",
-/                        :locals => { :help  => {true},
+/             = codeBlender "input", "atom", { :help  => {true},
 /                                     :icon  => { :prepend => "fa-map-marker fa-fw" },
 /                                     :input => { :autocomplete    => "on",
 /                                                 :inputGroupClass => "input-group",
@@ -58,8 +56,7 @@ see :
 /                                                 :title      => "Address 1" } }
 
 /             -# Address 2
-/             = partial "atom/input/input.haml",
-/                        :locals => { :help  => {true},
+/             = codeBlender "input", "atom", { :help  => {true},
 /                                     :icon  => { :prepend => "fa-map-marker fa-fw" },
 /                                     :input => { :autocomplete    => "on",
 /                                                 :inputGroupClass => "input-group",
@@ -71,8 +68,7 @@ see :
 /                                                 :title      => "Address 2" } }
 
 /             -# City / Town
-/             = partial "atom/input/input.haml",
-/                        :locals => { :help  => {true},
+/             = codeBlender "input", "atom", { :help  => {true},
 /                                     :icon  => { :prepend => "fa-map-marker fa-fw" },
 /                                     :input => { :autocomplete    => "on",
 /                                                 :inputGroupClass => "input-group",
@@ -84,8 +80,7 @@ see :
 /                                                 :title      => "City/Town" } }
 
 /             -# County
-/             = partial "atom/input/input.haml",
-/                        :locals => { :help  => {true},
+/             = codeBlender "input", "atom", { :help  => {true},
 /                                     :icon  => { :prepend => "fa-map-marker fa-fw" },
 /                                     :input => { :autocomplete    => "on",
 /                                                 :inputGroupClass => "input-group",
@@ -97,8 +92,7 @@ see :
 /                                                 :title      => "County" } }
 
 /             -# Country
-/             = partial "form/select.haml",
-/                        :locals => { :array => [ [ "United Kingdom", "44" ], [ "USA", "1" ] ],
+/             = codeBlender "select", "atom", { :array => [ [ "United Kingdom", "44" ], [ "USA", "1" ] ],
 /                                     :name  => "registerCountry",
 /                                     :label => { :extraClass => "sr-only",
 /                                                 :title      => "City/Town" } }
@@ -106,8 +100,7 @@ see :
 /             %p Enter your account details
 
 /             -# Email
-/             = partial "atom/input/input.haml",
-/                        :locals => { :help  => {true},
+/             = codeBlender "input", "atom", { :help  => {true},
 /                                     :icon  => { :prepend => "fa-envelope fa-fw" },
 /                                     :input => { :autocomplete    => "on",
 /                                                 :inputGroupClass => "input-group",
@@ -120,8 +113,7 @@ see :
 /                                                 :title      => "Email" } }
 
 /             -# Password
-/             = partial "atom/input/input.haml",
-/                        :locals => { :help  => {true},
+/             = codeBlender "input", "atom", { :help  => {true},
 /                                     :icon  => { :prepend => "fa-lock fa-fw" },
 /                                     :input => { :autocomplete    => "off",
 /                                                 :inputGroupClass => "input-group",
@@ -133,8 +125,7 @@ see :
 /                                                 :title      => "Password" } }
 
 /             -# Password Confirm
-/             = partial "atom/input/input.haml",
-/                        :locals => { :help  => {true},
+/             = codeBlender "input", "atom", { :help  => {true},
 /                                     :icon  => { :prepend => "fa-lock fa-fw" },
 /                                     :input => { :autocomplete    => "off",
 /                                                 :inputGroupClass => "input-group",
@@ -149,8 +140,7 @@ see :
 /                 I agree to the Terms of Service and Privacy Policy
 
 /             -# Submit
-/             = partial "atom/button/button.haml",
-/                        locals: { context:    "primary",
+/             = codeBlender "button", "atom", { context: "primary",
 /                                  text:       "Sign Up",
 /                                  extraClass: "pull-right",
 /                                  icon:       "fa-chevron-circle-right" }

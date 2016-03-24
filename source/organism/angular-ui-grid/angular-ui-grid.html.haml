@@ -35,7 +35,7 @@ todo :
 ---
 
 -# Angular UI grid controls
-= partial "organism/angular-ui-grid/angular-ui-grid-controls.haml"
+= codeBlender "angular-ui-grid-controls", "organism"
 
 -# Bootstrap row
 .row
@@ -46,8 +46,7 @@ todo :
         %form
 
             -# Input - search
-            = partial "atom/input/input.haml",
-                       locals: { input: { inputGroupClass: "input-group",
+            = codeBlender "input", "atom", { input: { inputGroupClass: "input-group",
                                           placeholder:     "Search",
                                           name:            "Search",
                                           ng:              { change: "content.searchData()", model: "content.searchText" },
@@ -58,7 +57,7 @@ todo :
     .col-md-6.text-right
 
         -# Button
-        = partial "atom/button/button.haml", locals: { context: "primary", size: "lg", icon: { prepend: "fa-plus" }, ng: { click: "content.addModal()" } }
+        = codeBlender "button", "atom", { context: "primary", size: "lg", icon: { prepend: "fa-plus" }, ng: { click: "content.addModal()" } }
 
 -# Bootstrap row
 .row

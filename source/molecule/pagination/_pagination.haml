@@ -7,7 +7,7 @@
 -# - nextPage = next_page ? next_page.url : false
 -#
 -# -# Pagination
--# = partial "molecule/pagination/pagination", locals: { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
+-# = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
 -#
 -# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>

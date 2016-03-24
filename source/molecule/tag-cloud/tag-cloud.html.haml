@@ -29,12 +29,9 @@ todo :
 
 ---
 
--# ID
-- id = 0
-
 -# Tags
 :ruby
-    code = %{partial "molecule/tag-cloud/tag-cloud.haml"}
+    code = %{codeBlender "tag-cloud", "molecule"}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

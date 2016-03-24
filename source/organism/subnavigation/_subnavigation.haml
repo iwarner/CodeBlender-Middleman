@@ -6,7 +6,7 @@
 -#
 -# @usage
 -# -# Sub navigation
--# = partial "organism/subnavigation/subnavigation.haml"
+-# = codeBlender "subnavigation", "organism"
 -#
 -# @category organism
 -# @author   Ian Warner <ian.warner@drykiss.com>
@@ -47,7 +47,7 @@
         %nav.subNavigation
 
             -# Nav list group
-            = partial "molecule/list-group/list-group.haml", locals: { array: data.subnavigation[ section[ 0 ] ] }
+            = codeBlender "list-group", "molecule", { array: data.subnavigation[ section[ 0 ] ] }
 
 -# Debug
 -# %br= section[ 0 ]

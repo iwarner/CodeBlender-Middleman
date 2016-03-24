@@ -39,7 +39,7 @@ datasource :
             - "Row 2 Column 4"
 
 see :
-    - - "Bootstrap Tables"
+    - - "Bootstrap table"
       - "http://getbootstrap.com/css/#tables"
 
 todo :
@@ -64,34 +64,30 @@ locals :
 
 ---
 
-- id = 0
-
 %p
     The table will detect a context { "context" : "info" } element and colour the
     row accordingly. Also any cell that contain http will be linked automatically.
 
 / -# Default
 / :ruby
-/     code = %{partial "molecule/table/table.haml", locals: { array: current_page.data.datasource }}
+/     code = %{codeBlender "table", "molecule", { array: current_page.data.datasource }}
 
 / -# Code
-/ = partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+/ = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 / -# Pretty
 / :ruby
-/     code = %{partial "molecule/table/table.haml",
-/                       locals: { array:      current_page.data.datasource,
+/     code = %{codeBlender "table", "molecule", { array:      current_page.data.datasource,
 /                                 tableClass: "table-striped table-bordered table-hover table-condensed" }}
 
 / -# Code
-/ = partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Pretty" } }
+/ = codeBlender "code", "organism", { code: code, heading: { text: "Pretty" } }
 
 / -# Responsive
 / :ruby
-/     code = %{partial "molecule/table/table.haml",
-/                       locals: { array:      current_page.data.datasource,
+/     code = %{codeBlender "table", "molecule", { array:      current_page.data.datasource,
 /                                 responsive: true,
 /                                 tableClass: "table-striped table-bordered table-hover table-condensed" }}
 
 / -# Code
-/ = partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Responsive" } }
+/ = codeBlender "code", "organism", { code: code, heading: { text: "Responsive" } }

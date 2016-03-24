@@ -1,0 +1,70 @@
+//
+// Loading
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category atom
+//
+// @todo Use mix-ins for browser defaults
+//----------------------------------------------------------------------------//
+
+// Loading
+//----------------------------------------------------------------------------//
+.loading {
+
+    background-color : rgba( 255, 255, 255, 0.7 );
+    height           : 100%;
+    position         : fixed;
+    top              : 0;
+    width            : 100%;
+    z-index          : 99999;
+
+    // Spinner
+    //------------------------------------------------------------------------//
+    &__spinner {
+        animation  : rotate 2.0s infinite linear;
+        height     : 40px;
+        margin     : -50px auto;
+        position   : relative;
+        text-align : center;
+        top        : 50%;
+        width      : 40px;
+    }
+
+    // Dot
+    //------------------------------------------------------------------------//
+    &__dot1, &__dot2 {
+        animation        : bounce 2.0s infinite ease-in-out;
+        background-color : grey;
+        border-radius    : 100%;
+        display          : inline-block;
+        height           : 60%;
+        position         : absolute;
+        top              : 0;
+        width            : 60%;
+    }
+
+    // Dot2
+    //------------------------------------------------------------------------//
+    &__dot2 {
+        animation-delay : -1.0s;
+        bottom          : 0px;
+        top             : auto;
+    }
+
+    // Animation
+    //------------------------------------------------------------------------//
+    @keyframes rotate {
+        100% { transform: rotate( 360deg ); }
+    }
+
+    // Keyframe
+    //------------------------------------------------------------------------//
+    @keyframes bounce {
+        0%, 100% {
+            transform : scale( 0.0 );
+        } 50% {
+            transform : scale( 1.0 );
+        }
+    }
+
+}

@@ -4,21 +4,19 @@
 -#
 -# @usage
 -# -# Code
--# = partial "organism/code/code", locals: { id: id += 1, code: code, heading: { text: "Text" } }
+-# = codeBlender "code", "organism", { code: code, heading: { text: "Text" } }
 -#
--# Please make sure to add - id = 1 in the page where the code partial is being applied
--#
--# @param id      Follow rule above to auto increment this
 -# @param code    The captured code fragment
 -# @param heading Textual heading
 -# @param lang    Code fragment language | default: haml
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @see    http://codeblender.net/organism/code
--#
--# @todo Provide a means for the code block to be expanded and contracted, default as collapsed
--# @todo Split out the Tabs array into a HAML hash - use partial
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category organism
+-# @see      http://codeblender.net/organism/code
 -##
+
+-# Variable
+- seed = Random.new_seed
 
 -# Language - default Ruby
 - lang = locals[ :lang ] ? lang : "ruby"
@@ -26,16 +24,13 @@
 -# Code
 .code
 
-    -# Heading - Main
-    - if locals[ :heading ]
-        - locals[ :heading ][ :tag ] = "h3"
-        = partial "molecule/heading/heading.haml", locals: locals[ :heading ]
-
     -# Example
     .code__example
 
-        -# Heading - Example
-        = partial "molecule/heading/heading.haml", locals: { tag: "h5", text: "EXAMPLE" }
+        -# Heading - H4
+        - if locals[ :heading ]
+            - locals[ :heading ][ :tag ] = "h4"
+            = codeBlender "heading", "molecule", locals[ :heading ]
 
         -# Block
         = eval locals[ :code ]
@@ -45,31 +40,29 @@
     .code__code{ ng: { controller: "CodeController as code" } }
 
         -# Zero Clipboard - Copy
-        = partial "atom/zero-clipboard/zero-clipboard.haml", locals: { extraClass: "code__clip", model: "code.copy( '#{ locals[ :id ] }' )" }
+        = codeBlender "zero-clipboard", "atom", { extraClass: "code__clip", model: "code.copy( '#{ seed.to_s }' )" }
 
         -# Navigation tabs - For code and output
-        = partial "molecule/nav/nav.haml",
-                   locals: { array:  [ { url: "#code#{ locals[ :id ] }",   text: "Code" },
-                                       { url: "#output#{ locals[ :id ] }", text: "Output" } ],
-                             toggle: true }
+        - array =  t( :"code.tab" ).map{ | h | h.merge( url: h[ :url ] + seed.to_s ) }
+        = codeBlender "nav", "molecule", { array: array, toggle: true }
 
         -# Capture Content
         - capture = capture_html do
             = eval locals[ :code ]
 
         -# Tab Content
-        .tab-content{ id: "codeCopy#{ locals[ :id ] }" }
+        .tab-content{ id: "codeCopy#{ seed.to_s }" }
 
             -# Code Tab
             -# :code filter through middleman-syntax
-            .tab-pane.active{ id: locals[ :id ] ? "code#{ id }" : "code1" }
+            .tab-pane.active{ id: "code#{ seed.to_s }" }
                 :code
                     #lang: #{ lang }
                     = #{ locals[ :code ] }
                 -#
 
             -# Output Tab
-            .tab-pane{ id: locals[ :id ] ? "output#{ id }" : "output1" }
+            .tab-pane{ id: "output#{ seed.to_s }" }
                 :code
                     #lang: html
                     #{ capture }

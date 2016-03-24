@@ -12,16 +12,6 @@ heading :
     small : "Navigation component"
     title : "Navbar"
 
-/ navigation :
-/     - :text : My Offers
-/       :url  : /offers
-/     - :text : My Bookmarks
-/       :url  : /bookmarks
-/     - :text : Offer Activity
-/       :url  : /activity
-/     - :text : Account Settings
-/       :url  : /settings
-
 navigation1 :
     - :image  : "site/.png"
       :status : active
@@ -33,6 +23,7 @@ see :
       - "https://getbootstrap.com/examples/navbar/"
 
 todo :
+    - - "Need to be able to remove navbar on individual pages = navbar : false"
     - - "Active menu item needs to be completed"
     - - "General images and icons need to work for each item and as an item in there own right"
     - - "When multiple items are floated right then they cross over - need to batch these up in one section - right or left in the YAML"
@@ -86,9 +77,6 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 %p
     JavaScript is required for the navigation collapse
     Be sure to add a role="navigation" to the navbar to help with accessibility.
@@ -101,30 +89,28 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "molecule/navbar/navbar.haml", locals: data.navigation}
+    code = %{codeBlender "navbar", "molecule", data.navigation}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 / -# Logo
 / :ruby
-/     code = %{partial "molecule/navbar/navbar.haml",
-/                       locals: { array:    current_page.data.navigation1,
+/     code = %{codeBlender "navbar", "molecule", { array: current_page.data.navigation1,
 /                                 fluid:    true,
 /                                 logo:     true,
 /                                 position: "static-top" }}
 
 / -# Code
-/ = partial "organism/code/code.haml", locals: { id: id += 1,code: code, heading: { text: "Logo" } }
+/ = codeBlender "code", "organism", { id: id += 1,code: code, heading: { text: "Logo" } }
 
 / -# Inverted
 / :ruby
-/     code = %{partial "molecule/navbar/navbar.haml",
-/                       locals: { array:    current_page.data.navigation,
+/     code = %{codeBlender "navbar", "molecule", { array: current_page.data.navigation,
 /                                 brand:    "Test NavBar",
 /                                 fluid:    true,
 /                                 position: "static-top",
 /                                 type:     "inverse" }}
 
 / -# Code
-/ = partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Inverted" } }
+/ = codeBlender "code", "organism", { code: code, heading: { text: "Inverted" } }

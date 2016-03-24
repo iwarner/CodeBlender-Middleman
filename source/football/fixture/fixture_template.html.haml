@@ -11,7 +11,7 @@ meta :
 ---
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { tag: "h2", text: "Season #{ locals[ :season ] }" }
+= codeBlender "heading", "molecule", { tag: "h2", text: "Season #{ locals[ :season ] }" }
 
 -# Football fixture
-= partial "football/fixture/fixture.haml"
+= codeBlender "fixture", "football"

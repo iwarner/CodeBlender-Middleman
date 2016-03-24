@@ -44,4 +44,4 @@ locals :
 - nextPage = next_page ? next_page : false
 
 -# Pagination
-= partial "molecule/pagination/pagination.haml", locals: { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
+= codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }

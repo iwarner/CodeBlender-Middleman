@@ -1,5 +1,5 @@
 -##
--# File Image Preview Popover
+-# File image preview popover
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://bootsnipp.com/snippets/featured/input-file-popover-preview-image
@@ -9,13 +9,13 @@
 - buttonAppend = capture_html do
 
     -# button
-    = partial "atom/button/button.haml", locals: { extraClass: "image-preview-clear", text: "Clear", context: "info", icon: { prepend: "fa-times" } }
+    = codeBlender "button", "atom", { extraClass: "image-preview-clear", text: "Clear", context: "info", icon: { prepend: "fa-times" } }
 
     -# Browse Button
     %div.btn.btn-default.image-preview-input
 
         -# Icon
-        = partial "atom/icon/icon.haml", locals: { icon: "fa-folder-open" }
+        = codeBlender "icon", "atom", { icon: "fa-folder-open" }
 
         -# Title
         %span.image-preview-input-title Browse
@@ -26,8 +26,7 @@
                 type:   "file" }
 
 -# Input
-= partial "atom/input/input.haml",
-           locals: { button: { append:  buttonAppend },
+= codeBlender "input", "atom", { button: { append:  buttonAppend },
                      icon:   { prepend: "fa-file" },
                      input:  { disabled:        true,
                                extraClass:      "form-control image-preview-filename",

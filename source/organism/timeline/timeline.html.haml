@@ -49,7 +49,7 @@ list :
 %div{ ng: { click: "modalAddInteraction()" } }
 
     -# Icon
-    = partial "atom/icon/icon.haml", locals: { icon: "fa-plus-circle fa-4x" }
+    = codeBlender "icon", "atom", { icon: "fa-plus-circle fa-4x" }
 
 Clicked : {{ msg }}
 
@@ -64,8 +64,7 @@ Clicked : {{ msg }}
 - body = capture_html do
 
     -# Togglable tabs tab.js
-    = partial "molecule/nav/nav.haml",
-               locals: { array:  [ { path: "#log1",         name: "Log Call" },
+    = codeBlender "nav", "molecule", { array:  [ { path: "#log1",         name: "Log Call" },
                                    { path: "#purchase1",    name: "Purchase"},
                                    { path: "#handover1",    name: "Handover"},
                                    { path: "#unsubscribe1", name: "Unsubscribe"} ],
@@ -83,7 +82,7 @@ Clicked : {{ msg }}
                 -# Date Picker
 
                 -# Select Day
-                = partial "atom/select/select.haml", locals: { array: days, label: { title: "Day" }, name: "day" }
+                = codeBlender "select", "atom", { array: days, label: { title: "Day" }, name: "day" }
 
                 -# Select Month
                 -# Select Year
@@ -97,8 +96,7 @@ Clicked : {{ msg }}
                 -# Button
 
         -# Output
-        .tab-pane{ id: "purchase1" }
-            Download
+        .tab-pane{ id: "purchase1" } Download
 
         -# Output
         .tab-pane{ id: "handover1" }
@@ -107,8 +105,7 @@ Clicked : {{ msg }}
             %form.formHandover{ action: "", method: "POST", novalidate: true }
 
                 -# Input
-                = partial "atom/input/input.haml",
-                           locals: { icon:  { prepend: "fa-user" },
+                = codeBlender "input", "atom",  { icon:  { prepend: "fa-user" },
                                      input: { inputGroupClass: "input-group",
                                               name:            "text",
                                               placeholder:     "Type name here...." },
@@ -119,11 +116,10 @@ Clicked : {{ msg }}
             Download
 
 -# Modal
-= partial "molecule/modal/modal.haml", locals: { id: "myModal", body: body, title: title }
+= codeBlender "modal", "molecule", { id: "myModal", body: body, title: title }
 
 -# Button
-= partial "atom/button/button.haml",
-           locals: { context: "primary",
+= codeBlender "button", "atom", { context: "primary",
                      text:    "Launch Modal",
                      data:    { target: "#myModal",
                                 toggle: "modal" } }
@@ -168,8 +164,7 @@ Filter by icons:
     -# Timeline Dropdown Filter
     -# @see http://jsfiddle.net/TahmidTanzim/N9Vqk/
     -##
-    = partial "molecule/dropdown/dropdown.haml",
-               locals: { button:     { ng: { click: "open=!open" } },
+    = codeBlender "dropdown", "molecule", { button:     { ng: { click: "open=!open" } },
                          extraClass: "btn-group",
                          list:       { array:    current_page.data.list,
                                        dropdown: true },
@@ -216,7 +211,7 @@ Filter by icons:
         .cbp_tmicon{ class: "{{node.actor}}" }
 
             -# Icon
-            = partial "atom/icon/icon.haml", locals: { icon: "fa-{{ node.type }}" }
+            = codeBlender "icon", "atom", { icon: "fa-{{ node.type }}" }
 
         -# Switch for the Details Type
         %div{ ng: { switch: true }, on: "node.template.type" }

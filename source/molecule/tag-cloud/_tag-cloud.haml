@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Tag Cloud
--# = partial "molecule/tag-cloud/tag-cloud"
+-# = codeBlender "tag-cloud", "molecule"
 -#
 -# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
@@ -21,7 +21,7 @@
 %section.tagCloud
 
     -# Heading
-    = partial "molecule/heading/heading.haml", locals: { tag: "h4", text: "Tags" }
+    = codeBlender "heading", "molecule", { tag: "h4", text: "Tags" }
 
     -# Tags
     .tagCloud__tags

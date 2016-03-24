@@ -25,8 +25,6 @@ todo :
 
 ---
 
-- id = 0
-
 -# Bootstrap row
 .row
 
@@ -34,7 +32,7 @@ todo :
     .col-md-6
 
         -# Heading
-        = partial "molecule/heading/heading.haml", locals: { tag: "h3", text: "Installation" }
+        = codeBlender "heading", "molecule", { tag: "h3", text: "Installation" }
 
         -# Markdown
         :markdown
@@ -68,16 +66,14 @@ todo :
     .col-md-6
 
         -# Heading
-        = partial "molecule/heading/heading.haml", locals: { tag: "h3", text: "Example" }
+        = codeBlender "heading", "molecule", { tag: "h3", text: "Example" }
 
         -# Input
-        = partial "atom/input/input.haml",
-                   locals: { input: { name: "text", ng: { model: "copy1" } },
-                             label: { title: "Enter Text" } }
+        = codeBlender "input", "atom", { input: { name: "text", ng: { model: "copy1" } }, label: { title: "Enter Text" } }
 
         -# Default
         :ruby
-            code = %{partial "atom/zero-clipboard/zero-clipboard", locals: { model: "copy1" }}
+            code = %{codeBlender "zero-clipboard", "atom", { model: "copy1" }}
 
         -# Code
-        = partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+        = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

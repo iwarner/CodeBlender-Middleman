@@ -36,21 +36,21 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "atom/blockquote/blockquote.haml", locals: { text: "Standard Blockquote" }}
+    code = %{codeBlender "blockquote", "atom", { text: "Standard blockquote" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
--# Small Text
+-# Small text
 :ruby
-    code = %{partial "atom/blockquote/blockquote.haml", locals: { small: "Small Text", text: "Blockquote with secondary small text" }}
+    code = %{codeBlender "blockquote", "atom", { small: "Small Text", text: "Blockquote with secondary small text" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Blockquote with secondary small text" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Blockquote with secondary small text" } }
 
--# Pulled Right
+-# Pulled right
 :ruby
-    code = %{partial "atom/blockquote/blockquote.haml", locals: { right: true, small: "Right handed secondary text", text: "Blockquote pulled right" }}
+    code = %{codeBlender "blockquote", "atom", { right: true, small: "Right handed secondary text", text: "Blockquote pulled right" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Blockquote pulled right" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Blockquote pulled right" } }

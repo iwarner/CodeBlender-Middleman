@@ -50,13 +50,12 @@ todo :
 %hr
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Find your location", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Find your location", tag: "h2" }
 
 %form.locationForm{ role: "form" }
 
     / -# Google Places Search Box
-    / = partial "atom/input/input",
-    /            locals: { extraClass:  "controls",
+    / = codeBlender "input", "atom", { extraClass:  "controls",
     /                      group:       [ false, "fa-location-arrow" ],
     /                      name:        "place",
     /                      label:       [ "Enter Location Form" ],
@@ -64,7 +63,7 @@ todo :
     /                      required:    true }
 
     -# Submit
-    = partial "atom/button/button.haml", locals: { context: "primary", text: "Submit" }
+    = codeBlender "button", "atom", { context: "primary", text: "Submit" }
 
 %br
 %hr
@@ -81,14 +80,12 @@ todo :
     %form{ role: "form" }
 
         / -# Latitude
-        / = partial "atom/input/input",
-        /            locals: { name:        "latitude",
+        / = codeBlender "input", "atom", { name:        "latitude",
         /                      label:       [ "Latitude" ],
         /                      placeholder: "Latitude" }
 
         / -# Longitude
-        / = partial "atom/input/input",
-        /            locals: { name:        "longitude",
+        / = codeBlender "input", "atom", { name:        "longitude",
         /                      label:       [ "Longitude" ],
         /                      placeholder: "Longitude" }
 
@@ -98,7 +95,7 @@ todo :
     .infoWindow
 
         -# Icon
-        = partial "atom/icon/icon.haml", locals: { icon: "fa-shopping-cart" }
+        = codeBlender "icon", "atom", { icon: "fa-shopping-cart" }
 
         .title The Clothes Company
         .subTitle Distance

@@ -22,12 +22,9 @@ todo :
 
 ---
 
--# ID
-- id = 0
-
 -# Archive
 :ruby
-    code = %{partial "molecule/widget/widget.haml"}
+    code = %{codeBlender "widget", "molecule"}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

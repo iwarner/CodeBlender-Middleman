@@ -48,8 +48,7 @@ todo :
     .col-md-8.map
 
         -# Navigation tabs - Display various branch locations if required
-        = partial "molecule/nav/nav.haml",
-                   locals: { active:  "Colliers Wood",
+        = codeBlender "nav", "molecule", { active:  "Colliers Wood",
                              array:   [ { path: "#colliers", name: "Colliers Wood" } ],
                              stacked: false,
                              toggle:  true }
@@ -71,79 +70,71 @@ todo :
                         %address
 
                             -# Heading
-                            = partial "molecule/heading/heading.haml", locals: { text: "DryKISS Ltd", tag: "h3" }
+                            = codeBlender "heading", "molecule", { text: "DryKISS Ltd", tag: "h3" }
 
                             -# Icon - Map Marker
-                            = partial "atom/icon/icon.haml", locals: { icon: "fa-map-marker fa-fw" }
+                            = codeBlender "icon", "atom", { icon: "fa-map-marker fa-fw" }
                             Colliers Wood, London, SW19
 
                             %br
 
                             -# Icon - Call
-                            = partial "atom/icon/icon.haml", locals: { icon: "fa-phone fa-fw" }
+                            = codeBlender "icon", "atom", { icon: "fa-phone fa-fw" }
                             = callLink "+447780435329"
 
                             %br
 
                             -# Icon - Mail
-                            = partial "atom/icon/icon.haml", locals: { icon: "fa-envelope fa-fw" }
+                            = codeBlender "icon", "atom", { icon: "fa-envelope fa-fw" }
                             = mail_to "ian.warner@drykiss.com"
 
                     .col-md-6.col-sm-6.col-xs-6
 
                         -# Opening Times
-                        = partial "molecule/heading/heading.haml", locals: { text: "Opening Times", tag: "h3" }
+                        = codeBlender "heading", "molecule", { text: "Opening Times", tag: "h3" }
 
                         -# Icon - Clock
-                        = partial "atom/icon/icon.haml", locals: { icon: "fa-clock-o fa-fw" }
+                        = codeBlender "icon", "atom", { icon: "fa-clock-o fa-fw" }
                         Monday - Saturday : 11am - 9pm
 
                         %br
 
                         -# Icon - Clock
-                        = partial "atom/icon/icon.haml", locals: { icon: "fa-clock-o fa-fw" }
+                        = codeBlender "icon", "atom", { icon: "fa-clock-o fa-fw" }
                         Sunday and Bank Holidays : 11am - 8pm
 
                 -# Heading
-                = partial "molecule/heading/heading.haml", locals: { small: "On Facebook and Twitter for exclusive promotions!", text:  "Follow Us", tag: "h3" }
+                = codeBlender "heading", "molecule", { small: "On Facebook and Twitter for exclusive promotions!", text:  "Follow Us", tag: "h3" }
 
                 -# Icon - Facebook
-                = partial "atom/icon/icon.haml", locals: { icon: "fa-facebook-square" }
+                = codeBlender "icon", "atom", { icon: "fa-facebook-square" }
 
                 -# Icon - Facebook
-                = partial "atom/icon/icon.haml", locals: { icon: "fa-twitter-square" }
+                = codeBlender "icon", "atom", { icon: "fa-twitter-square" }
 
     -# Form
     .col-md-4
 
         -# Heading
-        = partial "molecule/heading/heading.haml", locals: { extraClass: "noMargin", text: "Contact Form", tag: "h2" }
+        = codeBlender "heading", "molecule", { extraClass: "noMargin", text: "Contact Form", tag: "h2" }
 
         -# Form
         %form{ action: "//api.formspree.com/ian.warner@drykiss.com", method: "POST", novalidate: false }
 
             -# Input - Name
-            = partial "atom/input/input.haml",
-                       locals: { input: { name:  "name" },
-                                 label: { title: "Name" } }
+            = codeBlender "input", "atom", { input: { name: "name" }, label: { title: "Name" } }
 
             -# Input - Mobile
-            = partial "atom/input/input.haml",
-                       locals: { input: { name:  "mobile", type: "tel" },
-                                 label: { title: "Mobile" } }
+            = codeBlender "input", "atom", { input: { name: "mobile", type: "tel" }, label: { title: "Mobile" } }
 
             -# Input - Email
-            = partial "atom/input/input.haml",
-                       locals: { input: { name:  "_replyto", type: "email" },
-                                 label: { title: "Email" } }
+            = codeBlender "input", "atom", { input: { name: "_replyto", type: "email" }, label: { title: "Email" } }
 
             -# TextArea - Message
-            = partial "atom/textarea/textarea.haml", locals: { label: { title: "Message" }, name: "message" }
+            = codeBlender "textarea", "atom", { label: { title: "Message" }, name: "message" }
 
             -# Input - Next - Hidden
-            = partial "atom/input/input.haml",
-                       locals: { input: { name:  "_next", type: "hidden", value: "//localhost:4567//organism/contact.html" },
-                                 label: { title: "Email", extraClass: "sr-only" } }
+            = codeBlender "input", "atom", { input: { name:  "_next", type: "hidden", value: "//localhost:4567//organism/contact.html" }, label: { title: "Email", extraClass: "sr-only" } }
 
             -# Button - Submit
-            = partial "atom/button/button.haml", locals: { context: "primary", text: "Submit" }
+            = codeBlender "button", "atom", { context: "primary", text: "Submit" }

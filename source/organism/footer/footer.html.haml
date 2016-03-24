@@ -72,9 +72,6 @@ list :
 
 ---
 
--# ID
-- id = 0
-
 -# Bootstrap row
 .row
 
@@ -92,7 +89,7 @@ list :
                 iterated through.
 
         -# Panel
-        = partial "molecule/panel/panel.haml", locals: { body: panelBody, heading: { text: "Introduction" } }
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
 
     -# Bootstrap column
     .col-md-6
@@ -113,48 +110,45 @@ list :
                                 Content
 
         -# Panel
-        = partial "molecule/panel/panel.haml", locals: { body: panelBody, heading: { text: "Create" } }
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Create" } }
 
 -# Default
 :ruby
-    code = %{partial "organism/footer/footer.haml", locals: { fluid: true }}
+    code = %{codeBlender "footer", "organism", { fluid: true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 -# Using Local Data with No Background
 :ruby
-    code = %{partial "organism/footer/footer.haml",
-                      locals: { array:       current_page.data.footer,
+    code = %{codeBlender "footer", "organism", { array:       current_page.data.footer,
                                 fluid:       true,
                                 footerClass: "noBackground text-center" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Local data Footer" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Local data Footer" } }
 
 -# Copyright centred text
 :ruby
-    code = %{partial "organism/footer/footer.haml", locals: { center: true, fluid: true }}
+    code = %{codeBlender "footer", "organism", { center: true, fluid: true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Copyright centred text" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Copyright centred text" } }
 
 -# Copyright Extra Links
 :ruby
-    code = %{partial "organism/footer/footer.haml",
-                      locals: { array:  current_page.data.list,
+    code = %{codeBlender "footer", "organism", { array:  current_page.data.list,
                                 center: true,
                                 fluid:  true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Copyright Extra Links" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Copyright Extra Links" } }
 
 -# No Year
 :ruby
-    code = %{partial "organism/footer/footer.haml",
-                      locals: { copyright: "Local String Inserted",
+    code = %{codeBlender "footer", "organism", { copyright: "Local String Inserted",
                                 fluid:     true,
                                 noYear:    true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "No Year" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "No Year" } }

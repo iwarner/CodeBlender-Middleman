@@ -10,6 +10,8 @@ per_page : 5
 
 # See
 see :
+    - - "Accessibility"
+      - "https://www.w3.org/WAI/tutorials/"
     - - "Metronic"
       - "http://www.keenthemes.com/preview/metronic/theme/templates/admin4/angularjs/#/dashboard.html"
     - - "Angular Style Guide"
@@ -111,7 +113,7 @@ todo :
         .col-md-9.col-sm-9
 
             -# Article list
-            = partial "template/article/article-list.haml", locals: { page_articles: page_articles }
+            = codeBlender "article-list", "template", { page_articles: page_articles }
 
             -# Pagination variables
             - prevPage = prev_page ? prev_page : false
@@ -127,7 +129,7 @@ todo :
             = codeBlender "archive", "molecule"
 
             -# MailChimp
-            = partial "molecule/mailchimp/subscription.haml"
+            = codeBlender "mailchimp", "molecule"
 
             -# Tag cloud
             = codeBlender "tag-cloud", "molecule"

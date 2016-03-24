@@ -130,9 +130,6 @@ molecule :
     - title : "Google Plus"
       url   : "/molecule/google-plus/google-plus.html"
 
-    - title : "Google Search"
-      url   : "/molecule/google-search/google-search.html"
-
     - title : "Heading"
       url   : "/molecule/heading/heading.html"
 
@@ -178,11 +175,20 @@ molecule :
     - title : "Popover"
       url   : "/molecule/popover/popover.html"
 
-    - title : "Progress Bar"
+    - title : "Progress bar"
       url   : "/molecule/progress-bar/progress-bar.html"
 
     - title : "Recent"
       url   : "/molecule/recent/recent.html"
+
+    - title : "Search Google"
+      url   : "/molecule/search-google/google-search.html"
+
+    - title : "Search input"
+      url   : "/molecule/search-input/search-input.html"
+
+    - title : "Search Lunr"
+      url   : "/molecule/search-lunr/search-lunr.html"
 
     - title : "Tab"
       url   : "/molecule/tab/tab.html"
@@ -270,9 +276,6 @@ organism :
 
     - title : "Ribbon"
       url   : "/organism/ribbon/ribbon.html"
-
-    - title : "Search"
-      url   : "/organism/search/search.html"
 
     - title : "Shop"
       url   : "/organism/shop/shop.html"

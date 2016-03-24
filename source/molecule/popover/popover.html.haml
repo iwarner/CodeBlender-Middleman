@@ -40,9 +40,6 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 %p
     Uses the dismissible markup over the button tag, coupled with the focus
     trigger this will close pop-ups on a click away.
@@ -54,22 +51,20 @@ locals :
 
 -# Default
 :ruby
-    code = %{partial "molecule/popover/popover.haml",
-                      locals: { content:   "Default",
+    code = %{codeBlender "popover", "molecule", { content:   "Default",
                                 placement: "auto top",
                                 popBody:   "Popover Body Copy",
                                 popTitle:  "Popover Default" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Auto positioned popover", text: "Default Popover" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Auto positioned popover", text: "Default Popover" } }
 
 -# Right
 :ruby
-    code = %{partial "molecule/popover/popover.haml",
-                      locals: { content:   "Right",
+    code = %{codeBlender "popover", "molecule", { content:   "Right",
                                 placement: "right",
                                 popBody:   "Popover Body Copy",
                                 popTitle:  "Popover Right" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Popover Right" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Popover Right" } }

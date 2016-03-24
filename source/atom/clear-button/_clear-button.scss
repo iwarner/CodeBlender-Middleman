@@ -1,0 +1,22 @@
+//
+// Clear button
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Module
+//----------------------------------------------------------------------------//
+$module : 'clear-button';
+
+// Clear button
+//----------------------------------------------------------------------------//
+.#{ $module } {
+    color     : #ccc;
+    cursor    : pointer;
+    font-size : 28px;
+    margin    : auto;
+    position  : absolute !important;
+    right     : 100px;
+    top       : 10px;
+    z-index   : 10000;
+}

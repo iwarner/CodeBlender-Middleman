@@ -9,11 +9,11 @@ meta :
     type        : "website"
 
 heading :
-    small : "Tips and Tricks for Local Storage"
+    small : "Tips and tricks for local storage"
     title : "Local Storage"
 
 see :
-    - - "Local Storage"
+    - - "Local storage"
       - "http://diveintohtml5.info/storage.html"
     - - "Saving Images into Local Storage"
       - "https://hacks.mozilla.org/2012/02/saving-images-and-files-in-localstorage/"
@@ -21,15 +21,12 @@ see :
 ---
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Export", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Export", tag: "h2" }
 
 -# Button
-= partial "atom/button/button.haml",
-           locals: { context:    "primary",
-                     text:       "Download",
-                     extraClass: "downloadButton" }
+= codeBlender "button", "atom", { context: "primary", text: "Download", extraClass: "downloadButton" }
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Import", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Import", tag: "h2" }
 
 %input.import{ type: "file" }

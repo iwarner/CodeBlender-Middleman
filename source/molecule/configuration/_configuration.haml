@@ -4,7 +4,7 @@
 -#
 -# @usage
 -# -# Configuration
--# = partial "molecule/configuration/configuration.haml"
+-# = codeBlender "configuration", "molecule"
 -#
 -# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
@@ -21,7 +21,7 @@
         - array << [ "bg-hero#{ index }.jpg" ]
 
     -# Select
-    = partial "atom/select/select.haml", locals: { array: array, name: "backgroundSelector", label: { title: "Background" } }
+    = codeBlender "select", "atom", { array: array, name: "backgroundSelector", label: { title: "Background" } }
 
 -# Configuration Toolbox
 #skin-toolbox{ style: "right: -182px;" }
@@ -30,13 +30,13 @@
     .skin-toolbox-toggle
 
         -# Icon
-        = partial "atom/icon/icon.haml", locals: { icon: "fa-flask" }
+        = codeBlender "icon", "atom", { icon: "fa-flask" }
 
     -# Panel
     .skin-toolbox-panel
 
         -# Heading
-        = partial "molecule/heading/heading.haml", locals: { tag: "h5", text: "Site Options" }
+        = codeBlender "heading", "molecule", { tag: "h5", text: "Site Options" }
 
         -# Form
         %form#skin-toolbox-form

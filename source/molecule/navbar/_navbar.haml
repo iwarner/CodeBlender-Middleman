@@ -4,7 +4,7 @@
 -#
 -# @usage
 -# -# Navigation bar
--# = partial "molecule/navbar/navbar.haml", locals: data.navigation
+-# = codeBlender "navbar", "molecule", data.navigation
 -#
 -# @locals
 -# brand      :
@@ -25,12 +25,12 @@
 -# uLClass    : "navbar-left"
 -# wrapper    : false
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# Variable
-- links      = t :navigation
+- links      = ( defined? t )        ? t( :navigation )      : data.navigation.navigation
 - id         = locals[ :id ]         ? locals[ :id ]         : "navbar"
 - extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false
 - angular    = locals[ :ng ]         ? locals[ :ng ]         : false
@@ -56,8 +56,29 @@
                 - 3.times do
                     %span.icon-bar
 
-            -# Brand
-            = partial "molecule/brand/navbar.haml"
+            -# Variable
+            - brand = data.navigation.brand
+
+            -# Display the logo or brand name and optional icon
+            - if brand.active
+
+                -# Link
+                = link_to( brand.link.url,
+                           class: "navbar-brand #{ brand.extraClass }",
+                           title: brand.text.active ? string( brand.text.title ): false,
+                           ui:    brand.link.ui ? brand.link.ui : false ) do
+
+                    -# Icon
+                    - if brand.icon.active
+                        = codeBlender "icon", "atom", { icon: brand.icon.icon }
+
+                    -# Image
+                    - if brand.logo.active
+                        = codeBlender "image", "atom", { alt: brand.logo.alt, size: [ brand.logo.width, brand.logo.height ], src: brand.logo.url ? brand.logo.url : "logo/logo.png" }
+
+                    -# Brand
+                    - if brand.text.active
+                        %span{ itemprop: "headline" }= string brand.text.text
 
         -# Create the collapse area - target without the #
         .navbar-collapse.collapse{ id: target[ 1..-1 ] }
@@ -77,42 +98,48 @@
                         -# Dropdown menu
                         - if side[ :dropdown ]
 
-                            -# Dropdown Partial
-                            = partial "molecule/dropdown/navbar.haml",
-                                       locals: { dropDownClass: side[ :dropdownClass ],
-                                                 title:         side[ :dropdown ],
-                                                 icon:          side[ :icon ] ? side[ :icon ] : false,
-                                                 ng:            side[ :ng ]   ? side[ :ng ]   : false,
-                                                 list:          { array: side[ :items ], dropdown: true } }
+                            -# Variable
+                            - button = side[ :button ] ? side[ :button ] : false
+                            - ng     = side[ :ng ]     ? side[ :ng ]     : false
 
-                            -# Shop Widget
+                            -# Navigation dropdown
+                            = codeBlender "dropdown-navbar", "molecule",
+                                { button:     button,
+                                  extraClass: side[ :extraClass ],
+                                  ng:         ng,
+                                  list:       { array: side[ :items ] } }
+
+                            -# Shop widget
                         - elsif side[ :shop ]
-
-                            -# Simple Cart Widget
-                            %li= partial "e-commerce/widget.haml"
+                            %li= codeBlender "e-commerce/widget.haml"
 
                             -# Button
                         - elsif side[ :button ]
 
                             %div{ class: side[ :extraClass ] ? side[ :extraClass ] : false }
-
-                                -# Button
-                                = partial "atom/button/button.haml", locals: side[ :button ]
+                                = codeBlender "button", "atom", side[ :button ]
 
                             -# Just show a Partial useful for Mega Menus
                         - elsif side[ :partial ]
-
-                            = partial "../_lib/#{ side[ :partial ] }.haml"
+                            = partial "#{ side[ :partial ] }.haml"
 
                             -# Text Link
                         - else
 
                             -# List
                             -# Expects the active element to be pushed into the array
-                            = partial "atom/list/list.ul.haml", locals: { array: [ side ], navBar: true, extraClass: side[ :extraClass ] }
+                            = codeBlender "list-ul", "atom", { array: [ side ], navBar: true, extraClass: side[ :extraClass ] }
 
             -# Check if search is required
             - if data.has_key? "google" and data.google.search
 
-                -# Search Google
-                = partial "molecule/search/searchNavbar.haml"
+                -# Navigation bar form
+                %form.navbar-form.navbar-right{ action: "/search.html", role: "search" }
+
+                    -# Input
+                    = codeBlender "input", "atom", { icon:  { prepend: "fa-search" },
+                                                     input: { inputGroupClass: "input-group", name: "q", placeholder: "Search" },
+                                                     label: { title: "Search", extraClass: "sr-only" } }
+
+                    -# Button
+                    = codeBlender "button", "atom", { text: "Search" }

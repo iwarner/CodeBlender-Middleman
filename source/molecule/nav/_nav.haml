@@ -4,11 +4,10 @@
 -# class, as well as shared states. Swap modifier classes to switch between each style.
 -#
 -# @usage
--# = partial "molecule/nav/nav.haml", locals: { array: [ { path: "javascript:;", name: "Details" }, { path: "javascript:;", name: "Download"} ] }
+-# = codeBlender "nav", "molecule", { array: [ { path: "javascript:;", name: "Details" }, { path: "javascript:;", name: "Download"} ] }
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# @see      http://getbootstrap.com/components/#nav
+-# @category molecule
 -##
 
 -# Extra Class
@@ -47,11 +46,11 @@
 
                         -# Prepend icon
                         - if value[ :icon ] and value[ :icon ][ :prepend ]
-                            = partial "atom/icon/icon.haml", locals: { icon: value[ :icon ][ :prepend ] }
+                            = codeBlender "icon", "atom", { icon: value[ :icon ][ :prepend ] }
 
                         -# Content
                         = string value[ :text ]
 
                         -# Append icon
                         - if value[ :icon ] and value[ :icon ][ :append ]
-                            = partial "atom/icon/icon.haml", locals: { icon: value[ :icon ][ :append ] }
+                            = codeBlender "icon", "atom", { icon: value[ :icon ][ :append ] }

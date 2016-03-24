@@ -3,8 +3,7 @@
 -#
 -# @usage
 -# -# Jumbotron
--# = partial "organism/jumbotron/jumbotron.haml",
--#            locals: { desc: "Description", heading: { text: "Title" } }
+-# = codeBlender "jumbotron", "organism", { desc: "Description", heading: { text: "Title" } }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -14,7 +13,7 @@
 
     -# Heading
     - if locals[ :heading ]
-        = partial "molecule/heading/heading.haml", locals: locals[ :heading ]
+        = codeBlender "heading", "molecule", locals[ :heading ]
 
     -# Description
     - if locals[ :desc ]

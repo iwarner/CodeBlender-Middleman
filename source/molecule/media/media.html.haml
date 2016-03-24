@@ -25,7 +25,7 @@ todo :
 
 -# Media
 :ruby
-    code = %{partial "molecule/media/media.haml"}
+    code = %{codeBlender "media", "molecule"}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

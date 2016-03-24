@@ -8,8 +8,8 @@ the work and an individual details page showcasing the clicked work.
 
     Useful for inclusion on a home page - shows X recent work.
 
-    -# Portfolio Recent
-    = partial "template/portfolio/recent", locals: { total: "3" }
+    -# Portfolio recent
+    = codeBlender template/portfolio/recent", locals: { total: "3" }
 
     Image sizes are based on the column width chosen. Make sure they are
     ( 1170 - ( gutterWidth ( columns * 2 ) ) ) / columns

@@ -27,15 +27,15 @@ todo :
 ---
 
 -# Heading - h2
-= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Default", tag: "h2" }
 
 -# Disqus comment
-= partial "organism/disqus-comment/comment.haml"
+= codeBlender "disqus-comment", "organism"
 
 -# Code
 :code
     #lang: ruby
-    = partial "organism/disqus-comment/comment.haml"
+    = codeBlender "disqus-comment", "organism"
 
 -# Disqus comment count
-= partial "organism/disqus-comment/comment-count.haml"
+= codeBlender "disqus-comment", "organism"

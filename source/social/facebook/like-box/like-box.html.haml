@@ -25,22 +25,19 @@ todo :
 
 ---
 
--# ID
-- id = 0
+-# Default
+:ruby
+    code = %{partial "social/facebook/like-box/like-box.haml"}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 -# Default
 :ruby
     code = %{partial "social/facebook/like-box/like-box.haml"}
 
 -# Code
-= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }
-
--# Default
-:ruby
-    code = %{partial "social/facebook/like-box/like-box.haml"}
-
--# Code
-= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Customised" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Customised" } }
 
 -# Like Box
 = partial "molecule/facebook/like-box.haml",

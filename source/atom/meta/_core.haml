@@ -15,7 +15,7 @@
     - m = "meta.#{ current_page.data.stub }"
 
 -# Title
-%title= current_page.data.meta ? m.title : string( :"#{ m }.title" )
+%title= current_page.data.meta ? string( m.title ) : string( :"#{ m }.title" )
 
 -# Encoding
 %meta{ charset: "utf-8" }
@@ -24,7 +24,7 @@
 %meta{ content: "IE=edge,chrome=1", http: { equiv: "X-UA-Compatible" } }
 
 -# Description
-%meta{ name: "description", content: current_page.data.meta ? m.description : string( :"#{ m }.description" ) }
+%meta{ name: "description", content: current_page.data.meta ? string( m.description ) : string( :"#{ m }.description" ) }
 
 -# Keywords
 %meta{ name: "keywords", content: current_page.data.meta ? m.description : string( :"#{ m }.description" ) }

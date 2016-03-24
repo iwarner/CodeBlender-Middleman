@@ -44,7 +44,7 @@
                         - slide[ :image ][ :alt ] = "Carousel #{ i }"
 
                     -# Image
-                    = partial "atom/image/image.haml", locals: slide[ :image ]
+                    = codeBlender "image", "atom", slide[ :image ]
 
                 -# Caption
                 - if slide[ :image ][ :caption ]
@@ -58,7 +58,7 @@
                         - if slide[ :image ][ :caption ][ :button ]
 
                             -# Button
-                            = partial "atom/button/button.haml", locals: slide[ :image ][ :caption ][ :button ]
+                            = codeBlender "button", "atom", slide[ :image ][ :caption ][ :button ]
 
     -# Controls
     - if locals[ :control ]

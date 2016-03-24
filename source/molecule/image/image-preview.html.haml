@@ -22,10 +22,8 @@ see :
 
 ---
 
-- id = 1
-
 / -# Text Type
 / :ruby
-/     code = %{partial "form/imagePreview.haml"}
+/     code = %{codeBlenbder "image-preview", "molecule"}
 
-/ = partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "File Image Preview" } }
+/ = codeBlender "code", "organism", { code: code, heading: { text: "File Image Preview" } }

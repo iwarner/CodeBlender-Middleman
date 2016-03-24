@@ -33,23 +33,22 @@ see :
     audio stream and convert it to text.
 
 -# Synthesis
-= partial "molecule/heading/heading.haml", locals: { text: "Synthesis", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Synthesis", tag: "h2" }
 
 -# Submit
-= partial "atom/button/button.haml", locals: { context: "primary", text: "Say", extraClass: "synthesis" }
+= codeBlender "button", "atom", { context: "primary", text: "Say", extraClass: "synthesis" }
 
 -# Recognition
-= partial "molecule/heading/heading.haml", locals: { text: "Recognition", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Recognition", tag: "h2" }
 
 -# Form
 %form.recognition{ action: "", method: "POST", novalidate: true }
 
     -# Username
-    -# = partial "atom/input/input",
-    -#            locals: { name:        "speech",
+    -# = codeBlender "input", "atom", { name:        "speech",
     -#                      label:       [ "Speech" ],
     -#                      placeholder: "Enter text to Speak",
     -#                      speech:      true }
 
     -# Submit
-    = partial "atom/button/button.haml", locals: { context: "primary", text: "Speak" }
+    = codeBlender "button", "atom", { context: "primary", text: "Speak" }

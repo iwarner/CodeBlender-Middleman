@@ -1,0 +1,92 @@
+---
+
+# Meta
+meta :
+    author      : "DryKISS"
+    description : "Search input - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Search input - CodeBlender"
+    type        : "website"
+
+# Heading
+heading :
+    small : "Universal search element"
+    title : "Search input"
+
+# See
+see :
+    - - "Bootstrap search addons"
+      - "http://getbootstrap.com/components/#input-groups-buttons"
+    - - "Search usability"
+      - "https://uxmag.com/articles/usability-tip-dont-make-me-search-for-search"
+
+# Todo
+todo :
+    - - "Include typeahead"
+    - - "Validation"
+    - - "Icons to show typeahead is thinking"
+    - - "Ability to only allow search once typeahead is selected"
+    - - "Prepend with button filter for selection"
+
+---
+
+-# Search input
+:ruby
+    code = %{codeBlender "search-input", "molecule"}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Example" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+            :markdown
+
+                Place the following inside your locale file
+
+                ~~~
+                # Search
+                search-input :
+                    button :
+                        text : "Search"
+                    input:
+                        placeholder : "Search"
+                    label :
+                        label : "Search"
+                ~~~
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Translation" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+            :markdown
+
+                Place the following inside your locale file
+
+                ~~~
+                # Search
+                search-input :
+                    button :
+                        text : "Search"
+                    input:
+                        placeholder : "Search"
+                    label :
+                        label : "Search"
+                ~~~
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Translation" } }
+
+%hr

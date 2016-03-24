@@ -49,12 +49,9 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Detail
 :ruby
-    code = %{partial "molecule/detail/detail.haml", locals: { more: true }}
+    code = %{codeBlender "detail", "molecule", { more: true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

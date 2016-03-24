@@ -13,7 +13,7 @@
 - d = current_page.data
 
 -# Layout - calls wrapper layout
-= wrap_layout "_codeBlender/bootstrap" do
+= wrap_layout "#{ config[ :layout_dir ] }bootstrap" do
 
     -# Bootstrap row
     .row

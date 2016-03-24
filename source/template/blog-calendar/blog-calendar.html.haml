@@ -23,7 +23,7 @@ per_page : 5
 
     -# Article list
     .blogCalendar__list
-        = partial "template/article/article-list.haml", locals: { page_articles: page_articles }
+        = codeBlender "article-list", "template", locals: { page_articles: page_articles }
 
     -# Pagination variable
     - prevPage = prev_page ? prev_page : false
@@ -31,4 +31,4 @@ per_page : 5
 
     -# Pagination
     .blogCalendar__pagination
-        = partial "molecule/pagination/pagination.haml", locals: { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
+        = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }

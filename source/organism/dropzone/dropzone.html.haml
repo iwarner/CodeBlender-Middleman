@@ -20,12 +20,9 @@ see :
 
 ---
 
--# ID
-- id = 0
-
 -# Bar
 :ruby
-    code = %{partial "organism/dropzone/dropzone.haml"}
+    code = %{codeBlender "dropzone", "organism"}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

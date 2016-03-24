@@ -1,0 +1,38 @@
+-##
+-# Navigation dropdown
+-#
+-# @usage
+-# -# Navigation dropdown
+-# = codeBlender "dropdown-navbar", "molecule", { button: { text: "Dropdown" }, list: { array: current_page.data.list }}
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category Molecule
+-##
+
+-# Variable
+- list = locals[ :list ]
+
+-# Button
+- button = locals[ :button ] ? locals[ :button ] : {}
+
+-# Capture the list content
+- capture = capture_html do
+
+    -# Add defaults for navigation dropdown button
+    - button[ :data ]     = { toggle: "dropdown" }
+    - button[ :dropdown ] = true
+    - button[ :href ]     = "javascript:;"
+    - button[ :text ]     = locals[ :title ]
+
+    -# Button
+    = codeBlender "button", "atom", button
+
+    -# List
+    = codeBlender "list-dropdown", "atom", list
+
+-# Variable
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false
+- ng         = locals[ :ng ]         ? locals[ :ng ]         : false
+
+-# Dropdown
+%li.dropdown{ class: extraClass, ng: ng }= capture

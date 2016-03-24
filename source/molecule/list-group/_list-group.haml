@@ -3,12 +3,11 @@
 -#
 -# @usage
 -# -# List group
--# partial "molecule/list-group/list-group.haml",
--#                      locals: { array: [ { active: true, title:  lorem.words( 2 ), url: "index.html" },
+-# = codeBlender "list-group", "molecule", { array: [ { active: true, title:  lorem.words( 2 ), url: "index.html" },
 -#                                         { title:  lorem.words( 2 ), url: "index.html" } ] }
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# Link or List
@@ -34,7 +33,7 @@
                 - if value[ :badge ]
 
                     -# Badge
-                    = partial "atom/badge/badge.haml", locals: { content: value [ :badge ] }
+                    = codeBlender "badge", "atom", { content: value [ :badge ] }
 
                 -# Heading and Text
                 - if value [ :heading ]
@@ -69,7 +68,7 @@
                     - if value[ :submenu ]
 
                         -# Nav List Group
-                        = partial "molecule/list-group/list-group.haml", locals: { array: value[ :submenu ], extraClass: "nav submenu", list: true }
+                        = codeBlender "list-group", "molecule", { array: value[ :submenu ], extraClass: "nav submenu", list: true }
 
                 -# A Tag Links
             - else

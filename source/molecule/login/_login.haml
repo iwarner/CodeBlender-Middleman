@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Login
--# = partial "molecule/login/login.haml"
+-# = codeBlender "login", "molecule"
 -#
 -# @category Molecule
 -# @author Ian Warner <ian.warner@drykiss.com>
@@ -22,13 +22,12 @@
 -##
 -# Login Form
 -##
-%form{ name: "loginForm", novalidate: true, ng: { controller: "LoginController as login", cloak: "" } }
+%form{ name: "loginForm", novalidate: true, ng: { controller: "LoginController as login" } }
 
     {{ login.name }}
 
     -# Email Input
-    = partial "atom/input/input.haml",
-               locals: { help:     {},
+    = codeBlender "input", "atom", { help: {},
                          icon:  { prepend:         "fa-envelope" },
                          input: { name:            "loginEmail",
                                   ng:              { model: "user.email", minlength: "3" },
@@ -38,8 +37,7 @@
                          label: { extraClass: "sr-only", title: "Email" } }
 
     -# Password Input
-    = partial "atom/input/input.haml",
-               locals: { help:  {},
+    = codeBlender "input", "atom", { help: {},
                          icon:  { prepend:         "fa-lock" },
                          input: { autocomplete:    "off",
                                   name:            "loginPassword",
@@ -51,21 +49,12 @@
                          label: { extraClass: "sr-only", title: "Password" } }
 
     -# Remember Me
-    = partial "atom/checkbox/checkbox.haml",
-               locals: { input: { name: "loginRemember" },
-                         label: { title: "Remember Me" } }
+    = codeBlender "checkbox", "atom", { input: { name: "loginRemember" }, label: { title: "Remember Me" } }
 
     .text-right
 
         -# Reset
-        = partial "atom/button/button.haml",
-                   locals: { context:    "link",
-                             text:       "Reset",
-                             ng: { click: "reset()" },
-                             type: "reset" }
+        = codeBlender "button", "atom", { context: "link", text: "Reset", ng: { click: "reset()" }, type: "reset" }
 
         -# Submit
-        = partial "atom/button/button.haml",
-                   locals: { context:    "primary",
-                             text:       "Login",
-                             ng: { click: "save()" } }
+        = codeBlender "button", "atom",  { context: "primary", text: "Login", ng: { click: "save()" } }

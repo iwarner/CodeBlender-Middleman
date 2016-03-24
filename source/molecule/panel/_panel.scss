@@ -1,11 +1,11 @@
 //
-// Panels
+// Panel
 //
-// @usage
-// @author Ian Warner <ian.warner@drykiss.com>
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category middleman
 //----------------------------------------------------------------------------//
 
-// Panels
+// Panel
 //----------------------------------------------------------------------------//
 .panel {
 
@@ -38,13 +38,8 @@
     // Panel Body
     //------------------------------------------------------------------------//
     .panel-body {
-
         background-size : contain;
         min-height      : 80px;
-
-        &.table4 {
-            background : url( ?holder.js/400x200/auto ) no-repeat center;
-        }
     }
 
     // Small

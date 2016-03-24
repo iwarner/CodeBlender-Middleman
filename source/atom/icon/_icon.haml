@@ -4,17 +4,21 @@
 -#
 -# @usage
 -# -# Icon
--# = partial "atom/icon/icon", locals: { icon: "fa-shopping-cart" }
+-# = codeBlender "icon", "atom", { icon: "fa-shopping-cart" }
 -#
 -# @param icon - Icon name, must include prefix of supplier
+-# @param ng   - angular elements
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category atom
 -##
 
--# Find out Icon Library
+-# Icon library - split on dash - i.e. fa-shopping-cart
 - iconName    = string locals[ :icon ]
 - iconLibrary = iconName.partition( "-" )
 
+-# Angular
+- ng = locals[ :ng ] ? locals[ :ng ] : false
+
 -# Icon
-%span{ class: "#{ iconLibrary[ 0 ] } #{ iconName } #{ locals[ :extraClass ] }" }
+%span{ class: "#{ iconLibrary[ 0 ] } #{ iconName } #{ locals[ :extraClass ] }", ng: ng }

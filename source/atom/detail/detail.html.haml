@@ -10,10 +10,10 @@ meta :
 
 heading :
     small : "Click to show an expanded area."
-    title : "Scaffolding details partial"
+    title : "Scaffolding detail partial"
 
 see :
-    - - "Details Tag"
+    - - "Detail tag"
       - "http://www.paulund.co.uk/html5-details-tag"
 
 todo :
@@ -22,12 +22,12 @@ todo :
 ---
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Default", tag: "h2" }
 
 -# Detail
-= partial "atom/detail/detail.haml", locals: { summary: "Summary", content: "Content" }
+= codeBlender "detail", "atom", { summary: "Summary", content: "Content" }
 
 -# Code
 :code
     #lang: ruby
-    = partial "atom/detail/detail.haml", locals: { summary: "Summary", content: "Content" }
+    = codeBlender "detail", "atom", { summary: "Summary", content: "Content" }

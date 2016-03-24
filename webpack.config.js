@@ -4,7 +4,7 @@ var Clean   = require( 'clean-webpack-plugin' );
 module.exports = {
 
     entry : {
-        site : './source/javascripts/body.js'
+        site : './source/javascripts/body.coffee'
     },
 
     resolve : {
@@ -13,13 +13,18 @@ module.exports = {
 
     output: {
         path     : __dirname + '/.tmp/dist',
-        filename : 'javascripts/[ name ].js',
+        filename : 'javascripts/body.js',
     },
 
     module : {
         loaders : [{
-            test   : /\.coffee$/,
-            loader : 'coffee-loader'
+            test   : /source\/javascripts\/.*\.coffee$/,
+            exclude: /node_modules|\.tmp|vendor/,
+            loader : "coffee-loader"
+        },
+        {
+            test   : /\.scss$/,
+            loaders : ["style", "css", "sass"]
         }]
     },
 

@@ -1,5 +1,5 @@
 ##
-# Google Geocoding Service
+# Google geocoding Service
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 ##

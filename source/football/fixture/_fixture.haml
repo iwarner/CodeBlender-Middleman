@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Football fixture
--# = partial "football/fixture/fixture"
+-# = codeBlender "fixture", "football"
 -#
 -# @category football
 -# @author   Ian Warner <ian.warner@drykiss.com>
@@ -86,7 +86,7 @@
                     - if homeScorers
 
                         -# Icon
-                        = partial "atom/icon/icon.haml", locals: { icon: "fa-futbol-o" }
+                        = codeBlender "icon", "atom", { icon: "fa-futbol-o" }
                         = homeScorers
 
                     - if homeYellow
@@ -136,7 +136,7 @@
                     - if awayScorers
 
                         -# Icon
-                        = partial "atom/icon/icon.haml", locals: { icon: "fa-futbol-o" }
+                        = codeBlender "icon", "atom", { icon: "fa-futbol-o" }
                         = awayScorers
 
                     - if awayYellow

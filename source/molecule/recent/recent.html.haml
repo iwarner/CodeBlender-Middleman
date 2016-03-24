@@ -31,7 +31,7 @@ locals :
 
 -# Recent
 :ruby
-    code = %{partial "molecule/recent/recent.haml", locals: { count: "10" }}
+    code = %{codeBlender "recent", "molecule", { count: "10" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Lists 10 posts", text: "Recent Posts" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Lists 10 posts", text: "Recent Posts" } }

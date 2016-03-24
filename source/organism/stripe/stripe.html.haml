@@ -27,12 +27,9 @@ todo :
 
 ---
 
-- id = 0
-
 -# Default Alert
 :ruby
-    code = %{partial "molecule/thumbnail/thumbnail.haml",
-           locals: { array: [ { image:     { data:    "holder.js/252x100" },
+    code = %{codeBlender "thumbnail", "molecule", { array: [ { image:     { data:    "holder.js/252x100" },
                                 thumbnail: { caption: "Caption 1",
                                              title:   "Product 1" },
                                 button:    { content:    "Buy",
@@ -40,4 +37,4 @@ todo :
                                              href:       "#" } } ] }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Stripe Test", text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Stripe Test", text: "Default" } }

@@ -35,19 +35,16 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "atom/label/label.haml", locals: { content: "Default", itemprop: "test" }}
+    code = %{codeBlender "label", "atom", { content: "Default", itemprop: "test" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
--# Partial
+-# Label
 :ruby
-    code = %{partial "atom/label/label.haml", locals: { context: "primary", content: "Tag", href: "#", icon: "fa-tag" }}
+    code = %{codeBlender "label", "atom", { context: "primary", content: "Tag", href: "#", icon: "fa-tag" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Tags" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Tags" } }

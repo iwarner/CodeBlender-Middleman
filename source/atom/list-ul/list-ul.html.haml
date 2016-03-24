@@ -62,35 +62,35 @@ locals :
 
 -# Unordered List
 :ruby
-    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list }}
+    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Unordered List" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Unordered List" } }
 
 -# Ordered List
 :ruby
-    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list, type: "ol" }}
+    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, type: "ol" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Ordered List" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Ordered List" } }
 
 -# Unstyled List
 :ruby
-    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list, extraClass: "list-unstyled" }}
+    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, extraClass: "list-unstyled" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Unstyled List" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Unstyled List" } }
 
 -# In-line List
 :ruby
-    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list, extraClass: "list-inline" }}
+    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, extraClass: "list-inline" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "In-line List" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "In-line List" } }
 
 -# Inline List Linked
 :ruby
-    code = %{partial "atom/list/list.ul.haml", locals: { array: current_page.data.list1, extraClass: "list-inline" }}
+    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list1, extraClass: "list-inline" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Inline List Linked" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Inline List Linked" } }

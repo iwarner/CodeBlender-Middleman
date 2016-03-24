@@ -26,14 +26,11 @@ todo :
 
 ---
 
--# ID
-- id = 0
-
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Default", tag: "h2" }
 
 -# Avatar
-= partial "molecule/gravatar/avatar.haml", locals: { email: "ian.warner@drykiss.com" }
+= codeBlender "molecule/gravatar/avatar.haml", locals: { email: "ian.warner@drykiss.com" }
 
 %br
 %br
@@ -46,7 +43,7 @@ todo :
 %hr
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Size", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Size", tag: "h2" }
 
 -# Avatar
 = partial "molecule/gravatar/avatar.haml", locals: { email: "iwarner@triangle-solutions.com", size: "200" }

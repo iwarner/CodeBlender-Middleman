@@ -1,0 +1,26 @@
+-##
+-# Icon stacked
+-# Only available with the font awesome library
+-#
+-# @usage
+-# -# Icon stacked
+-# = codeBlender "icon-stacked", "atom", { icon: "fa-shopping-cart", size: "fa-2x" }
+-#
+-# @param icon - Icon name, must include prefix of supplier
+-# @param size - Stack size
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Find out icon library
+- iconName  = string locals[ :icon ]
+
+-# Icon - Stack
+%span{ class: "fa fa-stack #{ size }" }
+
+    -# Icon - outer stack
+    = codeBlender "icon", "atom", { icon: "fa-circle-thin fa-stack-2x" }
+
+    -# Icon - inner stack
+    = codeBlender "icon", "atom", { icon: iconName }

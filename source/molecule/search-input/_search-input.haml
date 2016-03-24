@@ -1,0 +1,34 @@
+-##
+-# Search input
+-# Utilise the search input directive to control the actions of this molecule
+-#
+-# @usage
+-# -# Search input
+-# = codeBlender "search-input", "molecule"
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
+-##
+
+-# Button - append
+- button = codeBlender "button", "atom", { context: "primary", ng: { click: "$parent.search()" }, size: "lg", text: :"search-input.button.text" }
+
+.search-input
+
+    -# Input
+    = codeBlender "input", "atom", { button: { append:  button },
+                                     icon:   { prepend: "fa-search" },
+                                     input:  { autocomplete:    "off",
+                                               clear:           true,
+                                               extraClass:      "input-lg",
+                                               inputGroupClass: "input-group",
+                                               name:            "search",
+                                               ng:              { model: "$parent.query" },
+                                               placeholder:     :"search-input.input.placeholder",
+                                               typeahead:       { loading: "loading", no: { results: "noResults" } },
+                                               uib:             { typeahead: "blah for blah in $parent.complete( $viewValue )" } },
+                                     label:  { title: :"search-input.label.label", extraClass: "sr-only" } }
+
+    -# Type ahead Results
+    %div{ ng: { show: "noResults" } }
+        No Results Found

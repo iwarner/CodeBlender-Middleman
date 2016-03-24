@@ -14,11 +14,14 @@ heading :
 see :
     - - "Bootstrap heading"
       - "http://getbootstrap.com/css/#type-headings"
+    - - "Accessibility"
+      - "https://www.w3.org/WAI/tutorials/page-structure/headings/"
+    - - "Usability"
+      - "http://meetcontent.com/blog/introducing-content-page-titles-headings/"
 
 todo :
-    - - "Complete all the headings options"
+    - - "Get the heading truncation working"
     - - "Create media queries for the heading truncation"
-    - - "Create the BEM for this"
     - - "Create micro formats and accessibility for the headings"
     - - "Complete the ability to use truncation - does not work in media objects at the moment"
 
@@ -42,33 +45,45 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "molecule/heading/heading.haml", locals: { text: "Default H1 Tag" }}
+    code = %{codeBlender "heading", "molecule", { text: "Default H1 Tag" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code }
+= codeBlender "code", "organism", { code: code }
+
+%br
 
 -# H2 with small
 :ruby
-    code = %{partial "molecule/heading/heading.haml", locals: { small: "Secondary small text", text: "H2 with Secondary Text", tag: "h2" }}
+    code = %{codeBlender "heading", "molecule", { small: "Secondary small text", text: "H2 with Secondary Text", tag: "h2" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code }
+= codeBlender "code", "organism", { code: code }
+
+%br
 
 -# H4
 :ruby
-    code = %{partial "molecule/heading/heading.haml", locals: { small: "Simply change the tag attribute", text:  "H4", tag: "h4" }}
+    code = %{codeBlender "heading", "molecule", { small: "Simply change the tag attribute", text:  "H4", tag: "h4" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code }
+= codeBlender "code", "organism", { code: code }
+
+%br
 
 -# Heading with link
 :ruby
-    code = %{partial "molecule/heading/heading.haml", locals: { href: "#", small: "With a Link attached", text: "Linked Heading", tag: "h2" }}
+    code = %{codeBlender "heading", "molecule", { href: "#", small: "With a Link attached", text: "Linked Heading", tag: "h2" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code }
+= codeBlender "code", "organism", { code: code }
+
+%br
+
+-# Page header
+:ruby
+    code = %{codeBlender "heading", "molecule", { pageHeader: true, small: "H1 page header", text: "Page header" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code }

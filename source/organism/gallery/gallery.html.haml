@@ -35,7 +35,7 @@ todo :
 ---
 
 -# Heading
-= partial "molecule/heading/heading.haml", locals: { text: "Default", tag: "h2" }
+= codeBlender "heading", "molecule", { text: "Default", tag: "h2" }
 
 -# Create Array
 - thumbnails = []
@@ -53,7 +53,4 @@ todo :
                                           :zoomix => true } }
 
 -# Thumbnails
-= partial "molecule/thumbnail/thumbnail.haml",
-           locals: { array:    thumbnails,
-                     columns:  "col-xs-12 col-sm-6 col-md-1",
-                     rowClass: "gallery" }
+= codeBlender "thumbnail", "molecule", { array: thumbnails, columns: "col-xs-12 col-sm-6 col-md-1", rowClass: "gallery" }

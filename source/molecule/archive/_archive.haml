@@ -4,7 +4,7 @@
 -#
 -# @usage
 -# -# Blog archive
--# = partial "molecule/archive/archive.haml"
+-# = codeBlender "archive", "molecule"
 -#
 -# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
@@ -14,13 +14,13 @@
 %section.blogArchive
 
     -# Heading - H4
-    = partial "molecule/heading/heading.haml", locals: { extraClass: "heading--noMargin", tag: "h4", text: "Archive" }
+    = codeBlender "heading", "molecule", { extraClass: "heading--noMargin", tag: "h4", text: "Archive" }
 
     -# Unstyled list
     %ul.list-unstyled
 
         -# Loop through site blog posts
-        -  blog.articles.group_by { | y | y.date.year }.each do | year, articles |
+        - blog.articles.group_by { | y | y.date.year }.each do | year, articles |
 
             -# List
             %li
@@ -41,4 +41,4 @@
                             = link_to monthArticles.first.date.strftime( "%b" ), blog_month_path( year, month )
 
                             -# Badge
-                            = partial "atom/badge/badge.haml", locals: { content: monthArticles.size }
+                            = codeBlender "badge", "atom", { content: monthArticles.size }

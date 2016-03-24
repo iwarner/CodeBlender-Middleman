@@ -13,7 +13,7 @@ heading :
     title : "Archive"
 
 see :
-    - - "Archive UI Pattern"
+    - - "Archive UI pattern"
       - "http://ui-patterns.com/patterns/Archive"
 
 todo :
@@ -23,11 +23,9 @@ todo :
 
 ---
 
--# ID
-- id = 0
-
 -# Archive
 :ruby
-    code = %{partial "molecule/archive/archive.haml"}
+    code = %{codeBlender "archive", "molecule"}
 
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Archive" } }
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Archive" } }

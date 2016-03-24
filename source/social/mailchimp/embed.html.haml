@@ -36,8 +36,7 @@ todo :
 -#
 -# Usage
 -# -# Mailchimp Form
--# = partial "molecule/mailchimp/subscribe-form",
--#            locals: { action: "http://drykiss.us7.list-manage1.com/subscribe/post-json?u=4862895059f8ff67d43123d97&id=9ea724a203&c=?",
+-# = codeBlender "mailchimp", "molecule", { action: "http://drykiss.us7.list-manage1.com/subscribe/post-json?u=4862895059f8ff67d43123d97&id=9ea724a203&c=?",
 -#                      name:   true }
 
 -# -# List
@@ -47,10 +46,9 @@ todo :
 -#                               { text: "They don't want the user to see a domain that is not their own" } ] }
 
 -# Heading
-= partial "molecule/heading/heading.haml",
-           locals: { small: "Complete the form below and simply respond to the email.",
+= codeBlender "heading", "molecule", { small: "Complete the form below and simply respond to the email.",
                      text:  "Newsletter Signup",
                      tag:   "h2" }
 
 -# Mailchimp subscription form
-= partial "molecule/mailchimp/subscription.haml"
+= codeBlender "mailchimp", "molecule"

@@ -1,0 +1,39 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "List DT - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "List DT - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "http://getbootstrap.com/css/#type-lists"
+    title : "List DT"
+
+list :
+    - title : "Description Title 1"
+      text  : "Lorem ipsum dolor sit amet"
+    - title : "Description Title 2"
+      text  : "Facilisis in pretium nisl aliquet"
+
+see :
+    - - "Bootstrap list"
+      - "http://getbootstrap.com/css/#type-lists"
+
+---
+
+-# Description list
+:ruby
+    code = %{codeBlender "list-dt", "atom", { array: current_page.data.list }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Description List" } }
+
+-# Description list horizontal
+:ruby
+    code = %{codeBlender "list-dt", "atom", { array: current_page.data.list, extraClass: "dl-horizontal" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Description List Horizontal" } }

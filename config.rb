@@ -5,9 +5,6 @@
 # Syntax highlighting
 activate :syntax
 
-# Sprockets
-activate :sprockets
-
 # Require
 # require "uglifier"
 # require "csv"
@@ -23,12 +20,15 @@ require "football/fixture"
 helpers FootballHelpers
 
 # Variables
-set :layout,       "sidebarLeft"
-set :debug_assets, true
+set :layout,         "sidebarLeft"
+set :debug_assets,   true
 # set :relative_links,   true
 # set :strip_index_file, false
-set :syntaxScheme,     "ThankfulEyes"
-set :haml,             { ugly: true, format: :html5 }
+set :syntaxScheme,   "ThankfulEyes"
+set :haml,           { ugly: true, format: :html5 }
+set :css_dir,        "assets/stylesheets"
+set :js_dir,         "assets/javascripts"
+set :images_dir,     "assets/images"
 
 # Per-page layout changes
 page '/*.xml',       layout: false
@@ -47,21 +47,25 @@ page "sitemap.xml",  layout: false
 set :markdown_engine, :kramdown
 set :markdown, toc_levels: "2", auto_id_prefix: "#"
 
+# Minimum Sass number precision required by bootstrap-sass
+# @see https://github.com/twbs/bootstrap-sass#number-precision
+::Sass::Script::Value::Number.precision = [ 8, ::Sass::Script::Value::Number.precision ].max
+
 # Live reload
 # activate :livereload
 
 # Sprockets
-after_configuration do
-    sprockets.append_path File.join( root, "bower_components" )
-    # sprockets.append_path File.join( root, "source/atom" )
-    sprockets.append_path File.join( root, "source/molecule" )
-    sprockets.append_path File.join( root, "source/organism" )
-    sprockets.append_path File.join( root, "source/template" )
-    # sprockets.append_path File.join( root, "source/page" )
-end
+activate :sprockets
+
+sprockets.append_path File.join( root, "bower_components" )
+sprockets.append_path File.join( root, "source/atom" )
+sprockets.append_path File.join( root, "source/molecule" )
+sprockets.append_path File.join( root, "source/organism" )
+sprockets.append_path File.join( root, "source/template" )
+sprockets.append_path File.join( root, "source/page" )
 
 # Time Zone
-# Time.zone = "Europe/London"
+Time.zone = "Europe/London"
 
 # I18n
 # @see http://www.rubydoc.info/github/svenfuchs/i18n/I18n
@@ -95,7 +99,7 @@ activate :blog do | blog |
 
 end
 
-# External pipeline - Webpack
+# # External pipeline - Webpack
 # activate :external_pipeline,
 #     name:    :webpack,
 #     command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
@@ -106,8 +110,8 @@ end
 # @see https://github.com/middleman-contrib/middleman-deploy
 activate :deploy do | deploy |
     deploy.deploy_method  = :git
-    deploy.remote       = 'git@github.com:DryKISS/codeblender.net.git'
-    deploy.build_before = false
+    deploy.remote         = 'git@github.com:DryKISS/codeblender.net.git'
+    deploy.build_before   = false
 end
 
 # Build-specific configuration
@@ -116,19 +120,12 @@ configure :build do
     # # "Ignore" JS so webpack has full control.
     # ignore { | path | path =~ /\/(.*)\.js$/ && $1 != 'body' }
 
-    sprockets.append_path File.join( root, "bower_components" )
-    # sprockets.append_path File.join( root, "source/atom" )
-    sprockets.append_path File.join( root, "source/molecule" )
-    sprockets.append_path File.join( root, "source/organism" )
-    sprockets.append_path File.join( root, "source/template" )
-    # sprockets.append_path File.join( root, "source/page" )
-
-    # # GZIP Files
+    # GZIP Files
     # @see https://middlemanapp.com/advanced/file_size_optimization/
     activate :gzip
 
-    # # Use relative URLs
-    # activate :relative_assets
+    # Use relative URLs
+    activate :relative_assets
 
     # For example, change the Compass output style for deployment
     activate :minify_css, inline: true
@@ -145,7 +142,7 @@ configure :build do
     # Auto-generate multiple favicon versions
     activate :favicon_maker do | icon |
 
-        # Templates
+        # Template
         icon.template_dir = File.join( root, 'source/images/favicon/_template' )
         icon.output_dir   = File.join( root, 'build/images/favicon' )
 
@@ -172,31 +169,29 @@ configure :build do
 
 end
 
+# # Remove 404 from directory indexes
+# page "/404.html", :directory_index => false
 
+# Directory Indexes
+# activate :directory_indexes
 
-# # # Remove 404 from directory indexes
-# # page "/404.html", :directory_index => false
+##
+# Football proxy pages
+##
 
-# # Directory Indexes
-# # activate :directory_indexes
-
-# ##
-# # Football proxy pages
-# ##
-
-# # Fixtures pages
-# # Loop through the available season
+# Fixtures pages
+# Loop through the available season
 # ( 1...12 ).each do | value |
 #     proxy "/season/#{ value }.html", "localizable/football/fixture/fixture_template.html", locals: { season: value }, ignore: true
 # end
 
-# # Create the table pages
-# # Loop through the defined divisions
+# Create the table pages
+# Loop through the defined divisions
 # ( 1...3 ).each do | row |
 #     proxy "/division/#{ row }.html", "template/football/table_template.html", locals: { season: 11, division: row }, ignore: true
 # end
 
-# # Team pages
+# Team pages
 # CSV.foreach( "csv/teams.csv", headers: true ) do | row |
 
 #     # Team slug

@@ -21,12 +21,9 @@ todo :
     - - "Sort out the local for this and the channel file"
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
     code = %{partial "social/facebook/facepile/facepile.haml"}
 
 -# Code
-= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

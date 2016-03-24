@@ -45,4 +45,4 @@ locals :
     - todoArray.concat( r.data.todo )
 
 -# Todo
-= partial "organism/todo/todo.haml", locals: { array: todoArray, hidden: true }
+= codeBlender, "todo", "organism", { array: todoArray, hidden: true }

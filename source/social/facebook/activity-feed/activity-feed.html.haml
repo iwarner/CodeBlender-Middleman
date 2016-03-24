@@ -18,12 +18,9 @@ see :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "social/facebook/activity-feed/activity-feed.haml"}
+    code = %{codeBlender "activity-feed", "social"}
 
 -# Code
-= codeBlender "code", "organism", { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

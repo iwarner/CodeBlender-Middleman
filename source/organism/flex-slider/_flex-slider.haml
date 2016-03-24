@@ -8,7 +8,7 @@
 -#
 -# Usage
 -# -# Flex Slider
--# = partial "scaffolding/flex-slider"
+-# = codeBlender "flex-slider", "molecule"
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -##
@@ -48,8 +48,7 @@
                     %li
 
                         -# Image
-                        = partial "atom/image/image.haml",
-                                   :locals => { :alt    => "Mobile Screen",
+                        = codeBlender "image", "atom", { :alt    => "Mobile Screen",
                                                 :height => "512",
                                                 :src    => "slides/#{ value.image }",
                                                 :width  => "288" }

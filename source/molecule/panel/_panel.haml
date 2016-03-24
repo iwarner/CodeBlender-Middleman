@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Panel
--# = partial "molecule/panel/panel", locals: { body: "Body" }
+-# = codeBlender "panel", "molecule", { body: "Body" }
 -#
 -# @param body
 -# @param bodyClass
@@ -49,11 +49,11 @@
                     = link_to( "javascript:;", class: "toggle" ) do
 
                         -# Icon
-                        = partial "atom/icon/icon.haml", locals: { icon: "fa-caret-down" }
+                        = codeBlender "icon", "atom", { icon: "fa-caret-down" }
 
             -# Image Check to see if Heading is an image
             - if heading[ :image ]
-                = partial "atom/image/image.haml", locals: heading[ :image ]
+                = codeBlender "image", "atom", heading[ :image ]
 
                 -# Heading Text
             - else
@@ -64,7 +64,7 @@
 
                 -# Heading
                 - heading[ :extraClass ] = "panel-title"
-                = partial "molecule/heading/heading.haml", locals: heading
+                = codeBlender "heading", "molecule", heading
 
     -# Hidden
     .content{ class: locals[ :collapse ] ? "collapse" : false }
@@ -73,8 +73,7 @@
         - if locals[ :body ]
 
             -# Panel Body
-            .panel-body{ class: locals[ :bodyClass ] ? bodyClass : false }
-                = string( body )
+            .panel-body{ class: locals[ :bodyClass ] ? bodyClass : false }= string( body )
 
         -# Table
         - if locals[ :table ]

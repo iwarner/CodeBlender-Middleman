@@ -14,16 +14,12 @@
     .modalTakeover{ ng: { class: "{ 'show' : modal.showTakeover }" } }
 
         .content
-
             = icon "fa-check"
 
-            %div.text
-                Thank you
+            %div.text Thank you
 
     -# Modal Header
-    .modal-header
-
-        {{ modal.header }}
+    .modal-header {{ modal.header }}
 
     -# Modal Body
     .modal-body
@@ -32,8 +28,7 @@
         %form{ novalidate: true, name: "contentForm", ng: { submit: "modal.submitForm( contentForm.$valid )" } }
 
             -# Input - Title
-            = partial "atom/input/input.haml",
-                       locals: { input: { inputGroupClass: "",
+            = codeBlender "input", "atom", { input: { inputGroupClass: "",
                                           name:            "title",
                                           ng:              { model: "modal.title" },
                                           placeholder:     "Title",
@@ -45,8 +40,7 @@
                 .col-md-6
 
                     -# Input - ID
-                    = partial "atom/input/input.haml",
-                               locals: { input: { inputGroupClass: "",
+                    = codeBlender "input", "atom", { input: { inputGroupClass: "",
                                                   name:            "_id",
                                                   ng:              { model: "modal._id" },
                                                   placeholder:     "ID",
@@ -54,22 +48,21 @@
                                          label: { title: "ID" } }
 
                     -# Select - Type
-                    = partial "atom/select/select.haml", locals: { array: data.type, label: { title: "Type" }, name: "type", ng: { model: "modal.type" } }
+                    = codeBlender "select", "atom", { array: data.type, label: { title: "Type" }, name: "type", ng: { model: "modal.type" } }
 
                     -# Select - Buying Stage
-                    = partial "atom/select/select.haml", locals: { array: [ [ "learn" ], [ "try" ], [ "buy" ] ], label: { title: "Buying Stage" }, name: "buyingStage", ng: { model: "modal.buyingStage" } }
+                    = codeBlender "select", "atom", { array: [ [ "learn" ], [ "try" ], [ "buy" ] ], label: { title: "Buying Stage" }, name: "buyingStage", ng: { model: "modal.buyingStage" } }
 
                     -# Select - Format
-                    = partial "atom/select/select.haml", locals: { array: [ [ "pdf" ], [ "video" ], [ "link" ] ], label: { title: "Format" }, name: "format", ng: { model: "modal.format" } }
+                    = codeBlender "select", "atom", { array: [ [ "pdf" ], [ "video" ], [ "link" ] ], label: { title: "Format" }, name: "format", ng: { model: "modal.format" } }
 
                     -# Select - Solution Area
-                    = partial "atom/select/select.haml", locals: { array: [ [ "Analytics" ], [ "Commerce" ], [ "Systems" ] ], label: { title: "Solution Area" }, name: "solutionArea", ng: { model: "modal.solutionArea" } }
+                    = codeBlender "select", "atom", { array: [ [ "Analytics" ], [ "Commerce" ], [ "Systems" ] ], label: { title: "Solution Area" }, name: "solutionArea", ng: { model: "modal.solutionArea" } }
 
                 .col-md-6
 
                     -# Input - Date
-                    = partial "atom/input/input.haml",
-                               locals: { input: { inputGroupClass: "",
+                    = codeBlender "input", "atom", { input: { inputGroupClass: "",
                                                   name:            "date",
                                                   ng:              { model: "modal.date" },
                                                   required:        "true",
@@ -77,8 +70,7 @@
                                          label: { title: "Date" } }
 
                     -# Input - URL
-                    = partial "atom/input/input.haml",
-                               locals: { input: { inputGroupClass: "",
+                    = codeBlender "input", "atom", { input: { inputGroupClass: "",
                                                   name:            "url",
                                                   ng:              { model: "modal.url" },
                                                   placeholder:     "URL",
@@ -86,8 +78,7 @@
                                          label: { title: "URL" } }
 
                     -# Input - DocType
-                    = partial "atom/input/input.haml",
-                               locals: { input: { inputGroupClass: "",
+                    = codeBlender "input", "atom", { input: { inputGroupClass: "",
                                                   name:            "docType",
                                                   ng:              { model: "modal.docType" },
                                                   placeholder:     "DocType",
@@ -95,8 +86,7 @@
                                          label: { title: "DocType" } }
 
                     -# Input - Interest Codes
-                    = partial "atom/input/input.haml",
-                               locals: { input: { inputGroupClass: "",
+                    = codeBlender "input", "atom", { input: { inputGroupClass: "",
                                                   name:            "interestCode",
                                                   ng:              { model: "modal.interestCodes" },
                                                   placeholder:     "Comma separated list of codes",
@@ -105,8 +95,7 @@
 
 
                     -# Input - Countries
-                    = partial "atom/input/input.haml",
-                               locals: { input: { inputGroupClass: "",
+                    = codeBlender "input", "atom", { input: { inputGroupClass: "",
                                                   name:            "countries",
                                                   ng:              { model: "modal.countries" },
                                                   placeholder:     "Comma separated list of Countries",
@@ -114,8 +103,7 @@
                                          label: { title: "Countries" } }
 
             -# Input - Tags
-            = partial "atom/input/input.haml",
-                       locals: { input: { inputGroupClass: "",
+            = codeBlender "input", "atom", { input: { inputGroupClass: "",
                                           name:            "tag",
                                           ng:              { model: "modal.tags" },
                                           placeholder:     "Comma separated list of tags",
@@ -123,10 +111,10 @@
                                  label: { title: "Tags" } }
 
             -# TextArea - Synopsis
-            = partial "atom/textarea/textarea.haml", locals: { required: "true", text: "{{ modal.synopsis }}", rows: "4", label: { title: "Synopsis" }, name: "synopsis", ng: { model: "modal.synopsis" } }
+            = codeBlender "textarea", "atom", { required: "true", text: "{{ modal.synopsis }}", rows: "4", label: { title: "Synopsis" }, name: "synopsis", ng: { model: "modal.synopsis" } }
 
             -# Cancel Button
-            = partial "atom/button/button.haml", locals: { context: "warning", text: "Cancel", ng: { click: "$close()" } }
+            = codeBlender "button", "atom", { context: "warning", text: "Cancel", ng: { click: "$close()" } }
 
             -# Save Button
-            = partial "atom/button/button.haml", locals: { type: "submit", context: "success", text: "{{ modal.button }}" }
+            = codeBlender "button", "atom", { type: "submit", context: "success", text: "{{ modal.button }}" }

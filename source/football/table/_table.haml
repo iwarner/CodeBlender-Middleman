@@ -3,7 +3,7 @@
 -#
 -# @usage
 -# -# Football table
--# = partial "football/table/table.haml"
+-# = codeBlender "table", "football"
 -#
 -# @param season
 -# @param division
@@ -63,7 +63,7 @@
                     %a{ class: "footballTable__link", href: "#footballTable__detail#{ index }", data: { toggle: "collapse" }, aria: { expanded: "false", controls: "footballTable__detail#{ index }" } }
 
                         -# icon
-                        = partial "atom/icon/icon.haml", locals: { extraClass: "footballTable__linkFill", icon: "fa-chevron-right" }
+                        = codeBlender "icon", "atom", { extraClass: "footballTable__linkFill", icon: "fa-chevron-right" }
 
                 -# Position
                 %td= index + 1
@@ -104,7 +104,7 @@
                     - ( 0...10 ).each do | state |
 
                         -# Label with popover
-                        = partial "atom/label/label.haml", locals: { extraClass: "popover-directive footballTable__label", context: "danger", title: "Lost", data: { placement: "top", toggle: "popover", trigger: "focus", content: "1-2 v Aston Villa<br/>12th  December 2015" } }
+                        = codeBlender "label", "atom", { extraClass: "popover-directive footballTable__label", context: "danger", title: "Lost", data: { placement: "top", toggle: "popover", trigger: "focus", content: "1-2 v Aston Villa<br/>12th  December 2015" } }
 
             -# Row - Details - collapsed panel
             %tr

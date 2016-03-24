@@ -59,56 +59,49 @@ locals :
 
 ---
 
--# ID
-- id = 0
-
 -# Default
 :ruby
-    code = %{partial "molecule/panel/panel.haml", locals: { body: "Body" }}
+    code = %{codeBlender "panel", "molecule", { body: "Body" }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Default" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
 -# Full Panel
 :ruby
-    code = %{partial "molecule/panel/panel.haml",
-                      locals: { body:    "Body",
+    code = %{codeBlender "panel", "molecule", { body:    "Body",
                                 context: "primary",
                                 footer:  "Footer",
                                 heading: { text: "Heading", tag: "h3" },
                                 tools:   true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { small: "Contains the Tools also", text: "Full Panel" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "Contains the Tools also", text: "Full Panel" } }
 
 -# Panel with Image as Heading
 :ruby
-    code = %{partial "molecule/panel/panel.haml",
-                      locals: { body:    "Body",
+    code = %{codeBlender "panel", "molecule", { body:    "Body",
                                 context: "primary",
                                 footer:  "Footer",
                                 heading: { extraClass: "text-center", image: { data: holder( "300x40" ) } },
                                 tools:   true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Panel with Image Heading" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Panel with Image Heading" } }
 
 -# Panel with HTML Body Copy
 - @captureHTML = capture_html do
 
-    %p
-        Choose Provider
+    %p Choose Provider
 
     -# Button
-    = partial "atom/button/button.haml", locals: { text: "Primary", context: "primary" }
+    = codeBlender "button", "atom", { text: "Primary", context: "primary" }
 
 :ruby
-    code = %{partial "molecule/panel/panel.haml",
-                      locals: { body:    [ @captureHTML ],
+    code = %{codeBlender "panel", "molecule", { body:    [ @captureHTML ],
                                 context: "primary",
                                 footer:  "Footer",
                                 heading: { text: "Heading", tag: "h3" },
                                 tools:   true }}
 
 -# Code
-= partial "organism/code/code.haml", locals: { id: id += 1, code: code, heading: { text: "Panel with HTML Body" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Panel with HTML Body" } }
