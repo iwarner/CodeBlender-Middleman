@@ -15,12 +15,7 @@
 -# @param ng         Angular elements
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# @category Molecule
--# @see      http://getbootstrap.com/components/#dropdowns
--# @see      http://getbootstrap.com/components/#btn-dropdowns
--# @see      http://getbootstrap.com/components/#input-groups-buttons-dropdowns
--# @see      http://getbootstrap.com/javascript/#dropdowns
--# @see      http://www.bootply.com/b4NKREUPkN
+-# @category molecule
 -##
 
 -# Variable
@@ -30,10 +25,11 @@
 - list       = locals[ :list ]
 - ng         = locals[ :ng ]         ? locals[ :ng ]         : false
 
--# Opening tag
-%div{ class: extraClass, ng: ng }
+-# Capture content
+- captureHTML = capture_html do
 
-    -# Add defaults for button for dropdown action
+    -# Button defaults for dropdown action
+    -# Input groups required a button tag
     - button[ :dropdown ] = true
     - button[ :toggle ]   = "dropdown"
     - button[ :data ]     = { toggle: "dropdown" }
@@ -46,3 +42,15 @@
 
     -# Dropdown list
     = codeBlender "list-dropdown", "atom", list
+
+-# Check if opening tag is required
+-# Required on normal drop downs or drop ups
+- if ! locals[ :inputGroup ]
+
+    -# Opening tag
+    -# This is not required for input groups
+    %div{ class: extraClass }
+        = captureHTML
+
+- else
+    = captureHTML

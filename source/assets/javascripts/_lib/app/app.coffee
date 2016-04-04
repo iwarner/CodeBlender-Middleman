@@ -37,6 +37,7 @@ angular
         'ngAnimate'
         'ngClipboard'
         'ngStorage'
+        'ngTagsInput'
 
         'mailChimp'
 

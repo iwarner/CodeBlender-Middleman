@@ -19,16 +19,16 @@
 
     // Heading truncation - need to set colour for ellipsis
     //------------------------------------------------------------------------//
-    // &--truncate {
-    //     color         : $headings-small-color;
-    //     display       : inline-block;
-    //     overflow      : hidden;
-    //     text-overflow : ellipsis;
-    //     width         : 100%;
-    //     white-space   : nowrap;
-    //     word-break    : break-all;
-    //     word-wrap     : break-word;
-    // }
+    &--truncate {
+        display       : inline-block;
+        line-height   : 22px;
+        overflow      : hidden;
+        text-overflow : ellipsis;
+        width         : 100%;
+        white-space   : nowrap;
+        word-break    : break-all;
+        word-wrap     : break-word;
+    }
 
     // No margin
     //------------------------------------------------------------------------//

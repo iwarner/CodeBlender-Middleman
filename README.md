@@ -1,5 +1,11 @@
 # Project : CodeBlender
 
+- https://lifemobile.co.uk/
+- https://www.giffgaff.com/
+- http://www.idmobile.co.uk/
+
+- http://webkay.robinlinus.com/
+
 ## Middleman : http://middlemanapp.com/
 
 Start

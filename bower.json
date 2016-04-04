@@ -23,6 +23,7 @@
         "angularfire"                : "",
         "ng-clip"                    : "",
         "ngstorage"                  : "",
+        "ng-tags-input"              : "",
 
         "bootstrap-sass-official"    : "",
         "bootstrapx-clickover-bs3"   : "",

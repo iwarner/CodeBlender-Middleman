@@ -8,6 +8,7 @@
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category atom
+-# @see      http://getbootstrap.com/css/#forms-controls
 -# @see      https://github.com/flatlogic/awesome-bootstrap-checkbox
 -##
 
@@ -39,7 +40,7 @@
     - extraClass = label[ :extraClass ] ? label[ :extraClass ] : false
 
     -# Label - note this is an array as it contains flag for screen reader
-    %label{  class: extraClass }
+    %label{ class: extraClass }
 
         -# Text
         - if label[ :title ]

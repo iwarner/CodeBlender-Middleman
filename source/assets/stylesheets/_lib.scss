@@ -10,3 +10,10 @@
 // @import "_lib/scaffolding/info-window";
 // @import "_lib/scaffolding/panels";
 @import "_lib/scaffolding";
+
+.controllerLoaded {
+    color    : red;
+    position : absolute;
+    top      : 10px;
+    right    : 15px;
+}

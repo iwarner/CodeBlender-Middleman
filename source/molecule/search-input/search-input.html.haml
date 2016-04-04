@@ -1,5 +1,10 @@
 ---
 
+# Angular
+angular :
+    controller   : SearchInputController
+    controllerAs : searchInput
+
 # Meta
 meta :
     author      : "DryKISS"
@@ -31,6 +36,14 @@ todo :
 
 ---
 
+-# Controller loaded
+%span.controllerLoaded{ ng: { if: "searchInput.controllerLoaded" } }
+    -# Icon
+    = codeBlender "icon", "atom", { icon: "fa-code" }
+
+{{ searchInput }}
+{{ searchInput.controllerLoaded }}
+
 -# Search input
 :ruby
     code = %{codeBlender "search-input", "molecule"}
@@ -50,21 +63,12 @@ todo :
         - panelBody = capture_html do
             :markdown
 
-                Place the following inside your locale file
-
-                ~~~
-                # Search
-                search-input :
-                    button :
-                        text : "Search"
-                    input:
-                        placeholder : "Search"
-                    label :
-                        label : "Search"
-                ~~~
+                - Angular directive to control all aspects of this component
+                - Typeahead option enabled using [Angular UI Typeahead](https://angular-ui.github.io/bootstrap/#/typeahead)
+                - Refresh icon appears when utilising the typeahead
 
         -# Panel
-        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Translation" } }
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Features" } }
 
     -# Bootstrap column
     .col-md-6
@@ -88,5 +92,34 @@ todo :
 
         -# Panel
         = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Translation" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+            :markdown
+
+                Utilises the button and input partials
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Hierarchy" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+            :markdown
+
+                HERE
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "HERE" } }
 
 %hr

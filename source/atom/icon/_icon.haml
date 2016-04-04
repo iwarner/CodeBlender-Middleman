@@ -13,12 +13,14 @@
 -# @category atom
 -##
 
--# Icon library - split on dash - i.e. fa-shopping-cart
+-# Icon library - split on dash - i.e. fa-shopping-cart, icon-cross
 - iconName    = string locals[ :icon ]
 - iconLibrary = iconName.partition( "-" )
 
 -# Angular
 - ng = locals[ :ng ] ? locals[ :ng ] : false
+
+-# HREF
 
 -# Icon
 %span{ class: "#{ iconLibrary[ 0 ] } #{ iconName } #{ locals[ :extraClass ] }", ng: ng }

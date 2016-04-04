@@ -12,11 +12,25 @@ heading :
     title : "Code"
 
 todo :
-    - - "Complete an example of the code"
+    - - "Need to get the highlighting working again"
     - - "Provide a means for the code block to be expanded and contracted, default as collapsed"
-    - - "Split out the Tabs array into a HAML hash - use partial"
+    - - "Split out the Tabs array into a HAML hash - use tab partial"
     - - "Change the code controller to a directive - handle the copy and tab transition"
+    - - "Add the URL for the pygments instructions and middleman syntax highlighting and Rouge"
+    - - "Tabs need a better active colour - check bootstrap docs - maybe just change css"
 
 ---
 
-Code
+:markdown
+    Code organism provides a block that presents a sample of another element,
+    such as below the below the [badge](/atom/badge/badge.html) atom is shown
+
+    It features code and output tabs and a copy button to instantly place the tab
+    content into the clipboard.
+
+-# Badge
+:ruby
+    code = %{codeBlender "badge", "atom", { text: "88" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Code block" } }

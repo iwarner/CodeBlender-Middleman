@@ -1,11 +1,11 @@
 -##
--# Form Checkbox
+-# Radio
 -#
 -# Locals
 -# aria      - Aria Elements
 -#     label     - string - optional - If no elements describe this then add text
 -#     labeledby - string - optional - Use a list of ids that describe this element
--# autofocus - bool   - optional - Whether this input should be autofocussed
+-# autofocus - bool   - optional - Whether this input should be autofocused
 -# disabled  - bool   - optional - Disabled
 -# help      - string - optional - Help text
 -# inline    - bool   - optional - Whether the checkboxes should be inline
@@ -15,48 +15,74 @@
 -# text      - string - optional - Text next to the checkbox if required
 -# value     - string - optional - Input value
 -#
--# Usage
--# -# Checkbox
--# = codeBlender "radio", "atom", { :aria => { :label => "HERE", }, :name => "checkbox", :text => "Textual description here" }
+-# @usage
+-# -# Radio
+-# = codeBlender "radio", "atom", { input: { name: "radio" }, label: { text: "label" } }
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-# @see      http://getbootstrap.com/css/#forms-controls
 -##
 
--# Variables
-- l  = locals
-- la = l[ :aria ]
+-# Variable
+- input      = locals[ :input ]
+- label      = locals[ :label ]
 
--# Form Group
-.checkbox.control-label.has-success
+-# Variable
+- extraClass = label[ :extraClass ] ? label[ :extraClass ] : false
 
-    -# Label
-    %label{ :class => l[ :inline] ? "checkbox-inline" : false,
-            :for   => l[ :name ] }
+-# Capture content
+- captureHTML = capture_html do
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label{ class: extraClass }
+
+        -# Check for Aria - requires input to be present
+        - if input && input[ :aria ].present?
+            - aria = input[ :aria ]
 
         -# Input
-        %input{ :aria      => { :label      => ! la.blank? && ! la[ :label ].blank?      ? la[ :label ]      : false,
-                                :labelledby => ! la.blank? && ! la[ :labelledby ].blank? ? la[ :labelledby ] : "#{ l[ :name ] }ID" },
-                :autofocus => l[ :autofocus ] ? "autofocus" : false,
-                :disabled  => l[ :disabled ]  ? "disabled"  : false,
-                :id        => l[ :name ]      ? name        : false,
-                :name      => l[ :name ]      ? name        : false,
-                :required  => l[ :required ]  ? "required"  : false,
-                :tabindex  => l[ :tabindex ]  ? tabindex    : false,
-                :type      => "checkbox",
-                :value     => l[ :value ]     ? value       : false }
+        %input{ aria:      aria                ? aria               : false,
+                autofocus: input[ :autofocus ] ? "autofocus"        : false,
+                checked:   input[ :checked ]   ? "checked"          : false,
+                disabled:  input[ :disabled ]  ? "disabled"         : false,
+                id:        input[ :name ]      ? input[ :name ]     : false,
+                name:      input[ :name ]      ? input[ :name ]     : false,
+                ng:        input[ :ng ]        ? input[ :ng ]       : false,
+                required:  input[ :required ]  ? "required"         : false,
+                tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
+                type:      "radio",
+                value:     input[ :value ]     ? input[ :value ]    : false }
 
         -# Text
-        - if l[ :text ]
-            %span{ :id => "#{ l[ :name ] }ID" }
-                = string text
+        - if label[ :title ]
+            = string label[ :title ]
 
+    -##
     -# Help Block
     -# Sometimes this should be hidden to allow errors to be added inside.
     -# Assume if l[ :help ] is a "true" Bool only then add class hidden and no text
-    - if l[ :help ]
+    -# @see http://getbootstrap.com/css/#forms-help-text
+    -##
+    - if locals[ :help ]
 
-        %span.help-block{ :class => !!help == help ? "hidden" : false }
+        %span.help-block{ id: input[ :name ], class: !!help == help ? "hidden" : false }
 
             -# Help should be a string to show the text otherwise leave blank
             - if help.is_a?( String )
                 = help
+
+-# Radio
+-# Do not show this for in-line control
+- if ! extraClass.include? "radio-inline"
+
+    -# Variable
+    - extraClass = locals[ :extraClass ] ? locals[ :extraClass ]  : false
+
+    -# Radio
+    .radio{ class: extraClass }
+        = captureHTML
+
+    -# Inline radio
+- else
+    = captureHTML

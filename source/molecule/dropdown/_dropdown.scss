@@ -1,7 +1,8 @@
 //
 // Dropdown
 //
-// @author Ian Warner <ian.warner@drykiss.com>
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
 //----------------------------------------------------------------------------//
 
 // Dropdown
@@ -16,9 +17,6 @@
             content        : "\f0d7";
             font-family    : FontAwesome;
             margin-left    : 3px;
-            vertical-align : middle;
-            // right          : 10px;
-            // position       : absolute;
         }
     }
 }
@@ -35,7 +33,6 @@
             content        : "\f0d8";
             font-family    : FontAwesome;
             margin-left    : 3px;
-            vertical-align : middle;
         }
     }
 }

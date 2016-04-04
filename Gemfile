@@ -15,6 +15,7 @@ gem 'middleman'
 gem 'middleman-livereload'
 gem "middleman-blog",         github: "middleman/middleman-blog",           branch: "master"
 gem "middleman-sprockets",    github: "middleman/middleman-sprockets",      branch: "master"
+
 gem "middleman-syntax"
 gem "middleman-deploy",       github: "middleman-contrib/middleman-deploy", branch: "master"
 gem "middleman-favicon-maker"

@@ -11,24 +11,26 @@
 -##
 
 -# Button - append
-- button = codeBlender "button", "atom", { context: "primary", ng: { click: "$parent.search()" }, size: "lg", text: :"search-input.button.text" }
+- button = codeBlender "button", "atom", { context: "primary", ng: { click: "searchInput.search()" }, size: "lg", text: :"search-input.button.text" }
 
-.search-input
+-# Search input
+.search-input{ class: "ng-cloak" }
 
     -# Input
-    = codeBlender "input", "atom", { button: { append:  button },
-                                     icon:   { prepend: "fa-search" },
-                                     input:  { autocomplete:    "off",
-                                               clear:           true,
-                                               extraClass:      "input-lg",
-                                               inputGroupClass: "input-group",
-                                               name:            "search",
-                                               ng:              { model: "$parent.query" },
-                                               placeholder:     :"search-input.input.placeholder",
-                                               typeahead:       { loading: "loading", no: { results: "noResults" } },
-                                               uib:             { typeahead: "blah for blah in $parent.complete( $viewValue )" } },
-                                     label:  { title: :"search-input.label.label", extraClass: "sr-only" } }
+    = codeBlender "input", "atom",
+        { button: { append:  button },
+          icon:   { prepend: "fa-search" },
+          input:  { autocomplete:    "off",
+                    clear:           true,
+                    extraClass:      "input-lg",
+                    inputGroupClass: "input-group",
+                    name:            "search",
+                    ng:              { model: "searchInput.query" },
+                    placeholder:     :"search-input.input.placeholder",
+                    typeahead:       { loading: "loading", no: { results: "noResults" } },
+                    uib:             { typeahead: "data for data in searchInput.complete( $viewValue )" } },
+          label:  { title: :"search-input.label.label", extraClass: "sr-only" } }
 
-    -# Type ahead Results
+    -# Type ahead results
     %div{ ng: { show: "noResults" } }
         No Results Found

@@ -1,0 +1,41 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Gravatar - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Gravatar - CodeBlender"
+    type        : "website"
+
+heading :
+    small : "Globally recognized avatar"
+    title : "Gravatar"
+
+see :
+    - - "Image request"
+      - "http://en.gravatar.com/site/implement/images/"
+
+todo :
+    - - "Need to pass through the image options for the avatar"
+    - - "Should have the option for HTTPs"
+    - - "Check whether type=thumbnail works"
+    - - "Include gravatar links and docs"
+    - - "Configure the workaround for default image"
+    - - "Use code partial on docs page"
+
+---
+
+-# Default
+:ruby
+    code = %{codeBlender "gravatar", "social/gravatar", { email: "ian.warner@drykiss.com" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+
+-# Size
+:ruby
+    code = %{codeBlender "gravatar", "social/gravatar", { email: "iwarner@triangle-solutions.com", size: "200" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Size" } }

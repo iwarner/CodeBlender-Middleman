@@ -1,8 +1,13 @@
 ##
 # Validation states
-# Will validate any bootstrap form control
+# Will validate any bootstrap form control, applies itself automatically to form
 #
-# @author Ian Warner <ian.warner@drykiss.com>
+# @usage
+# <input type="text" id="fixed" clear-btn>
+#
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category atom
+# @see      https://github.com/paulyoder/angular-bootstrap-show-errors
 ##
 
 ##
@@ -84,6 +89,8 @@ showErrors = ( $timeout, showErrorsConfig ) ->
 
             if showSuccess
                 el.toggleClass( 'has-success', !invalid )
+
+    # Return
     {
     restrict : 'A'
     require  : '^form'
@@ -114,7 +121,7 @@ showErrorsConfig = ->
 ##
 angular
     .module    'app.directive'
-    .directive 'showErrors', showErrors
+    .directive 'showErrors',       showErrors
     .provider  'showErrorsConfig', showErrorsConfig
 
 ##

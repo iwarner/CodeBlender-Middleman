@@ -3,15 +3,15 @@
 -#
 -# @usage
 -# -# Gravatar avatar
--# = codeBlender "gravatar", "molecule", { email: "ian.warner@drykiss.com", size: "200" }
+-# = codeBlender "gravatar", "social/gravatar", { email: "ian.warner@drykiss.com", size: "200" }
 -#
--# @param alt        - String - Optional
--# @param email      - String - Required - Email address of the user's gravatar
--# @param extraClass - String - Optional
--# @param size       - Int    - Optional - Size of the image - default 80px square
+-# @param alt        - string - optional
+-# @param email      - string - required - Email address of the user's gravatar
+-# @param extraClass - string - optional
+-# @param size       - int    - optional - Size of the image - default 80px square
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# @category molecule
+-# @category social
 -##
 
 -# Size default
@@ -22,5 +22,5 @@
 - emailHash = Digest::MD5.hexdigest( string( locals[ :email ] ).chomp.downcase )
 - src       = "https://www.gravatar.com/avatar/#{ emailHash }.jpg?s=#{ locals[ :size ] }&r=pg"
 
--# Image - Gravatar
+-# Image
 = codeBlender "image", "atom", { alt: locals[ :alt ], extraClass: locals[ :extraClass ], src: src, type: "thumbnail" }

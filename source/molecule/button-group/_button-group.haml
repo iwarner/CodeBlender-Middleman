@@ -1,0 +1,22 @@
+-##
+-# Button group
+-#
+-# @usage
+-# -# Button group
+-# = codeBlender "button-group", "atom", {  }
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
+-##
+
+-# Button group
+.btn-group.btn-group-justified{ "aria-label" => "Justified button group", :role => "group" }
+
+    -# Button
+    = codeBlender "button", "atom", { size: "sm", context: "info", icon: { prepend: "fa-external-link" }, href: "javascript:;" }
+
+    -# Button
+    = codeBlender "button", "atom", { size: "sm", context: "info", icon: { prepend: "fa-plus" }, href: "javascript:;", ng: { disabled: "medical.isDisabled[ node.title ]", click: "medical.isDisabled[ node.title ] || medical.addWord( node.title )" } }
+
+    -# Button
+    = codeBlender "button", "atom", { size: "sm", context: "info", icon: { prepend: "fa-book" }, href: "javascript:;" }

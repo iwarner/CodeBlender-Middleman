@@ -22,6 +22,7 @@
 #= require angular-sanitize/angular-sanitize
 #= require angular-bootstrap-checkbox/angular-bootstrap-checkbox
 #= require ngstorage/ngStorage.min
+#= require ng-tags-input/ng-tags-input.min
 
 # Angular Bootstrap DataTables
 #= require angular-datatables/dist/angular-datatables
@@ -63,6 +64,10 @@
 #= require top-icon/_top-icon_controller
 #= require popover/_popover_directive
 #= require tooltip/_tooltip_directive
+
+# Search input
+#= require search-input/_search-input_controller
+#= require search-input/_search-input_directive
 
 ##
 # Organism

@@ -1,7 +1,8 @@
 ##
-# Code Controller
+# Code controller
 #
-# @author Ian Warner <ian.warner@drykiss.com>
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category organism
 ##
 
 ##
@@ -18,7 +19,7 @@ CodeController = ->
     vm = this
 
     ##
-    # Copy to Clipboard
+    # Copy to clipboard
     ##
     vm.copy = ( id ) ->
         return angular.element( "#codeCopy#{ id } .tab-pane.active" ).text()

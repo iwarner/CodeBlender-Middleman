@@ -1,22 +1,27 @@
 //
-// Pygments Syntax Highlighting
+// Code
+// Pygments syntax highlighting
 // Rouge has ThankfulEyes, Colorful, Github, Base16, Base16::Solarized, Base16::Monokai, and Monokai themes.
 //
-// @author Ian Warner <ian.warner@drykiss.com>
-//
-// @todo   Add the URL for the pygments instructions and middleman syntax highlighting and Rouge
-// @todo   Tab Nav need a better active colour - check bootstrap docs
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category organism
 //----------------------------------------------------------------------------//
 
 // Rouge
 //----------------------------------------------------------------------------//
 // <%= Rouge::Themes::Github.render( scope: '.highlight' ) %>
 
-// Code
+// Module
 //----------------------------------------------------------------------------//
-.code {
+$module : 'code';
 
-    // Example Area
+// Sidebar
+//----------------------------------------------------------------------------//
+.#{ $module } {
+
+    margin-bottom : 10px;
+
+    // Example section
     //------------------------------------------------------------------------//
     &__example {
         background-color : #fff;
@@ -26,7 +31,7 @@
         padding          : 5px 15px 15px;
     }
 
-    // Code Area
+    // Code section
     //------------------------------------------------------------------------//
     &__code {
         background-color : #f7f7f9;
@@ -34,14 +39,14 @@
         border-radius    : 0 0 4px 4px;
     }
 
-    // Copy Button
+    // Copy button
     //------------------------------------------------------------------------//
     &__clip {
         float  : right;
         margin : 3px;
     }
 
-    // Bootstrap Nav Tabs
+    // Bootstrap tabs
     //------------------------------------------------------------------------//
     .nav-tabs {
 
@@ -61,7 +66,7 @@
         }
     }
 
-    // Tab Content
+    // Tab content
     //------------------------------------------------------------------------//
     .tab-content {
         background-color : #fff;

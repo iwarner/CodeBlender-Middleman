@@ -331,8 +331,8 @@ social :
     - title : "Facebook Share Button"
       url   : "/social/facebook/share-button.html"
 
-    - title : "Gravatar Avatar"
-      url   : "/social/gravatar/avatar.html"
+    - title : "Gravatar"
+      url   : "/social/gravatar/gravatar.html"
 
     - title : "Mailchimp"
       url   : "/social/mailchimp/embed.html"
