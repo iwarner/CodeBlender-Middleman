@@ -72,6 +72,8 @@ Time.zone = "Europe/London"
 activate :i18n
 
 # BLOG
+# Template files cannot be within a folder path with a _ i.e. _codeBlender/template
+# @see https://elenichappen.svbtle.com/getting-tags-to-work-with-middlemans-blog-gem
 activate :blog do | blog |
 
     blog.name              = "portfolio"

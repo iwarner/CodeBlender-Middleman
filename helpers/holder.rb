@@ -12,10 +12,9 @@
 #
 # <img data-src="holder.js/200x300/social/text:hello world">
 #
-# @author Ian Warner <ian.warner@drykiss.com>
-# @see    http://imsky.github.io/holder/
-#
-# @todo   Need to also have the option of just returning a string
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category helper
+# @see      http://imsky.github.io/holder/
 ##
 module Holder
 

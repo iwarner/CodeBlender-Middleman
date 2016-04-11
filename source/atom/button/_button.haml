@@ -9,7 +9,7 @@
 -#
 -# @usage
 -# -# Button
--# = codeBlender "button", "atom", { icon: { prepend: "fa-credit-card" }, text: "Default" }
+-# = codeBlender "button", "atom", { icon: { prepend: { icon: "fa fa-credit-card"} }, text: "Default" }
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category atom
@@ -45,7 +45,7 @@
 
     -# Prepend icon
     - if locals[ :icon ] and locals[ :icon ][ :prepend ]
-        = codeBlender "icon", "atom", { icon: locals[ :icon ][ :prepend ] }
+        = codeBlender "icon", "atom", locals[ :icon ][ :prepend ]
 
     -# Close content
     - if locals[ :text ] == "close"
@@ -57,7 +57,7 @@
 
     -# Append icon
     - if locals[ :icon ] && locals[ :icon ][ :append ]
-        = codeBlender "icon", "atom", { icon: locals[ :icon ][ :append ] }
+        = codeBlender "icon", "atom", locals[ :icon ][ :append ]
 
     -# Image
     - if locals[ :image ]
@@ -80,6 +80,7 @@
                 ng:       locals[ :ng ]       ? ng                    : false,
                 role:     locals[ :href ]     ? "button"              : false,
                 tabindex: locals[ :tabindex ] ? locals[ :tabindex ]   : false,
+                target:   locals[ :target ]   ? locals[ :target ]     : false,
                 title:    locals[ :title ]    ? string( title )       : false,
                 type:     locals[ :type ]     ? locals[ :type ]       : "button",
                 ui:       locals[ :ui ]       ? ui                    : false }

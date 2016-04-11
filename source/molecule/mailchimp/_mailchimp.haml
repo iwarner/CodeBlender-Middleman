@@ -51,7 +51,7 @@
         %div{ ng: { hide: "mailChimp.result === 'success'" } }
 
             -# Input - Email Address
-            = codeBlender "input", "atom", { icon: { prepend: "fa-envelope" },
+            = codeBlender "input", "atom", { icon: { prepend: { icon: "fa fa-envelope" } },
                                  input: { inputGroupClass: "input-group",
                                           name:            "EMAIL",
                                           ng:              { model: "mailChimp.EMAIL" },
@@ -64,7 +64,7 @@
             - if locals[ :name ]
 
                 -# Input - First Name
-                = codeBlender "input", "atom", { icon: { prepend: "fa-user" },
+                = codeBlender "input", "atom", { icon: { prepend: { icon: "fa fa-user" } },
                                      input: { inputGroupClass: "input-group",
                                               name:            "FNAME",
                                               ng:              { model: "mailChimp.FNAME" },
@@ -72,7 +72,7 @@
                                      label: { extraClass: "sr-only", title: :"mailChimp.firstName" } }
 
                 -# Input - Last Name
-                = codeBlender "input", "atom", { icon: { prepend: "fa-user" },
+                = codeBlender "input", "atom", { icon: { prepend: { icon: "fa fa-user" } },
                                      input: { inputGroupClass: "input-group",
                                               name:            "LNAME",
                                               ng:              { model: "mailChimp.LNAME" },

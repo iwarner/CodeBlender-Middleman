@@ -13,7 +13,7 @@ heading :
     title : "Footer partial"
 
 see :
-    - - "Bootstrap Sticky Footer"
+    - - "Bootstrap sticky footer"
       - "http://getbootstrap.com/examples/sticky-footer/"
 
 todo :
@@ -121,9 +121,7 @@ list :
 
 -# Using Local Data with No Background
 :ruby
-    code = %{codeBlender "footer", "organism", { array:       current_page.data.footer,
-                                fluid:       true,
-                                footerClass: "noBackground text-center" }}
+    code = %{codeBlender "footer", "organism", { array: current_page.data.footer, fluid: true, footerClass: "noBackground text-center" }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Local data Footer" } }
@@ -137,18 +135,14 @@ list :
 
 -# Copyright Extra Links
 :ruby
-    code = %{codeBlender "footer", "organism", { array:  current_page.data.list,
-                                center: true,
-                                fluid:  true }}
+    code = %{codeBlender "footer", "organism", { array: current_page.data.list, center: true, fluid: true }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Copyright Extra Links" } }
 
 -# No Year
 :ruby
-    code = %{codeBlender "footer", "organism", { copyright: "Local String Inserted",
-                                fluid:     true,
-                                noYear:    true }}
+    code = %{codeBlender "footer", "organism", { copyright: "Local String Inserted", fluid: true, noYear: true }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "No Year" } }

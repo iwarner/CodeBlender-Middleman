@@ -14,7 +14,7 @@
     .ui-grid-cell-contents
 
         -# Button - Edit
-        = codeBlender "button", "atom", { context: "primary", size: "xs", icon: { prepend: "fa-edit" }, ng: { click: "grid.appScope.content.editModal( grid, row )" } }
+        = codeBlender "button", "atom", { context: "primary", size: "xs", icon: { prepend: { icon: "fa fa-edit" } }, ng: { click: "grid.appScope.content.editModal( grid, row )" } }
 
         -# Button - Delete
-        = codeBlender "button", "atom", { context: "danger", size: "xs", icon: { prepend: "fa-minus" }, ng: { really: { message: "Are you sure you want to delete?", click: "grid.appScope.content.delete( grid, row )" } } }
+        = codeBlender "button", "atom", { context: "danger", size: "xs", icon: { prepend: { icon: "fa fa-minus" } }, ng: { really: { message: "Are you sure you want to delete?", click: "grid.appScope.content.delete( grid, row )" } } }

@@ -3,13 +3,13 @@
 -#
 -# @usage
 -# -# Blog detail
--# = codeBlender "detail", "molecule", { current_page: article }
+-# = codeBlender "detail", "molecule", { author: true, cal: true, comment: true, social: true, tags: true }
 -#
--# @param author    Show the meta author and icon
--# @param calendar  Show the blog time and icon
--# @param comment   Show the number of comments
--# @param social    Show the social buttons
--# @param tags      Show the tags
+-# @param author   Show the meta author and icon
+-# @param calendar Show the blog time and icon
+-# @param comment  Show the number of comments
+-# @param social   Show the social buttons
+-# @param tags     Show the tags
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category molecule
@@ -17,6 +17,7 @@
 
 -# Variable
 - url = data.config.url + current_page.url
+- cp  = current_page.data
 
 -# Blog detail
 .blogDetail
@@ -24,28 +25,35 @@
     -# Date
     - if locals[ :cal ]
 
-        -# Icon
+        -# Icon - calendar
         = codeBlender "icon", "atom", { icon: "fa-calendar fa-fw" }
 
-        -# Time
-        %time{ itemprop: "datePublished", datetime: "#{ current_page.data.date.strftime( "%FT%T" ) }Z" }
-            = current_page.data.date.strftime '%B %e, %Y'
+        -# Time - format example : April 8, 2016
+        %time{ itemprop: "datePublished", datetime: "#{ cp.date.strftime( "%FT%T" ) }Z" }
+            = cp.date.strftime '%B %e, %Y'
 
     -# Author
     - if locals[ :author ]
+
         |
+
         -# Icon
         = codeBlender "icon", "atom", { icon: "fa-user fa-fw" }
+
         by
-        %span{ itemprop: "author",  itemscope: true,  itemptype: "http://schema.org/Person" }
+
+        %span{ itemprop: "author", itemscope: true, itemptype: "http://schema.org/Person" }
             %a{ itemprop: "url", rel: "author" }
-                %span{ itemprop: "name" }= current_page.data.meta.author
+                %span{ itemprop: "name" }= cp.meta.author
 
     -# Show comment
     - if locals[ :comment ]
+
         |
+
         -# Icon
         = codeBlender "icon", "atom", { icon: "fa-comment fa-fw" }
+
         X Comments
 
     -# Like button
@@ -57,11 +65,11 @@
 
         %footer.blogDetail__tags
 
-            -# Icon
+            -# Icon - tags
             = codeBlender "icon", "atom", { icon: "fa-tags fa-fw" }
 
             -# Loop through tags
-            - current_page.data.tags.each do | tag |
+            - cp.tags.each do | tag |
 
                 -# Label
                 = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "primary", content: tag, href: tag_path( tag ), itemprop: "keywords" }

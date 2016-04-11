@@ -24,3 +24,5 @@ tags     : [ node ]
 ## Introduction
 
 https://github.com/asalant/Realtime-Demo
+http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
+http://www.sitepoint.com/beginners-guide-node-package-manager/

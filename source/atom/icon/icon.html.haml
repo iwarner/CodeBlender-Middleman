@@ -28,8 +28,31 @@ todo :
     - - "Document the social icons more"
     - - "Identify the versions of the icons installed on CodeBlender"
     - - "Allow an icon to be linked in this partial also - link_to"
+    - - "Should I use a SPAN or I tag for the icon html"
 
 ---
 
--# Icon
-= codeBlender "icon", "atom", { icon: "fa-shopping-cart" }
+:markdown
+
+    CodeBlender mainly uses the fantastic [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
+    icon library.
+
+    Please also check out the [stacked icon](/atom/icon-stacked/icon-stacked.html) partial.
+
+-# Icon
+:ruby
+    code = %{codeBlender "icon", "atom", { icon: "fa-shopping-cart" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+
+-# Icon - angular ng-class
+:ruby
+    code = %{codeBlender "button", "atom",
+    { context: "info",
+      icon: { prepend: { ng: { class: "{ 'fa fa-plus': isCollapsed, 'fa fa-minus': !isCollapsed }" } } },
+      href: "javascript:;",
+      ng:   { click: "isCollapsed = !isCollapsed" } }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Angular ng-class" } }

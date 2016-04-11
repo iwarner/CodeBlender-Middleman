@@ -17,7 +17,7 @@ modified : 2014-02-09
 tags     : [ mysql ]
 
 ---
-s
+
 * Table of Contents
 {:toc}
 
@@ -25,8 +25,18 @@ s
 
 Database engine of choice is [MySQL][]. This can be installed with Homebrew
 
+Local :
+
     $ brew install mysql
     $ mysql.server start
+
+Ubuntu :
+
+    $ mysqld --help --verbose
+    $ cd /etc/mysql/my.cnf
+    $ /var/log/mysql/error.log
+
+    $ service mysql start
 
 Access to the production database is through [PHPMyAdmin][]
 

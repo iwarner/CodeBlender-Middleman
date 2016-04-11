@@ -1,5 +1,8 @@
 ---
 
+date : 2016-04-08
+tags : [ 'blog' ]
+
 meta :
     author      : "DryKISS"
     description : "Blog article detail - CodeBlender"
@@ -27,6 +30,7 @@ see :
       - "http://bootsnipp.com/snippets/featured/blog-post-footer"
 
 todo :
+    - - "Need to be able to put in a test article to test the detail module"
     - - "Consider putting the tags in a DL / LI"
     - - "Should link up the Author to show articles by Authors name - finish of link"
     - - "Include more social link options"
@@ -51,7 +55,7 @@ locals :
 
 -# Detail
 :ruby
-    code = %{codeBlender "detail", "molecule", { more: true }}
+    code = %{codeBlender "detail", "molecule", { author: true, cal: true, comment: true, more: true, social: true, tags: true }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

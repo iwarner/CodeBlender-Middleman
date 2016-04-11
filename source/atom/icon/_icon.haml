@@ -1,26 +1,36 @@
 -##
 -# Icon
 -# Provides a partial for showing an icon
+-# Currently defaults to using the font awesome library package
 -#
 -# @usage
 -# -# Icon
 -# = codeBlender "icon", "atom", { icon: "fa-shopping-cart" }
 -#
--# @param icon - Icon name, must include prefix of supplier
--# @param ng   - angular elements
+-# @param href - Link the icon
+-# @param icon - Icon class
+-# @param ng   - Angular
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category atom
 -##
 
--# Icon library - split on dash - i.e. fa-shopping-cart, icon-cross
-- iconName    = string locals[ :icon ]
-- iconLibrary = iconName.partition( "-" )
+-# Icon
+- extraClass = locals[ :icon ] ? "fa " + locals[ :icon ] : false
 
 -# Angular
 - ng = locals[ :ng ] ? locals[ :ng ] : false
 
--# HREF
+-# Capture HTML
+- captureHTML = capture_html do
+    %span{ class: extraClass, ng: ng }
 
--# Icon
-%span{ class: "#{ iconLibrary[ 0 ] } #{ iconName } #{ locals[ :extraClass ] }", ng: ng }
+-# Check if Link required
+- if locals[ :link ]
+
+    -# Link To
+    = link_to( locals[ :link ][ :url], locals[ :link ][ :attribute ] ) do
+        - captureHTML
+
+- else
+    = captureHTML

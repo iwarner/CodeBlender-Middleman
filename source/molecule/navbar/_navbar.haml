@@ -92,8 +92,12 @@
                     -# Loop through entries
                     - entry[ 1 ].each do | side |
 
+                        -# Sort out active navigation
                         - if side[ :link ]
-                            - side[ :active ] = ( current_page.url == side[ :link ][ :url ] ) ? true : false
+
+                            -# URL
+                            - url = side[ :link ][ :url ]
+                            - side[ :active ] = ( current_page.url == url ) ? true : false
 
                         -# Dropdown menu
                         - if side[ :dropdown ]

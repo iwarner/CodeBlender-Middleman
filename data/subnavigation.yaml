@@ -43,6 +43,9 @@ atom :
     - title : "Icon"
       url   : "/atom/icon/icon.html"
 
+    - title : "Icon stacked"
+      url   : "/atom/icon-stacked/icon-stacked.html"
+
     - title : "Image"
       url   : "/atom/image/image.html"
 

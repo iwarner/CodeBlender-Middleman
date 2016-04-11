@@ -19,7 +19,7 @@
 - extraClass = data.config.footer.extraClass ? data.config.footer.extraClass : false
 - container  = locals[ :fluid ] ? "container-fluid" : data.config.container
 
--# Footer
+-# Footer section
 %footer{ role: "contentinfo" }
 
     -# Footer
@@ -54,8 +54,15 @@
                             - icon = entry[ :icon ] ? entry[ :icon ] : false
                             = codeBlender "heading", "molecule", { icon: icon, tag: "h4", text: entry[ :title ] }
 
-                            -# Body
-                            = string entry[ :description ]
+                            -# If markdown
+                            - if entry[ :markdown ]
+                                HERE
+                                -# Body
+                                = "#{ entry[ :description ] }"
+
+                            - else
+                                -# Body
+                                = string entry[ :description ]
 
     -# Copyright
     .copyright{ class: locals[ :center ] ? "text-center" : false }
@@ -78,4 +85,4 @@
             - if locals[ :array ]
 
                 -# Horizontal list of links
-                = codeBlender "list-ul" "atom", { array: array, extraClass: "list-inline list-unstyled" }
+                = codeBlender "list-ul", "atom", { array: array, extraClass: "list-inline list-unstyled" }
