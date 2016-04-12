@@ -16,7 +16,13 @@
     = codeBlender "button", "atom", { size: "sm", context: "info", icon: { prepend: { icon: "fa fa-external-link" } }, href: "javascript:;" }
 
     -# Button - add
-    = codeBlender "button", "atom", { size: "sm", context: "info", icon: { prepend: { icon: "fa fa-plus" } }, href: "javascript:;", ng: { disabled: "root.isDisabled[ node.title ]", click: "root.isDisabled[ node.title ] || root.addWord( node.title )" } }
+    = codeBlender "button", "atom",
+        { size: "sm", context: "info",
+          icon: { prepend: { icon: "fa fa-plus" } },
+          href: "javascript:;",
+          ng: { disabled: "root.isDisabled[ node.title ]",
+                click: "root.isDisabled[ node.title ] || root.addWord( [ node.title ] )" } }
 
     -# Button - dictionary
-    = codeBlender "button", "atom", { size: "sm", context: "info", icon: { prepend: { icon: "fa fa-book" } }, href: "javascript:;" }
+    = codeBlender "button", "atom",
+        { size: "sm", context: "info", icon: { prepend: { icon: "fa fa-book" } }, href: "javascript:;" }
