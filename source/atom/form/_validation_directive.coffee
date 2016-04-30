@@ -54,10 +54,10 @@ showErrors = ( $timeout, showErrorsConfig ) ->
 
         inputNgEl.bind 'blur', ->
             blurred = true
-            toggleClasses formCtrl[inputName].$invalid
+            toggleClasses formCtrl[ inputName ].$invalid
 
         scope.$watch (->
-            formCtrl[inputName] and formCtrl[inputName].$invalid
+            formCtrl[ inputName ] and formCtrl[ inputName ].$invalid
         ), ( invalid ) ->
             if !blurred
                 return

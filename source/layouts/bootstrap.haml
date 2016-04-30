@@ -11,6 +11,10 @@
 -# @see      http://www.tutorialspoint.com/html5/html5_microdata.htm
 -##
 
+-# Inject server side language if required
+- if content_for? :bootstrapLayoutTop
+    = yield_content :bootstrapLayoutTop
+
 -# Variable
 - locale       = I18n.locale.to_s
 - d            = current_page.data

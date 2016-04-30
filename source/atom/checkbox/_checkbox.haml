@@ -24,30 +24,24 @@
 -# Checkbox Class
 .checkbox{ class: extraClass }
 
-    -# Input
-    %input{ aria:      aria                ? aria               : false,
-            autofocus: input[ :autofocus ] ? "autofocus"        : false,
-            disabled:  input[ :disabled ]  ? "disabled"         : false,
-            id:        input[ :name ]      ? input[ :name ]     : false,
-            name:      input[ :name ]      ? input[ :name ]     : false,
-            ng:        input[ :ng ]        ? input[ :ng ]       : false,
-            required:  input[ :required ]  ? "required"         : false,
-            tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
-            type:      "checkbox",
-            value:     input[ :value ]     ? input[ :value ]    : false }
-
     -# Variable
     - extraClass = label[ :extraClass ] ? label[ :extraClass ] : false
 
     -# Label - note this is an array as it contains flag for screen reader
     %label{ class: extraClass }
 
+        -# Input
+        %input{ aria:      aria                ? aria               : false,
+                autofocus: input[ :autofocus ] ? "autofocus"        : false,
+                disabled:  input[ :disabled ]  ? "disabled"         : false,
+                id:        input[ :name ]      ? input[ :name ]     : false,
+                name:      input[ :name ]      ? input[ :name ]     : false,
+                ng:        input[ :ng ]        ? input[ :ng ]       : false,
+                required:  input[ :required ]  ? "required"         : false,
+                tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
+                type:      "checkbox",
+                value:     input[ :value ]     ? input[ :value ]    : false }
+
         -# Text
         - if label[ :title ]
             = string label[ :title ]
-
-    -# Help Block
-    -# Sometimes this should be hidden to allow errors to be added inside.
-    -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
-    - if locals[ :help ]
-        %span.help-block{ ng: locals[ :help ][ :ng ] }= locals[ :help ][ :content ]

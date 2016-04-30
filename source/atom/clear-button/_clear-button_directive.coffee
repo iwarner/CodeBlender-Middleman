@@ -31,7 +31,7 @@ angular.module 'app.directive'
 
             # elm.wrap '<div style=\'position: relative\'></div>'
 
-            btn        = '<span id=' + Math.round( Math.random() * 1000000000 ) + ' class="clear-button ng-hide fa fa-times-circle-o"></span>'
+            btn        = '<span id=' + Math.round( Math.random() * 1000000000 ) + ' class="clear-button ng-hide fi flaticon-close"></span>'
             angularBtn = angular.element( btn )
 
             elm.after angularBtn

@@ -20,7 +20,7 @@
 CBDropdownDirective = ( $log, $rootScope )  ->
 
     # Debug
-    $log.log "Dropdown directive"
+    # $log.log "Dropdown directive"
 
     ##
     # Option
@@ -30,26 +30,30 @@ CBDropdownDirective = ( $log, $rootScope )  ->
     ##
     # Controller
     ##
-    controller : ( $scope, $element ) ->
+    controller : [
+        '$scope'
+        '$element'
+        ( $scope, $element ) ->
 
-        # Dropdown click
-        $scope.dropdown = ( $event, data ) ->
+            # Dropdown click
+            $scope.dropdown = ( $event, data ) ->
 
-            # Data
-            $rootScope.dropdownData = data
+                # Data
+                $rootScope.dropdownData = data
 
-            # Target
-            target = jQuery $event.currentTarget
+                # Target
+                target = jQuery $event.currentTarget
 
-            # Selected text
-            selText = target.html()
+                # Selected text
+                selText = target.html()
 
-            # Set text
-            target.closest( 'div' ).find( 'button[data-toggle="dropdown"]' ).html( selText + ' <span class="dropdown__icon"></span>' )
+                # Set text
+                target.closest( 'div' ).find( 'button[data-toggle="dropdown"]' ).html( selText + ' <span class="dropdown__icon"></span>' )
+
+                return
 
             return
-
-        return
+    ]
 
 ##
 # Module

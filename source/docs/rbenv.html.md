@@ -28,21 +28,26 @@ development machine. To install run this:
 
     $ brew install rbenv ruby-build
 
+To use Homebrew's directories rather than ~/.rbenv add export RBENV_ROOT=/usr/local/var/rbenv
+
+To enable shims and autocompletion add to your profile:
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 Add the init to the profile script with the following command
 
     $ echo 'eval "$(rbenv init - --no-rehash)"' >> ~/.zshrc
 
 ## Install
 
-To see what RBENV versions are available run :
+To see what RBENV ruby versions are available run :
 
     $ rbenv install --list
 
 Install the desired Ruby version, make global and run a rehash.
 
     $ rbenv install 2.3.0
-    $ rbenv local 2.3.0
-    $ rbenv global 2.3.0
+    $ rbenv local   2.3.0
+    $ rbenv global  2.3.0
     $ rbenv rehash
 
 To reset it back to the system use :
@@ -69,6 +74,17 @@ Core folder, based on the version installed :
 
     $ cd ~/.rbenv/versions/2.3.0/
 
+### Update Gems
+
+    $ gem update --no-ri --no-rdo --system
+    $ gem update --no-ri --no-rdo
+    $ gem clean
+
+    $ gem install --no-ri --no-rdoc bundler
+    $ gem install --no-ri --no-rdoc thor
+
+    $ rbenv rehash
+
 ## Uninstall
 
 To remove RBENV, remove the folder and the brew module
@@ -82,3 +98,5 @@ Also delete all entries from your system configuration files
 
 - https://robots.thoughtbot.com/using-rbenv-to-manage-rubies-and-gems
 - https://github.com/ianheggie/rbenv-binstubs
+
+[RBENV]:https://github.com/sstephenson/rbenv/

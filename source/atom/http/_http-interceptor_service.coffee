@@ -19,15 +19,16 @@
 HttpInterceptorService = ( $log, $q ) ->
 
     # Debug
-    $log.log "HTTP interceptor"
+    # $log.log "HTTP interceptor"
 
+    # Response error
     'responseError' : ( rejection ) ->
 
         # Debug
-        $log.log "HTTP interceptor - reject", rejection
+        # $log.log "HTTP interceptor - reject", rejection
 
         # Reject promise on error
-        $q.reject( rejection )
+        $q.reject rejection
 
 ##
 # Module
