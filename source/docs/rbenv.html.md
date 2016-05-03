@@ -49,6 +49,8 @@ Install the desired Ruby version, make global and run a rehash.
     $ rbenv local   2.3.0
     $ rbenv global  2.3.0
     $ rbenv rehash
+    $ rbenv local 2.3.0 && rbenv global 2.3.0 && rbenv rehash
+
 
 To reset it back to the system use :
 

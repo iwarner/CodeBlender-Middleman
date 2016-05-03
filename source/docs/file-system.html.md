@@ -156,3 +156,8 @@ to setup the repository, add a readme file and push it to your server.
 
 ## Todo
 * Need to desacribe that the files are stored on the server and how to link these up
+
+A; B    Run A and then B, regardless of success of A
+A && B  Run B if A succeeded
+A || B  Run B if A failed
+A &     Run A in background.

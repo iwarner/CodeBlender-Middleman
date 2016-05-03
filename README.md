@@ -7,12 +7,10 @@
 - http://mailtrain.org/
 - http://webkay.robinlinus.com/
 - http://stackoverflow.com/questions/2304863/how-to-write-a-good-readme
-
 - https://github.com/groteck/middleman-docker
 
-availabletowork.com     6/5/2016        auto
 classicpcgames.com      12/11/2018      auto
-classicpspgames.com     4/20/2017       off
+
 codeblender.io      3/23/2017       auto
 codeblender.net     3/3/2017        auto
 customuniformwarehouse.com      6/9/2016        auto
