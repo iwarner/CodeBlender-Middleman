@@ -1,5 +1,66 @@
 # Project : CodeBlender
 
+## Akilah
+
+### CRM features
+
+- CV parsing - turn a DOC into a database set
+    - Bulk import of CVs - candidates
+    - http://www.sovren.com/products/#resume-cv-parser
+        - https://github.com/efleming/sovren
+    - http://burning-glass.com/lens/
+    - http://socialcompare.com/en/comparison/resume-cv-parsers-2npv658x
+- Web based
+- Job posting - easily post jobs to designated job boards and social sites
+    - http://www.broadbean.com/uk/?r=set
+- Messaging - Email / Telephony and SMS communications between candidates and companies
+- Integrate with portal website
+- Reporting - revenue - analytics
+- Searching - candidates - resumes - jobs - companies - everything
+- Tasks - comments and notes on everything
+- Tagging and flagging
+- Automation
+- Auto Agency CV to pass to clients - i.e. removal of candidate contact details
+- Research modules - data mining
+
+### Rwanda job boards
+
+- http://www.jobinrwanda.com/
+- http://www.africajobboard.com/rwanda/
+- http://www.eajobboard.com/
+
+### Require
+
+- STEM jobs–those requiring a science, technology, engineering, or math-related degree
+- http://burning-glass.com/
+- Sales force : https://www.salesforce.com/
+    - http://www.jobscience.com/
+        - http://www.jobscience.com/blog/
+        - http://www.jobscience.com/customers/
+        - ATS = applicant tracking system
+    - handle company records and associated jobs
+    - handle incoming candiates as opportunities against a job card
+- Salesforce can integrate with Slack when a user is created against a potential job
+- Need a way to allow the user to authenticate against the main website - can salesforce handle this?
+- Apply via LinkedIn
+- Custom app in SalesForce - should evaluate candidates for the roles they applied for
+- Machine learning on the candidates to earn who is progressing through the pipeline
+- http://www.hubspot.com/products/crm
+- https://www.bitrix24.com
+- https://www.zoho.com/recruit
+- WordPress Leads -https://wordpress.org/plugins/leads/?utm_source=zapier&utm_medium=profile&utm_campaign=partnership
+
+Salesforce case studies
+- http://www.salesforce.com/uk/customers/stories/jobsite.jsp
+- http://www.salesforce.com/uk/customers/stories/unitingambition.jsp
+
+- https://uk.pinterest.com/talkstaff/recruitment-infographics/
+- http://www.webrecruitireland.com/employer-blog/recruitment-tech/an-anatomy-of-a-careers-site
+- http://www.webrecruit.co.uk/employer-blog/recruitment-tech/the-anatomy-of-a-careers-site
+- https://www.hallaminternet.com/seo-for-recruitment-agencies-anatomy-of-an-optimised-page/
+
+## Links
+
 - https://rossta.net/blog/using-webpack-with-middleman.html
 - https://lifemobile.co.uk/
 - https://www.giffgaff.com/
@@ -9,21 +70,32 @@
 - http://stackoverflow.com/questions/2304863/how-to-write-a-good-readme
 - https://github.com/groteck/middleman-docker
 
-classicpcgames.com      12/11/2018      auto
+## ENOM Domains
 
-codeblender.io      3/23/2017       auto
-codeblender.net     3/3/2017        auto
-customuniformwarehouse.com      6/9/2016        auto
-dontpoisonmyskin.com        5/1/2017        auto
-drykiss.com     2/16/2017       auto
-forkeyring.com      3/13/2017       auto
-growherbs.io        4/11/2017       auto
-ianwarner.com       7/26/2017       auto
-matchtheworld.com       1/26/2017       auto
-onlyasmile.com      10/12/2016      auto
-phpcodingstandards.com      11/11/2016      auto
-phpmultiplenewsletters.com      9/21/2017       auto
-phpsupporttickets.com       8/21/2017       auto
+1. classicpcgames.com
+2. codeblender.io
+3. codeblender.net
+customuniformwarehouse.com
+dontpoisonmyskin.com
+drykiss.com
+forkeyring.com
+growherbs.io
+ianwarner.com
+matchtheworld.com
+onlyasmile.com
+phpcodingstandards.com
+phpmultiplenewsletters.com
+phpsupporttickets.com
+
+## Easily Domains
+
+classicxbox360games.com
+phptasks.com
+phpfinances.com
+classicpspgames.com
+triangle-solutions.com
+phpsupporttickets.com
+phpmultiplenewsletters.com
 
 ## Middleman : http://middlemanapp.com/
 
@@ -146,3 +218,49 @@ Delete Windows Thumbs
 Google Icon
 
     $ find ~/Google\ Drive/ -name Icon? -exec rm -f {} \;
+
+## Installation requirements
+
+@see http://brettklamer.com/diversions/non-statistical/install-middleman-on-windows/
+@see http://jekyll-windows.juthilo.com/1-ruby-and-devkit/
+
+All the following likely need to installed as Administrator unless your account has
+access to modify PATH related entities
+
+- ! Run as administrator
+
+- GIT - should already have - will give you GIT cmd and GIT bash
+    - Required for bower and bundle
+    - Download : http://git-for-windows.github.io/
+
+- Ruby
+    - Install RubyInstaller and RubyInstaller-Devkit
+    - Download both here : http://rubyinstaller.org/downloads/ - use 2.3.0 32bit
+    - Double click to install Ruby
+        - ! Check add Ruby to Path in the installation process
+    - For DevKit - extract to C:\RubyDevKit\
+        - cd to this
+        - ruby dk.rb init
+        - ruby dk.rb install
+    - Gems
+        - Bundler and Thor
+            - $ gem install --no-ri --no-rdoc -v 1.9 bundler
+            - $ gem install --no-ri --no-rdoc thor
+
+- Node
+    - Use 4.x
+    - Required for bower : https://nodejs.org/en/
+    - Tutorial : http://blog.teamtreehouse.com/install-node-js-npm-windows
+    - Run
+        - $ npm install -g bower
+        - https://github.com/bower/bower
+
+- Middleman
+    - https://middlemanapp.com/basics/install/
+    - $ bower install  - This downloads the front end dependencies like Bootstrap / Angular
+    - $ bundle install - in the project root to run the GemFile and install required Gems
+        - If issue with nokogiri then - gem install nokogiri -v '1.6.8.rc3'
+    - Test in new directory the following :
+    - $ middleman init
+    - $ bundle exec middleman server
+    - $ bundle exec middleman build

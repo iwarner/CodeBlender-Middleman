@@ -32,12 +32,12 @@ todo :
 = codeBlender "heading", "molecule", { text: "Like Button", tag: "h2" }
 
 -# Like Button
-= codeBlender "molecule/facebook/like-button.haml"
+= codeBlender "like-button", "social/facebook/like-button"
 
 -# Code
 :code
     #lang: ruby
-    = partial "molecule/facebook/like-button.haml"
+    = codeBlender "like-button", "social/facebook/like-button"
 
 -# Customised
 %hr
@@ -46,22 +46,22 @@ todo :
 = codeBlender "heading", "molecule", { text: "Customised Button", tag: "h2" }
 
 -# Like button
-= partial "molecule/facebook/like-button.haml",
-           locals: { action:      "recommend",
-                     colorscheme: "dark",
-                     href:        "http://google.com",
-                     layout:      "button",
-                     share:       "false" }
+= codeBlender "like-button", "social/facebook/like-button",
+    { action:      "recommend",
+      colorscheme: "dark",
+      href:        "http://google.com",
+      layout:      "button",
+      share:       "false" }
 
 -# Code
 :code
     #lang: ruby
-    = partial "molecule/facebook/like-button.haml",
-               locals: { action:      "recommend",
-                         colorscheme: "dark",
-                         href:        "http://google.com",
-                         layout:      "button",
-                         share:       "false" }
+    = codeBlender "like-button", "social/facebook/like-button"
+        { action:      "recommend",
+          colorscheme: "dark",
+          href:        "http://google.com",
+          layout:      "button",
+          share:       "false" }
 
 -# Show Faces
 %hr
@@ -70,13 +70,11 @@ todo :
 = codeBlender "heading", "molecule", { text: "Customised Button", tag: "h2" }
 
 -# Like Button
-= partial "molecule/facebook/like-button.haml",
-           locals: { href:         "https://www.facebook.com/onlyasmile?ref=stream",
-                     :"show_faces" => "true" }
+= codeBlender "like-button", "social/facebook/like-button",
+    { href: "https://www.facebook.com/onlyasmile?ref=stream", :"show_faces" => "true" }
 
 -# Code
 :code
     #lang: ruby
-    = partial "molecule/facebook/like-button.haml",
-               locals: { href:         "https://www.facebook.com/onlyasmile?ref=stream",
-                         :"show_faces" => "true" }
+    = codeBlender "like-button", "social/facebook/like-button",
+        { href: "https://www.facebook.com/onlyasmile?ref=stream", :"show_faces" => "true" }

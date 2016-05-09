@@ -30,3 +30,33 @@ todo :
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { small: "Auto positioned tooltip", text: "Default tooltip" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+            :markdown
+                - Controlled through an angular directive
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Features" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+            :markdown
+                - Include the directive in the sprockets JS
+                - Place the desired data elements on the child element
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Requirements" } }
+
+%hr

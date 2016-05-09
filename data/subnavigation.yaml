@@ -302,37 +302,37 @@ social :
       url   : "/social/social.html"
 
     - title : "Facebook Activity Feed"
-      url   : "/social/facebook/activity-feed.html"
+      url   : "/social/facebook/activity-feed/activity-feed.html"
 
     - title : "Facebook Comments"
-      url   : "/social/facebook/comments.html"
+      url   : "/social/facebook/comment/comment.html"
 
-    - title : "Facebook Embedded Posts"
-      url   : "/social/facebook/embedded-posts.html"
+    - title : "Facebook Embedded Post"
+      url   : "/social/facebook/embedded-post/embedded-post.html"
 
     - title : "Facebook Facepile"
-      url   : "/social/facebook/facepile.html"
+      url   : "/social/facebook/facepile/facepile.html"
 
     - title : "Facebook Follow Button"
-      url   : "/social/facebook/follow-button.html"
+      url   : "/social/facebook/follow-button/follow-button.html"
 
     - title : "Facebook Like Box"
-      url   : "/social/facebook/like-box.html"
+      url   : "/social/facebook/like-box/like-box.html"
 
     - title : "Facebook Like Button"
-      url   : "/social/facebook/like-button.html"
+      url   : "/social/facebook/like-button/like-button.html"
 
     - title : "Facebook Recommendations Bar"
-      url   : "/social/facebook/recommendations-bar.html"
+      url   : "/social/facebook/recommendation-bar/recommendation-bar.html"
 
     - title : "Facebook Recommendations Feed"
-      url   : "/social/facebook/recommendations-feed.html"
+      url   : "/social/facebook/recommendation-feed/recommendation-feed.html"
 
     - title : "Facebook Send Button"
-      url   : "/social/facebook/send-button.html"
+      url   : "/social/facebook/send-button/send-button.html"
 
     - title : "Facebook Share Button"
-      url   : "/social/facebook/share-button.html"
+      url   : "/social/facebook/share-button/share-button.html"
 
     - title : "Gravatar"
       url   : "/social/gravatar/gravatar.html"
