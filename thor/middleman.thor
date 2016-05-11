@@ -262,10 +262,10 @@ class Middleman < Thor
     desc "symlink", "Symlink library elements into the project"
     def symlink
 
-        # Variable
-        path = "/var/www/CodeBlender/"
-
         system( "clear" )
+
+        # Variable
+        path = "/var/www/CodeBlender/www/"
 
         say( "\n\t Create symbolic link\n\t" )
 

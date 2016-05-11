@@ -1,7 +1,8 @@
 ##
 # Helpers
 #
-# @author Ian Warner <ian.warner@drykiss.com>
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category helper
 ##
 
 ##

@@ -56,11 +56,13 @@
 
                             -# If markdown
                             - if entry[ :markdown ]
-                                HERE
+
                                 -# Body
-                                = "#{ entry[ :description ] }"
+                                :markdown
+                                    #{ entry[ :description ] }
 
                             - else
+
                                 -# Body
                                 = string entry[ :description ]
 

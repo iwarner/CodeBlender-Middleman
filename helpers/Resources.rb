@@ -5,7 +5,8 @@
 # -# SubCategory Elements
 # = subCategory( "portfolio" )
 #
-# @author Ian Warner <ian.warner@drykiss.com>
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category helper
 ##
 module Resources
 

@@ -2,9 +2,8 @@
 # Configuration YAML
 # Contains the configuration for the core framework layouts
 #
-# @author Ian Warner <ian.warner@drykiss.com>
-#
-# @todo Should rename this to layout config really as is should contain the config for the bootstrap layout file only or move to a new one
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category meta
 ##
 
 ---
