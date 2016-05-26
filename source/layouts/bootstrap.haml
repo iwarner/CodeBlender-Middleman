@@ -70,10 +70,6 @@
         -# Top anchor
         %a{ id: "top" }
 
-        -# Facebook root, requires an AppID
-        - if localFB
-            #fb-root
-
         -# Section - above navigation
         - if data.has_key? "navigation" and data.navigation.above
             = partial data.navigation.above

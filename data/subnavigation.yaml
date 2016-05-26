@@ -322,6 +322,9 @@ social :
     - title : "Facebook Like Button"
       url   : "/social/facebook/like-button/like-button.html"
 
+    - title : "Facebook Login"
+      url   : "/social/facebook/login/login.html"
+
     - title : "Facebook Recommendations Bar"
       url   : "/social/facebook/recommendation-bar/recommendation-bar.html"
 

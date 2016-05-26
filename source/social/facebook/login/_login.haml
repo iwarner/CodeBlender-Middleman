@@ -1,0 +1,19 @@
+-##
+-# Facebook login
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-# @see      https://developers.facebook.com/docs/facebook-login
+-##
+
+.fb-like{ "data-share" => "true", "data-show-faces" => "true", "data-width" => "450" }
+
+%br
+
+%login-button{ :onlogin => "checkLoginState();", :scope => "public_profile,email" }
+
+%br
+
+.fb-login-button{ "data-auto-logout-link" => "true", "data-max-rows" => "1", "data-show-faces" => "false", "data-size" => "large"}
+
+#status

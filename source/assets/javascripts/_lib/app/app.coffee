@@ -27,6 +27,7 @@ angular
         'app.config'
         'app.controller'
         'app.directive'
+        'app.facebook'
         'app.filter'
         'app.security'
         'app.service'
@@ -51,6 +52,7 @@ angular.module 'app.auth',       []
 angular.module 'app.config',     []
 angular.module 'app.controller', []
 angular.module 'app.directive',  []
+angular.module 'app.facebook',   []
 angular.module 'app.filter',     []
 angular.module 'app.security',   []
 angular.module 'app.service',    []

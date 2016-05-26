@@ -8,8 +8,8 @@
 ---
 
 app :
-    id     : false
-    secret : false
+    id     : "253027968192447"
+    secret : "09627a7f101b7225459d95357b80114e"
 
 page :
     id  : "835310269859992"

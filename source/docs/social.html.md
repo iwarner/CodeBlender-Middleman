@@ -24,6 +24,7 @@ tags     : [ social, facebook ]
 ## Introduction
 
 ### Social
+
 * Add in Facebook Connect
 * Social buttons need the full attributes available to them
 * Sort out button positioning when in-line - i.e. Facebook - twitter should line up

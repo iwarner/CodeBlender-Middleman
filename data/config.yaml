@@ -55,7 +55,7 @@ meta :
     apple    : true
     core     : true
     dublin   : false
-    facebook : false
+    facebook : true
     fancy    : false
     favicon  : true
     feed     : false

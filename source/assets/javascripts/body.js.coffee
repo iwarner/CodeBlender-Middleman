@@ -45,7 +45,6 @@
 #= require angular-bootstrap/ui-bootstrap.min
 #= require angular-bootstrap/ui-bootstrap-tpls.min
 
-
 # App
 #= require_tree ./_lib/app
 
@@ -58,7 +57,7 @@
 ##
 # Molecule
 ##
-# require facebook/_facebook
+#= require facebook/login/_facebook_module
 #= require login/_login_controller
 #= require mailchimp/_mailchimp_controller
 #= require top-icon/_top-icon_controller

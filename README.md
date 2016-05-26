@@ -1,63 +1,31 @@
 # Project : CodeBlender
 
-## Akilah
+## ENOM Domains
 
-### CRM features
+01. classicpcgames.com
+02. codeblender.io
+03. codeblender.net
+04. customuniformwarehouse.com
+05. dontpoisonmyskin.com
+06. drykiss.com
+07. forkeyring.com
+08. growherbs.io
+09. ianwarner.com
+10. matchtheworld.com
+11. onlyasmile.com
+12. phpcodingstandards.com
+13. phpmultiplenewsletters.com
+14. phpsupporttickets.com
 
-- CV parsing - turn a DOC into a database set
-    - Bulk import of CVs - candidates
-    - http://www.sovren.com/products/#resume-cv-parser
-        - https://github.com/efleming/sovren
-    - http://burning-glass.com/lens/
-    - http://socialcompare.com/en/comparison/resume-cv-parsers-2npv658x
-- Web based
-- Job posting - easily post jobs to designated job boards and social sites
-    - http://www.broadbean.com/uk/?r=set
-- Messaging - Email / Telephony and SMS communications between candidates and companies
-- Integrate with portal website
-- Reporting - revenue - analytics
-- Searching - candidates - resumes - jobs - companies - everything
-- Tasks - comments and notes on everything
-- Tagging and flagging
-- Automation
-- Auto Agency CV to pass to clients - i.e. removal of candidate contact details
-- Research modules - data mining
+## Easily Domains
 
-### Rwanda job boards
-
-- http://www.jobinrwanda.com/
-- http://www.africajobboard.com/rwanda/
-- http://www.eajobboard.com/
-
-### Require
-
-- STEM jobs–those requiring a science, technology, engineering, or math-related degree
-- http://burning-glass.com/
-- Sales force : https://www.salesforce.com/
-    - http://www.jobscience.com/
-        - http://www.jobscience.com/blog/
-        - http://www.jobscience.com/customers/
-        - ATS = applicant tracking system
-    - handle company records and associated jobs
-    - handle incoming candiates as opportunities against a job card
-- Salesforce can integrate with Slack when a user is created against a potential job
-- Need a way to allow the user to authenticate against the main website - can salesforce handle this?
-- Apply via LinkedIn
-- Custom app in SalesForce - should evaluate candidates for the roles they applied for
-- Machine learning on the candidates to earn who is progressing through the pipeline
-- http://www.hubspot.com/products/crm
-- https://www.bitrix24.com
-- https://www.zoho.com/recruit
-- WordPress Leads -https://wordpress.org/plugins/leads/?utm_source=zapier&utm_medium=profile&utm_campaign=partnership
-
-Salesforce case studies
-- http://www.salesforce.com/uk/customers/stories/jobsite.jsp
-- http://www.salesforce.com/uk/customers/stories/unitingambition.jsp
-
-- https://uk.pinterest.com/talkstaff/recruitment-infographics/
-- http://www.webrecruitireland.com/employer-blog/recruitment-tech/an-anatomy-of-a-careers-site
-- http://www.webrecruit.co.uk/employer-blog/recruitment-tech/the-anatomy-of-a-careers-site
-- https://www.hallaminternet.com/seo-for-recruitment-agencies-anatomy-of-an-optimised-page/
+01. classicxbox360games.com
+02. phptasks.com
+03. phpfinances.com
+04. classicpspgames.com
+05. triangle-solutions.com
+06. phpsupporttickets.com
+07. phpmultiplenewsletters.com
 
 ## Links
 
@@ -69,33 +37,6 @@ Salesforce case studies
 - http://webkay.robinlinus.com/
 - http://stackoverflow.com/questions/2304863/how-to-write-a-good-readme
 - https://github.com/groteck/middleman-docker
-
-## ENOM Domains
-
-1. classicpcgames.com
-2. codeblender.io
-3. codeblender.net
-customuniformwarehouse.com
-dontpoisonmyskin.com
-drykiss.com
-forkeyring.com
-growherbs.io
-ianwarner.com
-matchtheworld.com
-onlyasmile.com
-phpcodingstandards.com
-phpmultiplenewsletters.com
-phpsupporttickets.com
-
-## Easily Domains
-
-classicxbox360games.com
-phptasks.com
-phpfinances.com
-classicpspgames.com
-triangle-solutions.com
-phpsupporttickets.com
-phpmultiplenewsletters.com
 
 ## Middleman : http://middlemanapp.com/
 

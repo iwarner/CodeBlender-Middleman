@@ -1,7 +1,7 @@
 -##
--# Facebook Meta Tags
+-# Facebook meta tags
 -#
--# Site Config
+-# Site config
 -#     brand
 -#     url
 -#     facebookPageId
@@ -12,34 +12,37 @@
 -#     title
 -#     description
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category meta
 -##
 
--# Variables
-- cp = current_page
-- m  = cp.data.stub
+-# If there is meta tabs present then override the stub method
+- if current_page.data.meta
+    - m = current_page.data.meta
+- else
+    - m = "meta.#{ current_page.data.stub }"
 
--# Site Name
+-# Site name
 %meta{ content: string( data.config.brand ), property: "og:site_name" }
 
 -# Title
-%meta{ content: string( :"meta.#{ m }.title" ), property: "og:title" }
+%meta{ content: current_page.data.meta ? string( m.title ) : string( :"#{ m }.title" ), property: "og:title" }
 
 -# Description
-%meta{ content: string( :"meta.#{ m }.description" ), name: "description", property: "og:description" }
+%meta{ content: current_page.data.meta ? string( m.description ) : string( :"#{ m }.description" ), name: "description", property: "og:description" }
 
 -# Type
-%meta{ content: string( :"meta.#{ m }.type" ), property: "og:type" }
+%meta{ content: current_page.data.meta ? string( m.type ) : string( :"#{ m }.type" ), property: "og:type" }
 
 -# URL
-%meta{ content: data.config.url + File.dirname( URI.parse( cp.url ).path ), property: "og:url" }
+%meta{ content: data.config.url + current_page.url, property: "og:url" }
 
 -# Image
-%meta{ content: string( :"meta.#{ m }.image" ), property: "og:image" }
+%meta{ content: current_page.data.meta ? string( m.image ) : string( :"#{ m }.image" ), property: "og:image" }
 
--# Facebook Page ID
+-# Facebook pageID
 %meta{ content: data.facebook.page.id, property: "fb:page_id" }
 
--# Facebook App ID
+-# Facebook appID
 - if data.facebook.app.id
     %meta{ content: data.facebook.app.id, property: "fb:app_id" }

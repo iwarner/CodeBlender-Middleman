@@ -61,6 +61,7 @@ sprockets.append_path File.join( root, "bower_components" )
 sprockets.append_path File.join( root, "source/atom" )
 sprockets.append_path File.join( root, "source/molecule" )
 sprockets.append_path File.join( root, "source/organism" )
+sprockets.append_path File.join( root, "source/social" )
 sprockets.append_path File.join( root, "source/template" )
 sprockets.append_path File.join( root, "source/page" )
 

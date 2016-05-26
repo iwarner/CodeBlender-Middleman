@@ -1,0 +1,81 @@
+---
+
+# Angular
+# angular :
+#    controller   : FacebookLoginController
+#    controllerAs : facebookLogin
+
+# Meta
+meta :
+    author      : "DryKISS"
+    description : "Facebook login - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Facebook login - CodeBlender"
+    type        : "website"
+
+# Heading
+heading :
+    small : "Login flow for web apps"
+    title : "Facebook login"
+
+# See
+see :
+    - - "Facebook login"
+      - "https://developers.facebook.com/docs/facebook-login"
+    - - "Angular Facebook"
+      - "http://blog.brunoscopelliti.com/facebook-authentication-in-your-angularjs-web-app/"
+
+# Todo
+todo :
+    - - "Create a working example of a Facebook login for web"
+
+---
+
+-# -# Controller loaded
+-# %span.controllerLoaded{ ng: { if: "facebookLogin.controllerLoaded" } }
+
+-#     -# Icon
+-#     = codeBlender "icon", "atom", { icon: "fa-code" }
+
+-# Search input
+:ruby
+    code = %{codeBlender "login", "social/facebook/login"}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Example" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+            :markdown
+
+                - A Facebook AppID is required - https://developers.facebook.com/apps/
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Requirements" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+            :markdown
+
+                - Checking the login status to see if someone's already logged into your app
+                    - During this step, you also should check to see if someone has previously logged into your app, but is not currently logged in
+                - If they are not logged in, invoke the login dialog and ask for a set of data permissions
+                - Verify their identity
+                - Store the resulting access token
+                - Make API calls
+                - Log out
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Checklist" } }
