@@ -10,13 +10,13 @@
 api : false
 
 analytics :
-    active : false
-    code   : false
-    url    : false
+    active : true
+    code   : "UA-49976138-4"
+    url    : "auto"
 
 adsense        : "ca-pub-4390370568784157"
 search         : "010780846468700377585:whb2zy_0w2w"
-webmasterTools : false
+webmasterTools : "oNbQz6p9otxgPpkeM8gPPp5_nfl3qhf9U41GNZfky00"
 
 client :
     id     : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"

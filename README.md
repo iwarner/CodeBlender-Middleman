@@ -1,31 +1,73 @@
-# Project : CodeBlender
+# Project : codeblender.io
+
+## INTRODUCTION
+
+[![Flattr this][2]][1]
+
+[1]: https://flattr.com/submit/auto?user_id=drykiss&url=https://github.com/DryKiss/bootstrap-haml&title=Bootstrap+example+templates+converted+to+HAML&language=English&tags=github,bash,mac,osx,development,bootstrap,haml,examples&category=software
+[2]: http://api.flattr.com/button/flattr-badge-large.png
 
 ## ENOM Domains
 
-01. classicpcgames.com
-02. codeblender.io
-03. codeblender.net
-04. customuniformwarehouse.com
-05. dontpoisonmyskin.com
-06. drykiss.com
-07. forkeyring.com
-08. growherbs.io
-09. ianwarner.com
-10. matchtheworld.com
-11. onlyasmile.com
-12. phpcodingstandards.com
-13. phpmultiplenewsletters.com
-14. phpsupporttickets.com
+- availabletowork.com
+- classicpcgames.com
+- codeblender.io / codeblender.net
+- customuniformwarehouse.com
+- dontpoisonmyskin.com
+- drykiss.com
+- forkeyring.com
+- growherbs.io
+- ianwarner.com
+- matchtheworld.com
+- onlyasmile.com
+- phpcodingstandards.com
+- phpmultiplenewsletters.com
+- phpsupporttickets.com
 
 ## Easily Domains
 
-01. classicxbox360games.com
-02. phptasks.com
-03. phpfinances.com
-04. classicpspgames.com
-05. triangle-solutions.com
-06. phpsupporttickets.com
-07. phpmultiplenewsletters.com
+- bfcvagabonds.com
+- triangle-solutions.com
+
+## GitHub - DryKISS
+Web sites using Git Hub Pages
+
+- availabletowork.com        -
+- classicpcgames.com         - Need to verify search console
+- codeblender.io             - Associate the IO to this
+- customuniformwarehouse.com - Verify
+- drykiss.com                -
+- forkeyring.com             -
+- growherbs.io               - Create
+- ianwarner.com              -
+- matchtheworld.com          -
+- onlyasmile.com             -
+- phpcodingstandards.com     -
+- phpmultiplenewsletters.com -
+- phpsupporttickets.com      -
+- triangle-solutions.com     - Create and get working on GitHub - change DNS
+
+## GitHub - IWarner
+Open source repositories
+
+- CodeBlender-Middleman    - Main Codeblender Sort out Readme
+- hexo-renderer-pug
+- mac-setup
+- CodeBlender-Template
+- CodeBlender-Layouts
+- CodeBlender-Themes
+- CodeBlender-ZendFramework
+- CodeBlender-ModuleCore
+
+## GitHub - DryKISSClients
+Client websites
+
+- ariconium.co.uk
+- bfcvagabonds.com     - Need to find out if still active - and bfctokyo.com - change DNS if I can
+- dianaye.com
+- dontpoisonmyskin.com -
+- greentouchpi.com
+- kit-list.co.uk
 
 ## Links
 

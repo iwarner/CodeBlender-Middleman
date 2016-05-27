@@ -1,0 +1,148 @@
+##
+# Domains
+#
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category config
+##
+
+---
+
+- domain    : bfcvagabonds.com
+  provider  : Easily
+  company   : DryKISS Ltd
+
+- :domain   : classicpcgames.com
+  :provider : Easily
+  :company  : DryKISS Ltd
+
+- :domain   : classicpspgames.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : classicxbox360games.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : classicxboxgames.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : corporate-mobile.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : freelancecoop.co.uk
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : ianwarner.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : japantoday.co.uk
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : matchtheworld.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : phpcodingstandards.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : phpfinances.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : phpmultiplenewsletters.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : phpsupporttickets.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : phptasks.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : sayonarasale.net
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : tomodachisaikai.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : torrenttracker.org
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : triangle-solutions.com
+  :provider : easily
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : availabletowork.com
+  :provider : enom
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : civonyworld.com
+  :provider : enom
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : classicps3games.com
+  :provider : enom
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : codeblender.net
+  :provider : enom
+  :company  : Triangle Solutions Ltd
+  :webmaster :
+  :whois     :
+
+- :domain   : drykiss.com
+  :provider : enom
+  :company  : DryKISS
+  :webmaster :
+  :whois     :

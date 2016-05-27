@@ -7,6 +7,9 @@
 # JQuery
 #= require jquery/dist/jquery.min
 
+# Underscore
+#= require underscore/underscore-min
+
 # Mix It Up
 #= require mixitup/build/jquery.mixitup.min
 
@@ -72,7 +75,7 @@
 # Organism
 ##
 
-# Angular UI grid
+# Sidebar
 #= require sidebar/_sidebar
 
 # Code
