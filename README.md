@@ -1,6 +1,15 @@
 # Project : codeblender.io
 
-## INTRODUCTION
+## Introduction
+
+Codeblender is an atomic partial library for Middleman, built with Bootstrap and
+AngularJS.
+
+## DryKISS
+
+DryKISS is a full service internet and mobile digital production house. Our core
+services span consulting, strategy; planning; development; testing and
+analytics. Using cutting edge technologies within disciplined processes.
 
 [![Flattr this][2]][1]
 

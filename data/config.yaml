@@ -59,7 +59,7 @@ meta :
     fancy    : false
     favicon  : true
     feed     : false
-    google   : false
+    google   : true
     mobile   : true
     touch    : false
     twitter  : false
