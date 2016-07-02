@@ -17,7 +17,7 @@ see :
       - "http://bugherd.com/"
 
 todo :
-    - - "Parse all pages collecting the todos for a global Todo List"
+    - - "Parse all pages collecting the todo for a global Todo List"
     - - "Sort the list based on Date and Priority"
     - - "If a data column is blank then omit it"
     - - "Allow the table to be sorted and filtered"
@@ -31,18 +31,18 @@ locals :
     - - "array"
       - "array"
       - "Optional"
-      - "Array of todos, can also be drawn from the page todo"
+      - "Array of todo, can also be drawn from the page todo"
 
 ---
 
--# Create Array to store the Todos
+-# Create Array to store the Todo
 - todoArray = []
 
 -# Resources that contain the Tag and have the correct extension
 - sitemap.resources.select { | r | r.data.todo.present? }.each do | r |
 
-    -# Merge all the todos from the pages
+    -# Merge all the todo from the pages
     - todoArray.concat( r.data.todo )
 
 -# Todo
-= codeBlender, "todo", "organism", { array: todoArray, hidden: true }
+= codeBlender "todo", "organism", { array: todoArray, hidden: true }

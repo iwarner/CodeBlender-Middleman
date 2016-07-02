@@ -51,38 +51,44 @@ locals :
 
 -# Tabs
 :ruby
-    code = %{codeBlender "nav", "molecule", { array: [ { url: "javascript:;", text: "Details" },
-                                            { url:   "javascript:;", text: "Download"} ] }}
+    code = %{codeBlender "nav", "molecule",
+                 { array: [ { url: "javascript:;", text: "Details" },
+                 { url:   "javascript:;", text: "Download"} ] }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Tabs" } }
 
 -# Pills
 :ruby
-    code = %{codeBlender "nav", "molecule", { pills: true,
-                                array: [ { url: "javascript:;", text: "Details" },
-                                         { url: "javascript:;", text: "Download"} ] }}
+    code = %{codeBlender "nav", "molecule",
+                 { pills: true,
+                   array: [ { url: "javascript:;", text: "Details" },
+                            { url: "javascript:;", text: "Download"} ] }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Pills" } }
 
 -# Stackable pills
 :ruby
-    code = %{codeBlender "nav", "molecule", { active:  "GitHub",
-                                pills:   true,
-                                stacked: true,
-                                array:   [ { icon: { prepend: { icon: "fa fa-credit-card" } }, url: "javascript:;", text: "Details" },
-                                           { url: "javascript:;", text: "Download" },
-                                           { icon: { append: "fa-github" }, url: "javascript:;", text: "GitHub"} ] }}
+    code = %{codeBlender "nav", "molecule",
+                 { active:  "GitHub",
+                   pills:   true,
+                   stacked: true,
+                   array:   [ { icon: { prepend: { icon: "fa fa-credit-card" } }, url: "javascript:;", text: "Details" },
+                              { url: "javascript:;", text: "Download" },
+                              { icon: { append: { icon: "fa fa-github" } }, url: "javascript:;", text: "GitHub"} ] }}
+
 -# Code
-= codeBlender "code", "organism", { code: code, heading: {  small: "With icons", text: "Stackable pills" } }
+= codeBlender "code", "organism", { code: code, heading: { small: "With icons", text: "Stackable pills" } }
 
 -# Justified pills
 :ruby
-    code = %{codeBlender "nav", "molecule", { pills:      true,
-                                extraClass: "nav-justified",
-                                array:      [ { url: "javascript:;", text: "Details" },
-                                              { url: "javascript:;", text: "Download" },
-                                              { extraClass: "disabled", url: "javascript:;", text: "GitHub"} ] }}
+    code = %{codeBlender "nav", "molecule",
+                 { pills:      true,
+                   extraClass: "nav-justified",
+                   array:      [ { url: "javascript:;", text: "Details" },
+                                 { url: "javascript:;", text: "Download" },
+                                 { extraClass: "disabled", url: "javascript:;", text: "GitHub"} ] }}
+
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { small: "With disabled link", text: "Justified pills" } }

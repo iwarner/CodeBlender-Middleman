@@ -7,7 +7,7 @@
 
 ---
 
-api : false
+api : "AIzaSyA_g0e_o6sz7zNJpbdTtrVoBrWokt6Y7BQ"
 
 analytics :
     active : true
@@ -21,3 +21,6 @@ webmasterTools : "oNbQz6p9otxgPpkeM8gPPp5_nfl3qhf9U41GNZfky00"
 client :
     id     : "908346284125-9nc8k5avs5gsg4f53j058jotsedtodgc.apps.googleusercontent.com"
     secret : false
+
+page :
+    url : false

@@ -1,5 +1,5 @@
 -##
--# Mailchimp Subscription Form
+-# Mailchimp subscription form
 -#
 -# Log into your Mailchimp Account
 -# Click on Lists and then on the  List you want
@@ -17,15 +17,16 @@
 -# -# Mailchimp Subscription
 -# = codeBlender "mailchimp", "molecule"
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @see    http://mailchimp.com/
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
+-# @see      http://mailchimp.com/
 -#
 -# @todo Check out the Schema org micro-format for this component
 -# @todo Design the success and error messages better
 -# @todo Look at the bootstrap panel installation for this module
 -##
 
--# If Action if not supplied - get details from Config.yaml
+-# If action if not supplied - get details from config.yaml
 - if ! locals[ :action ]
 
     -# Check path exists in config
@@ -34,8 +35,8 @@
         -# Create the action variable
         - action = "//" + data.mailChimp.username + "." + data.mailChimp.dc + ".list-manage.com/subscribe/post-json" + "?u=" + data.mailChimp.u + "&id=" + data.mailChimp.id + "&c=JSON_CALLBACK"
 
--# Mailchimp Subscription section
-%section.mailChimpSubscription
+-# Mailchimp subscription section
+%section.mailChimpSubscription{ ng: { controller: "MailChimpSubscriptionController as mc" } }
 
     -# Heading
     - if t( :"mailChimp.title" ).empty?
@@ -44,43 +45,54 @@
     -# Tag line
     %p= string :"mailChimp.small"
 
-    -# Subscription Form
-    %form{ action: action, name: "mailChimpSubscriptionForm", novalidate: true, ng: { submit: "submitSubscription( mailChimp, $event )", controller: "MailChimpSubscriptionController" }, role: "form" }
+    -# Subscription form
+    %form{ action:     action,
+           name:       "mailChimpSubscriptionForm",
+           novalidate: true,
+           ng:         { submit: "mc.submitSubscription( mailChimp, $event )" },
+           role:       "form" }
 
         -# Hide the Form if the subscription was successful
         %div{ ng: { hide: "mailChimp.result === 'success'" } }
 
             -# Input - Email Address
-            = codeBlender "input", "atom", { icon: { prepend: { icon: "fa fa-envelope" } },
-                                 input: { inputGroupClass: "input-group",
-                                          name:            "EMAIL",
-                                          ng:              { model: "mailChimp.EMAIL" },
-                                          placeholder:     :"mailChimp.email",
-                                          required:        "",
-                                          type:            "email" },
-                                 label: { extraClass: "sr-only", title: "Email" } }
+            = codeBlender "input", "atom",
+              { icon:  { prepend: "fa-envelope" },
+                input: { inputGroupClass: "input-group",
+                         name:            "EMAIL",
+                         ng:              { model: "mailChimp.EMAIL" },
+                         placeholder:     :"mailChimp.email",
+                         required:        "",
+                         type:            "email" },
+                label: { extraClass: "sr-only", title: "Email" } }
 
             -# Whether to show the name elements
             - if locals[ :name ]
 
                 -# Input - First Name
-                = codeBlender "input", "atom", { icon: { prepend: { icon: "fa fa-user" } },
-                                     input: { inputGroupClass: "input-group",
-                                              name:            "FNAME",
-                                              ng:              { model: "mailChimp.FNAME" },
-                                              placeholder:     :"mailChimp.firstName" },
-                                     label: { extraClass: "sr-only", title: :"mailChimp.firstName" } }
+                = codeBlender "input", "atom",
+                  { icon:  { prepend: { icon: "fa fa-user" } },
+                    input: { inputGroupClass: "input-group",
+                             name:            "FNAME",
+                             ng:              { model: "mailChimp.FNAME" },
+                             placeholder:     :"mailChimp.firstName" },
+                    label: { extraClass: "sr-only", title: :"mailChimp.firstName" } }
 
                 -# Input - Last Name
-                = codeBlender "input", "atom", { icon: { prepend: { icon: "fa fa-user" } },
-                                     input: { inputGroupClass: "input-group",
-                                              name:            "LNAME",
-                                              ng:              { model: "mailChimp.LNAME" },
-                                              placeholder:     :"mailChimp.lastName" },
-                                     label: { extraClass: "sr-only", title: :"mailChimp.lastName" } }
+                = codeBlender "input", "atom",
+                  { icon:  { prepend: { icon: "fa fa-user" } },
+                    input: { inputGroupClass: "input-group",
+                             name:            "LNAME",
+                             ng:              { model: "mailChimp.LNAME" },
+                             placeholder:     :"mailChimp.lastName" },
+                    label: { extraClass: "sr-only", title: :"mailChimp.lastName" } }
 
             -# Button - Subscription
-            = codeBlender "button", "atom", { block: true, context: "info", ng: { disabled: "mailChimpSubscriptionForm.$invalid" }, text: :"mailChimp.button" }
+            = codeBlender "button", "atom",
+              { block:   true,
+                context: "info",
+                type:    "submit",
+                ng:      { disabled: "mailChimpSubscriptionForm.$invalid" }, text: :"mailChimp.button" }
 
         -# Show error message
         .mailChimpSubscription__error{ ng: { show: "mailChimp.result === 'error'" } }

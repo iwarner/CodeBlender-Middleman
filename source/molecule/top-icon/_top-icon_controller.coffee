@@ -4,11 +4,11 @@
 # @author Ian Warner <ian.warner@drykiss.com>
 #
 # @usage
-# require molecule/top-icon/top-icon.controller
+# require top-icon/_top-icon_controller
 #
-# @see  https://docs.angularjs.org/api/ng/service/$anchorScroll
-#
-# @todo Look at a more angular way to do a smooth transition.
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category molecule
+# @see      https://docs.angularjs.org/api/ng/service/$anchorScroll
 ##
 
 ##
@@ -19,11 +19,17 @@
 ##
 # Top Icon Controller
 ##
-TopIconController = ->
+TopIconController = ( $log ) ->
 
     # This
     vm = this
 
+    # Debug
+    # $log.info "TopIconController"
+
+    ##
+    # Click
+    ##
     vm.gotoTop = ->
 
         # JQuery Animate
@@ -51,3 +57,10 @@ TopIconController = ->
 angular
     .module     'app.controller'
     .controller 'TopIconController', TopIconController
+
+##
+# Inject
+##
+TopIconController.$inject = [
+    '$log'
+]

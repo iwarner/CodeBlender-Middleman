@@ -77,12 +77,13 @@
 
 // Organism
 //----------------------------------------------------------------------------//
-@import "../organism/code/code";
-@import "../organism/footer/footer";
-@import "../organism/jumbotron/jumbotron";
-@import "../organism/nav-above/nav-above";
-@import "../organism/sidebar/sidebar";
-@import "../organism/subnavigation/subnavigation";
+@import "code/code";
+@import "contact/contact";
+@import "footer/footer";
+@import "jumbotron/jumbotron";
+@import "nav-above/nav-above";
+@import "sidebar/sidebar";
+@import "subnavigation/subnavigation";
 
 // Template
 //----------------------------------------------------------------------------//

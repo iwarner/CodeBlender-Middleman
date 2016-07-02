@@ -1,17 +1,22 @@
 //
-// All CSS
+// Contact
 //
 // @author   Ian Warner <ian.warner@drykiss.com>
-// @category scss
+// @category organism
 //----------------------------------------------------------------------------//
 
-// Variable / Mixin
+// Module
 //----------------------------------------------------------------------------//
-@import "../atom/scaffolding/scaffolding";
+$module : 'contactPage';
 
-// Library & Lib
+// Sidebar
 //----------------------------------------------------------------------------//
-@import "variable";
-@import "bower";
-@import "library";
-@import "lib";
+.#{ $module } {
+
+    // Google map
+    //------------------------------------------------------------------------//
+    ui-gmap-google-map, .angular-google-map-container {
+        height : 400px;
+    }
+
+}

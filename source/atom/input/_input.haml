@@ -49,7 +49,7 @@
             -# Any icon here will show refresh when loading say typeahead
             - if locals[ :icon ] and locals[ :icon ][ :prepend ]
                 = codeBlender "icon", "atom", { icon: "#{ locals[ :icon ][ :prepend ] } input-group-addon", ng: { hide: "loading" } }
-                = codeBlender "icon", "atom", { icon: "fi flaticon-refresh input-group-addon", ng: { show: "loading" } }
+                -# = codeBlender "icon", "atom", { icon: "fi flaticon-refresh input-group-addon", ng: { show: "loading" } }
 
             -# Prepend button
             - if locals[ :button ] and locals[ :button ][ :prepend ]

@@ -16,8 +16,8 @@
 -# @param table
 -# @param tools
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# Variable
@@ -67,18 +67,19 @@
                 = codeBlender "heading", "molecule", heading
 
     -# Hidden
-    .content{ class: locals[ :collapse ] ? "collapse" : false }
+    -# .content{ class: locals[ :collapse ] ? "collapse" : false }
 
-        -# Body
-        - if locals[ :body ]
+    -# Body
+    - if locals[ :body ]
 
-            -# Panel Body
-            .panel-body{ class: locals[ :bodyClass ] ? bodyClass : false }= string( body )
+        -# Panel Body
+        .panel-body{ class: locals[ :bodyClass ] ? bodyClass : false }
+            = string locals[ :body ]
 
-        -# Table
-        - if locals[ :table ]
-            = string table
+    -# Table / List
+    - if locals[ :table ]
+        = string table
 
-        -# Footer
-        - if locals[ :footer ]
-            .panel-footer= string footer
+    -# Footer
+    - if locals[ :footer ]
+        .panel-footer= string footer

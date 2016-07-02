@@ -19,6 +19,7 @@
         "angular-bootstrap"          : "",
         "angular-bootstrap-checkbox" : "",
         "angular-datatables"         : "",
+        "angular-google-maps"        : "",
 
         "angularfire"                : "",
         "ng-clip"                    : "",

@@ -4,7 +4,9 @@
 -# class, as well as shared states. Swap modifier classes to switch between each style.
 -#
 -# @usage
--# = codeBlender "nav", "molecule", { array: [ { path: "javascript:;", name: "Details" }, { path: "javascript:;", name: "Download"} ] }
+-# = codeBlender "nav", "molecule",
+-#   { array: [ { path: "javascript:;", text: "Details" },
+-#              { path: "javascript:;", text: "Download"} ] }
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category molecule
@@ -46,11 +48,11 @@
 
                         -# Prepend icon
                         - if value[ :icon ] and value[ :icon ][ :prepend ]
-                            = codeBlender "icon", "atom", { icon: value[ :icon ][ :prepend ] }
+                            = codeBlender "icon", "atom", value[ :icon ][ :prepend ]
 
                         -# Content
                         = string value[ :text ]
 
                         -# Append icon
                         - if value[ :icon ] and value[ :icon ][ :append ]
-                            = codeBlender "icon", "atom", { icon: value[ :icon ][ :append ] }
+                            = codeBlender "icon", "atom", value[ :icon ][ :append ]

@@ -1,5 +1,8 @@
 ##
-# Page options, layouts, aliases and proxies
+# Middleman Configuration File
+#
+# @author Ian Warner <ian.warner@drykiss.com>
+# @see    http://middlemanapp.com/
 ##
 
 # Syntax highlighting

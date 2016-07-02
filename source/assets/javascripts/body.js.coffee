@@ -16,6 +16,9 @@
 # DataTables
 #= require DataTables/media/js/jquery.dataTables
 
+# Lodash
+#= require lodash/dist/lodash.min
+
 # Angular JS
 #= require angular/angular.min
 #= require angular-animate/angular-animate.min
@@ -26,6 +29,8 @@
 #= require angular-bootstrap-checkbox/angular-bootstrap-checkbox
 #= require ngstorage/ngStorage.min
 #= require ng-tags-input/ng-tags-input.min
+#= require angular-simple-logger/dist/angular-simple-logger.min
+#= require angular-google-maps/dist/angular-google-maps.min
 
 # Angular Bootstrap DataTables
 #= require angular-datatables/dist/angular-datatables
@@ -66,24 +71,17 @@
 #= require top-icon/_top-icon_controller
 #= require popover/_popover_directive
 #= require tooltip/_tooltip_directive
-
-# Search input
 #= require search-input/_search-input_controller
 #= require search-input/_search-input_directive
 
 ##
 # Organism
 ##
-
-# Sidebar
 #= require sidebar/_sidebar
-
-# Code
 #= require code/_code_controller
+#= require contact/_contact_controller
 
 ##
 # Template
 ##
-
-# Portfolio
 #= require portfolio/_portfolio_controller

@@ -22,6 +22,7 @@ angular
         'ui.checkbox'
         'ui.grid'
         'ui.router'
+        'uiGmapgoogle-maps'
 
         'app.auth'
         'app.config'
@@ -38,9 +39,8 @@ angular
         'ngAnimate'
         'ngClipboard'
         'ngStorage'
+        'ngResource'
         'ngTagsInput'
-
-        'mailChimp'
 
         'datatables'
         'datatables.bootstrap'

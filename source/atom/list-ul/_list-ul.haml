@@ -48,15 +48,17 @@
             - if list[ :link ]
 
                 -# Link To
+                -# Do not want the hash if its Angular UI
                 = link_to( string( list[ :link ][ :url ] ),
                            { ng:     list[ :link ][ :ng ]     ? list[ :link ][ :ng ]     : false,
                              target: list[ :link ][ :target ] ? list[ :link ][ :target ] : false,
-                             ui:     list[ :link ][ :ui ]     ? list[ :link ][ :ui ]     : false } ) do
+                             ui:     list[ :ui ]              ? list[ :link ][ :ui ]     : false } ) do
 
                     -# Icon
                     - if list[ :icon ]
                         = codeBlender "icon", "atom", { icon: list[ :icon ] }
 
+                    -# Text
                     - if list[ :text ]
                         = string list[ :text ]
 
