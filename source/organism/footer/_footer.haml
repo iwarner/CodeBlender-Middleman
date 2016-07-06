@@ -1,6 +1,6 @@
 -##
 -# Footer and copyright elements
--# Most of the configuration is driven from the locale file
+-# Configuration is driven from the locale file and data footer.yaml
 -#
 -# @usage
 -# -# Footer
@@ -16,7 +16,8 @@
 -##
 
 -# Variable
-- extraClass = data.config.footer.extraClass ? data.config.footer.extraClass : false
+- footer     = data.footer.footer
+- extraClass = footer.extraClass ? footer.extraClass : false
 - container  = locals[ :fluid ] ? "container-fluid" : data.config.container
 
 -# Footer section
@@ -28,18 +29,17 @@
         -# Container
         %div{ class: container }
 
-            -# Bootstrap Row
+            -# Bootstrap row
             .row
 
-                -# Check Footer YAML or locals is not blank
+                -# Check footer YAML or locals is not blank
                 - if t "footer" or locals[ :array ]
 
                     -# Local array takes precedent
                     - array = locals[ :array ] ? locals[ :array ] : t( "footer" )
 
                     -# Columns count
-                    - count      = 12 / array.count
-                    - extraClass = "col-md-#{ count } "
+                    - extraClass = "col-md-#{ 12 / array.count } "
 
                     -# Loop through the footer yaml
                     - array.each do | entry |
@@ -69,22 +69,38 @@
     -# Copyright
     .copyright{ class: locals[ :center ] ? "text-center" : false }
 
-        -# Container
+        -# Bootstrap container
         %div{ class: container }
 
-            -# Year
-            - if ! locals[ :noYear ]
+            -# Bootstrap row
+            .row
 
-                -# Variable
-                - year = Time.now.strftime '%Y'
-                %time{ datetime: year } &copy; #{ year }
+                -# Bootstrap column
+                .col-md-6
 
-            -# Text
-            = string :"copyright.brand"
-            = string :"copyright.rights"
+                    -# Year
+                    - if ! locals[ :noYear ]
 
-            -# Show any required links
-            - if locals[ :array ]
+                        -# Variable
+                        - year = Time.now.strftime '%Y'
+                        %time{ datetime: year } &copy; #{ year }
 
-                -# Horizontal list of links
-                = codeBlender "list-ul", "atom", { array: array, extraClass: "list-inline list-unstyled" }
+                    -# Text
+                    = string :"copyright.brand"
+                    = string :"copyright.rights"
+
+                    -# Show any required links
+                    - if locals[ :array ]
+
+                        -# Horizontal list of links
+                        = codeBlender "list-ul", "atom", { array: array, extraClass: "list-inline list-unstyled" }
+
+                -# Bootstrap column
+                .col-md-6
+
+                    Site &amp; SEO by
+
+                    -# Developed by
+                    %a{ href: "//drykiss.com", target: "_blank" }
+                        = inlineSVG "drykiss-sq-color.svg"
+                        DryKISS Ltd

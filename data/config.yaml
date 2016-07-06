@@ -3,7 +3,7 @@
 # Contains the configuration for the core framework layouts
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
-# @category meta
+# @category config
 ##
 
 ---
@@ -63,9 +63,3 @@ meta :
     mobile   : true
     touch    : false
     twitter  : false
-
-# Footer
-copyright     : true
-footer :
-    active     : true
-    extraClass : "noBackground"

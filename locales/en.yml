@@ -176,23 +176,23 @@ en:
     # Footer
     footer :
 
-        # Column One
+        # Column one
         - title       : "About"
           icon        : "fa-info"
           description : |
-            DryKISS is a full service internet and mobile digital production house.
-            Our core services span consulting, strategy; planning; development;
-            testing and analytics. We developed CodeBlender to provide a Rapid
-            and repeatable platform for our frontend work.
+            DryKISS is a full service internet and mobile digital production
+            house. Our core services span consulting, strategy; planning;
+            development; testing and analytics. We developed CodeBlender to
+            provide a Rapid and repeatable platform for our frontend work.
 
-        # Column Two
+        # Column two
         - title       : "What We Do"
           icon        : "fa-cogs"
           description : |
             DryKISS develops hybrid mobile apps (iOS &amp; Android); responsive
-            internet sites; administration systems and social applications. Using
-            our platform we tune for SEO, accessibility and conversion from the
-            very outset.
+            internet sites; administration systems and social applications.
+            Using our platform we tune for SEO, accessibility and conversion
+            from the very outset.
 
         # Column Three
         - title       : "Social"
@@ -224,10 +224,10 @@ en:
 
             <div>
                 <i class="fa fa-phone"></i>
-                [+44 (0) 778 043 5329](tel:+447780435329)
+                <a href="tel:+447780435329">+44 (0) 778 043 5329</a>
             </div>
 
             <div>
                 <i class="fa fa-envelope"></i>
-                [info@drykiss.com](mailto:info@drykiss.com)
+                <a href="mailto:info@drykiss.com">info@drykiss.com</a>
             </div>

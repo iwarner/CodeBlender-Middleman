@@ -17,11 +17,11 @@ see :
       - "http://getbootstrap.com/examples/sticky-footer/"
 
 todo :
-    - - "Enable the samples to be placed in a container-fluid"
+    - - "Create a brand / develop by section in the footer"
     - - "Enable the footer to be fixed also - css"
     - - "What aria role should it take"
     - - "BEM the CSS"
-    - - "Need to include microformats - could be viable for address / location elements in the footer"
+    - - "Need to include micro-formats - could be viable for address / location elements in the footer"
 
 locals :
     - - "array"
@@ -78,15 +78,20 @@ list :
     -# Bootstrap column
     .col-md-6
 
-        -# Panel body - markdown
+        -# Panel body
         - panelBody = capture_html do
-            :markdown
-                The footer section contains two elements, the columned area that can contain
-                any markdown information you require, and the copyright section underneath.
 
-                Footer content is driven from the locale files. This yaml object not
-                only determines the content but also the amount of columns as it is
-                iterated through.
+            -# Markdown
+            :markdown
+
+                The footer section contains two elements, the columned area that
+                can contain any information you require, and the copyright
+                section underneath.
+
+                Footer content is driven from the locale files. This yaml object
+                not only determines the content but also the amount of columns
+                as it is iterated through.class_selector
+
 
         -# Panel
         = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
@@ -112,37 +117,44 @@ list :
         -# Panel
         = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Create" } }
 
--# Default
-:ruby
-    code = %{codeBlender "footer", "organism", { fluid: true }}
+-# Bootstrap row
+.row
 
--# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+    .col-md-12
 
--# Using Local Data with No Background
-:ruby
-    code = %{codeBlender "footer", "organism", { array: current_page.data.footer, fluid: true, footerClass: "noBackground text-center" }}
+        %br
 
--# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Local data Footer" } }
+        -# Default
+        :ruby
+            code = %{codeBlender "footer", "organism", { fluid: true }}
 
--# Copyright centred text
-:ruby
-    code = %{codeBlender "footer", "organism", { center: true, fluid: true }}
+        -# Code
+        = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
--# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Copyright centred text" } }
+        -# Using local data with no background
+        :ruby
+            code = %{codeBlender "footer", "organism", { array: current_page.data.footer, fluid: true, footerClass: "noBackground text-center" }}
 
--# Copyright Extra Links
-:ruby
-    code = %{codeBlender "footer", "organism", { array: current_page.data.list, center: true, fluid: true }}
+        -# Code
+        = codeBlender "code", "organism", { code: code, heading: { text: "Local data Footer" } }
 
--# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Copyright Extra Links" } }
+        -# Copyright centred text
+        :ruby
+            code = %{codeBlender "footer", "organism", { center: true, fluid: true }}
 
--# No Year
-:ruby
-    code = %{codeBlender "footer", "organism", { copyright: "Local String Inserted", fluid: true, noYear: true }}
+        -# Code
+        = codeBlender "code", "organism", { code: code, heading: { text: "Copyright centred text" } }
 
--# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "No Year" } }
+        -# Copyright extra links
+        :ruby
+            code = %{codeBlender "footer", "organism", { array: current_page.data.list, center: true, fluid: true }}
+
+        -# Code
+        = codeBlender "code", "organism", { code: code, heading: { text: "Copyright Extra Links" } }
+
+        -# No year
+        :ruby
+            code = %{codeBlender "footer", "organism", { copyright: "Local String Inserted", fluid: true, noYear: true }}
+
+        -# Code
+        = codeBlender "code", "organism", { code: code, heading: { text: "No Year" } }

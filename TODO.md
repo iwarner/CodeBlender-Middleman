@@ -1,0 +1,9 @@
+# Todo list
+
+## DevOps
+
+- [ ]
+
+## General
+
+- [ ]

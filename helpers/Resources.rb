@@ -35,16 +35,22 @@ module Resources
         current_page.data.description || data.site.description
     end
 
-    # https://robots.thoughtbot.com/organized-workflow-for-svg
-    # https://gist.github.com/bitmanic/0047ef8d7eaec0bf31bb
-    def inline_svg( filename, options = {} )
+    ##
+    # In-line SVG
+    #
+    # @usage inlineSVG "drykiss-sq-color.svg"
+    #
+    # @see https://robots.thoughtbot.com/organized-workflow-for-svg
+    # @see https://gist.github.com/bitmanic/0047ef8d7eaec0bf31bb
+    ##
+    def inlineSVG( filename, options = {} )
 
         root      = Middleman::Application.root
-        file_path = "#{ root }/source/images/#{ filename }"
+        file_path = "#{ root }/source/assets/svg/#{ filename }"
 
         if File.exists?( file_path )
 
-            file = File.read( file_path ).force_encoding( "UTF-8" )
+            file = File.read( file_path ).force_encoding "UTF-8"
             doc  = Nokogiri::HTML::DocumentFragment.parse file
             svg  = doc.at_css "svg"
 

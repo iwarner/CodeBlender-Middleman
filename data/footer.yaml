@@ -1,0 +1,16 @@
+##
+# Footer
+#
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category config
+##
+
+---
+
+# copyright
+copyright : true
+
+# Footer
+footer :
+    active     : true
+    extraClass : "noBackground"

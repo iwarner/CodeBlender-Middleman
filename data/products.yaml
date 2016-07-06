@@ -3,12 +3,12 @@
 # Describes the products for an E-Commerce Shop
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
-# @category meta
+# @category config
 ##
 
 ---
 
-# Product - Granola Bar
+# Product - Granola bar
 -   title       : "Granola Bar"
     excerpt     : "Comes in several amazing varieties including nut, and delicious fruit."
     description : "Comes in several amazing varieties including nut, and delicious fruit."
@@ -20,7 +20,7 @@
     ingredients :
         - value : key
 
-# Product - Granola Bar
+# Product - Hazelnut spread
 -   title       : "Hazelnut Spread"
     excerpt     : "Organic; refined sugar free and scruptious treat for any meal."
     description : "Chocolate"

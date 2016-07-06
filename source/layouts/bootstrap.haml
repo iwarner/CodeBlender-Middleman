@@ -86,7 +86,7 @@
         = yield
 
         -# Section - footer
-        - if data.config.footer.active or data.config.copyright
+        - if data.has_key? "footer" and ( data.footer.footer.active or data.footer.copyright )
             = codeBlender "footer", "organism"
 
         -# Top icon
