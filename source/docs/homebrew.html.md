@@ -60,6 +60,14 @@ Running
 
 Will update the system
 
+## Issues
+
+If there are issues with formula you can browse to Homebrew's installation folder
+and do a git pull to get the latest files, then update and upgrade.
+
+    $ cd /usr/local
+    $ git pull origin master
+
 ## Todo
 
 * Instructions on Brew Doctor and how to clean up.
@@ -89,3 +97,5 @@ The following are helpful:
 * [Webkit 2 PNG](http://www.paulhammond.org/webkit2png/)
 * [CDRTools]()
 * [Git Flow](https://github.com/nvie/gitflow)
+
+[Xcode]:http://railsapps.github.io/xcode-command-line-tools.html

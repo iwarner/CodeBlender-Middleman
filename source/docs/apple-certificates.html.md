@@ -107,7 +107,7 @@ Join the Apple Developer Program - https://developer.apple.com/programs/register
         *** Enter a profile name, select the iOS developer certificate, the App ID, and the UDIDs on which you want to install the application.
         *** Download the generated Developer Provisioning Profile file (*.mobileprovision)and save it on your computer.
 
-* Add Provisioning file to Itune
+* Add Provisioning file to iTunes
     ** In iTunes, select File > Add To Library, and browse to the mobile provisioning profile file (.mobileprovision filename extension)
     ** In iTunes, select File > Add To Library, and browse to the debug IPA file.
     ** Sync your iOS device with iTunes by selecting File > Sync.

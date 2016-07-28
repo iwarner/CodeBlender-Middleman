@@ -24,6 +24,8 @@ gem "middleman-minify-html"
 # Tools
 gem "oj"
 gem "bourbon"
+gem "streamio-ffmpeg"
+gem "filesize"
 
 # Template engines
 gem "kramdown"

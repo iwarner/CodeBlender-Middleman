@@ -56,6 +56,7 @@ Install the latest release through NPM
     $ npm update -g
 
 ## PhoneGap Build
+
 Utilising [PhoneGap Build][] we can build out an application for all devices in
 one go. This will require uploading a Zip file or Git Push to the site and
 waiting for it to compile the packages.
@@ -67,6 +68,7 @@ Please check out the [Build Starter Application][] and [Cordova Hello World][]
 for further advice on this.
 
 ## PhoneGap Build API
+
 Understanding the [PhoneGap Build API][] will make the build seamless. There is
 likely a thor file in the project that will build middleman and update the project
 on [PhoneGap Build][] automatically with a Zip file.
@@ -110,16 +112,19 @@ How to write a Plugin
 http://cordova.apache.org/docs/en/edge/plugin_ref_spec.md.html
 
 ## iOS
+
 Check out the [iOS Developer Center][] for the latest news and updates on iOS
 technology.
 
 Read the PhoneGap [iOS Getting Started][] guide
 
 ## Android
+
 Although we are not directly building through the [Android SDK][] it is important to
 keep up with what is happening in this space.
 
 ## Command Line
+
 Below is a simple example for creating a new application and emulating this
 inside a browser for iOS, utilising the [Cordova CLI][].
 
@@ -178,6 +183,13 @@ In the configuration on XCode the following achieves the same
 
     set Status bar is initially hidden = YES
     add row: View controller-based status bar appearance = NO
+
+## Update Cordova
+
+    $ cordova -v
+    $ npm update -g cordova
+    $ npm update -g ios-deploy
+    $ npm update -g ios-sim
 
 [PhoneGap]:http://cordova.apache.org/
 [Cordova]:http://cordova.apache.org/

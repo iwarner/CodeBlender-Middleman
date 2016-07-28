@@ -48,3 +48,9 @@ Keystroke   Description
 - Press Command-V during startup  Start up in Verbose mode.
 - Press Command-S during startup  Start up in Single-User mode.
 - Press Option-N during startup   Start from a NetBoot server using the default boot image.
+
+# XCode
+
+# Todo
+
+- Rename this to Mac setup perhaps

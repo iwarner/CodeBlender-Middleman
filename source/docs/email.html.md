@@ -29,13 +29,16 @@ tags     : [ email, google, gmail ]
 
 ### DNS settings
 
-Priority Host Points TTL
+Priority    Mail Server
+1   ASPMX.L.GOOGLE.COM.
+5   ALT1.ASPMX.L.GOOGLE.COM.
+5   ALT2.ASPMX.L.GOOGLE.COM.
+10  ALT3.ASPMX.L.GOOGLE.COM.
+10  ALT4.ASPMX.L.GOOGLE.COM.
 
-1        @    aspmx.I.google.com.      1 hour
-5        @    alt1.aspmx.I.google.com. 1 hour
-5        @    alt2.aspmx.I.google.com. 1 hour
-10       @    aspmx2.I.google.com.     1 hour
-10       @    aspmx3.I.google.com.     1 hour
+https://support.google.com/quickfixes/answer/6252374?rd=1
+https://support.google.com/a/answer/33915?hl=en
+https://support.google.com/a/answer/174125
 
 ### SPF
 

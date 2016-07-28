@@ -9,8 +9,6 @@
 # English
 en:
 
-    hello: "Hello"
-
     # Locale
     locale : "en"
 
@@ -105,22 +103,13 @@ en:
             - text : "Football"
               link : { url: "/football/football.html" }
 
-            # # Language dropdown
-            # - dropdown : "Language"
-            #   icon     : "icon-menu"
-            #   items    :
+            # Media
+            - text : "Media"
+              link : { url: "/media/media.html" }
 
-            #       - text : "English"
-            #         link : { ui: { sref: "#" } }
-            #         icon : "icon-Overview"
-
-            #       - text : "Chinese"
-            #         link : { ui: { sref: "#" } }
-            #         icon : "icon-nurture"
-
-            #       - text : "Japanese"
-            #         link : { ui: { sref: "#" } }
-            #         icon : "icon-Help"
+            # Mobile
+            - text : "Mobile"
+              link : { url: "/mobile/mobile.html" }
 
     # Home
     home :
@@ -157,7 +146,7 @@ en:
             description : >
                 Testing bay for components
 
-    # Datagrid Table
+    # Data grid Table
     table :
 
         client       : "Client"

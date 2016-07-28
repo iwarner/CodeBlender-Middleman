@@ -1,34 +1,67 @@
 ##
-# Project Thor file
-# Provides specific tasks in the development life cycle of a middleman project
+# Cordova
+# Specific task running for developing within the Cordova framework.
 #
 # @usage  $ thor list
 # @author Ian Warner <ian.warner@drykiss.com>
-# @see    http://whatisthor.com/
+# @see    https://cordova.apache.org/docs/en/latest/guide/cli/
 ##
 class Cordova < Thor
 
     ##
     # Variable
     ##
-    @@phoneGapToken = ""
-    @@phoneGapAppID = ""
-    @@phoneGapUser  = ""
-    @@phoneGapPass  = ""
+    @@androidReleaseAlias = "CircusStreet"
+    @@androidReleasePath  = "../platforms/android/build/outputs/apk/android-release-unsigned.apk"
 
     ##
-    # Cordova emulate
+    # Android application signing
+    #
+    # You'll first be prompted to create a password for the keystore.
+    # Then, answer the rest of the questions, when it's done, you should have a
+    # file called my-release-key.keystore created in the working directory.
+    #
+    # @todo check if Keystore file exists first
     ##
-    desc "emulate", "Cordova Build"
-    def emulate
+    desc "androidRelease", "Cordova Android release"
+    def androidRelease
 
-        system("clear")
+        # Clear
+        system( "clear" )
 
-        # Middleman Build
+        # Create a release version
+        # Stored in platforms/android/build/outputs/apk/android-release-unsigned.apk
+        say( "\n\t Android release\n\t" )
+        system( "cordova build android --release" )
+
+        # Keytool certificate generation
+        # Do not lose this file as it will stop updates
+        say( "\n\t Keytool certificate creation\n\t" )
+        system( "keytool -genkey -v -keystore ../my-release-key.keystore -alias #{@@androidReleaseAlias} -keyalg RSA -keysize 2048 -validity 10000" )
+
+        # Sign application
+        say( "\n\t Sign application\n\t" )
+        system( "jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../my-release-key.keystore #{@@androidReleasePath} #{@@androidReleaseAlias}" )
+
+        # Align application
+        say( "\n\t Align application\n\t" )
+        system( "zipalign -v 4 #{@@androidReleasePath} #{@@androidReleaseAlias}.apk" )
+
+    end
+
+    ##
+    # Cordova build
+    ##
+    desc "build", "Cordova Build"
+    def build
+
+        system( "clear" )
+
+        # Middleman build
         say( "\n\t Middleman Build Clean\n\t" )
         system( "bundle exec middleman build --clean" )
 
-        # Cordova Build
+        # Cordova build
         say( "\n\t Cordova Build\n\t" )
         system( "cordova build" )
 
@@ -39,99 +72,36 @@ class Cordova < Thor
     end
 
     ##
-    # PhoneGap build via zip
+    # Cordova Reset
     ##
-    desc "package", "PhoneGap build Via Zip"
-    def package
-
-        system( "clear" )
-        say( "\n\tCreating Project\n\t" )
-
-        say( "\n\tRemove Build Folder\n\t" )
-        system( "sudo rm -r build" )
-
-        say( "\n\tMiddleman Build\n\t" )
-        system( "bundle exec middleman build --clean" )
-
-        # Remove Project.zip if one exists
-        say( "\n\tRemoving project.zip file" )
-        system( "rm project.zip" )
-
-        # Create Project.zip - Exclude Files
-        # -x /plugins/\* -x cordova.js -x cordova_plugins.js
-        say( "\n\tCreating project.zip file\n\n" )
-        system( "cd build && zip -r ../project.zip . -x '*.DS_Store' -x runner.html -x /spec/\*" )
-
-        # Upload Project.zip
-        say( "\n\tUploading File to Adobe PhoneGap Build" )
-        system( "curl -X PUT -F file=@project.zip https://build.phonegap.com/api/v1/apps/#{@@phoneAppID}?auth_token=#{@@phoneGapToken}" )
-
-    end
-
-    ##
-    # PhoneGap build remote
-    # thor project:pgBuildRemote
-    ##
-    desc "deployRemote", "Create a PhoneGap Build Remote"
-    def deployRemote
-
-        system( "clear" )
-        say( "\n\PhoneGap Build Remote\n\t" )
-
-        say( "\n\tMiddleman Build\n\t" )
-        system( "bundle exec middleman build --clean" )
-
-        # Login
-        say( "\n\tLogin\n\n" )
-        system( "phonegap remote login -u iwarner@triangle-solutions.com -p tri_adobe=15" )
-
-        # Build
-        say( "\n\tBuild\n\n" )
-        system( "phonegap remote build ios" )
-
-    end
-
-    ##
-    # PhoneGap Reset
-    ##
-    desc "reset", "Reset PhoneGap"
+    desc "reset", "Cordova reset"
     def reset
 
         # Messages
         system( "clear" )
-        say( "\n\t PhoneGap Reset\n\t" )
+        say( "\n\t Cordova Reset\n\t" )
 
-        # Remove iOS Platform
-        system( "cd platforms && rm -r ios" )
-
-        system( "phonegap local plugin remove org.apache.cordova.device" )
-        system( "phonegap local plugin add org.apache.cordova.device" )
-
-        system( "phonegap local plugin remove org.apache.cordova.dialogs" )
-        system( "phonegap local plugin add org.apache.cordova.dialogs" )
-
-        system( "phonegap local plugin remove org.apache.cordova.geolocation" )
-        system( "phonegap local plugin add org.apache.cordova.geolocation" )
-
-        system( "phonegap local plugin remove org.apache.cordova.vibration" )
-        system( "phonegap local plugin add org.apache.cordova.vibration" )
-
-        system( "phonegap local build ios" )
-        system( "phonegap local run ios --emulator" )
+        # Remove platforms
+        system( "cordova platform remove ios     --save" )
+        system( "cordova platform remove android --save" )
 
     end
 
     ##
-    # PhoneGap Emulate IOS
+    # Cordova emulate IOS
+    #
+    # @todo Does Run auto build?
+    # @todo Allow the choice of a platform - android or ios
+    # @todo Allow emulation of certain device : cordova emulate ios --target="iPhone-6s"
     ##
-    desc "phoneGapEmulateIos", "Emulate IOS"
-    def phoneGapEmulateIos
+    desc "emulateIos", "Cordova emulate iOS"
+    def emulateIos
 
         # Messages
         system( "clear" )
-        say( "\n\t PhoneGap Build and Emulate IOS\n\t" )
+        say( "\n\t Cordova build and emulate iOS\n\t" )
 
-        # Build Middleman
+        # Middleman build
         system( "sudo bundle exec middleman build --clean" )
 
         # Delete some files
@@ -142,8 +112,8 @@ class Cordova < Thor
         system( "sudo rm    www/cordova.js" )
         system( "sudo rm    www/cordova_plugins.js" )
 
-        # PhoneGap Build and Emulate
-        system( "phonegap build ios && phonegap run ios --emulator" )
+        # Cordova build and emulate
+        system( "cordova build ios && cordova run ios --emulator" )
 
     end
 

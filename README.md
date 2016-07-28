@@ -19,6 +19,7 @@ analytics. Using cutting edge technologies within disciplined processes.
 ## ENOM Domains
 
 - availabletowork.com
+- bfcvagabonds.com
 - classicpcgames.com
 - codeblender.io / codeblender.net
 - customuniformwarehouse.com
@@ -32,10 +33,6 @@ analytics. Using cutting edge technologies within disciplined processes.
 - phpcodingstandards.com
 - phpmultiplenewsletters.com
 - phpsupporttickets.com
-
-## Easily Domains
-
-- bfcvagabonds.com
 - triangle-solutions.com
 
 ## GitHub - DryKISS
@@ -93,7 +90,7 @@ Client websites
 
 Start
 
-    $ /var/www/CodeBlender
+    $ /var/www/DryKiss/codeblender.io/www
     $ bundle exec middleman server
 
 Variables

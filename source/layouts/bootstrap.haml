@@ -106,31 +106,6 @@
         - if data.config.javascript.body
             = javascript_include_tag :body
 
-        -# Cordova
-        - if data.config.javascript.cordova
-
-            :coffee
-
-                angular.element(document).ready ->
-
-                    console.log 'Application - run'
-
-                    if window.cordova
-
-                        console.log 'Running in Cordova, will bootstrap AngularJS once \'deviceready\' event fires.'
-                        document.addEventListener 'deviceready', (->
-                            console.log 'deviceready event has fired, bootstrapping AngularJS.'
-                            angular.bootstrap document.body, [ 'app' ]
-                            return
-                        ), false
-
-                    else
-
-                        console.log 'Running in browser, bootstrapping AngularJS now.'
-                        angular.bootstrap document.body, [ 'app' ]
-
-                    return
-
         -# Google analytics
         - if data.has_key? "google" and data.google.analytics.active
             = codeBlender "google-analytics", "atom"

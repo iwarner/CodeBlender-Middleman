@@ -1,8 +1,9 @@
 -##
 -# Sub navigation
--# Create a sub navigation menu based on what is contained within the subnavigation.yaml
--# Script looks for the first word after the domain in the URL and links this to
--# the data
+-#
+-# Create a sub navigation menu based on what is contained within the
+-# subnavigation.yaml Script looks for the first word after the domain in the
+-# URL and links this to the data
 -#
 -# @usage
 -# -# Sub navigation
@@ -10,48 +11,47 @@
 -#
 -# @category organism
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# @see      http://bootsnipp.com/snippets/featured/responsive-navigation-menu
--#
--# @todo Need to check that this works with relative links or directory indexes
--# @todo If page refreshes directly on hash of menu then it does not expand
--# @todo Sub menu should not be active
--# @todo Redo the CSS so its in BEM - need to pass through the relevant CSS classes to the List Group partial
--# @todo Get the affix working again
--# @todo Sort out the javascript controlling the submenu hide and show
--# @todo Create the submenu sections again
--# @todo This should probably be a molecule
--# @todo Create a documentation page on codeblender for this partial
--# @todo Should put this into an aside tag also
--# @todo See what micro formats and accessibility we need on this partial
--# @todo Add scroll spy to this also, if the submenu happens to be link reference to the current page
--# @todo Check out Visa implementation of the submenu as a lot of work was done in this
--# @todo On pagination the active sub navigation is lost - fix this
 -##
 
--# Check that the data.subnavigation is set
-- if data.subnavigation.present?
+-# Assign array
+- array = []
 
-    -# Want to get the current section based on the path
-    - section = current_page.path.split "/"
+-# Want to get the current section based on the path
+- section = current_page.path.split "/"
 
-    -# Make sure there is a section for this page
-    - if data.subnavigation[ section[ 0 ] ]
+-# Create hash
+- hash = { title:  section[ 0 ].capitalize,
+           url:    "/#{ section[ 0 ] }/#{ section[ 0 ] }.html",
+           active: ( "/#{ section[ 0 ] }/#{ section[ 0 ] }.html" == current_page.url ) ? true : false }
 
-        -# Loop through the sub navigation section
-        - data.subnavigation[ section[ 0 ] ].each_with_index do | value, index |
+-# Push to array
+- array.push hash
 
-            -# Check path is equal and assign active bool
-            - data.subnavigation[ section[ 0 ] ][ index ][ "active" ] = ( value.url == current_page.url ) ? true : false
+-# Get folders for link
+- folder = Dir.glob( "source/#{ section[ 0 ] }/*/" ).sort
 
-        -# Sub navigation
-        %nav.subNavigation
+-# Iterate through folder based on navigation link name
+- folder.each_with_index do | link, index |
 
-            -# Nav list group
-            = codeBlender "list-group", "molecule", { array: data.subnavigation[ section[ 0 ] ] }
+    -# Base name
+    - baseName = File.basename( link )
 
--# Debug
--# %br= section[ 0 ]
--# %br= data.subnavigation[ section[ 0 ] ]
--# %br= current_page.path
--# %br= current_page.url
--# %br= current_page.url.length
+    -# Title
+    - title = baseName.gsub( "-", " " ).capitalize
+
+    -# URL
+    - url = "/#{ section[ 0 ] }/#{ baseName }/#{ baseName }.html"
+
+    -# Create hash
+    - hash = { title:  title,
+               url:    url,
+               active: ( url == current_page.url ) ? true : false }
+
+    -# Push to array
+    - array.push hash
+
+-# Sub navigation
+%nav.subNavigation
+
+    -# Navigation list group
+    = codeBlender "list-group", "molecule", { array: array }

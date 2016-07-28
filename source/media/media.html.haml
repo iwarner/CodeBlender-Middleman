@@ -1,0 +1,109 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Media - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Media - CodeBlender"
+    type        : "website"
+
+heading :
+    title : "Media"
+
+---
+
+:markdown
+
+    Media section provides components to display Film and TV elements.
+
+    - Check that the movie has a Subtitle section
+    - Validate the quality, is it 720p or 1080p
+    - Highlight if bad quality
+    - Push to a JSON file for storage
+    - Show image
+
+%hr
+
+-# Sort folders
+- folder = Dir.glob( "/Volumes/video/Movies/Z/" ).sort
+
+-# Iterate over the folders
+- folder.each do | folder |
+
+    -# Get the Subdirectories - which are the movie names
+    - movies = Dir.glob( "#{ folder }/*" ).sort
+    - movies.each do | movie |
+
+        -# Directory
+        - directory = File.basename( movie )
+
+        -#
+        - movieFile = Dir[ "#{movie}/*.{mkv,mp4,avi,divx}" ]
+
+        -# Investigate each films meta data - quality etc
+        - movieFile = FFMPEG::Movie.new( movieFile[ 0 ] )
+
+        %dl.dl-horizontal
+
+            %dt Title
+            %dd= directory.gsub( /\(.*\)/, "" ).strip!
+
+            -# Year
+            %dt Year
+            %dd
+                - directory[ /.*\((.*)\)/ ].strip!
+                = $1
+
+            %dt Duration
+            %dd= Time.at( movieFile.duration ).utc.strftime( "%H:%M:%S" ) # 7.5 (duration of the movie in seconds)
+
+            %dt Bitrate
+            %dd= movieFile.bitrate # 481 (bitrate in kb/s)
+
+            %dt Size
+            %dd= Filesize.from( "#{movieFile.size}B" ).pretty # 455546 (filesize in bytes)
+
+            -# %dt Video stream
+            -# %dd= movieFile.video_stream # "h264, yuv420p, 640x480 [PAR 1:1 DAR 4:3], 371 kb/s, 16.75 fps, 15 tbr, 600 tbn, 1200 tbc" (raw video stream info)
+
+            -# %dt Video codec
+            -# %dd= movieFile.video_codec # "h264"
+
+            -# %dt Colorspace
+            -# %dd= movieFile.colorspace # "yuv420p"
+
+            %dt Resolution
+            %dd= movieFile.resolution # "640x480"
+
+            -# %dt Width
+            -# %dd= movieFile.width # 640 (width of the movie in pixels)
+
+            -# %dt Height
+            -# %dd= movieFile.height # 480 (height of the movie in pixels)
+
+            -# %dt Frame rate
+            -# %dd= movieFile.frame_rate # 16.72 (frames per second)
+
+            -# %dt Audio stream
+            -# %dd= movieFile.audio_stream # "aac, 44100 Hz, stereo, s16, 75 kb/s" (raw audio stream info)
+
+            -# %dt Audio codec
+            -# %dd= movieFile.audio_codec # "aac"
+
+            -# %dt Audio sample rate
+            -# %dd= movieFile.audio_sample_rate # 44100
+
+            -# %dt Audio channels
+            -# %dd= movieFile.audio_channels # 2
+
+-# OMDB API call to get film details
+-# https://github.com/caseyscarborough/omdbapi
+-# Need to cache these
+-# - url      = 'http://www.omdbapi.com/?t=almost+famous&y=2000&plot=full&r=json'
+-# - uri      = URI( url )
+-# - response = Net::HTTP.get( uri )
+-# - json     = JSON.parse( response )
+
+-# = json
+-# = json[ 'Title' ]
