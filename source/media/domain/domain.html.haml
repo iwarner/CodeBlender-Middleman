@@ -1,0 +1,177 @@
+---
+
+meta :
+    author      : "DryKISS"
+    description : "Domain - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Domain - CodeBlender"
+    type        : "website"
+
+heading :
+    title : Domain
+
+see :
+    - - "Enom get domains"
+      - "https://www.enom.com/api/API%20topics/api_GetDomains.htm"
+
+todo :
+    - - "Create an interface to the ENOM api that feeds into this page"
+    - - "Get info on expiry and whois etc for each domain owned"
+    - - "Make sure each site has a corresponding repo and when last checked in was"
+    - - "Create an interface into the Google search console to check that it is live"
+
+---
+
+-# Get enomConfig
+- file = File.expand_path( ".enomConfig" )
+
+- require 'xmlsimple'
+
+- if File.exists?( file )
+
+    - test        = true
+    - credentials = YAML.load File.new file
+    - user        = credentials[ "username" ]
+    - pass        = credentials[ "password" ]
+    - baseURI     = test ? "https://resellertest.enom.com/interface.asp?" : "https://reseller.enom.com/interface.asp?"
+
+    -# Check domain
+    -# %hr
+    -# - url      = baseURI + "command=Check&uid=#{ user }&pw=#{ pass }&SLD=triangle-solutions&TLD=com&ResponseType=html"
+    -# - uri      = URI( url )
+    -# = Net::HTTP.get( uri )
+
+    -# Purchase domain
+    -# %hr
+    -# - url      = baseURI + "command=Purchase&uid=#{ user }&pw=#{ pass }&SLD=triangle-solutions&TLD=com&ResponseType=html"
+    -# - uri      = URI( url )
+    -# = Net::HTTP.get( uri )
+
+    - url      = baseURI + "command=GetDomains&uid=#{ user }&pw=#{ pass }&ResponseType=xml"
+    - response = Net::HTTP.get_response( URI.parse(url) ).body
+    - data     = XmlSimple.xml_in( response )
+
+    -# Loop through returned domains
+    - data[ "GetDomains" ][ 0 ][ "domain-list" ][ 0 ][ "domain" ].each_with_index do | item, index |
+
+        -# Get domain info
+        - url      = baseURI + "command=GetDomainInfo&uid=#{ user }&pw=#{ pass }&SLD=#{ item[ "sld" ][ 0 ] }&TLD=#{ item[ "tld" ][ 0 ] }&ResponseType=xml"
+        - response = Net::HTTP.get_response( URI.parse(url) ).body
+        = data     = XmlSimple.xml_in( response )
+
+        -# Debug
+        -# = item
+
+        -# List
+        %dl.dl-horizontal
+
+            -# Domain name
+            %dt Domain
+            %dd= "#{ item[ "sld" ][ 0 ] }.#{ item[ "tld" ][ 0 ] }"
+
+            -# ID
+            %dt ID
+            %dd= item[ "DomainNameID" ][ 0 ]
+
+            -# Name servers
+            %dt Enom nameservers
+            %dd= item[ "ns-status" ][ 0 ]
+
+            -# Expiration
+            %dt Expiration
+            %dd= item[ "expiration-date" ][ 0 ]
+
+            -# Auto renew
+            %dt Auto renew
+            %dd= item[ "auto-renew" ][ 0 ]
+
+        %hr
+
+    -# Loop through the returned domains and collect the info
+    -# @see http://www.enom.com/APICommandCatalog/API%20topics/api_GetDomainInfo.htm
+
+- else
+    File does not exist
+
+%hr
+
+:markdown
+
+    - availabletowork.com
+    - bfcvagabonds.com
+    - classicpcgames.com
+    - codeblender.io
+    - codeblender.net
+    - customuniformwarehouse.com
+    - dontpoisonmyskin.com
+    - drykiss.com
+    - forkeyring.com
+    - growherbs.io
+    - ianwarner.com
+    - matchtheworld.com
+    - onlyasmile.com
+    - phpcodingstandards.com
+    - phpmultiplenewsletters.com
+    - phpsupporttickets.com
+    - triangle-solutions.com
+
+-# ## GitHub - DryKISS
+-# Web sites using Git Hub Pages
+
+-# - availabletowork.com        -
+-# - classicpcgames.com         - Need to verify search console
+-# - codeblender.io             - Associate the IO to this
+-# - customuniformwarehouse.com - Verify
+-# - drykiss.com                -
+-# - forkeyring.com             -
+-# - growherbs.io               - Create
+-# - ianwarner.com              -
+-# - matchtheworld.com          -
+-# - onlyasmile.com             -
+-# - phpcodingstandards.com     -
+-# - phpmultiplenewsletters.com -
+-# - phpsupporttickets.com      -
+-# - triangle-solutions.com     - Create and get working on GitHub - change DNS
+
+-# ## GitHub - IWarner
+-# Open source repositories
+
+-# - CodeBlender-Middleman    - Main Codeblender Sort out Readme
+-# - hexo-renderer-pug
+-# - mac-setup
+-# - CodeBlender-Template
+-# - CodeBlender-Layouts
+-# - CodeBlender-Themes
+-# - CodeBlender-ZendFramework
+-# - CodeBlender-ModuleCore
+
+-# ## GitHub - DryKISSClients
+-# Client websites
+
+-# - ariconium.co.uk
+-# - bfcvagabonds.com     - Need to find out if still active - and bfctokyo.com - change DNS if I can
+-# - dianaye.com
+-# - dontpoisonmyskin.com -
+-# - greentouchpi.com
+-# - kit-list.co.uk
+
+-# triangle-solutions.com  A   31.222.162.170  0 08:00 02/10/2011 09:55
+-# *.triangle-solutions.com    A   31.222.162.170  0 08:00 02/10/2011 09:55
+-# start.triangle-solutions.com    CNAME   ghs.google.com  0 08:00 17/02/2010 05:13
+-# google29047ca820cf620c.triangle-solutions.com   CNAME   google.com  0 08:00 17/02/2010 05:14
+-# mail.triangle-solutions.com CNAME   ghs.google.com  0 08:00 17/02/2010 05:14
+-# calendar.triangle-solutions.com CNAME   ghs.google.com  0 08:00 17/02/2010 05:14
+-# docs.triangle-solutions.com CNAME   ghs.google.com  0 08:00 17/02/2010 05:14
+-# assets.triangle-solutions.com   CNAME   assets.triangle-solutions.com.s3.amazonaws.com  0 08:00 29/04/2010 06:09
+-# cbassets.triangle-solutions.com CNAME   cbassets.triangle-solutions.com.s3.amazonaws.com    0 08:00 17/02/2010 05:14
+-# static.triangle-solutions.com   CNAME   d1rtfrnj3tbjnp.cloudfront.net   0 08:00 17/02/2010 05:13
+-# cdn.triangle-solutions.com  CNAME   d3qmrhy4wcoxc2.cloudfront.net   0 08:00 13/06/2011 11:09
+-# content.triangle-solutions.com  CNAME   content.triangle-solutions.com.s3.amazonaws.com 0 08:00 13/06/2011 11:07
+-# bitbucket.triangle-solutions.com    CNAME   bitbucket.org   0 08:00 21/10/2011 20:17
+-# triangle-solutions.com  MX  ALT1.ASPMX.L.GOOGLE.COM. (Priority 10)  0 08:00 17/02/2010 05:14
+-# triangle-solutions.com  MX  ALT2.ASPMX.L.GOOGLE.COM. (Priority 10)  0 08:00 17/02/2010 05:15
+-# triangle-solutions.com  MX  ASPMX.L.GOOGLE.COM. (Priority 10)   0 08:00 17/02/2010 05:14
+-# triangle-solutions.com  MX  ASPMX2.GOOGLEMAIL.COM. (Priority 30)    0 08:00 17/02/2010 05:14
+-# triangle-solutions.com  TXT google-site-verification=IIozjkySSgFS8FKSDRffxsu1CdRuPQJbn_SJpsgCASk    0 08:00 13/06/2011 11:09
+-# DZC.triangle-solutions.com  TXT 8x3aoiI 0 00:05 27/09/2011 20:33

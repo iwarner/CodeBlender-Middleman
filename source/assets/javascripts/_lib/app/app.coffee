@@ -19,10 +19,10 @@ angular
     .module 'app',  [
 
         'ui.bootstrap'
-        'ui.checkbox'
+        # 'ui.checkbox'
         'ui.grid'
         'ui.router'
-        'uiGmapgoogle-maps'
+        # 'uiGmapgoogle-maps'
 
         'app.auth'
         'app.config'
@@ -34,16 +34,13 @@ angular
         'app.service'
         'app.utility'
 
-        'firebase'
-
-        'ngAnimate'
+        # 'ngAnimate'
         'ngClipboard'
-        'ngStorage'
-        'ngResource'
-        'ngTagsInput'
 
-        'datatables'
-        'datatables.bootstrap'
+        'ngResource'
+
+        # 'datatables'
+        # 'datatables.bootstrap'
 
     ]
 

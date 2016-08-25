@@ -11,14 +11,14 @@
 
 // Font
 //----------------------------------------------------------------------------//
-@import "font-awesome/scss/font-awesome";
+// @import "~font-awesome";
+// @import "~font-awesome-sass-loader";
 
 // Bootstrap
 //----------------------------------------------------------------------------//
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
 // NG tag input
 //----------------------------------------------------------------------------//
-@import "ng-tags-input/ng-tags-input";
-@import "ng-tags-input/ng-tags-input.bootstrap";
+// @import "ng-tags-input/ng-tags-input";
+// @import "ng-tags-input/ng-tags-input.bootstrap";

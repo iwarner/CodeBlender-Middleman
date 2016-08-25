@@ -41,7 +41,7 @@ brand :
 
     text :
         active : false
-        text   : false
+        text   : "CodeBlender"
 
 extraClass : "navbar-inverse navbar-static-top"
 

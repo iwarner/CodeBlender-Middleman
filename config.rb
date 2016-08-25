@@ -5,8 +5,19 @@
 # @see    http://middlemanapp.com/
 ##
 
+# ENV[ 'WEBPACK_ENV' ] ||= ( build? ? 'build' : 'development' )
+
+# External pipeline - Webpack
+activate :external_pipeline,
+    name:    :webpack,
+    command: build? ?
+        "./node_modules/webpack/bin/webpack.js --bail -p" :
+        "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+    source:  ".tmp/dist",
+    latency: 1
+
 # Syntax highlighting
-activate :syntax
+# activate :syntax
 
 # Require
 # require "uglifier"
@@ -27,8 +38,10 @@ set :layout,         "sidebarLeft"
 set :debug_assets,   true
 # set :relative_links,   true
 # set :strip_index_file, false
-set :syntaxScheme,   "ThankfulEyes"
+# set :syntaxScheme,   "ThankfulEyes"
 set :haml,           { ugly: true, format: :html5 }
+
+# Assets
 set :css_dir,        "assets/stylesheets"
 set :js_dir,         "assets/javascripts"
 set :images_dir,     "assets/images"
@@ -50,6 +63,16 @@ page "sitemap.xml",  layout: false
 set :markdown_engine, :kramdown
 set :markdown, toc_levels: "2", auto_id_prefix: "#"
 
+# set :markdown_engine, :redcarpet
+# set :markdown,
+#   layout_engine: :erb,
+#   no_intra_emphasis: true,
+#   fenced_code_blocks: true,
+#   autolink: true,
+#   disable_indented_code_blocks: true,
+#   smartypants: true,
+#   lax_spacing: true
+
 # Minimum Sass number precision required by bootstrap-sass
 # @see https://github.com/twbs/bootstrap-sass#number-precision
 ::Sass::Script::Value::Number.precision = [ 8, ::Sass::Script::Value::Number.precision ].max
@@ -57,16 +80,16 @@ set :markdown, toc_levels: "2", auto_id_prefix: "#"
 # Live reload
 # activate :livereload
 
-# Sprockets
-activate :sprockets
+# # Sprockets
+# activate :sprockets
 
-sprockets.append_path File.join( root, "bower_components" )
-sprockets.append_path File.join( root, "source/atom" )
-sprockets.append_path File.join( root, "source/molecule" )
-sprockets.append_path File.join( root, "source/organism" )
-sprockets.append_path File.join( root, "source/social" )
-sprockets.append_path File.join( root, "source/template" )
-sprockets.append_path File.join( root, "source/page" )
+# sprockets.append_path File.join( root, "bower_components" )
+# sprockets.append_path File.join( root, "source/atom" )
+# sprockets.append_path File.join( root, "source/molecule" )
+# sprockets.append_path File.join( root, "source/organism" )
+# sprockets.append_path File.join( root, "source/social" )
+# sprockets.append_path File.join( root, "source/template" )
+# sprockets.append_path File.join( root, "source/page" )
 
 # Time Zone
 Time.zone = "Europe/London"
@@ -105,13 +128,6 @@ activate :blog do | blog |
 
 end
 
-# # External pipeline - Webpack
-# activate :external_pipeline,
-#     name:    :webpack,
-#     command: build? ? './node_modules/webpack/bin/webpack.js --bail' : './node_modules/webpack/bin/webpack.js --watch -d',
-#     source:  ".tmp/dist",
-#     latency: 1
-
 # Middleman Deploy
 # @see https://github.com/middleman-contrib/middleman-deploy
 activate :deploy do | deploy |
@@ -123,8 +139,8 @@ end
 # Build-specific configuration
 configure :build do
 
-    # # "Ignore" JS so webpack has full control.
-    # ignore { | path | path =~ /\/(.*)\.js$/ && $1 != 'body' }
+    # "Ignore" JS so webpack has full control.
+    ignore { | path | path =~ /\/(.*)\.js$/ && $1 != 'body' }
 
     # GZIP Files
     # @see https://middlemanapp.com/advanced/file_size_optimization/

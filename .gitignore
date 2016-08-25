@@ -1,3 +1,7 @@
+# Environment #
+###############
+.enomConfig
+
 # Middleman #
 #############
 .sass-cache

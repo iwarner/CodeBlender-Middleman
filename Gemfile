@@ -14,21 +14,16 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 gem "middleman"
 gem "middleman-livereload"
 gem "middleman-blog"
-gem "middleman-sprockets",    github: "middleman/middleman-sprockets",      branch: "master"
-
-gem "middleman-syntax"
 gem "middleman-deploy",       github: "middleman-contrib/middleman-deploy", branch: "master"
 gem "middleman-favicon-maker"
-gem "middleman-minify-html"
 
 # Tools
-gem "oj"
 gem "bourbon"
 gem "streamio-ffmpeg"
 gem "filesize"
+gem "xml-simple"
+gem "nokogiri"
 
 # Template engines
 gem "kramdown"
 gem "builder"
-# gem "sassc"
-gem "sprockets", github: 'rails/sprockets', branch: 'master'

@@ -4,7 +4,7 @@
     "name"        : "CodeBlender",
     "version"     : "1.0.0",
     "description" : "Middleman partials built with AngularJS and Bootstrap",
-    "main"        : "source/javascripts/body.js",
+    "main"        : "source/assets/javascripts/body.js",
     "private"     : true,
     "homepage"    : "https://codeblender.net",
 
@@ -22,22 +22,38 @@
     },
 
     "dependencies" : {
-        "bootstrap-sass"       : "",
-        "font-awesome"         : "",
-        "jquery"               : "",
-        "coffee-loader"        : "",
-        "css-loader"           : "",
-        "node-sass"            : "",
-        "sass-loader"          : "",
-        "style-loader"         : "",
-        "clean-webpack-plugin" : "",
-        "webpack"              : ""
+        "angular"                  : "",
+        "angular-animate"          : "",
+        "angular-google-maps"      : "",
+        "angular-resource"         : "",
+        "angular-sanitize"         : "",
+        "angular-ui-bootstrap"     : "",
+        "angular-ui-grid"          : "",
+        "angular-ui-router"        : "",
+        "bootstrap-loader"         : "",
+        "bootstrap-sass"           : "",
+        "font-awesome-sass-loader" : "",
+        "lodash"                   : "",
+        "jquery"                   : "",
+        "ng-clip"                  : "",
+        "zeroclipboard"            : ""
     },
 
     "devDependencies" : {
-        "gulp"          : "",
-        "gulp-uncss"    : "",
-        "gulp-csso"     : "",
-        "coffee-script" : ""
+        "clean-webpack-plugin"        : "",
+        "coffee-script"               : "",
+        "coffee-loader"               : "",
+        "css-loader"                  : "",
+        "extract-text-webpack-plugin" : "",
+        "gulp"                        : "",
+        "gulp-uncss"                  : "",
+        "gulp-csso"                   : "",
+        "node-bourbon"                : "",
+        "node-sass"                   : "",
+        "resolve-url-loader"          : "",
+        "sass-loader"                 : "",
+        "style-loader"                : "",
+        "url-loader"                  : "",
+        "webpack"                     : ""
     }
 }

@@ -284,7 +284,6 @@ FacebookModule = ->
             # @param path
             # @returns $q.defer.promise
             ##
-
             $facebook.cachedApi = ->
                 if typeof arguments[ 0 ] != 'string'
                     throw '$facebook.cacheApi can works only with graph requests!'

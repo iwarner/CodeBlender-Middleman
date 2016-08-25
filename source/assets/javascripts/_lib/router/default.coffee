@@ -31,7 +31,7 @@ config = ( $stateProvider, $urlRouterProvider, ngClipProvider, $facebookProvider
 #
 # @see https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-onauthcallback-context
 ##
-run = ( $rootScope, $state, $stateParams, auth ) ->
+run = ( $rootScope, $state, $stateParams ) ->
 
     do ->
 
@@ -82,5 +82,4 @@ run.$inject = [
     '$rootScope'
     '$state'
     '$stateParams'
-    'auth'
 ]

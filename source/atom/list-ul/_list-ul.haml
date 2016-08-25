@@ -47,12 +47,12 @@
             -# If URL is present then show a link
             - if list[ :link ]
 
-                -# Link To
+                -# link
                 -# Do not want the hash if its Angular UI
-                = link_to( string( list[ :link ][ :url ] ),
-                           { ng:     list[ :link ][ :ng ]     ? list[ :link ][ :ng ]     : false,
-                             target: list[ :link ][ :target ] ? list[ :link ][ :target ] : false,
-                             ui:     list[ :ui ]              ? list[ :link ][ :ui ]     : false } ) do
+                %a{ href:   list[ :link ][ :url ]    ? list[ :link ][ :url ]    : false,
+                    ng:     list[ :link ][ :ng ]     ? list[ :link ][ :ng ]     : false,
+                    target: list[ :link ][ :target ] ? list[ :link ][ :target ] : false,
+                    ui:     list[ :ui ]              ? list[ :link ][ :ui ]     : false }
 
                     -# Icon
                     - if list[ :icon ]
@@ -62,7 +62,7 @@
                     - if list[ :text ]
                         = string list[ :text ]
 
-                -# No Link Required
+                -# No link required
             - else
                 = string list[ :text ]
 
@@ -72,6 +72,6 @@
 
 - else
 
-    -# HAML Tag
+    -# HAML tag
     - haml_tag type, { class: locals[ :extraClass ] } do
         = captureHTML
