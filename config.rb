@@ -16,13 +16,6 @@ activate :external_pipeline,
     source:  ".tmp/dist",
     latency: 1
 
-# Syntax highlighting
-# activate :syntax
-
-# Require
-# require "uglifier"
-# require "csv"
-
 # Require football scripts
 require "football/football"
 require "football/matrix"
@@ -36,9 +29,6 @@ helpers FootballHelpers
 # Variables
 set :layout,         "sidebarLeft"
 set :debug_assets,   true
-# set :relative_links,   true
-# set :strip_index_file, false
-# set :syntaxScheme,   "ThankfulEyes"
 set :haml,           { ugly: true, format: :html5 }
 
 # Assets
@@ -63,33 +53,9 @@ page "sitemap.xml",  layout: false
 set :markdown_engine, :kramdown
 set :markdown, toc_levels: "2", auto_id_prefix: "#"
 
-# set :markdown_engine, :redcarpet
-# set :markdown,
-#   layout_engine: :erb,
-#   no_intra_emphasis: true,
-#   fenced_code_blocks: true,
-#   autolink: true,
-#   disable_indented_code_blocks: true,
-#   smartypants: true,
-#   lax_spacing: true
-
 # Minimum Sass number precision required by bootstrap-sass
 # @see https://github.com/twbs/bootstrap-sass#number-precision
-::Sass::Script::Value::Number.precision = [ 8, ::Sass::Script::Value::Number.precision ].max
-
-# Live reload
-# activate :livereload
-
-# # Sprockets
-# activate :sprockets
-
-# sprockets.append_path File.join( root, "bower_components" )
-# sprockets.append_path File.join( root, "source/atom" )
-# sprockets.append_path File.join( root, "source/molecule" )
-# sprockets.append_path File.join( root, "source/organism" )
-# sprockets.append_path File.join( root, "source/social" )
-# sprockets.append_path File.join( root, "source/template" )
-# sprockets.append_path File.join( root, "source/page" )
+# ::Sass::Script::Value::Number.precision = [ 8, ::Sass::Script::Value::Number.precision ].max
 
 # Time Zone
 Time.zone = "Europe/London"
@@ -140,62 +106,59 @@ end
 configure :build do
 
     # "Ignore" JS so webpack has full control.
-    ignore { | path | path =~ /\/(.*)\.js$/ && $1 != 'body' }
+    # ignore { | path | path =~ /\/(.*)\.js$/ && $1 != 'body' }
 
     # GZIP Files
     # @see https://middlemanapp.com/advanced/file_size_optimization/
-    activate :gzip
+    # activate :gzip
 
     # Use relative URLs
-    activate :relative_assets
+    # activate :relative_assets
 
     # For example, change the Compass output style for deployment
-    activate :minify_css, inline: true
+    # activate :minify_css, inline: true
 
     # Minimise JavaScript on build
     # @see https://github.com/crtvhd/middleboy
-    activate :minify_javascript
+    # activate :minify_javascript
     # activate :minify_javascript, inline: true, compressor: Uglifier.new( mangle: false, comments: :none )
 
     # Minimise HTML
     # https://github.com/middleman/middleman-minify-html
-    activate :minify_html
+    # activate :minify_html
 
     # Auto-generate multiple favicon versions
-    activate :favicon_maker do | icon |
+    # activate :favicon_maker do | icon |
 
-        # Template
-        icon.template_dir = File.join( root, 'source/images/favicon/_template' )
-        icon.output_dir   = File.join( root, 'build/images/favicon' )
+    #     # Template
+    #     icon.template_dir = File.join( root, 'source/images/favicon/_template' )
+    #     icon.output_dir   = File.join( root, 'build/images/favicon' )
 
-        # Icon
-        icon.icons = {
+    #     # Icon
+    #     icon.icons = {
 
-            # High resolution icon
-            "favicon_template_hires.png" => [
-                { icon: "favicon-152x152.png" },
-                { icon: "favicon-120x120.png" },
-                { icon: "favicon-76x76.png"   },
-                { icon: "favicon-60x60.png"   },
-            ],
+    #         # High resolution icon
+    #         "favicon_template_hires.png" => [
+    #             { icon: "favicon-152x152.png" },
+    #             { icon: "favicon-120x120.png" },
+    #             { icon: "favicon-76x76.png"   },
+    #             { icon: "favicon-60x60.png"   },
+    #         ],
 
-            # Low resolution icon
-            "favicon_template_lores.png" => [
-                { icon: "favicon-32x32.png" },
-                { icon: "favicon-16x16.png" },
-                { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
-            ]
-        }
+    #         # Low resolution icon
+    #         "favicon_template_lores.png" => [
+    #             { icon: "favicon-32x32.png" },
+    #             { icon: "favicon-16x16.png" },
+    #             { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
+    #         ]
+    #     }
 
-    end
+    # end
 
 end
 
 # # Remove 404 from directory indexes
 # page "/404.html", :directory_index => false
-
-# Directory Indexes
-# activate :directory_indexes
 
 ##
 # Football proxy pages

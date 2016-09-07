@@ -16,6 +16,7 @@ gem "middleman-livereload"
 gem "middleman-blog"
 gem "middleman-deploy",       github: "middleman-contrib/middleman-deploy", branch: "master"
 gem "middleman-favicon-maker"
+gem "middleman-minify-html"
 
 # Tools
 gem "bourbon"

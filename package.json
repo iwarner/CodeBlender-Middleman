@@ -6,7 +6,7 @@
     "description" : "Middleman partials built with AngularJS and Bootstrap",
     "main"        : "source/assets/javascripts/body.js",
     "private"     : true,
-    "homepage"    : "https://codeblender.net",
+    "homepage"    : "http://codeblender.net",
 
     "scripts" : {
         "test" : "echo \"Error: no test specified\" && exit 1"
@@ -22,21 +22,20 @@
     },
 
     "dependencies" : {
-        "angular"                  : "",
-        "angular-animate"          : "",
-        "angular-google-maps"      : "",
-        "angular-resource"         : "",
-        "angular-sanitize"         : "",
-        "angular-ui-bootstrap"     : "",
-        "angular-ui-grid"          : "",
-        "angular-ui-router"        : "",
-        "bootstrap-loader"         : "",
-        "bootstrap-sass"           : "",
-        "font-awesome-sass-loader" : "",
-        "lodash"                   : "",
-        "jquery"                   : "",
-        "ng-clip"                  : "",
-        "zeroclipboard"            : ""
+        "angular"              : "",
+        "angular-animate"      : "",
+        "angular-google-maps"  : "",
+        "angular-resource"     : "",
+        "angular-sanitize"     : "",
+        "angular-ui-bootstrap" : "",
+        "angular-ui-grid"      : "",
+        "angular-ui-router"    : "",
+        "bootstrap-sass"       : "",
+        "font-awesome"         : "",
+        "lodash"               : "",
+        "jquery"               : "",
+        "ng-clip"              : "",
+        "zeroclipboard"        : ""
     },
 
     "devDependencies" : {
@@ -45,6 +44,7 @@
         "coffee-loader"               : "",
         "css-loader"                  : "",
         "extract-text-webpack-plugin" : "",
+        "file-loader"                 : "",
         "gulp"                        : "",
         "gulp-uncss"                  : "",
         "gulp-csso"                   : "",

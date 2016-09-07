@@ -5,15 +5,16 @@ var webpack           = require( 'webpack' );
 var clean             = require( 'clean-webpack-plugin' );
 var ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 var path              = require( 'path' );
-var bourbon           = require('node-bourbon').includePaths;
+// var bourbon           = require('node-bourbon').includePaths;
 
 module.exports = {
 
     entry : {
         site : [
-            'source/assets/javascripts/body.coffee',
-            'source/assets/stylesheets/all.scss',
-            'bootstrap-loader'
+            // 'font-awesome-loader',
+            // 'bootstrap-loader',
+            'source/assets/stylesheets/all.css.scss',
+            'source/assets/javascripts/body.js.coffee'
         ]
     },
 
@@ -37,31 +38,42 @@ module.exports = {
     },
 
     module : {
+
         loaders : [
+
+            // Coffee
             {
                 test   : /.*\.coffee$/,
                 exclude: /node_modules|bower_components/,
                 loader : "coffee-loader"
             },
+
+            // SCSS
             {
                 test   : /.*\.scss$/,
                 loader : ExtractTextPlugin.extract(
-                    "style", "css!sass?includePaths[]=" + bourbon
-                    // "style", "css!sass?sourceMap&includePaths[]=" + __dirname + "/node_modules"
+                    "style", "css!sass"
                 )
             },
+
+            // Load vanilla CSS
             {
-                // Load vanilla CSS
-                test : /\.css$/, loader : "style!css"
+                test   : /.*\.css$/,
+                loader : "style!css"
             },
+
+            // Woff fonts
             {
-                test   : /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader : "url-loader?limit=10000&mimetype=application/font-woff"
+                test   : /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+                loader : 'url-loader',
             },
+
+            // TTF, EOT fonts and SVG
             {
-                test   : /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader : "file-loader"
+                test   : /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+                loader : 'file-loader',
             }
+
         ]
     },
 
@@ -71,12 +83,16 @@ module.exports = {
     },
 
     plugins : [
+
         new clean( [ '.tmp' ] ),
-        new ExtractTextPlugin( "assets/stylesheets/all.css" ),
+
+        new ExtractTextPlugin( 'assets/stylesheets/all.css' ),
+
         new webpack.ProvidePlugin( {
             $               : "jquery",
             jQuery          : "jquery",
             "window.jQuery" : "jquery"
         } )
+
     ]
 };

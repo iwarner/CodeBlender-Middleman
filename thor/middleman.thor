@@ -270,26 +270,26 @@ class Middleman < Thor
         say( "\n\t Create symbolic link\n\t" )
 
         # Layout
-        system( "rm -R ../source/layouts/_codeBlender")
-        system( "ln -s #{ path }source/layouts/ ../source/layouts/_codeBlender")
+        system( "rm -R ../source/layouts/_codeBlender" )
+        system( "ln -s #{ path }source/layouts/ ../source/layouts/_codeBlender" )
 
         # Partial
-        system( "rm -R ../source/partial/_codeBlender")
-        system( "mkdir -p ../source/partial/_codeBlender")
-        system( "ln -sf #{ path }source/atom     ../source/partial/_codeBlender")
-        system( "ln -sf #{ path }source/football ../source/partial/_codeBlender")
-        system( "ln -sf #{ path }source/molecule ../source/partial/_codeBlender")
-        system( "ln -sf #{ path }source/organism ../source/partial/_codeBlender")
-        system( "ln -sf #{ path }source/social   ../source/partial/_codeBlender")
+        system( "rm -R ../source/partial/_codeBlender" )
+        system( "mkdir -p ../source/partial/_codeBlender" )
+        system( "ln -sf #{ path }source/atom     ../source/partial/_codeBlender" )
+        system( "ln -sf #{ path }source/football ../source/partial/_codeBlender" )
+        system( "ln -sf #{ path }source/molecule ../source/partial/_codeBlender" )
+        system( "ln -sf #{ path }source/organism ../source/partial/_codeBlender" )
+        system( "ln -sf #{ path }source/social   ../source/partial/_codeBlender"  )
         system( "ln -sf #{ path }source/template ../source/partial/_codeBlender")
 
         # Helper
-        system( "rm -R ../helpers")
-        system( "ln -s #{ path }helpers/ ../helpers")
+        system( "rm -R ../helpers" )
+        system( "ln -s #{ path }helpers/ ../helpers" )
 
         # Gemfile
-        system( "rm ../Gemfile")
-        system( "ln -s #{ path }Gemfile ../")
+        system( "rm ../Gemfile" )
+        system( "ln -s #{ path }Gemfile ../" )
 
     end
 
