@@ -50,8 +50,8 @@ resources     : true
 todo          : true
 
 # Meta
-favicon       : "favicon.ico"
-meta :
+favicon : "favicon.ico"
+meta    :
     apple    : true
     core     : true
     dublin   : false

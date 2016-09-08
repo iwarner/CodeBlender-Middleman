@@ -3,10 +3,10 @@
 -#
 -# @usage
 -# -# Portfolio layout
--# = wrap_layout "_codeBlender/portfolio" do
+-# = wrap_layout "#{ config[ :layout_dir ] }/portfolio" do
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# @category layout
+-# @category template
 -##
 
 -# Variable
@@ -23,30 +23,26 @@
         .row
 
             -# Bootstrap column
-            .col-md-3
-
-                %aside Side bar with nav to other projects
-
-            -# Bootstrap column
-            .col-md-9
+            .col-md-12
 
                 -# Blog post
                 %article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
 
                     -# Heading - H1
-                    = codeBlender "heading", "molecule", { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+                    = codeBlender "heading", "molecule", { pageHeader: true, extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
 
-                    -# Blog detail footer
-                    = codeBlender "detail", "molecule", { author: true, cal: true, comment: true, social: true, tags: true }
+        -# Yield - portfolio post
+        %span{ itemprop: "text" }= yield
 
-                    -# Blog image
-                    = codeBlender "image", "molecule"
+        -# Bootstrap row
+        .row
 
-                    -# Yield
-                    %span{ itemprop: "text" }= yield
+            -# Bootstrap column
+            .col-md-12.col-sm-12
 
-                    -# Pager
-                    = codeBlender "pager", "molecule"
+                -# Pager
+                -# = codeBlender "pager", "molecule"
 
-                    -# Discus comment
+                -# Disqus comment
+                - if cp.comment
                     = codeBlender "disqus-comment", "organism"
