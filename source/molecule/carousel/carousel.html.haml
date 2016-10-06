@@ -12,15 +12,16 @@ heading :
     title : "Carousel"
 
 see :
-    - - "Bootstrap Carousel"
+    - - "Bootstrap carousel"
       - "http://getbootstrap.com/javascript/#carousel"
     - - "Swipe Support"
       - "http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/"
 
 todo :
-    - - "Need to find a way to work with both ImageArray and a more Content Array"
+    - - "Need to find a way to work with both ImageArray and a more content focussed array"
     - - "Should pass direct arrays for image and heading to the carousel"
     - - "Heading for caption should use partial"
+    - - "Caption should be more flexible, maybe pull from partials also"
 
 locals :
     - - "array"
@@ -40,30 +41,24 @@ locals :
       - "optional"
       - "Whether to show the dot indicators - default: true"
 
-carouselArray :
-  - image :
-        extraClass : "img-responsive"
-        data       :
-            src : "holder.js/1028x400/auto"
-  - image :
-        extraClass : "img-responsive"
-        data       :
-            src : "holder.js/1028x400/auto"
-
 ---
 
 :markdown
 
     **Accessibility**
 
-    The carousel component is generally not compliant with accessibility standards.
-    If you need to be compliant, please consider other options for presenting your content.
+    The carousel component is generally not compliant with accessibility
+    standards. If you need to be compliant, please consider other options for
+    presenting your content.
 
-:markdown
+    **Image sizes**
+
+    A bootstrap grid can go as wide as 1170px.
 
     **Swipe**
 
-    On many occasions you will want to add Swipe support to the bootstrap carousel.
+    On many occasions you will want to add Swipe support to the bootstrap
+    carousel.
 
     This can be easily achieved by adding the [JQuery Mobile](http://jquerymobile.com/download-builder/)
     touch events as below to your backbone view.
@@ -82,16 +77,29 @@ carouselArray :
 
 -# Carousel
 :ruby
-    code = %{codeBlender "carousel", "molecule", { array: [ { image: { extraClass: "img-responsive", src: "home/01.jpeg" } },
-                                       { image: { extraClass: "img-responsive", src: "home/02.jpeg" } } ],
-                                data:  { ride: "carousel", interval: "3000" }, control: true, indicator: true }}
+    code = %{codeBlender "carousel", "molecule",
+                { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } },
+                           { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 2' ) } } ],
+                  data:  { ride: "carousel", interval: "3000" }, control: true, indicator: true }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
--# No Indicators
+-# Caption
 :ruby
-    code = %{codeBlender "carousel", "molecule", { array: current_page.data.carouselArray, id: "iPhoneCarousel" }}
+    code = %{codeBlender "carousel", "molecule",
+                { array: [ { image: { carouselCaption: { body: "Caption body", title: "Caption title" },
+                                      extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } } ], indicator: true }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "No Indicators or Controls" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Caption" } }
+
+-# No Indicators
+:ruby
+    code = %{codeBlender "carousel", "molecule",
+                { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } },
+                           { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 2' ) } } ],
+                  id: "iPhoneCarousel" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "No indicators or controls" } }

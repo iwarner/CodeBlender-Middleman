@@ -1,30 +1,29 @@
 /**
  * Webpack
+ *
+ * @see https://github.com/rossta/rossta.github.com
  */
 var webpack           = require( 'webpack' );
 var clean             = require( 'clean-webpack-plugin' );
 var ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
-var path              = require( 'path' );
-// var bourbon           = require('node-bourbon').includePaths;
 
 module.exports = {
 
     entry : {
-        site : [
-            // 'font-awesome-loader',
-            // 'bootstrap-loader',
-            'source/assets/stylesheets/all.css.scss',
-            'source/assets/javascripts/body.js.coffee'
+        body : [
+            'source/assets/stylesheets/_all.css.scss',
+            'source/assets/javascripts/_body.js.coffee'
         ]
     },
 
     resolve : {
-        root  : path.resolve( __dirname ),
+        root  : __dirname,
         alias : {
             js       : 'source/assets/javascripts',
             lib      : 'source/assets/javascripts/_lib',
             css      : 'source/assets/stylesheets',
             atom     : 'source/atom',
+            football : 'source/football',
             molecule : 'source/molecule',
             organism : 'source/organism',
             social   : 'source/social',
@@ -34,7 +33,7 @@ module.exports = {
 
     output: {
         path     : __dirname + '/.tmp/dist',
-        filename : 'assets/javascripts/body.js'
+        filename : 'assets/javascripts/[name].bundle.js'
     },
 
     module : {
@@ -43,9 +42,9 @@ module.exports = {
 
             // Coffee
             {
-                test   : /.*\.coffee$/,
-                exclude: /node_modules|bower_components/,
-                loader : "coffee-loader"
+                test    : /.*\.coffee$/,
+                exclude : /node_modules|bower_components/,
+                loader  : "coffee-loader"
             },
 
             // SCSS
@@ -65,13 +64,13 @@ module.exports = {
             // Woff fonts
             {
                 test   : /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-                loader : 'url-loader',
+                loader : 'url-loader'
             },
 
             // TTF, EOT fonts and SVG
             {
                 test   : /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-                loader : 'file-loader',
+                loader : 'file-loader?name=assets/fonts/[hash].[ext]'
             }
 
         ]
@@ -86,7 +85,7 @@ module.exports = {
 
         new clean( [ '.tmp' ] ),
 
-        new ExtractTextPlugin( 'assets/stylesheets/all.css' ),
+        new ExtractTextPlugin( 'assets/stylesheets/all.bundle.css' ),
 
         new webpack.ProvidePlugin( {
             $               : "jquery",
@@ -96,3 +95,4 @@ module.exports = {
 
     ]
 };
+

@@ -21,17 +21,17 @@ container : "container"
 # Brand
 brand :
 
-    active : false
+    active : true
 
     heading :
-        active : false
+        active : true
 
     link :
         url : "/"
 
     icon :
-        active : false
-        icon   : false
+        active : active
+        icon   : fa-cart
 
     logo :
         active : false
@@ -43,13 +43,16 @@ brand :
         active : false
         text   : "CodeBlender"
 
+# Navigation classes
 extraClass : "navbar-inverse navbar-static-top"
 
+# Angular
 ng :
     controller : false
     show       : false
     cloak      : false
 
+# Unsure
 type     : false
 uLClass  : "navbar-left"
 wrapper  : false

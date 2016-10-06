@@ -9,7 +9,7 @@
 ---
 
 # Version - This needs to be iterated on each distribution
-version : "2.0.1"
+version : "2.0.2"
 
 # HTML tag
 html :
@@ -48,18 +48,3 @@ topIcon       : true
 configuration : false
 resources     : true
 todo          : true
-
-# Meta
-favicon : "favicon.ico"
-meta    :
-    apple    : true
-    core     : true
-    dublin   : false
-    facebook : true
-    fancy    : false
-    favicon  : true
-    feed     : false
-    google   : true
-    mobile   : true
-    touch    : false
-    twitter  : false

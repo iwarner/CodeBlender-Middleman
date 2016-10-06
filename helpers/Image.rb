@@ -10,6 +10,10 @@
 ##
 module Image
 
+    def imageURL( source )
+        protocol + host_with_port + image_path( source )
+    end
+
     ##
     # Lorem Pixel
     # http://lorempixel.com/400/200/sports/1/Dummy-Text/

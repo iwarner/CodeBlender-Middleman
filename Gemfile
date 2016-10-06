@@ -17,6 +17,7 @@ gem "middleman-blog"
 gem "middleman-deploy",       github: "middleman-contrib/middleman-deploy", branch: "master"
 gem "middleman-favicon-maker"
 gem "middleman-minify-html"
+gem "middleman-syntax"
 
 # Tools
 gem "bourbon"
@@ -24,6 +25,7 @@ gem "streamio-ffmpeg"
 gem "filesize"
 gem "xml-simple"
 gem "nokogiri"
+gem "rmagick"
 
 # Template engines
 gem "kramdown"

@@ -1,0 +1,45 @@
+##
+# Meta YAML
+# Outlines what meta elements to include in the site.
+#
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category meta
+#
+# @todo Maybe separate the open graph from the facebook meta
+##
+
+---
+
+# Apple specific meta tags
+# Smart app banner and mobile web app features
+apple : true
+
+# Core are the standard meta tags used for site identification and SEO
+core : true
+
+# Dublin core offers additional meta information
+dublin : false
+
+# Facebook meta tags including open graph tags
+facebook : true
+
+# Fancy category data
+fancy : false
+
+# Favicon meta
+favicon : true
+
+# Feed, RSS or Atom
+feed : false
+
+# Google site verification
+google : true
+
+# Mobile viewport
+mobile : true
+
+# Touch icons
+touch : false
+
+# Twitter cards
+twitter  : false

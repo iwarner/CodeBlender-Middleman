@@ -75,10 +75,6 @@ module Helpers
 #     [config[:host], config[:port]].compact.join(':')
 #   end
 
-#   def image_url(source)
-#     protocol + host_with_port + image_path(source)
-#   end
-
 #   def email_url
 #     "mailto:ross@rossta.net"
 #   end

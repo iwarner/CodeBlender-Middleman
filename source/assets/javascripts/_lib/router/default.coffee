@@ -71,6 +71,9 @@ angular
     .config config
     .run    run
 
+##
+# Inject
+##
 config.$inject = [
     '$stateProvider'
     '$urlRouterProvider'
@@ -78,6 +81,9 @@ config.$inject = [
     '$facebookProvider'
 ]
 
+##
+# Inject
+##
 run.$inject = [
     '$rootScope'
     '$state'

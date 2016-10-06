@@ -16,10 +16,13 @@
 -# Article
 = wrap_layout "#{ config[ :layout_dir ] }fullWidth" do
 
+    -# Bootstrap container
     .container
 
+        -# Bootstrap row
         .row
 
+            -# Bootstrap column
             .col-md-3
 
                 %aside
@@ -36,6 +39,7 @@
                         -# Recent article
                         = codeBlender "recent", "molecule"
 
+            -# Bootstrap column
             .col-md-6
 
                 -# Blog Post
@@ -59,6 +63,7 @@
                     -# Discus comment
                     = codeBlender "disqus-comment", "organism"
 
+            -# Bootstrap column
             .col-md-3
 
                 %aside

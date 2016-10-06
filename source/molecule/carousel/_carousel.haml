@@ -1,5 +1,10 @@
 -##
 -# Carousel
+-# Provides a UX tool to move between many images or media elements
+-#
+-# @usage
+-# -# Carousel
+-# = codeBlender "carousel", "molecule", { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } } ] }
 -#
 -# @author Ian Warner <ian.warner@drykiss.com>
 -# @see    http://getbootstrap.com/javascript/#carousel
@@ -9,37 +14,38 @@
 - if ! locals[ :id ]
     - id = "myCarousel"
 
--# Carousel
-.carousel.slide{ id:    id,
-                 class: id,
-                 data:  locals[ :data ] ? locals[ :data ] : false }
+-# Data
+- data = locals[ :data ] ? locals[ :data ] : false
 
-    -# Indicators
+-# Carousel
+.carousel.slide{ id: id, class: id, data: data }
+
+    -# Check we want indicators
     - if locals[ :indicator ]
 
+        -# Indicators
         %ol.carousel-indicators
 
-            -# Array Loop
-            - array.each_with_index do | slide, i |
+            -# Array
+            - locals[ :array ].each_with_index do | slide, i |
 
                 -# If this is the first slide make it active
                 %li{ class: i == 0 ? "active" : false,
-                     data:  { target: "." + id,
-                              slide:  { to: i } } }
+                     data:  { target: "." + id, slide: { to: i } } }
 
     -# Inner Content
     .carousel-inner{ role: "listbox" }
 
         -# Array Loop
-        - array.each_with_index do | slide, i |
+        - locals[ :array ].each_with_index do | slide, i |
 
-            -# If this is the first one make it active
+            -# If this is the first slide make it active
             .item{ class: i == 0 ? "active" : false }
 
                 -# Image
                 - if slide[ :image ]
 
-                    -# Overides
+                    -# Default alternative text if not found
                     - if ! slide[ :image ][ :alt ]
                         - slide[ :image ][ :alt ] = "Carousel #{ i }"
 
@@ -47,28 +53,33 @@
                     = codeBlender "image", "atom", slide[ :image ]
 
                 -# Caption
-                - if slide[ :image ][ :caption ]
+                - if slide[ :image ][ :carouselCaption ]
 
                     -# Caption
                     .carousel-caption
 
-                        %h3= slide[ :image ][ :caption ][ :title ]
-                        %p= slide[ :image ][ :caption ][ :body ]
+                        -# Heading
+                        = codeBlender "heading", "molecule",
+                            { tag: "h3", text: slide[ :image ][ :carouselCaption ][ :title ] }
 
-                        - if slide[ :image ][ :caption ][ :button ]
+                        -# Body
+                        %p= slide[ :image ][ :carouselCaption ][ :body ]
+
+                        -# Check if we want a button
+                        - if slide[ :image ][ :carouselCaption ][ :button ]
 
                             -# Button
-                            = codeBlender "button", "atom", slide[ :image ][ :caption ][ :button ]
+                            = codeBlender "button", "atom", slide[ :image ][ :carouselCaption ][ :button ]
 
     -# Controls
     - if locals[ :control ]
 
-        -# Prev Left Control
+        -# Previous - left control
         = link_to( ".#{ id }", class: "carousel-control left", data: { slide: "prev" }, role: "button" ) do
-            %span.fa.fa-chevron-left{ aria: { hidden: "true" } }
+            %span.glyphicon.glyphicon-chevron-left{ aria: { hidden: "true" } }
             %span.sr-only Previous
 
-        -# Next Right Control
+        -# Next - right control
         = link_to( ".#{ id }", class: "carousel-control right", data: { slide: "next" }, role: "button" ) do
-            %span.fa.fa-chevron-right{ aria: { hidden: "true" } }
+            %span.glyphicon.glyphicon-chevron-right{ aria: { hidden: "true" } }
             %span.sr-only Next

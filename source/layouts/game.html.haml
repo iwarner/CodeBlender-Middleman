@@ -1,0 +1,160 @@
+-##
+-# Game Layout
+-#
+-# Todo
+-# Strip ending pipe from tags section
+-##
+
+-# Variable
+- cp      = current_page.data
+- heading = cp.heading
+
+-# Article
+= wrap_layout "#{ config[ :layout_dir ] }fullWidth" do
+
+    -# Bootstrap container
+    .container
+
+        -# Bootstrap row
+        .row
+
+            -# Bootstrap column
+            .col-md-4
+
+                -# = partial "#{ pathPartials }/bootstrap/sidebar"
+
+            -# Bootstrap column
+            .col-md-4
+
+                -# Heading - article H1
+                = codeBlender "heading", "molecule", locals: { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+
+                -# -# Social
+                -# - if build?
+
+                -#     -# = partial "#{pathPartials}/google/plus"
+                -#     -# = partial "#{pathPartials}/twitter/tweet_button"
+                -#     -# = partial "#{pathPartials}/facebook/like_button"
+
+                -# Nav Tabs
+                -# = partial("#{pathPartials}/bootstrap/navtabs", :locals => { :active => "Details", :tabArray => [ "Details", "Reviews", "Video", "Download", "Screenshots"  ] } )
+
+                -# Tab Content
+                .tab-content
+
+                    -# Details Tab
+                    #tab1.tab-pane.active
+
+                        .row
+
+                            .span2
+
+                                -# Carousel
+                                -# = partial "#{pathPartials}/bootstrap/carousel", :locals => { :id => "coverCarousel", :imageArray => [ "c.jpg", "c.jpg" ] }
+
+                            .span7
+
+                                %dl.dl-horizontal
+
+                                    -# Category
+                                    %dt
+                                        %span.badge.badge-info Category
+                                    %dd= link_to cp.category, "/pages/" + cp.category.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
+
+                                    -# Subcategory
+                                    %dt
+                                        %span.badge.badge-info Subcategory
+                                    %dd= link_to cp.subcategory, "/pages/" + cp.subcategory.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
+
+                                    -# Tags
+                                    %dt
+                                        %span.badge.badge-info Tags
+                                    %dd
+                                        - cp.tags.each do | tag |
+                                            = link_to tag, tag_path( tag )
+                                            |
+
+                                    -# Developer / Publisher
+                                    %dt
+                                        %span.badge.badge-info Developer / Publisher
+                                    %dd
+
+                                        %a{ :href => "#" }= cp.game.developer
+
+                                        :escaped
+                                            /
+
+                                        %a{ :href => "#" }= cp.game.publisher
+
+                                    -# Released
+                                    %dt
+                                        %span.badge.badge-info Released
+                                    %dd= link_to cp.game.released, '#'
+
+                                    -# Platforms
+                                    %dt
+                                        %span.badge.badge-info Platforms
+                                    %dd
+
+                                        - cp.game.platform.each do | platform |
+                                            %a{ :href => "/pages/" + URI.escape( platform ) }
+                                                = platform
+                                            |
+
+                                    -# Perspective
+                                    %dt
+                                        %span.badge.badge-info Perspective
+                                    %dd
+                                        %a{ :href => "#" }
+                                            = cp.game.perspective
+
+                                    -# Added
+                                    %dt
+                                        %span.badge.badge-info Added
+                                    %dd= cp.modified
+
+                                = yield
+
+                    -# -# Reviews
+
+                    -# #tab2.tab-pane
+
+                    -#     Reviews
+
+                    -#     -# Disqus Comments
+                    -#     -# Only run in build mode
+                    -#     - if build?
+                    -#         -# = partial "#{pathPartials}/disqus/comments"
+
+                    -# -# Video
+
+                    -# #tab3.tab-pane
+
+                    -#     Video
+
+                    -# -# Downloads
+
+                    -# #tab4.tab-pane
+
+                    -#     Download
+
+                    -# -# Screenshots
+
+                    -# #tab5.tab-pane
+
+                    -#     .row
+                    -#         .span9
+
+                    -#             %ul.thumbnails
+
+                    -#                 %li.span3
+                    -#                     .thumbnail
+                    -#                         %img{ :src => "1.jpg" }
+
+                    -#                 %li.span3
+                    -#                     .thumbnail
+                    -#                         %img{ :src => "2.jpg" }
+
+                    -#                 %li.span3
+                    -#                     .thumbnail
+                    -#                         %img{ :src => "2.jpg" }

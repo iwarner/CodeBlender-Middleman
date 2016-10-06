@@ -1,6 +1,6 @@
 # Environment #
 ###############
-.enomConfig
+.env
 
 # Middleman #
 #############

@@ -4,7 +4,7 @@
 -#
 -# @usage
 -# -# Checkbox
--# = codeBlender "checkbox", "atom"
+-# = codeBlender "checkbox", "atom", { label: { title: "Checkbox" }, input: { required: true } }
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category atom
@@ -25,7 +25,7 @@
 .checkbox{ class: extraClass }
 
     -# Variable
-    - extraClass = label[ :extraClass ] ? label[ :extraClass ] : false
+    - extraClass = ( ! label.nil? && label[ :extraClass ] ) ? label[ :extraClass ] : false
 
     -# Label - note this is an array as it contains flag for screen reader
     %label{ class: extraClass }

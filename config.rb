@@ -5,23 +5,17 @@
 # @see    http://middlemanapp.com/
 ##
 
-# ENV[ 'WEBPACK_ENV' ] ||= ( build? ? 'build' : 'development' )
-
-# External pipeline - Webpack
-activate :external_pipeline,
-    name:    :webpack,
-    command: build? ?
-        "./node_modules/webpack/bin/webpack.js --bail -p" :
-        "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
-    source:  ".tmp/dist",
-    latency: 1
-
 # Require football scripts
 require "football/football"
 require "football/matrix"
 require "football/setting"
 require "football/table"
 require "football/fixture"
+
+# Syntax
+# @see https://github.com/middleman/middleman-syntax
+# :line_numbers => true
+activate :syntax
 
 # Load football helpers
 helpers FootballHelpers
@@ -101,6 +95,17 @@ activate :deploy do | deploy |
     deploy.remote         = 'git@github.com:DryKISS/codeblender.net.git'
     deploy.build_before   = false
 end
+
+# ENV[ 'WEBPACK_ENV' ] ||= ( build? ? 'build' : 'development' )
+
+# External pipeline - Webpack
+activate :external_pipeline,
+    name:    :webpack,
+    command: build? ?
+        "./node_modules/webpack/bin/webpack.js --bail -p" :
+        "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
+    source:  ".tmp/dist",
+    latency: 1
 
 # Build-specific configuration
 configure :build do

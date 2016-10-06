@@ -33,69 +33,16 @@ todo :
 
 ---
 
--# Heading - H2
-= codeBlender "heading", "molecule", { tag: "h2", text: "Checkbox" }
+-# Checkbox - default
+:ruby
+    code = %{codeBlender "checkbox", "atom", { label: { title: "Checkbox" }, input: { required: true } }}
 
--# Form
-%form{ novalidate: false }
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
 
-    %checkbox{ ng: { model: "checkboxModel" } }
+-# Checkbox - disabled
+:ruby
+    code = %{codeBlender "checkbox", "atom", { label: { title: "Checkbox" }, input: { disabled: true } }}
 
-    / <checkbox
-    /     ng-model=""
-    /     name="custom-name"              (Optional)
-    /     ng-true-value="The Truth"       (Optional)
-    /     ng-false-value="The Untruth"    (Optional)
-    /     ng-change="onChange()"          (Optional)
-    / ></checkbox>
-
-/ -# Code
-/ :code
-/     #lang: ruby
-/     -# Checkbox
-/     = codeBlender "checkbox", "atom", { name: "checkbox", text: "Textual description here" }
-
-/ -# Heading
-/ = codeBlender "heading", "molecule", { tag: "h2", text: "Disabled Checkbox" }
-
-/ -# Form
-/ %form{ novalidate: false }
-
-/     -# Checkbox
-/     = codeBlender "checkbox", "atom", { disabled: true, name: "checkbox1", text: "Textual description here" }
-
-/ -# Code
-/ :code
-/     #lang: ruby
-/     -# Checkbox
-/     = codeBlender "checkbox", "atom", { disabled: true, name: "checkbox1", text: "Textual description here" }
-
-/ -# Heading
-/ = codeBlender "heading", "molecule", { tag: "h2", text: "Fancy Checkbox" }
-
-/ -# Form
-/ %form{ novalidate: false }
-
-/     -# Checkbox
-/     = codeBlender "checkbox", "atom", { extraClass: "fancy", name: "checkbox2", text: "Textual description here" }
-
-/ -# Code
-/ :code
-/     #lang: ruby
-/     -# Checkbox
-/     = codeBlender "checkbox", "atom", { extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
-
-/ -# Heading
-/ = codeBlender "heading", "molecule", { tag: "h2", text: "Disabled Fancy Checkbox" }
-
-/ -# Form
-/ %form{ novalidate: false }
-
-/     -# Checkbox
-/     = codeBlender "checkbox", "atom", { disabled: true, extraClass: "fancy", name: "checkbox3", text: "Textual description here" }
-
-/ -# Code
-/ :code
-/     #lang: ruby
-/     -# Checkbox
-/     = codeBlender "checkbox", "atom", { disabled: true, extraClass: "fancy", name: "checkboxFancy", text: "Textual description here" }
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Disabled" } }

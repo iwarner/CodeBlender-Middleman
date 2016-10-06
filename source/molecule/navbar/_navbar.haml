@@ -60,7 +60,7 @@
             - brand = data.navigation.brand
 
             -# Display the logo or brand name and optional icon
-            - if brand.active
+            - if brand.active && ( brand.icon.active || brand.logo.active || brand.text.active )
 
                 -# Link
                 = link_to( brand.link.url,
