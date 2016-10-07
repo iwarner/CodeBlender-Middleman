@@ -23,78 +23,78 @@ todo :
 
 ---
 
--# Get enomConfig
-- file = File.expand_path( ".enomConfig" )
+-# -# Get enomConfig
+-# - file = File.expand_path( ".enomConfig" )
 
-- require 'xmlsimple'
+-# - require 'xmlsimple'
 
-- if File.exists?( file )
+-# - if File.exists?( file )
 
-    - test        = true
-    - credentials = YAML.load File.new file
-    - user        = credentials[ "username" ]
-    - pass        = credentials[ "password" ]
-    - baseURI     = test ? "https://resellertest.enom.com/interface.asp?" : "https://reseller.enom.com/interface.asp?"
+-#     - test        = true
+-#     - credentials = YAML.load File.new file
+-#     - user        = credentials[ "username" ]
+-#     - pass        = credentials[ "password" ]
+-#     - baseURI     = test ? "https://resellertest.enom.com/interface.asp?" : "https://reseller.enom.com/interface.asp?"
 
-    -# Check domain
-    -# %hr
-    -# - url      = baseURI + "command=Check&uid=#{ user }&pw=#{ pass }&SLD=triangle-solutions&TLD=com&ResponseType=html"
-    -# - uri      = URI( url )
-    -# = Net::HTTP.get( uri )
+-#     -# Check domain
+-#     -# %hr
+-#     -# - url      = baseURI + "command=Check&uid=#{ user }&pw=#{ pass }&SLD=triangle-solutions&TLD=com&ResponseType=html"
+-#     -# - uri      = URI( url )
+-#     -# = Net::HTTP.get( uri )
 
-    -# Purchase domain
-    -# %hr
-    -# - url      = baseURI + "command=Purchase&uid=#{ user }&pw=#{ pass }&SLD=triangle-solutions&TLD=com&ResponseType=html"
-    -# - uri      = URI( url )
-    -# = Net::HTTP.get( uri )
+-#     -# Purchase domain
+-#     -# %hr
+-#     -# - url      = baseURI + "command=Purchase&uid=#{ user }&pw=#{ pass }&SLD=triangle-solutions&TLD=com&ResponseType=html"
+-#     -# - uri      = URI( url )
+-#     -# = Net::HTTP.get( uri )
 
-    - url      = baseURI + "command=GetDomains&uid=#{ user }&pw=#{ pass }&ResponseType=xml"
-    - response = Net::HTTP.get_response( URI.parse(url) ).body
-    - data     = XmlSimple.xml_in( response )
+-#     - url      = baseURI + "command=GetDomains&uid=#{ user }&pw=#{ pass }&ResponseType=xml"
+-#     - response = Net::HTTP.get_response( URI.parse(url) ).body
+-#     - data     = XmlSimple.xml_in( response )
 
-    -# Loop through returned domains
-    - data[ "GetDomains" ][ 0 ][ "domain-list" ][ 0 ][ "domain" ].each_with_index do | item, index |
+-#     -# Loop through returned domains
+-#     - data[ "GetDomains" ][ 0 ][ "domain-list" ][ 0 ][ "domain" ].each_with_index do | item, index |
 
-        -# Get domain info
-        - url      = baseURI + "command=GetDomainInfo&uid=#{ user }&pw=#{ pass }&SLD=#{ item[ "sld" ][ 0 ] }&TLD=#{ item[ "tld" ][ 0 ] }&ResponseType=xml"
-        - response = Net::HTTP.get_response( URI.parse(url) ).body
-        = data     = XmlSimple.xml_in( response )
+-#         -# Get domain info
+-#         - url      = baseURI + "command=GetDomainInfo&uid=#{ user }&pw=#{ pass }&SLD=#{ item[ "sld" ][ 0 ] }&TLD=#{ item[ "tld" ][ 0 ] }&ResponseType=xml"
+-#         - response = Net::HTTP.get_response( URI.parse(url) ).body
+-#         = data     = XmlSimple.xml_in( response )
 
-        -# Debug
-        -# = item
+-#         -# Debug
+-#         -# = item
 
-        -# List
-        %dl.dl-horizontal
+-#         -# List
+-#         %dl.dl-horizontal
 
-            -# Domain name
-            %dt Domain
-            %dd= "#{ item[ "sld" ][ 0 ] }.#{ item[ "tld" ][ 0 ] }"
+-#             -# Domain name
+-#             %dt Domain
+-#             %dd= "#{ item[ "sld" ][ 0 ] }.#{ item[ "tld" ][ 0 ] }"
 
-            -# ID
-            %dt ID
-            %dd= item[ "DomainNameID" ][ 0 ]
+-#             -# ID
+-#             %dt ID
+-#             %dd= item[ "DomainNameID" ][ 0 ]
 
-            -# Name servers
-            %dt Enom nameservers
-            %dd= item[ "ns-status" ][ 0 ]
+-#             -# Name servers
+-#             %dt Enom nameservers
+-#             %dd= item[ "ns-status" ][ 0 ]
 
-            -# Expiration
-            %dt Expiration
-            %dd= item[ "expiration-date" ][ 0 ]
+-#             -# Expiration
+-#             %dt Expiration
+-#             %dd= item[ "expiration-date" ][ 0 ]
 
-            -# Auto renew
-            %dt Auto renew
-            %dd= item[ "auto-renew" ][ 0 ]
+-#             -# Auto renew
+-#             %dt Auto renew
+-#             %dd= item[ "auto-renew" ][ 0 ]
 
-        %hr
+-#         %hr
 
-    -# Loop through the returned domains and collect the info
-    -# @see http://www.enom.com/APICommandCatalog/API%20topics/api_GetDomainInfo.htm
+-#     -# Loop through the returned domains and collect the info
+-#     -# @see http://www.enom.com/APICommandCatalog/API%20topics/api_GetDomainInfo.htm
 
-- else
-    File does not exist
+-# - else
+-#     File does not exist
 
-%hr
+-# %hr
 
 :markdown
 

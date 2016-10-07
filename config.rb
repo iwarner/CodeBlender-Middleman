@@ -244,4 +244,3 @@ end
 #     proxy "/calendar/#{ team }.ics", "template/football/calendar.html", locals: { data: cal.to_ical }, ignore: true
 
 # end
-#
