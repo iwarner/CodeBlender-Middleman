@@ -30,7 +30,7 @@ brand :
         url : "/"
 
     icon :
-        active : active
+        active : false
         icon   : fa-cart
 
     logo :

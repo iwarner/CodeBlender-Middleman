@@ -94,16 +94,6 @@ locals :
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { small: "Provide an HREF for the image", text: "Linked Thumbnail" } }
 
--# Captioned Thumbnail
--# Get the list of categories of the products
-- blog.articles.each do | article |
-
-    -# Capture Content
-    - @captureHTML = capture_html do
-
-        -# Blog Details
-        = codeBlender "detail", "molecule", { current_page: article }
-
 -# Code
 :ruby
     code = %{codeBlender "thumbnail", "molecule", { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },

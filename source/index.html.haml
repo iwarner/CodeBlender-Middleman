@@ -62,24 +62,30 @@ todo :
 -# Bootstrap container
 .container
 
-    -# Heading - H2
-    = codeBlender "heading", "molecule", { extraClass: "text-center", tag: "h2", text: "Middleman hand crafted Bootstrap HAML partials" }
+    -# Bootstrap row
+    .row
 
-    .text-center
+        -# Bootstrap column
+        .col-md-12
 
-        %p
-            CodeBlender aims to provide simple atomic site structures, that can
-            be reused across multiple projects. Built upon the fantastic
-            Middleman these HAML partials are created to be understood; the main
-            reason we did not encapsulate them into a GEM. Simply symlink the
-            partial/_library folder into the new project and include them.
+            -# Heading - H2
+            = codeBlender "heading", "molecule", { extraClass: "text-center", tag: "h2", text: "Middleman hand crafted Bootstrap HAML partials" }
 
-        %p
-            Utilising the Bootstrap CSS framework each partial encompasses many
-            defaults, such as accessibility, micro-formats and layout. Making
-            this project a must when it comes to rapid prototyping of UX ideas.
-            Still work in progress we aim to have full coverage of all Bootstrap
-            elements and more.
+            .text-center
+
+                %p
+                    CodeBlender aims to provide simple atomic site structures, that can
+                    be reused across multiple projects. Built upon the fantastic
+                    Middleman these HAML partials are created to be understood; the main
+                    reason we did not encapsulate them into a GEM. Simply symlink the
+                    partial/_library folder into the new project and include them.
+
+                %p
+                    Utilising the Bootstrap CSS framework each partial encompasses many
+                    defaults, such as accessibility, micro-formats and layout. Making
+                    this project a must when it comes to rapid prototyping of UX ideas.
+                    Still work in progress we aim to have full coverage of all Bootstrap
+                    elements and more.
 
     -# Bootstrap row
     .row

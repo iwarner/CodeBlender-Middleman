@@ -16,7 +16,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
         xml.uri   data.config.uri
     }
 
-    xml.updated  blog.articles.first.date.to_time.iso8601
+    xml.updated  blog( "docs" ).articles.first.date.to_time.iso8601
 
     blog( "docs" ).articles[ 0..1 ].each do | article |
 

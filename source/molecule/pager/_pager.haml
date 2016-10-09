@@ -2,8 +2,12 @@
 -# Pager
 -#
 -# @usage
+-# -# Pager variables
+-# - prevPage = current_article.previous_article ? current_article.previous_article : false
+-# - nextPage = current_article.next_article     ? current_article.next_article     : false
+-#
 -# -# Pager
--# = codeBlender "pager", "molecule"
+-# = codeBlender "pager", "molecule", { prevPage: prevPage, nextPage: nextPage }
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category molecule
@@ -16,7 +20,7 @@
     %li.previous
 
         -# Check it exists
-        - if prevPage
+        - if locals[ :prevPage ]
 
             -# Link to
             = link_to( prevPage.url, rel: "previous" ) do
@@ -27,7 +31,7 @@
     %li.next
 
         -# Check it exists
-        - if nextPage
+        - if locals[ :nextPage ]
 
             -# Link to
             = link_to( nextPage.url, rel: "next" ) do
