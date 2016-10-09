@@ -39,7 +39,7 @@
 
             -# Loop through the portfolio category finding the first X articles
             -# Sorting is done by date as a default
-            - blog( 'portfolio' ).articles.first( total ).each_with_index do | article, index |
+            - blog( "portfolio" ).articles.first( total ).each_with_index do | article, index |
 
                 -# Variable
                 - data = article.data

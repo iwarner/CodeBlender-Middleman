@@ -1,0 +1,222 @@
+---
+
+heading :
+    small : "Thai massage"
+    title : "Greentouch PI"
+
+meta :
+    author      : "Ian Warner"
+    description : "Greentouch PI - Thai massage and spa"
+    image       : "http://drykiss.com/assets/images/portfolio/greentouch/greentouch-home.png"
+    subject     : "Greentouch PI"
+    title       : "Greentouch PI - Thai massage and spa"
+    type        : "article"
+
+caption   : "<h3>Greentouch PI</h3><p>Site, SEO and social development.</p>"
+category  : Site
+comment   : false
+date      : 2013-01-01
+image     : "portfolio/greentouch/greentouch-home.png"
+lang      : en
+modified  : 2013-01-01
+published : true
+tags      : [ Site ]
+
+---
+
+-# Variable
+- path  = "portfolio/greentouch/greentouch-"
+- title = current_page.data.heading.title
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - introduction",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }home.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - massage services",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }service.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - contact us",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }contact.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - tea consumed",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }tea.png" }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-4
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h4", text: "What we did" }
+
+        :markdown
+
+            **Dates**
+
+            * Started : March 2014
+            * DryKISS continue to maintain.
+
+            **Links**
+
+            * [Greentouch PI](http://greentouchpi.com/)
+
+            **Tasks**
+
+            * Keyword research
+            * SEO
+            * UX
+            * Design
+            * Responsive development
+            * Deployment
+            * Analytics
+            * Google search console
+            * Social pages, Facebook, Google and Wahanda.
+
+            **Project Duration**
+
+            * 5 days research and reporting
+            * 5 days development
+
+            **Outcome**
+
+            * Page 1 on Google for search phrase "Massage Wimbledon"
+            * Business up 600% since launch
+            * 4x the original staff levels
+
+            **Team**
+
+            * Ian Warner - Technical lead
+            * May Tran - Digital Marketing
+
+            **Technologies**
+
+            * Middleman
+            * AngularJS
+            * HAML
+            * CoffeeScript
+            * Sass
+            * GitHub hosting
+
+    -# Bootstrap column
+    .col-md-8
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h4", text: "Description" }
+
+        -# Content
+        :markdown
+
+            After enjoying one of the best Thai massages I have ever had in the
+            UK; I confronted the owner Ling. Stating that her overall web
+            presence could be improved, especially in terms of SEO and social
+            marketing. Unfortunately the business didn't have a Facebook or
+            Google business page and the SEO was non-existent, barely ranking
+            for the search term [Greentouch](http://greentouchpi.com)!
+
+            Having launched CodeBlender we also wanted to put this library into
+            practice on a commercial website. Quite confident that DryKISS could
+            help this local business owner at least achieve some positive SEO
+            gains.
+
+            **Business understanding**
+
+            We arranged several meetings with Ling over the next few weeks to
+            understand where the business currently was, understanding hers',
+            the staff and clientèle's pain points.
+
+            * **Pain points**
+            * A little web technology understanding.
+            * Had very little knowledge of SEO, social pages and Google SERPs.
+            * Had overspent on previous web-site and didn't want to make the same mistakes.
+            * Mixed messaging on what the business did.
+            * Memberships, promotions and loyalty cards were great but poorly conveyed and sometimes overlapped.
+            * Customer's all had very positive feedback about the services.
+            * Design and wording of marketing material was inconsistent.
+            * No company orientated email address
+            * Current site was not responsive
+
+            At this time the premises had 5 rooms and one couple's room, with a
+            maximum of 2 massage staff working at any time.
+
+            It was originally set up in the Chinese model of a membership only
+            spa and massage, but the owners quickly realised that this probably
+            would not work in the UK.
+
+            **Goal**
+
+            Before we embarked on any new site development, we wanted to
+            investigate the pain points and find solutions for as much of these
+            as possible.
+
+            * Make GreenTouchPI the top Thai massage establishment on Google within 6 months.
+            * Setup social pages; Facebook, Wahanda (now Treatwell), Google Business Page.
+            * Establish a routine of social posting, and promotion schedule.
+            * Create a site that was responsive, fast and met Google's latest checklist.
+            * Simple contact and booking form
+
+            **Competitor analysis**
+
+            DryKISS conducted a thorough competitive analysis of the 10 or so
+            local massage establishments in the area.
+
+            Investigating the Social and SEO strategies and potential keywords
+            and phrases they were targeting. Also looking at services, pricing
+            and promotional activities.
+
+            Outcome of this was that it was entirely possible to create a SEO
+            strategy that could compete if not outstrip these competitors.
+
+            **Keyword research**
+
+            DryKISS drafted a thorough report on the phrases used by local
+            residents around massage services. We identified many keywords,
+            terms and phrases we should look at incorporating on all messaging
+            the organisation sends out.
+
+            **Development**
+
+            A small budget was put in place to carry out this transformation. It
+            meant that we could not utilise the usual DryKISS design process.
+
+            We opted to use a generic Bootstrap styled site, to inherently give
+            us a responsive design, it therefore meant we could rapidly build
+            pages and focus resource and budget on the digital marketing aspect
+            of the plan.
+
+-# :markdown
+
+-#     * List the keyword phrases we discovered from the document in this
+-#     * Attach the report perhaps
+-#     * Include screenshot of analytics at start and finish
+-#     * Link codeblender
+-#         * Link all relevant terms to pages on site or external
+-#     * is greentouch GreenTouch or Greentouch - look at esisting site

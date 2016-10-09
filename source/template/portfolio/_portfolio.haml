@@ -38,7 +38,7 @@
                 - list << { data: { filter: "all" }, extraClass: "filter", link: { url: "javascript:;" }, text: "All" }
 
                 -# Get the unique subcategories in the portfolio
-                - blog( 'portfolio' ).articles.uniq{ | r | r.data.category }.each do | article |
+                - blog( "portfolio" ).articles.uniq{ | r | r.data.category }.each do | article |
 
                     -# Variable
                     - data = article.data
@@ -60,7 +60,7 @@
 
             -# Loop through the portfolio category
             -# Sorting is done by date as a default
-            - blog( 'portfolio' ).articles.each do | article |
+            - blog( "portfolio" ).articles.each do | article |
 
                 -# Variable
                 - data = article.data

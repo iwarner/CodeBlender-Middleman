@@ -1,0 +1,170 @@
+---
+
+heading :
+    small : "Video e-learning platform"
+    title : "Circus Street"
+
+meta :
+    author      : "Ian Warner"
+    description : "Circus Street - Video e-learning platform"
+    image       : "http://drykiss.com/assets/images/portfolio/circusstreet/circusstreet-home.png"
+    subject     : "website"
+    title       : "Circus Street - Video e-learning platform"
+    type        : "article"
+
+caption   : "<h3>Circus Street</h3><p>Video e-learning platform</p>"
+category  : Site
+comment   : false
+date      : 2016-06-07
+image     : "portfolio/circusstreet/circusstreet-home.png"
+lang      : en
+modified  : 2016-06-07
+published : true
+tags      : [ Mobile ]
+
+---
+
+-# Variable
+- path  = "portfolio/circusstreet/"
+- title = current_page.data.heading.title
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - home",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }circusstreet-home-mobile.jpeg" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - video",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }circusstreet-video-mobile.jpeg" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - lesson",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }circusstreet-lesson-mobile.jpeg" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - jargon buster",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }circusstreet-jargon-mobile.jpeg" }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-4
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h4", text: "What we did" }
+
+        :markdown
+
+            **Dates**
+
+            * Started : May 2016
+
+            **Links**
+
+            * [Circus Street](http://circusstreet.com/)
+            * [ITunes](https://itunes.apple.com/gb/app/circus-street/id862422666?mt=8)
+            * [Google play](https://play.google.com/store/apps/details?id=com.circusstreet.mobile&hl=en_GB)
+
+            **Tasks**
+
+            * Hybrid mobile development
+            * Offline capabilities
+            * Responsive development
+            * Deployment
+            * Analytics
+
+            **Project Duration**
+
+            * 3 Months
+
+            **Outcome**
+
+            * Deployed new hybrid apps to iOS and Android
+            * Engagement rising on both apps
+
+            **Team**
+
+            * Ian Warner - Technical lead
+
+            **Technologies**
+
+            * AngularJS
+            * Grunt
+            * PHP
+            * MySQL
+            * JavaScript
+            * SASS
+
+    -# Bootstrap column
+    .col-md-8
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h4", text: "Description" }
+
+        -# Content
+        :markdown
+
+            DryKISS made contact with Circus Street through the YunoJuno platform.
+
+            They were in quite a desperate need for some rapid development and
+            decisions on the direction of their Hybrid project.
+
+            They had already built a native iPad application previously, but
+            wanted to use the Cordova technology to enable a cross platform,
+            multi-device experience.
+
+            **Business understanding**
+
+            After the initial meetings, and understanding of the tight deadlines.
+            We wrote a detailed report on all the possible user states, edge
+            cases and a possible direction.
+
+            Previously the application was being built in a bespoke manner, but
+            we identified very quickly that the main web application was built in
+            AngularJS and could be wrapped with Cordova to form the basis of the
+            mobile application also.
+
+            The main core of work resolved around allowing user to watch videos
+            in an offline state. However this introduced a huge amount of state
+            changes that needed to be overcome.
+
+            If this worked then Circus Street would have :
+
+            * One UI / UX to focus on but with added considerations on orientation.
+            * One repository of code, means issues are fixed across all medium.
+            * Potential to make the web application an offline entity.
+
+            **Goal**
+
+            To deliver a new Hybrid mobile phone application on Itunes and Google
+            Play stores within 7 weeks.
+
+            **Development**
+
+            The current web application was built in AngularJS, with a PHP API
+            back-end. These technologies more than suit a Hybrid application.

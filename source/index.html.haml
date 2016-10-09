@@ -5,6 +5,7 @@ layout : "fullWidth"
 stub   : "index"
 
 # Blog
+blogName : portfolio
 pageable : true
 per_page : 5
 
@@ -54,6 +55,9 @@ todo :
     - - "Add the base ref to the config"
 
 ---
+
+-# Variable
+- cp = current_page.data
 
 -# Bootstrap container
 .container
@@ -107,7 +111,7 @@ todo :
         .col-md-9.col-sm-9
 
             -# Article list
-            = codeBlender "article-list", "template", { page_articles: page_articles }
+            = codeBlender "article-list", "template", { name: cp.blogName, page_articles: page_articles }
 
             -# Pagination variables
             - prevPage = prev_page ? prev_page : false
@@ -120,10 +124,10 @@ todo :
         .col-md-3.col-sm-3
 
             -# Archive
-            = codeBlender "archive", "molecule"
+            = codeBlender "archive", "molecule", { name: cp.blogName }
 
             -# MailChimp
             = codeBlender "mailchimp", "molecule"
 
             -# Tag cloud
-            = codeBlender "tag-cloud", "molecule"
+            = codeBlender "tag-cloud", "molecule", { name: cp.blogName }

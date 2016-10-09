@@ -20,13 +20,13 @@
     %ul.list-unstyled
 
         -# Loop through site blog posts
-        - blog.articles.group_by { | y | y.date.year }.each do | year, articles |
+        - blog( locals[ :name ] ).articles.group_by { | y | y.date.year }.each do | year, articles |
 
             -# List
             %li
 
                 -# Link to the blog post via year
-                = link_to year, blog_year_path( year )
+                = link_to year, blog_year_path( year, locals[ :name ] )
 
                 -# Loop through the articles by month
                 - articles.group_by { | a | a.date.month }.each do | month, monthArticles |
@@ -38,7 +38,7 @@
                         %li
 
                             -# Link via month
-                            = link_to monthArticles.first.date.strftime( "%b" ), blog_month_path( year, month )
+                            = link_to monthArticles.first.date.strftime( "%b" ), blog_month_path( year, month, locals[ :name ] )
 
                             -# Badge
                             = codeBlender "badge", "atom", { content: monthArticles.size }

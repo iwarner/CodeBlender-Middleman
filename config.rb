@@ -58,12 +58,12 @@ Time.zone = "Europe/London"
 # @see http://www.rubydoc.info/github/svenfuchs/i18n/I18n
 activate :i18n
 
-# BLOG
+# Blog
 # Template files cannot be within a folder path with a _ i.e. _codeBlender/template
 # @see https://elenichappen.svbtle.com/getting-tags-to-work-with-middlemans-blog-gem
 activate :blog do | blog |
 
-    blog.name              = "portfolio"
+    blog.name              = "docs"
     blog.prefix            = "docs"
     blog.default_extension = ".md"
 
@@ -71,6 +71,35 @@ activate :blog do | blog |
     blog.sources           = ":title.html"
 
     blog.layout            = "article"
+    blog.summary_separator = /(READMORE)/
+    blog.summary_length    = 250
+
+    blog.calendar_template = "template/blog-calendar/blog-calendar.html"
+    blog.year_link         = "/calendar/:year.html"
+    blog.month_link        = "/calendar/:year/:month.html"
+    blog.day_link          = "/calendar/:year/:month/:day.html"
+
+    blog.tag_template      = "template/blog-tag/blog-tag.html"
+    blog.taglink           = "/tag/:tag.html"
+
+    blog.paginate          = true
+    blog.per_page          = 5
+    blog.page_link         = "page/{num}"
+
+end
+
+# Blog : Portfolio
+# @see https://elenichappen.svbtle.com/getting-tags-to-work-with-middlemans-blog-gem
+activate :blog do | blog |
+
+    blog.name              = "portfolio"
+    blog.prefix            = "portfolio"
+    blog.default_extension = ".haml"
+
+    blog.permalink         = "{category}/{title}.html"
+    blog.sources           = ":title.html"
+
+    blog.layout            = "portfolio"
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 
@@ -110,15 +139,12 @@ activate :external_pipeline,
 # Build-specific configuration
 configure :build do
 
-    # "Ignore" JS so webpack has full control.
-    # ignore { | path | path =~ /\/(.*)\.js$/ && $1 != 'body' }
-
     # GZIP Files
     # @see https://middlemanapp.com/advanced/file_size_optimization/
-    # activate :gzip
+    activate :gzip
 
     # Use relative URLs
-    # activate :relative_assets
+    activate :relative_assets
 
     # For example, change the Compass output style for deployment
     # activate :minify_css, inline: true
@@ -130,39 +156,36 @@ configure :build do
 
     # Minimise HTML
     # https://github.com/middleman/middleman-minify-html
-    # activate :minify_html
+    activate :minify_html
 
-    # Auto-generate multiple favicon versions
-    # activate :favicon_maker do | icon |
+    # Favicon
+    # @see https://github.com/follmann/middleman-favicon-maker
+    activate :favicon_maker do | f |
 
-    #     # Template
-    #     icon.template_dir = File.join( root, 'source/images/favicon/_template' )
-    #     icon.output_dir   = File.join( root, 'build/images/favicon' )
+        # Template
+        f.template_dir = File.join( root, 'source/assets/images/favicon' )
+        f.output_dir   = File.join( root, 'build/assets/images/favicon' )
 
-    #     # Icon
-    #     icon.icons = {
+        # Icon
+        f.icons = {
 
-    #         # High resolution icon
-    #         "favicon_template_hires.png" => [
-    #             { icon: "favicon-152x152.png" },
-    #             { icon: "favicon-120x120.png" },
-    #             { icon: "favicon-76x76.png"   },
-    #             { icon: "favicon-60x60.png"   },
-    #         ],
+            # High resolution icon
+            "favicon_template_hires.png" => [
+                { icon: "favicon-152x152.png" },
+                { icon: "favicon-120x120.png" },
+                { icon: "favicon-76x76.png"   },
+                { icon: "favicon-60x60.png"   },
+                { icon: "favicon-32x32.png"   },
+                { icon: "favicon-16x16.png"   },
+                { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
+            ]
+        }
 
-    #         # Low resolution icon
-    #         "favicon_template_lores.png" => [
-    #             { icon: "favicon-32x32.png" },
-    #             { icon: "favicon-16x16.png" },
-    #             { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
-    #         ]
-    #     }
-
-    # end
+    end
 
 end
 
-# # Remove 404 from directory indexes
+# Remove 404 from directory indexes
 # page "/404.html", :directory_index => false
 
 ##

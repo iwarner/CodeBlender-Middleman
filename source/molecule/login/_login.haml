@@ -24,11 +24,9 @@
 -##
 %form{ name: "loginForm", novalidate: true, ng: { controller: "LoginController as login" } }
 
-    {{ login.name }}
-
     -# Email Input
     = codeBlender "input", "atom", { help: {},
-                         icon:  { prepend:         "fa-envelope" },
+                         icon:  { prepend:         "fa-envelope fa-fw" },
                          input: { name:            "loginEmail",
                                   ng:              { model: "user.email", minlength: "3" },
                                   placeholder:     "Enter Email",
@@ -38,7 +36,7 @@
 
     -# Password Input
     = codeBlender "input", "atom", { help: {},
-                         icon:  { prepend:         "fa-lock" },
+                         icon:  { prepend:         "fa-lock fa-fw" },
                          input: { autocomplete:    "off",
                                   name:            "loginPassword",
                                   ng:              { model: "user.password", minlength: "8", maxlength: "16" },

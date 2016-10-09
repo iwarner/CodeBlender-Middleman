@@ -69,7 +69,7 @@
             = codeBlender "icon", "atom", { icon: "fa-tags fa-fw" }
 
             -# Loop through tags
-            - cp.tags.each do | tag |
+            - cp.tags( locals[ :name ] ).each do | tag |
 
                 -# Label
-                = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "primary", content: tag, href: tag_path( tag ), itemprop: "keywords" }
+                = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "primary", content: tag, href: tag_path( tag, locals[ :name ] ), itemprop: "keywords" }

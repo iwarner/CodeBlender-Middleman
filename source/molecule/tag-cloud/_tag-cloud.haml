@@ -15,7 +15,7 @@
 - precision = 0
 - unit      = '%'
 - threshold = 1
-- tags      = blog().tags
+- tags      = blog( locals[ :name ] ).tags
 
 -# Section - Tag Cloud
 %section.tagCloud
@@ -43,4 +43,4 @@
             - size = sprintf( "%.#{ precision }f", sizeMin + ( ( sizeMax - sizeMin ) * weight ).to_f )
 
             -# Render the Tag
-            = link_to( tag, tag_path( tag ), style: "font-size: #{ size }#{ unit }" )
+            = link_to( tag, tag_path( tag, locals[ :name ] ), style: "font-size: #{ size }#{ unit }" )

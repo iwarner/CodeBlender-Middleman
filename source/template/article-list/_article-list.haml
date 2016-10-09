@@ -7,7 +7,7 @@
 -#
 -# @usage
 -# -# Article list
--# = codeBlender "article-list", "template", { page_articles: page_articles }
+-# = codeBlender "article-list", "template", { name: "docs", page_articles: page_articles }
 -#
 -# @param page_articles | Need to pass in the paginated pages 'page_articles'
 -#
@@ -19,7 +19,7 @@
 %section.articleList{ itemscope: true, itemtype: "http://schema.org/Blog" }
 
     -# Loop through a list of paginated articles
-    - page_articles.each_with_index do | article, i |
+    - page_articles( locals[ :name ] ).each_with_index do | article, i |
 
         -# Variables
         - data    = article.data
@@ -51,7 +51,7 @@
                     = codeBlender "heading", "molecule", { extraClass: "heading--truncate media-heading", href: article.url, small: heading.small, text: heading.title, rel: "nofollow bookmark", itemprop: "name" }
 
                     -# Blog detail footer
-                    = codeBlender "detail", "molecule", { author: true, cal: true, comment: false, more: true, social: true, tags: true, current_page: article }
+                    = codeBlender "detail", "molecule", { author: true, cal: true, comment: false, more: true, name: locals[ :name ], social: true, tags: true, current_page: article }
 
                     -# Excerpt
                     %p{ itemprop: "description" }= string data.excerpt

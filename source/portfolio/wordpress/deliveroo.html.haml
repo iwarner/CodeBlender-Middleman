@@ -1,0 +1,158 @@
+---
+
+heading :
+    small : "Food home delivery"
+    title : "Deliveroo"
+
+meta :
+    author      : "Ian Warner"
+    description : "Deliveroo - Food home delivery"
+    image       : "http://drykiss.com/assets/images/portfolio/deliveroo/deliveroo-home.png"
+    subject     : "Deliveroo - Food home delivery"
+    title       : "Deliveroo - Food home delivery"
+    type        : "article"
+
+caption   : "<h3>Deliveroo</h3><p>Blog re-development</p>"
+category  : Wordpress
+comment   : false
+date      : 2016-09-07
+image     : "portfolio/deliveroo/deliveroo-home.png"
+lang      : en
+modified  : 2016-09-07
+published : true
+tags      : [ wordpress ]
+
+---
+
+-# Variable
+- path = "portfolio/deliveroo/"
+- title = current_page.data.heading.title
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - home",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }deliveroo-home.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - post",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }deliveroo-home-mobile.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - home - mobile",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }deliveroo-post.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - post - mobile",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }deliveroo-post-mobile.png" }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-4
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h4", text: "What we did" }
+
+        :markdown
+
+            **Links**
+
+            * [Deliveroo Blog](https://deliveroo.co.uk/blog/)
+
+            **Tasks**
+
+            * Wordpress theme edits
+            * Wordpress plug-in edits
+            * Responsive development
+            * Deployment
+
+            **Project Duration**
+
+            * 3 days development
+
+            **Outcome**
+
+            * Delivered edits on time
+            * Deployed at midnight
+
+            **Team**
+
+            * Ian Warner - Technical lead
+
+    -# Bootstrap column
+    .col-md-8
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h4", text: "Description" }
+
+        -# Content
+        :markdown
+
+            DryKISS was contacted by a former colleague; now Head of Content @
+            Deliveroo, to help achieve some significant blog edits. These edits
+            were forming part of the new Deliveroo brand launch on Sunday 4th
+            September 2016.
+
+            The blog actually consisted of a Wordpress MulitSite holding seven
+            international blogs. Each one would have to be tested and edited.
+
+            It just happened we were contacted just three days earlier....
+
+            **Business understanding**
+
+            The discovery phase for the work required had to be undertaken over
+            Skype due to the tight deadline. DryKISS set up our usual scrum Trello
+            board and placed all the features and work packages that needed to be
+            delivered.
+
+            We then liaised through Trello to achieve a slick communication between
+            DryKISS, internal designer and the Content manager.
+
+            * **Pain points**
+            * Blog had to be deployed through another third party company.
+            * Getting setup on the development system was unknown.
+            * Wordpress setup was unknown.
+
+            **Goal**
+
+            The overriding goal was to complete the brand re-design of all the
+            pages of the blog before a newsletter to 2 million users was distributed.
+
+            This meant working incredibly fast to make the changes to facilitate
+            a suitable sign off.
+
+            **Development**
+
+            The Wordpress theme and internal mechanics were understood quickly.
+            So it was then just a matter of pushing through the CSS changes, checking
+            against cross-browser compatibility, responsive look and feel and
+            new font inclusion.
+
+            DrKISS complete the changes mid-day on the Sunday, to allow a full
+            spectrum text by the client. Everything was deployed at midnight with
+            just some minor changes to the caching mechanism to set it live.

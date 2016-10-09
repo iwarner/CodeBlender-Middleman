@@ -1,0 +1,183 @@
+---
+
+heading :
+    small : "Patbase thesaurus"
+    title : "Minesoft"
+
+meta :
+    author      : "Ian Warner"
+    description : "Minesoft - Patbase thesaurus - DryKISS"
+    image       : "http://drykiss.com/assets/images/portfolio/minesoft/minesoft-general.png"
+    subject     : "Minesoft"
+    title       : "Minesoft - Patbase thesaurus - DryKISS"
+    type        : "article"
+
+caption   : "<h3>Minesoft</h3><p>Patbase thesaurus</p>"
+category  : Site
+comment   : false
+date      : 2016-03-01
+image     : "portfolio/minesoft/minesoft-general.png"
+lang      : en
+modified  : 2016-10-04
+published : true
+tags      : [ Site ]
+
+---
+
+-# Variable
+- path  = "portfolio/minesoft/minesoft-"
+- title = current_page.data.heading.title
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - introduction",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }general.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - massage services",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }chemical.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - contact us",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }language.png" }
+
+    -# Bootstrap column
+    .col-md-3
+
+        -# Image - portfolio thumbnail
+        = codeBlender "image", "atom",
+            { alt:        "#{ title } - tea consumed",
+              extraClass: "img-thumbnail img-responsive",
+              src:        "#{ path }search.png" }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-4
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h4", text: "What we did" }
+
+        :markdown
+
+            **Dates**
+
+            * Started : March 2016
+
+            **Links**
+
+            * [MineSoft](http://minesoft.com/)
+            * [Patbase](http://www.patbase.com/)
+
+            **Tasks**
+
+            * APIs
+            * One-page application
+            * UX
+            * Design
+            * Responsive development
+            * Deployment
+            * Analytics
+
+            **Project Duration**
+
+            * 40 days
+
+            **Outcome**
+
+            * Delivered on time
+            * Deployed successfully
+
+            **Team**
+
+            * Ian Warner - Technical lead
+
+            **Technologies**
+
+            * PHP5
+            * Middleman
+            * AngularJS
+            * HAML
+            * CoffeeScript
+            * Sass
+            * MySQL
+
+    -# Bootstrap column
+    .col-md-8
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h4", text: "Description" }
+
+
+        In one view the service allows a user to search for a chemical term,
+        returning data from several external APIs to create a concise data
+        sheet. Returned synonyms can then be utilised in further searches;
+        allowing the user to discover more obscure patents.
+
+        -# Content
+        :markdown
+
+            MineSoft is one of the most prominent Patent information and search
+            companies in the world. They have created and maintain several key
+            browser based software tools; used by thousands of lawyers, patent
+            specialists and organisations daily.
+
+            MineSoft approached DryKISS to create an addon to their most popular
+            service PatBase. They required a tool that allowed users to search
+            for similar words, compounds, genes or translations.
+
+            The product would go on to be called "Patbase Thesaurus"
+
+            **Goal**
+
+            Allow users to discover words that they may have not known before, all
+            of these entries could then be added to a string to search the PatBase
+            database of Patents.
+
+            It would mean that patents using obscure wording could be discovered
+            by the users.
+
+            **Deliverables**
+
+            * Create a tool that is easy to use for current PatBase users.
+            * Full browser compatibility
+            * UI Translated into several languages including Chinese.
+            * Ability to browse back to a previous search
+            * Shopping basket word saving
+            * Words translated into a PatBase query
+
+            **Development**
+
+            In a forty day window we worked through several different providers
+            of chemical, gene and synonym data. Landing on WikiPedia, WIPO and
+            ToxNet to provide the relevant data.
+
+            Built a simplistic UI structure straight from Bootstrap, that fitted
+            the current design requirements of PatBase.
+
+            Some nice features include:
+
+            * Able to browse backwards and forwards and maintain the searches undertaken.
+            * Shopping basket style add words to query functions.
+            * Copy to clipboard
+            * Each result could be clicked to research on that, creating a mining pattern.
