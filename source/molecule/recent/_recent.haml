@@ -7,9 +7,10 @@
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category molecule
--#
--# @todo Should use the List partial
 -##
+
+-# Blog name
+- name = locals[ :name ] ? locals[ :name ] : blog_controller.name
 
 -# Count Default
 - if ! locals[ :count ]
@@ -25,7 +26,7 @@
     %ul.list-unstyled.blogRecent__ul
 
         -# Loop through the Blog Posts - Order by Date
-        - blog.articles[ 0...count.to_i ].each do | article |
+        - blog( name ).articles[ 0...count.to_i ].each do | article |
 
             -# List
             %li.blogRecent__list

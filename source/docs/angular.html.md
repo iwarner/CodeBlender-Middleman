@@ -15,6 +15,7 @@ date     : 2015-04-08
 excerpt  : "Excerpt on Angular"
 modified : 2015-04-08
 tags     : [ angular ]
+title    : "Angular development"
 
 ---
 

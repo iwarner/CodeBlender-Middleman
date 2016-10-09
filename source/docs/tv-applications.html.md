@@ -15,6 +15,7 @@ date     : 2014-01-20
 excerpt  : "TV applications"
 modified : 2014-02-09
 tags     : [ tv ]
+title    : "TV applications"
 
 ---
 

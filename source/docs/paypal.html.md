@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "PayPal"
     title : "PayPal"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "PayPal"
 modified : 2014-02-09
 tags     : [ paypal ]
+title    : "PayPal"
 
 ---
 

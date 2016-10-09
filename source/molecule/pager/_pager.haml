@@ -5,19 +5,32 @@
 -# -# Pager
 -# = codeBlender "pager", "molecule"
 -#
--# @category molecule
 -# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
 -##
 
 -# Pager
 %ul.pager
 
+    -# Previous
     %li.previous
 
-        = link_to( "#" ) do
-            &larr; Older
+        -# Check it exists
+        - if prevPage
 
+            -# Link to
+            = link_to( prevPage.url, rel: "previous" ) do
+                &larr; Older :
+                = prevPage.title
+
+    -# Next
     %li.next
 
-        = link_to( "#" ) do
-            Newer &rarr;
+        -# Check it exists
+        - if nextPage
+
+            -# Link to
+            = link_to( nextPage.url, rel: "next" ) do
+                = nextPage.title
+                \: Newer &rarr;
+

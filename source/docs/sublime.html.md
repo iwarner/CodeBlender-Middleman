@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : ""
     title : "Sublime"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Sublime"
 modified : 2014-02-09
 tags     : [ sublime, text editor ]
+title    : "Sublime"
 
 ---
 

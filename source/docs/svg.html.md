@@ -15,6 +15,7 @@ date     : 2016-02-25
 excerpt  : "SVG"
 modified : 2016-02-25
 tags     : [ svg, accessibility ]
+title    : "SVG"
 
 ---
 

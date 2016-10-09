@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : ""
     title : "LinkedIn"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2016-05-09
 excerpt  : "LinkedIn information and checklists"
 modified : 2016-05-09
 tags     : [ social, profile ]
+title    : "LinkedIn"
 
 ---
 

@@ -15,6 +15,7 @@ date     : 2016-07-08
 excerpt  : "Publish iOS platform applications"
 modified : 2016-07-08
 tags     : [ apple, ios, developer ]
+title    : "Apple store for iOS"
 
 ---
 

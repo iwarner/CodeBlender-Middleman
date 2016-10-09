@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Node"
     title : "Node"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Node"
 modified : 2014-02-09
 tags     : [ node ]
+title    : "Node"
 
 ---
 

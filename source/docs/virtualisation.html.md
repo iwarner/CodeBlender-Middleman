@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Virtualisation"
     title : "Virtualisation"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Virtualisation"
 modified : 2014-02-09
 tags     : [ virtualisation ]
+title    : "Virtualisation"
 
 ---
 

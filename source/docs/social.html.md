@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : ""
     title : "Social"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Social"
 modified : 2014-02-09
 tags     : [ social, facebook ]
+title    : "Social"
 
 ---
 

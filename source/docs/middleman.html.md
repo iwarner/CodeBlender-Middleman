@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Middleman"
     title : "Middleman"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Middleman"
 modified : 2014-02-09
 tags     : [ middleman ]
+title    : "Middleman"
 
 ---
 

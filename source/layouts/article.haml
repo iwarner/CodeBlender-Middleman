@@ -33,7 +33,7 @@
                         -# Tag cloud
                         = codeBlender "tag-cloud", "molecule"
 
-                    -# Latest posts
+                    -# Latest post
                     .blogLatest
 
                         -# Recent article
@@ -42,11 +42,11 @@
             -# Bootstrap column
             .col-md-6
 
-                -# Blog Post
+                -# Blog post
                 %article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
 
                     -# Heading - article H1
-                    = codeBlender "heading", "molecule", locals: { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+                    = codeBlender "heading", "molecule", { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
 
                     -# Blog detail footer
                     = codeBlender "detail", "molecule", { author: true, cal: true, comment: true, social: true, tags: true }
@@ -57,8 +57,12 @@
                     -# Yield
                     %span{ itemprop: "text" }= yield
 
+                    -# Pager variables
+                    - prevPage = current_article.previous_article ? current_article.previous_article : false
+                    - nextPage = current_article.next_article     ? current_article.next_article     : false
+
                     -# Pager
-                    = codeBlender "pager", "molecule"
+                    = codeBlender "pager", "molecule", { prevPage: prevPage, nextPage: nextPage }
 
                     -# Discus comment
                     = codeBlender "disqus-comment", "organism"

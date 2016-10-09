@@ -15,6 +15,7 @@ date     : 2014-01-20
 excerpt  : "GIT"
 modified : 2014-02-09
 tags     : [ git ]
+title    : "GIT"
 
 ---
 

@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : ""
     title : "Thor"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Thor"
 modified : 2014-02-09
 tags     : [ thor, ruby ]
+title    : "Thor"
 
 ---
 

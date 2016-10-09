@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Parallax"
     title : "Parallax"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Parallax"
 modified : 2014-02-09
 tags     : [ parallax ]
+title    : "Parallax"
 
 ---
 

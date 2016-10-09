@@ -15,6 +15,7 @@ date     : 2016-02-05
 excerpt  : ""
 modified : 2016-02-05
 tags     : [ localization, internationalization, i18n ]
+title    : "Localization"
 
 ---
 

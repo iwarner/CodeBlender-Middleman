@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "User experience"
     title : "User experience"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "User experience"
 modified : 2014-02-09
 tags     : [ user-experience ]
+title    : "User experience"
 
 ---
 

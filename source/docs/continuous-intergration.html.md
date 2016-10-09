@@ -15,6 +15,7 @@ date     : 2014-01-20
 excerpt  : "Continuous integration"
 modified : 2014-02-09
 tags     : [ continuous-integration ]
+title    : "Continuous integration"
 
 ---
 

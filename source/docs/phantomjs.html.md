@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Phantom JS"
     title : "Phantom JS"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Phantom JS"
 modified : 2014-02-09
 tags     : [ phantomjs ]
+title    : "Phantom JS"
 
 ---
 

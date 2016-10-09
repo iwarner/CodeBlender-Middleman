@@ -3,19 +3,22 @@
 -#
 -# @usage
 -# -# Tag Cloud
--# = codeBlender "tag-cloud", "molecule"
+-# = codeBlender "tag-cloud", "molecule", { name: cp.blogName }
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category molecule
 -##
 
--# Variables
+-# Blog name
+- name = locals[ :name ] ? locals[ :name ] : blog_controller.name
+
+-# Variable
 - sizeMin   = 80
 - sizeMax   = 200
 - precision = 0
 - unit      = '%'
 - threshold = 1
-- tags      = blog( locals[ :name ] ).tags
+- tags      = blog( name ).tags
 
 -# Section - Tag Cloud
 %section.tagCloud
@@ -43,4 +46,4 @@
             - size = sprintf( "%.#{ precision }f", sizeMin + ( ( sizeMax - sizeMin ) * weight ).to_f )
 
             -# Render the Tag
-            = link_to( tag, tag_path( tag, locals[ :name ] ), style: "font-size: #{ size }#{ unit }" )
+            = link_to( tag, tag_path( tag, name ), style: "font-size: #{ size }#{ unit }" )

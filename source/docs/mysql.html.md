@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "MySQL"
     title : "MySQL"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "MySQL"
 modified : 2014-02-09
 tags     : [ mysql ]
+title    : "MySQL"
 
 ---
 

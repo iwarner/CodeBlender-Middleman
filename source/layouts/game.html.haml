@@ -27,7 +27,7 @@
             .col-md-4
 
                 -# Heading - article H1
-                = codeBlender "heading", "molecule", locals: { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+                = codeBlender "heading", "molecule", { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
 
                 -# -# Social
                 -# - if build?
@@ -37,7 +37,7 @@
                 -#     -# = partial "#{pathPartials}/facebook/like_button"
 
                 -# Nav Tabs
-                -# = partial("#{pathPartials}/bootstrap/navtabs", :locals => { :active => "Details", :tabArray => [ "Details", "Reviews", "Video", "Download", "Screenshots"  ] } )
+                -# = partial("#{pathPartials}/bootstrap/navtabs", { :active => "Details", :tabArray => [ "Details", "Reviews", "Video", "Download", "Screenshots"  ] } )
 
                 -# Tab Content
                 .tab-content
@@ -50,7 +50,7 @@
                             .span2
 
                                 -# Carousel
-                                -# = partial "#{pathPartials}/bootstrap/carousel", :locals => { :id => "coverCarousel", :imageArray => [ "c.jpg", "c.jpg" ] }
+                                -# = partial "#{pathPartials}/bootstrap/carousel", { :id => "coverCarousel", :imageArray => [ "c.jpg", "c.jpg" ] }
 
                             .span7
 

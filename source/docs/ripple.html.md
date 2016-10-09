@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Ripple"
     title : "Ripple"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Ripple"
 modified : 2014-02-09
 tags     : [ ripple ]
+title    : "Ripple"
 
 ---
 

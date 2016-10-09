@@ -18,17 +18,21 @@ per_page : 5
 
 ---
 
+-# Pagination variable
+- prevPage = prev_page ? prev_page : false
+- nextPage = next_page ? next_page : false
+
 -# Blog calendar
 .blogCalendar
 
     -# Article list
     .blogCalendar__list
-        = codeBlender "article-list", "template", locals: { page_articles: page_articles }
 
-    -# Pagination variable
-    - prevPage = prev_page ? prev_page : false
-    - nextPage = next_page ? next_page : false
+        -# Article list
+        = codeBlender "article-list", "template", { page_articles: page_articles }
 
     -# Pagination
     .blogCalendar__pagination
+
+        -# Pagination
         = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }

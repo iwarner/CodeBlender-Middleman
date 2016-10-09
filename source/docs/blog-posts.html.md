@@ -15,6 +15,7 @@ date     : 2014-01-20
 excerpt  : "Blog post"
 modified : 2014-02-09
 tags     : [ blog ]
+title    : "Blog post"
 
 ---
 

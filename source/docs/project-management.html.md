@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Project management"
     title : "Project management"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Project management"
 modified : 2014-02-09
 tags     : [ project-management ]
+title    : "Project management"
 
 ---
 

@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Nginx"
     title : "Nginx"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Nginx"
 modified : 2014-02-09
 tags     : [ nginx ]
+title    : "Nginx"
 
 ---
 

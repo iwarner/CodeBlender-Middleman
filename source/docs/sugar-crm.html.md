@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : ""
     title : "Sugar CRM"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Sugar CRM"
 modified : 2014-02-09
 tags     : [ sugarcrm, crm ]
+title    : "Sugar CRM"
 
 ---
 

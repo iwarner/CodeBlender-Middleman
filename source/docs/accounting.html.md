@@ -15,6 +15,7 @@ date     : 2016-01-05
 excerpt  : "Accounting"
 modified : 2016-01-05
 tags     : [ accounting, finances ]
+title    : "Accounting"
 
 ---
 

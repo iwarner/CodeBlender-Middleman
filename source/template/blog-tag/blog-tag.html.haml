@@ -14,29 +14,25 @@ heading :
 
 layout   : "tag"
 pageable : true
-per_page : 12
-date     : 2001-03-31
+per_page : 5
 
 ---
 
--# Latest
-%ul.list-unstyled
+-# Pagination variable
+- prevPage = prev_page ? prev_page : false
+- nextPage = next_page ? next_page : false
 
-    -# Loop through the Articles
-    - page_articles.each do | article |
+-# Blog tags
+.blogTag
 
-        %li
+    -# Article list
+    .blogTag__list
 
-            -# Label
-            = codeBlender "label", "atom", { context: "info", content: article.date.strftime( '%b %e' ), icon: "fa-tag", itemprop: "keywords" }
-            = link_to article.data.heading.title, article
-
--# Pagination
-.text-center
-
-    -# Pagination Variables
-    - prevPage = prev_page ? prev_page : false
-    - nextPage = next_page ? next_page : false
+        -# Article list
+        = codeBlender "article-list", "template", { page_articles: page_articles }
 
     -# Pagination
-    = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
+    .blogTag__pagination
+
+        -# Pagination
+        = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }

@@ -15,6 +15,7 @@ date     : 2014-01-20
 excerpt  : "Desktop applications"
 modified : 2014-02-09
 tags     : [ desktop ]
+title    : "Desktop applications"
 
 ---
 

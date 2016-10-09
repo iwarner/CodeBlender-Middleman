@@ -17,6 +17,7 @@ date     : 2015-10-15
 modified : 2015-10-15
 excerpt  : "Getting a technical job in 2015"
 tags     : [ job, education, skills ]
+title    : "Job Sites"
 
 ---
 

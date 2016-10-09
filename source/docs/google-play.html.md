@@ -15,6 +15,7 @@ date     : 2016-07-06
 excerpt  : "Google Play Store, publishing a hybrid application"
 modified : 2016-07-06
 tags     : [ google, hybrid, mobile ]
+title    : "Google Play Store"
 
 ---
 

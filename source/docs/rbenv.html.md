@@ -15,6 +15,7 @@ date     : 2014-03-16
 excerpt  : "RBenv"
 modified : 2016-02-23
 tags     : [ rbenv ]
+title    : "RBenv"
 
 ---
 

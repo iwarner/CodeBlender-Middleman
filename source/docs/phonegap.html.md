@@ -1,7 +1,6 @@
 ---
 
 heading :
-    small : "Phonegap"
     title : "Phonegap"
 
 meta :
@@ -15,6 +14,7 @@ date     : 2014-01-20
 excerpt  : "Phonegap"
 modified : 2014-02-09
 tags     : [ phonegap ]
+title    : "Phonegap"
 
 ---
 

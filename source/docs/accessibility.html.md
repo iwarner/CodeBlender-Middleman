@@ -15,6 +15,7 @@ date     : 2014-01-20
 excerpt  : "Accessibility (WCAG) is crucial for both the website and the mobile apps."
 modified : 2014-02-09
 tags     : [ accessibility ]
+title    : "Accessibility first"
 
 ---
 

@@ -15,6 +15,7 @@ date     : 2014-01-20
 excerpt  : "Homebrew"
 modified : 2014-02-09
 tags     : [ homebrew ]
+title    : "Homebrew"
 
 ---
 
