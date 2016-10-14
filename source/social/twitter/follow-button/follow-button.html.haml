@@ -1,0 +1,40 @@
+---
+
+# Meta
+meta :
+    author      : "DryKISS"
+    description : "Twitter follow button - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Twitter follow button - CodeBlender"
+    type        : "website"
+
+# Heading
+heading :
+    title : "Twitter follow button"
+
+# See
+see :
+    - - "Twitter follow button"
+      - "https://dev.twitter.com/web/follow-button"
+
+# Todo
+todo :
+    - - "Provide a sample of the JS version - using the promises"
+    - - "Complete with the full set of parameters"
+
+---
+
+:markdown
+
+    The follow button allows a user to follow a specific Twitter profile account.
+
+    This can be invoked via a button or through JavaScript
+    -# twttr.widgets.createFollowButton
+
+-# Default
+:ruby
+    code = %{codeBlender "follow-button", "social/twitter/follow-button"}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

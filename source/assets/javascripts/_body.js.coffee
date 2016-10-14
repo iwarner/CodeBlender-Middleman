@@ -62,6 +62,8 @@ require 'organism/contact/_contact_controller.coffee'
 # Social
 ##
 require 'social/facebook/login/_facebook_module.coffee'
+require 'social/facebook/_facebook_controller.coffee'
+require 'social/twitter/_twitter_controller.coffee'
 
 ##
 # Template

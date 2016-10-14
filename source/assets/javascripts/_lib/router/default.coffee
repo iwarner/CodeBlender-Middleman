@@ -31,12 +31,14 @@ config = ( $stateProvider, $urlRouterProvider, ngClipProvider, $facebookProvider
 #
 # @see https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-onauthcallback-context
 ##
-run = ( $rootScope, $state, $stateParams ) ->
+run = ( $log, $rootScope, $state, $stateParams ) ->
 
     do ->
 
-        console.log "Facebook sdk loaded"
+        # Debug
+        $log.log "Facebook sdk loaded"
 
+        # Facebook load
         ( ( d, s, id ) ->
 
             js  = undefined
@@ -54,6 +56,34 @@ run = ( $rootScope, $state, $stateParams ) ->
             return
 
         ) document, 'script', 'facebook-jssdk'
+
+        # Debug
+        console.log "Twitter sdk loaded"
+
+        # Twitter load
+        ( ( d, s, id ) ->
+
+            js  = undefined
+            fjs = d.getElementsByTagName( s )[ 0 ]
+            t   = window.twttr or {}
+
+            if d.getElementById( id )
+                return t
+
+            js     = d.createElement( s )
+            js.id  = id
+            js.src = 'https://platform.twitter.com/widgets.js'
+
+            fjs.parentNode.insertBefore js, fjs
+            t._e = []
+
+            t.ready = ( f ) ->
+                t._e.push f
+                return
+
+            t
+
+        )( document, 'script', 'twitter-wjs' )
 
     # Track status of authentication
     # auth.$onAuth ( user ) ->
@@ -85,6 +115,7 @@ config.$inject = [
 # Inject
 ##
 run.$inject = [
+    '$log'
     '$rootScope'
     '$state'
     '$stateParams'

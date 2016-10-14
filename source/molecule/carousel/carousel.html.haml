@@ -1,5 +1,6 @@
 ---
 
+# Meta
 meta :
     author      : "DryKISS"
     description : "Carousel - CodeBlender"
@@ -8,38 +9,23 @@ meta :
     title       : "Carousel - CodeBlender"
     type        : "website"
 
+# Heading
 heading :
     title : "Carousel"
 
+# See
 see :
     - - "Bootstrap carousel"
       - "http://getbootstrap.com/javascript/#carousel"
     - - "Swipe Support"
       - "http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/"
 
+# Todo
 todo :
     - - "Need to find a way to work with both ImageArray and a more content focussed array"
     - - "Should pass direct arrays for image and heading to the carousel"
     - - "Heading for caption should use partial"
     - - "Caption should be more flexible, maybe pull from partials also"
-
-locals :
-    - - "array"
-      - "array"
-      - "required"
-      - "Array containing the image and caption arrays"
-    - - "control"
-      - "bool"
-      - "optional"
-      - "Whether to show the controls - default: true"
-    - - "id"
-      - "string"
-      - "required"
-      - "ID of the carousel element - Default : myCarousel"
-    - - "indicator"
-      - "bool"
-      - "optional"
-      - "Whether to show the dot indicators - default: true"
 
 ---
 
@@ -78,9 +64,9 @@ locals :
 -# Carousel
 :ruby
     code = %{codeBlender "carousel", "molecule",
-                { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } },
-                           { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 2' ) } } ],
-                  data:  { ride: "carousel", interval: "3000" }, control: true, indicator: true }}
+      { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } },
+                 { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 2' ) } } ],
+        data:  { ride: "carousel", interval: "3000" }, control: true, indicator: true, id: "carousel1" }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
@@ -88,18 +74,28 @@ locals :
 -# Caption
 :ruby
     code = %{codeBlender "carousel", "molecule",
-                { array: [ { image: { carouselCaption: { body: "Caption body", title: "Caption title" },
-                                      extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } } ], indicator: true }}
+      { array: [ { image: { carouselCaption: { body: "Caption body", text: "Caption title" }, extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } } ],
+        data:  { ride: "carousel", interval: "3000" }, indicator: true, id: "carousel2" }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Caption" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Caption, no controls" } }
 
 -# No Indicators
 :ruby
     code = %{codeBlender "carousel", "molecule",
-                { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } },
-                           { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 2' ) } } ],
-                  id: "iPhoneCarousel" }}
+      { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } },
+                 { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 2' ) } } ],
+        data:  { ride: "carousel", interval: "3000" }, id: "carousel3" }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "No indicators or controls" } }
+
+-# Just a caption
+:ruby
+    code = %{codeBlender "carousel", "molecule",
+      { array: [ { image: { carouselCaption: { tag: "h1", body: "Caption body 1", text: "Caption title 1" } } },
+                 { image: { carouselCaption: { body: "Caption body 2", text: "Caption title 2" } } } ],
+        data:  { ride: "carousel", interval: "5000" }, id: "carousel__captionOnly" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Just a caption" } }

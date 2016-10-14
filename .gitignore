@@ -1,6 +1,7 @@
 # Environment #
 ###############
 .enomConfig
+client_id.json
 
 # Middleman #
 #############

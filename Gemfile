@@ -26,6 +26,7 @@ gem "filesize"
 gem "xml-simple"
 gem "nokogiri"
 gem "rmagick"
+gem "google-api-client"
 
 # Template engines
 gem "kramdown"

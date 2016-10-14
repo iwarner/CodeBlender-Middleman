@@ -14,6 +14,7 @@ require 'yaml'
 
 ##
 # GCSVToYaml
+# Google CSV to YAML
 #
 # @author Marek Piechocki <work@marek-piechocki.pl>
 ##

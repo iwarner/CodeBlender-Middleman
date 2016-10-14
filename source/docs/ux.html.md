@@ -9,7 +9,7 @@ meta :
     title  : "User experience"
     type   : ""
 
-category : "design"
+category : "user-experience"
 date     : 2014-01-20
 excerpt  : "User experience"
 modified : 2014-02-09

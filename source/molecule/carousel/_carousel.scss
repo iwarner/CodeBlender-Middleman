@@ -2,28 +2,36 @@
 // Carousel
 // Overrides for the Bootstrap Carousel
 //
-// @author Ian Warner <ian.warner@drykiss.com>
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
 //----------------------------------------------------------------------------//
 
-// Carousel
-// ---------------------------------------------------------------------------//
-.carousel {
-
-    img {
-        width : 100%;
-    }
-
-    &#iPhoneCarousel {
-        width : 320px
-    }
-
-}
+// Module
+//----------------------------------------------------------------------------//
+$module : 'carousel';
 
 // Carousel
 // ---------------------------------------------------------------------------//
-.carousel {
+.#{ $module } {
 
-    // Img Width
+    // Caption only
+    //------------------------------------------------------------------------//
+    &__captionOnly {
+
+        .carousel-caption {
+
+            margin   : 0;
+            padding  : 0;
+            position : initial;
+
+            h3, p {
+                margin : 0;
+            }
+        }
+
+    }
+
+    // Image Width
     //------------------------------------------------------------------------//
     .carousel-inner .img-responsive {
         width: 100%;
@@ -69,5 +77,4 @@
         }
 
     }
-
 }

@@ -39,37 +39,45 @@
         -# Array Loop
         - locals[ :array ].each_with_index do | slide, i |
 
+            -# Image
+            - image = slide[ :image ]
+
             -# If this is the first slide make it active
             .item{ class: i == 0 ? "active" : false }
 
-                -# Image
-                - if slide[ :image ]
+                -# Image - make sure there is a src
+                - if image[ :src ]
 
                     -# Default alternative text if not found
-                    - if ! slide[ :image ][ :alt ]
-                        - slide[ :image ][ :alt ] = "Carousel #{ i }"
+                    - if ! image[ :alt ]
+                        - image[ :alt ] = "Carousel #{ i }"
 
                     -# Image
-                    = codeBlender "image", "atom", slide[ :image ]
+                    = codeBlender "image", "atom", image
 
                 -# Caption
-                - if slide[ :image ][ :carouselCaption ]
+                - if image[ :carouselCaption ]
+
+                    -# Caption
+                    - caption = image[ :carouselCaption ]
 
                     -# Caption
                     .carousel-caption
 
+                        -# Tag
+                        - caption[ :tag ] = caption[ :tag ] ? caption[ :tag ] : "h3"
+
                         -# Heading
-                        = codeBlender "heading", "molecule",
-                            { tag: "h3", text: slide[ :image ][ :carouselCaption ][ :title ] }
+                        = codeBlender "heading", "molecule", caption
 
                         -# Body
-                        %p= slide[ :image ][ :carouselCaption ][ :body ]
+                        %p= caption[ :body ]
 
                         -# Check if we want a button
-                        - if slide[ :image ][ :carouselCaption ][ :button ]
+                        - if caption[ :button ]
 
                             -# Button
-                            = codeBlender "button", "atom", slide[ :image ][ :carouselCaption ][ :button ]
+                            = codeBlender "button", "atom", caption[ :button ]
 
     -# Controls
     - if locals[ :control ]

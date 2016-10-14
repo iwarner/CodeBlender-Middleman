@@ -6,31 +6,17 @@
 -# @see      https://developers.facebook.com/docs/plugins/share-button/
 -##
 
--# HREF
-- if ! locals[ :href ]
-    - href = "https://www.facebook.com/onlyasmile/"
+-# Url
+- locals[ :href ] = locals[ :href ] ? locals[ :href ] : false
 
--# Type
-- if ! locals[ :type ]
-    - type = "html5"
+-# Layout - icon_link( default ), box_count, button_count, button
+- locals[ :layout ] = locals[ :layout ] ? locals[ :layout ] : "icon_link"
 
--# Debug
--# = href
--# = type
+-# Size - large and small( default )
+- locals[ :size ] = locals[ :size ] ? locals[ :size ] : "small"
 
--# HTML5
-- if type == "html5"
+-# Mobile iframe - true or false
+- locals[ :mobile_iframe ] = locals[ :mobile_iframe ] ? locals[ :mobile_iframe ] : "true"
 
-    .fb-share-button{ :data => { :href => href } }
-
-    -# XFBML
-- elsif type == "xfbml"
-    XFBML
-
-    -# iFrame
-- elsif type == "iframe"
-    iFrame
-
-    -# URL
-- elsif type == "url"
-    URL
+-# Share button
+.fb-share-button{ data: { href: locals[ :href ], layout: locals[ :layout ], small: locals[ :size ], mobile_iframe: locals[ :mobile_iframe ] } }

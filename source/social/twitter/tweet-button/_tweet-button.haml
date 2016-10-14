@@ -1,0 +1,38 @@
+-##
+-# Twitter tweet button
+-#
+-# Usage
+-# = codeBlender "tweet-button", "social"
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @see    https://dev.twitter.com/docs/tweet-button
+-##
+
+-# Attribute variable
+- data = {}
+
+-# Lang
+- data[ :lang ] = locals[ :lang ] ? locals[ :lang ] : "en"
+
+-# Text
+-# The text parameter may be auto-populated from the webpage’s <title> element if not explicitly set.
+- data[ :text ] = locals[ :text ] ? locals[ :text ] : "yo"
+
+-# URL
+-# The shared URL will be shortened by Twitter’s t.co service in a published Tweet. A Twitter Card may be appear for a shared URL.
+- data[ :url ] = locals[ :url ] ? locals[ :url ] : false
+
+-# Hashtags
+-# Add a comma-separated list of hashtags to a Tweet using the hashtags parameter. Omit a preceding “#” from each hashtag; the Tweet composer will automatically add the proper space-separated hashtag by language.
+- data[ :hashtags ] = locals[ :hashtags ] ? locals[ :hashtags ] : false
+
+-# Via
+-# Attribute the source of a Tweet to a Twitter username using the via parameter. The attribution will appear in a Tweet as ” via @username” translated into the language of the Tweet author.
+- data[ :via ] = locals[ :via ] ? locals[ :via ] : false
+
+-# Size
+- data[ :size ] = locals[ :size ] ? locals[ :size ] : "default"
+
+-# Link To
+%a.twitter-share-button{ href: "https://twitter.com/intent/tweet", data: data }
+    Tweet

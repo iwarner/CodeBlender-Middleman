@@ -10,7 +10,6 @@
 // @import "_library/bootstrap/components/list-group";
 // @import "_library/bootstrap/components/media";
 // @import "_library/bootstrap/components/thumbnails";
-// @import "_library/bootstrap/javascript/carousel";
 // @import "_library/bootstrap/javascript/collapse";
 
 // E-Commerce
@@ -41,7 +40,6 @@
 // @import "_library/scaffolding/gallery";
 // @import "_library/scaffolding/lightbox";
 // @import "_library/scaffolding/mobile";
-@import "~atom/shape/shape";
 // @import "_library/scaffolding/show-grid";
 // @import "_library/scaffolding/timeline";
 
@@ -57,12 +55,14 @@
 //----------------------------------------------------------------------------//
 @import "~atom/image/image";
 @import "~atom/label/label";
+@import "~atom/shape/shape";
 
 // Molecule
 //----------------------------------------------------------------------------//
 @import "~molecule/archive/archive";
 @import "~molecule/brand/brand";
 @import "~molecule/breadcrumb/breadcrumb";
+@import "~molecule/carousel/carousel";
 @import "~molecule/detail/detail";
 @import "~molecule/dropdown/dropdown";
 @import "~molecule/heading/heading";

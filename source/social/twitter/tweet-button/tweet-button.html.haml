@@ -1,0 +1,79 @@
+---
+
+# Angular
+angular :
+    controller   : "TwitterController"
+    controllerAs : "twitter"
+
+# Meta
+meta :
+    author      : "DryKISS"
+    description : "Twitter tweet button - CodeBlender"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Twitter tweet button - CodeBlender"
+    type        : "website"
+
+# Heading
+heading :
+    title : "Tweet button"
+
+# See
+see :
+    - - "Tweet Button"
+      - "https://dev.twitter.com/docs/tweet-button"
+
+# Todo
+todo :
+    - - "Provide a sample of the JS version - using the promises"
+    - - "Complete with the full set of parameters"
+
+---
+
+:markdown
+
+    The tweet button allows a user to tweet about the specific content on the
+    page - usually sending some sample text and the url for twitter to then
+    interpret into a twitter card.
+
+    This can be invoked via a button or through JavaScript
+
+    - twttr.widgets.createTweet
+    - twttr.widgets.createShareButton
+
+-# Default
+:ruby
+    code = %{codeBlender "tweet-button", "social/twitter/tweet-button"}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+
+%hr
+
+:markdown
+
+    Can also invoke the tweet button directly through JavaScript
+
+-# Button - share dialog
+:ruby
+    code = %{codeBlender "button", "atom", { id: "twitterShare", text: "Tweet", ng: { click: "twitter.share( 'https://deliveroo.co.uk/blog/' )" } }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Tweet button through JavaScript" } }
+
+%hr
+
+:markdown
+
+    Can also invoke the tweet dialog directly through a href tag
+
+    https://twitter.com/intent/tweet?url=URL&text=TEXT
+
+-# Button - share dialog
+:ruby
+    text = URI.encode( "Deliveroo Blog" )
+    url  = URI.encode( "https://deliveroo.co.uk/blog/" )
+    code = %{codeBlender "button", "atom", { id: "twitterShare", text: "Tweet", href: "https://twitter.com/intent/tweet?url=#{ url }&text=#{ text }" }}
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Tweet dialog" } }

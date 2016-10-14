@@ -86,6 +86,14 @@ activate :blog do | blog |
     blog.per_page          = 5
     blog.page_link         = "page/{num}"
 
+    # /categories/user-experience.html
+    blog.custom_collections = {
+        category: {
+            link:     '/categories/{category}.html',
+            template: "template/blog-tag/blog-tag.html"
+        }
+    }
+
 end
 
 # Blog : Portfolio

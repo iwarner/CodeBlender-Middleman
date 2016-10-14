@@ -7,6 +7,7 @@
 # @author   Ian Warner <ian.warner@drykiss.com>
 # @category social
 # @see      https://dev.twitter.com/rest/tools/console
+# @see      https://www.sitepoint.com/building-twitter-app-using-angularjs/
 ##
 
 ##
