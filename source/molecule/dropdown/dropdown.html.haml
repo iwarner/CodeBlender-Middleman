@@ -77,10 +77,10 @@ list :
 
 -# Dropup
 :ruby
-    code = %{codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, extraClass: "dropup", list: { array: current_page.data.list } }}
+    code = %{codeBlender "dropdown", "molecule", { button: { href: "javascript:;", text: "Dropdown" }, extraClass: "dropup", list: { array: current_page.data.list } }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Dropup" } }
+= codeBlender "code", "organism", { code: code, heading: { text: "Dropup with just text" } }
 
 -# Button Group
 :ruby

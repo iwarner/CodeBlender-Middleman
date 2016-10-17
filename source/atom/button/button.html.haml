@@ -25,56 +25,6 @@ todo :
     - - "locals[ :text ] seems to be required but what if we just want an icon button provide option and graceful fallback on errors"
     - - "Handle the target a bit better should be contained in a link array link: { uri:, target: } so contained"
 
-locals :
-    - - "active"
-      - "bool"
-      - "optional"
-      - "Whether button is in active state"
-    - - "block"
-      - "bool"
-      - "optional"
-      - "true or false Default: false"
-    - - "context"
-      - "string"
-      - "optional"
-      - "default, primary, success, info, warning, danger, link"
-    - - "content"
-      - "string"
-      - "required"
-      - "Content of the button"
-    - - "disabled"
-      - "bool"
-      - "optional"
-      - "Whether button is in disabled state"
-    - - "dropdown"
-      - "bool"
-      - "optional"
-      - "Button is a dropdown Button add correct elements"
-    - - "extraClass"
-      - "string"
-      - "optional"
-      - "Extra Classes"
-    - - "href"
-      - "string"
-      - "optional"
-      - "HREF for an A Tag"
-    - - "id"
-      - "string"
-      - "optional"
-      - "ID for the button"
-    - - "icon"
-      - "string"
-      - "optional"
-      - "Whether to append an icon to the button"
-    - - "size"
-      - "string"
-      - "optional"
-      - "Either : xs, sm, lg or blank"
-    - - "toggle"
-      - "string"
-      - "optional"
-      - "Usually either dropdown or modal"
-
 ---
 
 -# Vanilla Button
@@ -114,14 +64,14 @@ locals :
 
 -# Icon Button
 :ruby
-    code = %{codeBlender "button", "atom", { text: "info", icon: { prepend: { icon: "fa fa-times" } } }}
+    code = %{codeBlender "button", "atom", { icon: { prepend: { icon: "fa fa-times" } } }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Icon Button" } }
 
 -# Image Button
 :ruby
-    code = %{codeBlender "button", "atom", { image: { data: { src: holder( "32x32" ) }}}}
+    code = %{codeBlender "button", "atom", { image: { src: lorem.image( "32x32" ) }}}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Image Button" } }

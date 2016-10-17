@@ -9,7 +9,10 @@
     "homepage"    : "http://codeblender.net",
 
     "scripts" : {
-        "test" : "echo \"Error: no test specified\" && exit 1"
+        "server"  : "LANG=$LANG bundle exec middleman server -p 8080",
+        "build"   : "LANG=$LANG bundle exec middleman build",
+        "verbose" : "LANG=$LANG bundle exec middleman build --verbose --clean",
+        "deploy"  : "LANG=$LANG bundle exec middleman build && LANG=$LANG bundle exec middleman deploy"
     },
 
     "repository": {

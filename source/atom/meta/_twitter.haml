@@ -1,27 +1,39 @@
 -##
--# Twitter Meta Tags
+-# Twitter meta tags
+-# These are used to create the cards for twitter when a share is actioned.
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category meta
 -# @see      https://dev.twitter.com/cards/getting-started
 -# @see      https://dev.twitter.com/cards/markup
+-# @see      https://cards-dev.twitter.com/validator
 -##
 
 -# Variable
 - cp      = current_page
-- dc      = data.config
-- twitter = dc.twitter
+- twitter = data.twitter
 - m       = cp.data.stub
 
 -# Site
-%meta{ name: "twitter:site",        content: twitter.account }
+-# The Twitter @username the card should be attributed to.
+%meta{ name: "twitter:site", content: twitter.account }
 
-%meta{ name: "twitter:card",        content: "summary" }
+-# Card type
+%meta{ name: "twitter:card", content: "summary_large_image" }
 
-%meta{ name: "twitter:creator",     content: twitter.account }
+-# Creator
+%meta{ name: "twitter:creator", content: twitter.account }
 
-%meta{ name: "twitter:title",       content: string( :"meta.#{ m }.title" ) }
+-# Title (max 70 characters)
+-# A concise title for the related content.
+%meta{ name: "twitter:title", content: string( :"meta.#{ m }.title" ) }
 
+-# Description (maximum 200 characters)
+-# A description that concisely summarizes the content as appropriate for presentation within a Tweet.
 %meta{ name: "twitter:description", content: string( :"meta.#{ m }.description" ) }
 
-%meta{ name: "twitter:image",       content: "" }
+-# Image
+-# A URL to a unique image representing the content of the page. Images for this
+-# Card should be at least 280px in width, and at least 150px in height. Image
+-# must be less than 1MB in size.
+%meta{ name: "twitter:image", content: string( :"meta.#{ m }.image" ) }
