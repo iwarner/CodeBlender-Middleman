@@ -34,9 +34,12 @@ angular
         'app.service'
         'app.utility'
 
-        # 'ngAnimate'
+        # Clipboard
         'ngClipboard'
+        'angular-clipboard'
+        'ngclipboard'
 
+        # 'ngAnimate'
         'ngResource'
 
         # 'datatables'

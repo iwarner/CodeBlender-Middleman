@@ -19,6 +19,13 @@ require 'angular-sanitize'
 require 'angular-ui-grid'
 require 'angular-ui-router'
 
+# Angular clipboard
+require 'angular-clipboard'
+
+# NgClipboard uses clipboardJS
+require 'clipboard'
+require 'ngclipboard'
+
 # Angular Clipboard
 window.ZeroClipboard = require "zeroclipboard"
 require 'ng-clip'
@@ -39,6 +46,11 @@ require 'lib/router/default.coffee'
 # require 'lib/service/auth.coffee'
 # require 'lib/service/security.coffee'
 # require 'lib/service/utilities.coffee'
+
+##
+# Atom
+##
+require 'atom/clipboard/_clipboard_controller.coffee'
 
 ##
 # Molecule

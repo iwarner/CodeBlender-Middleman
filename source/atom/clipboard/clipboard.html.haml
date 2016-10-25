@@ -1,0 +1,135 @@
+---
+
+# Angular
+angular :
+    controller   : ClipboardController
+    controllerAs : clipboard
+
+# Meta
+meta:
+    author      : "DryKISS"
+    description : "Clipboard working with copying and pasting some text"
+    image       : "Image"
+    subject     : "DryKISS"
+    title       : "Clipboard - CodeBlender"
+    type        : "website"
+
+# Heading
+heading :
+    title : "Clipboard"
+
+# See
+see :
+    - - "Zero Clipboard"
+      - "https://github.com/zeroclipboard/zeroclipboard"
+    - - "NG Clip"
+      - "https://github.com/asafdav/ng-clip"
+    - - "angular-clipboard"
+      - "https://github.com/omichelsen/angular-clipboard"
+    - - "ClipboardJS"
+      - "https://clipboardjs.com/"
+    - - "Copy to clipboard"
+      - "https://www.sitepoint.com/javascript-copy-to-clipboard/"
+
+# Todo
+todo :
+    - - "Move the required ngClipProvider.setPath to the controller if possible"
+    - - "Add clipboardJS example"
+    - - "Create the DOM interaction as an angular directive"
+    - - "Move text into locale"
+    - - "Make this more angular - use ng-class to change tabs for instance and scope to access the contents"
+
+---
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h3", text: "Installation" }
+
+        -# Markdown
+        :markdown
+
+            To facilitate a copy to clipboard pattern, we will utilise
+            [NGClip](https://github.com/asafdav/ng-clip), which in turn uses the
+            [ZeroClipboard](http://zeroclipboard.org/) library.
+
+            Add the following to your package.json files
+
+            - zeroclipboard
+            - ng-clip
+            - $ npm install
+
+            Include the correct JavaScript files in the JavaScript sprockets
+
+            ~~~
+            # Angular Clipboard
+            window.ZeroClipboard = require "zeroclipboard"
+            require 'ng-clip'
+            ~~~
+
+            Set ngClipboard as a dependency
+
+            ~~~
+            angular.module 'app', [ 'ngClipboard' ]
+            ~~~
+
+            Add the provider and path to the SWF file into your angular app config
+
+            ~~~
+            config = ( ngClipProvider ) ->
+            ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'
+            ~~~
+
+            Add the provide to the inject
+
+            ~~~
+            config.$inject = [
+                'ngClipProvider'
+            ]
+            ~~~
+
+            Add clip-copy directive to the desired element, example:
+
+            - clip-copy="NGModel"
+            - clip-copy="getTextToCopy()"
+            - clip-click="doSomething()"
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h3", text: "Zero clipboard example" }
+
+        -# Input
+        = codeBlender "input", "atom", { input: { name: "text", ng: { model: "clipboard.copy1" } }, label: { title: "Enter Text" } }
+
+        -# Default
+        :ruby
+            code = %{codeBlender "clipboard", "atom", { model: "clipboard.copy1" }}
+
+        -# Code
+        = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h3", text: "Angular clipboard example" }
+
+        %button{ clipboard: true, supported: "clipboard.supported", text: "clipboard.copy1", "on-copied": "clipboard.success()", "on-error": "clipboard.error( err )" }
+            Copy
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h3", text: "Angular clipboard as a service" }
+
+        %a{ ng: { click: "clipboard.clickHandler()" } }
+            Copy
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h3", text: "NgClipboard example" }
+
+        %p Utilises clipboardJS to copy
+
+        %button{ ngclipboard: true, "data-clipboard-text": "clipboard.copy1", "ngclipboard-success": "clipboard.success( e );", "ngclipboard-error": "clipboard.error( e );" }
+            Copy

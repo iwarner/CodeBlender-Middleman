@@ -49,11 +49,9 @@
         - if data.config.javascript.head
             = javascript_include_tag :"head.bundle"
 
-    -# Facebook locale
-    - if data.has_key? "facebook"
-        - localFB = data.facebook.locale.present? ? data.facebook.locale[ locale ] : false
-    - else
-        - localFB = false
+    -# Facebook locale - check it exists and use on body tag
+    - localeFacebook = I18n.exists?( :localeFacebook )    ? t( :localeFacebook )    : false
+    - facebookAppID  = I18n.exists?( :"facebook.app.id" ) ? t( :"facebook.app.id" ) : false
 
     -# Angular controller
     - if d.angular
@@ -65,6 +63,7 @@
     %body{ id:        data.config.body.id ? data.config.body.id : false,
            class:     data.config.body.extraClass ? data.config.body.extraClass : false,
            itemscope: true, itemtype: "https://schema.org/WebPage",
+           data:      { localeFacebook: localeFacebook ? localeFacebook : false, facebookAppID: facebookAppID ? facebookAppID : false },
            ng:        { controller: angularController } }
 
         -# Top anchor

@@ -13,7 +13,7 @@
 # @param routeProvider    NGRouter
 # @param locationProvider To remove the Hash
 ##
-config = ( $stateProvider, $urlRouterProvider, ngClipProvider, $facebookProvider ) ->
+config = ( ngClipProvider, $facebookProvider ) ->
 
     # Zero Clipboard Setting
     ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'
@@ -92,8 +92,6 @@ angular
 # Inject
 ##
 config.$inject = [
-    '$stateProvider'
-    '$urlRouterProvider'
     'ngClipProvider'
     '$facebookProvider'
 ]

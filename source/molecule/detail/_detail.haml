@@ -19,7 +19,7 @@
 - name = locals[ :name ] ? locals[ :name ] : blog_controller.name
 
 -# Variable
-- url = data.config.url + current_page.url
+- url = t( :url ) + current_page.url
 - cp  = current_page.data
 
 -# Blog detail

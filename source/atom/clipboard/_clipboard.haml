@@ -1,0 +1,20 @@
+-##
+-# Zero clipboard
+-#
+-# @usage
+-# -# Clipboard
+-# = codeBlender "clipboard", "atom"
+-#
+-# @param model - Angular Model definition
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Button - Copy
+= codeBlender "button", "atom",
+  { clip:       { copy: locals[ :model ] },
+    context:    "primary",
+    extraClass: locals[ :extraClass ] ? extraClass : false,
+    text:       "Copy",
+    type:       "button" }

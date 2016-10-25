@@ -41,7 +41,7 @@
 %meta{ name: "robots", content: "index,follow,archive" }
 
 -# Canonical
-%meta{ rel: "canonical", href: data.config.url + current_page.url }
+%meta{ rel: "canonical", href: t( :url ) + current_page.url }
 
 -# CSRF Token
 -# %meta{ name: "csrf-token", content: Random.new_seed }

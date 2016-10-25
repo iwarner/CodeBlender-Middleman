@@ -28,10 +28,6 @@ body :
     target     : false
     offset     : false
 
-# Brand
-brand : "Code Blender"
-url   : "http://codeblender.net"
-
 # JavaScript
 javascript :
     head : false

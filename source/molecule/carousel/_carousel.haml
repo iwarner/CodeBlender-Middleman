@@ -30,20 +30,24 @@
             - locals[ :array ].each_with_index do | slide, i |
 
                 -# If this is the first slide make it active
-                %li{ class: i == 0 ? "active" : false,
-                     data:  { target: "." + id, slide: { to: i } } }
+                %li{ class: i == 0 ? "active" : false, data:  { target: "." + id, slide: { to: i } } }
 
     -# Inner Content
     .carousel-inner{ role: "listbox" }
 
-        -# Array Loop
+        -# Array loop
         - locals[ :array ].each_with_index do | slide, i |
 
             -# Image
             - image = slide[ :image ]
 
+            -# Variable
+            - itemClass = image[ :itemClass ] ? image[ :itemClass ] : false
+            - ng        = { swipe: { right: "root.carouselSwipePrev( $event )", left: "root.carouselSwipeNext( $event )" } }
+            - data      = image[ :data ] ? image[ :data ] : false
+
             -# If this is the first slide make it active
-            .item{ class: i == 0 ? "active" : false }
+            .item{ class: i == 0 ? "#{ itemClass } active" : itemClass, ng: ng, data: data }
 
                 -# Image - make sure there is a src
                 - if image[ :src ]
@@ -71,23 +75,22 @@
                         = codeBlender "heading", "molecule", caption
 
                         -# Body
-                        %p= caption[ :body ]
+                        - if caption[ :body ]
+                            %p= caption[ :body ]
 
-                        -# Check if we want a button
+                        -# Button
                         - if caption[ :button ]
-
-                            -# Button
                             = codeBlender "button", "atom", caption[ :button ]
 
     -# Controls
     - if locals[ :control ]
 
         -# Previous - left control
-        = link_to( ".#{ id }", class: "carousel-control left", data: { slide: "prev" }, role: "button" ) do
+        = link_to( ".#{ id }", class: "carousel-control left", data: { slide: "prev" }, role: "button", ng: { click: "root.carouselPrev( $event )" } ) do
             %span.glyphicon.glyphicon-chevron-left{ aria: { hidden: "true" } }
             %span.sr-only Previous
 
         -# Next - right control
-        = link_to( ".#{ id }", class: "carousel-control right", data: { slide: "next" }, role: "button" ) do
+        = link_to( ".#{ id }", class: "carousel-control right", data: { slide: "next" }, role: "button", ng: { click: "root.carouselNext( $event )" } ) do
             %span.glyphicon.glyphicon-chevron-right{ aria: { hidden: "true" } }
             %span.sr-only Next

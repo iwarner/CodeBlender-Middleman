@@ -55,6 +55,12 @@ module.exports = {
                 )
             },
 
+            // SWF
+            {
+                test   : /\.swf$/,
+                loader : "file-loader?name=assets/swf/[name].[ext]"
+            },
+
             // Load vanilla CSS
             {
                 test   : /.*\.css$/,

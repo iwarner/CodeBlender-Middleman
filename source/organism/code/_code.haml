@@ -39,7 +39,7 @@
     .code__code{ ng: { controller: "CodeController as code" } }
 
         -# Zero Clipboard - Copy
-        = codeBlender "zero-clipboard", "atom", { extraClass: "code__clip", model: "code.copy( '#{ seed.to_s }' )" }
+        = codeBlender "clipboard", "atom", { extraClass: "code__clip", model: "code.copy( '#{ seed.to_s }' )" }
 
         -# Navigation tabs - For code and output
         - array =  t( :"code.tab" ).map{ | h | h.merge( url: h[ :url ] + seed.to_s ) }

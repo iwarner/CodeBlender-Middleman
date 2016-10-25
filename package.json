@@ -33,10 +33,12 @@
         "angular-ui-bootstrap" : "",
         "angular-ui-grid"      : "",
         "angular-ui-router"    : "",
+        "angular-clipboard"    : "",
         "bootstrap-sass"       : "",
         "font-awesome"         : "",
         "lodash"               : "",
         "jquery"               : "",
+        "ngclipboard"          : "",
         "ng-clip"              : "",
         "zeroclipboard"        : ""
     },

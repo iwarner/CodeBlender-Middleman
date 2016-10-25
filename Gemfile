@@ -13,11 +13,12 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 # Middleman Gems
 gem "middleman"
 gem "middleman-livereload"
-gem "middleman-blog",         github: "middleman/middleman-blog",           branch: "master"
-gem "middleman-deploy",       github: "middleman-contrib/middleman-deploy", branch: "master"
+gem "middleman-blog",         git: "https://github.com/middleman/middleman-blog.git",           branch: "master"
+gem "middleman-deploy",       git: "https://github.com/middleman-contrib/middleman-deploy.git", branch: "master"
 gem "middleman-favicon-maker"
 gem "middleman-minify-html"
 gem "middleman-syntax"
+gem "middleman-seo-check",     path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-seo-check"
 
 # Tools
 gem "bourbon"

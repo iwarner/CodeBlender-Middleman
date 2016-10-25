@@ -64,7 +64,7 @@ todo :
 -# Carousel
 :ruby
     code = %{codeBlender "carousel", "molecule",
-      { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } },
+      { array: [ { image: { data: { text: "yes" }, itemClass: "test", extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 1' ) } },
                  { image: { extraClass: "img-responsive", src: lorem.image( '820x400', :random_color => true, text: 'Carousel 2' ) } } ],
         data:  { ride: "carousel", interval: "3000" }, control: true, indicator: true, id: "carousel1" }}
 

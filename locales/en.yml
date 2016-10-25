@@ -10,7 +10,12 @@
 en:
 
     # Locale
-    locale : "en"
+    locale         : "en"
+    localeFacebook : "en_GB"
+
+    # Brand
+    brand : "Code Blender"
+    url   : "http://codeblender.net"
 
     # Pagination
     pagination :
