@@ -6,15 +6,15 @@ Gem::Specification.new do | s |
     s.name        = "middleman-seo-check"
     s.version     = "0.0.1"
     s.platform    = Gem::Platform::RUBY
-    s.authors     = ["Ian Warner"]
-    s.email       = ["ian.warner@drykiss.com"]
+    s.authors     = [ "Ian Warner" ]
+    s.email       = [ "ian.warner@drykiss.com" ]
     s.homepage    = "http://drykiss.com"
     s.summary     = %q{Middleman SEO page checker}
     s.description = %q{Middleman SEO page checker}
 
-    s.files         = `git ls-files`.split("\n")
-    s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-    s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+    s.files         = `git ls-files`.split( "\n" )
+    s.test_files    = `git ls-files -- {test,spec,features}/*`.split( "\n" )
+    s.executables   = `git ls-files -- bin/*`.split( "\n" ).map{ | f | File.basename( f ) }
     s.require_paths = ["lib"]
 
     # The version of middleman-core your extension depends on
