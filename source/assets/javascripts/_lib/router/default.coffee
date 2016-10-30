@@ -18,12 +18,12 @@ config = ( ngClipProvider, $facebookProvider ) ->
     # Zero Clipboard Setting
     ngClipProvider.setPath '/assets/swf/ZeroClipboard.swf'
 
-    # Set Facebook app ID
-    $facebookProvider.setAppId '253027968192447'
+    # Get the facebook locale from body data
+    appID = $( 'body' ).data( 'facebookappid' )
 
-    # Default state
-    # $urlRouterProvider.when "", "/"
-    # $urlRouterProvider.when "/", "/"
+    # Set Facebook app ID
+    $facebookProvider.setAppId appID
+    $facebookProvider.setVersion "v2.8"
 
 ##
 # Run
@@ -31,12 +31,16 @@ config = ( ngClipProvider, $facebookProvider ) ->
 #
 # @see https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-users-and-authentication-onauthcallback-context
 ##
-run = ( $log, $rootScope, $state, $stateParams ) ->
+run = ( $log, $window ) ->
 
-    do ->
+    do  ->
 
         # Debug
         $log.log "Facebook sdk loaded"
+
+        # Locale
+        locale = $( 'body' ).data( 'localefacebook' )
+        appID  = $( 'body' ).data( 'facebookappid' )
 
         # Facebook load
         ( ( d, s, id ) ->
@@ -44,9 +48,10 @@ run = ( $log, $rootScope, $state, $stateParams ) ->
             fjs = d.getElementsByTagName( s )[ 0 ]
             if d.getElementById id
                 return
-            js     = d.createElement s
-            js.id  = id
-            js.src = 'https://connect.facebook.net/en_GB/sdk.js'
+            js        = d.createElement s
+            js.id     = id
+            js.src    = '//connect.facebook.net/' + locale + '/sdk.js#xfbml=1&version=v2.8&appId=' + appID
+            # js.onload = _ga.trackFacebook
             fjs.parentNode.insertBefore js, fjs
             return
         ) document, 'script', 'facebook-jssdk'
@@ -55,15 +60,16 @@ run = ( $log, $rootScope, $state, $stateParams ) ->
         $log.log "Twitter sdk loaded"
 
         # Twitter load
-        ( ( d, s, id ) ->
+        $window.twttr = ( ( d, s, id ) ->
             js  = undefined
             fjs = d.getElementsByTagName( s )[ 0 ]
-            t   = window.twttr or {}
+            t   = $window.twttr or {}
             if d.getElementById( id )
                 return t
-            js     = d.createElement( s )
-            js.id  = id
-            js.src = 'https://platform.twitter.com/widgets.js'
+            js        = d.createElement( s )
+            js.id     = id
+            js.src    = 'https://platform.twitter.com/widgets.js'
+            # js.onload = _ga.trackTwitter
             fjs.parentNode.insertBefore js, fjs
             t._e = []
             t.ready = ( f ) ->
@@ -72,13 +78,15 @@ run = ( $log, $rootScope, $state, $stateParams ) ->
             t
         )( document, 'script', 'twitter-wjs' )
 
-    # Track status of authentication
-    # auth.$onAuth ( user ) ->
+        # Track status of authentication
+        # auth.$onAuth ( user ) ->
 
-    #     $log.log "Loggind In:", user
+        #     $log.log "Loggind In:", user
 
-    #     $rootScope.loggedIn = ! !user
-    #     return
+        #     $rootScope.loggedIn = ! !user
+        #     return
+
+    return
 
 ##
 # Module
@@ -101,7 +109,5 @@ config.$inject = [
 ##
 run.$inject = [
     '$log'
-    '$rootScope'
-    '$state'
-    '$stateParams'
+    '$window'
 ]

@@ -1,5 +1,6 @@
 ##
 # Facebook YAML
+# Will use the TestID when the app is being viewed on middleman local server.
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
 # @category config
@@ -9,11 +10,11 @@
 
 app :
     id     : "253027968192447"
+    testID : "671223719706201"
     secret : "09627a7f101b7225459d95357b80114e"
 
 page :
     id  : "835310269859992"
     url : "https://www.facebook.com/codeblender"
 
-locale :
-    en : "en_GB"
+locale : "en_GB"

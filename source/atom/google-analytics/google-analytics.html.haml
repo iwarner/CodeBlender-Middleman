@@ -1,5 +1,11 @@
 ---
 
+# Angular
+angular :
+    controller   : GoogleAnalyticsController
+    controllerAs : analytic
+
+# Meta
 meta :
     author      : "DryKISS"
     description : "Google analytics - CodeBlender"
@@ -8,24 +14,41 @@ meta :
     title       : "Google analytics - CodeBlender"
     type        : "website"
 
+# Heading
 heading :
     small : "Google Analytics site statistics and reporting"
     title : "Analytics"
 
+# Resource
 see :
     - - "Google Analytics"
       - "https://www.google.com/analytics"
-
-todo :
-    - - "Put the various ways of including the Analytics code into here"
-
+    - - "Google AutoTrack"
+      - "https://github.com/googleanalytics/autotrack"
+    - - "Social interactions"
+      - "https://developers.google.com/analytics/devguides/collection/analyticsjs/social-interactions"
+    - - "Social tracking - out of date"
+      - "https://www.optimizesmart.com/social-interactions-tracking-through-google-analytics/"
+    - - "Social tracking events"
+      - "https://18fc485cad79611589f8-dd8168d3387390de8129c651d2deeb33.ssl.cf3.rackcdn.com/v1.3/ga_social.js"
 ---
 
 :markdown
 
-    - If the analytics key is created as "locale" then we need to check the
-      language file for the analytics code, this is useful for a multi-language
-      multi-domain site.
+    ### Example analytics code
+
+    Please note Google do change this from time to time so always check the
+    latest tracking info section.
+
+    ~~~ javascript
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga( 'create', 'CODE', 'URL' );
+    ga( 'send',   'pageview' );
+    ~~~
 
 -# Default
 :ruby
@@ -33,3 +56,90 @@ todo :
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+
+:markdown
+
+    ### Installation
+
+    Create the following in the data folder : google.yaml, and add the following
+    collection to represent the analytics.
+
+    ~~~ yaml
+    # Analytics
+    analytics :
+        active : true
+        code   : "UA-XXXXXXXX-X"
+        url    : "auto"
+    ~~~
+
+    ### Multi domain and language
+
+    If your site has a domain per language, then you need to provide the
+    collection in each locale file. This can be achieved by changing the google.yaml
+    file to the following :
+
+    ~~~ yaml
+    # Google analytics
+    analytics :
+        active : true
+        code   : "locale"
+        url    : "auto"
+    ~~~
+
+    and adding the code into say en.yml and repeat for each locale on a new domain.
+
+    ~~~ yaml
+    # Google analytics
+    google :
+        analytics :
+            code : "UA-85610225-1"
+    ~~~
+
+    ### Social tracking
+
+    To track whether a social action has occurred, requires binding to the
+    events from the network, and pushing a social track to analytics.
+
+    ~~~ javascript
+    ga( 'send', 'social', [ socialNetwork ], [ socialAction ], [ socialTarget ], [ fieldsObject ] );
+    ~~~
+
+    - network      = facebook, twitter etc
+    - socialAction = share, like etc
+
+    We ideally want to capture the initial click, listen to the network event
+    and track that the share was successfully done by the user.
+
+    Please note the **message.send** event is deprecated
+
+    ~~~ javascript
+    ga( "send", "social", "facebook", "share_click", b )
+
+    FB.Event.subscribe('edge.create', function(targetUrl) {
+        try {
+            ga( 'send', 'pageview', '/facebook/like/' + targetUrl );
+            ga( 'send', 'social',   'facebook', 'like', targetUrl );
+        }
+        catch ( e ) {}
+    });
+    ~~~
+
+    #### Facebook network events
+
+    - Like           : edge.create
+    - Unlike         : edge.remove
+    - Share          : message.send **Deprecated**
+    - Comment        : comment.create
+    - Comment remove : comment.remove
+
+    #### Twitter network events
+
+    - Tweet : twttr.events.bind 'tweet'
+
+%hr
+
+-# Button - facebook share
+= codeBlender "button", "atom", { text: "Facebook share", ng: { click: "analytic.facebookShare()" } }
+
+-# Button - Twitter
+= codeBlender "button", "atom", { href: "https://twitter.com/intent/tweet?url=http://drykiss.com&text=DryKISS.com", text: "Twitter share", ng: { click: "analytic.twitterShare()" } }

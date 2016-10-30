@@ -38,6 +38,7 @@ angular
         'ngClipboard'
         'angular-clipboard'
         'ngclipboard'
+        'ngFacebook'
 
         # 'ngAnimate'
         'ngResource'

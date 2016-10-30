@@ -68,8 +68,13 @@
 
 - if appID
 
-    -# App ID
-    - appID = ( appID == "locale" ) ?  t( :"facebook.app.id" ) : appID
+    -# Test id
+    - if development?
+        - appID = data.facebook.app.textID
+
+        -# App ID
+    - else
+        - appID = ( appID == "locale" ) ?  t( :"facebook.app.id" ) : appID
 
     %meta{ content: appID, property: "fb:app_id" }
 

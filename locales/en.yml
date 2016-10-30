@@ -10,8 +10,7 @@
 en:
 
     # Locale
-    locale         : "en"
-    localeFacebook : "en_GB"
+    locale : "en"
 
     # Brand
     brand : "Code Blender"

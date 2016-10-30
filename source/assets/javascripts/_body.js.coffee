@@ -25,6 +25,7 @@ require 'angular-clipboard'
 # NgClipboard uses clipboardJS
 require 'clipboard'
 require 'ngclipboard'
+require 'ng-facebook'
 
 # Angular Clipboard
 window.ZeroClipboard = require "zeroclipboard"
@@ -51,6 +52,7 @@ require 'lib/router/default.coffee'
 # Atom
 ##
 require 'atom/clipboard/_clipboard_controller.coffee'
+require 'atom/google-analytics/_google-analytics_controller.coffee'
 
 ##
 # Molecule
@@ -73,7 +75,6 @@ require 'organism/contact/_contact_controller.coffee'
 ##
 # Social
 ##
-require 'social/facebook/login/_facebook_module.coffee'
 require 'social/facebook/_facebook_controller.coffee'
 require 'social/twitter/_twitter_controller.coffee'
 

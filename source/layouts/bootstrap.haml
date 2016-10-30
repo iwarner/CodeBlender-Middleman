@@ -19,7 +19,7 @@
 - locale       = I18n.locale.to_s
 - d            = current_page.data
 - htmlAngular  = data.config.html.angular  ? data.config.html.angular : false
-- htmlManifest = data.config.html.manifest ? "/offline.manifest"     : false
+- htmlManifest = data.config.html.manifest ? "/offline.manifest"      : false
 - headPrefix   = data.config.head.prefix   ? data.config.head.prefix  : false
 
 -# HTML5 doctype
@@ -49,9 +49,15 @@
         - if data.config.javascript.head
             = javascript_include_tag :"head.bundle"
 
+    -# Use text Facebook ID in development
+    - if development?
+        - appID = data.facebook.app.testID
+    - else
+        - appID = data.facebook.app.id
+
     -# Facebook locale - check it exists and use on body tag
-    - localeFacebook = I18n.exists?( :localeFacebook )    ? t( :localeFacebook )    : false
-    - facebookAppID  = I18n.exists?( :"facebook.app.id" ) ? t( :"facebook.app.id" ) : false
+    - localeFacebook = I18n.exists?( :localeFacebook )    ? t( :localeFacebook )    : data.facebook.locale ? data.facebook.locale : false
+    - facebookAppID  = I18n.exists?( :"facebook.app.id" ) ? t( :"facebook.app.id" ) : appID ? appID : false
 
     -# Angular controller
     - if d.angular
