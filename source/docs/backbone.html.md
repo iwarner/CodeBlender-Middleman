@@ -4,10 +4,7 @@ heading :
     title : "Backbone"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Backbone"
-    type   : ""
+    title  : "Backbone - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

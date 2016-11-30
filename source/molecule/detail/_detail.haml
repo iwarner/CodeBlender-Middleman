@@ -32,8 +32,11 @@
         = codeBlender "icon", "atom", { icon: "fa-calendar fa-fw" }
 
         -# Time - format example : April 8, 2016
-        %time{ itemprop: "datePublished", datetime: "#{ cp.date.strftime( "%FT%T" ) }Z" }
+        %time{ pubdate: true, itemprop: "datePublished", datetime: "#{ cp.date.strftime( "%FT%T" ) }Z" }
+
             = cp.date.strftime '%B %e, %Y'
+            @
+            = cp.time
 
     -# Author
     - if locals[ :author ]

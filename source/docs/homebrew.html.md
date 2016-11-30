@@ -5,10 +5,7 @@ heading :
     title : "Homebrew"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Homebrew"
-    type   : ""
+    title  : "Homebrew - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

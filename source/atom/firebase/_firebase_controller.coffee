@@ -6,11 +6,6 @@
 ##
 
 ##
-# JS lint
-##
-'use strict'
-
-##
 # Firebase controller
 ##
 FirebaseController = ( $log, $firebaseAuth, $firebaseArray, FBURL ) ->

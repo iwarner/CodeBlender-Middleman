@@ -11,11 +11,6 @@
 ##
 
 ##
-# JS lint
-##
-'use strict'
-
-##
 # Show errors
 ##
 showErrors = ( $timeout, showErrorsConfig ) ->

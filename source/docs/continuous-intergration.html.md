@@ -5,10 +5,7 @@ heading :
     title : "Continuous integration"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Continuous integration"
-    type   : ""
+    title  : "Continuous integration - CodeBlender"
 
 category : "continuous-integration"
 date     : 2014-01-20

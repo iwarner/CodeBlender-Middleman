@@ -9,11 +9,6 @@
 ##
 
 ##
-# JS lint
-##
-'use strict'
-
-##
 # Clipboard controller
 ##
 ClipboardController = ( $log, clipboard ) ->

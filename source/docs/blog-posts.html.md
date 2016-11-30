@@ -5,10 +5,7 @@ heading :
     title : "Blog post"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Blog post"
-    type   : ""
+    title  : "Blog post - CodeBlender"
 
 category : "user-experience"
 date     : 2014-01-20

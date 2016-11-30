@@ -2,7 +2,11 @@
 
 # Variables
 layout : "fullWidth"
-stub   : "index"
+
+# Meta
+meta :
+    description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+    title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
 
 # Blog
 blogName : docs
@@ -107,6 +111,11 @@ todo :
 
             -# Button docs
             = codeBlender "button", "atom", { icon: { prepend: { icon: "fa fa-folder" } }, text: "Docs", size: "lg" }
+
+    %h2 Similar Entries
+    %ul
+        - similar_articles.first( 5 ).each do | article |
+            %li= link_to article.title, article.url
 
     %hr
 

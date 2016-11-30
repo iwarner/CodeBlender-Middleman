@@ -5,10 +5,7 @@ heading :
     title : "Bundler"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Bundler"
-    type   : ""
+    title : "Bundler - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

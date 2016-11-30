@@ -1,12 +1,8 @@
 ---
 
 meta :
-    author      : "DryKISS"
     description : "Select - CodeBlender"
-    image       : "Image"
-    subject     : "DryKISS"
     title       : "Select - CodeBlender"
-    type        : "website"
 
 heading :
     small : "Check YAML of page for array variation"
@@ -17,37 +13,6 @@ see :
       - "http://getbootstrap.com/css/#forms"
     - - "Select 2"
       - "http://ivaynberg.github.io/select2/select2-latest.html"
-
-locals :
-    - - "array"
-      - "array"
-      - "required"
-      - "Array of options to include"
-
-    - - "help"
-      - "string"
-      - "optional"
-      - "Help text"
-
-    - - "label"
-      - "array"
-      - "optional"
-      - "Text and Flag for Screen Reader for the label"
-
-    - - "extraClass"
-      - "string"
-      - "optional"
-      - "Classes for the label"
-
-    - - "multiple"
-      - "bool"
-      - "optional"
-      - "Multiple select box"
-
-    - - "name"
-      - "string"
-      - "required"
-      - "Name of the field"
 
 selectArray1 :
     - - "United Kingdom"
@@ -66,7 +31,10 @@ selectArray2 :
 
 -# Default
 :ruby
-    code = %{codeBlender "select", "atom", { array: @cd.selectArray1, label: { title: "Label" }, name: "ID" }}
+    code = %{codeBlender "select", "atom",
+      { column: "col-lg-6", array: @cd.selectArray1,
+        label:  { extraClass: "col-lg-2", title: "Label" },
+        name:   "ID" }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { small: "Different Value and Option", text: "Default" } }

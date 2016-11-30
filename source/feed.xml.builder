@@ -2,13 +2,13 @@ xml.instruct!
 
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
 
-    xml.id       "urn:uuid:#{ data.config.brand.downcase }:#{ data.config.url }"
+    xml.id       "urn:uuid:#{ t( :brand ).downcase }:#{ t( :url ) }"
 
     xml.title    data.config.atomTitle
     xml.subtitle data.config.atomSubTitle
 
     xml.link     "href" => data.config.url
-    xml.link     "href" => "#{ data.config.url }feed.xml", "rel" => "self"
+    xml.link     "href" => "#{  t( :url ) }feed.xml", "rel" => "self"
 
     xml.author   {
         xml.name  data.config.brand
@@ -22,7 +22,7 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
 
         xml.entry do
 
-            xml.id        "#{ data.config.url }#{ article.url }"
+            xml.id        "#{ t( :url ) }#{ article.url }"
             xml.title     article.title
             xml.published article.date.to_time.iso8601
             xml.updated   article.date.to_time.iso8601

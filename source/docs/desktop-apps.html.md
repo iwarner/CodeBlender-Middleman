@@ -5,10 +5,7 @@ heading :
     title : "Desktop applications"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Desktop applications"
-    type   : ""
+    title  : "Desktop applications - CodeBlender"
 
 category : "back-end"
 date     : 2014-01-20

@@ -1,7 +1,8 @@
 ##
 # English locale file
 #
-# @author Ian Warner <ian.warner@drykiss.com>
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category locale
 ##
 
 ---
@@ -10,7 +11,8 @@
 en:
 
     # Locale
-    locale : "en"
+    locale         : "en"
+    localeFacebook : "en_GB"
 
     # Brand
     brand : "Code Blender"
@@ -54,19 +56,14 @@ en:
     meta :
 
         # Global
+        author           : "DryKISS"
+        image            : "/assets/images/logo/facebookShare.png?v=1.00"
+        itemType         : "WebPage"
         publisher        : "DryKISS Ltd"
         publisherAddress : "ian.warner@drykiss.com"
         rights           : "&copy; 2015, DryKISS Ltd. All rights reserved."
-        itemType         : "WebPage"
-
-        # Index
-        index :
-            author      : "DryKISS"
-            description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
-            image       : "Image"
-            subject     : "DryKISS"
-            title       : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
-            type        : "website"
+        siteName         : "DryKISS"
+        type             : "website"
 
     # Navigation Above
     navAbove :
@@ -100,8 +97,18 @@ en:
               link : { url: "/template/template.html" }
 
             # Social
-            - text : "Social"
-              link : { url: "/social/social.html" }
+            - dropdown :
+                button :
+                  text : "Social"
+                items    :
+                  - text : "Facebook"
+                    link : { url : "/social/facebook/facebook.html" }
+                  - text : "Gravatar"
+                    link : { url : "/social/gravatar/gravatar.html" }
+                  - text : "LinkedIn"
+                    link : { url : "/social/linkedin/linkedin.html" }
+                  - text : "Twitter"
+                    link : { url : "/social/twitter/twitter.html" }
 
             # Football
             - text : "Football"
@@ -140,7 +147,11 @@ en:
 
             heading :
                 small : "Hover over the projects for some extra details. Click for the full description."
-                text  : "Our Work"
+                text  : "Recent Work"
+
+        heading :
+            small : "Hover over the projects for some extra details. Click for the full description."
+            text  : "Our Work"
 
     # Prototyping
     prototyping :

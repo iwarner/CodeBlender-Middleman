@@ -4,10 +4,7 @@ heading :
     title : "LinkedIn"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "LinkedIn"
-    type   : ""
+    title  : "LinkedIn - CodeBlender"
 
 category : "economy"
 date     : 2016-05-09

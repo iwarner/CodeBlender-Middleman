@@ -4,10 +4,7 @@ heading :
     title : "Network"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Network"
-    type   : ""
+    title  : "Network - CodeBlender"
 
 category : "infrastructure"
 date     : 2014-01-20

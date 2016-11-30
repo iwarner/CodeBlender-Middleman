@@ -1,7 +1,11 @@
 //
 // Tag Cloud
 //
-// @author Ian Warner <ian.warner@drykiss.com>
+// @usage
+// @import "~molecule/tag-cloud/tag-cloud";
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
 //----------------------------------------------------------------------------//
 
 section {
@@ -20,5 +24,7 @@ section {
             margin        : 10px 0;
 
         }
+
     }
+
 }

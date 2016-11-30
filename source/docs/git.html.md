@@ -5,10 +5,7 @@ heading :
     title : "GIT"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "GIT"
-    type   : ""
+    title  : "GIT - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

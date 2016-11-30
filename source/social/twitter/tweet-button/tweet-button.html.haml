@@ -7,12 +7,8 @@ angular :
 
 # Meta
 meta :
-    author      : "DryKISS"
     description : "Twitter tweet button - CodeBlender"
-    image       : "Image"
-    subject     : "DryKISS"
     title       : "Twitter tweet button - CodeBlender"
-    type        : "website"
 
 # Heading
 heading :
@@ -40,6 +36,12 @@ todo :
 
     - twttr.widgets.createTweet
     - twttr.widgets.createShareButton
+
+    If we use the default .twitter-share-button class then the Twitter JS will
+    override the control and add the Twitter button and suck elements from data-
+    attributes.
+
+    To style the button replace .twitter-share-button with .twitter
 
 -# Default
 :ruby

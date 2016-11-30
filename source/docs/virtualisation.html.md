@@ -4,10 +4,8 @@ heading :
     title : "Virtualisation"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Virtualisation"
-    type   : ""
+    description : "Virtualisation - CodeBlender"
+    title       : "Virtualisation - CodeBlender"
 
 category : "infrastructure"
 date     : 2014-01-20

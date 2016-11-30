@@ -5,10 +5,7 @@ heading :
     title : "Api"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Api"
-    type   : ""
+    title  : "Api - CodeBlender"
 
 category : "back-end"
 date     : 2014-01-20

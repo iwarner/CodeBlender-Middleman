@@ -1,21 +1,15 @@
 -##
--# Facebook meta tags
--# Yielded content will take precedence over front matter and stub
+-# Facebook related meta tags
+-# Contains meta tags from the Open Graph Protocol also.
 -#
--# Site config
--#     brand
--#     url
--#     facebookPageId
--#
--# Page front matter
--#     type
--#     image
--#     title
--#     description
+-# Yielded content will take precedence over front matter then stub locale then
+-# specific data files then default tag in locale.
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category meta
+-#
 -# @see      https://developers.facebook.com/docs/sharing/best-practices#images
+-# @see      http://ogp.me/
 -##
 
 -# Current page data
@@ -23,7 +17,7 @@
 
 -# Front matter meta
 - if cp
-    - m = current_page.data.meta
+    - m = cp
 
     -# Stub meta
 - else
@@ -43,25 +37,20 @@
 %meta{ content: content_for?( :metaDescription ) ? yield_content( :metaDescription ) : cp ? string( m.description ) : string( :"#{ m }.description" ), name: "description", property: "og:description" }
 
 -# Image
-%meta{ content: content_for?( :metaImage ) ? yield_content( :metaImage ) : cp ? string( m.image ) : string( :"#{ m }.image" ), property: "og:image" }
-
--##
--# Static content pulled from locale
--##
+-# Should be a full URL including domain
+- image = content_for?( :metaImage ) ? yield_content( :metaImage ) : cp && cp.image ? string( m.image ) : t( :"#{ m }.image", :default => string( :"meta.image" ) )
+%meta{ property: "og:image", content: t( :url ) + image }
 
 -# Site name
 %meta{ content: t( :"meta.siteName" ), property: "og:site_name" }
 
 -# Type
-%meta{ content: cp ? string( m.type ) : string( :"#{ m }.type" ), property: "og:type" }
+- type = content_for?( :metaType ) ? yield_content( :metaType ) : cp && cp.type ? string( m.type ) : t( :"#{ m }.type", :default => string( :"meta.type" ) )
+%meta{ property: "og:type", content: type }
 
 -# URL
 -# Should be the same as the Canonical URL
 %meta{ content: url, property: "og:url" }
-
--# Page ID
-- if data.facebook.page.id
-    %meta{ content: data.facebook.page.id, property: "fb:page_id" }
 
 -# App ID
 - appID = data.facebook.app.id
@@ -70,11 +59,11 @@
 
     -# Test id
     - if development?
-        - appID = data.facebook.app.textID
+        - appID = data.facebook.app.testID
 
         -# App ID
     - else
-        - appID = ( appID == "locale" ) ?  t( :"facebook.app.id" ) : appID
+        - appID = ( appID == "locale" ) ? t( :"facebook.app.id" ) : appID
 
     %meta{ content: appID, property: "fb:app_id" }
 

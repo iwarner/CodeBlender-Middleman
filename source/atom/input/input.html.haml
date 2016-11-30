@@ -2,12 +2,8 @@
 
 # Variables
 meta :
-    author      : "DryKISS"
     description : "Input - CodeBlender"
-    image       : "Image"
-    subject     : "DryKISS"
     title       : "Input - CodeBlender"
-    type        : "website"
 
 heading :
     small : "Core user data entry element"
@@ -45,92 +41,82 @@ todo :
     - - "The Help block needs more documentation with validation and error messages - it expects array"
     - - "Split out the attributes of an input, they follow a common pattern in most areas, display local or false"
 
-locals :
-    - - "autocapitalize"
-      - "String"
-      - "Optional"
-      - "Possible values are : none, sentences, words, characters"
-    - - "autocomplete"
-      - "String"
-      - "Optional"
-      - "On or off for autocomplete feature"
-    - - "autocorrect"
-      - "String"
-      - "Optional"
-      - "On or off for autocorrect feature"
-    - - "autofocus"
-      - "Bool"
-      - "Optional"
-      - "Whether this input should be autofocussed"
-    - - "disabled"
-      - "Bool"
-      - "Optional"
-      - "Disabled form field"
-    - - "group"
-      - "Array"
-      - "Optional"
-      - "Array of elements for prepending or appending icons"
-    - - "help"
-      - "String"
-      - "Optional"
-      - "Help text - sometimes used for error messages"
-    - - "label"
-      - "Array"
-      - "Optional"
-      - "Text and Flag for Screen Reader for the label"
-    - - "name"
-      - "String"
-      - "Required"
-      - "Name and ID of the field"
-    - - "pattern"
-      - "String"
-      - "Optional"
-      - "HTML5 Pattern regular expression"
-    - - "placeholder"
-      - "String"
-      - "Optional"
-      - "Placeholder text"
-    - - "required"
-      - "Bool"
-      - "Optional"
-      - "If validation is required"
-    - - "type"
-      - "String"
-      - "Optional"
-      - "Type of the form input, default to text, file, text, password, submit email, number, url, range, date, datetime, datetime-local month, week, time, search, color"
-    - - "value"
-      - "String"
-      - "Optional"
-      - "Value for the input"
-
 ---
 
--# Text Type
+-# Text type
 :ruby
-    code = %{codeBlender "input", "atom", { help: {},
-                                 icon:  { prepend: "fa-credit-card" },
-                                 input: { inputGroupClass: "input-group", name: "text", placeholder: "Enter Text" },
-                                 label: { title: "Text Input" } }}
+    code = %{codeBlender "input", "atom",
+      { help:  {},
+        icon:  { prepend: "fa-credit-card" },
+        input: { name: "text", placeholder: "Enter Text" },
+        label: { title: "Text Input" } }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { small: "Generic default type", text: "Text Type" } }
+= codeBlender "code", "organism",
+  { code: code, heading: { small: "With input group appended", text: "Text Type" } }
 
--# Password Type
+-# Password type
 :ruby
-    code = %{codeBlender "input", "atom", { help: { text: "Enter 8 characters [a-zA-Z0-9]" },
-                                icon:  { prepend: "fa-credit-card" },
-                                input: { name: "password", placeholder: "Enter password", type: "password" },
-                                label: { title: "Password" } } }
+    code = %{codeBlender "input", "atom",
+      { help:  { text: "Enter 8 characters [a-zA-Z0-9]" },
+        icon:  { prepend: "fa-credit-card" },
+        input: { name: "password", placeholder: "Enter password", type: "password" },
+        label: { title: "Password" } } }
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { small: "Also contains some help text", text: "Password Type" } }
+= codeBlender "code", "organism",
+  { code: code, heading: { small: "Also contains some help text", text: "Password Type" } }
 
--# Email Type
+-# Email type
 :ruby
-    code = %{codeBlender "input", "atom", { help: {},
-                                icon:  { prepend: "fa-envelope" },
-                                input: { name: "email", placeholder: "Enter email", type: "email" },
-                                label: { title: "Email" } }}
+    code = %{codeBlender "input", "atom",
+      { help:  {},
+        icon:  { prepend: "fa-envelope" },
+        input: { name: "email", placeholder: "Enter email", type: "email" },
+        label: { title: "Email" } }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { small: "Also contains a group icon", text: "Email Type" } }
+= codeBlender "code", "organism",
+  { code: code, heading: { small: "Also contains a group icon", text: "Email Type" } }
+
+-# Column
+:ruby
+    code = %{codeBlender "input", "atom",
+      { column: "col-lg-6",
+        icon:   { prepend: "fa-envelope" },
+        input:  { name: "email", placeholder: "Enter email", type: "email" },
+        label:  { title: "Email" } }}
+
+-# Code
+= codeBlender "code", "organism",
+  { code: code, heading: { small: "Specify the width of an Input", text: "Columns" } }
+
+%form.formCompetition{ action: "", method: "POST" }
+
+    -# Input - Name
+    = codeBlender "input", "atom",
+      { column: "col-lg-4",
+        icon:   { prepend: "fa-envelope" },
+        input:  { name:  "name", placeholder: :"competition.form.name.placeholder", required: true },
+        label:  { extraClass: "col-lg-2", title: "Name" } }
+
+    -# Input - Email
+    = codeBlender "input", "atom",
+      { column: "col-lg-4",
+        icon:   { prepend: "fa-envelope" },
+        input:  { name:  "email", placeholder: :"competition.form.email.placeholder", required: true, type: "email" },
+        label:  { extraClass: "col-lg-2", title: "Email" } }
+
+    -# Input - Name
+    = codeBlender "input", "atom",
+      { column: "col-lg-3",
+        icon:   { prepend: "fa-envelope" },
+        input:  { name:  "name", placeholder: :"competition.form.name.placeholder", required: true },
+        label:  { extraClass: "col-lg-1", title: "Name" } }
+
+    -# Input - Email
+    = codeBlender "input", "atom",
+      { column: "col-lg-6",
+        icon:   { prepend: "fa-envelope" },
+        input:  { name:  "email", placeholder: :"competition.form.email.placeholder", required: true, type: "email" },
+        label:  { extraClass: "col-lg-2", title: "Email" } }

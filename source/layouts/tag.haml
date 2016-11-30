@@ -23,35 +23,24 @@
         .row
 
             -# Bootstrap column
-            .col-md-3
+            .col-md-4
 
                 -# Aside
                 %aside
 
-                    -# Tag
-                    .tagCloud
+                    -# Tag Cloud
+                    = codeBlender "tag-cloud", "molecule"
 
-                        -# Tag Cloud
-                        = codeBlender "tag-cloud", "molecule"
-
-                    .blogLatest
-
-                        -# Recent article
-                        = codeBlender "recent", "molecule"
-
-            .col-md-6
-
-                %article
-
-                    -# Heading
-                    = codeBlender "heading", "molecule", { small: heading.small, text: heading.title, itemprop: "name" }
-
-                    -# Yield
-                    = yield
-
-            .col-md-3
-
-                %aside
+                    -# Recent article
+                    = codeBlender "recent", "molecule"
 
                     -# Blog archive
                     = codeBlender "archive", "molecule"
+
+            .col-md-8
+
+                -# Heading
+                = codeBlender "heading", "molecule", { small: heading.small, text: heading.title, itemprop: "name" }
+
+                -# Yield
+                = yield

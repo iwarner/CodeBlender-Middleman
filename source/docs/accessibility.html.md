@@ -5,10 +5,7 @@ heading :
     title : "Accessibility first"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Accessibility first"
-    type   : ""
+    title  : "Accessibility first - CodeBlender"
 
 category : "user-experience"
 date     : 2014-01-20

@@ -25,9 +25,13 @@
 - if ! locals[ :id ]
     - id = "myModal"
 
+-# Extra class
+- extraClass =  locals[ :extraClass ]  ? locals[ :extraClass ] : ""
+- extraClass += locals[ :noAnimation ] ? false                 : " fade"
+
 -# Modal
 .modal{ aria: { labelledby: "#{ id }Label", hidden:"true", describedby: "Overlay" },
-        class:    locals[ :noAnimation ] ? false : "fade",
+        class:    extraClass,
         id:       id,
         role:     "dialog",
         tabindex: "-1" }

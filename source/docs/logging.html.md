@@ -5,10 +5,7 @@ heading :
     title : "Logging"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Logging"
-    type   : ""
+    title  : "Logging - CodeBlender"
 
 category : "infrastructure"
 date     : 2014-01-20

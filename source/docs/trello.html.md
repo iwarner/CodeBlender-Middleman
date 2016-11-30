@@ -4,10 +4,7 @@ heading :
     title : "Trello"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Trello"
-    type   : ""
+    title  : "Trello - CodeBlender"
 
 category : "trello"
 date     : 2014-01-20

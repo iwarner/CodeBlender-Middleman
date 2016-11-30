@@ -17,6 +17,9 @@
 -# Dropdown menu
 %ul.dropdown-menu{ aria: { labelledby: ariaLabel }, ng: ng, class: locals[ :extraClass ], role: "menu" }
 
+    -# Debug
+    -# = locals[ :array ]
+
     -# Loop through the array
     - locals[ :array ].each do | list |
 
@@ -49,9 +52,9 @@
             - classes += list[ :status ] ? " #{ list[ :status ] }" : ""
 
             -# List
-            %li{ class: ! classes.empty?    ? classes       : false,
-                 data:  list[ :data ]       ? list[ :data ] : false,
-                 ng:    list[ :ng ]         ? list[ :ng ]   : false,
+            %li{ class: ! classes.empty? ? classes       : false,
+                 data:  list[ :data ]    ? list[ :data ] : false,
+                 ng:    list[ :ng ]      ? list[ :ng ]   : false,
                  ui:    { sref: { active: "active" } } }
 
                 -# If URL is present then show a link

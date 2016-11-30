@@ -5,11 +5,9 @@ heading :
     title : "Job Sites"
 
 meta :
-    author      : "DryKISS"
     description : "Technical job search in London, what sites are best?"
     image       : "/docs/job-sites/vacancies.jpg"
-    subject     : "Job"
-    title       : "Getting a technical job in 2015"
+    title       : "Getting a technical job in 2015 - CodeBlender"
     type        : "article"
 
 category : "business"

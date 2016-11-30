@@ -5,10 +5,7 @@ heading :
     title : "RBenv"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "RBenv"
-    type   : ""
+    title  : "RBenv - CodeBlender"
 
 category : "developer"
 date     : 2014-03-16

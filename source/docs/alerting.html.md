@@ -5,10 +5,7 @@ heading :
     title : "Alerting"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Alerting"
-    type   : ""
+    title  : "Alerting - CodeBlender"
 
 category : "infrastructure"
 date     : 2014-01-20

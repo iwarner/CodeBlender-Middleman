@@ -5,10 +5,7 @@ heading :
     title : "Composer"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Composer"
-    type   : ""
+    title : "Composer - CodeBlender"
 
 category : "back-end"
 date     : 2014-01-20

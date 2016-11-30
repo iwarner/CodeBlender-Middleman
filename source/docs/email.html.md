@@ -5,10 +5,7 @@ heading :
     title : "Email"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Email"
-    type   : ""
+    title  : "Email - CodeBlender"
 
 category : "business"
 date     : 2011-02-13

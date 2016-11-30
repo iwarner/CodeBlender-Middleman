@@ -14,6 +14,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 gem "middleman"
 gem "middleman-livereload"
 gem "middleman-blog",         git: "https://github.com/middleman/middleman-blog.git",           branch: "master"
+gem "middleman-blog-similar", git: "https://github.com/Oreolek/middleman-blog-similar.git",     branch: "middleman-4"
 gem "middleman-deploy",       git: "https://github.com/middleman-contrib/middleman-deploy.git", branch: "master"
 gem "middleman-favicon-maker"
 gem "middleman-minify-html"

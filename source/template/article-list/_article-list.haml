@@ -48,10 +48,22 @@
                 .media-body
 
                     -# Heading - article H1
-                    = codeBlender "heading", "molecule", { extraClass: "heading--truncate media-heading", href: article.url, small: heading.small, text: heading.title, rel: "nofollow bookmark", itemprop: "name" }
+                    = codeBlender "heading", "molecule", { extraClass: "heading--truncate media-heading", href: article.url, text: article.title, rel: "nofollow bookmark", itemprop: "name" }
+
+                    - if ! locals[ :footer ]
+                        - locals[ :footer ] = {}
+                        - locals[ :footer ][ :social ] = true
 
                     -# Blog detail footer
-                    = codeBlender "detail", "molecule", { author: true, cal: true, comment: false, more: true, name: locals[ :name ], social: true, tags: true, current_page: article }
+                    = codeBlender "detail", "molecule",
+                      { author:       true,
+                        cal:          true,
+                        comment:      false,
+                        more:         true,
+                        name:         locals[ :name ],
+                        social:       locals[ :footer ][ :social ] ? true : false,
+                        tags:         true,
+                        current_page: article }
 
                     -# Excerpt
                     %p{ itemprop: "description" }= string data.excerpt

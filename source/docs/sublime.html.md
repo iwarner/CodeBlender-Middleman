@@ -4,10 +4,7 @@ heading :
     title : "Sublime"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Sublime"
-    type   : ""
+    title  : "Sublime - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

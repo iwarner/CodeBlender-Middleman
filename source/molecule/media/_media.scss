@@ -1,17 +1,32 @@
 //
 // Media
 //
-// @author Ian Warner <ian.warner@drykiss.com>
+// @usage
+// @import "~molecule/media/media";
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
 //----------------------------------------------------------------------------//
 
 // Media
 //----------------------------------------------------------------------------//
 .media {
 
+    // Heading
+    //------------------------------------------------------------------------//
     .media-heading {
         margin : 0 0 5px;
     }
 
+    // Body
+    //------------------------------------------------------------------------//
+    .media-body {
+        display        : initial;
+        vertical-align : to
+    }
+
+    // Thumbnail
+    //------------------------------------------------------------------------//
     .thumbnail {
         width : 25%;
     }

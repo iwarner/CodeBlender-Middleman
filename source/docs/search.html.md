@@ -4,10 +4,7 @@ heading :
     title : "Search"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Search"
-    type   : ""
+    title  : "Search - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

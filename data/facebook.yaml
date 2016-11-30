@@ -14,7 +14,4 @@ app :
     secret : "09627a7f101b7225459d95357b80114e"
 
 page :
-    id  : "835310269859992"
     url : "https://www.facebook.com/codeblender"
-
-locale : "en_GB"

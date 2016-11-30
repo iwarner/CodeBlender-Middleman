@@ -5,10 +5,7 @@ heading :
     title : "Bourbon"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Bourbon"
-    type   : ""
+    title  : "Bourbon - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

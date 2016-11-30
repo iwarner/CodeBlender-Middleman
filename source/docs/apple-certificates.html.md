@@ -5,10 +5,7 @@ heading :
     title : "Apple certificate"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Apple certificate"
-    type   : ""
+    title  : "Apple certificate - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

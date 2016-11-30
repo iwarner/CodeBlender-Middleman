@@ -49,7 +49,13 @@
         - if data.config.javascript.head
             = javascript_include_tag :"head.bundle"
 
-    -# Use text Facebook ID in development
+        -# Instagram
+        = javascript_include_tag '//platform.instagram.com/en_US/embeds.js'
+
+        -# Pinterest
+        = javascript_include_tag '//assets.pinterest.com/js/pinit.js'
+
+    -# Use test Facebook ID in development
     - if development?
         - appID = data.facebook.app.testID
     - else
@@ -64,11 +70,17 @@
         - angularController  = d.angular.controller   ? d.angular.controller            : false
         - angularController += d.angular.controllerAs ? " as " + d.angular.controllerAs : false
 
+    -# Extra class
+    -# Includes the middleman page classes
+    -# @see https://middlemanapp.com/basics/helper_methods/
+    - extraClass = data.config.body.extraClass ? "#{ data.config.body.extraClass } page_classes" : page_classes
+
     -# Body with page class
     -# Contains the main itemscope of the current page
     %body{ id:        data.config.body.id ? data.config.body.id : false,
-           class:     data.config.body.extraClass ? data.config.body.extraClass : false,
-           itemscope: true, itemtype: "https://schema.org/WebPage",
+           class:     extraClass,
+           itemscope: true,
+           itemtype:  "https://schema.org/WebPage",
            data:      { localeFacebook: localeFacebook ? localeFacebook : false, facebookAppID: facebookAppID ? facebookAppID : false },
            ng:        { controller: angularController } }
 

@@ -5,10 +5,7 @@ heading :
     title : "Grunt"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Grunt"
-    type   : ""
+    title  : "Grunt - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

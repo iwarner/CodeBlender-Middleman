@@ -4,10 +4,7 @@ heading :
     title : "Node"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Node"
-    type   : ""
+    title  : "Node - CodeBlender"
 
 category : "back-end"
 date     : 2014-01-20

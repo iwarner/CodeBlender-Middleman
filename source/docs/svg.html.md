@@ -5,10 +5,7 @@ heading :
     title : "SVG"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "SVG"
-    type   : ""
+    title  : "SVG - CodeBlender"
 
 category : "user-experience"
 date     : 2016-02-25

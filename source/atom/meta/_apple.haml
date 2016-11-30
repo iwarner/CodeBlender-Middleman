@@ -7,6 +7,20 @@
 -# @see      http://goo.gl/ErCZIL
 -##
 
+-# Current page data
+- cp = current_page.data.meta
+
+-# Front matter meta
+- if cp
+    - m = cp
+
+    -# Stub meta
+- else
+    - m = "meta.#{ current_page.data.stub }"
+
+-# URL
+- url = t( :url ) + current_page.url
+
 -# Implementing a Smart App Banner on Your Website
 - if data.apple.present? and data.apple.app.id.present?
     %meta{ name: "apple-itunes-app", content: data.apple.app.id }
@@ -18,7 +32,8 @@
 %meta{ name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }
 
 -# Apple Title
-%meta{ name: "apple-mobile-web-app-title", content: "Web Starter Kit" }
+- title = cp ? m.title : :"#{ m }.title"
+%meta{ name: "apple-mobile-web-app-title", content: title }
 
 -# By default, Safari on iOS detects any string formatted like a phone number and makes it a link that calls the number
 %meta{ name: "format-detection", content: "telephone=yes" }

@@ -1,7 +1,11 @@
 //
 // Blog Detail
 //
-// @author Ian Warner <ian.warner@drykiss.com>
+// @usage
+// @import "~molecule/detail/_detail";
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
 //----------------------------------------------------------------------------//
 
 // Blog Detail
@@ -22,7 +26,8 @@
     // Tag
     //------------------------------------------------------------------------//
     &__tag {
-        margin-right : 5px;
+        margin-right   : 5px;
+        vertical-align : text-top;
     }
 
 }

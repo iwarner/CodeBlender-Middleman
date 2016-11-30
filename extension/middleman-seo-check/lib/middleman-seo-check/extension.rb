@@ -19,7 +19,7 @@ module Middleman
     class SeoCheck < ::Middleman::Extension
 
         # Options
-        option :verbose, false,      "Print debug messages"
+        option :verbose, false,     "Print debug messages"
         option :keyword, "Running", "SEO keyword"
 
         ##
@@ -29,7 +29,6 @@ module Middleman
 
             # Call super to build options from the options_hash
             super
-
         end
 
         ##
@@ -61,10 +60,13 @@ module Middleman
                 end
 
                 # Open up file and analyse through NokiGiri
-                post = Nokogiri::HTML( File.open( buildPath + resource.destination_path ) )
+                document = Nokogiri::HTML( File.open( buildPath + resource.destination_path ) )
+
+                # Analyse document
+                Middleman::Document.analyse( document )
 
                 # Analyse title
-                Middleman::Title.analyse()
+                # Middleman::Title.analyse( document )
 
                 # Analyse description
 
@@ -94,6 +96,7 @@ module Middleman
 
             # Make resources available for after build
             @resources = resources
+
         end
 
     end

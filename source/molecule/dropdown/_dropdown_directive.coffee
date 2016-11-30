@@ -10,11 +10,6 @@
 ##
 
 ##
-# JS lint
-##
-'use strict'
-
-##
 # Dropdown directive
 ##
 CBDropdownDirective = ( $log, $rootScope )  ->

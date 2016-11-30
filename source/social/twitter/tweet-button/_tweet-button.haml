@@ -2,24 +2,26 @@
 -# Twitter tweet button
 -#
 -# Usage
--# = codeBlender "tweet-button", "social"
+-# -# Twitter tweet button
+-# = codeBlender "tweet-button", "social/twitter/tweet-button"
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @see    https://dev.twitter.com/docs/tweet-button
+-# @author.  Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-# @see      https://dev.twitter.com/docs/tweet-button
 -##
 
 -# Attribute variable
 - data = {}
 
 -# Lang
-- data[ :lang ] = locals[ :lang ] ? locals[ :lang ] : "en"
+- data[ :lang ] = t :localeTwitter
 
 -# Text
--# The text parameter may be auto-populated from the webpage’s <title> element if not explicitly set.
-- data[ :text ] = locals[ :text ] ? locals[ :text ] : "yo"
+-# The text parameter may be auto-populated from the webpage's <title> element if not explicitly set.
+- data[ :text ] = locals[ :text ] ? locals[ :text ] : false
 
 -# URL
--# The shared URL will be shortened by Twitter’s t.co service in a published Tweet. A Twitter Card may be appear for a shared URL.
+-# The shared URL will be shortened by Twitter's t.co service in a published Tweet. A Twitter Card may be appear for a shared URL.
 - data[ :url ] = locals[ :url ] ? locals[ :url ] : false
 
 -# Hashtags
@@ -33,6 +35,10 @@
 -# Size
 - data[ :size ] = locals[ :size ] ? locals[ :size ] : "default"
 
+-# URL
+- twitterURL = "https://twitter.com/intent/tweet?url=#{ data[ :url ] }&lang=#{ data[ :lang ] }"
+
 -# Link To
-%a.twitter-share-button{ href: "https://twitter.com/intent/tweet", data: data }
-    Tweet
+-# twitter-share-button
+%a.twitter{ href: twitterURL, data: data, ng: { click: "root.twitterShare()" } }
+    = codeBlender "icon", "atom", { icon: "fa-twitter-square fa-fw" }

@@ -68,22 +68,22 @@
         %span{ class: "dropdown__icon" }
 
 -# Attribute
-- attribute = { aria:     locals[ :aria ]     ? locals[ :aria ]       : false,
+- attribute = { aria:     locals[ :aria ]     ? locals[ :aria ]           : false,
                 class:    extraClass,
-                disabled: locals[ :disabled ] ? "disabled='disabled'" : false,
-                clip:     locals[ :clip ]     ? clip                  : false,
-                data:     locals[ :data ]     ? data                  : false,
-                hidden:   locals[ :hidden ]   ? "hidden"              : false,
-                href:     locals[ :href ]     ? locals[ :href ]       : false,
-                id:       locals[ :id ]       ? id                    : false,
-                itemprop: locals[ :itemprop ] ? itemprop              : false,
-                ng:       locals[ :ng ]       ? ng                    : false,
-                role:     locals[ :href ]     ? "button"              : false,
-                tabindex: locals[ :tabindex ] ? locals[ :tabindex ]   : false,
-                target:   locals[ :target ]   ? locals[ :target ]     : false,
-                title:    locals[ :title ]    ? string( title )       : false,
-                type:     locals[ :type ]     ? locals[ :type ]       : "button",
-                ui:       locals[ :ui ]       ? ui                    : false }
+                disabled: locals[ :disabled ] ? "disabled='disabled'"     : false,
+                clip:     locals[ :clip ]     ? clip                      : false,
+                data:     locals[ :data ]     ? data                      : false,
+                hidden:   locals[ :hidden ]   ? "hidden"                  : false,
+                href:     locals[ :href ]     ? string( locals[ :href ] ) : false,
+                id:       locals[ :id ]       ? id                        : false,
+                itemprop: locals[ :itemprop ] ? itemprop                  : false,
+                ng:       locals[ :ng ]       ? ng                        : false,
+                role:     locals[ :href ]     ? "button"                  : false,
+                tabindex: locals[ :tabindex ] ? locals[ :tabindex ]       : false,
+                target:   locals[ :target ]   ? locals[ :target ]         : false,
+                title:    locals[ :title ]    ? string( title )           : false,
+                type:     locals[ :type ]     ? locals[ :type ]           : "button",
+                ui:       locals[ :ui ]       ? ui                        : false }
 
 -# HAML tag
 - haml_tag tag, attribute do

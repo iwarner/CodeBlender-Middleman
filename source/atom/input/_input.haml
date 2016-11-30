@@ -25,20 +25,39 @@
 - input = locals[ :input ]
 - label = locals[ :label ]
 
--# Set up Input Container
-- if ! locals[ :inputContainer ]
-    - inputContainer = locals[ :inputContainer ] = {}
+-# Input content
+- inputCapture = capture_html do
 
--# Form Group
-.form-group{ show: { errors: "{showSuccess: true}" } }
+    -# Variable
+    - extraClass = input[ :extraClass ] ? "form-control #{ input[ :extraClass ] }" : "form-control"
 
-    -# Label - note this is an array as it contains flag for screen reader
-    %label.control-label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
-        = string label[ :title ]
+    -# Input
+    %input{ autocapitalize: input[ :autocapitalize ] ? input[ :autocapitalize ]        : false,
+            autocomplete:   input[ :autocomplete ]   ? input[ :autocomplete ]          : "on",
+            autocorrect:    input[ :autocorrect ]    ? input[ :autocorrect ]           : false,
+            autofocus:      input[ :autofocus ]      ? "autofocus"                     : false,
+            accept:         input[ :accept ]         ? input[ :accept ]                : false,
+            class:          extraClass,
+            clear:          input[ :clear ]          ? { btn: true }                   : false,
+            disabled:       input[ :disabled ]       ? "disabled"                      : false,
+            id:             input[ :name ]           ? input[ :name ]                  : false,
+            name:           input[ :name ]           ? input[ :name ]                  : false,
+            ng:             input[ :ng ]             ? input[ :ng ]                    : false,
+            pattern:        input[ :pattern ]        ? input[ :pattern ]               : false,
+            placeholder:    input[ :placeholder ]    ? string( input[ :placeholder ] ) : false,
+            required:       input[ :required ]       ? "required"                      : false,
+            src:            input[ :src ]            ? input[ :src ]                   : false,
+            title:          input[ :title ]          ? input[ :title ]                 : false,
+            type:           input[ :type ]           ? input[ :type ]                  : "text",
+            typeahead:      input[ :typeahead ]      ? input[ :typeahead ]             : false,
+            uib:            input[ :uib ]            ? input[ :uib ]                   : false,
+            value:          input[ :value ]          ? string( input[ :value ] )       : false }
 
-    -# Usually contains the column counts for a horizontal form
-    -# Need to remove this DIV if there is no requirement for Columns here
-    %div{ class: inputContainer[ :extraClass ] ? inputContainer[ :extraClass ] : false }
+-# Input Group
+- inputGroupCapture = capture_html do
+
+    -# See if exists
+    - if locals[ :icon ] || locals[ :button ] || locals[ :strengthMeter ] || locals[ :feedback ]
 
         -# Input Group Placeholder
         -# For appending icons in horizontal forms the input group needs to be nested under the columns
@@ -55,30 +74,8 @@
             - if locals[ :button ] and locals[ :button ][ :prepend ]
                 %div.input-group-btn= locals[ :button ][ :prepend ]
 
-            -# Variable
-            - extraClass = input[ :extraClass ] ? "form-control #{ input[ :extraClass ] }" : "form-control"
-
-            -# Input
-            %input{ autocapitalize: input[ :autocapitalize ] ? input[ :autocapitalize ]        : false,
-                    autocomplete:   input[ :autocomplete ]   ? input[ :autocomplete ]          : "on",
-                    autocorrect:    input[ :autocorrect ]    ? input[ :autocorrect ]           : false,
-                    autofocus:      input[ :autofocus ]      ? "autofocus"                     : false,
-                    accept:         input[ :accept ]         ? input[ :accept ]                : false,
-                    class:          extraClass,
-                    clear:          input[ :clear ]          ? { btn: true }                   : false,
-                    disabled:       input[ :disabled ]       ? "disabled"                      : false,
-                    id:             input[ :name ]           ? input[ :name ]                  : false,
-                    name:           input[ :name ]           ? input[ :name ]                  : false,
-                    ng:             input[ :ng ]             ? input[ :ng ]                    : false,
-                    pattern:        input[ :pattern ]        ? input[ :pattern ]               : false,
-                    placeholder:    input[ :placeholder ]    ? string( input[ :placeholder ] ) : false,
-                    required:       input[ :required ]       ? "required"                      : false,
-                    src:            input[ :src ]            ? input[ :src ]                   : false,
-                    title:          input[ :title ]          ? input[ :title ]                 : false,
-                    type:           input[ :type ]           ? input[ :type ]                  : "text",
-                    typeahead:      input[ :typeahead ]      ? input[ :typeahead ]             : false,
-                    uib:            input[ :uib ]            ? input[ :uib ]                   : false,
-                    value:          input[ :value ]          ? string( input[ :value ] )       : false }
+            -# Input
+            = inputCapture
 
             -# Append icon
             - if locals[ :icon ] && locals[ :icon ][ :append ]
@@ -97,9 +94,36 @@
             - if locals[ :feedback ]
                 = codeBlender "icon", "atom", { icon: "fa- form-control-feedback ng-hide" }
 
-        -# Help block
-        -# Sometimes this should be hidden to allow errors to be added inside.
-        -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
-        - if locals[ :help ]
+    - else
 
-            %span.help-block{ ng: locals[ :help ][ :ng ] }= locals[ :help ][ :content ]
+        -# Input
+        = inputCapture
+
+-# Input Group
+- completeCapture = capture_html do
+
+    -# Input Group
+    = inputGroupCapture
+
+    -# Help block
+    -# Sometimes this should be hidden to allow errors to be added inside.
+    -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
+    - if locals[ :help ]
+        %span.help-block{ ng: locals[ :help ][ :ng ] }= locals[ :help ][ :content ]
+
+-# Form Group
+.form-group{ show: { errors: "{showSuccess: true}" } }
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label.control-label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
+        = string label[ :title ]
+
+    - if locals[ :column ]
+
+        -# Usually contains the column counts for a horizontal form
+        -# Need to remove this DIV if there is no requirement for Columns here
+        %div{ class: locals[ :column ] }
+            = completeCapture
+
+    - else
+        = completeCapture

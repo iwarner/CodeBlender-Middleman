@@ -23,4 +23,8 @@
 - if brand.logo.active
 
     -# Image
-    = codeBlender "image", "atom", { alt:  brand.logo.alt, size: [ brand.logo.width, brand.logo.height ], src: brand.logo.url ? brand.logo.url : "logo/logo.png" }
+    = codeBlender "image", "atom",
+      { alt:        brand.logo.alt,
+        extraClass: "navbar-brand__image",
+        size:       [ brand.logo.width, brand.logo.height ],
+        src:         brand.logo.url ? brand.logo.url : "logo/logo.png" }

@@ -5,10 +5,8 @@ heading :
     title : "HAML"
 
 meta :
-    author : "Ian Warner"
     image  : "/docs/haml-template/haml-template.png"
-    title  : "HAML"
-    type   : ""
+    title  : "HAML - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

@@ -44,19 +44,6 @@ table.table  {
 
 }
 
-// Kramdown table of contents
-//----------------------------------------------------------------------------//
-#markdown-toc:before {
-    content     : "Table of Contents";
-    font-weight : bold;
-}
-
-ul#markdown-toc {
-    float      : right;
-    margin     : 0;
-    list-style : none;
-}
-
 // Angular
 //----------------------------------------------------------------------------//
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {

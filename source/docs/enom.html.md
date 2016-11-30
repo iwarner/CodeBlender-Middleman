@@ -5,10 +5,7 @@ heading :
     title : "Enom"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Enom"
-    type   : ""
+    title  : "Enom - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

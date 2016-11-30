@@ -13,18 +13,15 @@
 -# Variable
 - label = locals[ :label ]
 
--# Form Group
-.form-group{ show: { errors: "{showSuccess: true}" } }
-
-    -# Label - note this is an array as it contains flag for screen reader
-    %label.control-label{ for: locals[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
-        = string label[ :title ]
+-# Input content
+- inputCapture = capture_html do
 
     -# Select
     %select.form-control{ id:       locals[ :name ]     ? name          : false,
                           multiple: locals[ :multiple ] ? true          : false,
                           name:     locals[ :name ]     ? name          : false,
-                          ng:       locals[ :ng ]       ? locals[ :ng ] : false }
+                          ng:       locals[ :ng ]       ? locals[ :ng ] : false,
+                          required: locals[ :required ] ? "required"    : false }
 
         -# Check that array is defined
         - if locals[ :array ]
@@ -39,6 +36,23 @@
                 -# Option
                 %option{ value: value[ 1 ] }
                     = string value[ 0 ]
+
+-# Form Group
+.form-group{ show: { errors: "{showSuccess: true}" } }
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label.control-label{ for: locals[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
+        = string label[ :title ]
+
+    - if locals[ :column ]
+
+        -# Usually contains the column counts for a horizontal form
+        -# Need to remove this DIV if there is no requirement for Columns here
+        %div{ class: locals[ :column ] }
+            = inputCapture
+
+    - else
+        = inputCapture
 
     -# Help Block
     -# Sometimes this should be hidden to allow errors to be added inside.

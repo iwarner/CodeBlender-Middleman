@@ -4,10 +4,7 @@ heading :
     title : "Parallax"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Parallax"
-    type   : ""
+    title  : "Parallax - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

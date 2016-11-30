@@ -4,10 +4,7 @@ heading :
     title : "Sugar CRM"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Sugar CRM"
-    type   : ""
+    title  : "Sugar CRM - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

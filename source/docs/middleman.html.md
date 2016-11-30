@@ -4,10 +4,7 @@ heading :
     title : "Middleman"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Middleman"
-    type   : ""
+    title  : "Middleman - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

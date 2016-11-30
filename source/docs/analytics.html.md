@@ -5,10 +5,7 @@ heading :
     title : "Analytics"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Analytics"
-    type   : ""
+    title  : "Analytics - CodeBlender"
 
 category : "reporting"
 date     : 2014-01-20

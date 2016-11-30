@@ -5,10 +5,7 @@ heading :
     title : "Colour"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Colour"
-    type   : ""
+    title  : "Colour - CodeBlender"
 
 category : "design"
 date     : 2014-01-20

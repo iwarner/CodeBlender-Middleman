@@ -5,10 +5,7 @@ heading :
     title : "Bower"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Bower"
-    type   : ""
+    title  : "Bower - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

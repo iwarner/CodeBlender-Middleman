@@ -4,10 +4,7 @@ heading :
     title : "Garage rental"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Garage rental - home economy"
-    type   : ""
+    title  : "Garage rental - home economy - CodeBlender"
 
 category : "economy"
 date     : 2016-05-09

@@ -5,10 +5,8 @@ heading :
     title : "TV applications"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "TV applications"
-    type   : ""
+    description : "TV applications - CodeBlender"
+    title       : "TV applications - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

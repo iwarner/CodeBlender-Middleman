@@ -5,10 +5,7 @@ heading :
     title : "Accounting"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Accounting"
-    type   : ""
+    title  : "Accounting - CodeBlender"
 
 category : "business"
 date     : 2016-01-05

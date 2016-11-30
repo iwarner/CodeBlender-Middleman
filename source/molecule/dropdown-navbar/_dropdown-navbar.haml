@@ -1,5 +1,6 @@
 -##
 -# Navigation dropdown
+-# Expects button and list to be sent through as Locals
 -#
 -# @usage
 -# -# Navigation dropdown
@@ -8,9 +9,6 @@
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category Molecule
 -##
-
--# Variable
-- list = locals[ :list ]
 
 -# Button
 - button = locals[ :button ] ? locals[ :button ] : {}
@@ -22,13 +20,12 @@
     - button[ :data ]     = { toggle: "dropdown" }
     - button[ :dropdown ] = true
     - button[ :href ]     = "javascript:;"
-    - button[ :text ]     = locals[ :title ]
 
     -# Button
     = codeBlender "button", "atom", button
 
     -# List
-    = codeBlender "list-dropdown", "atom", list
+    = codeBlender "list-dropdown", "atom", locals[ :list ]
 
 -# Variable
 - extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false

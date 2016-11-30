@@ -4,10 +4,7 @@ heading :
     title : "SEO"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "SEO"
-    type   : ""
+    title  : "SEO - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

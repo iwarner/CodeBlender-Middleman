@@ -1,30 +1,28 @@
 //
 // Bootstrap
-// Creates the CSS for the main elements of the site
+// Creates the CSS for the main structures of the site
 //
-// @author Ian Warner <ian.warner@drykiss.com>
-// @usage  require Scaffolding/scaffolding
+// @usage
+// @import "~atom/scaffolding/scaffolding"
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category atom
 //----------------------------------------------------------------------------//
-
-// Variables
-//----------------------------------------------------------------------------//
-
-// Font Awesome
-//----------------------------------------------------------------------------//
-// $fa-font-path : font-url( ".", true ) !default;
-
-// Scaffolding
-//----------------------------------------------------------------------------//
-$body-bg : whitesmoke !default;
 
 // Global
 //----------------------------------------------------------------------------//
 * {
-    -webkit-font-smoothing      : antialiased;
-    -webkit-tap-highlight-color : rgba( 0, 0, 0, 0 );
-    -webkit-touch-callouttext-size-adjust    : none;
-    -webkit-touch-callout       : none;
-    -moz-osx-font-smoothing     : grayscale;
+    -webkit-font-smoothing                : antialiased;
+    -webkit-tap-highlight-color           : rgba( 0, 0, 0, 0 );
+    -webkit-touch-callouttext-size-adjust : none;
+    -webkit-touch-callout                 : none;
+    -moz-osx-font-smoothing               : grayscale;
+}
+
+// Focus
+//----------------------------------------------------------------------------//
+*:focus {
+    outline : none;
 }
 
 // HTML
@@ -41,66 +39,4 @@ body {
     // Add Padding required if using the fixed NavBar
     //------------------------------------------------------------------------//
     padding-top : 60px;
-}
-
-// Anchor Tags
-//----------------------------------------------------------------------------//
-*:focus {
-    outline : none;
-}
-
-// .scrollBox {
-//     // overflow-y                 : auto;
-//     // overflow-x                 : hidden;
-//     // -webkit-overflow-scrolling : touch;
-// }
-
-// .scrollBox * {
-//     -webkit-transform : translate3d( 0, 0, 0 );
-// }
-
-// a {
-
-//     text-decoration : none;
-
-//     i {
-//         font-size      : 12px;
-//         vertical-align : middle;
-//         padding-left   : 2px;
-//     }
-
-//     &.anchor {
-//         display    : block;
-//         position   : relative;
-//         top        : 0;
-//         visibility : hidden;
-//     }
-// }
-
-// Horizontal rules
-//----------------------------------------------------------------------------//
-// hr {
-//     margin : 5px 0;
-// }
-
-// Mobile Prototype Region
-// @include region( "Back", 100, 100, 100, 100 );
-//----------------------------------------------------------------------------//
-@mixin region( $region, $height, $width, $left : 0, $top : 0 ) {
-
-    .region#{ $region } {
-        height : #{ $height }px;
-        width  : #{ $width }px;
-        left   : #{ $left }px;
-        top    : #{ $top }px;
-    }
-
-}
-
-.checkbox input[ type="checkbox" ]:focus + label::before {
-    outline            : 0px !important;
-    -webkit-appearance : none !important;
-    -webkit-box-shadow : none !important;
-    -moz-box-shadow    : none !important;
-    box-shadow         : none !important;
 }

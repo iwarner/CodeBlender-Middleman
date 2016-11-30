@@ -5,10 +5,7 @@ heading :
     title : "Laravel"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Laravel"
-    type   : ""
+    title  : "Laravel - CodeBlender"
 
 category : "back-end"
 date     : 2014-01-20

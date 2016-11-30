@@ -1,32 +1,89 @@
 ---
 
+# Angular
 angular :
     controller   : PortfolioController
     controllerAs : portfolio
 
+# Heading
 heading :
-    small : "List of work done"
+    small : "Lists client related work"
     title : "Portfolio"
 
+# Meta
 meta :
-    author      : "DryKISS"
     description : "Portfolio template - CodeBlender"
-    image       : "Image"
-    subject     : "DryKISS"
     title       : "Portfolio template - CodeBlender"
-    type        : "website"
 
+# Tasks
 todo :
     - - "Create the mix it set up in a directive"
+    - - "MixIt is not compatible with NPM choose another"
     - - "Find a way to include the language elements from this module also"
     - - "Sort out the design of the blockquote caption and thumbnail image"
     - - "Use the link_to feature for the link section"
     - - "Work with the Portfolio Template more and get this working"
+    - - "Include the recent module in this setup page"
+    - - "Image for the meta of this page"
+    - - "Make portfolio container-fluid compatible"
+    - - "Allow the name of the blog to be passed through so it can be used for other blog context"
+
+# Resource
+see :
+    - - "Mix it up"
+      - "https://mixitup.kunkalabs.com/"
 
 ---
 
+:markdown
+
+    # Portfolio Module
+
+    Creates a portfolio system from a Middleman Blog. Including :
+
+    - Recent module to be utilised for instance on home page
+    - A portfolio template that showcases all the work
+    - Individual details page showcasing the detailed work
+
+    ## Recent
+
+    Useful for inclusion on a home page - shows X recent work.
+
+        -# Portfolio recent
+        codeBlender template/portfolio/recent", { total: "3" }
+
+    Image sizes are based on the column width chosen. Make sure they are
+
+    - ( 1170 - ( gutterWidth ( columns * 2 ) ) ) / columns
+    - ( 1170 - ( 15 * ( columns * 2 ) ) ) / 3
+
+    ## Portfolio
+
+    Creates the main template to view all the works
+
+    ## Details Page
+
+    Creates the details page for the portfolio entity, including the following
+    information
+
+    * Heading - Title and Small text
+    * Meta elements - Author, Image, Title and Type
+
+    All of this information should be part of the portfolio blog entry, either
+    part of the text, or within the front-matter.
+
+    ## Install
+
+    - Include all JS
+    - Include All Style
+    - Include the Partials in pages you want
+    - Add the portfolio blog
+    - Create the blog posts with the relevant front-matter
+
 -# Portfolio recent
 = codeBlender "portfolio-recent", "template/portfolio", { total: 4 }
+
+%hr
 
 -# Portfolio
 = codeBlender "portfolio", "template"

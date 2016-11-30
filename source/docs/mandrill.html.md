@@ -5,11 +5,9 @@ heading :
     title : "Mandrill"
 
 meta :
-    author      : "DryKISS"
     description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
     image       : "/docs/mandrill/mandrill.jpg"
-    subject     : "Email"
-    title       : "Mandrill email"
+    title       : "Mandrill email - CodeBlender"
     type        : "article"
 
 category : "business"

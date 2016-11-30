@@ -5,10 +5,8 @@ heading :
     title : "Angular development"
 
 meta :
-    author : "Ian Warner"
     image  : "/docs/angular/angularjs.png"
-    title  : "Angular"
-    type   : ""
+    title  : "Angular - CodeBlender"
 
 category : "front-end"
 date     : 2015-04-08

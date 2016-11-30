@@ -5,10 +5,7 @@ heading :
     title : "Infographic"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Infographic"
-    type   : ""
+    title  : "Infographic - CodeBlender"
 
 category : "design"
 date     : 2014-01-20

@@ -5,10 +5,7 @@ heading :
     title : "Front end"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Front end"
-    type   : ""
+    title  : "Front end - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

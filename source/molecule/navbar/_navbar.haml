@@ -74,7 +74,9 @@
 
                     -# Image
                     - if brand.logo.active
-                        = codeBlender "image", "atom", { alt: brand.logo.alt, size: [ brand.logo.width, brand.logo.height ], src: brand.logo.url ? brand.logo.url : "logo/logo.png" }
+                        - logo = brand.logo.url ? brand.logo.url : "logo/logo.png"
+                        - size = [ brand.logo.width, brand.logo.height ]
+                        = codeBlender "image", "atom", { alt: brand.logo.alt, size: size, src: logo }
 
                     -# Brand
                     - if brand.text.active
@@ -100,18 +102,19 @@
                             - side[ :active ] = ( current_page.url == url ) ? true : false
 
                         -# Dropdown menu
+                        -# Button is required
+                        -# Items are required
                         - if side[ :dropdown ]
 
                             -# Variable
-                            - button = side[ :button ] ? side[ :button ] : false
-                            - ng     = side[ :ng ]     ? side[ :ng ]     : false
+                            - ng = side[ :dropdown ][ :ng ] ? side[ :dropdown ][ :ng ] : false
 
                             -# Navigation dropdown
                             = codeBlender "dropdown-navbar", "molecule",
-                                { button:     button,
-                                  extraClass: side[ :extraClass ],
+                                { button:     side[ :dropdown ][ :button ],
+                                  extraClass: side[ :dropdown ][ :extraClass ],
                                   ng:         ng,
-                                  list:       { array: side[ :items ] } }
+                                  list:       { array: side[ :dropdown ][ :items ] } }
 
                             -# Shop widget
                         - elsif side[ :shop ]

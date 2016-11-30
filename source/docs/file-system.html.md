@@ -5,10 +5,7 @@ heading :
     title : "File system"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "File system"
-    type   : ""
+    title  : "File system - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

@@ -42,7 +42,7 @@
 
 -# Description (maximum 200 characters)
 -# A description that concisely summarizes the content as appropriate for presentation within a Tweet.
-%meta{ name: "twitter:description", content: content_for?( :metaDescription ) ? yield_content( :metaDescription ) : cp ? string( m.description ) : string( :"#{ m }.description" ) }
+%meta{ name: "twitter:description", content: content_for?( :metaTwitterDescription ) ? yield_content( :metaTwitterDescription ) : cp ? string( m.twitterDescription ) : string( :"#{ m }.twitterDescription" ) }
 
 -# Image
 -# A URL to a unique image representing the content of the page. Images for this

@@ -4,10 +4,7 @@ heading :
     title : "Project management"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Project management"
-    type   : ""
+    title  : "Project management - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

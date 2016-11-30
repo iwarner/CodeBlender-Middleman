@@ -4,10 +4,7 @@ heading :
     title : "Phonegap"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Phonegap"
-    type   : ""
+    title  : "Phonegap - CodeBlender"
 
 category : "back-end"
 date     : 2014-01-20

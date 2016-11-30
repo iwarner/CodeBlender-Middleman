@@ -4,10 +4,7 @@ heading :
     title : "Nginx"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Nginx"
-    type   : ""
+    title  : "Nginx - CodeBlender"
 
 category : "infrastructure"
 date     : 2014-01-20

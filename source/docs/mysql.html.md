@@ -4,10 +4,7 @@ heading :
     title : "MySQL"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "MySQL"
-    type   : ""
+    title  : "MySQL - CodeBlender"
 
 category : "database"
 date     : 2014-01-20

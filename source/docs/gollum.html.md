@@ -5,10 +5,7 @@ heading :
     title : "Gollum"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Gollum"
-    type   : ""
+    title  : "Gollum - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

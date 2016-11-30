@@ -4,10 +4,8 @@ heading :
     title : "User experience"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "User experience"
-    type   : ""
+    description : "User experience - CodeBlender"
+    title       : "User experience - CodeBlender"
 
 category : "user-experience"
 date     : 2014-01-20

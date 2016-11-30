@@ -5,10 +5,7 @@ heading :
     title : "Google Play Store"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Google Play Store, publishing a hybrid application"
-    type   : "article"
+    title  : "Google Play Store, publishing a hybrid application - CodeBlender"
 
 category : "hybrid"
 date     : 2016-07-06

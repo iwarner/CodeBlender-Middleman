@@ -4,10 +4,7 @@ heading :
     title : "PHP"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "PHP"
-    type   : ""
+    title  : "PHP - CodeBlender"
 
 category : "back-end"
 date     : 2014-01-20

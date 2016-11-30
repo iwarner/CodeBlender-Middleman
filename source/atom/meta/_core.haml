@@ -9,15 +9,17 @@
 -# @category meta
 -##
 
+-# Current page data
+- cp = current_page.data.meta
+
 -# If there is meta tabs present then override the stub method
-- if current_page.data.meta
-    - m = current_page.data.meta
+- if cp
+    - m = cp
 - else
     - m = "meta.#{ current_page.data.stub }"
 
-- title       = current_page.data.meta ? m.title       : :"#{ m }.title"
-- description = current_page.data.meta ? m.description : :"#{ m }.description"
-- author      = current_page.data.meta ? m.author      : :"#{ m }.author"
+- title       = cp ? m.title       : :"#{ m }.title"
+- description = cp ? m.description : :"#{ m }.description"
 
 -# Title
 %title= string( title )
@@ -35,7 +37,8 @@
 %meta{ name: "keywords", content: string( description ) }
 
 -# Author
-%meta{ name: "author", content: string( author ) }
+- author = content_for?( :metaAuthor ) ? yield_content( :metaAuthor ) : cp && cp.author ? string( m.author ) : t( :"#{ m }.author", :default => string( :"meta.author" ) )
+%meta{ name: "author", content: author }
 
 -# Robots
 %meta{ name: "robots", content: "index,follow,archive" }
@@ -48,3 +51,9 @@
 
 -# Cordova CDV File
 -# %meta{ content: "default-src * 'unsafe-eval' 'unsafe-inline'", http: { equiv: "Content-Security-Policy" } }
+
+- if build?
+
+    %meta{ http: { equiv: "last-modified" }, content: Time.parse( Time.now.to_s ).httpdate }
+    %meta{ http: { equiv: "cache-control", content: "Private" } }
+    %meta{ http: { equiv: "Expires", content: "600" } }

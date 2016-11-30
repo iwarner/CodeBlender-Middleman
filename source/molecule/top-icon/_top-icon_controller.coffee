@@ -12,11 +12,6 @@
 ##
 
 ##
-# JS Lint
-##
-'use strict'
-
-##
 # Top Icon Controller
 ##
 TopIconController = ( $log ) ->

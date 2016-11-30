@@ -5,10 +5,7 @@ heading :
     title : "Cache"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Cache"
-    type   : ""
+    title : "Cache - CodeBlender"
 
 category : "infrastructure"
 date     : 2014-01-20

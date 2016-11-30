@@ -11,11 +11,6 @@
 ##
 
 ##
-# JS lint
-##
-'use strict'
-
-##
 # Tooltip directive
 ##
 TooltipDirective = ->

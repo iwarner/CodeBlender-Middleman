@@ -21,7 +21,7 @@
     //------------------------------------------------------------------------//
     &--truncate {
         display       : inline-block;
-        line-height   : 22px;
+        line-height   : initial;
         overflow      : hidden;
         text-overflow : ellipsis;
         width         : 100%;

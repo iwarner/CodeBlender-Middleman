@@ -4,10 +4,7 @@ heading :
     title : "Testing"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Testing"
-    type   : ""
+    title  : "Testing - CodeBlender"
 
 category : "infrastructure"
 date     : 2014-01-20

@@ -5,10 +5,7 @@ heading :
     title : "Gems"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Gems"
-    type   : ""
+    title  : "Gems - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

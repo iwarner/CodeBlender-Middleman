@@ -5,10 +5,7 @@ heading :
     title : "Apple"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Apple"
-    type   : ""
+    title  : "Apple - CodeBlender"
 
 category : "developer"
 date     : 2014-01-20

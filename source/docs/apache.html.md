@@ -5,10 +5,7 @@ heading :
     title : "Apache"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Apache"
-    type   : ""
+    title  : "Apache - CodeBlender"
 
 category : "server"
 date     : 2014-01-20

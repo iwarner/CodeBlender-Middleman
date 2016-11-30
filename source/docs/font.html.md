@@ -5,10 +5,7 @@ heading :
     title : "Font"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Font"
-    type   : ""
+    title  : "Font - CodeBlender"
 
 category : "design"
 date     : 2014-01-20

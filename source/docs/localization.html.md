@@ -5,10 +5,8 @@ heading :
     title : "Localization"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : ""
-    type   : ""
+    title  : "Localization - CodeBlender"
+    type   : "article"
 
 category : "developer"
 date     : 2016-02-05

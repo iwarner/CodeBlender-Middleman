@@ -9,11 +9,6 @@
 ##
 
 ##
-# JS lint
-##
-'use strict'
-
-##
 # Angular clear button
 ##
 angular.module 'app.directive'

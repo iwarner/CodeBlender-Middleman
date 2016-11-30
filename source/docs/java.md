@@ -4,10 +4,7 @@ heading :
     title : "JAVA"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "JAVA"
-    type   : ""
+    title  : "JAVA - CodeBlender"
 
 category : "development"
 date     : 2014-01-20

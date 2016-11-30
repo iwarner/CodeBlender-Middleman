@@ -4,10 +4,7 @@ heading :
     title : "Ripple"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Ripple"
-    type   : ""
+    title  : "Ripple - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

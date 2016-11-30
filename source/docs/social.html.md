@@ -4,10 +4,7 @@ heading :
     title : "Social"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Social"
-    type   : ""
+    title  : "Social - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

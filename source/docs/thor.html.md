@@ -4,10 +4,7 @@ heading :
     title : "Thor"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Thor"
-    type   : ""
+    title  : "Thor - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

@@ -1,7 +1,6 @@
 -##
 -# Portfolio recent
--# Shows the latest 3 portfolio entries from the portfolio blog
--# Useful as a home page block
+-# Shows the latest 3 portfolio entries from the portfolio blog.
 -#
 -# @usage
 -# -# Portfolio recent
@@ -11,45 +10,43 @@
 -# @param heading - Heading
 -# @param total   - How many columns of items to display.
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category template
 -##
 
--# Portfolio
+-# Portfolio recent
 %section.portfolio.portfolio__recent
 
-    -# Bootstrap container
-    .container
+    -# Bootstrap row
+    .row
 
-        -# Bootstrap row
-        .row
+        -# Bootstrap column
+        .col-md-12.col-sm-12
+
+            -# Blockquote
+            = codeBlender "blockquote", "atom", t( :"portfolio.recent.heading" )
+
+    -# Bootstrap row
+    .row
+
+        -# Column count
+        - total      = locals[ :total ] ? locals[ :total ] : 3
+        - count      = 12 / total
+        - extraClass = "col-md-#{ count } "
+
+        -# Loop through the portfolio category finding the first X articles
+        -# Sorting is done by date as a default
+        - blog( "portfolio" ).articles.first( total ).each_with_index do | article, index |
+
+            -# Variable
+            - data = article.data
+            - head = data.heading
 
             -# Bootstrap column
-            .col-md-12.col-sm-12
+            .portfolio__segment{ class: extraClass }
 
-                -# Blockquote
-                = codeBlender "blockquote", "atom", t( :"portfolio.recent.heading" )
+                -# Link to portfolio article
+                %a{ href: article.url, title: head.title }
 
-        -# Bootstrap row
-        .row
-
-            -# Column count
-            - total      = locals[ :total ] ? locals[ :total ] : 3
-            - count      = 12 / total
-            - extraClass = "col-md-#{ count } "
-
-            -# Loop through the portfolio category finding the first X articles
-            -# Sorting is done by date as a default
-            - blog( "portfolio" ).articles.first( total ).each_with_index do | article, index |
-
-                -# Variable
-                - data = article.data
-                - head = data.heading
-
-                -# Bootstrap column
-                .portfolio__segment{ class: extraClass }
-
-                    -# Link to portfolio article
-                    %a{ href: article.url, title: head.title }
-
-                        -# Image
-                        = codeBlender "image", "atom", { alt: head.title, caption: head.title, extraClass: "img-thumbnail", src: data.meta.image }
+                    -# Image
+                    = codeBlender "image", "atom", { alt: head.title, caption: head.title, extraClass: "img-thumbnail", src: data.meta.image }

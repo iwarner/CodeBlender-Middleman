@@ -4,10 +4,7 @@ heading :
     title : "PayPal"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "PayPal"
-    type   : ""
+    title  : "PayPal - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

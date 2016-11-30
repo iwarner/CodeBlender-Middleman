@@ -4,10 +4,7 @@ heading :
     title : "Project brief"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Project brief"
-    type   : ""
+    title  : "Project brief - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

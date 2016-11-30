@@ -1,9 +1,14 @@
 ##
 # Authorise and administer a Google Drive account
 #
-# @author Ian Warner <ian.warner@drykiss.com>
-# @see    https://developers.google.com/drive/v3/web/manage-downloads
-# @see    https://developers.google.com/drive/v3/web/quickstart/ruby
+# @usage
+# ruby Drive.rb
+#
+# @author   Ian Warner <ian.warner@drykiss.com>
+# @category extension
+#
+# @see https://developers.google.com/drive/v3/web/manage-downloads
+# @see https://developers.google.com/drive/v3/web/quickstart/ruby
 ##
 
 # Require
@@ -11,9 +16,11 @@ require "google/apis/drive_v3"
 require "googleauth"
 require "googleauth/stores/file_token_store"
 require "fileutils"
+require "nokogiri"
+require "open-uri"
 
 OOB_URI             = "urn:ietf:wg:oauth:2.0:oob"
-APPLICATION_NAME    = "Drive API Ruby Quickstart"
+APPLICATION_NAME    = "CodeBlender"
 CLIENT_SECRETS_PATH = "client_secret.json"
 CREDENTIALS_PATH    = File.join( Dir.home, '.credentials', "drive-ruby-quickstart.yaml" )
 SCOPE               = Google::Apis::DriveV3::AUTH_DRIVE
@@ -54,31 +61,129 @@ service                                 = Google::Apis::DriveV3::DriveService.ne
 service.client_options.application_name = APPLICATION_NAME
 service.authorization                   = authorize
 
-# List the 10 most recently modified files.
-# children.list files.list with ?q='parent_id'+in+parents
-response = service.list_files( page_size: 10, q: "'0BwDBWlxBkJ6kOUZwblhwbjlSWnc' in parents", fields: 'nextPageToken, files( id, name )' )
+##
+# Get files based in a certain folder
+#
+# page_size = number of files to obtain
+# q         = Query to perform
+#
+# CodeBlender Blog folder = 0BwDBWlxBkJ6kaE85ek11cnJWQlU
+# Deliveroo Blog folder   = 0BwDBWlxBkJ6kbVJwUVliZ213Rjg
+##
+response = service.list_files( page_size: 100, q: "'0BwDBWlxBkJ6kaE85ek11cnJWQlU' in parents",
+    fields: 'nextPageToken, files( mimeType, kind, id, name, createdTime, description, fileExtension )' )
 
-puts "Files:"
+# Tasks
+# Check that the empty folder works
+# Should exit the script and inform
+
+# No objects found
 puts 'No files found' if response.files.empty?
 
-# Get the folders from the top level ID
+# Google path
+googlePath = "https://docs.google.com/doc/d/"
+
+# Tasks
+# Find posts that have changed since last update
+
+# Get the objects from the top level folder ID
 response.files.each do | file |
 
-    # Print out top language folders
-    puts "#{ file.name } (#{ file.id })"
+    # Loop through each object and process either folder or file
+    if file.mime_type == "application/vnd.google-apps.folder"
 
-    # Loop through each language folder
+        # Tasks
+        # Loop into this folder to extract any files within
+        # Get the categories under each language
 
-    # Get the categories under each language
+        # Debug
+        puts "Folder"
 
-    # Find posts that have changed since last update
+    # File
+    else
 
-    # Download posts
+        # Tasks
+        # Create a hash of the files in the system and when they were created
+            # Check to see if the file has been updated since
+        # https://www.googleapis.com/drive/v3/files/1ztO0ZaIyji5B-ePCHAhPM2GSkVQEiJm3sQJ5AtvXrEs/export
 
-    # Scan for images and download - or use from Google directly?
+        # Save path
+        getPath  = "#{ googlePath }#{ file.id }/export?format=html"
+        savePath = "../source/blog/#{ file.id }.html.haml"
 
-    # Optimise images
+        # Open string
+        doc = StringIO.new
 
-    # Store images
+        # Download document
+        # id = 1ztO0ZaIyji5B-ePCHAhPM2GSkVQEiJm3sQJ5AtvXrEs
+        # https://docs.google.com/doc/d/1ztO0ZaIyji5B-ePCHAhPM2GSkVQEiJm3sQJ5AtvXrEs/export?format=html
+        # @see https://developers.google.com/drive/v3/web/manage-downloads
+        service.export_file( file.id, 'text/html', download_dest: doc )
+
+        # Open up file and analyse through NokiGiri
+        doc = Nokogiri::HTML( doc.string )
+
+        # Remove DIVs
+        doc.search( 'div' ).remove
+
+        # Get the body
+        doc = doc.at( 'body' ).children
+
+        # Remove style and id attributes
+        doc.xpath( '//@style', '//@id' ).remove
+
+        # Remove the span
+        doc.css( 'span' ).each do | span |
+            span.swap( span.children )
+        end
+
+        # Links
+        # Change Google URLs into correct ones
+        doc.css( "a" ).each do | link |
+            if link[ "href" ].to_s != ""
+                link[ "href" ] = link[ "href" ][ /\=(.*?)&/, 1 ]
+            end
+        end
+
+        # Remove empty links
+        doc = doc.to_s.gsub! '<a></a>', ''
+
+        # Breaks
+        doc = doc.to_s.gsub /\<br>    /, "\n    "
+        doc = doc.to_s.gsub /\<br>/, "\n"
+
+        # Front matter
+        doc = doc.to_s.gsub! '---</p>', "\n---\n"
+
+        # Quotes
+        doc = doc.to_s.gsub! '’', "'"
+
+        # Table
+        doc = doc.to_s.gsub! '<table', '<table class="table table-condensed"'
+
+        # Images
+        # Add the figure and caption around an image
+        # Optimise images
+        # Store images
+        doc = doc.to_s.gsub! 'alt=""', 'alt="Deliveroo" class="img-responsive"'
+
+        # Save doc
+        File.write( savePath, doc )
+
+        # Debug
+        puts doc
+        puts "File"
+
+    end
+
+    # Debug
+    # puts "---------------------"
+    # puts "Mime Type      : #{ file.mime_type }"
+    # puts "ID             : #{ file.id }"
+    # puts "Name           : #{ file.name }"
+    # puts "Created        : #{ file.created_time }"
+    # puts "Description    : #{ file.description }"
+    # puts "File extension : #{ file.fileExtension }"
+    # puts "#{ file.to_yaml }"
 
 end

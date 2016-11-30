@@ -5,10 +5,7 @@ heading :
     title : "E-commerce"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "E-commerce"
-    type   : ""
+    title  : "E-commerce - CodeBlender"
 
 category : "business"
 date     : 2014-01-20

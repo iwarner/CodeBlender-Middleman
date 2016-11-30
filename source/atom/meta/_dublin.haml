@@ -13,17 +13,17 @@
 -##
 
 -# Variables
-- m = current_page.data.stub
+- cp = current_page.data.meta
 
 -# If there is meta tabs present then override the stub method
-- if current_page.data.meta
-    - m = current_page.data.meta
+- if cp
+    - m = cp
 - else
     - m = "meta.#{ current_page.data.stub }"
 
-- title       = current_page.data.meta ? m.title       : :"#{ m }.title"
-- description = current_page.data.meta ? m.description : :"#{ m }.description"
-- author      = current_page.data.meta ? m.author      : :"#{ m }.author"
+- title       = cp ? m.title       : :"#{ m }.title"
+- description = cp ? m.description : :"#{ m }.description"
+- author = content_for?( :metaAuthor ) ? yield_content( :metaAuthor ) : cp && cp.author ? string( m.author ) : t( :"#{ m }.author", :default => string( :"meta.author" ) )
 
 -# Meta
 %meta{ name: "dcterms.title",       content: string( title ) }

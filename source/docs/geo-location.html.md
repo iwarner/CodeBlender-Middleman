@@ -5,10 +5,7 @@ heading :
     title : "Geolocation"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Geolocation"
-    type   : ""
+    title  : "Geolocation - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

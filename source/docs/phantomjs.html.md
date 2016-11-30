@@ -4,10 +4,7 @@ heading :
     title : "Phantom JS"
 
 meta :
-    author : "Ian Warner"
-    image  : ""
-    title  : "Phantom JS"
-    type   : ""
+    title  : "Phantom JS - CodeBlender"
 
 category : "front-end"
 date     : 2014-01-20

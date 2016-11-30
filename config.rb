@@ -17,6 +17,9 @@ require "football/fixture"
 # :line_numbers => true
 activate :syntax
 
+# Levenshtein distance function:
+activate :similar # , :algorithm => :levenshtein by default.
+
 # Load football helpers
 helpers FootballHelpers
 
@@ -41,11 +44,14 @@ page "feed.xml",     layout: false
 page "runner.html",  layout: false
 page "sitemap.xml",  layout: false
 
+# Remove 404 from directory indexes
+# page "/404.html", :directory_index => false
+
 # Markdown engine and options
 # auto_ids, footnote_nr, entity_output, toc_levels, smart_quotes, kramdown_default_lang, input, hard_wrap
 # @see http://kramdown.gettalong.org/options.html
 set :markdown_engine, :kramdown
-set :markdown, toc_levels: "2", auto_id_prefix: "#"
+set :markdown, toc_levels: "1,2", auto_id_prefix: "#"
 
 # Minimum Sass number precision required by bootstrap-sass
 # @see https://github.com/twbs/bootstrap-sass#number-precision
@@ -70,7 +76,7 @@ activate :blog do | blog |
     blog.permalink         = "{category}/{title}.html"
     blog.sources           = ":title.html"
 
-    blog.layout            = "article"
+    blog.layout            = "articleThree"
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 
@@ -86,13 +92,41 @@ activate :blog do | blog |
     blog.per_page          = 5
     blog.page_link         = "page/{num}"
 
-    # /categories/user-experience.html
-    blog.custom_collections = {
-        category: {
-            link:     '/categories/{category}.html',
-            template: "template/blog-tag/blog-tag.html"
-        }
-    }
+    # # /categories/user-experience.html
+    # blog.custom_collections = {
+    #     category: {
+    #         link:     '/categories/{category}.html',
+    #         template: "template/blog-tag/blog-tag.html"
+    #     }
+    # }
+
+end
+
+# Blog : Blog from Google
+# @see https://elenichappen.svbtle.com/getting-tags-to-work-with-middlemans-blog-gem
+activate :blog do | blog |
+
+    blog.name              = "blog"
+    blog.default_extension = ".haml"
+
+    blog.permalink         = "{category}/{title}.html"
+    blog.sources           = "blog/:id.html"
+
+    blog.layout            = "articleTwo"
+    blog.summary_separator = /(READMORE)/
+    blog.summary_length    = 250
+
+    blog.calendar_template = "template/blog-calendar/blog-calendar.html"
+    blog.year_link         = "/calendar/:year.html"
+    blog.month_link        = "/calendar/:year/:month.html"
+    blog.day_link          = "/calendar/:year/:month/:day.html"
+
+    blog.tag_template      = "template/blog-tag/blog-tag.html"
+    blog.taglink           = "/tag/:tag.html"
+
+    blog.paginate          = true
+    blog.per_page          = 5
+    blog.page_link         = "page/{num}"
 
 end
 
@@ -149,10 +183,10 @@ configure :build do
 
     # GZIP Files
     # @see https://middlemanapp.com/advanced/file_size_optimization/
-    activate :gzip
+    # activate :gzip
 
     # Use relative URLs
-    activate :relative_assets
+    # activate :relative_assets
 
     # For example, change the Compass output style for deployment
     # activate :minify_css, inline: true
@@ -192,9 +226,6 @@ configure :build do
     end
 
 end
-
-# Remove 404 from directory indexes
-# page "/404.html", :directory_index => false
 
 ##
 # Football proxy pages
