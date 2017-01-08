@@ -35,7 +35,7 @@
     %head{ prefix: headPrefix }
 
         -# Meta tag
-        = codeBlender "meta", "atom"
+        = codeBlender "meta", "meta"
 
         -# Main style sheet
         -# @see http://apidock.com/rails/ActionView/Helpers/AssetTagHelper/stylesheet_link_tag
@@ -50,6 +50,7 @@
             = javascript_include_tag :"head.bundle"
 
         -# Instagram
+<<<<<<< HEAD
         = javascript_include_tag '//platform.instagram.com/en_US/embeds.js'
 
         -# Pinterest
@@ -64,6 +65,24 @@
     -# Facebook locale - check it exists and use on body tag
     - localeFacebook = I18n.exists?( :localeFacebook )    ? t( :localeFacebook )    : data.facebook.locale ? data.facebook.locale : false
     - facebookAppID  = I18n.exists?( :"facebook.app.id" ) ? t( :"facebook.app.id" ) : appID ? appID : false
+=======
+        - if data.has_key? "instagram" and data.instagram.active
+            = javascript_include_tag '//platform.instagram.com/en_US/embeds.js'
+
+        -# Pinterest
+        - if data.has_key? "pinterest" and data.pinterest.active
+            = javascript_include_tag '//assets.pinterest.com/js/pinit.js'
+
+    -# Use test Facebook ID in development
+    - if development?
+        - facebookAppID = data.facebook.app.testID
+    - else
+        - facebookAppID = data.facebook.app.id
+        - facebookAppID  = I18n.exists?( :"facebook.app.id" ) ? t( :"facebook.app.id" ) : facebookAppID ? facebookAppID : false
+
+    -# Facebook locale - check it exists and use on body tag
+    - localeFacebook = I18n.exists?( :"facebook.locale" ) ? t( :"facebook.locale" ) : data.facebook.locale ? data.facebook.locale : false
+>>>>>>> updates
 
     -# Angular controller
     - if d.angular
@@ -81,7 +100,11 @@
            class:     extraClass,
            itemscope: true,
            itemtype:  "https://schema.org/WebPage",
+<<<<<<< HEAD
            data:      { localeFacebook: localeFacebook ? localeFacebook : false, facebookAppID: facebookAppID ? facebookAppID : false },
+=======
+           data:      { locale: locale, localeFacebook: localeFacebook ? localeFacebook : false, facebookAppID: facebookAppID ? facebookAppID : false },
+>>>>>>> updates
            ng:        { controller: angularController } }
 
         -# Top anchor

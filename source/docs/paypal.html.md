@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "PayPal"
 
 meta :
     title  : "PayPal - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "PayPal"

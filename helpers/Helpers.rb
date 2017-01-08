@@ -55,6 +55,37 @@ module Helpers
 
     end
 
+    ##
+    # In-line SVG
+    #
+    # @usage inlineSVG "drykiss-sq-color.svg"
+    #
+    # @see https://robots.thoughtbot.com/organized-workflow-for-svg
+    # @see https://gist.github.com/bitmanic/0047ef8d7eaec0bf31bb
+    ##
+    def inlineSVG( filename, options = {} )
+
+        root      = Middleman::Application.root
+        file_path = "#{ root }/source/assets/svg/#{ filename }"
+
+        if File.exists?( file_path )
+
+            file = File.read( file_path ).force_encoding "UTF-8"
+            doc  = Nokogiri::HTML::DocumentFragment.parse file
+            svg  = doc.at_css "svg"
+
+            if options[ :class ].present?
+                svg[ "class" ] = options[ :class ]
+            end
+
+            doc
+
+        else
+            "file not found: #{ file_path }"
+        end
+
+    end
+
 # def page_title
 #     yield_content(:title)
 #   end
@@ -73,14 +104,6 @@ module Helpers
 
 #   def host_with_port
 #     [config[:host], config[:port]].compact.join(':')
-#   end
-
-#   def email_url
-#     "mailto:ross@rossta.net"
-#   end
-
-#   def signup_form_url
-#     "//rossta.us6.list-manage.com/subscribe/post?u=8ce159842b5c98cecb4ebdf16&amp;id=#{config[:mailchimp_form_id]}"
 #   end
 
 #   def tweet_link_to(text, params = {})

@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Desktop applications"
     title : "Desktop applications"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Desktop applications - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "back-end"
 date     : 2014-01-20
 excerpt  : "Desktop applications"
@@ -88,16 +91,18 @@ and
 * Want to ZIP up the documnetation - and on first view unzip these into the correct directory for viewing.
     * Check directory exists - if not unzip the zip file.
 
-MacGap
-https://github.com/MacGapProject/MacGap1
-http://docs.macgap.com/
+## MacGap
 
-https://github.com/rogerwang/node-webkit
-http://blog.teamthinklabs.com/index.php/2014/01/08/getting-set-up-with-node-webkit-mac-only/
-http://durandaljs.com/documentation/Native-Apps-With-Node-Webkit.html
-https://www.npmjs.org/package/nodewebkit
-http://strongloop.com/strongblog/creating-desktop-applications-with-node-webkit/
-https://github.com/mllrsohn/grunt-node-webkit-builder
+- https://github.com/MacGapProject/MacGap1
+- http://docs.macgap.com/
 
-https://www.tidekit.com/
-http://deskshell.org/
+
+- https://github.com/rogerwang/node-webkit
+- http://blog.teamthinklabs.com/index.php/2014/01/08/getting-set-up-with-node-webkit-mac-only/
+- http://durandaljs.com/documentation/Native-Apps-With-Node-Webkit.html
+- https://www.npmjs.org/package/nodewebkit
+- http://strongloop.com/strongblog/creating-desktop-applications-with-node-webkit/
+- https://github.com/mllrsohn/grunt-node-webkit-builder
+
+- https://www.tidekit.com/
+- http://deskshell.org/

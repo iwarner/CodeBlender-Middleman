@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Apple"
     title : "Apple"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Apple - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "developer"
 date     : 2014-01-20
 excerpt  : "Apple"

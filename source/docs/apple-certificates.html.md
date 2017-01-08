@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : ""
     title : "Apple certificate"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Apple certificate - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "Apple certificate"

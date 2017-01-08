@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Website i18n"
     title : "Localization"
@@ -8,6 +9,8 @@ meta :
     title  : "Localization - CodeBlender"
     type   : "article"
 
+=======
+>>>>>>> updates
 category : "developer"
 date     : 2016-02-05
 excerpt  : ""
@@ -127,4 +130,4 @@ An example link will look like
 [internationalization]:https://middlemanapp.com/advanced/localization/
 [sheet]:https://goo.gl/iTNmM5
 
-https://localise.biz/plans
+- https://localise.biz/plans

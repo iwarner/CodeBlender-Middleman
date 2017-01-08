@@ -6,8 +6,7 @@
 -##
 
 -# Variable
-- cp      = current_page.data
-- heading = cp.heading
+- d = current_page.data
 
 -# Article
 = wrap_layout "#{ config[ :layout_dir ] }fullWidth" do
@@ -27,7 +26,7 @@
             .col-md-4
 
                 -# Heading - article H1
-                = codeBlender "heading", "molecule", { extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+                = codeBlender "heading", "molecule", { extraClass: "heading--noMargin", small: d.small ? d.small : false, text: d.title, itemprop: "name headline" }
 
                 -# -# Social
                 -# - if build?
@@ -59,18 +58,18 @@
                                     -# Category
                                     %dt
                                         %span.badge.badge-info Category
-                                    %dd= link_to cp.category, "/pages/" + cp.category.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
+                                    %dd= link_to d.category, "/pages/" + d.category.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
 
                                     -# Subcategory
                                     %dt
                                         %span.badge.badge-info Subcategory
-                                    %dd= link_to cp.subcategory, "/pages/" + cp.subcategory.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
+                                    %dd= link_to d.subcategory, "/pages/" + d.subcategory.downcase.gsub( /[^a-z0-9\- ]/, '' ).gsub( / /, '-' )
 
                                     -# Tags
                                     %dt
                                         %span.badge.badge-info Tags
                                     %dd
-                                        - cp.tags.each do | tag |
+                                        - d.tags.each do | tag |
                                             = link_to tag, tag_path( tag )
                                             |
 
@@ -79,24 +78,24 @@
                                         %span.badge.badge-info Developer / Publisher
                                     %dd
 
-                                        %a{ :href => "#" }= cp.game.developer
+                                        %a{ :href => "#" }= d.game.developer
 
                                         :escaped
                                             /
 
-                                        %a{ :href => "#" }= cp.game.publisher
+                                        %a{ :href => "#" }= d.game.publisher
 
                                     -# Released
                                     %dt
                                         %span.badge.badge-info Released
-                                    %dd= link_to cp.game.released, '#'
+                                    %dd= link_to d.game.released, '#'
 
                                     -# Platforms
                                     %dt
                                         %span.badge.badge-info Platforms
                                     %dd
 
-                                        - cp.game.platform.each do | platform |
+                                        - d.game.platform.each do | platform |
                                             %a{ :href => "/pages/" + URI.escape( platform ) }
                                                 = platform
                                             |
@@ -106,12 +105,12 @@
                                         %span.badge.badge-info Perspective
                                     %dd
                                         %a{ :href => "#" }
-                                            = cp.game.perspective
+                                            = d.game.perspective
 
                                     -# Added
                                     %dt
                                         %span.badge.badge-info Added
-                                    %dd= cp.modified
+                                    %dd= d.modified
 
                                 = yield
 

@@ -35,7 +35,11 @@
         %time{ pubdate: true, itemprop: "datePublished", datetime: "#{ cp.date.strftime( "%FT%T" ) }Z" }
 
             = cp.date.strftime '%B %e, %Y'
+<<<<<<< HEAD
             @
+=======
+            ,
+>>>>>>> updates
             = cp.time
 
     -# Author
@@ -48,9 +52,12 @@
 
         by
 
+        -# Author details - uses locale default if not set in frontmatter
+        - author = cp.author ? cp.author : t( :"meta.author" )
+
         %span{ itemprop: "author", itemscope: true, itemptype: "http://schema.org/Person" }
-            %a{ itemprop: "url", rel: "author" }
-                %span{ itemprop: "name" }= cp.meta.author
+            %a{ href: author_path( author, name ), itemprop: "url", rel: "author" }
+                %span{ itemprop: "name" }= author
 
     -# Show comment
     - if locals[ :comment ]
@@ -71,11 +78,8 @@
 
         %footer.blogDetail__tags
 
-            -# Icon - tags
-            = codeBlender "icon", "atom", { icon: "fa-tags fa-fw" }
-
             -# Loop through tags
             - cp.tags( name ).each do | tag |
 
                 -# Label
-                = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "primary", content: tag, href: tag_path( tag, name ), itemprop: "keywords" }
+                = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "info", content: tag, href: tag_path( tag, name ), itemprop: "keywords" }

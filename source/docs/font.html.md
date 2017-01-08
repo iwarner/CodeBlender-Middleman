@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Font"
     title : "Font"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Font - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "design"
 date     : 2014-01-20
 excerpt  : "Font"

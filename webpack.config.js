@@ -7,6 +7,11 @@ var webpack           = require( 'webpack' );
 var clean             = require( 'clean-webpack-plugin' );
 var ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
+// {
+//   test: /\.scss$/,
+//   loader: ExtractTextPlugin.extract('css!postcss!sass?precision=10'),
+// }
+
 module.exports = {
 
     entry : {
@@ -82,6 +87,15 @@ module.exports = {
         ]
     },
 
+    sassLoader : {
+        indentedSyntax : true,
+        precision      : 8,
+    },
+
+    scssLoader : {
+        indentedSyntax : false,
+        precision      : 8,
+    },
 
     node : {
         console : true,
@@ -101,4 +115,3 @@ module.exports = {
 
     ]
 };
-

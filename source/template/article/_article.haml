@@ -1,0 +1,88 @@
+-##
+-# Article
+-#
+-# @usage
+-# -# Article
+-# = codeBlender "article", "template"
+-#
+-# @param page_articles | Need to pass in the paginated pages 'page_articles'
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category template
+-# @see      https://developer.mozilla.org/en/docs/Web/HTML/Element/article
+-##
+
+-# Meta
+    -# Introduce - http://ogp.me/#type_article
+
+-# Table of contents
+    -# Position a little better - fold up perhaps
+
+-# Content
+    -# Style available areas
+
+-# Comments
+
+-# Variable
+- cp = current_page.data
+
+-# Article
+%article.article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
+
+    -# Image
+    = codeBlender "image", "atom", { extraClass: "img-responsive", src: cp.image }
+
+    -# Breadcrumb
+    = codeBlender "breadcrumb", "molecule", { title: cp.title }
+
+    -# Article header
+    %header
+
+        -# Small
+        - small = cp.small ? cp.small : false
+
+        -# Heading - article H1
+        -# Three columns
+        -# Text  - 16 Characters
+        -# Small - 25 Characters
+        = codeBlender "heading", "molecule",
+          { extraClass: "article__heading heading--noMargin",
+            small:      small,
+            text:       cp.title,
+            itemprop:   "name headline" }
+
+        -# Article detail
+        -# Date time
+        -# Author - link this
+        -# Social
+            -# Facebook
+            -# Add Pinterest, Google, LinkedIn, Twitter
+        -# Tags
+        -# Need to include the category
+        = codeBlender "detail", "molecule", { author: true, cal: true, comment: false, social: false, tags: true }
+
+    -# Yield
+    .article__content
+        %span{ itemprop: "text" }= locals[ :body ]
+
+    -# Article footer
+    %footer
+
+        -# Pager variables
+        - prevPage = current_article.previous_article ? current_article.previous_article : false
+        - nextPage = current_article.next_article     ? current_article.next_article     : false
+
+        -# Pager
+        = codeBlender "pager", "molecule", { prevPage: prevPage, nextPage: nextPage }
+
+        -# Disqus comment
+        - if cp.commentDisqus
+
+            -# Disqus comment
+            = codeBlender "disqus-comment", "organism"
+
+        -# Facebook comment
+        - if cp.commentFacebook
+
+            -# Facebook comment
+            = codeBlender "comment", "social/facebook/comment"

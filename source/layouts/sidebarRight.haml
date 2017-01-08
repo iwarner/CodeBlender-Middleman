@@ -24,12 +24,12 @@
             - if dc.breadcrumbs
 
                 -# Breadcrumb
-                = codeBlender "breadcrumb", "molecule"
+                = codeBlender "breadcrumb", "molecule", { title: d.title }
 
             - if dc.heading
 
                 -# Heading
-                = codeBlender "heading", "molecule", { small: string( d.small ), text: string( d.title ) }
+                = codeBlender "heading", "molecule", { small: d.small ? d.small : false, text: d.title }
 
             -# Detail
             - if dc.description

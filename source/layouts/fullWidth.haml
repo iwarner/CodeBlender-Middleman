@@ -10,17 +10,18 @@
 -##
 
 -# Variable
-- d = current_page.data
+- d  = current_page.data
+- dc = data.config
 
 -# Layout - calls wrapper layout
 = wrap_layout "#{ config[ :layout_dir ] }bootstrap" do
 
     -# Heading
-    - if data.config.heading and d.heading
-        = codeBlender "heading", "molecule", { small: d.heading.small, text: d.heading.title }
+    - if dc.heading and d.heading
+        = codeBlender "heading", "molecule", { small: d.small ? d.small : false, text: d.title }
 
     -# Detail
-    - if data.config.description
+    - if dc.description
         %p= string d.description
 
     -# Local
@@ -31,13 +32,13 @@
     = yield
 
     -# Resource
-    - if data.config.resources
+    - if dc.resources
         .container= codeBlender "resource", "organism"
 
     -# Asset
-    - if data.config.assets
+    - if dc.assets
         .container= codeBlender "asset", "organism"
 
     -# Todo
-    - if data.config.todo
+    - if dc.todo
         .container= codeBlender "todo", "organism"

@@ -35,11 +35,16 @@
 
                 -# Heading - H2
                 - if dc.heading
-                    = codeBlender "heading", "molecule", { extraClass: "heading--noMargin", pageHeader: true, small: d.heading.small, tag: "h2", text: d.heading.title }
+                    = codeBlender "heading", "molecule",
+                      { extraClass: "heading--noMargin",
+                        pageHeader: true,
+                        small:      d.small ? d.small : false,
+                        tag:        "h2",
+                        text:       d.title }
 
                 -# Breadcrumb
                 - if dc.breadcrumbs
-                    = codeBlender "breadcrumb", "molecule"
+                    = codeBlender "breadcrumb", "molecule", { title: d.title }
 
                 -# Detail
                 - if dc.description

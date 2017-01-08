@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 meta :
     description : "Breadcrumb to highlight a navigation path - CodeBlender"
     title       : "Breadcrumb to highlight a navigation path - CodeBlender"
@@ -7,7 +8,12 @@ meta :
 heading :
     small : "Current page's location within a navigational hierarchy"
     title : "Breadcrumb"
+=======
+description : "Breadcrumb to highlight a navigation path"
+title       : "Breadcrumb to highlight a navigation path"
+>>>>>>> updates
 
+# See
 see :
     - - "Bootstrap breadcrumb"
       - "http://getbootstrap.com/components/#breadcrumbs"
@@ -17,23 +23,19 @@ see :
       - "http://www.uvd.co.uk/blog/accessible-breadcrumbs-using-aria/"
     - - "Usability"
       - "http://ui-patterns.com/patterns/Breadcrumbs"
+    - - "Middleman breadcrumbs"
+      - "https://github.com/marnen/middleman-breadcrumbs"
 
+# Todo
 todo :
     - - "Complete the Aria and Micro format for this partial"
-
-locals :
-    - - "array"
-      - "array"
-      - "optional"
-      - "Array of list items"
+    - - "Not working in current state - need to get the parent and child of the page perhaps from the resource"
 
 ---
 
--# Features
-
 -# Default
 :ruby
-    code = %{codeBlender "breadcrumb", "molecule", { array: current_page.data.breadcrumbs }}
+    code = %{codeBlender "breadcrumb", "molecule", { array: current_page.data.breadcrumbs, title: current_page.data.heading.title }}
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "PHP"
 
 meta :
     title  : "PHP - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "back-end"
 date     : 2014-01-20
 excerpt  : "PHP"
@@ -19,17 +22,18 @@ title    : "PHP"
 {:toc}
 
 ## Introduction
-[PHP: Hypertext Preprocessor][] is a server side scripting language. For more info
-please see the Wiki page.
+[PHP: Hypertext Preprocessor][] is a server side scripting language. For more
+info please see the Wiki page.
 
 ## Installation
-Utilising homebrew it is easy to get the latest version of PHP, using the great
-work by [Jose Gonzalez][]
+Utilising homebrew it is easy to get the latest version of PHP.
 
 ~~~bash
 $ brew update
-$ brew tap josegonzalez/homebrew-php
-$ brew install php54 php54-apc php54-mcrypt
+$ brew tap homebrew/dupes
+$ brew tap homebrew/versions
+$ brew tap homebrew/homebrew-php
+$ brew install php56
 ~~~
 
 ## INI File

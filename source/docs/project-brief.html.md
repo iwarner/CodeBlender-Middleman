@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "Project brief"
 
 meta :
     title  : "Project brief - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "Project brief"
@@ -65,4 +68,4 @@ where, why, and how." piece of work.
 
 [Project Brief]:http://www.techrepublic.com/article/help-for-writing-a-project-brief
 
-http://www.harmony.co.uk/articles/write-the-perfect-brief/
+- http://www.harmony.co.uk/articles/write-the-perfect-brief/

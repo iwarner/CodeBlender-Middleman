@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Blog"
     title : "Blog"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Blog - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "user-experience"
 date     : 2014-01-20
 excerpt  : "Blog"

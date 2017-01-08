@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Infographic"
     title : "Infographic"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Infographic - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "design"
 date     : 2014-01-20
 excerpt  : "Infographic"
@@ -23,4 +26,4 @@ title    : "Infographic"
 
 List of the best resources for infographic
 
-http://monetate.com/infographic/responsive-design-the-next-great-hope-or-all-hype/
+- http://monetate.com/infographic/responsive-design-the-next-great-hope-or-all-hype/

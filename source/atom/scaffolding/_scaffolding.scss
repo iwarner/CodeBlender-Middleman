@@ -8,6 +8,39 @@
 // @author   Ian Warner <ian.warner@drykiss.com>
 // @category atom
 //----------------------------------------------------------------------------//
+<<<<<<< HEAD
+=======
+
+// Mixin for multiline
+//----------------------------------------------------------------------------//
+@mixin multiLineEllipsis( $lineHeight: 1.2em, $lineCount: 1, $bgColor: #eee )
+{
+    overflow      : hidden;
+    position      : relative;
+    line-height   : $lineHeight;
+    max-height    : $lineHeight * $lineCount;
+    text-align    : justify;
+    margin-right  : -10px;
+    padding-right : 20px;
+
+    &:before {
+        content  : '...';
+        position : absolute;
+        right    : 5px;
+        bottom   : 0;
+    }
+
+    &:after {
+        content    : '';
+        position   : absolute;
+        right      : 6px;
+        width      : 1em;
+        height     : 1em;
+        margin-top : 0.2em;
+        background : $bgColor;
+    }
+}
+>>>>>>> updates
 
 // Global
 //----------------------------------------------------------------------------//
@@ -40,3 +73,10 @@ body {
     //------------------------------------------------------------------------//
     padding-top : 60px;
 }
+<<<<<<< HEAD
+=======
+
+.text--truncation {
+    @include multiLineEllipsis( $lineHeight: 1.2em, $lineCount: 2 );
+}
+>>>>>>> updates

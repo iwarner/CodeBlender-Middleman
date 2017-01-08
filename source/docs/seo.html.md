@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "SEO"
 
 meta :
     title  : "SEO - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "SEO"
@@ -80,4 +83,4 @@ http://thenextweb.com/socialmedia/2014/02/28/get-found-guide-getting-everlasting
 http://www.transversal.com/solutions/seo
 Search Console
 
-https://www.optimizely.com/optimization-glossary/website-optimization/?otm_source=google&otm_campaign=G_WW_Search_Shiva&otm_content=wot_bt=51064707332&gclid=CjwKEAiArdG1BRCLvs_q-IObwxMSJACXbLtzcrBorRYH1p21yikwxnEsFMIJ-MJLpAg6xUmLZy2mgxoCBx7w_wcB
+- https://www.optimizely.com/optimization-glossary/website-optimization/?otm_source=google&otm_campaign=G_WW_Search_Shiva&otm_content=wot_bt=51064707332&gclid=CjwKEAiArdG1BRCLvs_q-IObwxMSJACXbLtzcrBorRYH1p21yikwxnEsFMIJ-MJLpAg6xUmLZy2mgxoCBx7w_wcB

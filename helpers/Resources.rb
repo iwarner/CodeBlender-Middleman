@@ -10,7 +10,10 @@
 ##
 module Resources
 
-    def full_title( page_title = nil )
+    ##
+    #
+    ##
+    def fullTitle( page_title = nil )
 
         page_title ||= ""
         base_title   = "Euro Team Outreach"
@@ -23,7 +26,10 @@ module Resources
 
     end
 
-    def smart_robots
+    ##
+    #
+    ##
+    def smartRobots
         if !!( current_page.path =~ /thanks/ )
             "noindex, nofollow"
         else
@@ -31,39 +37,11 @@ module Resources
         end
     end
 
-    def page_description
+    ##
+    #
+    ##
+    def pageDescription
         current_page.data.description || data.site.description
-    end
-
-    ##
-    # In-line SVG
-    #
-    # @usage inlineSVG "drykiss-sq-color.svg"
-    #
-    # @see https://robots.thoughtbot.com/organized-workflow-for-svg
-    # @see https://gist.github.com/bitmanic/0047ef8d7eaec0bf31bb
-    ##
-    def inlineSVG( filename, options = {} )
-
-        root      = Middleman::Application.root
-        file_path = "#{ root }/source/assets/svg/#{ filename }"
-
-        if File.exists?( file_path )
-
-            file = File.read( file_path ).force_encoding "UTF-8"
-            doc  = Nokogiri::HTML::DocumentFragment.parse file
-            svg  = doc.at_css "svg"
-
-            if options[ :class ].present?
-                svg[ "class" ] = options[ :class ]
-            end
-
-            doc
-
-        else
-            "file not found: #{ file_path }"
-        end
-
     end
 
     ##
@@ -89,15 +67,22 @@ module Resources
     end
 
     ##
-    # Unique Category
-    # The blog post must have category in the front matter
+    # Category list
+    # Returns a list of categories, optionally excluding any from the list.
+    #
+    # @usage
+    # = categoryList( [ "seo" ] )
+    #
+    # @param exclude - array - optional
+    # @return array
+    # [ "inspiration", "recipes", "news" ]
     ##
-    def category( exclude = [] )
+    def categoryList( exclude = [] )
 
-        # Create Return Array
+        # Create return array
         ret = []
 
-        # Get the Unique Categories
+        # Get the unique categories
         sitemap.resources.uniq{ | r | r.data.category }.each do | articles |
 
             if ! articles.data.category.nil? and ! exclude.include?( articles.data.category )
@@ -115,12 +100,12 @@ module Resources
     # Resources by tag and extension
     #
     # Usage
-    # byTag( [ "seo" ] )
+    # = byTag( [ "seo" ] )
     #
-    # @param tags       - Mixed - Required
-    # @param extensions - Array - Optional - Default : md
+    # @param tags      - mixed - required
+    # @param extension - array - optional - Default : md
     ##
-    def byTag( tags, extensions = [ "md" ] )
+    def byTag( tags, extension = [ "md" ] )
 
         # Check tags is an array
         if ! tags.kind_of?( Array )
@@ -128,16 +113,16 @@ module Resources
         end
 
         # Check extensions exist and is correct
-        if ! extensions.kind_of?( Array )
+        if ! extension.kind_of?( Array )
             p "articlesByTag - Extensions should be an Array"
             abort
         end
 
-        # Create Return Array
+        # Create return array
         ret = []
 
         # Resources that contain the Tag and have the correct extension
-        sitemap.resources.select { | r | extensions.include?( r.source_file.split( '.' ).last ) &&
+        sitemap.resources.select { | r | extension.include?( r.source_file.split( '.' ).last ) &&
                                        ( tags & Array( r.data.tags ) ).present? }.each do | r |
 
             ret << r.data.title
@@ -152,13 +137,15 @@ module Resources
     ##
     # Resources by category and extension
     #
-    # Usage
+    # @usage
     # - byCategory( "venues", [ "md" ], nil ).each do | article |
+    #     = article
     #
-    # @param category   - Array - Required
-    # @param extensions - Mixed - Optional - Default : md
+    # @param category  - array - required
+    # @param extension - mixed - optional - default : md
+    # @param limit     - int   - optional - default : nil
     ##
-    def byCategory( category, extensions = [ "md" ], limit = nil )
+    def byCategory( category, extension = [ "md" ], limit = nil )
 
         # Check category is an array
         if ! category.kind_of?( Array )
@@ -169,7 +156,7 @@ module Resources
         ret = []
 
         # Get Resources
-        resources = sitemap.resources.select { | r | extensions.include?( r.source_file.split('.').last ) &&
+        resources = sitemap.resources.select { | r | extension.include?( r.source_file.split('.').last ) &&
                                                    ( category & Array( r.data.category ) ).present? }
 
         # Check limit is set
@@ -185,15 +172,6 @@ module Resources
         # Return
         ret
 
-    end
-
-    ##
-    # Todo Resources
-    # Resources that contain the Todo Frontmatter should be collected
-    #
-    # @param object - Array - Required
-    ##
-    def todo( object = [ "todo" ] )
     end
 
     # ##

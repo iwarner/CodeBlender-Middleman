@@ -1,0 +1,43 @@
+-##
+-# Apple Meta Tags
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category meta
+-# @see      http://goo.gl/xpMXmF
+-# @see      http://goo.gl/ErCZIL
+-##
+
+-# Current page data
+<<<<<<< HEAD:source/atom/meta/_apple.haml
+- cp = current_page.data.meta
+=======
+- cp = current_page.data
+>>>>>>> updates:source/meta/apple/_apple.haml
+
+-# Front matter meta
+- if cp
+    - m = cp
+
+    -# Stub meta
+- else
+    - m = "meta.#{ current_page.data.stub }"
+
+-# URL
+- url = t( :url ) + current_page.url
+
+-# Implementing a Smart App Banner on Your Website
+- if data.apple.present? and data.apple.app.id.present?
+    %meta{ name: "apple-itunes-app", content: data.apple.app.id }
+
+-# If content is set to yes, the web application runs in full-screen mode;
+%meta{ name: "apple-mobile-web-app-capable", content: "yes" }
+
+-# This meta tag has no effect unless you first specify full-screen mode as described
+%meta{ name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }
+
+-# Apple Title
+- title = cp ? m.title : :"#{ m }.title"
+%meta{ name: "apple-mobile-web-app-title", content: title }
+
+-# By default, Safari on iOS detects any string formatted like a phone number and makes it a link that calls the number
+%meta{ name: "format-detection", content: "telephone=yes" }

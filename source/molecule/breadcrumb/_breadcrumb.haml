@@ -4,11 +4,10 @@
 -#
 -# @usage
 -# -# Breadcrumb
--# = codeBlender "breadcrumb", "molecule", { array: current_page.data.breadcrumbs }
+-# = codeBlender "breadcrumb", "molecule", { array: current_page.data.breadcrumbs, title: current_page.data.heading.title }
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category molecule
--# @see      http://getbootstrap.com/components/#breadcrumbs
 -##
 
 -# Check if array exists otherwise use URL
@@ -23,7 +22,7 @@
     -# Create breadcrumb array
     - array = []
 
-    -# Last breadcrumb variables
+    -# Last breadcrumb variable
     - lastBreadcrumb = ""
 
     -# Check if split exists
@@ -38,7 +37,7 @@
             -# If breadcrumb is empty i.e. for Home
             - text = breadcrumb.empty? ? "Home" : breadcrumb.capitalize
 
-            -# Sort out the first element
+            -# Sort out the first element - Home
             - if index == 0
 
                 -# Add the breadcrumbs Hash
@@ -47,18 +46,40 @@
                 -# Sort out the last element
             - elsif count -1 == index
 
-                -# If the last one is index.html remove the last array
-                - if text != "index.html"
-                    - array << { active: true, text: text.chomp( File.extname( text ) ) }
+                -# If the last one is *.html remove this
+                -# this.to_s.scan(/#{ options.keyword }/i)
+                - if text.scan( /\.html/ )
+                    - array << { active: true, text: locals[ :title ] }
                 - else
                     - array[ -1 ][ :url ]    = false
                     - array[ -1 ][ :active ] = true
 
                 -# Sort out the middle elements
+                -# For a blog post there may be indiscriminate folders added
             - else
 
-                -# Add the breadcrumb Hash
-                - array << { text: text, link: { url: "#{ lastBreadcrumb.sub( "//", "/" ) }/index.html" } }
+                -# See if a resource exists for text.html or text/index.html or text/text.html
+                -# Check to see if its the same as the current page - if so make non active
+                - if sitemap.find_resource_by_path( lastBreadcrumb.sub( "//", "/" ) + ".html" )
+
+                    - if lastBreadcrumb.sub( "//", "/" ) + ".html" != current_page.url
+
+                        -# Add the breadcrumb Hash
+                        - array << { text: text, link: { url: lastBreadcrumb.sub( "//", "/" ) + ".html" } }
+
+                - if sitemap.find_resource_by_path( lastBreadcrumb.sub( "//", "/" ) + "/index.html" )
+
+                    - if lastBreadcrumb.sub( "//", "/" ) + "/index.html" != current_page.url
+
+                        -# Add the breadcrumb Hash
+                        - array << { text: text, link: { url: lastBreadcrumb.sub( "//", "/" ) + "/index.html" } }
+
+                - elsif res = sitemap.find_resource_by_path( lastBreadcrumb.sub( "//", "/" ) + "/#{ text.downcase }.html" )
+
+                    - if lastBreadcrumb.sub( "//", "/" ) + "/#{ text.downcase }.html" != current_page.url
+
+                        -# Add the breadcrumb Hash
+                        - array << { text: text, link: { url: lastBreadcrumb.sub( "//", "/" ) + "/#{ text.downcase }.html" } }
 
     - else
 

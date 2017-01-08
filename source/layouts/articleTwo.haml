@@ -1,0 +1,39 @@
+-##
+-# Article layout
+-#
+-# @usage
+-# -# Article layout
+-# = wrap_layout "_codeBlender/article" do
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
+-##
+
+-# Article
+= wrap_layout "#{ config[ :layout_dir ] }bootstrap" do
+
+    -# Bootstrap container
+    .container
+
+        -# Bootstrap row
+        .row
+
+            -# Bootstrap column
+            .col-md-4
+
+                %aside
+
+                    -# Tag cloud
+                    = codeBlender "tag-cloud", "molecule"
+
+                    -# Recent article
+                    = codeBlender "recent", "molecule"
+
+                    -# Blog archive
+                    = codeBlender "archive", "molecule"
+
+            -# Bootstrap column
+            .col-md-8
+
+                -# Article
+                = codeBlender "article", "template", { body: yield }

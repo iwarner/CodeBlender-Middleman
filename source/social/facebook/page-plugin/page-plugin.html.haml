@@ -1,11 +1,16 @@
 ---
 
+<<<<<<< HEAD
 meta :
     description : "Facebook page plugin - CodeBlender"
     title       : "Facebook page plugin - CodeBlender"
 
 heading :
     title : "Facebook comment"
+=======
+description : "Facebook page plugin"
+title       : "Facebook page plugin"
+>>>>>>> updates
 
 see :
     - - "Facebook page plugin"
@@ -15,7 +20,11 @@ see :
 
 -# Default
 :ruby
+<<<<<<< HEAD
     code = %{codeBlender "comment", "social/facebook/comment"}
+=======
+    code = %{codeBlender "page-plugin", "social/facebook/page-plugin", { href: "https://www.facebook.com/Deliveroo/", title: "Deliveroo" } }
+>>>>>>> updates
 
 -# Code
 = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

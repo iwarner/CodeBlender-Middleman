@@ -1,0 +1,29 @@
+-##
+-# Facebook page plugin
+-#
+-# @usage
+-# -# Facebook page plugin
+-# = codeBlender "page-plugin", "social/facebook/page-plugin", { href: "https://www.facebook.com/Deliveroo/", title: "Deliveroo" }
+-#
+-# @param
+-# href                  - data-href          - The URL of the Facebook Page - None
+-# width                 - data-width         - The pixel width of the plugin. Min. is 180 & Max. is 500 - 340
+-# height                - data-height        - The pixel height of the plugin. Min. is 70 - 500
+-# tabs                  - data-tabs          - Tabs to render i.e. timeline, events, messages. Use a comma-separated list to add multiple tabs, i.e. timeline, events. - timeline
+-# hide_cover            - data-hide-cover    - Hide cover photo in the header - false
+-# show_facepile         - data-show-facepile - Show profile photos when friends like this - true
+-# hide_cta              - data-hide-cta      - Hide the custom call to action button (if available) - false
+-# small_header          - data-small-header  - Use the small header instead - false
+-# adapt_container_width - data-adapt-container-width - Try to fit inside the container width - true
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-##
+
+-# Page plugin
+.fb-page{ data: { href: locals[ :href ], "small_header": "true", width: "500" } }
+
+    %blockquote.fb-xfbml-parse-ignore{ cite: locals[ :href ] }
+
+        %a{ href: locals[ :href ] }
+            = locals[ :title ]

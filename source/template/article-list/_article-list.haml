@@ -2,7 +2,7 @@
 -# Article list
 -#
 -# Rules
--# - Images are taken from the meta image element. It can then be used by social media also
+-# - Images are taken from the image element. It can then be used by social media also
 -#   - Defaults to 250px wide and is responsive
 -#
 -# @usage
@@ -22,9 +22,7 @@
     - page_articles( locals[ :name ] ).each_with_index do | article, i |
 
         -# Variables
-        - data    = article.data
-        - meta    = article.data.meta
-        - heading = data.heading
+        - data = article.data
 
         -# Article - blog posting
         %article{ role: "article", itemprop: "blogPost", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
@@ -36,19 +34,28 @@
                 .media-left
 
                     -# Check article has associated image
-                    - if ! meta.image.blank?
+                    - if ! data.image.blank?
 
                         -# Link - no follow
                         %a{ href: article.url, rel: "nofollow" }
 
                             -# Image
-                            = codeBlender "image", "atom", { alt: article.title, extraClass: "media-object img-thumbnail img-responsive", size: [ 250 ], src: meta.image }
+                            = codeBlender "image", "atom", { alt: article.title, extraClass: "media-object img-thumbnail img-responsive", size: [ 250 ], src: data.image }
 
                 -# Media body
                 .media-body
 
                     -# Heading - article H1
+<<<<<<< HEAD
                     = codeBlender "heading", "molecule", { extraClass: "heading--truncate media-heading", href: article.url, text: article.title, rel: "nofollow bookmark", itemprop: "name" }
+=======
+                    = codeBlender "heading", "molecule",
+                      { extraClass: "heading--truncate media-heading",
+                        href:       article.url,
+                        text:       article.title,
+                        rel:        "nofollow bookmark",
+                        itemprop:   "name" }
+>>>>>>> updates
 
                     - if ! locals[ :footer ]
                         - locals[ :footer ] = {}

@@ -18,15 +18,19 @@ require "football/fixture"
 activate :syntax
 
 # Levenshtein distance function:
+<<<<<<< HEAD
 activate :similar # , :algorithm => :levenshtein by default.
+=======
+# activate :similar # , :algorithm => :levenshtein by default.
+>>>>>>> updates
 
 # Load football helpers
 helpers FootballHelpers
 
 # Variables
-set :layout,         "sidebarLeft"
-set :debug_assets,   true
-set :haml,           { ugly: true, format: :html5 }
+set :layout,       "sidebarLeft"
+set :debug_assets, true
+set :haml,         { ugly: true, format: :html5 }
 
 # Assets
 set :css_dir,        "assets/stylesheets"
@@ -52,10 +56,13 @@ page "sitemap.xml",  layout: false
 # @see http://kramdown.gettalong.org/options.html
 set :markdown_engine, :kramdown
 set :markdown, toc_levels: "1,2", auto_id_prefix: "#"
+<<<<<<< HEAD
 
 # Minimum Sass number precision required by bootstrap-sass
 # @see https://github.com/twbs/bootstrap-sass#number-precision
 # ::Sass::Script::Value::Number.precision = [ 8, ::Sass::Script::Value::Number.precision ].max
+=======
+>>>>>>> updates
 
 # Time Zone
 Time.zone = "Europe/London"
@@ -77,6 +84,7 @@ activate :blog do | blog |
     blog.sources           = ":title.html"
 
     blog.layout            = "articleThree"
+<<<<<<< HEAD
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 
@@ -113,6 +121,8 @@ activate :blog do | blog |
     blog.sources           = "blog/:id.html"
 
     blog.layout            = "articleTwo"
+=======
+>>>>>>> updates
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 
@@ -127,6 +137,23 @@ activate :blog do | blog |
     blog.paginate          = true
     blog.per_page          = 5
     blog.page_link         = "page/{num}"
+
+    # Custom collections
+    blog.custom_collections = {
+
+        # Category
+        category: {
+            link:     '/category/{category}.html',
+            template: 'template/blog-tag/blog-tag.html'
+        },
+
+        # Author
+        author: {
+            link:     '/author/{author}.html',
+            template: 'template/blog-tag/blog-tag.html'
+        }
+
+    }
 
 end
 
@@ -180,6 +207,9 @@ activate :external_pipeline,
 
 # Build-specific configuration
 configure :build do
+
+    # Asset hash
+    activate :asset_hash, :exts => %w(.js .css)
 
     # GZIP Files
     # @see https://middlemanapp.com/advanced/file_size_optimization/

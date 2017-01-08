@@ -69,13 +69,13 @@
                 .col-md-3.col-sm-3.mix{ class: "category-#{ data.category }" }
 
                     -# Check there is an image
-                    - if data.meta.image != ""
+                    - if data.image != ""
 
                         -# Link to the article
                         %a{ href: article.url, title: data.heading.title }
 
                             -# Image
-                            = codeBlender "image", "atom", { alt: data.heading.title, caption: data.heading.title, extraClass: "img-thumbnail", src: data.meta.image }
+                            = codeBlender "image", "atom", { alt: data.heading.title, caption: data.heading.title, extraClass: "img-thumbnail", src: data.image }
 
                         -# Just display the title
                     - else

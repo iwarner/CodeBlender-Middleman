@@ -29,13 +29,30 @@
             -# Loop through the array
             - array.each do | value |
 
-                -# If no value[ 1 ] is present then escape value[ 0 ]
-                - if ! value[ 1 ]
-                    - value[ 1 ] = string value[ 0 ]
+                -# If no value[ :key ] is present then escape value[ :value ]
+                - if ! value[ :key ]
+                    - value[ :key ] = string value[ :value ]
 
                 -# Option
-                %option{ value: value[ 1 ] }
-                    = string value[ 0 ]
+                %option{ value: value[ :key ] }
+                    = string value[ :value ]
+
+-# Form Group
+.form-group{ show: { errors: "{showSuccess: true}" } }
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label.control-label{ for: locals[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
+        = string label[ :title ]
+
+    - if locals[ :column ]
+
+        -# Usually contains the column counts for a horizontal form
+        -# Need to remove this DIV if there is no requirement for Columns here
+        %div{ class: locals[ :column ] }
+            = inputCapture
+
+    - else
+        = inputCapture
 
 -# Form Group
 .form-group{ show: { errors: "{showSuccess: true}" } }

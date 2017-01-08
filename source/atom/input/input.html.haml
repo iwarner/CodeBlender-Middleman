@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 # Variables
 meta :
     description : "Input - CodeBlender"
@@ -8,6 +9,10 @@ meta :
 heading :
     small : "Core user data entry element"
     title : "Form Input Fields"
+=======
+description : "Input"
+title       : "Input"
+>>>>>>> updates
 
 see :
     - - "Bootstrap Forms"
@@ -56,6 +61,36 @@ todo :
   { code: code, heading: { small: "With input group appended", text: "Text Type" } }
 
 -# Password type
+<<<<<<< HEAD
+:ruby
+    code = %{codeBlender "input", "atom",
+      { help:  { text: "Enter 8 characters [a-zA-Z0-9]" },
+        icon:  { prepend: "fa-credit-card" },
+        input: { name: "password", placeholder: "Enter password", type: "password" },
+        label: { title: "Password" } } }
+
+-# Code
+= codeBlender "code", "organism",
+  { code: code, heading: { small: "Also contains some help text", text: "Password Type" } }
+
+-# Email type
+:ruby
+    code = %{codeBlender "input", "atom",
+      { help:  {},
+        icon:  { prepend: "fa-envelope" },
+        input: { name: "email", placeholder: "Enter email", type: "email" },
+        label: { title: "Email" } }}
+
+-# Code
+= codeBlender "code", "organism",
+  { code: code, heading: { small: "Also contains a group icon", text: "Email Type" } }
+
+-# Column
+:ruby
+    code = %{codeBlender "input", "atom",
+      { column: "col-lg-6",
+        icon:   { prepend: "fa-envelope" },
+=======
 :ruby
     code = %{codeBlender "input", "atom",
       { help:  { text: "Enter 8 characters [a-zA-Z0-9]" },
@@ -91,6 +126,19 @@ todo :
 = codeBlender "code", "organism",
   { code: code, heading: { small: "Specify the width of an Input", text: "Columns" } }
 
+-# Button addon
+:ruby
+    code = %{codeBlender "input", "atom",
+      { button: { append: { text: "HERE", ng: { click: "here" } } },
+>>>>>>> updates
+        input:  { name: "email", placeholder: "Enter email", type: "email" },
+        label:  { title: "Email" } }}
+
+-# Code
+= codeBlender "code", "organism",
+<<<<<<< HEAD
+  { code: code, heading: { small: "Specify the width of an Input", text: "Columns" } }
+
 %form.formCompetition{ action: "", method: "POST" }
 
     -# Input - Name
@@ -120,3 +168,6 @@ todo :
         icon:   { prepend: "fa-envelope" },
         input:  { name:  "email", placeholder: :"competition.form.email.placeholder", required: true, type: "email" },
         label:  { extraClass: "col-lg-2", title: "Email" } }
+=======
+  { code: code, heading: { small: "Specify the width of an Input", text: "Button addon" } }
+>>>>>>> updates

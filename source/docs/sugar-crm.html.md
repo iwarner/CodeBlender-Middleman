@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "Sugar CRM"
 
 meta :
     title  : "Sugar CRM - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "Sugar CRM"

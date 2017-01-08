@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Bundler"
     title : "Bundler"
@@ -7,6 +8,8 @@ heading :
 meta :
     title : "Bundler - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "developer"
 date     : 2014-01-20
 excerpt  : "Bundler"

@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Colour"
     title : "Colour"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Colour - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "design"
 date     : 2014-01-20
 excerpt  : "Colour"
@@ -31,6 +34,6 @@ title    : "Colour"
 
 [Colour contrast]:http://www.snook.ca/technical/colour_contrast/colour.html
 
-https://www.npmjs.com/package/grunt-colorguard
-http://subtlepatterns.com/
-https://en.wikipedia.org/wiki/Color_difference#CIEDE2000
+- https://www.npmjs.com/package/grunt-colorguard
+- http://subtlepatterns.com/
+- https://en.wikipedia.org/wiki/Color_difference#CIEDE2000

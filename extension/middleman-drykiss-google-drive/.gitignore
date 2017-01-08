@@ -1,0 +1,11 @@
+# Ignore bundler lock file
+Gemfile.lock
+
+# Ignore pkg folder
+pkg
+
+.bundle
+bin
+coverage
+tmp
+fixtures/*/build

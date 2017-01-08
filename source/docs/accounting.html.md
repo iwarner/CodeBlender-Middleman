@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "A contractors musing on accounting"
     title : "Accounting"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Accounting - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2016-01-05
 excerpt  : "Accounting"

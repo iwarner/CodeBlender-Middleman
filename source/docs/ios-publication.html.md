@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 # Heading
 heading :
     title : "Apple store for iOS"
@@ -23,6 +24,22 @@ published : true
 tags      : [ apple, ios, developer ]
 time      : 12:55
 title     : "Apple store for iOS"
+=======
+category           : "developer"
+comment            : true
+date               : 2016-07-08
+description        : "Publish iOS platform applications"
+excerpt            : "Publish iOS platform applications"
+image              : "http://blog.deliveroo.co.uk/wp-content/uploads/sites/2/2016/11/Facebook-Banner-Sweet_treats_Felicity_Millward_October-29-of-29.jpg"
+lang               : en
+modified           : 2016-07-08
+published          : true
+tags               : [ apple, ios, developer ]
+time               : 12:55
+title              : "Publish iOS platform applications"
+twitterDescription : "Publish iOS platform applications"
+type               : "article"
+>>>>>>> updates
 
 ---
 

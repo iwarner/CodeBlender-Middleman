@@ -1,0 +1,28 @@
+-##
+-# Facebook video embed
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-##
+
+-# HREF
+- locals[ :href ] = locals[ :href ] ? locals[ :href ] : false
+
+-# Width
+- locals[ :width ] = locals[ :width ] ? locals[ :width ] : "220"
+
+-# Allow full screen
+- locals[ :allowfullscreen ] = locals[ :allowfullscreen ] ? locals[ :allowfullscreen ] : "true"
+
+-# Auto play
+- locals[ :autoplay ] = locals[ :autoplay ] ? locals[ :autoplay ] : "true"
+
+-# Show captions
+- locals[ :"show-captions" ] = locals[ :"show-captions" ] ? locals[ :"show-captions" ] : "true"
+
+-# Share button
+.fb-video{ data: { href:            "https://www.facebook.com/#{ locals[ :href ] }",
+                   width:           locals[ :width ],
+                   allowfullscreen: locals[ :allowfullscreen ],
+                   autoplay:        locals[ :autoplay ],
+                   "show-captions": locals[ :"show-captions" ] } }

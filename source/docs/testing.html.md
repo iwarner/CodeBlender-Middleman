@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "Testing"
 
 meta :
     title  : "Testing - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "infrastructure"
 date     : 2014-01-20
 excerpt  : "Testing"

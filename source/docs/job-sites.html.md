@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Getting a technical job in 2015"
     title : "Job Sites"
@@ -16,6 +17,18 @@ modified : 2015-10-15
 excerpt  : "Getting a technical job in 2015"
 tags     : [ job, education, skills ]
 title    : "Job Sites"
+=======
+category    : "business"
+date        : 2015-10-15
+description : "Technical job search in London, what sites are best?"
+excerpt     : "Getting a technical job in 2015"
+image       : "/docs/job-sites/vacancies.jpg"
+modified    : 2015-10-15
+small       : "Getting a technical job in 2015"
+tags        : [ job, education, skills ]
+title       : "Getting a technical job in 2015"
+type        : "article"
+>>>>>>> updates
 
 ---
 

@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "Middleman"
 
 meta :
     title  : "Middleman - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "Middleman"

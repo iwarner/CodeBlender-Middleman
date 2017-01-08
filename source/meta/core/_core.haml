@@ -1,0 +1,63 @@
+-##
+-# Core Meta Tags
+-#
+-# Tags can be set via the current_page.data elements or through locale stub
+-# method the latter is especially useful for localized pages where the front
+-# matter will change dynamically for the language.
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category meta
+-##
+
+-# Current page data
+<<<<<<< HEAD:source/atom/meta/_core.haml
+- cp = current_page.data.meta
+=======
+- cp = current_page.data
+>>>>>>> updates:source/meta/core/_core.haml
+
+-# If there is meta tabs present then override the stub method
+- if cp
+    - m = cp
+- else
+    - m = "meta.#{ current_page.data.stub }"
+
+- title       = cp ? m.title       : :"#{ m }.title"
+- description = cp ? m.description : :"#{ m }.description"
+
+-# Title
+%title= string( title )
+
+-# Encoding
+%meta{ charset: "utf-8" }
+
+-# Meta Tags for IE2
+%meta{ content: "IE=edge,chrome=1", http: { equiv: "X-UA-Compatible" } }
+
+-# Description
+%meta{ name: "description", content: string( description ) }
+
+-# Keywords
+%meta{ name: "keywords", content: string( description ) }
+
+-# Author
+- author = content_for?( :metaAuthor ) ? yield_content( :metaAuthor ) : cp && cp.author ? string( m.author ) : t( :"#{ m }.author", :default => string( :"meta.author" ) )
+%meta{ name: "author", content: author }
+
+-# Robots
+%meta{ name: "robots", content: "index,follow,archive" }
+
+-# Canonical
+%meta{ rel: "canonical", href: t( :url ) + current_page.url }
+
+-# CSRF Token
+-# %meta{ name: "csrf-token", content: Random.new_seed }
+
+-# Cordova CDV File
+-# %meta{ content: "default-src * 'unsafe-eval' 'unsafe-inline'", http: { equiv: "Content-Security-Policy" } }
+
+- if build?
+
+    %meta{ http: { equiv: "last-modified" }, content: Time.parse( Time.now.to_s ).httpdate }
+    %meta{ http: { equiv: "cache-control", content: "Private" } }
+    %meta{ http: { equiv: "Expires", content: "600" } }

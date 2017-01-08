@@ -10,8 +10,7 @@
 -##
 
 -# Variable
-- cp      = current_page.data
-- heading = cp.heading
+- d = current_page.data
 
 -# Portfolio
 = wrap_layout "#{ config[ :layout_dir ] }bootstrap" do
@@ -29,7 +28,7 @@
                 %article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
 
                     -# Heading - H1
-                    = codeBlender "heading", "molecule", { pageHeader: true, extraClass: "heading--noMargin", small: heading.small, text: heading.title, itemprop: "name headline" }
+                    = codeBlender "heading", "molecule", { pageHeader: true, extraClass: "heading--noMargin", small: d.small ? d.small : false, text: d.title, itemprop: "name headline" }
 
         -# Yield - portfolio post
         %span{ itemprop: "text" }= yield
@@ -44,5 +43,5 @@
                 -# = codeBlender "pager", "molecule"
 
                 -# Disqus comment
-                - if cp.comment
+                - if d.comment
                     = codeBlender "disqus-comment", "organism"

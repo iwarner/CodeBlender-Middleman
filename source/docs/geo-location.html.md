@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Geolocation"
     title : "Geolocation"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Geolocation - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "Geolocation"

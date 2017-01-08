@@ -76,7 +76,7 @@
             .row
 
                 -# Bootstrap column
-                .col-md-6
+                .col-md-8
 
                     -# Year
                     - if ! locals[ :noYear ]
@@ -95,12 +95,14 @@
                         -# Horizontal list of links
                         = codeBlender "list-ul", "atom", { array: array, extraClass: "list-inline list-unstyled" }
 
-                -# Bootstrap column
-                .col-md-6.text-right
+                - if data.footer.drykiss
 
-                    Site &amp; SEO by
+                    -# Bootstrap column
+                    .col-md-4.text-right
 
-                    -# Developed by
-                    %a{ href: "//drykiss.com", target: "_blank" }
-                        = inlineSVG "drykiss-sq-color.svg"
-                        DryKISS Ltd
+                        Site &amp; SEO by
+
+                        -# Developed by
+                        %a{ href: "//drykiss.com", target: "_blank" }
+                            = inlineSVG "drykiss-sq-color.svg"
+                            DryKISS Ltd

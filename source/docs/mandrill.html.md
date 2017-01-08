@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Transactional email sending"
     title : "Mandrill"
@@ -16,6 +17,18 @@ modified : 2015-10-14
 excerpt  : "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ideal for sending data-driven transactional emails, including targeted e-commerce and personalized one-to-one messages."
 tags     : [ email, newsletter, marketing ]
 title    : "Mandrill"
+=======
+category    : "business"
+date        : 2014-01-20
+description : "CodeBlender - Middleman hand crafted Bootstrap HAML partials"
+modified    : 2015-10-14
+excerpt     : "Mandrill is a reliable, scalable, and secure delivery API for transactional emails from websites and applications. It's ideal for sending data-driven transactional emails, including targeted e-commerce and personalized one-to-one messages."
+image       : "/docs/mandrill/mandrill.jpg"
+small       : "Transactional email sending"
+tags        : [ email, newsletter, marketing ]
+title       : "Mandrill email"
+type        : "article"
+>>>>>>> updates
 
 ---
 

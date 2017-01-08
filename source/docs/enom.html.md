@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Enom"
     title : "Enom"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Enom - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "Enom"

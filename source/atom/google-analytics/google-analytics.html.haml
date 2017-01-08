@@ -4,6 +4,7 @@
 angular :
     controller   : GoogleAnalyticsController
     controllerAs : analytic
+<<<<<<< HEAD
 
 # Meta
 meta :
@@ -15,6 +16,12 @@ heading :
     small : "Google Analytics site statistics and reporting"
     title : "Analytics"
 
+=======
+
+description : "Google analytics"
+title       : "Google analytics"
+
+>>>>>>> updates
 # Resource
 see :
     - - "Google Analytics"
@@ -33,8 +40,13 @@ see :
 
     ### Example analytics code
 
+<<<<<<< HEAD
     Please note Google do change this from time to time so always check the
     latest tracking info section.
+=======
+    Please note Google changes this from time to time so always check the latest
+    tracking info section.
+>>>>>>> updates
 
     ~~~ javascript
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -63,9 +75,16 @@ see :
     ~~~ yaml
     # Analytics
     analytics :
+<<<<<<< HEAD
         active : true
         code   : "UA-XXXXXXXX-X"
         url    : "auto"
+=======
+        active    : true
+        autoTrack : true
+        code      : "UA-XXXXXXXX-X"
+        url       : "auto"
+>>>>>>> updates
     ~~~
 
     ### Multi domain and language
@@ -77,9 +96,16 @@ see :
     ~~~ yaml
     # Google analytics
     analytics :
+<<<<<<< HEAD
         active : true
         code   : "locale"
         url    : "auto"
+=======
+        active    : true
+        autoTrack : true
+        code      : "locale"
+        url       : "auto"
+>>>>>>> updates
     ~~~
 
     and adding the code into say en.yml and repeat for each locale on a new domain.
@@ -91,6 +117,18 @@ see :
             code : "UA-85610225-1"
     ~~~
 
+<<<<<<< HEAD
+=======
+    ### AutoTrack
+
+    By default CodeBlender partials are set up to take advantage of
+    [Google AutoTrack](https://github.com/googleanalytics/autotrack). Make sure
+    the instructions on this GitHub page are followed to complete the installation.
+
+    We make use of the [eventTracker](https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/event-tracker.md)
+    functionality on most clickable elements
+
+>>>>>>> updates
     ### Social tracking
 
     To track whether a social action has occurred, requires binding to the

@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Bower"
     title : "Bower"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Bower - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "developer"
 date     : 2014-01-20
 excerpt  : "Bower"

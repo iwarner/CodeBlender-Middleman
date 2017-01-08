@@ -34,6 +34,10 @@
         "angular-ui-grid"      : "",
         "angular-ui-router"    : "",
         "angular-clipboard"    : "",
+<<<<<<< HEAD
+=======
+        "autotrack"            : "",
+>>>>>>> updates
         "bootstrap-sass"       : "",
         "font-awesome"         : "",
         "lodash"               : "",

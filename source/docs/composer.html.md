@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Composer"
     title : "Composer"
@@ -7,6 +8,8 @@ heading :
 meta :
     title : "Composer - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "back-end"
 date     : 2014-01-20
 excerpt  : "Composer"
@@ -23,5 +26,8 @@ title    : "Composer"
 
 To install:
 
-    $ brew tap josegonzalez/homebrew-php
-    $ brew install josegonzalez/php/composer
+$ brew tap homebrew/homebrew-php
+$ brew tap homebrew/dupes
+$ brew tap homebrew/versions
+
+$ brew install composer --ignore-dependencies

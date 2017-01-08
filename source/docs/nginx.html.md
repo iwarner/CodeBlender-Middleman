@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "Nginx"
 
 meta :
     title  : "Nginx - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "infrastructure"
 date     : 2014-01-20
 excerpt  : "Nginx"

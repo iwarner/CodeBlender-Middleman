@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Developing for a new medium"
     title : "TV applications"
@@ -8,6 +9,8 @@ meta :
     description : "TV applications - CodeBlender"
     title       : "TV applications - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "TV applications"
@@ -52,5 +55,5 @@ device features of Samsung devices. Samsung Web APIs and standard web technologi
 [App Example - TechTV]:https://github.com/kimptoc/BritishTechTVBasic/
 [Remote Testing]:https://rts.samsungdforum.com/
 
-https://github.com/ellisonleao/clumsy-bird
-http://ellisonleao.github.io/clumsy-bird/ FOR TV ?
+- https://github.com/ellisonleao/clumsy-bird
+- http://ellisonleao.github.io/clumsy-bird/ FOR TV ?

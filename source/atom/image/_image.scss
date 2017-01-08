@@ -1,7 +1,8 @@
 //
 // Image
 //
-// @author Ian Warner <ian.warner@drykiss.com>
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category atom
 //----------------------------------------------------------------------------//
 
 // Image
@@ -18,6 +19,12 @@
     //------------------------------------------------------------------------//
     &__caption {
         background-color : grey;
+    }
+
+    // Full width
+    //------------------------------------------------------------------------//
+    &--fullWidth {
+        width : 100%;
     }
 
 }

@@ -18,6 +18,14 @@ en:
     brand : "Code Blender"
     url   : "http://codeblender.net"
 
+    # Brand
+    brand : "Code Blender"
+    url   : "http://codeblender.net"
+
+    # Facebook
+    facebook :
+        locale : "en_GB"
+
     # Pagination
     pagination :
         first    : "First"
@@ -51,11 +59,13 @@ en:
         firstName : "First name"
         lastName  : "Last name"
 
-    # Meta
-    # Automatically configures the Meta based on page name
+    # Meta - defaults
     meta :
+<<<<<<< HEAD
 
         # Global
+=======
+>>>>>>> updates
         author           : "DryKISS"
         image            : "/assets/images/logo/facebookShare.png?v=1.00"
         itemType         : "WebPage"

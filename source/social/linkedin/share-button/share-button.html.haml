@@ -1,0 +1,36 @@
+---
+
+description : "LinkedIn share button"
+title       : "LinkedIn share button"
+
+see :
+    - - "Share button"
+      - "https://developer.linkedin.com/docs/share-on-linkedin"
+    - - "Share meta"
+      - "https://www.linkedin.com/help/linkedin/answer/46687/making-your-website-shareable-on-linkedin?lang=en"
+
+todo :
+    - - "Find out how to configure language for this - or is it automatic based on browser locale"
+
+---
+
+:markdown
+
+    The share button provides an easy to use access into the share dialog.
+
+    Elements are drawn from the open graph meta, of can be overridden by including
+    them in the URL call.
+
+    **Image requirements**
+
+    - Here are the image requirements specific to the LinkedIn sharing module:
+    - Max file size: 1 MB
+    - Minimum image dimensions: 80 x 150 pixels
+    - Recommended aspect ratio: 4:1 or 1:4
+
+-# Default
+:ruby
+    code = %{codeBlender "share-button", "social/linkedin/share-button", { url: "http://drykiss.com", href: "http://drykiss.com/", title: "Test title" } }
+
+-# Code
+= codeBlender "code", "organism", { code: code, heading: { text: "Default" } }

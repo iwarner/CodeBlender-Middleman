@@ -21,6 +21,11 @@ gem "middleman-minify-html"
 gem "middleman-syntax"
 gem "middleman-seo-check",     path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-seo-check"
 
+# DryKISS
+gem "middleman-drykiss-google-drive", path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-drykiss-google-drive"
+gem "middleman-seo-check",            path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-seo-check"
+
+
 # Tools
 gem "bourbon"
 gem "streamio-ffmpeg"
@@ -29,6 +34,10 @@ gem "xml-simple"
 gem "nokogiri"
 gem "rmagick"
 gem "google-api-client"
+<<<<<<< HEAD
+=======
+gem 'levenshtein'
+>>>>>>> updates
 
 # Template engines
 gem "kramdown"

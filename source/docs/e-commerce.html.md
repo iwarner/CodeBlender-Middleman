@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "E-commerce"
     title : "E-commerce"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "E-commerce - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "E-commerce"

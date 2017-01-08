@@ -1,0 +1,53 @@
+-##
+-# Blank layout
+-#
+-# @usage
+-# -# Blank
+-# = wrap_layout "_codeBlender/blank" do
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category layout
+-# @see      http://www.tutorialspoint.com/html5/html5_microdata.htm
+-##
+
+-# Variable
+- locale = I18n.locale.to_s
+- cp     = current_page.data
+
+-# HTML5 doctype
+!!! 5
+
+-# HTML5 root element
+-# Requires lang, manifest if option is created and angular app definition
+-# @see https://www.w3.org/TR/html-markup/html.html
+%html{ lang: string( :locale ) }
+
+    -# Head section
+    -# Prefix is utilised for structures like Facebook
+    %head
+
+        -# If there is meta tabs present then override the stub method
+        - if cp
+            - m = cp
+        - else
+            - m = "meta.#{ current_page.data.stub }"
+
+        - title       = cp ? m.title       : :"#{ m }.title"
+        - description = cp ? m.description : :"#{ m }.description"
+
+        -# Title
+        %title= string( title )
+
+        %meta{ "http-equiv": "Content-Type", content: "text/html; charset=UTF-8" }
+        %meta{ name: "viewport", content: "width=device-width, user-scalable=no,initial-scale=1" }
+
+    -# Body with page class
+    -# Contains the main itemscope of the current page
+    %body
+
+        -# Section - yield
+        = yield
+
+        -# Google analytics
+        - if data.has_key? "google" and data.google.analytics.active
+            = codeBlender "google-analytics", "atom"

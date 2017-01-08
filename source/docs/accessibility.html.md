@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "A better user experience for all"
     title : "Accessibility first"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Accessibility first - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "user-experience"
 date     : 2014-01-20
 excerpt  : "Accessibility (WCAG) is crucial for both the website and the mobile apps."
@@ -191,6 +194,6 @@ http://patstapestry.wordpress.com/2013/05/24/tips-for-accessibility-testing-of-i
 [Action Hearing Loss]:http://www.actiononhearingloss.org.uk/
 [Screen Reader Testing]:http://www.iheni.com/screen-reader-testing/
 
-https://github.com/yargalot/grunt-accessibility
-https://github.com/yargalot/gulp-accessibility
-http://tenon.io/
+- https://github.com/yargalot/grunt-accessibility
+- https://github.com/yargalot/gulp-accessibility
+- http://tenon.io/

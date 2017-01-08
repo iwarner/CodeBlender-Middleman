@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Homebrew"
     title : "Homebrew"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Homebrew - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "developer"
 date     : 2014-01-20
 excerpt  : "Homebrew"

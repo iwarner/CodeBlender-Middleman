@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Laravel"
     title : "Laravel"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Laravel - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "back-end"
 date     : 2014-01-20
 excerpt  : "Laravel"

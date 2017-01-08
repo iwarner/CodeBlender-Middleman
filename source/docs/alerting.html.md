@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Server and service notifications"
     title : "Alerting"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Alerting - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "infrastructure"
 date     : 2014-01-20
 excerpt  : "Alerting"

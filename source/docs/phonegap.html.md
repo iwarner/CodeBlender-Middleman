@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "Phonegap"
 
 meta :
     title  : "Phonegap - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "back-end"
 date     : 2014-01-20
 excerpt  : "Phonegap"

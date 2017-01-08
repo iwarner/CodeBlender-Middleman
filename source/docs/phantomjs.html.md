@@ -1,11 +1,14 @@
 ---
 
+<<<<<<< HEAD
 heading :
     title : "Phantom JS"
 
 meta :
     title  : "Phantom JS - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "Phantom JS"

@@ -2,6 +2,7 @@
 ###############
 .enomConfig
 client_id.json
+client_secret.json
 
 # Middleman #
 #############

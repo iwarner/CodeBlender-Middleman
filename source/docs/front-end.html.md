@@ -1,5 +1,6 @@
 ---
 
+<<<<<<< HEAD
 heading :
     small : "Front end"
     title : "Front end"
@@ -7,6 +8,8 @@ heading :
 meta :
     title  : "Front end - CodeBlender"
 
+=======
+>>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "Front end"
