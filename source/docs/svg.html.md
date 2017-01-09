@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Moving to a more accessible web"
-    title : "SVG"
-
-meta :
-    title  : "SVG - CodeBlender"
-
-=======
->>>>>>> updates
 category : "user-experience"
 date     : 2016-02-25
 excerpt  : "SVG"

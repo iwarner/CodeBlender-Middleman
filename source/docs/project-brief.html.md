@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "Project brief"
-
-meta :
-    title  : "Project brief - CodeBlender"
-
-=======
->>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "Project brief"

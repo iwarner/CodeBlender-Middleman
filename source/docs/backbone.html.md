@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "Backbone"
-
-meta :
-    title  : "Backbone - CodeBlender"
-
-=======
->>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "Backbone"

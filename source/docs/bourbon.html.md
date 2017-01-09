@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Bourbon"
-    title : "Bourbon"
-
-meta :
-    title  : "Bourbon - CodeBlender"
-
-=======
->>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "Bourbon"

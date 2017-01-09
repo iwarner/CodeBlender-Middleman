@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "LinkedIn"
-
-meta :
-    title  : "LinkedIn - CodeBlender"
-
-=======
->>>>>>> updates
 category : "economy"
 date     : 2016-05-09
 excerpt  : "LinkedIn information and checklists"

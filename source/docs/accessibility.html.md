@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "A better user experience for all"
-    title : "Accessibility first"
-
-meta :
-    title  : "Accessibility first - CodeBlender"
-
-=======
->>>>>>> updates
 category : "user-experience"
 date     : 2014-01-20
 excerpt  : "Accessibility (WCAG) is crucial for both the website and the mobile apps."

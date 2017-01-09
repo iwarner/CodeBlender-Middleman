@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Grunt"
-    title : "Grunt"
-
-meta :
-    title  : "Grunt - CodeBlender"
-
-=======
->>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "Grunt"

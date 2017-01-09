@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Gems"
-    title : "Gems"
-
-meta :
-    title  : "Gems - CodeBlender"
-
-=======
->>>>>>> updates
 category : "developer"
 date     : 2014-01-20
 excerpt  : "Gems"

@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : ""
-    title : "Analytics"
-
-meta :
-    title  : "Analytics - CodeBlender"
-
-=======
->>>>>>> updates
 category : "reporting"
 date     : 2014-01-20
 excerpt  : "Analytics"

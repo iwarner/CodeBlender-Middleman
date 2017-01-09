@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Continuous integration"
-    title : "Continuous integration"
-
-meta :
-    title  : "Continuous integration - CodeBlender"
-
-=======
->>>>>>> updates
 category : "continuous-integration"
 date     : 2014-01-20
 excerpt  : "Continuous integration"

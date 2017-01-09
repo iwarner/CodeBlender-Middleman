@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "Thor"
-
-meta :
-    title  : "Thor - CodeBlender"
-
-=======
->>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "Thor"

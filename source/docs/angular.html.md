@@ -1,16 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : ""
-    title : "Angular development"
-
-meta :
-    image  : "/docs/angular/angularjs.png"
-    title  : "Angular - CodeBlender"
-
-=======
->>>>>>> updates
 category : "front-end"
 date     : 2015-04-08
 excerpt  : "Excerpt on Angular"

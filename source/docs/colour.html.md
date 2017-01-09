@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Colour"
-    title : "Colour"
-
-meta :
-    title  : "Colour - CodeBlender"
-
-=======
->>>>>>> updates
 category : "design"
 date     : 2014-01-20
 excerpt  : "Colour"

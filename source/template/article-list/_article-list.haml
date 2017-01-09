@@ -46,16 +46,13 @@
                 .media-body
 
                     -# Heading - article H1
-<<<<<<< HEAD
-                    = codeBlender "heading", "molecule", { extraClass: "heading--truncate media-heading", href: article.url, text: article.title, rel: "nofollow bookmark", itemprop: "name" }
-=======
+
                     = codeBlender "heading", "molecule",
                       { extraClass: "heading--truncate media-heading",
                         href:       article.url,
                         text:       article.title,
                         rel:        "nofollow bookmark",
                         itemprop:   "name" }
->>>>>>> updates
 
                     - if ! locals[ :footer ]
                         - locals[ :footer ] = {}

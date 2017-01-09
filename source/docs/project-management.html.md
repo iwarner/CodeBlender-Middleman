@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "Project management"
-
-meta :
-    title  : "Project management - CodeBlender"
-
-=======
->>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "Project management"

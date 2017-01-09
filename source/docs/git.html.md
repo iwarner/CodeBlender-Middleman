@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "GIT"
-    title : "GIT"
-
-meta :
-    title  : "GIT - CodeBlender"
-
-=======
->>>>>>> updates
 category : "developer"
 date     : 2014-01-20
 excerpt  : "GIT"

@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Gollum"
-    title : "Gollum"
-
-meta :
-    title  : "Gollum - CodeBlender"
-
-=======
->>>>>>> updates
 category : "developer"
 date     : 2014-01-20
 excerpt  : "Gollum"

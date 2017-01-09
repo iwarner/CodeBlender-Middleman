@@ -1,16 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "HAML"
-    title : "HAML"
-
-meta :
-    image  : "/docs/haml-template/haml-template.png"
-    title  : "HAML - CodeBlender"
-
-=======
->>>>>>> updates
 category : "front-end"
 date     : 2014-01-20
 excerpt  : "HAML"

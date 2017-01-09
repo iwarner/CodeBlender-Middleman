@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Infographic"
-    title : "Infographic"
-
-meta :
-    title  : "Infographic - CodeBlender"
-
-=======
->>>>>>> updates
 category : "design"
 date     : 2014-01-20
 excerpt  : "Infographic"

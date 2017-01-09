@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Cache"
-    title : "Cache"
-
-meta :
-    title : "Cache - CodeBlender"
-
-=======
->>>>>>> updates
 category : "infrastructure"
 date     : 2014-01-20
 excerpt  : "Cache"

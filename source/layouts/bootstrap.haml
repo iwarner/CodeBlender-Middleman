@@ -50,22 +50,6 @@
             = javascript_include_tag :"head.bundle"
 
         -# Instagram
-<<<<<<< HEAD
-        = javascript_include_tag '//platform.instagram.com/en_US/embeds.js'
-
-        -# Pinterest
-        = javascript_include_tag '//assets.pinterest.com/js/pinit.js'
-
-    -# Use test Facebook ID in development
-    - if development?
-        - appID = data.facebook.app.testID
-    - else
-        - appID = data.facebook.app.id
-
-    -# Facebook locale - check it exists and use on body tag
-    - localeFacebook = I18n.exists?( :localeFacebook )    ? t( :localeFacebook )    : data.facebook.locale ? data.facebook.locale : false
-    - facebookAppID  = I18n.exists?( :"facebook.app.id" ) ? t( :"facebook.app.id" ) : appID ? appID : false
-=======
         - if data.has_key? "instagram" and data.instagram.active
             = javascript_include_tag '//platform.instagram.com/en_US/embeds.js'
 
@@ -82,7 +66,6 @@
 
     -# Facebook locale - check it exists and use on body tag
     - localeFacebook = I18n.exists?( :"facebook.locale" ) ? t( :"facebook.locale" ) : data.facebook.locale ? data.facebook.locale : false
->>>>>>> updates
 
     -# Angular controller
     - if d.angular
@@ -100,11 +83,7 @@
            class:     extraClass,
            itemscope: true,
            itemtype:  "https://schema.org/WebPage",
-<<<<<<< HEAD
-           data:      { localeFacebook: localeFacebook ? localeFacebook : false, facebookAppID: facebookAppID ? facebookAppID : false },
-=======
            data:      { locale: locale, localeFacebook: localeFacebook ? localeFacebook : false, facebookAppID: facebookAppID ? facebookAppID : false },
->>>>>>> updates
            ng:        { controller: angularController } }
 
         -# Top anchor

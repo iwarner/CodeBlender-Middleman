@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : ""
-    title : "Api"
-
-meta :
-    title  : "Api - CodeBlender"
-
-=======
->>>>>>> updates
 category : "back-end"
 date     : 2014-01-20
 excerpt  : "Api"

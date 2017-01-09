@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "MySQL"
-
-meta :
-    title  : "MySQL - CodeBlender"
-
-=======
->>>>>>> updates
 category : "database"
 date     : 2014-01-20
 excerpt  : "MySQL"

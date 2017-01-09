@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Creation and usage, focus on Google Apps"
-    title : "Email"
-
-meta :
-    title  : "Email - CodeBlender"
-
-=======
->>>>>>> updates
 category : "business"
 date     : 2011-02-13
 excerpt  : "Email"

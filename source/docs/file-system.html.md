@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "File system"
-    title : "File system"
-
-meta :
-    title  : "File system - CodeBlender"
-
-=======
->>>>>>> updates
 category : "developer"
 date     : 2014-01-20
 excerpt  : "File system"

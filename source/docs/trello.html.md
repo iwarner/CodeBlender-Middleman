@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "Trello"
-
-meta :
-    title  : "Trello - CodeBlender"
-
-=======
->>>>>>> updates
 category : "trello"
 date     : 2014-01-20
 excerpt  : "Trello"

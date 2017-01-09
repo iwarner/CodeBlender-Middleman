@@ -1,16 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Website i18n"
-    title : "Localization"
-
-meta :
-    title  : "Localization - CodeBlender"
-    type   : "article"
-
-=======
->>>>>>> updates
 category : "developer"
 date     : 2016-02-05
 excerpt  : ""

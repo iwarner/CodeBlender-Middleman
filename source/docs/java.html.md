@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD:source/docs/java.md
-heading :
-    title : "JAVA"
-
-meta :
-    title  : "JAVA - CodeBlender"
-
-=======
->>>>>>> updates:source/docs/java.html.md
 category : "development"
 date     : 2014-01-20
 excerpt  : "JAVA"

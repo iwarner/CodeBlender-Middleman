@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "Network"
-
-meta :
-    title  : "Network - CodeBlender"
-
-=======
->>>>>>> updates
 category : "infrastructure"
 date     : 2014-01-20
 excerpt  : "Network"

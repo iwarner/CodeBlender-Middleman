@@ -1,14 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "SEO"
-
-meta :
-    title  : "SEO - CodeBlender"
-
-=======
->>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "SEO"

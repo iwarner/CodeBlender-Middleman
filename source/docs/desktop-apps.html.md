@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Desktop applications"
-    title : "Desktop applications"
-
-meta :
-    title  : "Desktop applications - CodeBlender"
-
-=======
->>>>>>> updates
 category : "back-end"
 date     : 2014-01-20
 excerpt  : "Desktop applications"

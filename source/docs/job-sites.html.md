@@ -1,23 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Getting a technical job in 2015"
-    title : "Job Sites"
-
-meta :
-    description : "Technical job search in London, what sites are best?"
-    image       : "/docs/job-sites/vacancies.jpg"
-    title       : "Getting a technical job in 2015 - CodeBlender"
-    type        : "article"
-
-category : "business"
-date     : 2015-10-15
-modified : 2015-10-15
-excerpt  : "Getting a technical job in 2015"
-tags     : [ job, education, skills ]
-title    : "Job Sites"
-=======
 category    : "business"
 date        : 2015-10-15
 description : "Technical job search in London, what sites are best?"
@@ -28,7 +10,6 @@ small       : "Getting a technical job in 2015"
 tags        : [ job, education, skills ]
 title       : "Getting a technical job in 2015"
 type        : "article"
->>>>>>> updates
 
 ---
 

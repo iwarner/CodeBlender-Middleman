@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Composer"
-    title : "Composer"
-
-meta :
-    title : "Composer - CodeBlender"
-
-=======
->>>>>>> updates
 category : "back-end"
 date     : 2014-01-20
 excerpt  : "Composer"

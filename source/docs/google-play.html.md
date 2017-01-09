@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Publishing a hybrid application"
-    title : "Google Play Store"
-
-meta :
-    title  : "Google Play Store, publishing a hybrid application - CodeBlender"
-
-=======
->>>>>>> updates
 category : "hybrid"
 date     : 2016-07-06
 excerpt  : "Google Play Store, publishing a hybrid application"

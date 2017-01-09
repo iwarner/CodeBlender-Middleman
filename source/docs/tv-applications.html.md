@@ -1,16 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Developing for a new medium"
-    title : "TV applications"
-
-meta :
-    description : "TV applications - CodeBlender"
-    title       : "TV applications - CodeBlender"
-
-=======
->>>>>>> updates
 category : "business"
 date     : 2014-01-20
 excerpt  : "TV applications"

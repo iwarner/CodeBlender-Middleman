@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : "Managing ruby and gems"
-    title : "RBenv"
-
-meta :
-    title  : "RBenv - CodeBlender"
-
-=======
->>>>>>> updates
 category : "developer"
 date     : 2014-03-16
 excerpt  : "RBenv"

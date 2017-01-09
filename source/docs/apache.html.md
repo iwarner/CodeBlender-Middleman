@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    small : ""
-    title : "Apache"
-
-meta :
-    title  : "Apache - CodeBlender"
-
-=======
->>>>>>> updates
 category : "server"
 date     : 2014-01-20
 excerpt  : "Apache"

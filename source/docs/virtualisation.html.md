@@ -1,15 +1,5 @@
 ---
 
-<<<<<<< HEAD
-heading :
-    title : "Virtualisation"
-
-meta :
-    description : "Virtualisation - CodeBlender"
-    title       : "Virtualisation - CodeBlender"
-
-=======
->>>>>>> updates
 category : "infrastructure"
 date     : 2014-01-20
 excerpt  : "Virtualisation"
