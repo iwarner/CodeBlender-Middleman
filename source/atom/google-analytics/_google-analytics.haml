@@ -28,17 +28,10 @@
 - code = data.google.analytics.code
 
 -# Check for locale code
-<<<<<<< HEAD
-- code = ( code == "locale" ) ?  t( :"google.analytics.code" ) : code
-
--# URL
-- url  = data.google.analytics.url
-=======
 - code = ( code == "locale" ) ? t( :"google.analytics.code" ) : code
 
 -# URL
 - url = data.google.analytics.url
->>>>>>> updates
 
 -# Analytics
 :javascript
@@ -49,8 +42,6 @@
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-<<<<<<< HEAD
-=======
     -# AutoTrack - Clean URL tracker
     -# @see https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/clean-url-tracker.md
     ga( 'require', 'cleanUrlTracker', {
@@ -67,6 +58,5 @@
     ga( 'require', 'urlChangeTracker' );
 
     -# Pageview
->>>>>>> updates
     ga( 'create', '#{ code }', '#{ url }' );
     ga( 'send',   'pageview' );

@@ -18,11 +18,7 @@ require "football/fixture"
 activate :syntax
 
 # Levenshtein distance function:
-<<<<<<< HEAD
-activate :similar # , :algorithm => :levenshtein by default.
-=======
 # activate :similar # , :algorithm => :levenshtein by default.
->>>>>>> updates
 
 # Load football helpers
 helpers FootballHelpers
@@ -56,13 +52,10 @@ page "sitemap.xml",  layout: false
 # @see http://kramdown.gettalong.org/options.html
 set :markdown_engine, :kramdown
 set :markdown, toc_levels: "1,2", auto_id_prefix: "#"
-<<<<<<< HEAD
 
 # Minimum Sass number precision required by bootstrap-sass
 # @see https://github.com/twbs/bootstrap-sass#number-precision
 # ::Sass::Script::Value::Number.precision = [ 8, ::Sass::Script::Value::Number.precision ].max
-=======
->>>>>>> updates
 
 # Time Zone
 Time.zone = "Europe/London"
@@ -84,45 +77,6 @@ activate :blog do | blog |
     blog.sources           = ":title.html"
 
     blog.layout            = "articleThree"
-<<<<<<< HEAD
-    blog.summary_separator = /(READMORE)/
-    blog.summary_length    = 250
-
-    blog.calendar_template = "template/blog-calendar/blog-calendar.html"
-    blog.year_link         = "/calendar/:year.html"
-    blog.month_link        = "/calendar/:year/:month.html"
-    blog.day_link          = "/calendar/:year/:month/:day.html"
-
-    blog.tag_template      = "template/blog-tag/blog-tag.html"
-    blog.taglink           = "/tag/:tag.html"
-
-    blog.paginate          = true
-    blog.per_page          = 5
-    blog.page_link         = "page/{num}"
-
-    # # /categories/user-experience.html
-    # blog.custom_collections = {
-    #     category: {
-    #         link:     '/categories/{category}.html',
-    #         template: "template/blog-tag/blog-tag.html"
-    #     }
-    # }
-
-end
-
-# Blog : Blog from Google
-# @see https://elenichappen.svbtle.com/getting-tags-to-work-with-middlemans-blog-gem
-activate :blog do | blog |
-
-    blog.name              = "blog"
-    blog.default_extension = ".haml"
-
-    blog.permalink         = "{category}/{title}.html"
-    blog.sources           = "blog/:id.html"
-
-    blog.layout            = "articleTwo"
-=======
->>>>>>> updates
     blog.summary_separator = /(READMORE)/
     blog.summary_length    = 250
 

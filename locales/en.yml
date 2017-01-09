@@ -61,11 +61,6 @@ en:
 
     # Meta - defaults
     meta :
-<<<<<<< HEAD
-
-        # Global
-=======
->>>>>>> updates
         author           : "DryKISS"
         image            : "/assets/images/logo/facebookShare.png?v=1.00"
         itemType         : "WebPage"
