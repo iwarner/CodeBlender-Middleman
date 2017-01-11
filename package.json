@@ -39,6 +39,7 @@
         "font-awesome"         : "",
         "lodash"               : "",
         "jquery"               : "",
+        "mixitup"              : "",
         "ngclipboard"          : "",
         "ng-clip"              : "",
         "ng-facebook"          : "",

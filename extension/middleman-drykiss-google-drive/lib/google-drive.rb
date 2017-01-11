@@ -116,7 +116,7 @@ class GoogleDrive
 
         # List files
         response = @service.list_files(
-            page_size: 1,
+            page_size: 100,
             q:         "'#{ folderID }' in parents",
             fields:    'nextPageToken, files( mimeType, kind, id, name, createdTime, description, fileExtension )' )
 
@@ -277,7 +277,7 @@ class GoogleDrive
         end
 
         # Need to append the meta image for this also
-        doc = doc.gsub 'meta:', "title: \"#{ title.text }\"\nmeta:\n    image: \"#{ img.attr( "src" ) }\""
+        # doc = doc.gsub 'meta:', "title: \"#{ title.text }\"\nmeta:\n    image: \"#{ img.attr( "src" ) }\""
 
         # Breaks
         doc = doc.gsub /\<br>    /, "\n    "
