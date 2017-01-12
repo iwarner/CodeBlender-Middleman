@@ -250,51 +250,6 @@ class Middleman < Thor
     end
 
     ##
-    # Middleman symbolic link set up
-    # Use this on secondary projects to provide the code CodeBlender helpers
-    #
-    # @usage $ thor middleman:symlink
-    # Do not run this on the codeblender project as it will remove the folders
-    #
-    # @todo Place the path into a global variable in this script
-    # @todo Need to run a check to make sure this is not on the CodeBlender project
-    # @todo Need to make sure the partial folder exists - otherwise it errors
-    ##
-    desc "symlink", "Symlink library elements into the project"
-    def symlink
-
-        system( "clear" )
-
-        # Variable
-        path = "/var/www/DryKiss/codeblender.io/www/"
-
-        say( "\n\t Create symbolic link\n\t" )
-
-        # Layout
-        system( "rm -R ../source/layouts/_codeBlender" )
-        system( "ln -s #{ path }source/layouts/ ../source/layouts/_codeBlender" )
-
-        # Partial
-        system( "rm -R ../source/partial/_codeBlender" )
-        system( "mkdir -p ../source/partial/_codeBlender" )
-        system( "ln -sf #{ path }source/atom     ../source/partial/_codeBlender" )
-        system( "ln -sf #{ path }source/football ../source/partial/_codeBlender" )
-        system( "ln -sf #{ path }source/molecule ../source/partial/_codeBlender" )
-        system( "ln -sf #{ path }source/organism ../source/partial/_codeBlender" )
-        system( "ln -sf #{ path }source/social   ../source/partial/_codeBlender"  )
-        system( "ln -sf #{ path }source/template ../source/partial/_codeBlender")
-
-        # Helper
-        system( "rm -R ../helpers" )
-        system( "ln -s #{ path }helpers/ ../helpers" )
-
-        # Gemfile
-        system( "rm ../Gemfile" )
-        system( "ln -s #{ path }Gemfile ../" )
-
-    end
-
-    ##
     # Middleman locale file creation from Google key
     #
     # @usage $ thor middleman:locale
