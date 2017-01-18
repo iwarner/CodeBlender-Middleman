@@ -12,6 +12,9 @@ require "football/setting"
 require "football/table"
 require "football/fixture"
 
+# Load football helpers
+helpers FootballHelpers
+
 # Syntax
 # @see https://github.com/middleman/middleman-syntax
 # :line_numbers => true
@@ -20,13 +23,9 @@ activate :syntax
 # Levenshtein distance function:
 # activate :similar # , :algorithm => :levenshtein by default.
 
-# Load football helpers
-helpers FootballHelpers
-
 # Variables
-set :layout,       "sidebarLeft"
-set :debug_assets, true
-set :haml,         { ugly: true, format: :html5 }
+set :layout, "sidebarLeft"
+set :haml,   { ugly: true, format: :html5 }
 
 # Assets
 set :css_dir,        "assets/stylesheets"
@@ -148,16 +147,11 @@ activate :deploy do | deploy |
     deploy.build_before   = false
 end
 
-# ENV[ 'WEBPACK_ENV' ] ||= ( build? ? 'build' : 'development' )
-
-# External pipeline - Webpack
-activate :external_pipeline,
-    name:    :webpack,
-    command: build? ?
-        "./node_modules/webpack/bin/webpack.js --bail -p" :
-        "./node_modules/webpack/bin/webpack.js --watch -d --progress --color",
-    source:  ".tmp/dist",
-    latency: 1
+# Build-specific configuration
+configure :development do
+    set :debug_assets, true
+    activate :livereload
+end
 
 # Build-specific configuration
 configure :build do
@@ -290,3 +284,14 @@ end
 #     proxy "/calendar/#{ team }.ics", "template/football/calendar.html", locals: { data: cal.to_ical }, ignore: true
 
 # end
+
+# ENV[ 'WEBPACK_ENV' ] ||= ( build? ? 'build' : 'development' )
+
+# External pipeline - Webpack
+activate :external_pipeline,
+    name:    :webpack,
+    command: build? ?
+        "./node_modules/webpack/bin/webpack.js --bail -p" :
+        "./node_modules/webpack/bin/webpack.js --watch -d",
+    source:  ".tmp/dist",
+    latency: 1

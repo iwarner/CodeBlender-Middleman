@@ -108,12 +108,28 @@ en:
                 items    :
                   - text : "Facebook"
                     link : { url : "/social/facebook/facebook.html" }
+                  - text : "Firebase"
+                    link : { url : "/social/firebase/firebase.html" }
+                  - text : "Flikr"
+                    link : { url : "/social/flikr/flikr.html" }
+                  - text : "Google"
+                    link : { url : "/social/google/google.html" }
                   - text : "Gravatar"
                     link : { url : "/social/gravatar/gravatar.html" }
                   - text : "LinkedIn"
                     link : { url : "/social/linkedin/linkedin.html" }
+                  - text : "Mailchimp"
+                    link : { url : "/social/mailchimp/mailchimp.html" }
+                  - text : "Pinterest"
+                    link : { url : "/social/pinterest/pinterest.html" }
+                  - text : "Skype"
+                    link : { url : "/social/skype/skype.html" }
+                  - text : "Treatwell"
+                    link : { url : "/social/treatwell/treatwell.html" }
                   - text : "Twitter"
                     link : { url : "/social/twitter/twitter.html" }
+                  - text : "YouTube"
+                    link : { url : "/social/youtube/youtube.html" }
 
             # Football
             - text : "Football"

@@ -30,7 +30,8 @@
 %article.article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
 
     -# Image
-    = codeBlender "image", "atom", { extraClass: "img-responsive", src: cp.image }
+    - if cp.image
+        = codeBlender "image", "atom", { extraClass: "img-responsive", src: cp.image }
 
     -# Breadcrumb
     = codeBlender "breadcrumb", "molecule", { title: cp.title }

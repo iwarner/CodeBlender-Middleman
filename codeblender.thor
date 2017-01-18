@@ -54,6 +54,7 @@ class CodeBlender < Thor
         system( "mkdir -p                               #{ partial }_codeBlender" )
         system( "ln -sf #{ codeblender }source/atom     #{ partial }_codeBlender" )
         system( "ln -sf #{ codeblender }source/football #{ partial }_codeBlender" )
+        system( "ln -sf #{ codeblender }source/meta     #{ partial }_codeBlender" )
         system( "ln -sf #{ codeblender }source/molecule #{ partial }_codeBlender" )
         system( "ln -sf #{ codeblender }source/organism #{ partial }_codeBlender" )
         system( "ln -sf #{ codeblender }source/social   #{ partial }_codeBlender" )

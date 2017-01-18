@@ -27,7 +27,7 @@ TopIconController = ( $log ) ->
     ##
     vm.gotoTop = ->
 
-        # JQuery Animate
+        # Animate
         $( "body, html" ).animate
             scrollTop : 0
         , 1000

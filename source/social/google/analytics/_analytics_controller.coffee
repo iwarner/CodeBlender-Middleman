@@ -2,7 +2,7 @@
 # Google analytics
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
-# @category atom
+# @category social
 ##
 
 ##

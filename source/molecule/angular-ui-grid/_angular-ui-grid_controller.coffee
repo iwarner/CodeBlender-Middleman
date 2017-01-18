@@ -1,8 +1,8 @@
 ##
 # Angular UI grid controller
 #
-# @category organism
 # @author   Ian Warner <ian.warner@drykiss.com>
+# @category molecule
 ##
 
 ##

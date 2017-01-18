@@ -1,10 +1,8 @@
 ##
-# Add
+# Angular UI Grid
 #
-# @category organism
 # @author   Ian Warner <ian.warner@drykiss.com>
-#
-# @todo Create the Error States based on passing through the model service to check the schema
+# @category molecule
 ##
 
 ##

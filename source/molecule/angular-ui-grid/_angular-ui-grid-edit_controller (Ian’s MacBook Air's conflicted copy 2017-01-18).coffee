@@ -1,8 +1,8 @@
 ##
 # Edit Content
 #
-# @category Lib
 # @author   Ian Warner <ian.warner@drykiss.com>
+# @category molecule
 ##
 
 ##

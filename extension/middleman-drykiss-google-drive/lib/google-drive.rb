@@ -2,6 +2,7 @@
 # Authorise and administer a Google Drive account to fetch Docs and spreadsheets
 #
 # @usage
+# ruby -r "./google-drive.rb" -e "GoogleDrive.new"
 # ruby -r "./google-drive.rb" -e "GoogleDrive.new.listFile"
 # ruby -r "./google-drive.rb" -e "GoogleDrive.new.parseFile"
 #
@@ -73,6 +74,9 @@ class GoogleDrive
         credentials = authorizer.get_credentials( user_id )
 
         if credentials.nil?
+
+            puts "HERE"
+
 
             # Authorise return URL
             url = authorizer.get_authorization_url( base_url: @oob )
@@ -170,16 +174,17 @@ class GoogleDrive
     # @todo Create a hash of the files in the system and when they were created
     # @todo Check to see if the file has been updated since
     # @todo split out the process into different classes perhaps
+    # @todo Remove empty H1 tags
     ##
-    def parseFile( html, file = false, root, destination )
-
-        # Save path
-        savePath = "#{ root }/source/localizable/blogs/#{ destination }/#{ file.id }.html.haml"
+    def parseFile( html = false, file = false, root = false, destination = false )
 
         # Open up file and analyse through NokiGiri
         if file
 
             doc = Nokogiri::HTML( html )
+
+            # Save path
+            savePath = "#{ root }/source/localizable/blogs/#{ destination }/#{ file.id }.html.haml"
 
         else
 
@@ -188,14 +193,14 @@ class GoogleDrive
                 config.noblanks
             end
 
+            # Save path
+            savePath = "../cache/02.html"
+
         end
 
         # Featured image
         # The first table will contain an image src for the featured image
         img = doc.xpath( "//table//img" ).first
-
-        # Remove the first table that contains the featured image
-        doc.xpath( "//table[1]" ).remove
 
         # Remove DIVs
         doc.xpath( '//div' ).remove
@@ -230,13 +235,13 @@ class GoogleDrive
         end
 
         # Table
+        # Remove the first table that contains the featured image
+        doc.xpath( "//table[1]" ).remove
+
         # Remove featured image table
         doc.css( "table" ).each do | table |
             table[ "class" ] = "table table-condensed"
         end
-
-        # Title
-        title = doc.xpath( '//h1' ).first
 
         # Get the body
         doc = doc.at( 'body' ).children.to_html
@@ -276,20 +281,20 @@ class GoogleDrive
             end
         end
 
-        # Need to append the meta image for this also
-        # doc = doc.gsub 'meta:', "title: \"#{ title.text }\"\nmeta:\n    image: \"#{ img.attr( "src" ) }\""
-
         # Breaks
         doc = doc.gsub /\<br>    /, "\n    "
         doc = doc.gsub /\<br>/, "\n"
 
         # Front matter
-        doc = doc.gsub '---</p>', "\n---\n"
-        doc = doc.gsub '<p>---', "---\n"
+        doc = doc.gsub '---</p>', "---\n"
+        doc = doc.gsub '<p>---', "---"
         doc = doc.gsub '<p></p>', ""
 
+        # Front matter
+        # doc = frontMatter( doc )
+
         # Quotes
-        doc = doc.gsub '’', "'"
+        doc = stripBadChars( doc )
 
         # Save doc to destination with ID
         File.write( savePath, doc )
@@ -297,6 +302,27 @@ class GoogleDrive
         # Debug
         # puts doc
 
+    end
+
+    ##
+    # Clean up the front matter part of the blog
+    # Need to append the image into the frontmatter
+    # @todo make this image a flag as sometimes will not exist
+    # doc = doc.sub '---', "---\nimage: \"#{ img.attr( "src" ) }\""
+    ##
+    def frontMatter( doc )
+        doc.sub '---', "---\nimage: \"#{ img.attr( "src" ) }\""
+        return doc
+    end
+
+    ##
+    # Generic function to replace MS word smart quotes and apostrophes
+    ##
+    def stripBadChars( doc )
+        doc.gsub!( /\u2018/, "'" );
+        doc.gsub!( /[”“]/, '"' );
+        doc.gsub!( /’/, "'" );
+        return doc
     end
 
     ##

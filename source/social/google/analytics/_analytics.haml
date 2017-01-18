@@ -4,7 +4,7 @@
 -#
 -# @usage
 -# -# Google analytics
--# = codeBlender "google-analytics", "atom"
+-# = codeBlender "analytics", "social/google/analytics"
 -#
 -# Google AutoTrack
 -# cleanUrlTracker       Ensures consistency in the URL paths that get reported to Google Analytics; avoiding the problem where separate rows in your pages reports actually point to the same page.
@@ -21,7 +21,7 @@
 -# @param googleAnalyticsURL - String - Required - Associated Domain
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
--# @category atom
+-# @category social
 -##
 
 -# Code
@@ -34,16 +34,17 @@
 - url = data.google.analytics.url
 
 -# Analytics
+-# AutoTrack - Event tracker
+-# @see https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/clean-url-tracker.md
+-# AutoTrack - Clean URL tracker
+-# @see https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/clean-url-tracker.md
 :javascript
 
-    -# Include code
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    -# AutoTrack - Clean URL tracker
-    -# @see https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/clean-url-tracker.md
     ga( 'require', 'cleanUrlTracker', {
         stripQuery          : false,
         queryDimensionIndex : 1,
@@ -51,12 +52,9 @@
         trailingSlash       : 'remove'
     });
 
-    -# AutoTrack - Event tracker
-    -# @see https://github.com/googleanalytics/autotrack/blob/master/docs/plugins/clean-url-tracker.md
     ga( 'require', 'eventTracker' );
     ga( 'require', 'outboundLinkTracker' );
     ga( 'require', 'urlChangeTracker' );
 
-    -# Pageview
     ga( 'create', '#{ code }', '#{ url }' );
     ga( 'send',   'pageview' );
