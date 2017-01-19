@@ -2,16 +2,19 @@
 // All CSS
 //
 // @author   Ian Warner <ian.warner@drykiss.com>
-// @category scss
+// @category style
 //----------------------------------------------------------------------------//
+
+// Scaffolding opinionated
+//----------------------------------------------------------------------------//
+@import "~atom/scaffolding/scaffolding";
 
 // Variable / Mixin
 //----------------------------------------------------------------------------//
-@import "~atom/scaffolding/scaffolding";
 @import "variable";
 
 // Library & Lib
 //----------------------------------------------------------------------------//
-@import "bower";
+@import "vendor";
 @import "library";
 @import "lib";

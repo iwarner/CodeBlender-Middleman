@@ -8,9 +8,10 @@
 ---
 
 # copyright
-copyright : true
+copyright :
+    ative : true
 
 # Footer
 footer :
     active     : true
-    extraClass : "noBackground"
+    extraClass : false

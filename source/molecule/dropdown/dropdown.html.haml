@@ -57,32 +57,32 @@ list :
     code = %{codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, list: { array: [ { text: "Action 1", link: { url: "#" } }, { text: "Action 2", link: { url: "#" } } ] } }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Dropdown" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Dropdown" } }
 
 -# Dropdown Alignment
 :ruby
     code = %{codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, list: { array: current_page.data.list, extraClass: "dropdown-menu-right" } }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Dropdown Alignment" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Dropdown Alignment" } }
 
 -# Dropup
 :ruby
     code = %{codeBlender "dropdown", "molecule", { button: { href: "javascript:;", text: "Dropdown" }, extraClass: "dropup", list: { array: current_page.data.list } }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Dropup with just text" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Dropup with just text" } }
 
 -# Button Group
 :ruby
     code = %{codeBlender "dropdown", "molecule", { button: { text: "Dropdown" }, extraClass: "btn-group", list: { array: current_page.data.list } }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Button Group" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Button Group" } }
 
 -# Navigation Bar Dropdown
 :ruby
     code = %{codeBlender "dropdown", "molecule", { extraClass: "clearfix", title: "Drop Down", list: { array: current_page.data.list } }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Navbar Dropdown" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Navbar Dropdown" } }

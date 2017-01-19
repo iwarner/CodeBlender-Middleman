@@ -1,7 +1,7 @@
 ---
 
 description : "Footer, can provide organisation, social and location information"
-title       : "Footer, can provide organisation, social and location information"
+title       : "Footer , can provide organisation, social and location information"
 
 see :
     - - "Bootstrap sticky footer"
@@ -13,6 +13,7 @@ todo :
     - - "What aria role should it take"
     - - "BEM the CSS"
     - - "Need to include micro-formats - could be viable for address / location elements in the footer"
+    - - "Fix the links in the footer"
 
 footer :
     -   :title       : "Column 1"
@@ -53,14 +54,17 @@ list :
             -# Markdown
             :markdown
 
-                The footer section contains two elements, the columned area that
-                can contain any information you require, and the copyright
-                section underneath.
+                The footer section contains two elements
 
-                Footer content is driven from the locale files. This yaml object
+                - The columned area that can contain any information you require
+                - And the copyright section underneath.
+
+                Footer content is driven from the locale file. The yaml object
                 not only determines the content but also the amount of columns
-                as it is iterated through.class_selector
+                as it is iterated through.
 
+                The YAML file can contain HTML element to provide the completed
+                look.
 
         -# Panel
         = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
@@ -98,32 +102,32 @@ list :
             code = %{codeBlender "footer", "organism", { fluid: true }}
 
         -# Code
-        = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
 
         -# Using local data with no background
         :ruby
             code = %{codeBlender "footer", "organism", { array: current_page.data.footer, fluid: true, footerClass: "noBackground text-center" }}
 
         -# Code
-        = codeBlender "code", "organism", { code: code, heading: { text: "Local data Footer" } }
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Local data Footer" } }
 
         -# Copyright centred text
         :ruby
             code = %{codeBlender "footer", "organism", { center: true, fluid: true }}
 
         -# Code
-        = codeBlender "code", "organism", { code: code, heading: { text: "Copyright centred text" } }
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Copyright centred text" } }
 
         -# Copyright extra links
         :ruby
-            code = %{codeBlender "footer", "organism", { array: current_page.data.list, center: true, fluid: true }}
+            code = %{codeBlender "footer", "organism", { link: current_page.data.list, center: true, fluid: true }}
 
         -# Code
-        = codeBlender "code", "organism", { code: code, heading: { text: "Copyright Extra Links" } }
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Copyright Extra Links" } }
 
         -# No year
         :ruby
             code = %{codeBlender "footer", "organism", { copyright: "Local String Inserted", fluid: true, noYear: true }}
 
         -# Code
-        = codeBlender "code", "organism", { code: code, heading: { text: "No Year" } }
+        = codeBlender "code", "molecule", { code: code, heading: { text: "No Year", logo: true } }

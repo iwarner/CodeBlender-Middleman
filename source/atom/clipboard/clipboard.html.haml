@@ -95,14 +95,14 @@ todo :
         = codeBlender "heading", "molecule", { tag: "h3", text: "Zero clipboard example" }
 
         -# Input
-        = codeBlender "input", "atom", { input: { name: "text", ng: { model: "clipboard.copy1" } }, label: { title: "Enter Text" } }
+        = codeBlender "input", "atom/form/input", { input: { name: "text", ng: { model: "clipboard.copy1" } }, label: { title: "Enter Text" } }
 
         -# Default
         :ruby
             code = %{codeBlender "clipboard", "atom", { model: "clipboard.copy1" }}
 
         -# Code
-        = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
 
         -# Heading
         = codeBlender "heading", "molecule", { tag: "h3", text: "Angular clipboard example" }

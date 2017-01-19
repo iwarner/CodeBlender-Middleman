@@ -28,7 +28,7 @@
             .col-md-3
 
                 -# Sub navigation
-                = codeBlender "subnavigation", "organism"
+                = codeBlender "subnavigation", "molecule"
 
             -# Bootstrap column
             .col-md-9.mainContent
@@ -50,21 +50,13 @@
                 - if dc.description
                     %p= string d.description
 
-                -# Local
-                - if dc.locals
-                    = codeBlender "local", "organism"
-
                 -# Yield
                 = yield
 
                 -# Resource
                 - if dc.resources
-                    = codeBlender "resource", "organism"
-
-                -# Asset
-                - if dc.assets
-                    = codeBlender "asset", "organism"
+                    = codeBlender "resource", "molecule"
 
                 -# Todo
                 - if dc.todo
-                    = codeBlender "todo", "organism"
+                    = codeBlender "todo", "molecule"

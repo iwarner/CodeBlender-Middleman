@@ -25,7 +25,7 @@
 %form{ name: "loginForm", novalidate: true, ng: { controller: "LoginController as login" } }
 
     -# Email Input
-    = codeBlender "input", "atom", { help: {},
+    = codeBlender "input", "atom/form/input", { help: {},
                          icon:  { prepend:         "fa-envelope fa-fw" },
                          input: { name:            "loginEmail",
                                   ng:              { model: "user.email", minlength: "3" },
@@ -35,7 +35,7 @@
                          label: { extraClass: "sr-only", title: "Email" } }
 
     -# Password Input
-    = codeBlender "input", "atom", { help: {},
+    = codeBlender "input", "atom/form/input", { help: {},
                          icon:  { prepend:         "fa-lock fa-fw" },
                          input: { autocomplete:    "off",
                                   name:            "loginPassword",
@@ -47,7 +47,7 @@
                          label: { extraClass: "sr-only", title: "Password" } }
 
     -# Remember Me
-    = codeBlender "checkbox", "atom", { input: { name: "loginRemember" }, label: { title: "Remember Me" } }
+    = codeBlender "checkbox", "atom/form/checkbox", { input: { name: "loginRemember" }, label: { title: "Remember Me" } }
 
     .text-right
 

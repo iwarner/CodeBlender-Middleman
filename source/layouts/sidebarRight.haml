@@ -35,24 +35,16 @@
             - if dc.description
                 %p= string d.description
 
-            -# Local
-            - if dc.locals
-                = codeBlender "local", "organism"
-
             -# Yield
             = yield
 
             -# Resource
             - if dc.resources
-                = codeBlender "resource", "organism"
-
-            -# Assets
-            - if dc.assets
-                = codeBlender "asset", "organism"
+                = codeBlender "resource", "molecule"
 
             -# Todo
             - if dc.todo
-                = codeBlender "todo", "organism"
+                = codeBlender "todo", "molecule"
 
         -# Bootstrap column
         .col-md-3

@@ -46,7 +46,7 @@ todo :
 %form.locationForm{ role: "form" }
 
     / -# Google Places Search Box
-    / = codeBlender "input", "atom", { extraClass:  "controls",
+    / = codeBlender "input", "atom/form/input", { extraClass:  "controls",
     /                      group:       [ false, "fa-location-arrow" ],
     /                      name:        "place",
     /                      label:       [ "Enter Location Form" ],
@@ -71,12 +71,12 @@ todo :
     %form{ role: "form" }
 
         / -# Latitude
-        / = codeBlender "input", "atom", { name:        "latitude",
+        / = codeBlender "input", "atom/form/input", { name:        "latitude",
         /                      label:       [ "Latitude" ],
         /                      placeholder: "Latitude" }
 
         / -# Longitude
-        / = codeBlender "input", "atom", { name:        "longitude",
+        / = codeBlender "input", "atom/form/input", { name:        "longitude",
         /                      label:       [ "Longitude" ],
         /                      placeholder: "Longitude" }
 

@@ -24,21 +24,13 @@
     - if dc.description
         %p= string d.description
 
-    -# Local
-    - if d.locals
-        = codeBlender "local", "organism"
-
     -# Yield
     = yield
 
     -# Resource
     - if dc.resources
-        .container= codeBlender "resource", "organism"
-
-    -# Asset
-    - if dc.assets
-        .container= codeBlender "asset", "organism"
+        .container= codeBlender "resource", "molecule"
 
     -# Todo
     - if dc.todo
-        .container= codeBlender "todo", "organism"
+        .container= codeBlender "todo", "molecule"

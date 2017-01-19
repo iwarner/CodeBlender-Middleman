@@ -37,7 +37,7 @@ module.exports = {
     },
 
     output: {
-        path     : __dirname + '/.tmp/dist',
+        path     : __dirname + '/.tmp',
         filename : 'assets/javascripts/[name].bundle.js'
     },
 

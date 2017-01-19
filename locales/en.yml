@@ -205,6 +205,7 @@ en:
         - title       : "About"
           icon        : "fa-info"
           description : |
+
             DryKISS is a full service internet and mobile digital production
             house. Our core services span consulting, strategy; planning;
             development; testing and analytics. We developed CodeBlender to
@@ -214,6 +215,7 @@ en:
         - title       : "What We Do"
           icon        : "fa-cogs"
           description : |
+
             DryKISS develops hybrid mobile apps (iOS &amp; Android); responsive
             internet sites; administration systems and social applications.
             Using our platform we tune for SEO, accessibility and conversion
@@ -222,37 +224,35 @@ en:
         # Column Three
         - title       : "Social"
           icon        : "fa-twitter"
-          extraClass  : "social"
+          extraClass  : "footer--social"
           description : |
 
-            <div class="socialList">
-                <a href="https://www.facebook.com/DryKISSLtd" target="_blank">
-                    <span class="fa fa-facebook" title="Facebook"></span>
-                </a>
-                <a href="https://twitter.com/DryKISSLtd" target="_blank">
-                    <span class="fa fa-twitter" title="Twitter"></span>
-                </a>
-                <a href="https://google.com/DryKISSLtd" target="_blank">
-                    <span class="fa fa-google" title="Google"></span>
-                </a>
-            </div>
+            <a href="https://www.facebook.com/DryKISSLtd" target="_blank">
+                <span class="fa fa-fw fa-facebook" title="Facebook"></span>
+            </a>
+            <a href="https://twitter.com/DryKISSLtd" target="_blank">
+                <span class="fa fa-fw fa-twitter" title="Twitter"></span>
+            </a>
+            <a href="https://google.com/DryKISSLtd" target="_blank">
+                <span class="fa fa-fw fa-google" title="Google"></span>
+            </a>
 
         # Column Four
         - title       : "Contact"
           icon        : "fa-phone"
           description : |
 
-            <div>
-                <i class="fa fa-map-marker"></i>
+            <p>
+                <i class="fa fa-fw fa-map-marker"></i>
                 Colliers Wood, London, UK
-            </div>
+            </p>
 
-            <div>
-                <i class="fa fa-phone"></i>
+            <p>
+                <i class="fa fa-fw fa-phone"></i>
                 <a href="tel:+447780435329">+44 (0) 778 043 5329</a>
-            </div>
+            </p>
 
-            <div>
-                <i class="fa fa-envelope"></i>
+            <p>
+                <i class="fa fa-fw fa-envelope"></i>
                 <a href="mailto:info@drykiss.com">info@drykiss.com</a>
-            </div>
+            </p>

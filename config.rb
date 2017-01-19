@@ -150,7 +150,7 @@ end
 # Build-specific configuration
 configure :development do
     set :debug_assets, true
-    activate :livereload
+    # activate :livereload
 end
 
 # Build-specific configuration
@@ -293,5 +293,5 @@ activate :external_pipeline,
     command: build? ?
         "./node_modules/webpack/bin/webpack.js --bail -p" :
         "./node_modules/webpack/bin/webpack.js --watch -d",
-    source:  ".tmp/dist",
+    source:  ".tmp",
     latency: 1

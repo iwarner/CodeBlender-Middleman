@@ -55,7 +55,7 @@ todo :
 %form{ novalidate: false }
 
     -# Input - Project Name
-    = codeBlender "input", "atom", { input: { name: "project", placeholder: "Enter project name" }, label: { title: "Project Name" } }
+    = codeBlender "input", "atom/form/input", { input: { name: "project", placeholder: "Enter project name" }, label: { title: "Project Name" } }
 
     -# Button - Save
     = codeBlender "button", "atom", { context: "primary", text: "Save" }
@@ -127,13 +127,13 @@ todo :
         -# - if options
 
         -#     -# Select
-        -#     = codeBlender "select", "atom", { array: options, label: { title: "Screen Selection" }, name: "screenSelection" }s
+        -#     = codeBlender "select", "atom/form/select", { array: options, label: { title: "Screen Selection" }, name: "screenSelection" }s
 
         -# Heading
         = codeBlender "heading", "molecule", { text: "Co-Ordinates", tag: "h2" }
 
         -# Input
-        = codeBlender "textarea", "atom", { name: "coords", rows: "2", label: { title: "Co-Ords" } }
+        = codeBlender "textarea", "atom/form/textarea", { name: "coords", rows: "2", label: { title: "Co-Ords" } }
 
         -# Heading
         = codeBlender "heading", "molecule", { text: "Actions", tag: "h2" }

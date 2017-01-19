@@ -30,7 +30,7 @@
         %div{ class: container }
 
             -# Bootstrap row
-            .row
+            .row.footer__row
 
                 -# Check footer YAML or locals is not blank
                 - if t "footer" or locals[ :array ]
@@ -44,27 +44,26 @@
                     -# Loop through the footer yaml
                     - array.each do | entry |
 
-                        -# Extra class
-                        - extraClass = entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass
-
                         -# Section
-                        .footerSection{ class: extraClass }
+                        .footer__column{ class: entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass }
 
                             -# Heading
                             - icon = entry[ :icon ] ? entry[ :icon ] : false
-                            = codeBlender "heading", "molecule", { icon: icon, tag: "h4", text: entry[ :title ] }
+                            = codeBlender "heading", "molecule", { extraClass: "footer__heading", icon: icon, tag: "h4", text: entry[ :title ] }
 
-                            -# If markdown
-                            - if entry[ :markdown ]
+                            .footer__content
 
-                                -# Body
-                                :markdown
-                                    #{ entry[ :description ] }
+                                -# If markdown
+                                - if entry[ :markdown ]
 
-                            - else
+                                    -# Body
+                                    :markdown
+                                        #{ entry[ :description ] }
 
-                                -# Body
-                                = string entry[ :description ]
+                                - else
+
+                                    -# Body
+                                    = string entry[ :description ]
 
     -# Copyright
     .copyright{ class: locals[ :center ] ? "text-center" : false }
@@ -76,7 +75,7 @@
             .row
 
                 -# Bootstrap column
-                .col-md-8
+                .col-md-12
 
                     -# Year
                     - if ! locals[ :noYear ]
@@ -89,20 +88,20 @@
                     = string :"copyright.brand"
                     = string :"copyright.rights"
 
-                    -# Show any required links
-                    - if locals[ :array ]
+                    -# Show any extra links
+                    - if locals[ :link ]
 
                         -# Horizontal list of links
-                        = codeBlender "list-ul", "atom", { array: array, extraClass: "list-inline list-unstyled" }
+                        = codeBlender "list-ul", "atom", { array: link, extraClass: "list-inline list-unstyled" }
 
-                - if data.footer.drykiss
+                    - if data.footer.drykiss || locals[ :logo ]
 
-                    -# Bootstrap column
-                    .col-md-4.text-right
+                        -# Bootstrap column
+                        .text-right
 
-                        Site &amp; SEO by
+                            Site &amp; SEO by
 
-                        -# Developed by
-                        %a{ href: "//drykiss.com", target: "_blank" }
-                            = inlineSVG "drykiss-sq-color.svg"
-                            DryKISS Ltd
+                            -# Developed by
+                            %a{ href: "//drykiss.com", target: "_blank" }
+                                = inlineSVG "drykiss-sq-color.svg"
+                                DryKISS Ltd

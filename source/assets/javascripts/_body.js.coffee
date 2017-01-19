@@ -52,13 +52,12 @@ require 'lib/router/default.coffee'
 # Atom
 ##
 require 'atom/clipboard/_clipboard_controller.coffee'
-require 'atom/google-analytics/_google-analytics_controller.coffee'
 
 ##
 # Molecule
 ##
+require 'molecule/code/_code_controller.coffee'
 require 'molecule/login/_login_controller.coffee'
-require 'molecule/mailchimp/_mailchimp_controller.coffee'
 require 'molecule/top-icon/_top-icon_controller.coffee'
 require 'molecule/popover/_popover_directive.coffee'
 require 'molecule/tooltip/_tooltip_directive.coffee'
@@ -69,16 +68,17 @@ require 'molecule/search-input/_search-input_directive.coffee'
 # Organism
 ##
 require 'organism/sidebar/_sidebar.coffee'
-require 'organism/code/_code_controller.coffee'
-require 'organism/contact/_contact_controller.coffee'
 
 ##
 # Social
 ##
 require 'social/facebook/_facebook_controller.coffee'
+require 'social/google/analytics/_analytics_controller.coffee'
+require 'social/mailchimp/_mailchimp_controller.coffee'
 require 'social/twitter/_twitter_controller.coffee'
 
 ##
 # Template
 ##
+require 'template/contact/_contact_controller.coffee'
 require 'template/portfolio/_portfolio_controller.coffee'

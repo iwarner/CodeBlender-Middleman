@@ -5,38 +5,45 @@
 // @category organism
 //----------------------------------------------------------------------------//
 
+// Module
+//----------------------------------------------------------------------------//
+$module : 'footer';
+
 // Footer
 //----------------------------------------------------------------------------//
-.footer {
+.#{ $module } {
 
-    border-top : 4px solid rgba( 240, 0, 0, 0.7 );
-    color      : $gray-lighter;
+    background     : #2d3e50;
+    border-top     : 2px solid rgba( 240, 0, 0, 0.5 );
+    color          : #fff;
+    padding        : 10px 0;
 
-    // Background
+    // Row
     //------------------------------------------------------------------------//
-    background : $gray-dark image-url( "footer/background.png" );
-
-    &.noBackground {
-        background : $gray-dark;
+    &__row {
+        display   : flex;
+        flex-flow : row wrap;
     }
 
-    // Separator
+    // Column
     //------------------------------------------------------------------------//
-    .footerSection:not:first-child {
-        border-left : 2px solid $gray-darker;
+    &__column {
     }
 
-    // Background type
+    // Column
     //------------------------------------------------------------------------//
-    p i {
-        display    : inline-block;
-        text-align : center;
-        width      : 20px;
+    &__column:not( :last-child ):after {
+        border-left : 1px solid rgba( 255, 255, 255, 0.2 );
+        content     : '';
+        position    : absolute;
+        right       : 0;
+        top         : 0;
+        bottom      : 0;
     }
 
     // Footer heading
     //------------------------------------------------------------------------//
-    h4 {
+    &__heading {
         display       : block;
         font-size     : 18px;
         line-height   : 32px;
@@ -44,15 +51,21 @@
         padding       : 2px 0;
     }
 
+    // Content
+    //------------------------------------------------------------------------//
+    &__content {
+        color : $gray-lighter;
+    }
+
     // Social element
     //------------------------------------------------------------------------//
-    .socialList  {
+    &--social  {
 
-        text-align : center;
+        .#{ $module }__content {
+            text-align : center;
+        }
 
         a {
-
-            text-align : center;
 
             &:hover {
                 background : #fff;
@@ -63,14 +76,21 @@
             display         : inline-block;
             font-size       : 30px;
             height          : 50px;
-            line-height     : 50px;
-            margin          : 0 10px 15px;
+            line-height     : 45px;
+            margin          : 0 10px;
             text-decoration : none;
             transition      : all .2s ease-in-out;
             width           : 50px;
 
         }
     }
+
+    // Icons
+    //------------------------------------------------------------------------//
+    p i {
+        font-size : 25px;
+    }
+
 }
 
 //
@@ -83,9 +103,9 @@
 //----------------------------------------------------------------------------//
 .copyright {
 
-    background : $gray-dark;
-    border-top : 2px solid $gray-darker;
-    color      : $gray-lighter;
+    background : #2d3e50;
+    border-top : 1px solid rgba( 240, 0, 0, 0.5 );
+    color      : #bbb;
     padding    : 10px 0;
 
     // Paragraph
@@ -97,13 +117,24 @@
     // Link
     //------------------------------------------------------------------------//
     a {
-        color : $gray-lighter;
+        color : #bbb;
     }
 
     // Link list
     //------------------------------------------------------------------------//
     ul {
-        display : inline;
+
+        margin-left : 10px;
+        display     : inline;
+
+        li {
+            padding : 0;
+        }
+
+        li:not( :last-child ):after {
+            content : "|"
+        }
+
     }
 
     // DryKISS logo

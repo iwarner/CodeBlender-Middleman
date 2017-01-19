@@ -74,7 +74,7 @@ Clicked : {{ msg }}
                 -# Date Picker
 
                 -# Select Day
-                = codeBlender "select", "atom", { array: days, label: { title: "Day" }, name: "day" }
+                = codeBlender "select", "atom/form/select", { array: days, label: { title: "Day" }, name: "day" }
 
                 -# Select Month
                 -# Select Year
@@ -97,7 +97,7 @@ Clicked : {{ msg }}
             %form.formHandover{ action: "", method: "POST", novalidate: true }
 
                 -# Input
-                = codeBlender "input", "atom",  { icon:  { prepend: "fa-user" },
+                = codeBlender "input", "atom/form/input",  { icon:  { prepend: "fa-user" },
                                      input: { inputGroupClass: "input-group",
                                               name:            "text",
                                               placeholder:     "Type name here...." },

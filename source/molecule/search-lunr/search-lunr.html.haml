@@ -15,13 +15,13 @@ see :
 -# :ruby
 -#     code = %{codeBlender "search-lunr", "molecule"}
 
--# = codeBlender "code", "organism", { code: code, heading: { text: "Default" } }
+-# = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
 
 -# Form
 %form.searchForm{ action: "", method: "POST", novalidate: true }
 
     -# Input
-    = codeBlender "input", "atom",  { input: { name:  "search" }, label: { title: "Search" } }
+    = codeBlender "input", "atom/form/input",  { input: { name:  "search" }, label: { title: "Search" } }
 
     -# Button - Submit
     = codeBlender "button", "atom", { context: "primary", text: "Submit" }

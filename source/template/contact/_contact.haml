@@ -113,14 +113,14 @@
                role:       "form" }
 
             -# Input - name
-            = codeBlender "input", "atom",
+            = codeBlender "input", "atom/form/input",
               { input: { name:     "name",
                          ng:       { model: "formSpree.name" },
                          required: "" },
                 label: { title: "Name" } }
 
             -# Input - email
-            = codeBlender "input", "atom",
+            = codeBlender "input", "atom/form/input",
               { input: { name:     "_replyto",
                          ng:       { model: "formSpree.email" },
                          required: "",

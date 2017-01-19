@@ -12,7 +12,7 @@ navbar : true
 id     : false
 
 # Paths to the partial to display navigation above and below
-above : "organism/nav-above/nav-above.haml"
+above : "molecule/nav-above/nav-above.haml"
 below : false
 
 # Bootstrap container class

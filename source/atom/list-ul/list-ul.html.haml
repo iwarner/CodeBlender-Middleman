@@ -36,32 +36,32 @@ todo :
     code = %{codeBlender "list-ul", "atom", { array: current_page.data.list }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Unordered List" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Unordered List" } }
 
 -# Ordered List
 :ruby
     code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, type: "ol" }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Ordered List" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Ordered List" } }
 
 -# Unstyled List
 :ruby
     code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, extraClass: "list-unstyled" }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Unstyled List" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Unstyled List" } }
 
 -# In-line List
 :ruby
     code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, extraClass: "list-inline" }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "In-line List" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "In-line List" } }
 
 -# Inline List Linked
 :ruby
     code = %{codeBlender "list-ul", "atom", { array: current_page.data.list1, extraClass: "list-inline" }}
 
 -# Code
-= codeBlender "code", "organism", { code: code, heading: { text: "Inline List Linked" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Inline List Linked" } }
