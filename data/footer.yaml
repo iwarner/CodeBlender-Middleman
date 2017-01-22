@@ -7,11 +7,18 @@
 
 ---
 
-# copyright
+# Global
+container  : "container"
+extraClass : "footer--sticky"
+
+# Copyright
 copyright :
-    ative : true
+    active : true
 
 # Footer
 footer :
     active     : true
     extraClass : false
+
+# Logo
+drykiss : true

@@ -3,8 +3,9 @@
 -#
 -# @usage
 -# -# Thumbnail
--# = codeBlender "thumbnail", "molecule", { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
--#                                 thumbnail: { href: "path.png" } } ] }
+-# = codeBlender "thumbnail", "molecule",
+-#   { array: [ { image:     { extraClass: "img-responsive", src: loremPixel('300/200') },
+-#                thumbnail: { href: "path.png" } } ] }
 -#
 -# @locals
 -# @param columns    - String of responsive columns
@@ -13,13 +14,13 @@
 -# @param target     - HREF target
 -# @param thumbnail  - Array of thumbnail parameters
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category molecule
 -##
 
 -# Variable
 - extraClass = locals[ :extraClass ] ? extraClass : false
-- columns    = locals[ :columns ] ? columns : "col-xs-12 col-sm-6 col-md-4"
+- columns    = locals[ :columns ]    ? columns    : "col-xs-12 col-sm-6 col-md-4"
 
 -# Bootstrap row
 .row{ class: extraClass }
@@ -29,10 +30,10 @@
 
         -# Variable
         - thumb      = thumbnail[ :thumbnail ]
-        - data       = thumb[ :data ] ? thumb[ :data ] : false
-        - href       = thumb[ :href ] ? image_path( thumb[ :href ] ) : false
-        - extraClass = thumb[ :extraClass ].present? ? thumb[ :extraClass ] : false
-        - target     = thumb[ :target ] ? thumb[ :target ] : false
+        - data       = thumb[ :data ]                ? thumb[ :data ]               : false
+        - href       = thumb[ :href ]                ? image_path( thumb[ :href ] ) : false
+        - extraClass = thumb[ :extraClass ].present? ? thumb[ :extraClass ]         : false
+        - target     = thumb[ :target ]              ? thumb[ :target ]             : false
 
         -# Bootstrap columns
         %div{ class: columns, data: data, href: href }
@@ -57,3 +58,9 @@
                 - if thumb[ :caption ].present?
                     .caption= thumb[ :caption ]
                     .clearfix
+
+        -# Split columns at 3
+        - if ( index + 1 ) % 3 == 0
+
+            -# Break the columns at certain points - will be dependant on viewport
+            .clearfix

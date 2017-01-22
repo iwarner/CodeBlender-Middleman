@@ -71,14 +71,15 @@ module Helpers
         if File.exists?( file_path )
 
             file = File.read( file_path ).force_encoding "UTF-8"
-            doc  = Nokogiri::HTML::DocumentFragment.parse file
-            svg  = doc.at_css "svg"
 
-            if options[ :class ].present?
-                svg[ "class" ] = options[ :class ]
-            end
+            # doc  = Nokogiri::HTML::DocumentFragment.parse file
+            # svg  = doc.at_css "svg"
 
-            doc
+            # if options[ :class ].present?
+            #     svg[ "class" ] = options[ :class ]
+            # end
+
+            file
 
         else
             "file not found: #{ file_path }"

@@ -204,9 +204,10 @@ en:
         # Column one
         - title       : "About"
           icon        : "fa-info"
+          markdown    : true
           description : |
 
-            DryKISS is a full service internet and mobile digital production
+            **DryKISS** is a full service internet and mobile digital production
             house. Our core services span consulting, strategy; planning;
             development; testing and analytics. We developed CodeBlender to
             provide a Rapid and repeatable platform for our frontend work.

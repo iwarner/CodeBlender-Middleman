@@ -14,6 +14,8 @@ see :
       - "http://admindesigns.com/stardom/gallery.html"
 
 todo :
+    - - "Create the gallery partial"
+    - - "Roll this into the portfolio and blog setup also"
     - - "Need to allow the image to be placed onto the screen also in a placeholder space i.e. for mobile prototypes"
     - - "Add Tooltips to the image to show certain details about the image"
     - - "Favicon fall out of this gallery as they are not in the assets path"
@@ -22,26 +24,69 @@ todo :
     - - "Add a selector to change the column widths and height dynamically"
     - - "Icon class is hard coded in the CSS - fix this"
     - - "Gallery should have pagination, filter and search coupled with it"
+    - - "Thumbnail should only handle one instance this gallery should do the column heavy lifting"
 
 ---
 
--# Heading
-= codeBlender "heading", "molecule", { text: "Default", tag: "h2" }
+-# Bootstrap row
+.row
 
--# Create Array
-- thumbnails = []
+    -# Bootstrap column
+    .col-md-6
 
--# Loop through Image Resources
-- sitemap.resources.select { | r | [ ".png", ".jpg" ].include?( r.ext ) and ! r.path.scan( "assets/images/prototype01" ).empty? }.each do | resource |
+        -# Panel body
+        - panelBody = capture_html do
 
-    -# URL
-    - src = resource.url.sub! "/assets/images/", ""
+            -# Markdown
+            :markdown
 
-    -# Append to Thumbnails Array
-    - if src
-        - thumbnails << { :image     => { :src    => src },
-                          :thumbnail => { :href   => src,
-                                          :zoomix => true } }
+                The gallery is a collection of cards, that can be either drawn
+                from :
 
--# Thumbnails
-= codeBlender "thumbnail", "molecule", { array: thumbnails, columns: "col-xs-12 col-sm-6 col-md-1", rowClass: "gallery" }
+                - A data file
+                - Collection of blogs
+                - Iterating over an image folder
+
+                The following example is simply scanning the whole images directory
+                and creating a thumbnail gallery of the contents.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                To be completed...
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+-# Bootstrap row
+.row
+
+    .col-md-12
+
+        %br
+
+        -# Create Array
+        - thumbnails = []
+
+        -# Loop through Image Resources
+        - sitemap.resources.select { | r | [ ".png", ".jpg" ].include?( r.ext ) and ! r.path.scan( "assets/images" ).empty? }.each do | resource |
+
+            -# URL
+            - src = resource.url.sub! "/assets/images/", ""
+
+            -# Append to Thumbnails Array
+            - if src
+                - thumbnails << { image:     { extraClass: "img-responsive", src: src },
+                                  thumbnail: { href: src, zoomix: true } }
+
+        -# Thumbnails
+        = codeBlender "thumbnail", "molecule", { array: thumbnails, columns: "col-xs-12 col-sm-6 col-md-4", rowClass: "gallery" }

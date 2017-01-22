@@ -10,18 +10,24 @@
 -# @param center - Centre align the copyright text
 -# @param fluid  - Flag for bootstrap container, otherwise use the default in the config
 -# @param noYear - Remove the year
+-# @param sticky - Sticks the footer the bottom of the page
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category organism
 -##
 
 -# Variable
-- footer     = data.footer.footer
-- extraClass = footer.extraClass ? footer.extraClass : false
-- container  = locals[ :fluid ] ? "container-fluid" : data.config.container
+- footer      = data.footer.footer
+- extraClass  = footer.extraClass ? footer.extraClass : false
+- container   = locals[ :fluid ] ? "container-fluid" : data.footer.container
+- footerClass = data.footer.extraClass ? data.footer.extraClass : false
+
+-# Check to see of local sticky is false
+- if ! locals[ :sticky ].nil? && ! locals[ :sticky ]
+    - footerClass = footerClass.sub 'footer--sticky', ''
 
 -# Footer section
-%footer{ role: "contentinfo" }
+%footer{ role: "contentinfo", class: footerClass }
 
     -# Footer
     .footer{ class: extraClass }
@@ -94,10 +100,11 @@
                         -# Horizontal list of links
                         = codeBlender "list-ul", "atom", { array: link, extraClass: "list-inline list-unstyled" }
 
+                    -# Show drykiss developed by logo
                     - if data.footer.drykiss || locals[ :logo ]
 
                         -# Bootstrap column
-                        .text-right
+                        .pull-right
 
                             Site &amp; SEO by
 

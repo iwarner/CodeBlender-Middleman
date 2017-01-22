@@ -1,19 +1,19 @@
 ---
 
 description : "Footer, can provide organisation, social and location information"
-title       : "Footer , can provide organisation, social and location information"
+title       : "Footer, can provide organisation, social and location information"
 
 see :
     - - "Bootstrap sticky footer"
       - "http://getbootstrap.com/examples/sticky-footer/"
 
 todo :
-    - - "Create a brand / develop by section in the footer"
-    - - "Enable the footer to be fixed also - css"
-    - - "What aria role should it take"
-    - - "BEM the CSS"
+    - - "Allow for set content types - lists - content - icons - address etc so we cause less HTML in the locale"
+    - - "Allow for a section to be pulled from a separate partial - i.e. partial per section then can have better separation of locale over html"
+    - - "Footer column should be self created or defaults - i.e. allow one section to cross over X columns"
+    - - "What aria role should be created"
     - - "Need to include micro-formats - could be viable for address / location elements in the footer"
-    - - "Fix the links in the footer"
+    - - "Make sure all the SCSS has variables that can be overridden in the core site."
 
 footer :
     -   :title       : "Column 1"
@@ -34,11 +34,11 @@ footer :
 
 list :
    - text : "Terms & Conditions"
-     url  : "terms"
+     link : { url: "#term" }
    - text : "Privacy Policy"
-     url  : "privacy"
+     link : { url: "#privacy" }
    - text : "Support"
-     url  : "support"
+     link : { url: "#support" }
 
 ---
 
@@ -56,15 +56,19 @@ list :
 
                 The footer section contains two elements
 
-                - The columned area that can contain any information you require
-                - And the copyright section underneath.
+                - Columned area that contains any information within the locale.
+                - Copyright section.
 
                 Footer content is driven from the locale file. The yaml object
                 not only determines the content but also the amount of columns
-                as it is iterated through.
+                it iterates through.
 
-                The YAML file can contain HTML element to provide the completed
-                look.
+                The YAML file can contain HTML or Markdown syntax to provide the
+                completed look. For markdown simply add markdown : true to the
+                section.
+
+                A separate global data file is required to setup the footer across
+                multiple languages, the options available are demonstrated below.
 
         -# Panel
         = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
@@ -74,6 +78,8 @@ list :
 
         -# Panel body - markdown
         - panelBody = capture_html do
+
+            -# Markdown
             :markdown
 
                 Example locale YAML
@@ -87,8 +93,26 @@ list :
                               description : |
                                 Content
 
+                Example data file
+
+                    # Global
+                    container  : "container"
+                    extraClass : "footer--sticky"
+
+                    # Copyright
+                    copyright :
+                        active : true
+
+                    # Footer
+                    footer :
+                        active     : true
+                        extraClass : false
+
+                    # Logo
+                    drykiss : true
+
         -# Panel
-        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Create" } }
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
 
 -# Bootstrap row
 .row
@@ -99,35 +123,35 @@ list :
 
         -# Default
         :ruby
-            code = %{codeBlender "footer", "organism", { fluid: true }}
+            code = %{codeBlender "footer", "organism", { fluid: true, sticky: false }}
 
         -# Code
         = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
 
         -# Using local data with no background
         :ruby
-            code = %{codeBlender "footer", "organism", { array: current_page.data.footer, fluid: true, footerClass: "noBackground text-center" }}
+            code = %{codeBlender "footer", "organism", { array: current_page.data.footer, fluid: true, footerClass: "noBackground text-center", sticky: false }}
 
         -# Code
         = codeBlender "code", "molecule", { code: code, heading: { text: "Local data Footer" } }
 
         -# Copyright centred text
         :ruby
-            code = %{codeBlender "footer", "organism", { center: true, fluid: true }}
+            code = %{codeBlender "footer", "organism", { center: true, fluid: true, sticky: false }}
 
         -# Code
         = codeBlender "code", "molecule", { code: code, heading: { text: "Copyright centred text" } }
 
         -# Copyright extra links
         :ruby
-            code = %{codeBlender "footer", "organism", { link: current_page.data.list, center: true, fluid: true }}
+            code = %{codeBlender "footer", "organism", { link: current_page.data.list, center: true, fluid: true, sticky: false }}
 
         -# Code
         = codeBlender "code", "molecule", { code: code, heading: { text: "Copyright Extra Links" } }
 
-        -# No year
+        -# No year + logo
         :ruby
-            code = %{codeBlender "footer", "organism", { copyright: "Local String Inserted", fluid: true, noYear: true }}
+            code = %{codeBlender "footer", "organism", { copyright: "Local String Inserted", fluid: true, noYear: true, logo: true, sticky: false }}
 
         -# Code
-        = codeBlender "code", "molecule", { code: code, heading: { text: "No Year", logo: true } }
+        = codeBlender "code", "molecule", { code: code, heading: { text: "No Year, Logo" } }

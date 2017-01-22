@@ -77,7 +77,6 @@ class GoogleDrive
 
             puts "HERE"
 
-
             # Authorise return URL
             url = authorizer.get_authorization_url( base_url: @oob )
 
@@ -167,7 +166,7 @@ class GoogleDrive
     ##
     # Parse files retrieved
     #
-    # @see https://www.googleapis.com/drive/v3/files/1ztO0ZaIyji5B-ePCHAhPM2GSkVQEiJm3sQJ5AtvXrEs/export
+    # @see https://www.googleapis.com/drive/v3/files/14U3UsdXzadILIJaPUxccYmVVTISq-BwbHIxG3arKZ24/export
     #
     # @todo Loop into this folder to extract any files within
     # @todo Get the categories under each language
@@ -184,7 +183,7 @@ class GoogleDrive
             doc = Nokogiri::HTML( html )
 
             # Save path
-            savePath = "#{ root }/source/localizable/blogs/#{ destination }/#{ file.id }.html.haml"
+            savePath = "#{ root }/source/blogs/#{ destination }/#{ file.id }.html.haml"
 
         else
 
@@ -291,7 +290,7 @@ class GoogleDrive
         doc = doc.gsub '<p></p>', ""
 
         # Front matter
-        # doc = frontMatter( doc )
+        doc = frontMatter( doc, img.attr( "src" ) )
 
         # Quotes
         doc = stripBadChars( doc )
@@ -310,8 +309,8 @@ class GoogleDrive
     # @todo make this image a flag as sometimes will not exist
     # doc = doc.sub '---', "---\nimage: \"#{ img.attr( "src" ) }\""
     ##
-    def frontMatter( doc )
-        doc.sub '---', "---\nimage: \"#{ img.attr( "src" ) }\""
+    def frontMatter( doc, img )
+        doc = doc.sub '---', "---\nimage: \"#{ img }\""
         return doc
     end
 
@@ -319,9 +318,9 @@ class GoogleDrive
     # Generic function to replace MS word smart quotes and apostrophes
     ##
     def stripBadChars( doc )
-        doc.gsub!( /\u2018/, "'" );
-        doc.gsub!( /[”“]/, '"' );
-        doc.gsub!( /’/, "'" );
+        doc = doc.gsub /\u2018/, "'"
+        doc = doc.gsub /[”“]/, '"'
+        doc = doc.gsub /’/, "'"
         return doc
     end
 
