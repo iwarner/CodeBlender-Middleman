@@ -1,0 +1,19 @@
+---
+
+description : "Resource"
+title       : "Resource"
+
+locals :
+    - - "array"
+      - "array"
+      - "optional"
+      - "Overrides the current_page.data.see"
+
+---
+
+-# Default
+:ruby
+    code = %{codeBlender "resource", "organism", { array: [ [ "Pusher", "http://pusher.com/" ] ] }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }

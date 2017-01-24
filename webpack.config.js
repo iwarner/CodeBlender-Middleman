@@ -24,15 +24,30 @@ module.exports = {
     resolve : {
         root  : __dirname,
         alias : {
+
+            // Assets
             js       : 'source/assets/javascripts',
             lib      : 'source/assets/javascripts/_lib',
             css      : 'source/assets/stylesheets',
-            atom     : 'source/atom',
-            football : 'source/football',
-            molecule : 'source/molecule',
-            organism : 'source/organism',
-            social   : 'source/social',
-            template : 'source/template',
+
+            // Partials
+            local    : 'source/partial/_lib',
+            atom     : 'source/partial/_codeBlender/atom',
+            molecule : 'source/partial/_codeBlender/molecule',
+            organism : 'source/partial/_codeBlender/organism',
+            template : 'source/partial/_codeBlender/template',
+
+            // Bower
+            countdown : "bower_components/kbwood_countdown/dist/js",
+
+            // Codeblender
+            cbatom     : 'source/atom',
+            cbfootball : 'source/football',
+            cbmolecule : 'source/molecule',
+            cborganism : 'source/organism',
+            cbsocial   : 'source/social',
+            cbtemplate : 'source/template'
+
         }
     },
 

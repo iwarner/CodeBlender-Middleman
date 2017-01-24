@@ -1,0 +1,61 @@
+---
+
+description : "Pricing table"
+title       : "Pricing table"
+
+see :
+    - - "Pricing Tables"
+      - "http://bootsnipp.com/search?q=pricing"
+
+todo :
+    - - "Footer text should be linked, or ability to show button"
+
+---
+
+.row
+
+    .col-md-4
+
+        -# Pricing Table
+        = codeBlender "pricing-table", "organism", { array:      [ { title: "Set treatment prices of &pound;60" } ],
+                             color:      "info",
+                             footerText: "More Info >>",
+                             heading:    { text: "Pay as You Go" },
+                             subheading: "Book a treatment, turn up and pay." }
+
+/     .col-md-4
+
+/         -# Pricing Table
+/         = codeBlender "pricing-table", "organism", { :array      [ { :title "Only &pound;60 per Month" },
+/                                                  { :title "One FREE massage per month" },
+/                                                  { :title "Every Treatment 33% off!" },
+/                                                  { :title "That's only &pound;40 per Treatment" },
+/                                                  { :title "Six month contract terms" } ],
+/                              footerText "More Info >>",
+/                              heading    "Membership",
+/                              subheading "Best value monthly subscription." }
+
+/     .col-md-4
+
+/         -# Pricing Table
+/         = codeBlender "pricing-table", "organism", { :array      [ { :title "Minimum £240 initial deposit" },
+/                                                  { :title "Every treatment is 25% off!" } ],
+/                              color      "success",
+/                              footerText "More Info >>",
+/                              heading    "Wallet",
+/                              subheading "No hassle payment terms, with a great discount." }
+
+/         %p
+/             Can place an image behind the body with an addition of the class holding
+/             the background image. In this example we are using holderJS
+
+/         -# Pricing Table
+/         = codeBlender "pricing-table", "organism", { :array      [ { :title "&pound;60 per hour" },
+/                                                  { :title "Increase flexibility" },
+/                                                  { :title "Increase blood circulation" },
+/                                                  { :title "Re-balancing body" },
+/                                                  { :title "Enhance the energy flow" }, ],
+/                              color      "primary",
+/                              heading    "Green Touch Thai Massage",
+/                              imageClass "table4 holderjs",
+/                              subheading "Is very unique and therapeutic treatment to promote energy, stimulate the nervous system, and support the development of the body, mind, and spirit." }

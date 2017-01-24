@@ -1,0 +1,41 @@
+-##
+-# Pricing table
+-#
+-# Locals
+-# array      - Array  - Required - Array of items to show in the list
+-# context    - String - Optional - Colour of the panel from the global rules
+-# footerText - String - Optional - Footer Text
+-# heading    - String - Required - Heading text
+-# imageClass - String - Optional - Add an image to the background of the heading
+-# subheading - String - Required - Heading for the body panel
+-#
+-# Usage
+-# -# Pricing table
+-# = codeBlender "pricing-table", "organism", { array: array, heading: "Heading", subheading: "Sub Heading" }
+-#
+-# @author Ian Warner <ian.warner@drykiss.com>
+-# @category organism
+-##
+
+-# Pricing table
+.panel{ class: locals[ :context ] ? "panel-#{ context }" : "panel-warning" }
+
+    -# Heading
+    .panel-heading
+
+        -# Heading
+        - heading[ :extraClass ] = "panel-title"
+        = codeBlender "heading", "molecule", heading
+
+    -# Body
+    .panel-body{ class: locals[ :imageClass ] ? imageClass : false }
+
+        -# Heading
+        = codeBlender "heading", "molecule", { text: locals[ :subheading ], tag: "h4" }
+
+    -# List Group
+    = codeBlender "list-group", "molecule", { array: array, extraClass: "list-unstyled text-center", list: true }
+
+    -# Footer
+    - if locals[ :footerText ]
+        .panel-footer.text-center= string( locals[ :footerText ] )

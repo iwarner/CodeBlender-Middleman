@@ -1,0 +1,40 @@
+---
+
+description : "Checkbox"
+title       : "Checkbox"
+
+see :
+    - - "Bootstrap supported controls"
+      - "http://getbootstrap.com/css/#forms-controls"
+    - - "W3 specification"
+      - "http://www.w3.org/TR/html-markup/input.checkbox.html"
+    - - "Bootstrap switch"
+      - "http://www.bootstrap-switch.org/"
+    - - "Bootstrap demo"
+      - "http://flatlogic.github.io/awesome-bootstrap-checkbox/demo/"
+
+todo :
+    - - "Work out how to do in-line checkboxes with the current partial"
+    - - "Allow the checkbox look and feel to be overridden i.e. a larger checkbox area"
+    - - "Figure out how to use validation messages with Checkboxes"
+    - - "Fancy checkboxes are breaking the normal ones"
+    - - "Allow for the classes to be altered, i.e. not just circle"
+    - - "Radio can use the same controls I think"
+    - - "Allow for Input classes to be altered"
+    - - "Give instructions on what needs to be installed to make these work"
+
+---
+
+-# Checkbox - default
+:ruby
+    code = %{codeBlender "checkbox", "atom/form/checkbox", { label: { title: "Checkbox" }, input: { required: true } }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+
+-# Checkbox - disabled
+:ruby
+    code = %{codeBlender "checkbox", "atom/form/checkbox", { label: { title: "Checkbox" }, input: { disabled: true } }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Disabled" } }

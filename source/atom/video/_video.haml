@@ -1,0 +1,50 @@
+-##
+-# Video
+-#
+-# autoplay    autoplay              Specifies that the video will start playing as soon as it is ready
+-# controls    controls              Specifies that video controls should be displayed (such as a play/pause button etc).
+-# height      pixels                Sets the height of the video player
+-# loop        loop                  Specifies that the video will start over again, every time it is finished
+-# muted       muted                 Specifies that the audio output of the video should be muted
+-# poster      URL                   Specifies an image to be shown while the video is downloading, or until the user hits the play button
+-# preload     auto,  metadata, none Specifies if and how the author thinks the video should be loaded when the page loads
+-# src         URL                   Specifies the URL of the video file
+-# width       pixels                Sets the width of the video player
+-#
+-# @usage
+-# -# Video
+-# = codeBlender "video", "atom"
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Locals
+- autoplay    = locals[ :autoplay ]   ? "autoplay"         : false
+- controls    = locals[ :controls ]   ? "controls"         : false
+- fullScreen  = locals[ :fullScreen ] ? videoClass         = "video--fullscreen" : false
+- id          = locals[ :id ]         ? locals[ :id ]      : "video1"
+- loop        = locals[ :loop ]       ? "loop"             : false
+- muted       = locals[ :muted ]      ? "muted"            : false
+- playsinline = locals[ :inline ]     ? "playsinline"      : false
+- preload     = locals[ :preload ]    ? locals[ :preload ] : "none"
+- responsive  = locals[ :responsive ] ? containerClass     = "embed-responsive embed-responsive-#{ locals[ :responsive ] }" : false
+- source      = locals[ :src ]
+
+-# Poster
+-# Defaults to a transparent gif - set poster in the CSS
+- poster = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+
+-# Video section
+.video{ class: containerClass }
+
+    -# Video background
+    .video__background
+
+        -# Video
+        %video{ autoplay: autoplay, class: videoClass, controls: controls, id: id, loop: loop, muted: muted, playsinline: playsinline, poster: poster, preload: preload }
+
+            -# Source files
+            %source{ src: "#{ source }.mp4",  type: "video/mp4"  }
+            %source{ src: "#{ source }.ogg",  type: "video/ogg"  }
+            %source{ src: "#{ source }.webm", type: "video/webm" }

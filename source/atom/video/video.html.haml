@@ -1,0 +1,91 @@
+---
+
+# Angular
+angular :
+    controller   : VideoController
+    controllerAs : video
+
+# Meta
+description : "Video embed"
+title       : "Video"
+
+# Resources
+see :
+    - - "Bootstrap responsive embed"
+      - "http://getbootstrap.com/components/#responsive-embed"
+    - - "Angular video embed"
+      - "https://gang-demo.herokuapp.com/demo#/ngVidBg"
+    - - "HTML5 video events"
+      - "https://www.w3.org/2010/05/video/mediaevents.html"
+
+# Tasks
+todo :
+    - - "Complete the example for full screen and embed"
+
+---
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                This partial allows a video to be embedded onto a site either in
+                context of it parent size, perhaps maintaining aspect ratio; or
+                as a full screen background.
+
+                Javascript allows for controls to control the video.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                Bootstrap provide a responsive embed. Simply add
+
+                - responsive: "16by9"
+                - responsive: "4by3"
+
+                You cannot have a responsive embed and fullscreen set to true at
+                the same time.
+
+                The poster is set within the CSS.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    .col-md-12
+
+        -# Video
+        :ruby
+            code = %{codeBlender "video", "atom", { autoplay: false, controls: true, fullScreen: true, responsive: false, src: "http://dev2.slicejack.com/fullscreen-video-demo/video/big_buck_bunny" }}
+
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Default, autoplay and 16by9 responsive" } }
+
+-# Button
+= codeBlender "button", "atom", { ng: { click: "video.mute()" }, text: "Mute" }
+= codeBlender "button", "atom", { ng: { click: "video.pausePlay()" }, icon: { prepend: { icon: "fa fa-play" } }, }
+
+-# ng-click="pausePlay = !pausePlay;" style="z-index: 20; opacity: 0.5; width: 100px; touch-action: pan-y; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" tabindex="0">
+-# <i class="fa fa-play fa-2x ng-scope" ng-show="!pausePlay" aria-hidden="false"></i>
+-# <i class="fa fa-pause fa-2x ng-scope ng-hide" ng-show="pausePlay" aria-hidden="true"></i>
+-# <div class="md-ripple-container"></div></button>

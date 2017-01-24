@@ -1,0 +1,47 @@
+-##
+-# Checkbox
+-# Using more fancy checkboxes the label needs to be inline with the input
+-#
+-# @usage
+-# -# Checkbox
+-# = codeBlender "checkbox", "atom/form/checkbox", { label: { title: "Checkbox" }, input: { required: true } }
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-# @see      http://getbootstrap.com/css/#forms-controls
+-# @see      https://github.com/flatlogic/awesome-bootstrap-checkbox
+-##
+
+-# Variable
+- input      = locals[ :input ]
+- label      = locals[ :label ]
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ]  : false
+
+-# Check for Aria - requires input to be present
+- if input && input[ :aria ].present?
+    - aria = input[ :aria ]
+
+-# Checkbox Class
+.checkbox{ class: extraClass }
+
+    -# Variable
+    - extraClass = ( ! label.nil? && label[ :extraClass ] ) ? label[ :extraClass ] : false
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label{ class: extraClass }
+
+        -# Input
+        %input{ aria:      aria                ? aria               : false,
+                autofocus: input[ :autofocus ] ? "autofocus"        : false,
+                disabled:  input[ :disabled ]  ? "disabled"         : false,
+                id:        input[ :name ]      ? input[ :name ]     : false,
+                name:      input[ :name ]      ? input[ :name ]     : false,
+                ng:        input[ :ng ]        ? input[ :ng ]       : false,
+                required:  input[ :required ]  ? "required"         : false,
+                tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
+                type:      "checkbox",
+                value:     input[ :value ]     ? input[ :value ]    : false }
+
+        -# Text
+        - if label[ :title ]
+            = string label[ :title ]

@@ -1,0 +1,35 @@
+---
+
+description : "Jumbotron"
+title       : "Jumbotron"
+
+see :
+    - - "Bootstrap Jumbotron"
+      - "http://getbootstrap.com/components/#jumbotron"
+
+todo :
+    - - "Is in a Header section is this right?"
+    - - "Sort out the small Text CSS / Padding too large"
+
+---
+
+-# Default
+:ruby
+    code = %{codeBlender "jumbotron", "organism", { desc:  "Description", small: "Small Text", title: "Title" }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+
+-# Gradient
+:ruby
+    code = %{codeBlender "jumbotron", "organism", { desc: "Description", extraClass: "gradient", small: "Small Text", title: "Title" }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Gradient" } }
+
+-# Image Jumbotron
+:ruby
+    code = %{codeBlender "jumbotron", "organism", { extraClass: "image" }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { small: "Requires a CSS tag", text: "Image Jumbotron" } }

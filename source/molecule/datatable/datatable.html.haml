@@ -1,0 +1,50 @@
+---
+
+description : "Datatable"
+title       : "Datatable"
+
+see :
+    - - "DataTables"
+      - "https://www.datatables.net/"
+
+todo :
+    - - "Place a loader on the DataTable to prevent a flicker of the grid loading"
+    - - "Load the data from an external JSON data file"
+    - - "Theme the DataGrid using Bootstrap theme to start with"
+    - - "Test the internationalisation of the tables through the loading of the language at runtime www.datatables.net/plug-ins/i18n/"
+
+---
+
+%p
+    DataTables is the de-facto front-end table enhancement script on the market
+    it comes with an MIT license : https://www.datatables.net/license/mit
+
+%div{ ng: { controller: "DataTableCtrl as table" } }
+
+    %p.text-danger You selected the following rows:</p>
+    %pre {{ table.selected | json }}
+
+    -# DataGrid
+    .table-responsive
+
+        / -# Toolbar
+        / .nurture__toolbar
+
+        /     -# Button Archive
+        /     = codeBlender "button", "atom", { context: "success",
+        /                          size:    "lg",
+        /                          icon:    { prepend: "fa-archive" },
+        /                          href:    "/#/interaction",
+        /                          text:    :"nurture.archiveButton" }
+
+        -# Table
+        %table.table.table-hover.table-striped{ role: "grid", datatable: "", dt: { options: "table.dtOptions", columns: "table.dtColumns", instance: "table.dtInstance" } }
+
+/ -# Create Array
+/ - array = { column: [ "<input type='checkbox' id='checkall' title='Select all'>", "Prospect ID", :"table.client", :"table.lastContact", :"table.buyingStage", :"table.nextAction", "Expand" ] }
+
+/ -# DataGrid
+/ .table-responsive
+
+/     -# Table
+/     = codeBlender "table", "molecule", { array: array, id: "dataTable"}

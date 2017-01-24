@@ -52,6 +52,7 @@ require 'lib/router/default.coffee'
 # Atom
 ##
 require 'atom/clipboard/_clipboard_controller.coffee'
+require 'atom/video/_video_controller.coffee'
 
 ##
 # Molecule

@@ -1,0 +1,61 @@
+---
+
+description : "Header"
+title       : "Header"
+
+see :
+    - - "Header Example"
+      - "http://keenthemes.com/preview/index.php?theme=metronic_frontend"
+
+todo :
+    - - "Complete the components of what a header is all about"
+
+---
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                The header is a large organism that usually contains:
+
+                - Navigation
+                - Introduction block
+                    - Large hero image
+                    - Video
+                    - Promotion
+
+                These optional backdrops should be pulled in and not attached, the
+                overlaying content is then added into these sections.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                To be completed...
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+-# Bootstrap row
+.row
+
+    .col-md-12
+
+        -# Header
+        = codeBlender "header", "organism"

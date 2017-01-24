@@ -1,0 +1,31 @@
+---
+
+description : "Stripe"
+title       : "Stripe"
+
+see :
+    - - "Simple Cart"
+      - "https://github.com/wojodesign/simplecart-js"
+    - - "Stripe"
+      - "https://stripe.com/gb"
+    - - "Stripe JS"
+      - "https://stripe.com/docs/stripe.js"
+
+todo :
+    - - "Handle the Click event in the usual on manner"
+    - - "Make the Key and Image Global variables"
+    - - "Handler needs to get the details of the products from date- fields"
+
+---
+
+-# Default Alert
+:ruby
+    code = %{codeBlender "thumbnail", "molecule", { array: [ { image:     { data:    "holder.js/252x100" },
+                                thumbnail: { caption: "Caption 1",
+                                             title:   "Product 1" },
+                                button:    { content:    "Buy",
+                                             extraClass: "customButton",
+                                             href:       "#" } } ] }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { small: "Stripe Test", text: "Default" } }

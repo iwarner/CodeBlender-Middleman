@@ -290,7 +290,9 @@ class GoogleDrive
         doc = doc.gsub '<p></p>', ""
 
         # Front matter
-        doc = frontMatter( doc, img.attr( "src" ) )
+        if img
+            doc = frontMatter( doc, img.attr( "src" ) )
+        end
 
         # Quotes
         doc = stripBadChars( doc )

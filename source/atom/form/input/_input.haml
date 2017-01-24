@@ -1,0 +1,133 @@
+-##
+-# Input
+-#
+-# @usage
+-# -# Input
+-# = codeBlender "input", "atom/form/input", { input: { name:  "text" }, label: { title: "Text Input", extraClass: "sr-only" } }
+-#
+-# Made up of several sections - need to create a way to have these all working together
+-# Form Group
+-# Label
+-# Columns
+-# Input Group
+-# Icons and Buttons
+-# Input
+-# Icons and Buttons
+-# Help
+-#
+-# Validation .has-warning, .has-error to form-group
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
+-##
+
+-# Variables
+- input = locals[ :input ]
+- label = locals[ :label ]
+
+-# Input content
+- inputCapture = capture_html do
+
+    -# Variable
+    - extraClass = input[ :extraClass ] ? "form-control #{ input[ :extraClass ] }" : "form-control"
+
+    -# Input
+    %input{ autocapitalize: input[ :autocapitalize ] ? input[ :autocapitalize ]        : false,
+            autocomplete:   input[ :autocomplete ]   ? input[ :autocomplete ]          : "on",
+            autocorrect:    input[ :autocorrect ]    ? input[ :autocorrect ]           : false,
+            autofocus:      input[ :autofocus ]      ? "autofocus"                     : false,
+            accept:         input[ :accept ]         ? input[ :accept ]                : false,
+            class:          extraClass,
+            clear:          input[ :clear ]          ? { btn: true }                   : false,
+            disabled:       input[ :disabled ]       ? "disabled"                      : false,
+            id:             input[ :name ]           ? input[ :name ]                  : false,
+            name:           input[ :name ]           ? input[ :name ]                  : false,
+            ng:             input[ :ng ]             ? input[ :ng ]                    : false,
+            pattern:        input[ :pattern ]        ? input[ :pattern ]               : false,
+            placeholder:    input[ :placeholder ]    ? string( input[ :placeholder ] ) : false,
+            required:       input[ :required ]       ? "required"                      : false,
+            src:            input[ :src ]            ? input[ :src ]                   : false,
+            title:          input[ :title ]          ? input[ :title ]                 : false,
+            type:           input[ :type ]           ? input[ :type ]                  : "text",
+            typeahead:      input[ :typeahead ]      ? input[ :typeahead ]             : false,
+            uib:            input[ :uib ]            ? input[ :uib ]                   : false,
+            value:          input[ :value ]          ? string( input[ :value ] )       : false }
+
+-# Input Group
+- inputGroupCapture = capture_html do
+
+    -# See if exists
+    - if locals[ :icon ] || locals[ :button ] || locals[ :strengthMeter ] || locals[ :feedback ]
+
+        -# Input Group Placeholder
+        -# For appending icons in horizontal forms the input group needs to be nested under the columns
+        -# Should include the Sizing for the controls and addons
+        %div{ class: input[ :inputGroupClass ] ? input[ :inputGroupClass ] : "input-group" }
+
+            -# Prepend icon
+            -# Any icon here will show refresh when loading say typeahead
+            - if locals[ :icon ] and locals[ :icon ][ :prepend ]
+                = codeBlender "icon", "atom", { icon: "#{ locals[ :icon ][ :prepend ] } input-group-addon", ng: { hide: "loading" } }
+                -# = codeBlender "icon", "atom", { icon: "fi flaticon-refresh input-group-addon", ng: { show: "loading" } }
+
+            -# Prepend button
+            - if locals[ :button ] and locals[ :button ][ :prepend ]
+                %span.input-group-btn= locals[ :button ][ :prepend ]
+
+            -# Input
+            = inputCapture
+
+            -# Append icon
+            - if locals[ :icon ] && locals[ :icon ][ :append ]
+                = codeBlender "icon", "atom", { extraClass: "input-group-addon", icon: locals[ :icon ][ :append ] }
+
+            -# Append button
+            - if locals[ :button ] && locals[ :button ][ :append ]
+
+                %span.input-group-btn
+
+                    -# Button
+                    = codeBlender "button", "atom", locals[ :button ][ :append ]
+
+            -# Password strength meter
+            - if locals[ :strengthMeter ]
+                = codeBlender "password-strength", "molecule"
+
+            -# Form feedback icon
+            -# Change the class of the icon
+            - if locals[ :feedback ]
+                = codeBlender "icon", "atom", { icon: "fa- form-control-feedback ng-hide" }
+
+    - else
+
+        -# Input
+        = inputCapture
+
+-# Input Group
+- completeCapture = capture_html do
+
+    -# Input Group
+    = inputGroupCapture
+
+    -# Help block
+    -# Sometimes this should be hidden to allow errors to be added inside.
+    -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text
+    - if locals[ :help ]
+        %span.help-block{ ng: locals[ :help ][ :ng ] }= locals[ :help ][ :content ]
+
+-# Form Group
+.form-group{ show: { errors: "{showSuccess: true}" } }
+
+    -# Label - note this is an array as it contains flag for screen reader
+    %label.control-label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
+        = string label[ :title ]
+
+    - if locals[ :column ]
+
+        -# Usually contains the column counts for a horizontal form
+        -# Need to remove this DIV if there is no requirement for Columns here
+        %div{ class: locals[ :column ] }
+            = completeCapture
+
+    - else
+        = completeCapture

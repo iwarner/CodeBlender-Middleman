@@ -1,0 +1,33 @@
+---
+
+description : "Disqus comment"
+title       : "Disqus comment"
+
+see :
+    - - "Disqus"
+      - "http://disqus.com/"
+    - - "Universal Embed Code"
+      - "http://help.disqus.com/customer/portal/articles/472097-universal-embed-code"
+    - - "JavaScript Variables"
+      - "http://help.disqus.com/customer/portal/articles/472098-javascript-configuration-variables"
+
+todo :
+    - - "Look at the AJAX loading of Disqus - required if more than one on a page"
+    - - "Fix the comment count element - deploy this into the article details"
+    - - "Move to social"
+
+---
+
+-# Heading - h2
+= codeBlender "heading", "molecule", { text: "Default", tag: "h2" }
+
+-# Disqus comment
+= codeBlender "disqus-comment", "organism"
+
+-# Code
+:code
+    #lang: ruby
+    = codeBlender "disqus-comment", "organism"
+
+-# Disqus comment count
+= codeBlender "disqus-comment", "organism"

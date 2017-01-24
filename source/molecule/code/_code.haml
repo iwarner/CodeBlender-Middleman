@@ -1,0 +1,67 @@
+-##
+-# Code
+-# Provides a code block that shows the partial and output code usage
+-#
+-# @usage
+-# -# Code
+-# = codeBlender "code", "molecule", { code: code, heading: { text: "Text" } }
+-#
+-# @param code    The captured code fragment
+-# @param heading Textual heading
+-# @param lang    Code fragment language | default: haml
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category molecule
+-##
+
+-# Variable
+- seed = Random.new_seed
+
+-# Language - default Ruby
+- lang = locals[ :lang ] ? lang : "ruby"
+
+-# Code
+.code
+
+    -# Example
+    .code__example
+
+        -# Heading - H4
+        - if locals[ :heading ]
+            - locals[ :heading ][ :tag ] = "h4"
+            = codeBlender "heading", "molecule", locals[ :heading ]
+
+        -# Block
+        = eval locals[ :code ]
+
+    -# Code
+    -# Include the Code JS to facilitate the copy button
+    .code__code{ ng: { controller: "CodeController as code" } }
+
+        -# Zero Clipboard - Copy
+        = codeBlender "clipboard", "atom", { extraClass: "code__clip", model: "code.copy( '#{ seed.to_s }' )" }
+
+        -# Navigation tabs - For code and output
+        - array =  t( :"code.tab" ).map{ | h | h.merge( url: h[ :url ] + seed.to_s ) }
+        = codeBlender "nav", "molecule", { array: array, toggle: true }
+
+        -# Capture Content
+        - capture = capture_html do
+            = eval locals[ :code ]
+
+        -# Tab Content
+        .tab-content{ id: "codeCopy#{ seed.to_s }" }
+
+            -# Code Tab
+            -# :code filter through middleman-syntax
+            .tab-pane.active{ id: "code#{ seed.to_s }" }
+                :code
+                    #lang: #{ lang }
+                    = #{ locals[ :code ] }
+                -#
+
+            -# Output Tab
+            .tab-pane{ id: "output#{ seed.to_s }" }
+                :code
+                    #lang: html
+                    #{ capture }

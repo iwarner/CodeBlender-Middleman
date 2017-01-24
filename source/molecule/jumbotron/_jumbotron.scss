@@ -1,0 +1,74 @@
+//
+// Jumbotron - Library
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Jumbotron
+//----------------------------------------------------------------------------//
+// .jumbotron {
+
+//     h1 {
+//         font-size  : 48px;
+//         margin-top : 0;
+//     }
+
+//     p {
+//         font-family   : $headings-font-family;
+//         margin-bottom : 0;
+//     }
+
+//     background-color : #1a1e5a;
+//     border-bottom    : 5px solid $link-hover-color;
+//     @include linear-gradient( 15deg, #1a1e5a 0%, #122d98 100% );
+
+// }
+
+// Jumbotron
+//----------------------------------------------------------------------------//
+// .jumbotron {
+
+//     margin-bottom : 0;
+
+    // H1
+    //------------------------------------------------------------------------//
+//     h1 {
+
+//         // Small
+//         //--------------------------------------------------------------------//
+//         small {
+
+//             // Quotes
+//             //----------------------------------------------------------------//
+//             &__quotes {
+
+//                 &:before {
+//                     content     : "“";
+//                     font-size   : 40px;
+//                     text-shadow : 2px 2px #ddd;
+//                 }
+
+//                 &:after {
+//                     content     : "”";
+//                     font-size   : 40px;
+//                     text-shadow : 2px 2px #ddd;
+//                 }
+
+//             }
+//         }
+//     }
+
+//     // Gradient
+//     //------------------------------------------------------------------------//
+//     &__gradient {
+//         @include linear-gradient( #020031, #6d3353 );
+//     }
+
+//     // Image
+//     //------------------------------------------------------------------------//
+//     &__image {
+//         background      : image-url( "site/jumbotron.jpg" ) no-repeat;
+//         background-size : 100%;
+//     }
+
+// }

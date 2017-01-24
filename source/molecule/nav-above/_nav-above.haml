@@ -1,0 +1,38 @@
+-##
+-# Navigation above
+-#
+-# Provides a placement for content above a navigation bar Should include
+-# branding, logo, strap line and background image.
+-#
+-# @usage
+-# -# Navigation above
+-# = codeBlender "nav-above", "organism"
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category organism
+-##
+
+-# Header navAbove
+%header{ role: "banner", itemscope: true, itemtype: "http://schema.org/WPHeader" }
+
+    -# Placed in a fluid to give full image bleed if required
+    .container-fluid
+
+        .row.navAbove
+
+            -# Default site container
+            %div{ class: data.config.container ? data.config.container : false }
+
+                .navAbove__row
+
+                    -# Left column
+                    .navAbove__leftColumn
+
+                        -# Brand
+                        = codeBlender "brand", "molecule"
+
+                    -# Right column
+                    .navAbove__rightColumn
+
+                        -# Heading H2
+                        = codeBlender "heading", "molecule", { extraClass: "text-right", tag: "h2", text: :"navAbove.strapLine", itemprop: "description" }
