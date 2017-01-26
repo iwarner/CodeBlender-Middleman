@@ -51,35 +51,35 @@ require 'lib/router/default.coffee'
 ##
 # Atom
 ##
-require 'atom/clipboard/_clipboard_controller.coffee'
-require 'atom/video/_video_controller.coffee'
+require 'cbatom/clipboard/_clipboard_controller.coffee'
+require 'cbatom/video/_video_controller.coffee'
 
 ##
 # Molecule
 ##
-require 'molecule/code/_code_controller.coffee'
-require 'molecule/login/_login_controller.coffee'
-require 'molecule/top-icon/_top-icon_controller.coffee'
-require 'molecule/popover/_popover_directive.coffee'
-require 'molecule/tooltip/_tooltip_directive.coffee'
-require 'molecule/search-input/_search-input_controller.coffee'
-require 'molecule/search-input/_search-input_directive.coffee'
+require 'cbmolecule/code/_code_controller.coffee'
+require 'cbmolecule/login/_login_controller.coffee'
+require 'cbmolecule/top-icon/_top-icon_controller.coffee'
+require 'cbmolecule/popover/_popover_directive.coffee'
+require 'cbmolecule/tooltip/_tooltip_directive.coffee'
+require 'cbmolecule/search-input/_search-input_controller.coffee'
+require 'cbmolecule/search-input/_search-input_directive.coffee'
 
 ##
 # Organism
 ##
-require 'organism/sidebar/_sidebar.coffee'
+require 'cborganism/sidebar/_sidebar.coffee'
 
 ##
 # Social
 ##
-require 'social/facebook/_facebook_controller.coffee'
-require 'social/google/analytics/_analytics_controller.coffee'
-require 'social/mailchimp/_mailchimp_controller.coffee'
-require 'social/twitter/_twitter_controller.coffee'
+require 'cbsocial/facebook/_facebook_controller.coffee'
+require 'cbsocial/google/analytics/_analytics_controller.coffee'
+require 'cbsocial/mailchimp/_mailchimp_controller.coffee'
+require 'cbsocial/twitter/_twitter_controller.coffee'
 
 ##
 # Template
 ##
-require 'template/contact/_contact_controller.coffee'
-require 'template/portfolio/_portfolio_controller.coffee'
+require 'cbtemplate/contact/_contact_controller.coffee'
+require 'cbtemplate/portfolio/_portfolio_controller.coffee'

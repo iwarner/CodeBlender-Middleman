@@ -8,23 +8,43 @@
 // @category molecule
 //----------------------------------------------------------------------------//
 
-section {
+// Module
+//----------------------------------------------------------------------------//
+$module : 'tagCloud';
 
-    // Tag Cloud
+// Tag Cloud
+//----------------------------------------------------------------------------//
+.#{ $module } {
+
+    margin-bottom : 30px;
+
+    // Label
     //------------------------------------------------------------------------//
-    .tagCloud {
+    .label {
+        border-radius : 0;
+        display       : inline-block;
+        line-height   : 140%;
+    }
 
-        // Tags
-        //--------------------------------------------------------------------//
-        &__tags {
+    // Tags
+    //------------------------------------------------------------------------//
+    &__tags {
+    }
 
-            border-top    : 1px solid $gray-lighter;
-            border-bottom : 1px solid $gray-lighter;
-            padding       : 10px 0;
-            margin        : 10px 0;
+    // Tag
+    //------------------------------------------------------------------------//
+    &__tag {
+        margin-bottom  : 2px;
+        margin-right   : 5px;
+        vertical-align : text-top;
+    }
 
-        }
-
+    // Heading
+    //------------------------------------------------------------------------//
+    &__heading {
+        border-bottom  : 1px solid #797878;
+        color          : $brand-primary;
+        padding-bottom : 5px;
     }
 
 }

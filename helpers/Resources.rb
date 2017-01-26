@@ -11,40 +11,6 @@
 module Resources
 
     ##
-    #
-    ##
-    def fullTitle( page_title = nil )
-
-        page_title ||= ""
-        base_title   = "Euro Team Outreach"
-
-        if page_title.empty?
-            base_title
-        else
-            page_title + " | " + base_title
-        end
-
-    end
-
-    ##
-    #
-    ##
-    def smartRobots
-        if !!( current_page.path =~ /thanks/ )
-            "noindex, nofollow"
-        else
-            "index, follow"
-        end
-    end
-
-    ##
-    #
-    ##
-    def pageDescription
-        current_page.data.description || data.site.description
-    end
-
-    ##
     # Unique SubCategory
     ##
     def subCategory( blog = 'portfolio', exclude = [] )

@@ -72,5 +72,5 @@ body {
 }
 
 .text--truncation {
-    @include multiLineEllipsis( $lineHeight: 1.2em, $lineCount: 2 );
+    @include multiLineEllipsis( $lineHeight: 1.2em, $lineCount: 3 );
 }

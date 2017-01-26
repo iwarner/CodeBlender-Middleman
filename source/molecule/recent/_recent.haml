@@ -20,7 +20,7 @@
 %section.blogRecent
 
     -# Heading
-    = codeBlender "heading", "molecule", { tag: "h4", text: "Recent" }
+    = codeBlender "heading", "molecule", { extraClass: "blogRecent__heading", tag: "h4", text: string( :"recent.title" ) }
 
     -# UL List - Unstyled
     %ul.list-unstyled.blogRecent__ul

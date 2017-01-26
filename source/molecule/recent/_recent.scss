@@ -8,25 +8,37 @@
 // @category molecule
 //----------------------------------------------------------------------------//
 
-// Blog Recent
+// Module
 //----------------------------------------------------------------------------//
-.blogRecent {
+$module : 'blogRecent';
 
-    border-bottom : 1px solid $gray-lighter;
+// Blog recent
+//----------------------------------------------------------------------------//
+.#{ $module } {
+
+    margin-bottom : 30px;
 
     // Label
     //------------------------------------------------------------------------//
     &__label {
-        display      : inline-block;
-        margin-right : 5px;
-        min-width    : 60px;
-        padding      : 5px;
+        border-radius : 0;
+        display       : inline-block;
+        margin-right  : 5px;
+        min-width     : 60px;
+        padding       : 5px;
+    }
+
+    // Heading
+    //------------------------------------------------------------------------//
+    &__heading {
+        border-bottom  : 1px solid #797878;
+        color          : $brand-primary;
+        padding-bottom : 5px;
     }
 
     // List
     //------------------------------------------------------------------------//
     &__list {
-        margin-top : 5px;
     }
 
 }

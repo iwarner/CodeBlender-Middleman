@@ -17,25 +17,27 @@
 %section.blogArchive
 
     -# Heading - H4
-    = codeBlender "heading", "molecule", { tag: "h4", text: "Archive" }
+    = codeBlender "heading", "molecule", { extraClass: "blogArchive__heading", tag: "h4", text: "Archive" }
 
-    -# Unstyled list
-    %ul.list-unstyled
+    -# Loop through site blog dates
+    - blog( name ).articles.group_by { | y | y.date.year }.each do | year, articles |
 
-        -# Loop through site blog posts
-        - blog( name ).articles.group_by { | y | y.date.year }.each do | year, articles |
+        -# Unstyled list
+        %dl.blogArchive__list.list-unstyled
 
             -# List
-            %li
+            %dt.blogArchive__dt
 
                 -# Link to the blog post via year
                 = link_to year, blog_year_path( year, name )
+
+            %dd.blogArchive__dd
 
                 -# Loop through the articles by month
                 - articles.group_by { | a | a.date.month }.each do | month, monthArticles |
 
                     -# List
-                    %ul
+                    %ul.list-unstyled
 
                         -# List
                         %li

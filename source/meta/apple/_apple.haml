@@ -1,27 +1,14 @@
 -##
--# Apple Meta Tags
+-# Apple meta
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category meta
--# @see      http://goo.gl/xpMXmF
--# @see      http://goo.gl/ErCZIL
+-#
+-# @see http://goo.gl/xpMXmF - Supported meta tags
+-# @see http://goo.gl/ErCZIL - Smart app banners
 -##
 
--# Current page data
-- cp = current_page.data
-
--# Front matter meta
-- if cp
-    - m = cp
-
-    -# Stub meta
-- else
-    - m = "meta.#{ current_page.data.stub }"
-
--# URL
-- url = t( :url ) + current_page.url
-
--# Implementing a Smart App Banner on Your Website
+-# Implementing a smart app banner on Your Website
 - if data.apple.present? and data.apple.app.id.present?
     %meta{ name: "apple-itunes-app", content: data.apple.app.id }
 
@@ -32,8 +19,7 @@
 %meta{ name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }
 
 -# Apple Title
-- title = cp ? m.title : :"#{ m }.title"
-%meta{ name: "apple-mobile-web-app-title", content: title }
+%meta{ name: "apple-mobile-web-app-title", content: configuration( "title" ) }
 
 -# By default, Safari on iOS detects any string formatted like a phone number and makes it a link that calls the number
 %meta{ name: "format-detection", content: "telephone=yes" }

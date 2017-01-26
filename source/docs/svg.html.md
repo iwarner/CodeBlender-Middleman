@@ -18,5 +18,21 @@ title    : "SVG"
 
 ## SVG Go
 
-$ svgo path/to/my-awesome.svg
-$ svgo logo.svg --datauri=base64
+[SVG Go](https://github.com/svg/svgo) is a node based utility for optimizing SVG
+graphic files.
+
+### Install
+
+    $ npm install -g svgo
+
+### Usage
+
+CD into the location of the SVG graphic and run the default command to clean up
+the syntax.
+
+    $ svgo test.svg test.min.svg
+
+It is also possible to create the SVG for use in data elements with the following
+command.
+
+    $ svgo logo.svg --datauri=base64

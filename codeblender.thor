@@ -81,8 +81,8 @@ class CodeBlender < Thor
         system( "ln -s #{ codeblender }Gemfile #{ directory }" )
 
         # Webpack
-        system( "rm #{ directory }/webpack.config.js" )
-        system( "ln -s #{ codeblender }webpack.config.js #{ directory }" )
+        # system( "rm #{ directory }/webpack.config.js" )
+        # system( "ln -s #{ codeblender }webpack.config.js #{ directory }" )
 
     end
 

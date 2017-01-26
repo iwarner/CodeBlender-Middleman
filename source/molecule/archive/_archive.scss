@@ -8,17 +8,52 @@
 // @category molecule
 //----------------------------------------------------------------------------//
 
-section.blogArchive {
+// Module
+//----------------------------------------------------------------------------//
+$module : 'blogArchive';
 
-    // @author Ian Warner <ian.warner@drykiss.com>
+// Blog archive
+//----------------------------------------------------------------------------//
+.#{ $module } {
+
+    margin-bottom : 30px;
+
+    // List
     //------------------------------------------------------------------------//
-    .list-unstyled {
+    .blogArchive__list {
+        border-bottom : 1px solid #e5e3e3;
+        display       : table;
+        padding-right : 30px;
 
-        border-top    : 1px solid $gray-lighter;
-        border-bottom : 1px solid $gray-lighter;
-        padding       : 10px 0;
-        margin        : 10px 0;
+        &:last-child {
+            border-bottom : none;
+        }
+    }
 
+    // DT portion
+    //------------------------------------------------------------------------//
+    .blogArchive__dt {
+        display      : inline;
+        margin-right : 15px;
+
+        a {
+            color : $brand-primary;
+        }
+
+    }
+
+    // DD portion
+    //------------------------------------------------------------------------//
+    .blogArchive__dd {
+        display : inline-table;
+    }
+
+    // Heading
+    //------------------------------------------------------------------------//
+    &__heading {
+        border-bottom  : 1px solid #797878;
+        color          : $brand-primary;
+        padding-bottom : 5px;
     }
 
 }

@@ -24,7 +24,7 @@
 %section.tagCloud
 
     -# Heading
-    = codeBlender "heading", "molecule", { tag: "h4", text: "Tags" }
+    = codeBlender "heading", "molecule", { extraClass: "tagCloud__heading", tag: "h4", text: "Tags" }
 
     -# Tags
     .tagCloud__tags
@@ -46,4 +46,5 @@
             - size = sprintf( "%.#{ precision }f", sizeMin + ( ( sizeMax - sizeMin ) * weight ).to_f )
 
             -# Render the Tag
-            = link_to( tag, tag_path( tag, name ), style: "font-size: #{ size }#{ unit }" )
+            = link_to( tag_path( tag, name ), class: "tagCloud__tag label label-info", style: "font-size: #{ size }#{ unit }" ) do
+                = tag

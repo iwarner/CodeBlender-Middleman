@@ -72,7 +72,7 @@
                                     = string entry[ :description ]
 
     -# Copyright
-    .copyright{ class: locals[ :center ] ? "text-center" : false }
+    .copyright{ class: locals[ :center ] || data.footer.copyright.center ? "text-center" : false }
 
         -# Bootstrap container
         %div{ class: container }
