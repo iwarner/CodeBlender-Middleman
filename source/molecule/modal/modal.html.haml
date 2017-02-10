@@ -1,11 +1,14 @@
 ---
 
+# Meta
 description : "Modal"
 title       : "Modal"
 
 see :
     - - "Bootstrap Modal"
       - "http://getbootstrap.com/javascript/#modals"
+    - - "UX Modal"
+      - "http://ui-patterns.com/patterns/modal-windows"
 
 todo :
     - - "Enable the removal of the Horizontal lines splitting header and footer"
@@ -43,3 +46,17 @@ todo :
 
 -# Button
 = codeBlender "button", "atom", { context: "primary", text: "Launch Modal", data: { target: "#myModal", toggle: "modal" } }
+
+-# Heading
+= codeBlender "heading", "molecule", { tag: "h2", text: "No Title" }
+
+-# Body
+- body = capture_html do
+    %p Modal Body
+
+-# Modal
+= codeBlender "modal", "molecule", { id: "myModal1", body: body }
+
+-# Button
+= codeBlender "button", "atom", { context: "primary", text: "Launch Modal", data: { target: "#myModal1", toggle: "modal" } }
+

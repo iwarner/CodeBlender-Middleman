@@ -10,6 +10,9 @@ require 'jquery'
 # Lodash
 require 'lodash'
 
+# MixItUp
+require 'mixitup'
+
 # Angular JS
 require 'angular'
 require 'angular-animate'

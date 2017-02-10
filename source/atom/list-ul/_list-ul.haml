@@ -48,11 +48,15 @@
             - if list[ :link ]
 
                 -# link
+                - link = list[ :link ]
+
                 -# Do not want the hash if its Angular UI
-                %a{ href:   list[ :link ][ :url ]    ? list[ :link ][ :url ]    : false,
-                    ng:     list[ :link ][ :ng ]     ? list[ :link ][ :ng ]     : false,
-                    target: list[ :link ][ :target ] ? list[ :link ][ :target ] : false,
-                    ui:     list[ :ui ]              ? list[ :link ][ :ui ]     : false }
+                %a{ data:   link[ :data ]   ? link[ :data ]   : false,
+                    href:   link[ :url ]    ? link[ :url ]    : false,
+                    ng:     link[ :ng ]     ? link[ :ng ]     : false,
+                    target: link[ :target ] ? link[ :target ] : false,
+                    title:  link[ :title ]  ? link[ :title ]  : false,
+                    ui:     list[ :ui ]     ? link[ :ui ]     : false }
 
                     -# Icon
                     - if list[ :icon ]

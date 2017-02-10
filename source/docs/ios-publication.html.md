@@ -10,7 +10,7 @@ lang               : en
 modified           : 2016-07-08
 published          : true
 tags               : [ apple, ios, developer ]
-time               : 12:55
+time               : "12:55pm"
 title              : "Publish iOS platform applications"
 twitterDescription : "Publish iOS platform applications"
 type               : "article"

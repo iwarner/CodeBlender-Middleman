@@ -35,7 +35,7 @@ gem "google-api-client"
 # gem 'levenshtein'
 
 # Template engines
-gem "haml",          git: "https://github.com/haml/haml.git",               branch: "master"
+gem "haml"
 gem "coffee-script", git: "https://github.com/josh/ruby-coffee-script.git", branch: "master"
 gem "kramdown"
 gem "builder"

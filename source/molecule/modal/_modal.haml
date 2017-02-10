@@ -21,6 +21,9 @@
 -# @category molecule
 -##
 
+-# Locals
+- size = locals[ :size ] ? locals[ :size ] : false
+
 -# If ID is not defined or Blank
 - if ! locals[ :id ]
     - id = "myModal"
@@ -37,7 +40,7 @@
         tabindex: "-1" }
 
     -# Modal Dialog
-    .modal-dialog{ class: locals[ :size ] ? size : false }
+    .modal-dialog{ class: size }
 
         -# Modal Content
         .modal-content{ class: locals[ :contentClass ], data: locals[ :data ] ? data : false }

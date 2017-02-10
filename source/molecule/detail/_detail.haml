@@ -16,66 +16,110 @@
 -##
 
 -# Blog name
-- name = locals[ :name ] ? locals[ :name ] : blog_controller.name
+- blogName = locals[ :name ] ? locals[ :name ] : blog_controller.name
 
 -# Variable
 - url = t( :url ) + current_page.url
-- cp  = current_page.data
+
+-# Local
+- article = locals[ :article ] ? locals[ :article ] : current_page
 
 -# Blog detail
 .blogDetail
 
-    -# Date
-    - if locals[ :cal ]
+    %ul.blogDetail__details.list-inline
 
-        -# Icon - calendar
-        = codeBlender "icon", "atom", { icon: "fa-calendar fa-fw" }
+        -# Date
+        - unless falsey locals[ :cal ]
 
-        -# Time - format example : April 8, 2016
-        %time{ pubdate: true, itemprop: "datePublished", datetime: "#{ cp.date.strftime( "%FT%T" ) }Z" }
+            %li
+                -# Icon - calendar
+                = codeBlender "icon", "atom", { icon: "fa-calendar" }
 
-            = cp.date.strftime '%B %e, %Y'
-            ,
-            = cp.time
+                - if article.date.instance_of?( String )
+                    - article.date = Time.parse( article.date )
 
-    -# Author
-    - if locals[ :author ]
+                -# Time - format example : April 8, 2016
+                %time{ pubdate: true, itemprop: "datePublished", datetime: "#{ article.date.strftime( "%FT%T" ) }Z" }
 
-        |
+                    = article.date.to_date.to_s
+                    ,
+                    = article.data.time
 
-        -# Icon
-        = codeBlender "icon", "atom", { icon: "fa-user fa-fw" }
+        -# Author
+        - unless falsey locals[ :author ]
 
-        by
+            %li
+                -# Icon
+                = codeBlender "icon", "atom", { icon: "fa-user" }
 
-        -# Author details - uses locale default if not set in frontmatter
-        - author = cp.author ? cp.author : t( :"meta.author" )
+                by
 
-        %span{ itemprop: "author", itemscope: true, itemptype: "http://schema.org/Person" }
-            %a{ href: author_path( author, name ), itemprop: "url", rel: "author" }
-                %span{ itemprop: "name" }= author
+                -# Author details - uses locale default if not set in frontmatter
+                - author = article.data.author ? article.data.author : t( :"meta.author" )
 
-    -# Show comment
-    - if locals[ :comment ]
+                %span{ itemprop: "author", itemscope: true, itemptype: "http://schema.org/Person" }
+                    %a{ class: "blogDetail__author", href: author_path( author, blogName ), itemprop: "url", rel: "author" }
+                        %span{ itemprop: "name" }= author
 
-        |
+        -# Read time
+        - unless falsey locals[ :readTime ]
 
-        -# Icon
-        = codeBlender "icon", "atom", { icon: "fa-comment fa-fw" }
+            %li
+                -# Icon
+                = codeBlender "icon", "atom", { icon: "fa-clock-o" }
+                Read time: 03 min
 
-        X Comments
+        -# Show comment
+        - unless falsey locals[ :comment ]
 
-    -# Like button
-    - if locals[ :social ]
-        = codeBlender "like-button", "social/facebook/like-button", { extraClass: "pull-right", href: url, layout: "button_count", share: "false" }
+            %li
+                -# Icon
+                = codeBlender "icon", "atom", { icon: "fa-comment" }
+
+                X Comments
 
     -# Tag
-    - if locals[ :tags ]
+    - unless falsey locals[ :tags ]
 
-        %footer.blogDetail__tags
+        - if article.data.tags( blogName )
 
-            -# Loop through tags
-            - cp.tags( name ).each do | tag |
+            .blogDetail__tags
 
-                -# Label
-                = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "info", content: tag, href: tag_path( tag, name ), itemprop: "keywords" }
+                -# Loop through tags
+                - article.data.tags( blogName ).each do | tag |
+
+                    -# Label
+                    = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "info", content: tag, href: tag_path( tag, blogName ), itemprop: "keywords" }
+
+    -# Social
+    - unless falsey locals[ :social ]
+
+        .blogDetail__social
+
+            -# Share
+            %span Share this article
+
+            -# Facebook
+            = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
+
+                -# Icon
+                = codeBlender "icon", "atom", { icon: "fa-facebook-square fa-2x" }
+
+            -# Twitter
+            = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
+
+                -# Icon
+                = codeBlender "icon", "atom", { icon: "fa-twitter-square fa-2x" }
+
+            -# Pinterest
+            = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
+
+                -# Icon
+                = codeBlender "icon", "atom", { icon: "fa-pinterest-square fa-2x" }
+
+            -# Email
+            = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
+
+                -# Icon
+                = codeBlender "icon", "atom", { icon: "fa-envelope fa-2x" }

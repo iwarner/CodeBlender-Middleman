@@ -16,7 +16,7 @@ $module : 'tagCloud';
 //----------------------------------------------------------------------------//
 .#{ $module } {
 
-    margin-bottom : 30px;
+    margin-bottom : 19px;
 
     // Label
     //------------------------------------------------------------------------//
@@ -34,9 +34,9 @@ $module : 'tagCloud';
     // Tag
     //------------------------------------------------------------------------//
     &__tag {
-        margin-bottom  : 2px;
+        margin-bottom  : 4px;
         margin-right   : 5px;
-        vertical-align : text-top;
+        vertical-align : baseline;
     }
 
     // Heading

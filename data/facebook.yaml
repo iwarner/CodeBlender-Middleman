@@ -11,7 +11,7 @@
 app :
     id     : "253027968192447"
     testID : "671223719706201"
-    secret : "09627a7f101b7225459d95357b80114e"
+    secret : false
 
 page :
     url : "https://www.facebook.com/codeblender"

@@ -57,7 +57,7 @@
 - inputGroupCapture = capture_html do
 
     -# See if exists
-    - if locals[ :icon ] || locals[ :button ] || locals[ :strengthMeter ] || locals[ :feedback ]
+    - if locals[ :icon ] || locals[ :button ] || locals[ :strengthMeter ]
 
         -# Input Group Placeholder
         -# For appending icons in horizontal forms the input group needs to be nested under the columns
@@ -72,7 +72,7 @@
 
             -# Prepend button
             - if locals[ :button ] and locals[ :button ][ :prepend ]
-                %span.input-group-btn= locals[ :button ][ :prepend ]
+                %span.input-group-btn= codeBlender "button", "atom", locals[ :button ][ :prepend ]
 
             -# Input
             = inputCapture
@@ -83,20 +83,21 @@
 
             -# Append button
             - if locals[ :button ] && locals[ :button ][ :append ]
-
-                %span.input-group-btn
-
-                    -# Button
-                    = codeBlender "button", "atom", locals[ :button ][ :append ]
+                %span.input-group-btn= codeBlender "button", "atom", locals[ :button ][ :append ]
 
             -# Password strength meter
             - if locals[ :strengthMeter ]
                 = codeBlender "password-strength", "molecule"
 
-            -# Form feedback icon
-            -# Change the class of the icon
-            - if locals[ :feedback ]
-                = codeBlender "icon", "atom", { icon: "fa- form-control-feedback ng-hide" }
+        -# Form feedback icon
+        -# Change the class of the icon
+    - elsif locals[ :feedback ]
+
+        -# Input
+        = inputCapture
+
+        -# Feedback
+        = codeBlender "icon", "atom", { icon: "form-control-feedback ng-hide" }
 
     - else
 

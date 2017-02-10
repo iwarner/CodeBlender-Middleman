@@ -18,9 +18,9 @@
         &:before {
             content     : "\F078";
             font-family : FontAwesome;
+            line-height : initial;
             position    : relative;
             right       : -5px;
-            top         : 25%;
         }
     }
 }

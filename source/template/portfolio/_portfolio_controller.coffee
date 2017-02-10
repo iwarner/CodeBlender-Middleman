@@ -5,8 +5,8 @@
 # # Portfolio
 # require_tree template/portfolio
 #
-# @author Ian Warner <ian.warner@drykiss.com>
-# @see    https://github.com/patrickkunka/mixitup/blob/master/docs/configuration-object.md
+# @author    Ian Warner <ian.warner@drykiss.com>
+# @category template
 ##
 
 ##
@@ -17,13 +17,21 @@
 ##
 # Portfolio controller
 ##
-PortfolioController = ->
+PortfolioController = ( $log ) ->
 
     # Debug
-    # console.log "Portfolio controller"
+    $log.log "Portfolio controller"
 
     # Create the mix on the portfolio grid
-    # angular.element( '.portfolio__grid' ).mixItUp()
+    angular.element( '.portfolio__grid' ).mixItUp()
+
+    # Instantiate the tooltip
+    angular.element( ".filter a" ).tooltip
+        animation : "true"
+        container : "body"
+        html      : false
+        placement : "top"
+        trigger   : "hover"
 
     return
 
@@ -37,5 +45,6 @@ angular
 ##
 # Inject
 ##
-# PortfolioController.$inject = [
-# ]
+PortfolioController.$inject = [
+    '$log'
+]

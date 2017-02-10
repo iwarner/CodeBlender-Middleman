@@ -23,16 +23,17 @@
     = codeBlender "heading", "molecule", { extraClass: "blogRecent__heading", tag: "h4", text: string( :"recent.title" ) }
 
     -# UL List - Unstyled
-    %ul.list-unstyled.blogRecent__ul
+    %dl.blogRecent__list.dl-horizontal
 
         -# Loop through the Blog Posts - Order by Date
         - blog( name ).articles[ 0...count.to_i ].each do | article |
 
-            -# List
-            %li.blogRecent__list.heading--truncate
+            %dt.blogRecent__dt
 
                 -# Label
                 = codeBlender "label", "atom", { extraClass: "blogRecent__label", context: "info", content: article.date.strftime( '%b %e' ) }
 
+            %dd.blogRecent__dd
+
                 -# Link to the Article
-                = link_to string( article.title ), article
+                = link_to string( article.title ), article, { class: "blogRecent__link heading--truncate" }

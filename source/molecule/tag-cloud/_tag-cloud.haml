@@ -17,7 +17,7 @@
 - sizeMax   = 200
 - precision = 0
 - unit      = '%'
-- threshold = 1
+- threshold = locals[ :threshold ] ? locals[ :threshold ] : 1
 - tags      = blog( name ).tags
 
 -# Section - Tag Cloud
@@ -32,6 +32,8 @@
         -# Count the Blog Tags, if they appear more than the threshold variable - default 1
         - tagMap = tags.map do | tag, articles |
             - [ tag, articles.count ] if articles.count >= threshold
+
+        - tagMap = tagMap.compact
 
         -# Get the minimum, and maximum tag counts
         - min, max = tagMap.map( &:last ).minmax

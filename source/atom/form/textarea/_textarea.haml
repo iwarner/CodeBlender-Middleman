@@ -1,11 +1,14 @@
 -##
--# TextArea
+-# Textarea
 -#
 -# @usage
--# -# TextArea
--# = codeBlender "textarea", "atom/form/textarea", { label: { title: "Textarea" }, name: "textarea", rows: 5 }
+-# -# Textarea
+-# = codeBlender "textarea", "atom/form/textarea",
+-#   { label: { title: "Textarea" },
+-#     name:  "textarea", rows: 5 }
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category atom
 -##
 
 -# form group
@@ -18,22 +21,32 @@
     -# Input
     %textarea{ autocapitalize: locals[ :autocapitalize ] ? autocapitalize        : false,
                autocomplete:   locals[ :autocomplete ]   ? autocomplete          : false,
-               autocorrect:    locals[ :autocorrect ]    ? autocorrect           : false,
                autofocus:      locals[ :autofocus ]      ? "autofocus"           : false,
-               accept:         locals[ :accept ]         ? accept                : false,
                class:          locals[ :extraClass ]     ? extraClass            : "form-control",
+               cols:           locals[ :cols ]           ? cols                  : false,
                disabled:       locals[ :disabled ]       ? true                  : false,
+               dirname:        locals[ :dirname ]        ? dirname               : false,
                id:             locals[ :name ]           ? name                  : false,
+               maxlength:      locals[ :maxlength ]      ? maxlength             : false,
+               minlength:      locals[ :minlength ]      ? minlength             : false,
                name:           locals[ :name ]           ? name                  : false,
                ng:             locals[ :ng ]             ? locals[ :ng ]         : false,
-               pattern:        locals[ :pattern ]        ? pattern               : false,
                placeholder:    locals[ :placeholder ]    ? string( placeholder ) : false,
+               readonly:       locals[ :readonly ]       ? readonly              : false,
                required:       locals[ :required ]       ? "required"            : false,
-               rows:           locals[ :rows ]           ? rows                  : false }
+               rows:           locals[ :rows ]           ? rows                  : false,
+               wrap:           locals[ :wrap ]           ? wrap                  : false }
 
         -# Text
         - if locals[ :text ]
             = locals[ :text ]
+
+    -# Form feedback icon
+    -# Change the class of the icon
+    - if locals[ :feedback ]
+
+        -# Feedback
+        = codeBlender "icon", "atom", { icon: "form-control-feedback ng-hide" }
 
     -# Help Block
     -# Sometimes this should be hidden to allow errors to be added inside.

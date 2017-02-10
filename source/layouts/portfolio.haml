@@ -28,7 +28,12 @@
                 %article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
 
                     -# Heading - H1
-                    = codeBlender "heading", "molecule", { pageHeader: true, extraClass: "heading--noMargin", small: d.small ? d.small : false, text: d.title, itemprop: "name headline" }
+                    = codeBlender "heading", "molecule",
+                      { pageHeader: true,
+                        extraClass: "heading--noMargin",
+                        small:      d.small ? d.small : false,
+                        text:       d.title,
+                        itemprop:   "name headline" }
 
         -# Yield - portfolio post
         %span{ itemprop: "text" }= yield

@@ -89,22 +89,22 @@
         -# Top anchor
         %a{ id: "top" }
 
-        -# Section - above navigation
+        -# Navigation above
         - if data.has_key? "navigation" and data.navigation.above
             = partial data.navigation.above
 
-        -# Section - navigation bar
-        - if data.has_key? "navigation" and data.navigation.navbar
+        -# Navigation bar
+        - if ( d.navbar.nil?.! && d.navbar == false ) ? false : ( data.has_key? "navigation" and data.navigation.navbar )
             = codeBlender "navbar", "molecule", locals: data.navigation
 
-        -# Section - below navigation
+        -# Navigation below
         - if data.has_key? "navigation" and data.navigation.below
             = partial data.navigation.below
 
-        -# Section - yield
+        -# Yield
         = yield
 
-        -# Section - footer
+        -# Footer
         - if data.has_key? "footer" and ( data.footer.footer.active or data.footer.copyright )
             = codeBlender "footer", "organism"
 

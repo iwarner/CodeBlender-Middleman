@@ -48,14 +48,12 @@ todo :
 
     - Template: Article list
     - Molecule: Pagination
-    - Molecule: Archive
-    - Molecule: Tag Cloud
 
 -# Bootstrap row
 .row
 
     -# Bootstrap column
-    .col-md-8.col-sm-8
+    .col-md-12
 
         -# Article list
         = codeBlender "article-list", "template", { name: cp.blogName, page_articles: page_articles }
@@ -66,11 +64,3 @@ todo :
 
         -# Pagination
         = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
-
-    .col-md-4.col-sm-4
-
-        -# Archive
-        = codeBlender "archive", "molecule", { name: cp.blogName }
-
-        -# Tag cloud
-        = codeBlender "tag-cloud", "molecule", { name: cp.blogName }

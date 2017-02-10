@@ -13,8 +13,9 @@
 %div{ "tooltip-directive" => true }
 
     -# Button
-    = codeBlender "button", "atom", { data: { placement: locals[ :placement ] ? placement : "auto", toggle: "tooltip" },
-                         extraClass: "popMe",
-                         title:      locals[ :popTitle ],
-                         text:       locals[ :content ],
-                         type:       "button" }
+    = codeBlender "button", "atom",
+      { data: { placement: locals[ :placement ] ? placement : "auto", toggle: "tooltip" },
+                extraClass: "popMe",
+                title:      locals[ :popTitle ],
+                text:       locals[ :content ],
+                type:       "button" }

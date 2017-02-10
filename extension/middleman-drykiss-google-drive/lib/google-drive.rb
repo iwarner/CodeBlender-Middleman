@@ -164,6 +164,89 @@ class GoogleDrive
     end
 
     ##
+    # Clean up the front matter part of the blog
+    # Need to append the image into the frontmatter
+    ##
+    def frontMatter( doc )
+
+        # Get the first table and rows - exclude the first
+        table = doc.xpath( "//table[ 1 ]/tbody/tr[ position() > 1 ]" )
+
+        # Start the frontmatter
+        fontmatter = "---\n"
+        lastTD     = false
+
+        # Loop through the table rows
+        table.each do | tr |
+
+            # Loop through the table cells
+            tr.css( "td" ).each_with_index do | td, index |
+
+                # Tags is a special case - needs to be enclosed with []
+                if lastTD == "tags" && index == 1
+
+                    # Create the string for tags - strip and clean
+                    fontmatter += "[#{ td.text.strip }]: "
+
+                # Title - remove :
+                elsif lastTD == "title" && index == 1
+
+                    # Create the string for tags - strip and clean
+                    fontmatter += "\"#{ td.text.strip }\": ".gsub ":", ""
+
+                # Published - remove the quotes from here
+                # Should always be true or false
+                elsif lastTD == "published" && index == 1
+
+                    # Default to false
+                    if td.text.strip != "true" && td.text.strip != "false"
+                        fontmatter += "false: "
+                    else
+                        fontmatter += "#{ td.text.strip }: "
+                    end
+
+                else
+
+                    # Create the string - strip and clean
+                    fontmatter += "\"#{ td.text.strip }\": "
+                end
+
+                lastTD = td.text.strip
+
+            end
+
+            # Clean the last : and add newline
+            fontmatter = fontmatter.chomp( ': ' ) + "\n"
+
+        end
+
+        # Featured image
+        # The table will contain an image src for the featured image
+        img = doc.xpath( "//table[ 2 ]//img" )
+
+        # Table
+        # Remove the first and second tables
+        doc.xpath( "//table[ 1 ]" ).remove
+        doc.xpath( "//table[ 1 ]" ).remove
+
+        # Add the image
+        if img
+            fontmatter += "\"image\": \"#{ img.attr( "src" ) }\"\n"
+        end
+
+        # End the frontmatter
+        fontmatter += "---\n"
+
+        # Debug
+        # puts table
+        # puts cellData
+        # puts fontmatter
+
+        return fontmatter
+
+    end
+
+    ##
     # Parse files retrieved
     #
     # @see https://www.googleapis.com/drive/v3/files/14U3UsdXzadILIJaPUxccYmVVTISq-BwbHIxG3arKZ24/export
@@ -197,9 +280,8 @@ class GoogleDrive
 
         end
 
-        # Featured image
-        # The first table will contain an image src for the featured image
-        img = doc.xpath( "//table//img" ).first
+        # Front matter
+        frontMatter = frontMatter( doc )
 
         # Remove DIVs
         doc.xpath( '//div' ).remove
@@ -233,10 +315,6 @@ class GoogleDrive
             image.remove_attribute( "title" )
         end
 
-        # Table
-        # Remove the first table that contains the featured image
-        doc.xpath( "//table[1]" ).remove
-
         # Remove featured image table
         doc.css( "table" ).each do | table |
             table[ "class" ] = "table table-condensed"
@@ -245,16 +323,21 @@ class GoogleDrive
         # Get the body
         doc = doc.at( 'body' ).children.to_html
 
+        ##
         # Instagram
-        # [[Instagram:BKpgoM9g5S2]]
+        # @usage [[Instagram:BKpgoM9g5S2]]
+        ##
         doc.scan(/(\[\[Instagram:(.*)\]\])/) do | w |
             if w
-                doc = doc.gsub w[ 0 ], @instagram.embedCode( w[ 1 ].to_s )
+                # Replace string
+                doc = doc.gsub /<p> *#{Regexp.escape(w[ 0 ])} *<\/p>/, "<div class=\"embedResponsive\"><iframe class=\"instagramEmbed\" src=\"//instagram.com/p/#{ w[ 1 ] }/embed/\" frameborder=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe></div>"
             end
         end
 
+        ##
         # Pinterest
         # [[Pinterest:273101164879760145]]
+        ##
         doc.scan(/(\[\[Pinterest:(.*)\]\])/) do | w |
             if w
                 html = "<a data-pin-do=\"embedPin\" data-pin-width=\"large\" href=\"//www.pinterest.com/pin/#{ w[ 1 ] }/\"></a>"
@@ -262,8 +345,10 @@ class GoogleDrive
             end
         end
 
+        ##
         # YouTube
         # [[YouTube:ofSLbuEomwg]]
+        ##
         doc.scan(/(\[\[YouTube:(.*)\]\])/) do | w |
             if w
                 html = "<iframe id=\"ytplayer\" type=\"text/html\" width=\"640\" height=\"360\" src=\"https://www.youtube.com/embed/#{ w[ 1 ] }?modestbranding=1\" frameborder=\"0\" allowfullscreen></iframe>"
@@ -271,8 +356,10 @@ class GoogleDrive
             end
         end
 
+        ##
         # Facebook video
         # [[FacebookVideo:Deliveroo/videos/1165008793619139]]
+        ##
         doc.scan(/(\[\[FacebookVideo:(.*)\]\])/) do | w |
             if w
                 html = "<div class='fb-video' data-allowfullscreen='true' data-autoplay='true' data-href='https://www.facebook.com/#{ w[ 1] }' data-show-captions='true' data-width='877'></div>"
@@ -284,36 +371,20 @@ class GoogleDrive
         doc = doc.gsub /\<br>    /, "\n    "
         doc = doc.gsub /\<br>/, "\n"
 
-        # Front matter
-        doc = doc.gsub '---</p>', "---\n"
-        doc = doc.gsub '<p>---', "---"
+        # Paragraph
         doc = doc.gsub '<p></p>', ""
-
-        # Front matter
-        if img
-            doc = frontMatter( doc, img.attr( "src" ) )
-        end
+        doc = doc.gsub '<h1></h1>', ""
+        doc = doc.gsub '<hr>', ""
 
         # Quotes
         doc = stripBadChars( doc )
 
-        # Save doc to destination with ID
-        File.write( savePath, doc )
+        # # Save doc to destination with ID
+        File.write( savePath, frontMatter + doc )
 
         # Debug
         # puts doc
 
-    end
-
-    ##
-    # Clean up the front matter part of the blog
-    # Need to append the image into the frontmatter
-    # @todo make this image a flag as sometimes will not exist
-    # doc = doc.sub '---', "---\nimage: \"#{ img.attr( "src" ) }\""
-    ##
-    def frontMatter( doc, img )
-        doc = doc.sub '---', "---\nimage: \"#{ img }\""
-        return doc
     end
 
     ##

@@ -16,22 +16,70 @@ $module : 'blogDetail';
 //----------------------------------------------------------------------------//
 .#{ $module } {
 
-    border-top    : 1px solid $gray-lighter;
-    border-bottom : 1px solid $gray-lighter;
-    padding       : 10px 0;
-    margin        : 10px 0;
+    border-top    : 1px solid #9B9B9B;
+    padding-top   : 8px;
+    margin-bottom : 20px;
+
+    // Details
+    //------------------------------------------------------------------------//
+    &__details {
+
+        margin-bottom : 8px;
+
+        // Icons
+        //--------------------------------------------------------------------//
+        .fa {
+            color        : $gray-light;
+            margin-right : 5px;
+        }
+
+        // List
+        //--------------------------------------------------------------------//
+        li {
+            margin-right : 5px;
+        }
+
+    }
+
+    // Author
+    //------------------------------------------------------------------------//
+    &__author {
+        color : $brand-primary;
+    }
 
     // Tags
     //------------------------------------------------------------------------//
     &__tags {
-        margin-top : 5px;
+
+        border-bottom : 1px solid #9B9B9B;
+        padding       : 6px 0;
+
+        // Tag
+        //--------------------------------------------------------------------//
+        & .#{ $module }__tag {
+            margin-right   : 5px;
+            vertical-align : text-top;
+        }
+
     }
 
-    // Tag
+    // Social
     //------------------------------------------------------------------------//
-    &__tag {
-        margin-right   : 5px;
-        vertical-align : text-top;
+    &__social {
+
+        border-bottom : 1px solid #9B9B9B;
+        padding       : 8px 0;
+
+        span {
+            color          : $brand-primary;
+            margin-right   : 20px;
+            vertical-align : middle;
+        }
+
+        a {
+            text-decoration : none;
+        }
+
     }
 
 }

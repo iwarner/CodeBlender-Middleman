@@ -14,6 +14,18 @@
 module Helpers
 
     ##
+    # Allows for local bools to be interpreted
+    #
+    # @usage
+    # - falsey( 'image' )
+    ##
+    def falsey( param )
+
+        ! param.nil? && ! param
+
+    end
+
+    ##
     # Proxy partial method
     # Allows a shortcut for calling a CodeBlender partial from the symlinked
     # directories _partial/_codeBlender
@@ -41,6 +53,8 @@ module Helpers
     # - Front matter
     # - Locale
     # - Data file
+    #
+    # @todo Need to delve deeper into the config of the data file at the moment one deep
     ##
     def configuration( id, file = "config" )
 
@@ -50,17 +64,20 @@ module Helpers
         # Front matter meta
         m = cp.stub ? "meta.#{ cp.stub }" : cp
 
-        # Data file lookup
+        # Need a fall back for meta to use the Global settings meta.author for instance
+
+        # Data file lookup or default
         # Need to specify the named file or will assume config
-        localData = I18n.exists?( :"#{ m }.title" ) ? :"#{ m }.title" : data[ file ][ id ]
+        localData = I18n.exists?( :"#{ m }.#{ id }" ) ? :"#{ m }.#{ id }" : data[ file ][ id ] ? data[ file ][ id ] : :"meta.#{ id }"
 
         # Front locale finds in the front matter or in the locale file (requires a stub)
-        frontMatter = cp.title ? m.title : localData
+        frontMatter = cp[ id ] ? m[ id ] : localData
 
-        # Finds the title based on the content_for output helper
-        contentFor = content_for?( :title ) ? yield_content( :title ) : frontMatter
+        # Finds the ID based on the content_for output helper
+        contentFor = content_for?( :"#{ id }" ) ? yield_content( :"#{ id }" ) : frontMatter
 
         string contentFor
+
     end
 
     ##
@@ -93,69 +110,24 @@ module Helpers
         json = JSON.parse( open( url + "?t=" + URI.encode( film ) ) { | x | x.read } )
     end
 
-    ##
-    # Date
-    # Create a nice to read date based on the input time
-    ##
-    # def date( time )
-    #     Russian::strftime( time, '%d %b %Y' )
+    # def tweet_link_to(text, params = {})
+    # uri = Addressable::URI.parse("https://twitter.com/intent/tweet")
+    # uri.query_values = params
+    # link_to text, uri, target: "_blank"
     # end
 
-    #   def url_with_host(path)
-    #     host_with_port + path
-    #   end
-
-    #   def host_with_port
-    #     [config[:host], config[:port]].compact.join(':')
-    #   end
-
-    #   def tweet_link_to(text, params = {})
-    #     uri = Addressable::URI.parse("https://twitter.com/intent/tweet")
-    #     uri.query_values = params
-    #     link_to text, uri, target: "_blank"
-    #   end
-
-    #   def top_tags
-    #     blog('blog').tags.sort_by { |t, a| -a.count }
-    #   end
-
-    #   def top_articles
-    #     blog('blog').articles.select { |a| a.data[:popular] }.sort_by { |a| a.data[:popular] }
-    #   end
-
-    #   def current_page_tags
-    #     Array(current_page.data[:tags])
-    #   end
-
-    #   def page_title
-    #     [data.page.title, "Josh W Lewis"].compact.join(' | ')
-    #   end
-
-    #   def page_description
-    #     data.page.description || "Slides by Josh W Lewis"
-    #   end
-
-    #   def step(id, opts={}, &block)
-    #     content_tag :div, id: id, class: :step, data: opts do
-    #       capture(&block) if block_given?
-    #     end
-    #   end
+    # def page_title
+    # [data.page.title, "APPEND and JOIN"].compact.join(' | ')
     # end
 
-    # ##
-    # #
-    # ##
-    # def tags( page )
-    #     page.tags.map { | tag | link_to( tag, tag_path( tag ) ) }.join( ', ' )
+    # def page_description
+    # data.page.description || "APPEND if not available"
     # end
 
-    # ##
-    # #
-    # ##
-    # def related( page )
-    #     all_pages = blog.tags.slice( *page.tags ).values.first
-    #     return [] if all_pages.blank?
-    #     all_pages.delete_if { | p | p == page }
+    # def step(id, opts={}, &block)
+    # content_tag :div, id: id, class: :step, data: opts do
+    # capture(&block) if block_given?
     # end
-    #
+    # end
+
 end

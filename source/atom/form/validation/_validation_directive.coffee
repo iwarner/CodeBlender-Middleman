@@ -3,7 +3,7 @@
 # Will validate any bootstrap form control, applies itself automatically to form
 #
 # @usage
-# <input type="text" id="fixed" clear-btn>
+# require 'atom/form/validation/_validation_directive.coffee'
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
 # @category atom

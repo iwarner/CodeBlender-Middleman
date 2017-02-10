@@ -4,7 +4,8 @@
 -#
 -# @usage
 -# -# Checkbox
--# = codeBlender "checkbox", "atom/form/checkbox", { label: { title: "Checkbox" }, input: { required: true } }
+-# = codeBlender "checkbox", "atom/form/checkbox",
+-#   { label: { title: "Checkbox" }, input: { required: true } }
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category atom
@@ -22,13 +23,13 @@
     - aria = input[ :aria ]
 
 -# Checkbox Class
-.checkbox{ class: extraClass }
+.checkbox.form-group{ class: extraClass, show: { errors: "{showSuccess: true}" } }
 
     -# Variable
     - extraClass = ( ! label.nil? && label[ :extraClass ] ) ? label[ :extraClass ] : false
 
     -# Label - note this is an array as it contains flag for screen reader
-    %label{ class: extraClass }
+    %label.control-label{ class: extraClass }
 
         -# Input
         %input{ aria:      aria                ? aria               : false,

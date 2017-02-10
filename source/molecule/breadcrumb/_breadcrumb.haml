@@ -10,6 +10,9 @@
 -# @category molecule
 -##
 
+-# Locals
+- extraClass = locals[ :extraClass ] ?  locals[ :extraClass ] + " breadcrumb" : "breadcrumb"
+
 -# Check if array exists otherwise use URL
 - unless locals[ :array ]
 
@@ -87,4 +90,4 @@
         - array << { active: true, text: "Home" }
 
 -# List
-= codeBlender "list-ul", "atom", { array: array, extraClass: "breadcrumb", type: "ol" }
+= codeBlender "list-ul", "atom", { array: array, extraClass: extraClass, type: "ol" }

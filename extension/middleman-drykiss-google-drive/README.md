@@ -13,3 +13,15 @@ analytics. Using cutting edge technologies within disciplined processes.
 ## Usage
 
 activate :drykiss_google_drive
+
+# @usage
+
+ruby -r "./google-drive.rb" -e "GoogleDrive.new"
+
+
+ruby -r "./google-drive.rb" -e "GoogleDrive.new.listFile"
+
+
+Run as a standalone will take the file in the cache and transform this to enable some testing
+
+$ ruby -r "./google-drive.rb" -e "GoogleDrive.new.parseFile"

@@ -10,73 +10,84 @@ title       : "Portfolio template"
 
 # Tasks
 todo :
-    - - "Create the mix it set up in a directive"
-    - - "MixIt is not compatible with NPM choose another"
+    - - "Add a tooltip with the total number of posts in each section - on hover"
     - - "Find a way to include the language elements from this module also"
-    - - "Sort out the design of the blockquote caption and thumbnail image"
-    - - "Use the link_to feature for the link section"
-    - - "Work with the Portfolio Template more and get this working"
-    - - "Include the recent module in this setup page"
-    - - "Image for the meta of this page"
-    - - "Make portfolio container-fluid compatible"
-    - - "Allow the name of the blog to be passed through so it can be used for other blog context"
+    - - "Sort out the design of the blockquote, caption and thumbnail image"
+    - - "Use the link_to feature for the links"
 
 # Resource
 see :
     - - "Mix it up"
       - "https://mixitup.kunkalabs.com/"
+    - - "Keen themes portfolio"
+      - "http://keenthemes.com/preview/metronic/theme/admin_1/page_general_portfolio_1.html"
 
 ---
 
-:markdown
+-# Bootstrap row
+.row
 
-    # Portfolio Module
+    -# Bootstrap column
+    .col-md-6
 
-    Creates a portfolio system from a Middleman Blog. Including :
+        -# Panel body
+        - panelBody = capture_html do
 
-    - Recent module to be utilised for instance on home page
-    - A portfolio template that showcases all the work
-    - Individual details page showcasing the detailed work
+            -# Markdown
+            :markdown
 
-    ## Recent
+                Creates a portfolio system from a the blog setup. Including :
 
-    Useful for inclusion on a home page - shows X recent work.
+                - Recent module to be utilised on the home page
+                - A portfolio template that showcases all the work
+                - Individual profile pages showcasing the detailed work
+                - MixItUp filtering of the portfolio
 
-        -# Portfolio recent
-        codeBlender template/portfolio/recent", { total: "3" }
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
 
-    Image sizes are based on the column width chosen. Make sure they are
+    -# Bootstrap column
+    .col-md-6
 
-    - ( 1170 - ( gutterWidth ( columns * 2 ) ) ) / columns
-    - ( 1170 - ( 15 * ( columns * 2 ) ) ) / 3
+        -# Panel body - markdown
+        - panelBody = capture_html do
 
-    ## Portfolio
+            -# Markdown
+            :markdown
 
-    Creates the main template to view all the works
+                - Include all JS
+                - Include All Style
+                - Include the Partials in pages you want
+                - Add the portfolio blog
+                - Create the blog posts with the relevant front-matter
 
-    ## Details Page
+                Image sizes are based on the column width chosen. Make sure they are
 
-    Creates the details page for the portfolio entity, including the following
-    information
+                - ( 1170 - ( gutterWidth ( columns * 2 ) ) ) / columns
+                - ( 1170 - ( 15 * ( columns * 2 ) ) ) / 3
 
-    * Heading - Title and Small text
-    * Meta elements - Author, Image, Title and Type
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
 
-    All of this information should be part of the portfolio blog entry, either
-    part of the text, or within the front-matter.
+-# Bootstrap row
+.row
 
-    ## Install
+    .col-md-12
 
-    - Include all JS
-    - Include All Style
-    - Include the Partials in pages you want
-    - Add the portfolio blog
-    - Create the blog posts with the relevant front-matter
+        %br
 
--# Portfolio recent
-= codeBlender "portfolio-recent", "template/portfolio", { total: 4 }
+        -# Default
+        :ruby
+            code = %{codeBlender "portfolio-recent", "template/portfolio", { total: 4 }}
 
-%hr
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Recent" } }
 
--# Portfolio
-= codeBlender "portfolio", "template"
+        %hr
+
+        -# Default
+        :ruby
+            code = %{codeBlender "portfolio", "template"}
+
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Portfolio" } }

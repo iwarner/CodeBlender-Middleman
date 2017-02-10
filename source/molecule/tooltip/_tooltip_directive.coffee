@@ -5,15 +5,14 @@
 # require molecule/tooltip/tooltip.directive
 # "tooltip-directive" => true
 #
-# @category molecule
 # @author   Ian Warner <ian.warner@drykiss.com>
-# @see      http://getbootstrap.com/javascript/#tooltips
+# @category molecule
 ##
 
 ##
 # Tooltip directive
 ##
-TooltipDirective = ->
+TooltipDirective = ( $log ) ->
 
     ##
     # Option
@@ -47,5 +46,6 @@ angular
 ##
 # Inject
 ##
-# TooltipDirective.$inject = [
-# ]
+TooltipDirective.$inject = [
+    '$log'
+]

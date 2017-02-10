@@ -9,18 +9,6 @@
 -# @category meta
 -##
 
--# Current page data
-- cp = current_page.data
-
--# If there is meta tabs present then override the stub method
-- if cp
-    - m = cp
-- else
-    - m = "meta.#{ current_page.data.stub }"
-
-- title       = cp ? m.title       : :"#{ m }.title"
-- description = cp ? m.description : :"#{ m }.description"
-
 -# Title
 %title= configuration( "title" )
 

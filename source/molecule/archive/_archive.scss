@@ -20,9 +20,10 @@ $module : 'blogArchive';
 
     // List
     //------------------------------------------------------------------------//
-    .blogArchive__list {
+    &__list {
         border-bottom : 1px solid #e5e3e3;
         display       : table;
+        margin-bottom : 11px;
         padding-right : 30px;
 
         &:last-child {
@@ -32,7 +33,7 @@ $module : 'blogArchive';
 
     // DT portion
     //------------------------------------------------------------------------//
-    .blogArchive__dt {
+    &__dt {
         display      : inline;
         margin-right : 15px;
 
@@ -44,8 +45,9 @@ $module : 'blogArchive';
 
     // DD portion
     //------------------------------------------------------------------------//
-    .blogArchive__dd {
-        display : inline-table;
+    &__dd {
+        display     : inline-table;
+        line-height : 16px;
     }
 
     // Heading

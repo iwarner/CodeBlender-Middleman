@@ -16,16 +16,11 @@ $module : 'blogRecent';
 //----------------------------------------------------------------------------//
 .#{ $module } {
 
-    margin-bottom : 30px;
+    margin-bottom : 32px;
 
     // Label
     //------------------------------------------------------------------------//
     &__label {
-        border-radius : 0;
-        display       : inline-block;
-        margin-right  : 5px;
-        min-width     : 60px;
-        padding       : 5px;
     }
 
     // Heading
@@ -40,5 +35,21 @@ $module : 'blogRecent';
     //------------------------------------------------------------------------//
     &__list {
     }
+
+    // DT portion
+    //------------------------------------------------------------------------//
+    &__dt {
+        width      : inherit !important;
+        text-align : inherit !important;
+    }
+
+    // DD portion
+    //------------------------------------------------------------------------//
+    &__dd {
+        margin-left   : 85px !important;
+        margin-bottom : 6px;
+    }
+
+
 
 }

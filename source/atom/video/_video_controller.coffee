@@ -12,7 +12,7 @@
 (->
 
     ##
-    # Vide0 controller
+    # Video controller
     ##
     VideoController = ( $log ) ->
 

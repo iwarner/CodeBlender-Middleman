@@ -50,7 +50,7 @@ page "sitemap.xml",  layout: false
 # auto_ids, footnote_nr, entity_output, toc_levels, smart_quotes, kramdown_default_lang, input, hard_wrap
 # @see http://kramdown.gettalong.org/options.html
 set :markdown_engine, :kramdown
-set :markdown, toc_levels: "1,2", auto_id_prefix: "#"
+set :markdown, toc_levels: "1,2"
 
 # Minimum Sass number precision required by bootstrap-sass
 # @see https://github.com/twbs/bootstrap-sass#number-precision
@@ -118,7 +118,7 @@ activate :blog do | blog |
     blog.prefix            = "portfolio"
     blog.default_extension = ".haml"
 
-    blog.permalink         = "{category}/{title}.html"
+    blog.permalink         = "{title}.html"
     blog.sources           = ":title.html"
 
     blog.layout            = "portfolio"

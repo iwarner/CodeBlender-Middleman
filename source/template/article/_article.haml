@@ -9,47 +9,50 @@
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category template
--# @see      https://developer.mozilla.org/en/docs/Web/HTML/Element/article
 -##
 
--# Meta
-    -# Introduce - http://ogp.me/#type_article
-
--# Table of contents
-    -# Position a little better - fold up perhaps
-
--# Content
-    -# Style available areas
-
--# Comments
+-# Local
+- article = locals[ :article ] ? locals[ :article ] : current_article
 
 -# Variable
-- cp = current_page.data
+-# = article
+-# = image
 
 -# Article
-%article.article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting"  }
-
-    -# Image
-    - if cp.image
-        = codeBlender "image", "atom", { extraClass: "img-responsive", src: cp.image }
-
-    -# Breadcrumb
-    = codeBlender "breadcrumb", "molecule", { title: cp.title }
+%article.article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting" }
 
     -# Article header
-    %header
+    %header.article__header
 
-        -# Small
-        - small = cp.small ? cp.small : false
+        -# Image process
+        - unless falsey locals[ :image ]
+
+            -# Does an image exists in the front matter
+            - if article.data.image
+                .article__image
+                    -# Image
+                    = codeBlender "image", "atom", { extraClass: "img-responsive", src: article.data.image }
+
+                    -# SVG slant
+                    <svg class="article__slant" width="750" height="77" viewBox="0 0 750 77" xmlns="http://www.w3.org/2000/svg"><path d="M0 76.017h750L469.722 47.69.238.237" fill="#fff" fill-rule="evenodd"/></svg>
+
+        -# Breadcrumb process
+        - unless falsey locals[ :breadcrumb ]
+
+            -# Breadcrumb
+            = codeBlender "breadcrumb", "molecule", { extraClass: "article__breadcrumb", title: article.title }
+
+        -# Category
+        .article__category
+            = link_to category_path( article.data.category ) do
+                - article.data.category.upcase
 
         -# Heading - article H1
-        -# Three columns
-        -# Text  - 16 Characters
-        -# Small - 25 Characters
         = codeBlender "heading", "molecule",
           { extraClass: "article__heading heading--noMargin",
-            small:      small,
-            text:       cp.title,
+            rel:        "bookmark",
+            small:      article.data.small ? article.data.small : false,
+            text:       article.title,
             itemprop:   "name headline" }
 
         -# Article detail
@@ -60,30 +63,31 @@
             -# Add Pinterest, Google, LinkedIn, Twitter
         -# Tags
         -# Need to include the category
-        = codeBlender "detail", "molecule", { author: true, cal: true, comment: false, social: false, tags: true }
+        = codeBlender "detail", "molecule", { article: article, author: true, cal: true, comment: false, social: true, tags: true }
 
     -# Yield
     .article__content
-        %span{ itemprop: "text" }= locals[ :body ]
+        %span{ itemprop: "text" }
+            = article.body
 
     -# Article footer
     %footer
 
         -# Pager variables
-        - prevPage = current_article.previous_article ? current_article.previous_article : false
-        - nextPage = current_article.next_article     ? current_article.next_article     : false
+        - prevPage = article.previous_article ? article.previous_article : false
+        - nextPage = article.next_article     ? article.next_article     : false
 
         -# Pager
         = codeBlender "pager", "molecule", { prevPage: prevPage, nextPage: nextPage }
 
         -# Disqus comment
-        - if cp.commentDisqus
+        - if article.data.commentDisqus
 
             -# Disqus comment
             = codeBlender "disqus-comment", "organism"
 
         -# Facebook comment
-        - if cp.commentFacebook
+        - if article.data.commentFacebook
 
             -# Facebook comment
             = codeBlender "comment", "social/facebook/comment"

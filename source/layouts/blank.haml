@@ -12,7 +12,6 @@
 
 -# Variable
 - locale = I18n.locale.to_s
-- cp     = current_page.data
 
 -# HTML5 doctype
 !!! 5
@@ -26,17 +25,8 @@
     -# Prefix is utilised for structures like Facebook
     %head
 
-        -# If there is meta tabs present then override the stub method
-        - if cp
-            - m = cp
-        - else
-            - m = "meta.#{ current_page.data.stub }"
-
-        - title       = cp ? m.title       : :"#{ m }.title"
-        - description = cp ? m.description : :"#{ m }.description"
-
         -# Title
-        %title= string( title )
+        %title= configuration( "title" )
 
         %meta{ "http-equiv": "Content-Type", content: "text/html; charset=UTF-8" }
         %meta{ name: "viewport", content: "width=device-width, user-scalable=no,initial-scale=1" }

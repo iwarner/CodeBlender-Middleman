@@ -59,8 +59,25 @@ todo :
     - Need to implement
 
 -# Button - share dialog
+- @code = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
+
+    -# Icon
+    = codeBlender "icon", "atom", { icon: "fa-facebook-official fa-fw fa-3x" }
+
 :ruby
-    code = %{codeBlender "button", "atom", { text: "SHARE", ng: { click: "facebook.share( 'http://drykiss.com' )" } }}
+    code = %{@code}
 
 -# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Share dialog" } }
+= codeBlender "code", "molecule", { code: code, heading: { text: "Javascript Share dialog" } }
+
+-# Link - share dialog
+- @code = link_to("https://www.facebook.com/dialog/share?mobile_iframe=true&app_id=253027968192447&display=popup&href=https://codeblender.net&redirect_uri=https://codeblender.net") do
+
+    -# Icon
+    = codeBlender "icon", "atom", { icon: "fa-facebook-official fa-fw fa-3x" }
+
+:ruby
+    code = %{@code}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Link Share dialog" } }

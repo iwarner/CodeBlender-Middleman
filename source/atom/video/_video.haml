@@ -30,6 +30,8 @@
 - preload     = locals[ :preload ]    ? locals[ :preload ] : "none"
 - responsive  = locals[ :responsive ] ? containerClass     = "embed-responsive embed-responsive-#{ locals[ :responsive ] }" : false
 - source      = locals[ :src ]
+- width       = locals[ :width ]      ? locals[ :width ]   : false
+- height      = locals[ :height ]     ? locals[ :height ]  : false
 
 -# Poster
 -# Defaults to a transparent gif - set poster in the CSS
@@ -42,9 +44,19 @@
     .video__background
 
         -# Video
-        %video{ autoplay: autoplay, class: videoClass, controls: controls, id: id, loop: loop, muted: muted, playsinline: playsinline, poster: poster, preload: preload }
+        %video{ autoplay:    autoplay,
+                class:       videoClass,
+                controls:    controls,
+                height:      height,
+                id:          id,
+                loop:        loop,
+                muted:       muted,
+                playsinline: playsinline,
+                poster:      poster,
+                preload:     preload,
+                width:       width }
 
             -# Source files
             %source{ src: "#{ source }.mp4",  type: "video/mp4"  }
-            %source{ src: "#{ source }.ogg",  type: "video/ogg"  }
+            -# %source{ src: "#{ source }.ogg",  type: "video/ogg"  }
             %source{ src: "#{ source }.webm", type: "video/webm" }

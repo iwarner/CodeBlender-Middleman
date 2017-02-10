@@ -5,9 +5,8 @@
 -# -# Portfolio
 -# = codeBlender "portfolio", "template"
 -#
--# @author Ian Warner <ian.warner@drykiss.com>
--# @see    https://mixitup.kunkalabs.com/
--# @see    http://www.keenthemes.com/preview/metronic/theme/templates/admin4/page_portfolio.html
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category template
 -##
 
 -# Portfolio section
@@ -37,6 +36,12 @@
                 -# Create the all filter
                 - list << { data: { filter: "all" }, extraClass: "filter", link: { url: "javascript:;" }, text: "All" }
 
+                -# Count the articles in each category
+
+                -# = blog( 'portfolio' ).articles.map { | r | r.data.category }.uniq.sort
+
+                -# a.uniq.each{|e| a2[e]= a.count(e)}
+
                 -# Get the unique subcategories in the portfolio
                 - blog( "portfolio" ).articles.uniq{ | r | r.data.category }.each do | article |
 
@@ -46,8 +51,14 @@
                     -# Make sure article has a category assigned
                     - if ! data.category.nil?
 
+                        -# Category
                         - category = data.category
-                        - list << { data: { filter: ".category-#{ category }" }, extraClass: "filter", link: { url: "javascript:;" }, text: category }
+
+                        -# List
+                        - list << { data:       { filter: ".category-#{ category }" },
+                                    extraClass: "filter",
+                                    link:       { data: { toggle: "tooltip" }, url: "javascript:;", title: "5" },
+                                    text:       category }
 
                 -# List - filter
                 = codeBlender "list-ul", "atom", { array: list, extraClass: "nav nav-pills" }
@@ -58,25 +69,36 @@
         -# Portfolio grid
         .portfolio__grid
 
+            -# Column count
+            - total      = locals[ :total ] ? locals[ :total ] : 3
+            - count      = 12 / total
+            - extraClass = "col-md-#{ count }"
+
             -# Loop through the portfolio category
             -# Sorting is done by date as a default
-            - blog( "portfolio" ).articles.each do | article |
+            - blog( "portfolio" ).articles.each_with_index do | article, index |
 
                 -# Variable
                 - data = article.data
 
                 -# Bootstrap column
-                .col-md-3.col-sm-3.mix{ class: "category-#{ data.category }" }
+                .portfolio__segment.mix{ class: "#{ extraClass } category-#{ data.category }" }
 
                     -# Check there is an image
                     - if data.image != ""
 
                         -# Link to the article
-                        %a{ href: article.url, title: data.heading.title }
+                        %a{ href: article.url, title: article.title }
 
                             -# Image
-                            = codeBlender "image", "atom", { alt: data.heading.title, caption: data.heading.title, extraClass: "img-thumbnail", src: data.image }
+                            = codeBlender "image", "atom", { alt: article.title, caption: article.title, extraClass: "img-thumbnail", src: data.image }
 
                         -# Just display the title
                     - else
-                        = data.heading.title
+                        = article.title
+
+                -# Split columns at total
+                - if ( index + 1 ) % total == 0
+
+                    -# Break the columns at certain points - will be dependant on viewport
+                    .clearfix

@@ -11,6 +11,20 @@
 module Resources
 
     ##
+    # Select option
+    #
+    # @usage
+    # - selectOption( blog( ENV[ "site" ] ).articles.select { | a | a.data[ :hero ] == "true" }, 1 ).each do | article |
+    ##
+    def selectOption( data, option )
+
+        raise 'Invalid option' if ! option.is_a?( Integer ) && option != 'all'
+
+        option == 'all' ? data : data.first( option )
+
+    end
+
+    ##
     # Unique SubCategory
     ##
     def subCategory( blog = 'portfolio', exclude = [] )
@@ -43,22 +57,24 @@ module Resources
     # @return array
     # [ "inspiration", "recipes", "news" ]
     ##
-    def categoryList( exclude = [] )
+    def categoryList( blog = 'portfolio', exclude = [] )
 
-        # Create return array
-        ret = []
+        blog( blog ).articles.map { | res | res.data.category }.uniq.sort
 
-        # Get the unique categories
-        sitemap.resources.uniq{ | r | r.data.category }.each do | articles |
+        # # Create return array
+        # ret = []
 
-            if ! articles.data.category.nil? and ! exclude.include?( articles.data.category )
-                ret << articles.data.category
-            end
+        # # Get the unique categories
+        # sitemap.resources.uniq{ | r | r.data.category }.each do | articles |
 
-        end
+        #     if ! articles.data.category.nil? and ! exclude.include?( articles.data.category )
+        #         ret << articles.data.category
+        #     end
 
-        # Return
-        ret
+        # end
+
+        # # Return
+        # ret
 
     end
 
@@ -139,6 +155,34 @@ module Resources
         ret
 
     end
+
+    #   def current_page_tags
+    #     Array(current_page.data[:tags])
+    #   end
+
+    #   def top_tags
+    #     blog('blog').tags.sort_by { |t, a| -a.count }
+    #   end
+
+    # def top_articles
+    # blog('blog').articles.select { |a| a.data[:popular] }.sort_by { |a| a.data[:popular] }
+    # end
+
+    # ##
+    # #
+    # ##
+    # def tags( page )
+    #     page.tags.map { | tag | link_to( tag, tag_path( tag ) ) }.join( ', ' )
+    # end
+
+    # ##
+    # #
+    # ##
+    # def related( page )
+    #     all_pages = blog.tags.slice( *page.tags ).values.first
+    #     return [] if all_pages.blank?
+    #     all_pages.delete_if { | p | p == page }
+    # end
 
     # ##
     # # Get portfolio articles
