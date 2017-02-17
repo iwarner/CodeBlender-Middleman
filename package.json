@@ -9,10 +9,10 @@
     "homepage"    : "http://codeblender.net",
 
     "scripts" : {
-        "server"  : "LANG=$LANG bundle exec middleman server -p 8080",
-        "build"   : "LANG=$LANG bundle exec middleman build",
-        "verbose" : "LANG=$LANG bundle exec middleman build --verbose --clean",
-        "deploy"  : "LANG=$LANG bundle exec middleman build && LANG=$LANG bundle exec middleman deploy"
+        "server"  : "bundle exec middleman server -p 8080",
+        "build"   : "bundle exec middleman build",
+        "verbose" : "bundle exec middleman build --verbose --clean",
+        "deploy"  : "bundle exec middleman build && bundle exec middleman deploy"
     },
 
     "repository": {

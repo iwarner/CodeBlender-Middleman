@@ -23,7 +23,10 @@ $module : 'article';
     //------------------------------------------------------------------------//
     &__image {
         position : relative;
-        width    : 100%;
+
+        .image__img {
+            width    : 100%;
+        }
     }
 
     // Slant
@@ -44,20 +47,18 @@ $module : 'article';
     // Category
     //------------------------------------------------------------------------//
     &__category {
-
+        font-family   : adellesans-bold;
         font-size     : 12px;
         margin-bottom : 5px;
 
         a {
             color : $brand-primary;
         }
-
     }
 
     // Heading
     //------------------------------------------------------------------------//
     &__heading {
-
         font-size     : 40px;
         line-height   : 44px;
         margin-bottom : 16px;
@@ -65,7 +66,6 @@ $module : 'article';
         // small {
         //     display : block;
         // }
-
     }
 
     // Table of contents
@@ -105,6 +105,16 @@ $module : 'article';
             margin      : 20px 0;
         }
 
+        // Links
+        //--------------------------------------------------------------------//
+        a {
+            color : $brand-primary;
+        }
+
+        a:hover {
+            color : #BDBABA;
+        }
+
         // Paragraph
         //--------------------------------------------------------------------//
         p {
@@ -140,16 +150,14 @@ $module : 'article';
             p {
                 margin : 0;
             }
-
         }
-
     }
 
     // Breadcrumb
     //------------------------------------------------------------------------//
     &__breadcrumb {
 
-        background-color : rgba( 255, 255, 255, 0.75 );
+        background-color : rgba( 62, 62, 62, 0.5 );
         position         : absolute;
         top              : 0;
         width            : 100%;
@@ -158,14 +166,13 @@ $module : 'article';
             color : #000 !important;
         }
 
-        li.active {
-            color : #000;
+        li.active, a {
+            color : #fff;
         }
 
-        a {
-            color : #000;
+        a:hover {
+            color : $brand-primary;
         }
-
     }
 
     // Related

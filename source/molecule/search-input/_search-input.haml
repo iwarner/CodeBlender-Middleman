@@ -18,11 +18,10 @@
 
     -# Input
     = codeBlender "input", "atom/form/input",
-        { button: { append:  button },
+        { button: { append: { text: "button" } },
           icon:   { prepend: "fa-search" },
           input:  { autocomplete:    "off",
                     clear:           true,
-                    extraClass:      "input-lg",
                     inputGroupClass: "input-group",
                     name:            "search",
                     ng:              { model: "searchInput.query" },

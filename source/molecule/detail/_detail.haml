@@ -36,13 +36,13 @@
                 -# Icon - calendar
                 = codeBlender "icon", "atom", { icon: "fa-calendar" }
 
-                - if article.date.instance_of?( String )
-                    - article.date = Time.parse( article.date )
+                - if article.data.date.instance_of?( String )
+                    - article.data.date = Time.parse( article.data.date )
 
                 -# Time - format example : April 8, 2016
-                %time{ pubdate: true, itemprop: "datePublished", datetime: "#{ article.date.strftime( "%FT%T" ) }Z" }
+                %time{ pubdate: true, itemprop: "datePublished", datetime: "#{ article.data.date.strftime( "%FT%T" ) }Z" }
 
-                    = article.date.to_date.to_s
+                    = article.data.date.to_date.to_s
                     ,
                     = article.data.time
 
@@ -98,7 +98,7 @@
         .blogDetail__social
 
             -# Share
-            %span Share this article
+            %span.blogDetail__shareText Share this article
 
             -# Facebook
             = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
@@ -118,8 +118,8 @@
                 -# Icon
                 = codeBlender "icon", "atom", { icon: "fa-pinterest-square fa-2x" }
 
-            -# Email
-            = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
+            -# -# Email
+            -# = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
 
-                -# Icon
-                = codeBlender "icon", "atom", { icon: "fa-envelope fa-2x" }
+            -#     -# Icon
+            -#     = codeBlender "icon", "atom", { icon: "fa-envelope fa-2x" }

@@ -230,9 +230,16 @@ class GoogleDrive
         doc.xpath( "//table[ 1 ]" ).remove
 
         # Add the image
-        if img
-            fontmatter += "\"image\": \"#{ img.attr( "src" ) }\"\n"
-        end
+        # @todo this fails if there is no image element - fix this flag
+        # if img
+        #     fontmatter += "\"image\": \"#{ img.attr( "src" ) }\"\n"
+        # end
+
+        # Heading
+        # @todo Remove double quotes from the heading.text - replace with single quotes
+        heading     = doc.xpath( "//h1[ 1 ]" )
+        fontmatter += "\"heading\": \"#{ heading.text }\"\n"
+        heading.remove
 
         # End the frontmatter
         fontmatter += "---\n"
@@ -256,7 +263,6 @@ class GoogleDrive
     # @todo Create a hash of the files in the system and when they were created
     # @todo Check to see if the file has been updated since
     # @todo split out the process into different classes perhaps
-    # @todo Remove empty H1 tags
     ##
     def parseFile( html = false, file = false, root = false, destination = false )
 
@@ -278,6 +284,11 @@ class GoogleDrive
             # Save path
             savePath = "../cache/02.html"
 
+        end
+
+        # Remove empty H1 Heading
+        doc.css( 'h1' ).each do | node |
+            node.remove if node.inner_text == ''
         end
 
         # Front matter
@@ -315,9 +326,14 @@ class GoogleDrive
             image.remove_attribute( "title" )
         end
 
-        # Remove featured image table
+        # Add class to tables
         doc.css( "table" ).each do | table |
             table[ "class" ] = "table table-condensed"
+        end
+
+        # Remove empty P Tags
+        doc.css( 'p' ).each do | node |
+            node.remove if node.inner_text == ''
         end
 
         # Get the body
@@ -330,7 +346,8 @@ class GoogleDrive
         doc.scan(/(\[\[Instagram:(.*)\]\])/) do | w |
             if w
                 # Replace string
-                doc = doc.gsub /<p> *#{Regexp.escape(w[ 0 ])} *<\/p>/, "<div class=\"embedResponsive\"><iframe class=\"instagramEmbed\" src=\"//instagram.com/p/#{ w[ 1 ] }/embed/\" frameborder=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe></div>"
+                doc = doc.gsub /<p> *#{Regexp.escape(w[ 0 ])} *<\/p>/, @instagram.embedCode( w[ 1 ] )
+                # doc = doc.gsub /<p> *#{Regexp.escape(w[ 0 ])} *<\/p>/, "<div class=\"embedResponsive\"><iframe class=\"instagramEmbed\" src=\"//instagram.com/p/#{ w[ 1 ] }/embed/\" frameborder=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe></div>"
             end
         end
 
@@ -372,8 +389,6 @@ class GoogleDrive
         doc = doc.gsub /\<br>/, "\n"
 
         # Paragraph
-        doc = doc.gsub '<p></p>', ""
-        doc = doc.gsub '<h1></h1>', ""
         doc = doc.gsub '<hr>', ""
 
         # Quotes

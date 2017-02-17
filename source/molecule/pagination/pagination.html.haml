@@ -1,16 +1,23 @@
 ---
 
+# Meta
 description : "Pagination"
 title       : "Pagination"
 
+# Blog
 pageable : true
+per_page : 10
 
+# Resource
 see :
     - - "Bootstrap Pagination"
       - "http://getbootstrap.com/components/#pagination"
+    - - "UX Pagination"
+      - 'http://uxmovement.com/navigation/avoid-the-pains-of-pagination/'
     - - "Pagination Tutorial"
       - "http://www.slevenbits.com/blog/2013/01/middleman-blog-pagination.html"
 
+# Tasks
 todo :
     - - "Test this with Directory Indexes etc"
     - - "Enable options to show all numbers"
@@ -18,9 +25,59 @@ todo :
 
 ---
 
--# Pagination Variables
-- prevPage = prev_page ? prev_page : false
-- nextPage = next_page ? next_page : false
+-# Bootstrap row
+.row
 
--# Pagination
-= codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                The pagination partial allows a cycle pattern between collections
+                within the site, such as a blog.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                To allow the pagination to work on blog listings the following
+                front matter must be present:
+
+                - blog     : docs
+                - pageable : true
+                - per_page : 5
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+%hr
+
+-# Pagination Variables
+- @prevPage = prev_page ? prev_page : false
+- @nextPage = next_page ? next_page : false
+
+-# Default
+:ruby
+    code = %{codeBlender "pagination", "molecule", { nextPage: @nextPage, prevPage: @prevPage, pageNo: page_number, pages: num_pages }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+
+-# Default
+:ruby
+    code = %{codeBlender "pagination", "molecule", { nextPage: @nextPage, prevPage: @prevPage, pageNo: page_number, pages: num_pages, size: "lg" }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Size - large" } }

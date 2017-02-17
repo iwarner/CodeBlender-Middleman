@@ -38,13 +38,15 @@ $module : 'blogDetail';
         li {
             margin-right : 5px;
         }
-
     }
 
     // Author
     //------------------------------------------------------------------------//
     &__author {
         color : $brand-primary;
+        &:hover {
+            color : #828585;
+        }
     }
 
     // Tags
@@ -52,15 +54,16 @@ $module : 'blogDetail';
     &__tags {
 
         border-bottom : 1px solid #9B9B9B;
-        padding       : 6px 0;
+        padding       : 0 0 10px;
 
         // Tag
         //--------------------------------------------------------------------//
         & .#{ $module }__tag {
-            margin-right   : 5px;
-            vertical-align : text-top;
+            display        : inline-block;
+            border-radius  : 0;
+            margin-bottom  : 5px;
+            margin-right   : 8px;
         }
-
     }
 
     // Social
@@ -71,15 +74,21 @@ $module : 'blogDetail';
         padding       : 8px 0;
 
         span {
-            color          : $brand-primary;
             margin-right   : 20px;
             vertical-align : middle;
         }
 
         a {
+            color           : $brand-primary;
             text-decoration : none;
+            &:hover{
+                color : #E4E3E3;
+            }
         }
 
+        & .#{ $module }__shareText {
+            color : #000;
+        }
     }
 
 }

@@ -34,7 +34,7 @@
                     = codeBlender "image", "atom", { extraClass: "img-responsive", src: article.data.image }
 
                     -# SVG slant
-                    <svg class="article__slant" width="750" height="77" viewBox="0 0 750 77" xmlns="http://www.w3.org/2000/svg"><path d="M0 76.017h750L469.722 47.69.238.237" fill="#fff" fill-rule="evenodd"/></svg>
+                    <svg class="article__slant" viewBox="0 0 750 77" xmlns="http://www.w3.org/2000/svg"><path d="M0 76.017h750L469.722 47.69.238.237" fill="#fff" fill-rule="evenodd"/></svg>
 
         -# Breadcrumb process
         - unless falsey locals[ :breadcrumb ]
@@ -43,16 +43,18 @@
             = codeBlender "breadcrumb", "molecule", { extraClass: "article__breadcrumb", title: article.title }
 
         -# Category
-        .article__category
-            = link_to category_path( article.data.category ) do
-                - article.data.category.upcase
+        - if article.data.category
+
+            .article__category
+                = link_to category_path( article.data.category ) do
+                    - article.data.category.upcase
 
         -# Heading - article H1
         = codeBlender "heading", "molecule",
           { extraClass: "article__heading heading--noMargin",
             rel:        "bookmark",
             small:      article.data.small ? article.data.small : false,
-            text:       article.title,
+            text:       article.data.heading ? article.data.heading : article.title,
             itemprop:   "name headline" }
 
         -# Article detail
@@ -67,18 +69,20 @@
 
     -# Yield
     .article__content
-        %span{ itemprop: "text" }
-            = article.body
+        %span{ itemprop: "text" }= article.body
 
     -# Article footer
     %footer
 
-        -# Pager variables
-        - prevPage = article.previous_article ? article.previous_article : false
-        - nextPage = article.next_article     ? article.next_article     : false
+        -# Pager check
+        - unless falsey locals[ :pager ]
 
-        -# Pager
-        = codeBlender "pager", "molecule", { prevPage: prevPage, nextPage: nextPage }
+            -# Pager variables
+            - prevPage = article.previous_article ? article.previous_article : false
+            - nextPage = article.next_article     ? article.next_article     : false
+
+            -# Pager
+            = codeBlender "pager", "molecule", { prevPage: prevPage, nextPage: nextPage }
 
         -# Disqus comment
         - if article.data.commentDisqus

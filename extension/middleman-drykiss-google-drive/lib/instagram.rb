@@ -51,7 +51,12 @@ class Instagram
         if response.code == "200"
 
             result = JSON.parse( response.body )
-            result[ "html" ]
+
+            # Change the max width
+            result[ "html" ].gsub! "max-width:658px;", "max-width:70%;"
+            result[ "html" ].gsub! "margin: 1px;", "margin: 0 auto 20px;"
+
+            # result[ "html" ]
 
         else
             puts "ERROR!!!"

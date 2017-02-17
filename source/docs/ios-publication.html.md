@@ -20,6 +20,8 @@ type               : "article"
 * Table of Contents
 {:toc}
 
+# Publish iOS platform applications
+
 ## Introduction
 
 This article outlines the process to publish a Cordova iOS application to the

@@ -11,15 +11,16 @@
 -#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category molecule
--# @see      http://uxmovement.com/navigation/avoid-the-pains-of-pagination/
--# @see      http://www.slevenbits.com/blog/2013/01/middleman-blog-pagination.html
 -##
 
+-# Locals
+- size = locals[ :size ] ? "pagination-#{ locals[ :size ] }" : false
+
 -# Nav - Pagination
-%nav.text-center
+%nav.text-center{ "aria-label": "Page navigation" }
 
     -# Pagination
-    %ul.pagination
+    %ul.pagination{ class: size }
 
         -# Variables
         - pageNo     = locals[ :pageNo ].to_i
@@ -28,16 +29,20 @@
         -# Previous Page
         - if prevPage
 
-            %li= link_to string( :"pagination.previous" ), prevPage.url, aria: { label: "Previous" }
+            -# Sort out icon or text
+            - prevText = t( :"pagination.previous" ).kind_of?( Hash ) ? ( codeBlender "icon", "atom", { icon: string( :"pagination.previous.icon" ) } ): string( :"pagination.previous" )
+
+            -# Link
+            %li= link_to prevText, prevPage.url, aria: { label: "Previous" }, class: "pagination__link"
 
             - p = nil
             - ( 1 ... pageNo ).each do p = p ? p.metadata[ :locals ][ 'prev_page' ] : prevPage end
 
             -# If current page is 3 or more less than the total pages show the end bits
             - if pageNo > 4
-                %li= link_to 1, p && p.url
-                %li
-                    %a ...
+                %li= link_to 1, p && p.url, class: "pagination__link"
+                %li.disabled
+                    %a.pagination__link ...
 
         -# Loop through the number of pages
         - ( pageNo - 3 .. pageNo + 3 ).select{ | i | i > 0 && i <= totalPages }.each do | i |
@@ -47,7 +52,7 @@
 
                 -# Active List
                 %li.active
-                    %span= i
+                    %span.pagination__link= i
 
             - else
 
@@ -62,18 +67,27 @@
                     - ( pageNo ... i ).each do p = p ? p.metadata[ :locals ][ 'next_page' ] : nextPage end
 
                     -# Link
-                    = link_to i, p && p.url
+                    = link_to i, p && p.url, class: "pagination__link"
 
         -# Next Page
         - if nextPage
 
+            -# Sort out icon or text
+            - nextText = t( :"pagination.next" ).kind_of?( Hash ) ? ( codeBlender "icon", "atom", { icon: string( :"pagination.next.icon" ) } ): string( :"pagination.next" )
+
+            -# Total pages
             - p = nil
             - ( pageNo ... totalPages ).each do p = p ? p.metadata[ :locals ][ 'next_page' ] : nextPage end
 
             -# If current page is 3 or more less than the total pages show the end bits
             - if pageNo < ( totalPages - 3 )
-                %li
-                    %a ...
-                %li= link_to totalPages, p && p.url
 
-            %li= link_to string( :"pagination.next" ), nextPage.url, aria: { label: "Next" }
+                -# Link - disabled - showing more pages exist
+                %li.disabled
+                    %a.pagination__link ...
+
+                -# Link - last
+                %li= link_to totalPages, p && p.url, class: "pagination__link"
+
+            -# Link - Next
+            %li= link_to nextText, nextPage.url, aria: { label: "Next" }, class: "pagination__link"

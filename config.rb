@@ -137,6 +137,23 @@ activate :blog do | blog |
     blog.per_page          = 5
     blog.page_link         = "page/{num}"
 
+    # Custom collections
+    blog.custom_collections = {
+
+        # Category
+        category: {
+            link:     '/category/{category}.html',
+            template: 'template/blog-tag/blog-tag.html'
+        },
+
+        # Author
+        author: {
+            link:     '/author/{author}.html',
+            template: 'template/blog-tag/blog-tag.html'
+        }
+
+    }
+
 end
 
 # Middleman Deploy

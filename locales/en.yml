@@ -29,8 +29,8 @@ en:
     # Pagination
     pagination :
         first    : "First"
-        next     : "Next"
-        previous : "Previous"
+        next     : { icon : "fa-angle-right" }
+        previous : { icon : "fa-angle-left"  }
         last     : "Last"
 
     # Search
@@ -106,6 +106,8 @@ en:
                 button :
                   text : "Social"
                 items    :
+                  - text : "Disqus"
+                    link : { url : "/social/disqus/disqus.html" }
                   - text : "Facebook"
                     link : { url : "/social/facebook/facebook.html" }
                   - text : "Firebase"

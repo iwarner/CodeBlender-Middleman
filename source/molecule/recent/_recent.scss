@@ -50,6 +50,17 @@ $module : 'blogRecent';
         margin-bottom : 6px;
     }
 
-
+    // Media queries - Mobile
+    //------------------------------------------------------------------------//
+    @media only screen and ( min-width: 320px ) and ( max-width: 767px )
+    {
+        .dl-horizontal dt {
+            float         : left;
+            clear         : left;
+            overflow      : hidden;
+            text-overflow : ellipsis;
+            white-space   : nowrap;
+        }
+    }
 
 }
