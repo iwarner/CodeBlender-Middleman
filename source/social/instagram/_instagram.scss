@@ -1,0 +1,56 @@
+//
+// Instagram
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category social
+//----------------------------------------------------------------------------//
+
+
+// Instagram
+//----------------------------------------------------------------------------//
+.instagram-media {
+
+    margin : 0 auto 20px !important;
+
+    // Media queries - Mobile
+    //------------------------------------------------------------------------//
+    @media only screen and ( min-width: 320px ) and ( max-width: 767px )
+    {
+        max-width : 100% !important;
+        width     : 100% !important;
+    }
+
+}
+
+// Embed responsive
+//----------------------------------------------------------------------------//
+.embedResponsive {
+
+    // margin : 0 auto;
+    // width  : 70%;
+    // position       : relative;
+    // padding-bottom : 110%;
+    // height         : 0;
+    // overflow       : hidden;
+
+    .instagramEmbed {
+        background    : #fff;
+        border        : 1px solid #dbdbdb;
+        box-shadow    : none;
+        border-radius : 4px;
+        display       : block;
+        padding       : 0px;
+        margin        : 1px 1px 12px;
+        max-width     : 500px;
+        width         : calc( 100% - 2px );
+    }
+
+}
+
+// .embedResponsive iframe, .embedResponsive object, .embedResponsive embed {
+//     position : absolute;
+//     top      : 0;
+//     left     : 0;
+//     width    : 100%;
+//     height   : 100%;
+// }

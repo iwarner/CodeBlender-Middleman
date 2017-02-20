@@ -1,0 +1,29 @@
+---
+
+# Angular
+angular :
+    controller   : "TwitterController"
+    controllerAs : "twitter"
+
+# Meta
+description : "Twitter embedded timeline"
+title       : "Twitter embedded timeline"
+
+# See
+see :
+    - - "Timeline"
+      - "https://dev.twitter.com/web/embedded-timelines"
+
+---
+
+:markdown
+
+    Embedded timelines are an easy way to embed multiple Tweets on your website
+    in a compact, single-column view.
+
+-# Default
+:ruby
+    code = %{codeBlender "timeline", "social/twitter/timeline", { href: "socialTriangle", height: "300px", limit: 1 }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }

@@ -1,0 +1,73 @@
+---
+
+# Meta
+description : "Blog article"
+title       : "Blog article"
+
+# Blog
+blog : docs
+
+# Resources
+see :
+    - - "Blog article"
+      - "https://developer.mozilla.org/en/docs/Web/HTML/Element/article"
+
+# Tasks
+todo :
+    - - "Introduce - http://ogp.me/#type_article"
+    - - "Table of contents - Position a little better - fold up perhaps"
+    - - "Content -Style available areas"
+    - - "Comments"
+    - - "Make sure all bemmed up"
+
+---
+
+-# Variable
+- cp = current_page.data
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                This Article partial create a good building block for displaying
+                a blog post.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                For this page I am passing in an article instance, in normal use
+                this will not be necessary and the article partial will pull from
+                the current_article instance.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+%hr
+
+
+-# Get latest article
+- @article = blog( ENV[ "site" ] ).articles.first( 1 )
+
+-# Article
+:ruby
+    code = %{codeBlender "article", "template", { article: @article[ 0 ], image: true, breadcrumb: true }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
