@@ -1,13 +1,10 @@
 ---
 
-# Angular
-angular :
-    controller   : "FacebookController"
-    controllerAs : "facebook"
-
+# Meta
 description : "Facebook share button"
 title       : "Facebook share button"
 
+# Resources
 see :
     - - "Share button"
       - "https://developers.facebook.com/docs/plugins/share-button/"
@@ -18,66 +15,105 @@ see :
     - - "Sharing best practices"
       - "https://developers.facebook.com/docs/sharing/best-practices"
 
+# Todo
 todo :
     - - "Create the ability to invoke the share dialog without the button : https://developers.facebook.com/docs/sharing/reference/share-dialog"
     - - "Error if a URL is not present - do not default"
 
 ---
 
-:markdown
+-# Bootstrap row
+.row
 
-    The share button provides an easy to use access into the share dialog, as
-    well as some other functionality such as the button counter.
+    -# Bootstrap column
+    .col-md-6
 
-    - Need to create an application AppID
-    - Include the Facebook JS SDK
-    - Note the language needs to be configured for the SDK
-    - Include the code in the Angular run to load and init the SDK
+        -# Panel body
+        - panelBody = capture_html do
 
--# Default
-:ruby
-    code = %{codeBlender "share-button", "social/facebook/share-button", { href: "http://drykiss.com/" } }
+            -# Markdown
+            :markdown
 
--# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+                The share button provides an easy to use access into the Facebook
+                share dialog, as well as some other functionality such as the
+                button counter.
 
--# Button count
-:ruby
-    code = %{codeBlender "share-button", "social/facebook/share-button", { href: "http://drykiss.com/", layout: "button_count" } }
+                - Need to create an application AppID
+                - Include the Facebook JS SDK
+                - Note the language needs to be configured for the SDK
+                - Include the code in the Angular run to load and init the SDK
 
--# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Button count" } }
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                There are essentially three ways to call the share dialog. through
+                the provided Facebook button, Javascript of a link.
+
+                Can also invoke the share dialog directly through JavaScript,
+                this has the added advantage of being able to be used on a
+                custom button.
+
+                - Trigger a Share Dialog using the FB.ui function with the share method parameter to share a link.
+                - Need to implement
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
 
 %hr
 
-:markdown
+-# Bootstrap row
+.row
 
-    Can also invoke the share dialog directly through JavaScript, this has the
-    added advantage of being able to be used on a custom button.
+    .col-md-12
 
-    - Trigger a Share Dialog using the FB.ui function with the share method parameter to share a link.
-    - Need to implement
+        -##
+        -# Default
+        -##
+        :ruby
+            code = %{codeBlender "share-button", "social/facebook/share-button", { href: "http://drykiss.com/" } }
 
--# Button - share dialog
-- @code = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
 
-    -# Icon
-    = codeBlender "icon", "atom", { icon: "fa-facebook-official fa-fw fa-3x" }
+        -##
+        -# Button count
+        -##
+        :ruby
+            code = %{codeBlender "share-button", "social/facebook/share-button", { href: "http://drykiss.com/", layout: "button_count" } }
 
-:ruby
-    code = %{@code}
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Button count" } }
 
--# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Javascript Share dialog" } }
+        %hr
 
--# Link - share dialog
-- @code = link_to("https://www.facebook.com/dialog/share?mobile_iframe=true&app_id=253027968192447&display=popup&href=https://codeblender.net&redirect_uri=https://codeblender.net") do
+        -##
+        -# Button - share dialog
+        -##
+        :ruby
+            code = %{codeBlender "share-button", "social/facebook/share-button", { href: "http://drykiss.com/", type: "javascript" } }
 
-    -# Icon
-    = codeBlender "icon", "atom", { icon: "fa-facebook-official fa-fw fa-3x" }
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Javascript Share dialog" } }
 
-:ruby
-    code = %{@code}
+        -##
+        -# Link - share dialog
+        -##
+        - @code = link_to("https://www.facebook.com/dialog/share?mobile_iframe=true&app_id=253027968192447&display=popup&href=https://codeblender.net&redirect_uri=https://codeblender.net") do
 
--# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Link Share dialog" } }
+            -# Icon
+            = codeBlender "icon", "atom", { icon: "fa-facebook-official fa-fw fa-3x" }
+
+        :ruby
+            code = %{@code}
+
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Link Share dialog" } }

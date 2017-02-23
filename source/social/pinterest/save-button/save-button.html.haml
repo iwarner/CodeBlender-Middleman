@@ -1,0 +1,65 @@
+---
+
+# Meta
+description : "Pinterest save button"
+title       : "Pinterest share button"
+
+# Resource
+see :
+    - - "Pinterest developers"
+      - "https://developers.pinterest.com/"
+    - - "Pinterest save button"
+      - "https://developers.pinterest.com/docs/widgets/save/"
+
+# Tasks
+todo :
+    - - ""
+
+---
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                The save button allows a user to save the article to Pinterest
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                Include the asynchronous JS load in the router run command.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    .col-md-12
+
+        -##
+        -# Default
+        -##
+        :ruby
+            code = %{codeBlender "save-button", "social/pinterest/save-button", { href: "http://drykiss.com/" } }
+
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }

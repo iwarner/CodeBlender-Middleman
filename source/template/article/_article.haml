@@ -31,7 +31,7 @@
             - if article.data.image
                 .article__image
                     -# Image
-                    = codeBlender "image", "atom", { extraClass: "img-responsive", src: article.data.image }
+                    = codeBlender "image", "atom", { alt: article.title, extraClass: "img-responsive", src: article.data.image }
 
                     -# SVG slant
                     <svg class="article__slant" viewBox="0 0 750 77" xmlns="http://www.w3.org/2000/svg"><path d="M0 76.017h750L469.722 47.69.238.237" fill="#fff" fill-rule="evenodd"/></svg>

@@ -5,17 +5,43 @@
 -# @category social
 -##
 
--# Url
-- locals[ :href ] = locals[ :href ] ? locals[ :href ] : false
+-# HREF
+- href = locals[ :href ] ? locals[ :href ] : t( :url )
 
 -# Layout - icon_link( default ), box_count, button_count, button
-- locals[ :layout ] = locals[ :layout ] ? locals[ :layout ] : "icon_link"
+- layout = locals[ :layout ] ? locals[ :layout ] : "icon_link"
 
 -# Size - large and small( default )
-- locals[ :size ] = locals[ :size ] ? locals[ :size ] : "small"
+- size = locals[ :size ] ? locals[ :size ] : "small"
 
 -# Mobile iframe - true or false
-- locals[ :mobile_iframe ] = locals[ :mobile_iframe ] ? locals[ :mobile_iframe ] : "true"
+- mobile_iframe = locals[ :mobile_iframe ] ? locals[ :mobile_iframe ] : "true"
 
--# Share button
-.fb-share-button{ data: { href: locals[ :href ], layout: locals[ :layout ], small: locals[ :size ], mobile_iframe: locals[ :mobile_iframe ] } }
+-# Hashtag
+- hashtag = locals[ :hashtag ] ? locals[ :hashtag ] : I18n.exists?( :"facebook.hashtag" ) ? t( :"facebook.hashtag" ) : false
+
+-# Quote
+- quote = locals[ :quote ] ? locals[ :quote ] : I18n.exists?( :"facebook.quote" ) ? t( :"facebook.quote" ) : false
+
+-# Use the default button
+- if ! locals[ :type ] || locals[ :type ] == "button"
+
+    -# Share button
+    .fb-share-button{ data: { href: href, layout: layout, size: size, mobile_iframe: mobile_iframe } }
+
+    -# Javascript button
+- elsif locals[ :type ] == "javascript"
+
+    -# Link
+    = link_to( "javascript:;", class: "facebookShareButton", "data-url": "#{ href }", "data-hashtag": hashtag, "data-quote": quote ) do
+
+        -# Icon
+        = codeBlender "icon", "atom", { icon: locals[ :icon ] ? locals[ :icon ] : "fa-facebook-official fa-fw fa-3x" }
+
+    -# Link button
+- elsif locals[ :type ] == "link"
+
+    = link_to("https://www.facebook.com/dialog/share?mobile_iframe=true&app_id=253027968192447&display=popup&href=https://codeblender.net&redirect_uri=https://codeblender.net") do
+
+        -# Icon
+        = codeBlender "icon", "atom", { icon: "fa-facebook-official fa-fw fa-3x" }

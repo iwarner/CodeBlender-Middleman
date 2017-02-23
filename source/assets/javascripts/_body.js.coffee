@@ -76,10 +76,10 @@ require 'cborganism/sidebar/_sidebar.coffee'
 ##
 # Social
 ##
-require 'cbsocial/facebook/_facebook_controller.coffee'
+require 'cbsocial/facebook/share-button/_share-button_directive.coffee'
 require 'cbsocial/google/analytics/_analytics_controller.coffee'
 require 'cbsocial/mailchimp/_mailchimp_controller.coffee'
-require 'cbsocial/twitter/_twitter_controller.coffee'
+require 'cbsocial/twitter/tweet-button/_tweet-button_directive.coffee'
 
 ##
 # Template

@@ -1,0 +1,14 @@
+-##
+-# Twitter timeline
+-#
+-# Usage
+-# -# Twitter timeline
+-# = codeBlender "timeline", "social/twitter/timeline", { href: "", height: "", limit: "" }
+-#
+-# @author.  Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-##
+
+-# Timeline
+%a.twitter-timeline{ href: "https://twitter.com/" + locals[ :href ], data: { height: locals[ :height ], "tweet-limit": locals[ :limit ] } }
+    Tweets

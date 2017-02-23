@@ -1,10 +1,6 @@
 ---
 
-# Angular
-angular :
-    controller   : "TwitterController"
-    controllerAs : "twitter"
-
+# Meta
 description : "Twitter tweet button"
 title       : "Twitter tweet button"
 
@@ -20,56 +16,83 @@ todo :
 
 ---
 
-:markdown
 
-    The tweet button allows a user to tweet about the specific content on the
-    page - usually sending some sample text and the url for twitter to then
-    interpret into a twitter card.
+-# Bootstrap row
+.row
 
-    This can be invoked via a button or through JavaScript
+    -# Bootstrap column
+    .col-md-6
 
-    - twttr.widgets.createTweet
-    - twttr.widgets.createShareButton
+        -# Panel body
+        - panelBody = capture_html do
 
-    If we use the default .twitter-share-button class then the Twitter JS will
-    override the control and add the Twitter button and suck elements from data-
-    attributes.
+            -# Markdown
+            :markdown
 
-    To style the button replace .twitter-share-button with .twitter
+                The tweet button allows a user to tweet about the specific content on the
+                page - usually sending some sample text and the url for twitter to then
+                interpret into a twitter card.
 
--# Default
-:ruby
-    code = %{codeBlender "tweet-button", "social/twitter/tweet-button"}
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
 
--# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                This can be invoked via a button or through JavaScript
+
+                - twttr.widgets.createTweet
+                - twttr.widgets.createShareButton
+
+                If we use the default .twitter-share-button class then the Twitter JS will
+                override the control and add the Twitter button and suck elements from data-
+                attributes.
+
+                To style the button replace .twitter-share-button with .twitter
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
 
 %hr
 
-:markdown
+-# Bootstrap row
+.row
 
-    Can also invoke the tweet button directly through JavaScript
+    .col-md-12
 
--# Button - share dialog
-:ruby
-    code = %{codeBlender "button", "atom", { id: "twitterShare", text: "Tweet", ng: { click: "twitter.share( 'https://deliveroo.co.uk/blog/' )" } }}
+        -##
+        -# Default
+        -##
+        :ruby
+            code = %{codeBlender "tweet-button", "social/twitter/tweet-button"}
 
--# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Tweet button through JavaScript" } }
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
 
-%hr
+        %hr
 
-:markdown
+        -##
+        -# Tweet through JavaScript
+        -##
+        :ruby
+            code = %{codeBlender "tweet-button", "social/twitter/tweet-button", { id: "twitterShare", url: "http://drykiss.com/", text: "Tweet", type: "javascript" }}
 
-    Can also invoke the tweet dialog directly through a href tag
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Tweet through JavaScript" } }
 
-    https://twitter.com/intent/tweet?url=URL&text=TEXT
+        %hr
 
--# Button - share dialog
-:ruby
-    text = URI.encode( "Deliveroo Blog" )
-    url  = URI.encode( "https://deliveroo.co.uk/blog/" )
-    code = %{codeBlender "button", "atom", { id: "twitterShare", text: "Tweet", href: "https://twitter.com/intent/tweet?url=#{ url }&text=#{ text }" }}
+        -##
+        -# Tweet through a link
+        -##
+        :ruby
+            code = %{codeBlender "tweet-button", "social/twitter/tweet-button", { url: "http://drykiss.com/", text: "Tweet", type: "link" }}
 
--# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Tweet dialog" } }
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Tweet through JavaScript" } }

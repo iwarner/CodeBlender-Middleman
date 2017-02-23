@@ -100,23 +100,14 @@
             -# Share
             %span.blogDetail__shareText Share this article
 
-            -# Facebook
-            = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
+            -# Facebook share
+            = codeBlender "share-button", "social/facebook/share-button", { href: url, icon: "fa-facebook-square fa-2x", type: "javascript" }
 
-                -# Icon
-                = codeBlender "icon", "atom", { icon: "fa-facebook-square fa-2x" }
+            -# Twitter
+            = codeBlender "tweet-button", "social/twitter/tweet-button", { icon: "fa-twitter-square fa-2x", url: url, type: "link" }
 
-            -# Twitter
-            = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
-
-                -# Icon
-                = codeBlender "icon", "atom", { icon: "fa-twitter-square fa-2x" }
-
-            -# Pinterest
-            = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
-
-                -# Icon
-                = codeBlender "icon", "atom", { icon: "fa-pinterest-square fa-2x" }
+            -# Pinterest save button
+            = codeBlender "save-button", "social/pinterest/save-button", { icon: "fa-pinterest-square fa-2x", url: url }
 
             -# -# Email
             -# = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do

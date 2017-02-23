@@ -9,8 +9,10 @@
 # @author   Ian Warner <ian.warner@drykiss.com>
 # @category extension
 #
+# @see https://github.com/google/google-api-ruby-client
 # @see https://developers.google.com/drive/v3/web/manage-downloads
 # @see https://developers.google.com/drive/v3/web/quickstart/ruby
+# @see https://developers.google.com/drive/v3/web/manage-changes
 ##
 
 # Require
@@ -120,6 +122,7 @@ class GoogleDrive
         # List files
         response = @service.list_files(
             page_size: 100,
+            order_by:  "modifiedTime desc",
             q:         "'#{ folderID }' in parents",
             fields:    'nextPageToken, files( mimeType, kind, id, name, createdTime, description, fileExtension )' )
 
@@ -147,15 +150,15 @@ class GoogleDrive
                 parseFile( html, file, root, destination )
 
                 # Debug
-                # puts "---------------------"
+                puts "---------------------"
                 # puts "Mime Type      : #{ file.mime_type }"
-                # puts "ID             : #{ file.id }"
+                puts "ID             : #{ file.id }"
                 # puts "Name           : #{ file.name }"
                 # puts "Created        : #{ file.created_time }"
                 # puts "Description    : #{ file.description }"
                 # puts "File extension : #{ file.file_extension }"
                 # puts "#{ file.to_yaml }"
-                # puts "---------------------"
+                puts "---------------------"
 
             end
 
@@ -182,36 +185,59 @@ class GoogleDrive
             # Loop through the table cells
             tr.css( "td" ).each_with_index do | td, index |
 
+                # Remove spaces
+                text = td.text.gsub /\t/, ''
+                text = td.text.gsub / /, ''
+                text = text.strip
+
                 # Tags is a special case - needs to be enclosed with []
                 if lastTD == "tags" && index == 1
 
                     # Create the string for tags - strip and clean
-                    fontmatter += "[#{ td.text.strip }]: "
+                    fontmatter += "[#{ text }]: "
 
                 # Title - remove :
                 elsif lastTD == "title" && index == 1
 
                     # Create the string for tags - strip and clean
-                    fontmatter += "\"#{ td.text.strip }\": ".gsub ":", ""
+                    fontmatter += "\"#{ text }\":".gsub ":", ""
+
+                # # Type
+                # elsif lastTD == "type" && index == 1
+
+                #     # Create the string for tags - strip and clean
+                #     fontmatter += "\"#{ text }\": "
 
                 # Published - remove the quotes from here
                 # Should always be true or false
                 elsif lastTD == "published" && index == 1
 
                     # Default to false
-                    if td.text.strip != "true" && td.text.strip != "false"
+                    if text != "true" && text != "false"
                         fontmatter += "false: "
                     else
-                        fontmatter += "#{ td.text.strip }: "
+                        fontmatter += "#{ text }: "
                     end
+
+                # Description
+                elsif lastTD == "description" && index == 1
+
+                    # Create the string for tags - strip and clean
+                    fontmatter += "\"#{ stripBadChars( text ) }\": "
+
+                # Excerpt
+                elsif lastTD == "excerpt" && index == 1
+
+                    # Create the string for tags - strip and clean
+                    fontmatter += "\"#{ stripBadChars( text ) }\": "
 
                 else
 
                     # Create the string - strip and clean
-                    fontmatter += "\"#{ td.text.strip }\": "
+                    fontmatter += "\"#{ text }\": "
                 end
 
-                lastTD = td.text.strip
+                lastTD = text
 
             end
 
@@ -222,23 +248,20 @@ class GoogleDrive
 
         # Featured image
         # The table will contain an image src for the featured image
-        img = doc.xpath( "//table[ 2 ]//img" )
+        if ! doc.xpath( "//table[ 2 ]//img" ).empty?
+            # @todo this fails if there is no image element - fix this flag
+            fontmatter += "\"image\": \"#{ doc.xpath( "//table[ 2 ]//img" ).attr( "src" ) }\"\n"
+        end
 
         # Table
         # Remove the first and second tables
         doc.xpath( "//table[ 1 ]" ).remove
         doc.xpath( "//table[ 1 ]" ).remove
 
-        # Add the image
-        # @todo this fails if there is no image element - fix this flag
-        # if img
-        #     fontmatter += "\"image\": \"#{ img.attr( "src" ) }\"\n"
-        # end
-
         # Heading
         # @todo Remove double quotes from the heading.text - replace with single quotes
         heading     = doc.xpath( "//h1[ 1 ]" )
-        fontmatter += "\"heading\": \"#{ heading.text }\"\n"
+        fontmatter += "\"heading\": \"#{ heading.text.strip }\"\n"
         heading.remove
 
         # End the frontmatter
@@ -320,6 +343,13 @@ class GoogleDrive
         # Add the figure and caption around an image
         # Optimise images
         # Store images
+        # @todo Add figure
+        # html_body = Nokogiri::HTML::fragment(html)
+        # nodes = html_body.xpath('.//img')
+        # nodes.wrap('<figure class="center-image"> </figure>')
+        # nodes.each do |img|
+        #   img.xpath('.//@style').remove
+        # end
         doc.css( "img" ).each do | image |
             image[ "alt" ]   = "Deliveroo"
             image[ "class" ] = "img-responsive"
@@ -331,9 +361,9 @@ class GoogleDrive
             table[ "class" ] = "table table-condensed"
         end
 
-        # Remove empty P Tags
-        doc.css( 'p' ).each do | node |
-            node.remove if node.inner_text == ''
+        # Remove empty P
+        doc.css( 'p' ).find_all{ | p | all_children_are_blank?( p ) }.each do | p |
+            p.remove
         end
 
         # Get the body
@@ -344,10 +374,25 @@ class GoogleDrive
         # @usage [[Instagram:BKpgoM9g5S2]]
         ##
         doc.scan(/(\[\[Instagram:(.*)\]\])/) do | w |
+
             if w
+
+                f = Nokogiri::XML.fragment( w[ 1 ] )
+
+                # Remove a tags if present
+                f.css( 'a' ).each do | span |
+                    span.swap( span.children )
+                end
+
+                # puts w[ 0 ]
+                # puts f
+
                 # Replace string
-                doc = doc.gsub /<p> *#{Regexp.escape(w[ 0 ])} *<\/p>/, @instagram.embedCode( w[ 1 ] )
+                # Sometimes these can be hyperlinked - remove the link
+                doc = doc.gsub /<p> * *#{Regexp.escape(w[0])} *<\/p>/, @instagram.embedCode( f )
+
                 # doc = doc.gsub /<p> *#{Regexp.escape(w[ 0 ])} *<\/p>/, "<div class=\"embedResponsive\"><iframe class=\"instagramEmbed\" src=\"//instagram.com/p/#{ w[ 1 ] }/embed/\" frameborder=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe></div>"
+
             end
         end
 
@@ -410,6 +455,20 @@ class GoogleDrive
         doc = doc.gsub /[”“]/, '"'
         doc = doc.gsub /’/, "'"
         return doc
+    end
+
+    ##
+    # @see http://stackoverflow.com/questions/7183299/removing-p-elements-with-no-text-with-nokogiri
+    ##
+    def is_blank?( node )
+        ( node.text? && node.content.strip == '' ) || ( node.element? && node.name == 'br' )
+    end
+
+    ##
+    #
+    ##
+    def all_children_are_blank?( node )
+        node.children.all?{ | child | is_blank?( child ) }
     end
 
     ##

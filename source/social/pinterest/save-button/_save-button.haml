@@ -1,0 +1,19 @@
+-##
+-# Pinterest save button
+-#
+-# Usage
+-# -# Pinterest save button
+-# = codeBlender "save-button", "social/pinterest/save-button"
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-##
+
+-# buttonBookmark
+-# buttonPin
+
+-# Link
+= link_to( "https://www.pinterest.com/pin/create/button/", data: { pin: { description: "test this out", do: "buttonPin", custom: "true" } } ) do
+
+    -# Icon
+    = codeBlender "icon", "atom", { icon: locals[ :icon ] ? locals[ :icon ] : "fa fa-pinterest-square fa-fw fa-3x" }

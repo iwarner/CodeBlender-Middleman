@@ -42,7 +42,7 @@ run = ( $log, $window ) ->
         locale = $( 'body' ).data( 'localefacebook' )
         appID  = $( 'body' ).data( 'facebookappid' )
 
-        # Facebook load
+        # Facebook
         ( ( d, s, id ) ->
             js  = undefined
             fjs = d.getElementsByTagName( s )[ 0 ]
@@ -59,7 +59,7 @@ run = ( $log, $window ) ->
         # Debug
         $log.log "Twitter sdk loaded"
 
-        # Twitter load
+        # Twitter
         $window.twttr = ( ( d, s, id ) ->
             js  = undefined
             fjs = d.getElementsByTagName( s )[ 0 ]
@@ -77,6 +77,20 @@ run = ( $log, $window ) ->
                 return
             t
         )( document, 'script', 'twitter-wjs' )
+
+        # Debug
+        $log.log "Pinterest sdk loaded"
+
+        # Pinterest
+        ((d) ->
+            f       = d.getElementsByTagName( 'SCRIPT' )[ 0 ]
+            p       = d.createElement( 'SCRIPT' )
+            p.type  = 'text/javascript'
+            p.async = true
+            p.src   = '//assets.pinterest.com/js/pinit.js'
+            f.parentNode.insertBefore p, f
+            return
+        ) document
 
         # Track status of authentication
         # auth.$onAuth ( user ) ->

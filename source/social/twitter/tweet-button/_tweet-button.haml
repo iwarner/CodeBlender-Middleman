@@ -13,19 +13,19 @@
 - data = {}
 
 -# Lang
-- data[ :lang ] = t :localeTwitter
+- data[ :lang ] = t :"twitter.locale"
 
 -# Text
 -# The text parameter may be auto-populated from the webpage's <title> element if not explicitly set.
-- data[ :text ] = locals[ :text ] ? locals[ :text ] : false
+- data[ :text ] = locals[ :text ] ? locals[ :text ] : I18n.exists?( :"twitter.text" ) ? t( :"twitter.text" ) : false
 
 -# URL
 -# The shared URL will be shortened by Twitter's t.co service in a published Tweet. A Twitter Card may be appear for a shared URL.
-- data[ :url ] = locals[ :url ] ? locals[ :url ] : false
+- data[ :url ] = locals[ :url ] ? locals[ :url ] : t( :url )
 
 -# Hashtags
 -# Add a comma-separated list of hashtags to a Tweet using the hashtags parameter. Omit a preceding “#” from each hashtag; the Tweet composer will automatically add the proper space-separated hashtag by language.
-- data[ :hashtags ] = locals[ :hashtags ] ? locals[ :hashtags ] : false
+- data[ :hashtags ] = locals[ :hashtags ] ? locals[ :hashtags ] : I18n.exists?( :"twitter.hashtag" ) ? t( :"twitter.hashtag" ) : false
 
 -# Via
 -# Attribute the source of a Tweet to a Twitter username using the via parameter. The attribution will appear in a Tweet as ” via @username” translated into the language of the Tweet author.
@@ -37,7 +37,29 @@
 -# URL
 - twitterURL = "https://twitter.com/intent/tweet?url=#{ data[ :url ] }&lang=#{ data[ :lang ] }"
 
--# Link To
--# twitter-share-button
-%a.twitter{ href: twitterURL, data: data, ng: { click: "root.twitterShare()" } }
-    = codeBlender "icon", "atom", { icon: "fa-twitter-square fa-fw" }
+-# Use the default button
+- if ! locals[ :type ] || locals[ :type ] == "button"
+
+    -# Link To
+    -# twitter-share-button
+    %a.twitter{ href: twitterURL, data: data, ng: { click: "root.twitterShare()" } }
+        = codeBlender "icon", "atom", { icon: "fa-twitter-square fa-fw" }
+
+    -# Javascript button
+- elsif locals[ :type ] == "javascript"
+
+    -# Link
+    = link_to( "javascript:;", class: "twitterShareButton", "data-url": "#{ data[ :url ] }", "data-hashtag": data[ :hashtags ], "data-text": data[ :text ] ) do
+
+        -# Icon
+        = codeBlender "icon", "atom", { icon: locals[ :icon ] ? locals[ :icon ] : "fa-twitter-square fa-fw fa-3x" }
+
+    -# Link button
+- else
+
+    -# Link
+    -# &text=#{ URI.encode( data[ :text ] )
+    = link_to( "https://twitter.com/intent/tweet?url=#{ URI.encode( data[ :url ] ) }" ) do
+
+        -# Icon
+        = codeBlender "icon", "atom", { icon: locals[ :icon ] ? locals[ :icon ] : "fa-twitter-square fa-fw fa-3x" }

@@ -21,6 +21,7 @@ see :
       - "http://bootsnipp.com/snippets/featured/blog-post-footer"
 
 todo :
+    - - "Social elements need to be called via a Directive"
     - - "Need to be able to put in a test article to test the detail module"
     - - "Consider putting the tags in a DL / LI"
     - - "Should link up the Author to show articles by Authors name - finish of link"
@@ -34,9 +35,60 @@ todo :
 
 ---
 
--# Detail
-:ruby
-    code = %{codeBlender "detail", "molecule", { author: true, cal: true, comment: true, more: true, name: "docs", social: true, tags: true }}
+-# Bootstrap row
+.row
 
--# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                This partial is useful for placing within context of a blog post.
+                It will list all the relevant attributes of the post.
+
+                - Date
+                - Author
+                - Read time
+                - Comment count
+                - Tags
+                - Social links
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                To setup the partial is automatic if its within context of a blog
+                article template. Simply allowing the features on the partial.
+
+                For the social links the relevant JS libraries must be loaded
+                and initiated. Also include the correct directives for the social
+                links required.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    .col-md-12
+
+        -# Detail
+        :ruby
+            code = %{codeBlender "detail", "molecule", { author: true, cal: true, comment: true, more: true, name: "docs", social: true, tags: true }}
+
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
