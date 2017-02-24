@@ -3,7 +3,9 @@
 -#
 -# @usage
 -# -# Input
--# = codeBlender "input", "atom/form/input", { input: { name:  "text" }, label: { title: "Text Input", extraClass: "sr-only" } }
+-# = codeBlender "input", "atom/form/input",
+-#   { input: { name:  "text" },
+-#     label: { title: "Text Input", extraClass: "sr-only" } }
 -#
 -# Made up of several sections - need to create a way to have these all working together
 -# Form Group
@@ -39,6 +41,7 @@
             accept:         input[ :accept ]         ? input[ :accept ]                : false,
             class:          extraClass,
             clear:          input[ :clear ]          ? { btn: true }                   : false,
+            data:           input[ :data ]           ? input[ :data ]                  : false,
             disabled:       input[ :disabled ]       ? "disabled"                      : false,
             id:             input[ :name ]           ? input[ :name ]                  : false,
             name:           input[ :name ]           ? input[ :name ]                  : false,

@@ -1,0 +1,83 @@
+---
+
+# Meta
+description : "Google Places"
+title       : "Google Places"
+
+# Resources
+see :
+    - - "Google places"
+      - "https://developers.google.com/places/"
+    - - "Autocomplete"
+      - "https://developers.google.com/maps/documentation/javascript/places-autocomplete"
+
+# Tasks
+todo :
+    - - "Complete the example for full screen and embed"
+
+---
+
+-# Site body injection
+- content_for :siteBody do
+    %script{ async: true, defer: true, :src => "https://maps.googleapis.com/maps/api/js?key=#{ data.google.api }&libraries=places" }
+
+-# <script type="text/javascript" src=""></script>
+-# <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" ></script>
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                Google places is a feature rich set of APIs and widgets to aid
+                the developer in providing location and mapping information to the
+                end user.
+
+                Coupling for instance Autocomplete with a Google map can give
+                a user an easy way to find the desired location.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                - Make sure the API is enabled in the Google API Manager
+                - Fetch your API Key
+                - Load the required JavaScript
+
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    .col-md-12
+
+        -# Video
+        :ruby
+            code = %{codeBlender "autocomplete", "social/google/places" }
+
+        -# Code
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+
+        -# Map
+        .embed-responsive.embed-responsive-16by9
+
+            .googleMap.embed-responsive-item

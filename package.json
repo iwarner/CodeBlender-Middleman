@@ -1,67 +1,62 @@
 {
-    "author"      : "Ian Warner <ian.warner@drykiss.com>",
-    "license"     : "MIT",
-    "name"        : "CodeBlender",
-    "version"     : "1.0.0",
-    "description" : "Middleman partials built with AngularJS and Bootstrap",
-    "main"        : "source/assets/javascripts/body.js",
-    "private"     : true,
-    "homepage"    : "http://codeblender.net",
-
-    "scripts" : {
-        "server"  : "bundle exec middleman server -p 8080",
-        "build"   : "bundle exec middleman build",
-        "verbose" : "bundle exec middleman build --verbose --clean",
-        "deploy"  : "bundle exec middleman build && bundle exec middleman deploy"
+    "author": "Ian Warner <ian.warner@drykiss.com>",
+    "license": "MIT",
+    "name": "CodeBlender",
+    "version": "1.0.0",
+    "description": "Middleman partials built with AngularJS and Bootstrap",
+    "main": "source/assets/javascripts/body.js",
+    "private": true,
+    "homepage": "http://codeblender.net",
+    "scripts": {
+        "server": "bundle exec middleman server -p 8080",
+        "build": "bundle exec middleman build",
+        "verbose": "bundle exec middleman build --verbose --clean",
+        "deploy": "bundle exec middleman build && bundle exec middleman deploy"
     },
-
     "repository": {
-        "type" : "git",
-        "url"  : "git+https://github.com/iwarner/CodeBlender-Middleman.git"
+        "type": "git",
+        "url": "git+https://github.com/iwarner/CodeBlender-Middleman.git"
     },
-
-    "bugs" : {
-        "url" : "https://github.com/iwarner/CodeBlender-Middleman/issues"
+    "bugs": {
+        "url": "https://github.com/iwarner/CodeBlender-Middleman/issues"
     },
-
-    "dependencies" : {
-        "angular"              : "",
-        "angular-animate"      : "",
-        "angular-google-maps"  : "",
-        "angular-resource"     : "",
-        "angular-sanitize"     : "",
-        "angular-ui-bootstrap" : "",
-        "angular-ui-grid"      : "",
-        "angular-ui-router"    : "",
-        "angular-clipboard"    : "",
-        "autotrack"            : "",
-        "bootstrap-sass"       : "",
-        "font-awesome"         : "",
-        "lodash"               : "",
-        "jquery"               : "",
-        "mixitup"              : "",
-        "ngclipboard"          : "",
-        "ng-clip"              : "",
-        "ng-facebook"          : "",
-        "zeroclipboard"        : ""
+    "dependencies": {
+        "angular": "",
+        "angular-animate": "",
+        "angular-clipboard": "",
+        "angular-google-maps": "",
+        "angular-resource": "",
+        "angular-sanitize": "",
+        "angular-ui-bootstrap": "",
+        "angular-ui-grid": "",
+        "angular-ui-router": "",
+        "autotrack": "",
+        "bootstrap-sass": "",
+        "font-awesome": "",
+        "jquery": "",
+        "lodash": "",
+        "mixitup": "",
+        "ng-clip": "",
+        "ng-facebook": "",
+        "ngclipboard": "",
+        "zeroclipboard": ""
     },
-
-    "devDependencies" : {
-        "clean-webpack-plugin"        : "",
-        "coffee-script"               : "",
-        "coffee-loader"               : "",
-        "css-loader"                  : "",
-        "extract-text-webpack-plugin" : "",
-        "file-loader"                 : "",
-        "gulp"                        : "",
-        "gulp-uncss"                  : "",
-        "gulp-csso"                   : "",
-        "node-bourbon"                : "",
-        "node-sass"                   : "",
-        "resolve-url-loader"          : "",
-        "sass-loader"                 : "",
-        "style-loader"                : "",
-        "url-loader"                  : "",
-        "webpack"                     : ""
+    "devDependencies": {
+        "clean-webpack-plugin": "",
+        "coffee-loader": "",
+        "coffee-script": "",
+        "css-loader": "",
+        "extract-text-webpack-plugin": "^2.0.0-beta",
+        "file-loader": "",
+        "gulp": "",
+        "gulp-csso": "",
+        "gulp-uncss": "",
+        "node-bourbon": "",
+        "node-sass": "",
+        "resolve-url-loader": "",
+        "sass-loader": "",
+        "style-loader": "",
+        "url-loader": "",
+        "webpack": ""
     }
 }

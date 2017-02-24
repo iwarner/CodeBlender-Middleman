@@ -1,0 +1,26 @@
+-##
+-# Autocomplete
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-##
+
+-# Type
+- type = locals[ :type ] ? locals[ :type ] : 'geocode'
+
+-# Country - ISO 3166-1 Alpha-2 compatible country code
+- country = locals[ :country ] ? locals[ :country ] : 'uk'
+
+-# Force selection
+- forceSelection = locals[ :force ] ? locals[ :force ] : 'true'
+
+-# Input - Google Places Search Box
+= codeBlender "input", "atom/form/input",
+  { input: { autocomplete:   false,
+             data:           { country: country, forceSelection: forceSelection, type: type },
+             extraClass:     "googlePlacesAutocomplete",
+             name:           "place",
+             ng:             { model: "googlePlacesAutocomplete" },
+             placeholder:    "Place or postcode",
+             required:       true },
+    label: { title: "Enter your place", extraClass: "sr-only" } }

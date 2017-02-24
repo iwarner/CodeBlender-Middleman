@@ -42,6 +42,10 @@
         = stylesheet_link_tag :"all.bundle", media: "all"
 
         -# Process injected head content
+        -#
+        -# @usage
+        -# - content_for :siteHead do
+        -#     %script{ src: "" }
         - if content_for? :siteHead
             = yield_content :siteHead
 
@@ -120,6 +124,14 @@
         -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
         - if data.config.javascript.body
             = javascript_include_tag :"body.bundle"
+
+        -# Process injected head content
+        -#
+        -# @usage
+        -# - content_for :siteBody do
+        -#     %script{ src: "" }
+        - if content_for? :siteBody
+            = yield_content :siteBody
 
         -# Google analytics
         - if data.has_key? "google" and data.google.analytics.active
