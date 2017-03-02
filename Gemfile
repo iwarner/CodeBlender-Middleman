@@ -26,6 +26,9 @@ gem "middleman-drykiss-google-drive", path: "/var/www/DryKiss/codeblender.io/pub
 
 # Tools
 gem "nokogiri"
+
+# Google API client
+# @see https://github.com/google/google-api-ruby-client
 gem "google-api-client"
 
 # gem "streamio-ffmpeg"

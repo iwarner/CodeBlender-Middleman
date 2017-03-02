@@ -15,6 +15,10 @@ require "football/fixture"
 # Load football helpers
 helpers FootballHelpers
 
+# activate :autoprefixer, browsers: [
+#   "last 2 versions"
+# ]
+
 # Syntax
 # @see https://github.com/middleman/middleman-syntax
 # :line_numbers => true

@@ -1,6 +1,10 @@
 -##
 -# Autocomplete
 -#
+-# @usage
+-# -# Autocomplete
+-# = codeBlender "autocomplete", "social/google/autocomplete"
+-#
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category social
 -##
@@ -9,18 +13,39 @@
 - type = locals[ :type ] ? locals[ :type ] : 'geocode'
 
 -# Country - ISO 3166-1 Alpha-2 compatible country code
-- country = locals[ :country ] ? locals[ :country ] : 'uk'
+- country = locals[ :country ] ? locals[ :country ] : 'ie'
 
 -# Force selection
 - forceSelection = locals[ :force ] ? locals[ :force ] : 'true'
 
--# Input - Google Places Search Box
-= codeBlender "input", "atom/form/input",
-  { input: { autocomplete:   false,
-             data:           { country: country, forceSelection: forceSelection, type: type },
-             extraClass:     "googlePlacesAutocomplete",
-             name:           "place",
-             ng:             { model: "googlePlacesAutocomplete" },
-             placeholder:    "Place or postcode",
-             required:       true },
-    label: { title: "Enter your place", extraClass: "sr-only" } }
+-# Button
+- button = locals[ :button ] ? { append: { context: "danger", text: string( :"findFood.input.button" ), type: "submit" } } : false
+
+-# Find food form
+%form.findFood__form{ name: "autocompleteForm", novalidate: true, role: "form", ng: { submit: "autocomplete.submit( $event, autocompleteForm.$valid )" } }
+
+    -# Input - Google Places Search Box
+    = codeBlender "input", "atom/form/input",
+      { button: button,
+        input:  { autocomplete:    false,
+                  data:            { country: country, forceSelection: forceSelection, type: type },
+                  extraClass:      "googlePlacesAutocomplete",
+                  inputGroupClass: "input-group input-group-lg",
+                  name:            "place",
+                  ng:              { model: "googlePlacesAutocompleteModel" },
+                  placeholder:     string( :"findFood.input.placeholder" ),
+                  required:        true,
+                  showError:       false },
+        label:  { title: string( :"findFood.input.label" ), extraClass: locals[ :extraClass ] ? locals[ :extraClass ] : false } }
+
+-# Find food error
+.findFood__error.ng-cloak{ ng: { if: "autocomplete.showError" } }
+
+    %p{ ng: { if: "autocomplete.showErrorBlank" } }
+        = string :"findFood.error.blank"
+
+    %p{ ng: { if: "autocomplete.showErrorNoService" } }
+        = string :"findFood.error.noService"
+
+    %p{ ng: { if: "autocomplete.showErrorYQL" } }
+        {{ autocomplete.errorMessage }}

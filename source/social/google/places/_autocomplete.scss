@@ -16,3 +16,9 @@ $module : 'googleMap';
     border : 1px solid #000 !important;
 
 }
+
+// Google input box
+//----------------------------------------------------------------------------//
+.pac-container {
+    z-index : 1051 !important;
+}

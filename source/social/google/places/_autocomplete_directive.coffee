@@ -20,8 +20,9 @@ angular.module 'app.directive'
 .directive 'googlePlacesAutocomplete', [
 
     '$log'
+    '$rootScope'
 
-    ( $log ) ->
+    ( $log, $rootScope ) ->
 
         'use strict'
 
@@ -52,12 +53,16 @@ angular.module 'app.directive'
                     map       : map
                     position  : position
 
+                # Add dragend event to new marker
                 @marker.addListener 'dragend', @handleDragEnd.bind @
 
             ##
-            # Geocode
+            # Geocode position
             ##
             geocodePosition : ( pos ) ->
+
+                # Debug
+                $log.info "geocodePosition"
 
                 # Geocode
                 @geocoder.geocode { latLng: pos }, ( responses ) =>
@@ -76,7 +81,6 @@ angular.module 'app.directive'
                         # Debug
                         # $log.info "No address"
 
-                        # marker.formatted_address = 'Cannot determine address at this location.'
                         return "No address"
 
             ##
@@ -85,33 +89,37 @@ angular.module 'app.directive'
             handleDragEnd : ( event ) ->
 
                 # Debug
-                # $log.info "handleDragEnd", event, event.latLng.lat(), event.latLng.lng()
+                $log.info "handleDragEnd", event, event.latLng.lat(), event.latLng.lng()
 
                 # Geo code marker
                 @geocodePosition new google.maps.LatLng event.latLng.lat(), event.latLng.lng()
+
+                # Save to Rootscope
+                $rootScope.latitude  = event.latLng.lat()
+                $rootScope.longitude = event.latLng.lng()
+
                 return
 
             # Link
             link : ( scope, element, attrs, ctrl ) ->
-
-                # Geocoder
-                @geocoder = new google.maps.Geocoder()
-                @ctrl     = ctrl
-
-                if ! attrs.country
-                    attrs.country = 'uk'
-
-                if ! attrs.type
-                    attrs.type = 'geocode'
 
                 # Debug
                 # $log.info "googlePlacesAutocomplete - Scope :",   scope
                 # $log.info "googlePlacesAutocomplete - Element :", element
                 # $log.info "googlePlacesAutocomplete - Attrs :",   attrs
                 # $log.info "googlePlacesAutocomplete - Ctrl :",    ctrl
-                # $log.info "googlePlacesAutocomplete - Country :",         attrs.country
-                # $log.info "googlePlacesAutocomplete - Type :",            attrs.type
-                # $log.info "googlePlacesAutocomplete - Sorce selection :", attrs.forceSelection
+
+                # Geocode
+                @geocoder = new google.maps.Geocoder()
+                @ctrl     = ctrl
+
+                # Default country
+                if ! attrs.country
+                    attrs.country = 'uk'
+
+                # Default type
+                if ! attrs.type
+                    attrs.type = 'geocode'
 
                 # Options
                 options =
@@ -119,33 +127,25 @@ angular.module 'app.directive'
                     # An array of types specifies an explicit type or a type collection
                     types : [ attrs.type ]
 
+                    # Restrict to a certain country
                     componentRestrictions :
                         country : attrs.country
+
+                # Debug
+                # $log.info "googlePlacesAutocomplete - Options :", options
 
                 # Autocomplete
                 autocomplete = new google.maps.places.Autocomplete( element[ 0 ], options );
 
-                # Default position
-                uk =
-                    lat : 54.8
-                    lng : -4.6
-
-                # Map
-                map = new ( google.maps.Map ) $( '.googleMap' )[ 0 ],
-                    center            : uk
-                    mapTypeControl    : false
-                    panControl        : false
-                    zoomControl       : true
-                    streetViewControl : false
-                    zoom              : 6
-
-                # Add marker
-                @addMarker( uk, map )
-
                 ##
                 # Event listener for Place change
+                #
+                # @todo work this on the button - listen for broadcast from button
                 ##
                 google.maps.event.addListener autocomplete, 'place_changed', =>
+
+                    # Debug
+                    $log.info "googlePlacesAutocomplete - place_changed"
 
                     # Place
                     place = autocomplete.getPlace()
@@ -153,18 +153,47 @@ angular.module 'app.directive'
                     # Details
                     if place.geometry and place.geometry.location
 
-                        # Details
-                        details =
-                            latitude  : place.geometry.location.lat()
-                            longitude : place.geometry.location.lng()
+                        # Map
+                        # @todo Should create the map outside of this event really and just move later
+                        $rootScope.map = new ( google.maps.Map ) $( '.googleMap' )[ 0 ],
+                            center            : place.geometry.location
+                            mapTypeControl    : false
+                            panControl        : false
+                            zoomControl       : true
+                            streetViewControl : false
+                            zoom              : 15
 
-                        # Map Zoom
-                        map.panTo place.geometry.location
-                        map.setZoom 15
+                        # Add marker
+                        @addMarker place.geometry.location, $rootScope.map
 
-                        @addMarker place.geometry.location, map
+                        # Update Autocomplete box
+                        @ctrl.$setViewValue place.formatted_address
+                        @ctrl.$render()
 
-                    else {}
+                        # Debug
+                        # $log.info "googlePlacesAutocomplete - place     :", place.formatted_address
+                        # $log.info "googlePlacesAutocomplete - place     :", place.geometry.location
+                        # $log.info "googlePlacesAutocomplete - latitude  :", place.geometry.location.lat()
+                        # $log.info "googlePlacesAutocomplete - longitude :", place.geometry.location.lng()
+
+                        # Save to rootScope
+                        $rootScope.latitude  = place.geometry.location.lat()
+                        $rootScope.longitude = place.geometry.location.lng()
+
+                        # Load map after modal shown
+                        angular.element( '#placesModal' ).on 'shown.bs.modal', =>
+                            google.maps.event.trigger $rootScope.map, 'resize'
+                            $rootScope.map.setCenter place.geometry.location
+                            return
+
+                    else
+
+                        # Debug
+                        $log.info "googlePlacesAutocomplete - No place found:"
+
+                        $rootScope.latitude  = false
+                        $rootScope.longitude = false
+                        $rootScope.place     = @ctrl.$viewValue
 
                     return
 
@@ -172,7 +201,6 @@ angular.module 'app.directive'
                 scope.$on '$destroy', ->
                     google.maps.event.clearInstanceListeners element[ 0 ]
                     return
-
         }
 
 ]

@@ -59,7 +59,9 @@ class Instagram
             # result[ "html" ]
 
         else
-            puts "ERROR!!!"
+            puts "Instagram embed does not exist"
+            return false
+
         end
 
     end

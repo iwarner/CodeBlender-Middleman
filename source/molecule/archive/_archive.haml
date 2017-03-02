@@ -17,7 +17,7 @@
 %section.blogArchive
 
     -# Heading - H4
-    = codeBlender "heading", "molecule", { extraClass: "blogArchive__heading", tag: "h4", text: "Archive" }
+    = codeBlender "heading", "molecule", { extraClass: "blogArchive__heading", tag: "h4", text: string( :"archive.title" ) }
 
     -# Loop through site blog dates
     - blog( name ).articles.group_by { | y | y.date.year }.each do | year, articles |

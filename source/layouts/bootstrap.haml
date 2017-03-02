@@ -55,7 +55,7 @@
 
         -# Instagram
         - if data.has_key? "instagram" and data.instagram.active
-            = javascript_include_tag '//platform.instagram.com/en_US/embeds.js'
+            = javascript_include_tag 'https://platform.instagram.com/en_US/embeds.js'
 
     -# Use test Facebook ID in development
     - if development?
@@ -120,11 +120,6 @@
         - if data.config.javascript.cordova
             %script{ src: "cordova.js" }
 
-        -# JavaScript
-        -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
-        - if data.config.javascript.body
-            = javascript_include_tag :"body.bundle"
-
         -# Process injected head content
         -#
         -# @usage
@@ -132,6 +127,12 @@
         -#     %script{ src: "" }
         - if content_for? :siteBody
             = yield_content :siteBody
+
+        -# JavaScript
+        -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
+        -# = javascript_include_tag :"vendor.bundle"
+        - if data.config.javascript.body
+            = javascript_include_tag :"body.bundle"
 
         -# Google analytics
         - if data.has_key? "google" and data.google.analytics.active

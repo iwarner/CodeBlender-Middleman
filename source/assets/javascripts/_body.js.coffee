@@ -80,6 +80,7 @@ require 'cbsocial/facebook/share-button/_share-button_directive.coffee'
 require 'cbsocial/google/analytics/_analytics_controller.coffee'
 require 'cbsocial/mailchimp/_mailchimp_controller.coffee'
 require 'cbsocial/twitter/tweet-button/_tweet-button_directive.coffee'
+require 'cbsocial/google/places/_autocomplete_controller.coffee'
 require 'cbsocial/google/places/_autocomplete_directive.coffee'
 
 ##

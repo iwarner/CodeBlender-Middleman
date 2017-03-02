@@ -119,8 +119,11 @@
     - if locals[ :help ]
         %span.help-block{ ng: locals[ :help ][ :ng ] }= locals[ :help ][ :content ]
 
+-# Validation
+- showError = ! falsey( input[ :showError ] ) ? { errors: "{showSuccess: true}" } : false
+
 -# Form Group
-.form-group{ show: { errors: "{showSuccess: true}" } }
+.form-group{ show: showError }
 
     -# Label - note this is an array as it contains flag for screen reader
     %label.control-label{ for: input[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }

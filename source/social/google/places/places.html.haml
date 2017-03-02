@@ -1,5 +1,10 @@
 ---
 
+# Angular
+angular :
+    controller   : AutocompleteController
+    controllerAs : autocomplete
+
 # Meta
 description : "Google Places"
 title       : "Google Places"
@@ -59,7 +64,6 @@ todo :
                 - Fetch your API Key
                 - Load the required JavaScript
 
-
         -# Panel
         = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
 
@@ -70,14 +74,50 @@ todo :
 
     .col-md-12
 
+        -# Modal link
+        %a{ href: "javascript:;", data: { target: "#placesModal", toggle: "modal" } }
+            Open modal
+
         -# Video
         :ruby
-            code = %{codeBlender "autocomplete", "social/google/places" }
+            code = %{codeBlender "autocomplete", "social/google/places", { button: true } }
 
         -# Code
-        = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+        = codeBlender "code", "molecule", { code: code, heading: { text: "Open Modal" } }
 
-        -# Map
-        .embed-responsive.embed-responsive-16by9
+        -# -# Places
+        -# :ruby
+        -#     code = %{codeBlender "autocomplete", "social/google/places" }
 
-            .googleMap.embed-responsive-item
+        -# -# Code
+        -# = codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+
+        -# -# Map
+        -# .embed-responsive.embed-responsive-16by9
+        -#     .googleMap.embed-responsive-item
+
+-# Body capture
+- body = capture_html do
+
+    -# Heading
+    %p Drag the pin to your exact location
+
+    -# Places
+    -# @todo remove button
+    = codeBlender "autocomplete", "social/google/places", { extraClass: false }
+
+    -# Map
+    .embed-responsive.embed-responsive-16by9
+        .googleMap.embed-responsive-item
+
+-# Footer capture
+- footer = capture_html do
+
+    -# Button
+    = codeBlender "button", "atom", { text: "Cancel", data: { dismiss: "modal" } }
+
+    -# Button
+    = codeBlender "button", "atom", { context: "primary", text: "Confirm", ng: { click: "autocomplete.confirm()" } }
+
+-# Modal
+= codeBlender "modal", "molecule", { body: body, footer: footer, id: "placesModal", title: "Confirm your address" }

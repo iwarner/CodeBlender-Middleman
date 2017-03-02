@@ -23,6 +23,7 @@ Gem::Specification.new do | s |
     s.add_runtime_dependency( "nokogiri", ">= 1.6.8" )
 
     s.add_development_dependency 'appraisal'
+    s.add_development_dependency 'fastimage'
     s.add_development_dependency 'aruba'
     s.add_development_dependency 'cucumber'
     s.add_development_dependency 'pry'

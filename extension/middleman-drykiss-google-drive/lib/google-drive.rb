@@ -20,6 +20,7 @@ require "google/apis/drive_v3"
 require "googleauth"
 require "googleauth/stores/file_token_store"
 require "fileutils"
+require 'fastimage'
 require "nokogiri"
 require "open-uri"
 require_relative "instagram"
@@ -77,8 +78,6 @@ class GoogleDrive
 
         if credentials.nil?
 
-            puts "HERE"
-
             # Authorise return URL
             url = authorizer.get_authorization_url( base_url: @oob )
 
@@ -122,8 +121,9 @@ class GoogleDrive
         # List files
         response = @service.list_files(
             page_size: 100,
+            spaces:    "drive",
             order_by:  "modifiedTime desc",
-            q:         "'#{ folderID }' in parents",
+            q:         "mimeType='application/vnd.google-apps.document' and '#{ folderID }' in parents",
             fields:    'nextPageToken, files( mimeType, kind, id, name, createdTime, description, fileExtension )' )
 
         # No objects found
@@ -138,8 +138,6 @@ class GoogleDrive
                 # Debug
                 puts "Folder"
 
-                # Parse the folders if required
-
             # File
             else
 
@@ -153,12 +151,13 @@ class GoogleDrive
                 puts "---------------------"
                 # puts "Mime Type      : #{ file.mime_type }"
                 puts "ID             : #{ file.id }"
-                # puts "Name           : #{ file.name }"
+                puts "Name           : #{ file.name }"
                 # puts "Created        : #{ file.created_time }"
                 # puts "Description    : #{ file.description }"
                 # puts "File extension : #{ file.file_extension }"
                 # puts "#{ file.to_yaml }"
-                puts "---------------------"
+                # puts html
+                puts "---------------------\n"
 
             end
 
@@ -246,11 +245,22 @@ class GoogleDrive
 
         end
 
+        ##
         # Featured image
         # The table will contain an image src for the featured image
+        #
+        # @todo this fails if there is no image element - fix this flag
+        ##
         if ! doc.xpath( "//table[ 2 ]//img" ).empty?
-            # @todo this fails if there is no image element - fix this flag
+
+            # Debug
+            # puts "Found image", doc.xpath( "//table[ 2 ]//img" ).attr( "src" )
+
+            # image = FastImage.type( doc.xpath( "//table[ 2 ]//img" ).attr( "src" ), :http_header => {'User-Agent' => 'Fake Browser'} )
+
+            # Add the image to the frontmatter
             fontmatter += "\"image\": \"#{ doc.xpath( "//table[ 2 ]//img" ).attr( "src" ) }\"\n"
+
         end
 
         # Table
@@ -384,14 +394,21 @@ class GoogleDrive
                     span.swap( span.children )
                 end
 
+                # Debug
+                # puts w[ 1 ]
                 # puts w[ 0 ]
                 # puts f
 
-                # Replace string
-                # Sometimes these can be hyperlinked - remove the link
-                doc = doc.gsub /<p> * *#{Regexp.escape(w[0])} *<\/p>/, @instagram.embedCode( f )
+                # Get the embed
+                embed = @instagram.embedCode( f )
 
-                # doc = doc.gsub /<p> *#{Regexp.escape(w[ 0 ])} *<\/p>/, "<div class=\"embedResponsive\"><iframe class=\"instagramEmbed\" src=\"//instagram.com/p/#{ w[ 1 ] }/embed/\" frameborder=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe></div>"
+                if embed
+                    # Replace string
+                    doc = doc.gsub /<p> * *#{Regexp.escape(w[0])} *<\/p>/, @instagram.embedCode( f )
+                    # doc = doc.gsub /<p> *#{Regexp.escape(w[ 0 ])} *<\/p>/, "<div class=\"embedResponsive\"><iframe class=\"instagramEmbed\" src=\"//instagram.com/p/#{ w[ 1 ] }/embed/\" frameborder=\"0\" scrolling=\"no\" allowtransparency=\"true\"></iframe></div>"
+                else
+                    doc = doc.gsub /<p> * *#{Regexp.escape(w[0])} *<\/p>/, ""
+                end
 
             end
         end
@@ -479,24 +496,22 @@ class GoogleDrive
     # @usage
     # exportFile( file )
     #
+    # @param file object Google file
+    #
     # @see https://developers.google.com/drive/v3/web/manage-downloads
     ##
     def exportFile( file )
 
-        # Google path
-        googlePath = "https://docs.google.com/doc/d/"
-
-        # Google path
-        getPath = "#{ googlePath }#{ file.id }/export?format=html"
-
-        # Open string
-        doc = StringIO.new
+        # Download file
+        # @service.get_file(file.id, download_dest: StringIO.new)
 
         # Export file
-        @service.export_file( file.id, 'text/html', download_dest: doc )
+        dest = StringIO.new
+        @service.export_file( file.id, 'text/html', download_dest: dest )
 
         # Return
-        doc.string
+        # STDOUT.write( dest.read )
+        dest.string
 
     end
 
