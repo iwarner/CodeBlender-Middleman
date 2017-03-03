@@ -35,4 +35,5 @@ the syntax.
 It is also possible to create the SVG for use in data elements with the following
 command.
 
-    $ svgo logo.svg --datauri=base64
+    $ svgo drykiss-sq-color.svg --datauri=base64
+    $ svgo drykiss-sq-color.svg --datauri=URIencoded --multipass

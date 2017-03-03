@@ -13,24 +13,23 @@ $module : 'footer';
 //----------------------------------------------------------------------------//
 .#{ $module } {
 
-    background     : #2d3e50;
-    border-top     : 2px solid rgba( 240, 0, 0, 0.5 );
-    color          : #fff;
-    padding        : 10px 0;
+    background-color : if( variable-exists( cb-footer-bg ), $cb-footer-bg, #333 );
+    border-top       : 2px solid if( variable-exists( cb-footer-border-color ), $cb-footer-border-color, rgba( 240, 0, 0, 0.5 ) );
+    color            : if( variable-exists( cb-footer-color ), $cb-footer-color, $text-color );
+    padding          : 20px 0 30px;
 
     // Column
+    // @todo make the columns reach the bottom of the footer area
     //------------------------------------------------------------------------//
     &__column {
-
         &:not( :last-child ):after {
-            border-left : 1px solid rgba( 255, 255, 255, 0.2 );
+            border-left : 1px solid if( variable-exists( cb-footer-column-color ), $cb-footer-column-color, rgba( 255, 255, 255, 0.2 ) );
             content     : '';
             position    : absolute;
             right       : 0;
             top         : 0;
             bottom      : 0;
         }
-
     }
 
     // Footer heading
@@ -43,33 +42,28 @@ $module : 'footer';
         padding       : 2px 0;
     }
 
-    // Content
-    //------------------------------------------------------------------------//
-    &__content {
-        color : $gray-lighter;
-    }
+    // // Sticky
+    // // @todo The body margin is always present even if not sticky
+    // //------------------------------------------------------------------------//
+    // &--sticky {
 
-    // Sticky
-    //------------------------------------------------------------------------//
-    &--sticky {
+    //     @at-root  {
 
-        @at-root  {
+    //         body {
+    //             margin-bottom : 260px;
+    //         }
 
-            body {
-              margin-bottom: 260px;
-            }
+    //         footer#{ & } {
+    //             position         : absolute;
+    //             bottom           : 0;
+    //             width            : 100%;
+    //             height           : 260px;
+    //             background-color : #f5f5f5;
+    //         }
 
-            footer#{ & } {
-                position         : absolute;
-                bottom           : 0;
-                width            : 100%;
-                height           : 260px;
-                background-color : #f5f5f5;
-            }
+    //     }
 
-        }
-
-    }
+    // }
 
     // Social element
     //------------------------------------------------------------------------//
@@ -117,10 +111,10 @@ $module : 'footer';
 //----------------------------------------------------------------------------//
 .copyright {
 
-    background : #2d3e50;
-    border-top : 1px solid rgba( 240, 0, 0, 0.5 );
-    color      : #bbb;
-    padding    : 10px 0;
+    background-color : if( variable-exists( cb-footer-bg ), $cb-footer-bg, #333 );
+    border-top       : 1px solid if( variable-exists( cb-footer-border-color ), $cb-footer-border-color, rgba( 240, 0, 0, 0.5 ) );
+    color            : if( variable-exists( cb-footer-color ), $cb-footer-color, $text-color );
+    padding          : 10px 0;
 
     // Paragraph
     //------------------------------------------------------------------------//
@@ -154,9 +148,13 @@ $module : 'footer';
     // DryKISS logo
     //------------------------------------------------------------------------//
     .drykissLogo {
-        height         : auto;
-        vertical-align : middle;
-        width          : 23px;
+        background-image  : url( "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22254.667%22%20height%3D%22224.465%22%20viewBox%3D%220%200%20254.667%20224.465%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M-1.651%2095.98H329.55v61.655H-1.651z%22%2F%3E%3Ctext%20transform%3D%22translate(1%20126.652)%22%20fill%3D%22%23979797%22%20font-family%3D%22'Courier'%22%20font-size%3D%2248%22%20letter-spacing%3D%227%22%3EDRY%3C%2Ftext%3E%3Ctext%20transform%3D%22translate(115.563%20126.652)%22%20fill%3D%22%23ED293B%22%20font-family%3D%22'Courier'%22%20font-size%3D%2248%22%20letter-spacing%3D%227%22%3EKISS%3C%2Ftext%3E%3Cg%20fill%3D%22%23ED293B%22%3E%3Cpath%20opacity%3D%22.55%22%20d%3D%22M64.315%20203.331h21.136v21.137H64.315z%22%2F%3E%3Cpath%20opacity%3D%22.75%22%20d%3D%22M85.457%20203.338h21.127v21.127H85.457z%22%2F%3E%3Cpath%20opacity%3D%22.69%22%20d%3D%22M106.579%20203.331h21.138v21.137h-21.138z%22%2F%3E%3Cpath%20opacity%3D%22.77%22%20d%3D%22M127.713%20203.331h21.137v21.137h-21.137z%22%2F%3E%3Cpath%20opacity%3D%22.67%22%20d%3D%22M148.854%20203.338h21.128v21.127h-21.128z%22%2F%3E%3Cpath%20opacity%3D%22.53%22%20d%3D%22M169.979%20203.331h21.138v21.137h-21.138z%22%2F%3E%3Cpath%20opacity%3D%22.51%22%20d%3D%22M43.182%20182.145h21.137v21.142H43.182z%22%2F%3E%3Cpath%20opacity%3D%22.85%22%20d%3D%22M64.324%20182.155h21.128v21.131H64.324z%22%2F%3E%3Cpath%20opacity%3D%22.99%22%20d%3D%22M85.447%20182.145h21.137v21.142H85.447z%22%2F%3E%3Cpath%20opacity%3D%22.9%22%20d%3D%22M106.579%20182.145h21.138v21.142h-21.138zm21.144.009h21.128v21.132h-21.128z%22%2F%3E%3Cpath%20opacity%3D%22.97%22%20d%3D%22M148.847%20182.146h21.136v21.14h-21.136z%22%2F%3E%3Cpath%20opacity%3D%22.87%22%20d%3D%22M169.988%20182.146h21.129v21.131h-21.129z%22%2F%3E%3Cpath%20opacity%3D%22.49%22%20d%3D%22M191.112%20182.146h21.138v21.14h-21.138z%22%2F%3E%3Cpath%20opacity%3D%22.45%22%20d%3D%22M22.049%20161.014h21.137v21.135H22.049z%22%2F%3E%3Cpath%20opacity%3D%22.81%22%20d%3D%22M43.191%20161.023h21.128v21.125H43.191z%22%2F%3E%3Cpath%20opacity%3D%22.81%22%20d%3D%22M64.315%20161.014h21.136v21.135H64.315z%22%2F%3E%3Cpath%20opacity%3D%22.95%22%20d%3D%22M85.447%20161.012h21.137v21.137H85.447z%22%2F%3E%3Cpath%20opacity%3D%22.93%22%20d%3D%22M148.873%20161.004H170v21.129h-21.127z%22%2F%3E%3Cpath%20opacity%3D%22.91%22%20d%3D%22M169.996%20160.997h21.139v21.137h-21.139z%22%2F%3E%3Cpath%20opacity%3D%22.83%22%20d%3D%22M191.138%20160.997h21.128v21.129h-21.128z%22%2F%3E%3Cpath%20opacity%3D%22.47%22%20d%3D%22M212.261%20160.997H233.4v21.137h-21.139z%22%2F%3E%3Cpath%20opacity%3D%22.43%22%20d%3D%22M.892%20139.879h21.137v21.139H.892z%22%2F%3E%3Cpath%20opacity%3D%22.71%22%20d%3D%22M22.033%20139.889h21.128v21.129H22.033z%22%2F%3E%3Cpath%20opacity%3D%22.77%22%20d%3D%22M43.157%20139.879h21.138v21.139H43.157z%22%2F%3E%3Cpath%20opacity%3D%22.89%22%20d%3D%22M64.289%20139.879h21.138v21.139H64.289z%22%2F%3E%3Cpath%20opacity%3D%22.91%22%20d%3D%22M170.003%20139.874h21.131v21.129h-21.131z%22%2F%3E%3Cpath%20opacity%3D%22.79%22%20d%3D%22M191.128%20139.866h21.138v21.137h-21.138zm21.143%200H233.4v21.127h-21.129z%22%2F%3E%3Cpath%20opacity%3D%22.41%22%20d%3D%22M233.395%20139.866h21.138v21.137h-21.138z%22%2F%3E%3C%2Fg%3E%3Cg%20fill%3D%22%23ED293B%22%3E%3Cpath%20opacity%3D%22.54%22%20d%3D%22M169.971.927h21.139v21.137h-21.139z%22%2F%3E%3Cpath%20opacity%3D%22.7%22%20d%3D%22M148.839.927h21.127v21.128h-21.127z%22%2F%3E%3Cpath%20opacity%3D%22.74%22%20d%3D%22M127.705%2043.238h21.136v21.138h-21.136z%22%2F%3E%3Cpath%20opacity%3D%22.68%22%20d%3D%22M106.572%2043.238h21.137v21.138h-21.137z%22%2F%3E%3Cpath%20opacity%3D%22.72%22%20d%3D%22M85.44.927h21.128v21.128H85.44z%22%2F%3E%3Cpath%20opacity%3D%22.52%22%20d%3D%22M64.307.927h21.137v21.136H64.307z%22%2F%3E%3Cpath%20opacity%3D%22.56%22%20d%3D%22M191.105%2022.109h21.137v21.137h-21.137z%22%2F%3E%3Cpath%20opacity%3D%22.76%22%20d%3D%22M169.971%2022.109H191.1v21.128h-21.129z%22%2F%3E%3Cpath%20opacity%3D%22.84%22%20d%3D%22M148.839%2022.109h21.137v21.137h-21.137z%22%2F%3E%3Cpath%20opacity%3D%22.58%22%20d%3D%22M127.706%2022.109h21.137v21.138h-21.137z%22%2F%3E%3Cpath%20opacity%3D%22.5%22%20d%3D%22M106.572%2022.109H127.7v21.128h-21.128z%22%2F%3E%3Cpath%20opacity%3D%22.82%22%20d%3D%22M85.44%2022.109h21.136v21.136H85.44z%22%2F%3E%3Cpath%20opacity%3D%22.66%22%20d%3D%22M64.307%2022.117h21.128v21.128H64.307z%22%2F%3E%3Cpath%20opacity%3D%22.48%22%20d%3D%22M43.174%2022.109h21.139v21.136H43.174z%22%2F%3E%3Cpath%20opacity%3D%22.44%22%20d%3D%22M212.237%2043.243h21.138V64.38h-21.138z%22%2F%3E%3Cpath%20opacity%3D%22.71%22%20d%3D%22M191.105%2043.243h21.126V64.37h-21.126z%22%2F%3E%3Cpath%20opacity%3D%22.88%22%20d%3D%22M169.983%2043.23h21.14v21.137h-21.14z%22%2F%3E%3Cpath%20opacity%3D%22.96%22%20d%3D%22M148.839%2043.243h21.137v21.139h-21.137z%22%2F%3E%3Cpath%20opacity%3D%22.94%22%20d%3D%22M85.423%2043.26h21.127v21.127H85.423z%22%2F%3E%3Cpath%20opacity%3D%22.86%22%20d%3D%22M64.289%2043.26h21.138v21.135H64.289zm-21.132.008h21.128v21.127H43.157z%22%2F%3E%3Cpath%20opacity%3D%22.46%22%20d%3D%22M22.025%2043.26h21.136v21.135H22.025z%22%2F%3E%3Cpath%20opacity%3D%22.42%22%20d%3D%22M233.395%2064.377h21.138v21.136h-21.138z%22%2F%3E%3Cpath%20opacity%3D%22.86%22%20d%3D%22M212.261%2064.377h21.13v21.127h-21.13z%22%2F%3E%3Cpath%20opacity%3D%22.92%22%20d%3D%22M191.128%2064.377h21.138v21.136h-21.138z%22%2F%3E%3Cpath%20opacity%3D%22.98%22%20d%3D%22M169.996%2064.377h21.139v21.136h-21.139z%22%2F%3E%3Cpath%20d%3D%22M64.289%2064.392h21.129V85.52H64.289z%22%2F%3E%3Cpath%20opacity%3D%22.9%22%20d%3D%22M43.157%2064.392h21.138v21.136H43.157z%22%2F%3E%3Cpath%20opacity%3D%22.84%22%20d%3D%22M22.025%2064.399h21.126v21.129H22.025z%22%2F%3E%3Cpath%20opacity%3D%22.4%22%20d%3D%22M.892%2064.392h21.137v21.136H.892z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E" );
+        background-repeat : no-repeat;
+        background-size   : 23px;
+        display           : inline-block;
+        height            : 23px;
+        vertical-align: middle;
+        width             : 23px;
     }
 
 }

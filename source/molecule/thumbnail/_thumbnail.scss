@@ -35,8 +35,8 @@
         top        : 0;
         width      : 100%;
         z-index    : 90;
-        @include transition( all 0.3s ease-in-out );
-        @include transform( scale( 0 ) );
+        // @include transition( all 0.3s ease-in-out );
+        // @include transform( scale( 0 ) );
 
         // Icon
         //--------------------------------------------------------------------//
@@ -56,7 +56,7 @@
     a {
 
         &:hover .zoomix {
-            @include transform( scale( 1 ) );
+            // @include transform( scale( 1 ) );
             opacity : 0.3;
         }
     }

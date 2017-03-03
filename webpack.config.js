@@ -21,6 +21,7 @@ module.exports = {
 
     entry : {
         body : [
+            // vendor : [ "jquery", "bootstrap-sass" ],
             __dirname + '/source/assets/stylesheets/_all.css.scss',
             __dirname + '/source/assets/javascripts/_body.js.coffee'
         ]
@@ -129,6 +130,11 @@ module.exports = {
     plugins : [
 
         new clean( [ '.tmp' ] ),
+
+        // new webpack.optimize.CommonsChunkPlugin( {
+        //     name      : "vendor",
+        //     minChunks : Infinity,
+        // }),
 
         new ExtractTextPlugin( 'assets/stylesheets/all.bundle.css' ),
 
