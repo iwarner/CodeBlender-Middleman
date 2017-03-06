@@ -54,23 +54,6 @@
     - else
         = inputCapture
 
--# Form Group
-.form-group{ show: { errors: "{showSuccess: true}" } }
-
-    -# Label - note this is an array as it contains flag for screen reader
-    %label.control-label{ for: locals[ :name ], class: label[ :extraClass ] ? label[ :extraClass ] : false }
-        = string label[ :title ]
-
-    - if locals[ :column ]
-
-        -# Usually contains the column counts for a horizontal form
-        -# Need to remove this DIV if there is no requirement for Columns here
-        %div{ class: locals[ :column ] }
-            = inputCapture
-
-    - else
-        = inputCapture
-
     -# Help Block
     -# Sometimes this should be hidden to allow errors to be added inside.
     -# Assume if locals[ :help] is a "true" Bool only then add class hidden and no text

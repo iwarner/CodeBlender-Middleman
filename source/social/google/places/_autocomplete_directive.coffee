@@ -106,7 +106,7 @@ angular.module 'app.directive'
                 # Debug
                 # $log.info "googlePlacesAutocomplete - Scope :",   scope
                 # $log.info "googlePlacesAutocomplete - Element :", element
-                # $log.info "googlePlacesAutocomplete - Attrs :",   attrs
+                $log.info "googlePlacesAutocomplete - Attrs :",   attrs
                 # $log.info "googlePlacesAutocomplete - Ctrl :",    ctrl
 
                 # Geocode

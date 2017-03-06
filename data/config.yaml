@@ -23,6 +23,8 @@ head :
 # Body tag
 body :
     id         : false
+    data       :
+        url : :url
     extraClass : false
     spy        : false
     target     : false

@@ -182,13 +182,15 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
         # Debug
         # $log.info "Autocomplete - confirm"
 
+        url = $( 'body' ).data( 'url' )
+
         # Set the data for the call
         data =
-           "url"       : "https://deliveroo.ie/api/restaurants"
+           "url"       : "#{ url }/api/restaurants"
            "longitude" : $rootScope.longitude
            "latitude"  : $rootScope.latitude
            "format"    : "json"
-           "version"   : "1.00"
+           "version"   : "1.01"
 
         # Http get to YQL
         $http.get 'https://query.yahooapis.com/v1/public/yql/drykiss/DeliverooLocation', params : data
@@ -209,7 +211,7 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
                 vm.showError = false
 
                 # Refresh the page to the URL results
-                $window.location.href = "https://deliveroo.ie#{ response.data.query.results.json.url }"
+                $window.location.href = "#{ url }#{ response.data.query.results.json.url }"
 
             else
 

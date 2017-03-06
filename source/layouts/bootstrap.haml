@@ -18,9 +18,13 @@
 -# Variable
 - locale       = I18n.locale.to_s
 - d            = current_page.data
-- htmlAngular  = data.config.html.angular  ? data.config.html.angular : false
-- htmlManifest = data.config.html.manifest ? "/offline.manifest"      : false
-- headPrefix   = data.config.head.prefix   ? data.config.head.prefix  : false
+- dc           = data.config
+- htmlManifest = dc.html.manifest ? "/offline.manifest" : false
+- headPrefix   = dc.head.prefix   ? dc.head.prefix      : false
+
+-# Angular app definition
+-# Defined in the config file or within the current page frontmatter
+- angularApp = ( d.angular and d.angular.app ) ? d.angular.app : dc.html.angular ? dc.html.angular : false
 
 -# HTML5 doctype
 !!! 5
@@ -28,11 +32,14 @@
 -# HTML5 root element
 -# Requires lang, manifest if option is created and angular app definition
 -# @see https://www.w3.org/TR/html-markup/html.html
-%html{ lang: string( :locale ), manifest: htmlManifest, ng: { app: htmlAngular } }
+%html{ lang: string( :locale ), manifest: htmlManifest, ng: { app: angularApp } }
 
     -# Head section
     -# Prefix is utilised for structures like Facebook
     %head{ prefix: headPrefix }
+
+        -# Base
+        -# %base{ href: "/" }
 
         -# Meta tag
         = codeBlender "meta", "meta"
@@ -50,10 +57,11 @@
             = yield_content :siteHead
 
         -# JavaScript head
-        - if data.config.javascript.head
+        - if dc.javascript.head
             = javascript_include_tag :"head.bundle"
 
         -# Instagram
+        -# @todo move this to an async load script - like Facebook
         - if data.has_key? "instagram" and data.instagram.active
             = javascript_include_tag 'https://platform.instagram.com/en_US/embeds.js'
 
@@ -68,22 +76,35 @@
     - localeFacebook = I18n.exists?( :"facebook.locale" ) ? t( :"facebook.locale" ) : data.facebook.locale ? data.facebook.locale : false
 
     -# Angular controller
-    - if d.angular
+    -# Recommended to include the controllerAs syntax also
+    - if d.angular and d.angular.controller
         - angularController  = d.angular.controller   ? d.angular.controller            : false
+    - if d.angular and d.angular.controllerAs
         - angularController += d.angular.controllerAs ? " as " + d.angular.controllerAs : false
 
     -# Extra class
     -# Includes the middleman page classes
     -# @see https://middlemanapp.com/basics/helper_methods/
-    - extraClass = data.config.body.extraClass ? "#{ data.config.body.extraClass } page_classes" : page_classes
+    - extraClass = dc.body.extraClass ? "#{ dc.body.extraClass } page_classes" : page_classes
+
+    -# Data
+    -# Handle the extra load of data elements on the body that describe the site nature
+    - bodyData = { locale:         locale,
+                   localeFacebook: localeFacebook ? localeFacebook : false,
+                   facebookAppID:  facebookAppID  ? facebookAppID  : false }
+
+    -# Body data
+    -# Mapped to account for any translations
+    - if dc.body.data
+        - bodyData = bodyData.merge( dc.body.data.map { | k, v | [ k, string( v ) ] }.to_h )
 
     -# Body with page class
     -# Contains the main itemscope of the current page
-    %body{ id:        data.config.body.id ? data.config.body.id : false,
+    %body{ id:        dc.body.id ? dc.body.id : false,
            class:     extraClass,
            itemscope: true,
            itemtype:  "https://schema.org/WebPage",
-           data:      { locale: locale, localeFacebook: localeFacebook ? localeFacebook : false, facebookAppID: facebookAppID ? facebookAppID : false },
+           data:      bodyData,
            ng:        { controller: angularController } }
 
         -# Top anchor
@@ -109,15 +130,15 @@
             = codeBlender "footer", "organism"
 
         -# Top icon
-        - if data.config.topIcon
+        - if dc.topIcon
             = codeBlender "top-icon", "molecule"
 
         -# Configuration
-        - if data.config.configuration
+        - if dc.configuration
             = codeBlender "configuration", "molecule"
 
         -# Cordova
-        - if data.config.javascript.cordova
+        - if dc.javascript.cordova
             %script{ src: "cordova.js" }
 
         -# Process injected head content
@@ -131,7 +152,7 @@
         -# JavaScript
         -# @see http://apidock.com/rails/v4.0.2/ActionView/Helpers/AssetTagHelper/javascript_include_tag
         -# = javascript_include_tag :"vendor.bundle"
-        - if data.config.javascript.body
+        - if dc.javascript.body
             = javascript_include_tag :"body.bundle"
 
         -# Google analytics
