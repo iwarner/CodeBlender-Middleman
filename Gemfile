@@ -35,7 +35,9 @@ gem "google-api-client"
 # gem "filesize"
 # gem "xml-simple"
 # gem "rmagick"
+gem "mini_magick"
 # gem 'levenshtein'
+gem "piet"
 
 # Template engines
 gem "haml"

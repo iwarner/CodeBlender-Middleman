@@ -20,10 +20,10 @@ require "google/apis/drive_v3"
 require "googleauth"
 require "googleauth/stores/file_token_store"
 require "fileutils"
-require 'fastimage'
 require "nokogiri"
 require "open-uri"
 require_relative "instagram"
+require_relative "image"
 
 ##
 # Convenience wrapper for Google Drive
@@ -48,6 +48,7 @@ class GoogleDrive
         @applicationName = "CodeBlender"
         @scope           = Google::Apis::DriveV3::AUTH_DRIVE
         @instagram       = ::Instagram.new
+        @image           = ::Image.new
 
         # Credentials
         @clientSecret = File.join( Dir.home, '.google_credential', "client_secret.json" )
@@ -166,10 +167,9 @@ class GoogleDrive
     end
 
     ##
-    # Clean up the front matter part of the blog
-    # Need to append the image into the frontmatter
+    # Frontmatter
     ##
-    def frontMatter( doc )
+    def frontMatter( doc, destination )
 
         # Get the first table and rows - exclude the first
         table = doc.xpath( "//table[ 1 ]/tbody/tr[ position() > 1 ]" )
@@ -194,6 +194,13 @@ class GoogleDrive
 
                     # Create the string for tags - strip and clean
                     fontmatter += "[#{ text }]: "
+
+                # Category - make lower case
+                # @todo remove all special characters from this
+                elsif lastTD == "category" && index == 1
+
+                    # Create the string for tags - strip and clean
+                    fontmatter += "\"#{ text.downcase }\": "
 
                 # Title - remove :
                 elsif lastTD == "title" && index == 1
@@ -256,10 +263,14 @@ class GoogleDrive
             # Debug
             # puts "Found image", doc.xpath( "//table[ 2 ]//img" ).attr( "src" )
 
-            # image = FastImage.type( doc.xpath( "//table[ 2 ]//img" ).attr( "src" ), :http_header => {'User-Agent' => 'Fake Browser'} )
+            # Process the image
+            image = @image.process( doc.xpath( "//table[ 2 ]//img" ).attr( "src" ) )
+
+            # New source
+            source = "https://#{ destination }/assets/images/blogs/#{ destination }/#{ image }"
 
             # Add the image to the frontmatter
-            fontmatter += "\"image\": \"#{ doc.xpath( "//table[ 2 ]//img" ).attr( "src" ) }\"\n"
+            fontmatter += "\"image\": \"#{ source }\"\n"
 
         end
 
@@ -325,7 +336,7 @@ class GoogleDrive
         end
 
         # Front matter
-        frontMatter = frontMatter( doc )
+        frontMatter = frontMatter( doc, destination )
 
         # Remove DIVs
         doc.xpath( '//div' ).remove
@@ -361,9 +372,18 @@ class GoogleDrive
         #   img.xpath('.//@style').remove
         # end
         doc.css( "img" ).each do | image |
+
             image[ "alt" ]   = "Deliveroo"
             image[ "class" ] = "img-responsive"
             image.remove_attribute( "title" )
+
+            # Process the image
+            image = @image.process( image[ "src" ] )
+
+            # New source
+            source = "/assets/images/blogs/#{ destination }/#{ image }"
+            image[ "src" ] = source
+
         end
 
         # Add class to tables

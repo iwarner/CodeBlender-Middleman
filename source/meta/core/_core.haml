@@ -9,8 +9,11 @@
 -# @category meta
 -##
 
+-# Prepend
+- prepend = I18n.exists?( :"meta.prepend" ) ? " - #{ string( :"meta.prepend" ) }" : ""
+
 -# Title
-%title= configuration( "title" )
+%title= "#{ configuration( "title" ) }#{ prepend }"
 
 -# Encoding
 %meta{ charset: "utf-8" }

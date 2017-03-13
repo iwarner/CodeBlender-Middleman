@@ -15,7 +15,7 @@
 ContactController = ( $http, $log, $scope ) ->
 
     # Debug
-    $log.info "Contact - controller"
+    # $log.info "Contact - controller"
 
     # This
     vm = this
@@ -53,7 +53,10 @@ ContactController = ( $http, $log, $scope ) ->
     ##
     vm.submitForm = ( contact, event ) ->
 
-        $log.info "Contact - submit form", contact
+        # Debug
+        # $log.info "Contact - submit form - fields:", contact
+        # $log.info "Contact - submit form - Date :", contact.date
+        # $log.info "Contact - submit form - Time :", contact.time
 
         # Post form
         $http
@@ -64,8 +67,8 @@ ContactController = ( $http, $log, $scope ) ->
                 Email     : contact.email
                 Mobile    : contact.mobile
                 Treatment : contact.treatment
-                Date      : contact.date
-                Time      : contact.time
+                Date      : contact.date.toLocaleDateString()
+                Time      : contact.time.toLocaleTimeString()
                 Message   : contact.message
                 _subject  : "Greentouch Contact"
             )

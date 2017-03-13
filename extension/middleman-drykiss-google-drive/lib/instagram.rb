@@ -6,7 +6,7 @@
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
 # @category extension
-# @see       https://www.instagram.com/developer/embedding/
+# @see      https://www.instagram.com/developer/embedding/
 #
 # @todo place in a connection time out
 # @todo place in error detection on the call and log

@@ -10,21 +10,21 @@ see :
       - "http://ivaynberg.github.io/select2/select2-latest.html"
 
 selectArray1 :
-    - - "United Kingdom"
-      - "44"
-    - - "USA"
-      - "1"
+    - value: "United Kingdom"
+      key: "44"
+    - value: "USA"
+      key: "1"
 
 selectArray2 :
-    - - "United Kingdom"
-    - - "USA"
+    - value: "United Kingdom"
+    - value: "USA"
 
 ---
 
 -# Default
 :ruby
     code = %{codeBlender "select", "atom/form/select",
-      { column: "col-lg-6", array: [],
+      { column: "col-lg-6", array: current_page.data.selectArray1,
         label:  { extraClass: "col-lg-2", title: "Label" },
         name:   "ID" }}
 
@@ -33,7 +33,7 @@ selectArray2 :
 
 -# Default
 :ruby
-    code = %{codeBlender "select", "atom/form/select", { array: [], label: { title: "Label" }, name: "ID" }}
+    code = %{codeBlender "select", "atom/form/select", { array: current_page.data.selectArray2, label: { title: "Label" }, name: "ID" }}
 
 -# Code
 = codeBlender "code", "molecule", { code: code, heading: { small: "Same Value and Option", text: "Optimised" } }

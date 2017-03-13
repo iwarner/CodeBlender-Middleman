@@ -19,7 +19,7 @@
 - forceSelection = locals[ :force ] ? locals[ :force ] : 'true'
 
 -# Button
-- button = locals[ :button ] ? { append: { context: "danger", text: string( :"findFood.input.button" ), type: "submit" } } : false
+- button = locals[ :button ] ? { append: { extraClass: "findFood__button", text: string( :"findFood.input.button" ), type: "submit" } } : false
 
 -# Find food form
 %form.findFood__form{ name: "autocompleteForm", novalidate: true, role: "form", ng: { submit: "autocomplete.submit( $event, autocompleteForm.$valid )" } }

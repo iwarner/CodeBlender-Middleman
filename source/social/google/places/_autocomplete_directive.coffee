@@ -62,7 +62,7 @@ angular.module 'app.directive'
             geocodePosition : ( pos ) ->
 
                 # Debug
-                $log.info "geocodePosition"
+                # $log.info "geocodePosition"
 
                 # Geocode
                 @geocoder.geocode { latLng: pos }, ( responses ) =>
@@ -89,7 +89,7 @@ angular.module 'app.directive'
             handleDragEnd : ( event ) ->
 
                 # Debug
-                $log.info "handleDragEnd", event, event.latLng.lat(), event.latLng.lng()
+                # $log.info "handleDragEnd", event, event.latLng.lat(), event.latLng.lng()
 
                 # Geo code marker
                 @geocodePosition new google.maps.LatLng event.latLng.lat(), event.latLng.lng()
@@ -106,7 +106,7 @@ angular.module 'app.directive'
                 # Debug
                 # $log.info "googlePlacesAutocomplete - Scope :",   scope
                 # $log.info "googlePlacesAutocomplete - Element :", element
-                $log.info "googlePlacesAutocomplete - Attrs :",   attrs
+                # $log.info "googlePlacesAutocomplete - Attrs :",   attrs
                 # $log.info "googlePlacesAutocomplete - Ctrl :",    ctrl
 
                 # Geocode
@@ -145,7 +145,7 @@ angular.module 'app.directive'
                 google.maps.event.addListener autocomplete, 'place_changed', =>
 
                     # Debug
-                    $log.info "googlePlacesAutocomplete - place_changed"
+                    # $log.info "googlePlacesAutocomplete - place_changed"
 
                     # Place
                     place = autocomplete.getPlace()
@@ -155,7 +155,7 @@ angular.module 'app.directive'
 
                         # Map
                         # @todo Should create the map outside of this event really and just move later
-                        $rootScope.map = new ( google.maps.Map ) $( '.googleMap' )[ 0 ],
+                        $rootScope.map = new ( google.maps.Map ) angular.element( '.googleMap' )[ 0 ],
                             center            : place.geometry.location
                             mapTypeControl    : false
                             panControl        : false
@@ -189,7 +189,7 @@ angular.module 'app.directive'
                     else
 
                         # Debug
-                        $log.info "googlePlacesAutocomplete - No place found:"
+                        # $log.info "googlePlacesAutocomplete - No place found:"
 
                         $rootScope.latitude  = false
                         $rootScope.longitude = false

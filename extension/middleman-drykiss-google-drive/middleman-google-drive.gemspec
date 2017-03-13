@@ -23,7 +23,14 @@ Gem::Specification.new do | s |
     s.add_runtime_dependency( "nokogiri", ">= 1.6.8" )
 
     s.add_development_dependency 'appraisal'
+
+    s.add_development_dependency 'carrierwave'
+    s.add_development_dependency 'carrierwave-imageoptim'
+    s.add_development_dependency 'image_optim'
+    s.add_development_dependency 'rmagick'
+
     s.add_development_dependency 'fastimage'
+
     s.add_development_dependency 'aruba'
     s.add_development_dependency 'cucumber'
     s.add_development_dependency 'pry'
@@ -32,5 +39,7 @@ Gem::Specification.new do | s |
     s.add_development_dependency 'rspec-its'
     s.add_development_dependency 'rubocop'
     s.add_development_dependency 'simplecov'
+
+    # s.add_development_dependency 'mini_magick'
 
 end

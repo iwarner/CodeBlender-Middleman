@@ -23,14 +23,14 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
     vm.showError = false
 
     # Scroll fade in when 100px from the top
-    $( window ).scroll ->
+    angular.element( window ).scroll ->
 
-        if $( '#resolutionSize' ).is( ':hidden' )
+        if angular.element( '#resolutionSize' ).is( ':hidden' )
 
-            if $( this ).scrollTop() > 100
-                $( '.findFood__position label, .findFood__link' ).fadeOut( "slow" )
+            if angular.element( this ).scrollTop() > 100
+                angular.element( '.findFood__position label, .findFood__link' ).fadeOut( "slow" )
             else
-                $( '.findFood__position label, .findFood__link' ).fadeIn( "slow" )
+                angular.element( '.findFood__position label, .findFood__link' ).fadeIn( "slow" )
             return
 
     ##
@@ -104,7 +104,7 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
 
                 # Map
                 # @todo Should create the map outside of this event really and just move later
-                $rootScope.map = new ( google.maps.Map ) $( '.googleMap' )[ 0 ],
+                $rootScope.map = new ( google.maps.Map ) angular.element( '.googleMap' )[ 0 ],
                     center            : responses[ 0 ].geometry.location
                     mapTypeControl    : false
                     panControl        : false
@@ -154,7 +154,7 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
                 geocodePlace( $rootScope.place )
 
             # Check if modal is shown
-            if ! $( '#placesModal' ).hasClass 'in'
+            if ! angular.element( '#placesModal' ).hasClass 'in'
 
                 # Debug
                 # $log.info "Autocomplete - valid", angular.element( '#placesModal' )
@@ -182,7 +182,7 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
         # Debug
         # $log.info "Autocomplete - confirm"
 
-        url = $( 'body' ).data( 'url' )
+        url = angular.element( 'body' ).data( 'url' )
 
         # Set the data for the call
         data =

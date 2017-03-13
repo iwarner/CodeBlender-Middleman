@@ -61,6 +61,9 @@ module Middleman
         ##
         def after_configuration
 
+            puts "HERE"
+            raise "Google After Configuration"
+
             @app = app
 
             if @app.config[ :mode ] === :config

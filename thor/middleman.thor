@@ -90,6 +90,25 @@ class Middleman < Thor
     # Middleman locale file creation from Google key
     #
     # @usage $ thor middleman:locale
+    # cd thor && thor middleman:posts foodscene.deliveroo.com.sg 0BwDBWlxBkJ6kSEVoR0ZCYXRWQ2M
+    ##
+    desc "posts", "Middleman locale creation"
+    def posts( destination, docFolder )
+
+        # Clear
+        system( "clear" )
+
+        # Say
+        say( "\n\t Middleman posts creation\n\t" )
+        say( "\n\t#{ destination }\n\t" )
+        say( "\n\t#{ docFolder }\n\t" )
+
+    end
+
+    ##
+    # Middleman locale file creation from Google key
+    #
+    # @usage $ thor middleman:locale
     # cd thor && thor middleman:locale 1cnvfAqQDQgojbIF5V2TVRim10g4pV6x5yatcS9w-Xo8
     #
     # @see   https://gist.github.com/dhlavaty/6121814

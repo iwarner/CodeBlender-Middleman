@@ -14,19 +14,21 @@ title    : "Kodi"
 
 ## Introduction
 
-# Kodi
+Setup of Kodi on an Amazon Fire TV
 
-Best way to utilise the buffer and storage on an Amazon Fire TV 2nd Generation.
+# Fire TV
 
+Best way to utilise the buffer and storage on an
+[Amazon Fire TV 2nd Generation](https://developer.amazon.com/public/solutions/devices/fire-tv/docs/device-and-platform-specifications).
 
 ## Fire TV 2nd Generation
-
-https://developer.amazon.com/public/solutions/devices/fire-tv/docs/device-and-platform-specifications
 
 RAM     - 2GB
 Storage - 8GB
 
 ## Kodi
+
+Some specific speeds up :
 
 - Disable RSS feed
 - Timezone
@@ -48,51 +50,48 @@ Android Android/data/org.xbmc.kodi/files/.kodi/userdata/ (see note)
 
 ## ADB
 
-https://developer.amazon.com/public/solutions/devices/fire-tv/docs/connecting-adb-to-fire-tv-device
+Install [Android Studio](https://developer.android.com/studio/install.html)
+to have access to the ADB command line methods.
 
-adb devices
+Follow the connection [adb to fire](https://developer.amazon.com/public/solutions/devices/fire-tv/docs/connecting-adb-to-fire-tv-device)
+instructions
 
-Get IP Address
-System - about - network
+Get the IP address for the Fire TV
 
-adb kill-server
-adb start-server
-adb connect 192.168.1.12
+    - Device - About - Network
 
-adb push /Users/ianwarner/Downloads/advancedsettings.xml /sdcard/android/data/org.xbmc.kodi/files/.kodi/userdata
+**Commands**
 
-<advancedsettings>
+    - $adb devices
+    - $adb kill-server
+    - $adb start-server
+    - $adb connect 192.168.1.11
 
-    <loglevel hide="true">-1</loglevel>
-    <splash>false</splash>
-    <imageres>540</imageres>
-    <fanartres>720</fanartres>
-    <nodvdrom>true</nodvdrom>
+**Install an Application**
 
-    <network>
+    - $ adb install -r /Users/ianwarner/Dropbox/Service\ Files/Kodi/Applications/kodi-17.1-Krypton_rc1-arm64-v8a.apk
 
-        <buffermode>1</buffermode>
-        <cachemembuffersize>157286400</cachemembuffersize>
-        <readbufferfactor>20</readbufferfactor>
+**Configure GUI Settings and Save**
 
-    </network>
+    http://kodi.wiki/view/Settings#Settings_levels
 
-    <pvr>
+**Install User Setting**
 
-        <cacheindvdplayer>true</cacheindvdplayer>
-        <minvideocachelevel>50</minvideocachelevel>
+    - $ adb push /Users/ianwarner/Dropbox/Service\ Files/Kodi/userdata/guisettings.xml /sdcard/android/data/org.xbmc.kodi/files/.kodi/userdata
+    - $ adb pull /sdcard/Android/data/org.xbmc.kodi/files/.kodi/userdata/guisettings.xml /Users/ianwarner/Dropbox/Service\ Files/Kodi/userdata/guisettings.xml
 
-    </pvr>
+    http://kodi.wiki/view/Settings#Advanced_settings
 
-    <videolibrary>
+    - $ adb push /Users/ianwarner/Dropbox/Service\ Files/Kodi/userdata/advancedsettings.xml /sdcard/android/data/org.xbmc.kodi/files/.kodi/userdata
+    - $ adb pull /sdcard/Android/data/org.xbmc.kodi/files/.kodi/userdata/advancedsettings.xml /Users/ianwarner/Dropbox/Service\ Files/Kodi/userdata/advancedsettings.xml
 
-        <cleanonupdate>true</cleanonupdate>
-        <recentlyaddeditems>20</recentlyaddeditems>
+**Backup settings**
 
-    </videolibrary>
+Backup the whole Kodi setting to the DropBox folder
 
-    <videoscanner>
-        <ignoreerrors>true</ignoreerrors>
-    </videoscanner>
+    - $ adb pull /sdcard/Android/data/org.xbmc.kodi/files/.kodi/ /Users/ianwarner/Dropbox/Service\ Files/Kodi
+    - $ adb push /Users/ianwarner/Dropbox/Service\ Files/Kodi /sdcard/Android/data/org.xbmc.kodi/files/.kodi/
 
-</advancedsettings>
+**Trakt**
+
+    - $ adb push /Users/ianwarner/Dropbox/Service\ Files/Kodi/addons/script.trakt /sdcard/Android/data/org.xbmc.kodi/files/.kodi/addons/
