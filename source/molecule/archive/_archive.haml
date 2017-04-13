@@ -25,25 +25,29 @@
         -# Unstyled list
         %dl.blogArchive__list.list-unstyled
 
-            -# List
+            -# Years
             %dt.blogArchive__dt
 
                 -# Link to the blog post via year
                 = link_to year, blog_year_path( year, name )
 
-            %dd.blogArchive__dd
+            -# Check we want months
+            - if locals[ :months ]
 
-                -# Loop through the articles by month
-                - articles.group_by { | a | a.date.month }.each do | month, monthArticles |
+                -# Months
+                %dd.blogArchive__dd
 
-                    -# List
-                    %ul.list-unstyled
+                    -# Loop through the articles by month
+                    - articles.group_by { | a | a.date.month }.each do | month, monthArticles |
 
                         -# List
-                        %li
+                        %ul.list-unstyled
 
-                            -# Link via month
-                            = link_to monthArticles.first.date.strftime( "%b" ), blog_month_path( year, month, name )
+                            -# List
+                            %li
 
-                            -# Badge
-                            = codeBlender "badge", "atom", { content: monthArticles.size }
+                                -# Link via month
+                                = link_to monthArticles.first.date.strftime( "%b" ), blog_month_path( year, month, name )
+
+                                -# Badge
+                                = codeBlender "badge", "atom", { content: monthArticles.size }

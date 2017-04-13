@@ -14,10 +14,6 @@
 -# Local
 - article = locals[ :article ] ? locals[ :article ] : current_article
 
--# Variable
--# = article
--# = image
-
 -# Article
 %article.article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting" }
 
@@ -29,7 +25,9 @@
 
             -# Does an image exists in the front matter
             - if article.data.image
+
                 .article__image
+
                     -# Image
                     = codeBlender "image", "atom", { alt: article.title, extraClass: "img-responsive", src: article.data.image }
 
@@ -43,29 +41,36 @@
             = codeBlender "breadcrumb", "molecule", { extraClass: "article__breadcrumb", title: article.title }
 
         -# Category
-        - if article.data.category
+        - unless falsey locals[ :category ]
 
-            .article__category
-                = link_to category_path( article.data.category ) do
-                    - article.data.category.upcase
+            - if article.data.category
+
+                .article__category
+                    - begin
+                        = link_to category_path( article.data.category ) do
+                            - article.data.category.upcase
+                    - rescue
+                        = article.data.category.upcase
 
         -# Heading - article H1
         = codeBlender "heading", "molecule",
           { extraClass: "article__heading heading--noMargin",
             rel:        "bookmark",
-            small:      article.data.small ? article.data.small : false,
+            small:      article.data.small   ? article.data.small   : false,
             text:       article.data.heading ? article.data.heading : article.title,
             itemprop:   "name headline" }
 
         -# Article detail
-        -# Date time
-        -# Author - link this
-        -# Social
-            -# Facebook
-            -# Add Pinterest, Google, LinkedIn, Twitter
-        -# Tags
-        -# Need to include the category
-        = codeBlender "detail", "molecule", { article: article, author: true, cal: true, comment: false, social: true, tags: true }
+        - unless falsey locals[ :detail ]
+
+            -# Date time
+            -# Author - link this
+            -# Social
+                -# Facebook
+                -# Add Pinterest, Google, LinkedIn, Twitter
+            -# Tags
+            -# Need to include the category
+            = codeBlender "detail", "molecule", { article: article, author: true, cal: true, comment: false, social: true, tags: true }
 
     -# Yield
     .article__content

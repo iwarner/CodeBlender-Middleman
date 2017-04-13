@@ -126,7 +126,7 @@
         = yield
 
         -# Footer
-        - if data.has_key? "footer" and ( data.footer.footer.active or data.footer.copyright )
+        - if data.has_key? "footer" and ( data.footer.footer.active or data.footer.copyright.active )
             = codeBlender "footer", "organism"
 
         -# Top icon

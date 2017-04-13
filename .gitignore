@@ -1,6 +1,7 @@
 # Environment #
 ###############
 .enomConfig
+.parsed
 client_id.json
 client_secret.json
 

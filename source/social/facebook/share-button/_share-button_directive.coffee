@@ -65,9 +65,11 @@ angular.module 'app.directive'
 
                      ), ( response ) ->
 
-                        # Send Google click stat
-                        ga "send", "pageview", "/facebook/click/" + fbHash.href
-                        ga "send", "social",   "facebook", "facebook_click", fbHash.href
+                        if window.ga && ga.create
+
+                            # Send Google click stat
+                            ga "send", "pageview", "/facebook/click/" + fbHash.href
+                            ga "send", "social",   "facebook", "facebook_click", fbHash.href
 
                         return
 

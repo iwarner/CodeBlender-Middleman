@@ -5,6 +5,11 @@
 # @see    http://middlemanapp.com/
 ##
 
+##
+# Better errors
+##
+require "better_errors"
+
 # Require football scripts
 require "football/football"
 require "football/matrix"
@@ -15,6 +20,7 @@ require "football/fixture"
 # Load football helpers
 helpers FootballHelpers
 
+# Autoprefixer
 # activate :autoprefixer, browsers: [
 #   "last 2 versions"
 # ]
@@ -28,27 +34,14 @@ activate :syntax
 # activate :similar # , :algorithm => :levenshtein by default.
 
 # Variables
-set :layout, "sidebarLeft"
-set :haml,   { ugly: true, format: :html5 }
+config[ :layout ]          = "sidebarLeft"
+config[ :publishCalendar ] = true
+config[ :haml ]            = { ugly: true, format: :html5 }
 
 # Assets
-set :css_dir,        "assets/stylesheets"
-set :js_dir,         "assets/javascripts"
-set :images_dir,     "assets/images"
-
-# Per-page layout changes
-page '/*.xml',       layout: false
-page '/*.json',      layout: false
-page '/*.txt',       layout: false
-page "atom.xml",     layout: false
-page "channel.html", layout: false
-page "config.xml",   layout: false
-page "feed.xml",     layout: false
-page "runner.html",  layout: false
-page "sitemap.xml",  layout: false
-
-# Remove 404 from directory indexes
-# page "/404.html", :directory_index => false
+config[ :css_dir ]    = "assets/stylesheets"
+config[ :js_dir ]     = "assets/javascripts"
+config[ :images_dir ] = "assets/images"
 
 # Markdown engine and options
 # auto_ids, footnote_nr, entity_output, toc_levels, smart_quotes, kramdown_default_lang, input, hard_wrap
@@ -56,16 +49,31 @@ page "sitemap.xml",  layout: false
 set :markdown_engine, :kramdown
 set :markdown, toc_levels: "1,2"
 
-# Minimum Sass number precision required by bootstrap-sass
-# @see https://github.com/twbs/bootstrap-sass#number-precision
-# ::Sass::Script::Value::Number.precision = [ 8, ::Sass::Script::Value::Number.precision ].max
-
 # Time Zone
 Time.zone = "Europe/London"
 
+mount   = :en
+locales = [ :en ]
+
 # I18n
+# @see https://middlemanapp.com/advanced/localization/
 # @see http://www.rubydoc.info/github/svenfuchs/i18n/I18n
-activate :i18n
+activate :i18n do | i |
+    i.locales       = locales
+    i.mount_at_root = mount
+end
+
+##
+# External pipeline - Webpack
+# ENV[ 'WEBPACK_ENV' ] ||= ( build? ? 'build' : 'development' )
+##
+activate :external_pipeline do | i |
+    i.name                         = :webpack
+    i.command                      = build? ? './node_modules/webpack/bin/webpack.js --bail -p' : './node_modules/webpack/bin/webpack.js --watch'
+    i.source                       = ".tmp"
+    i.latency                      = 1
+    i.disable_background_execution = false
+end
 
 # Blog
 # Template files cannot be within a folder path with a _ i.e. _codeBlender/template
@@ -169,13 +177,13 @@ activate :deploy do | deploy |
 end
 
 # Build-specific configuration
-configure :development do
-    set :debug_assets, true
-    # activate :livereload
-end
-
-# Build-specific configuration
 configure :build do
+
+    # # "Ignore" JS so webpack has full control.
+    # ignore { |path| path =~ /\/(.*)\.js$/ && $1 != 'site' }
+
+    # # "Ignore" JS and CSS so webpack has full control.
+    # ignore { |path| path =~ /\/(.*)\.js|css$/ && $1 != "all" && $1 != "vendor" }
 
     # Asset hash
     activate :asset_hash, :exts => %w(.js .css)
@@ -197,7 +205,9 @@ configure :build do
 
     # Minimise HTML
     # https://github.com/middleman/middleman-minify-html
-    activate :minify_html
+    activate :minify_html do | html |
+        html.remove_quotes = false
+    end
 
     # Favicon
     # @see https://github.com/follmann/middleman-favicon-maker
@@ -305,14 +315,3 @@ end
 #     proxy "/calendar/#{ team }.ics", "template/football/calendar.html", locals: { data: cal.to_ical }, ignore: true
 
 # end
-
-# ENV[ 'WEBPACK_ENV' ] ||= ( build? ? 'build' : 'development' )
-
-# External pipeline - Webpack
-activate :external_pipeline,
-    name:    :webpack,
-    command: build? ?
-        "./node_modules/webpack/bin/webpack.js --bail -p" :
-        "./node_modules/webpack/bin/webpack.js --watch -d",
-    source:  ".tmp",
-    latency: 1

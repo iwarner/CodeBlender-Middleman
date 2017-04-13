@@ -12,9 +12,8 @@
 -# Blog name
 - name = locals[ :name ] ? locals[ :name ] : blog_controller.name
 
--# Count Default
-- if ! locals[ :count ]
-    - count = 10
+-# Count
+- count = locals[ :count ] ? locals[ :count ] : 10
 
 -# Section - Blog Recent
 %section.blogRecent

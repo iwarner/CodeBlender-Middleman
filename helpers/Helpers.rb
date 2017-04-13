@@ -13,6 +13,70 @@
 ##
 module Helpers
 
+    # def current_path_for_locale(loc = I18n.locale, is_link = true)
+    # return 'javascript: void(0);' if is_link && I18n.locale == loc
+
+    # url_regex = /\A\/(?:(#{I18n.available_locales.join('|')})\/)?/
+    # current_page.url.gsub(url_regex, '').blank? ?
+    # home_for_locale(loc) :
+    # current_page.url.gsub(url_regex, root_for_locale(loc))
+    # end
+
+    # def path_for_locale(path, loc = I18n.locale)
+    # root_for_locale(loc) + path
+    # end
+
+    # def home_for_locale(loc = I18n.locale)
+    # root_for_locale(loc)
+    # end
+
+    # def root_for_locale(loc = I18n.locale)
+    # loc == :ja ? '/' : "/#{loc}/"
+    # end
+
+    # # Localized link_to
+    # def locale_link_to( *args, &block )
+
+    #     url_arg_index = block_given? ? 0 : 1
+    #     options_index = block_given? ? 1 : 2
+
+    #     args[ options_index ] ||= {}
+    #     options = args[options_index].dup
+    #     args[ url_arg_index ] = locale_url_for( args[ url_arg_index ], options )
+    #     link_to( *args, &block )
+    # end
+
+    # # Localized url_for
+    # def locale_url_for(url, options={})
+    # locale = options[:locale] || I18n.locale
+    # options[:relative] = false
+    # url_parts = url.split("#")
+    # url_parts[0] = extensions[:i18n].localized_path(url_parts[0], locale) ||
+    #      url_parts[0]
+    # url = url_parts.join("#")
+    # url = url_for(url, options)
+    # # Replace leading locale url segment with domain
+    # url.sub("/#{locale}/", full_url("/", locale))
+    # end
+
+    ##
+    # Locale aware links
+    # @see https://github.com/middleman/middleman/issues/1490
+    ##
+    def localePath( path, options = {} )
+
+        lang = options[ :lang ] || I18n.locale
+
+        # If current locale is the root remove the locale
+        # If path is an external link i.e. http or https
+        if extensions[ :i18n ].options[ :mount_at_root ] == lang || path.start_with?( 'http', '//' )
+            path
+        else
+            "/#{ locale }#{ path }"
+        end
+
+    end
+
     ##
     # Allows for local bools to be interpreted
     #

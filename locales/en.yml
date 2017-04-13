@@ -69,6 +69,7 @@ en:
         rights           : "&copy; 2015, DryKISS Ltd. All rights reserved."
         siteName         : "DryKISS"
         type             : "website"
+        prepend          : "DryKISS"
 
     # Navigation Above
     navAbove :
@@ -152,6 +153,15 @@ en:
             title       : "Code Blender"
             description : >
                 Code Blender
+
+    archive :
+        title : "Archive"
+
+    recent :
+        title : "Recent articles"
+
+    tags :
+        title : "Tags"
 
     # Style Guide
     styleGuide :

@@ -18,11 +18,11 @@
 
 -# Variable
 - footer      = data.footer.footer
-- extraClass  = footer.extraClass ? footer.extraClass : false
-- container   = locals[ :fluid ] ? "container-fluid" : data.footer.container
+- extraClass  = footer.extraClass      ? footer.extraClass      : false
+- container   = locals[ :fluid ]       ? "container-fluid"      : data.footer.container
 - footerClass = data.footer.extraClass ? data.footer.extraClass : false
 
--# Check to see of local sticky is false
+-# Check to see if local sticky is false
 - if ! locals[ :sticky ].nil? && ! locals[ :sticky ]
     - footerClass = footerClass.sub 'footer--sticky', ''
 
@@ -57,6 +57,7 @@
                             - icon = entry[ :icon ] ? entry[ :icon ] : false
                             = codeBlender "heading", "molecule", { extraClass: "footer__heading", icon: icon, tag: "h4", text: entry[ :title ] }
 
+                            -# Footer content
                             .footer__content
 
                                 -# If markdown
@@ -68,11 +69,20 @@
 
                                 - else
 
-                                    -# Body
-                                    = string entry[ :description ]
+                                    -# Description
+                                    - if entry[ :description ]
+
+                                        -# Body
+                                        = string entry[ :description ]
+
+                                    -# Links
+                                    - if entry[ :links ]
+
+                                        -# List
+                                        = codeBlender "list-ul", "atom", { array: entry[ :links ], extraClass: "list-unstyled" }
 
     -# Copyright
-    .copyright{ class: locals[ :center ] || data.footer.copyright.center ? "text-center" : false }
+    .copyright{ class: ( locals[ :center ] || data.footer.copyright.center ) ? "text-center" : false }
 
         -# Bootstrap container
         %div{ class: container }

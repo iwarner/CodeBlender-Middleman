@@ -1,0 +1,173 @@
+---
+
+# Angular
+angular :
+    controller   : GeoCodeController
+    controllerAs : geoCode
+
+# Meta
+description : "Google GeoCode"
+title       : "Google GeoCode"
+
+# Resources
+see :
+    - - "Google GeoCode API"
+      - "https://developers.google.com/maps/documentation/geocoding/start"
+    - - "Google GeoCode Maps"
+      - "https://developers.google.com/maps/documentation/javascript/geocoding"
+
+# Tasks
+todo :
+    - - "Complete the two examples as a service or as part of the maps client side"
+    - - "Can I detect whether the map is being used and fall back to that - or use the service"
+
+# Resource
+see :
+    - - "Geolocation with Google Maps"
+      - "http://www.paulund.co.uk/how-to-use-geolocation-api-with-google-maps"
+    - - "Responsive Map Generator"
+      - "http://yava.ro/mapgenerator/"
+    - - "Google Maps Developer"
+      - "https://developers.google.com/maps/"
+    - - "Google Maps Tutorial"
+      - "https://developers.google.com/maps/documentation/javascript/tutorial"
+    - - "HTML5 GeoLocation"
+      - "http://www.w3schools.com/html/html5_geolocation.asp"
+    - - "HTML5 GEO Demo"
+      - "http://html5demos.com/geo"
+    - - "Diving Into GeoLocation"
+      - "http://diveintohtml5.info/geolocation.html"
+    - - "GMaps JS"
+      - "http://hpneo.github.io/gmaps/examples.html"
+
+# Tasks
+todo :
+    - - "Provide a Google Map by simple creating a gmap div with some data attributes ie, data-zoom=14, data-markers"
+    - - "Handle the errors for the GeoLocation, Permission denied, Position unavailable, Timeout"
+    - - "Markers should be added to an array, draw from data-markers"
+    - - "All Maps API applications should load the Maps API using an API key"
+    - - "Info Windows if inline in the HTML they should be hidden somehow, although doing this hides them from the map too"
+    - - "Hook up the places API for starbucks searching within a Radius"
+    - - "Create options for Bing, OpenMap, Apple maps etc"
+
+---
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                 The GeoCoding service provides geocoding and reverse geocoding
+                 of addresses.
+
+                 **Geocoding* is the process of converting addresses (like a
+                 street address) into geographic coordinates (like latitude and
+                 longitude), which you can use to place markers on a map, or
+                 position the map.
+
+                 **Reverse geocoding** is the process of converting geographic
+                 coordinates into a human-readable address. The Google Maps
+                 Geocoding API's reverse geocoding service also lets you find
+                 the address for a given place ID.
+
+                By default, Firefox uses Google Location Services to determine
+                your location by sending: your computers IP address, information
+                about the nearby wireless access points, and a random client
+                identifier, which is assigned by Google, that expires every 2
+                weeks.
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Introduction" } }
+
+    -# Bootstrap column
+    .col-md-6
+
+        -# Panel body - markdown
+        - panelBody = capture_html do
+
+            -# Markdown
+            :markdown
+
+                - If you are using the Map extension then make sure the JS is loaded
+
+        -# Panel
+        = codeBlender "panel", "molecule", { body: panelBody, heading: { text: "Setup" } }
+
+%hr
+
+-# Bootstrap row
+.row
+
+    -# Bootstrap column
+    .col-md-12
+
+        -# Heading
+        = codeBlender "heading", "molecule", { tag: "h3", text: "Geocode" }
+
+        %p
+            Can take an address or placeID and coverts this into a full address
+            with geometry which can then be used in a Google Map.
+
+        -# Form - Geocode
+        %form{ name: "geoCodeForm", novalidate: true, role: "form", ng: { submit: "geoCode.submit( $event, geoCodeForm.$valid )" } }
+
+            -# Input - Address
+            = codeBlender "input", "atom/form/input",
+              { input: { name:  "address", placeholder: "Enter address", ng: { model: "geoCode.geoCodeFormData.address" }, required: true },
+                label: { title: "Address" } }
+
+            -# Select
+            - hash = [ { 'key': 'uk', 'value': 'United Kingdom' }, { 'key': 'us', 'value': 'USA' } ]
+
+            = codeBlender "select", "atom/form/select",
+              { array: hash, label: { title: "Select country" }, name: "country", ng: { init: "geoCode.geoCodeFormData.country='uk'", model: "geoCode.geoCodeFormData.country" } }
+
+            -# Button
+            = codeBlender "button", "atom", { text: "Submit", type: "submit" }
+
+        -# Results
+        %span.ng-cloak{ ng: { if: "geoCode.geoCodeAddress" } }
+
+            %dl.dl-horizontal
+                %dt Address :
+                %dd {{ geoCode.geoCodeAddress }}
+                %dt Place ID :
+                %dd {{ geoCode.geoCodePlaceID }}
+                %dt Latitude :
+                %dd {{ geoCode.geoCodeLatitude }}
+                %dt Longitude :
+                %dd {{ geoCode.geoCodeLongitude }}
+
+        %hr
+
+        -# Heading
+        = codeBlender "heading", "molecule",
+          { tag: "h3", text: "Reverse Geocode" }
+
+        %p
+            Reverse GeoCoding take a Latitude and Longitude and returns a place
+
+        -# Form - Reverse Geocode
+        %form{ name: "geoCodeReverseForm", novalidate: true, role: "form", ng: { submit: "geoCode.submitReverse( $event, geoCodeReverseForm.valid )" } }
+
+            -# Input - Latitude
+            = codeBlender "input", "atom/form/input",
+              { input: { name:  "latitude", placeholder: "Enter latitude", ng: { model: "geoCode.geoCodeReverseFormData.latitude" }, required: true },
+                label: { title: "Latitude" } }
+
+            -# Input - Longitude
+            = codeBlender "input", "atom/form/input",
+              { input: { name:  "longitude", placeholder: "Enter longitude", ng: { model: "geoCode.geoCodeReverseFormData.longitude" }, required: true },
+                label: { title: "Longitude" } }
+
+            -# Button
+            = codeBlender "button", "atom", { text: "Submit", type: "submit" }
+
+        %hr

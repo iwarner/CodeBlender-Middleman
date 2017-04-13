@@ -43,7 +43,7 @@
     -# Link To
     -# twitter-share-button
     %a.twitter{ href: twitterURL, data: data, ng: { click: "root.twitterShare()" } }
-        = codeBlender "icon", "atom", { icon: "fa-twitter-square fa-fw" }
+        = codeBlender "icon", "atom", { icon: locals[ :icon ] ? locals[ :icon ] : "fa-twitter-square fa-fw fa-3x" }
 
     -# Javascript button
 - elsif locals[ :type ] == "javascript"

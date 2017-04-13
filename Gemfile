@@ -21,7 +21,7 @@ gem "middleman-favicon-maker", git: "https://github.com/follmann/middleman-favic
 # gem "middleman-blog-similar", git: "https://github.com/Oreolek/middleman-blog-similar.git",    branch: "middleman-4"
 
 # DryKISS
-gem "middleman-drykiss-google-drive", path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-drykiss-google-drive"
+# gem "middleman-drykiss-google-drive", path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-drykiss-google-drive"
 # gem "middleman-seo-check",            path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-seo-check"
 
 # Tools
@@ -35,9 +35,16 @@ gem "google-api-client"
 # gem "filesize"
 # gem "xml-simple"
 # gem "rmagick"
-gem "mini_magick"
+# gem "mini_magick"
 # gem 'levenshtein'
 gem "piet"
+# gem "carrierwave"
+gem "google_places"
+gem "better_errors"
+
+# Images
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick', '4.5.1'
 
 # Template engines
 gem "haml"

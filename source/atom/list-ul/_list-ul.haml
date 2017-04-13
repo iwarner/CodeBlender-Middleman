@@ -50,13 +50,13 @@
                 -# link
                 - link = list[ :link ]
 
-                -# Do not want the hash if its Angular UI
-                %a{ data:   link[ :data ]   ? link[ :data ]   : false,
-                    href:   link[ :url ]    ? link[ :url ]    : false,
-                    ng:     link[ :ng ]     ? link[ :ng ]     : false,
-                    target: link[ :target ] ? link[ :target ] : false,
-                    title:  link[ :title ]  ? link[ :title ]  : false,
-                    ui:     list[ :ui ]     ? link[ :ui ]     : false }
+                -# Link To
+                = link_to( link[ :url ]            ? localePath( link[ :url ] ) : false,
+                           data:   link[ :data ]   ? link[ :data ]   : false,
+                           ng:     link[ :ng ]     ? link[ :ng ]     : false,
+                           target: link[ :target ] ? link[ :target ] : false,
+                           title:  link[ :title ]  ? link[ :title ]  : false,
+                           ui:     list[ :ui ]     ? link[ :ui ]     : false ) do
 
                     -# Icon
                     - if list[ :icon ]

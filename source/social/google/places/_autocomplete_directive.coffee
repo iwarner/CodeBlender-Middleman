@@ -57,7 +57,7 @@ angular.module 'app.directive'
                 @marker.addListener 'dragend', @handleDragEnd.bind @
 
             ##
-            # Geocode position
+            # Reverse Geocode position
             ##
             geocodePosition : ( pos ) ->
 

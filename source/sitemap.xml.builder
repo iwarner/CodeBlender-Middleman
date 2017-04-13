@@ -15,12 +15,12 @@ xml.urlset xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9" do
     # Loop through the resources
     sitemap.resources.select { | page | page.path =~ /\.html/ }.each do | page |
 
-        # Remove the channel html
-        if ! page.url.start_with?( '/channel.html' )
+        # Remove the channel and 404 resources
+        if ! page.url.start_with?( '/channel.html' ) && ! page.url.start_with?( '/404.html' )
 
             # Create the details
             xml.url do
-                xml.loc        "#{ data.config.url }#{ page.url }"
+                xml.loc        "#{ t( :url ) }#{ page.url }"
                 xml.lastmod    Date.today.to_time.iso8601
                 xml.changefreq page.data.changefreq || "weekly"
                 xml.priority   page.data.priority   || "0.5"

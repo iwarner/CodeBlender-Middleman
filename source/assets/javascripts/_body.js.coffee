@@ -56,6 +56,7 @@ require 'lib/router/default.coffee'
 ##
 require 'cbatom/clipboard/_clipboard_controller.coffee'
 require 'cbatom/video/_video_controller.coffee'
+require 'cbatom/form/validation/_validation_directive.coffee'
 
 ##
 # Molecule
@@ -82,6 +83,10 @@ require 'cbsocial/mailchimp/_mailchimp_controller.coffee'
 require 'cbsocial/twitter/tweet-button/_tweet-button_directive.coffee'
 require 'cbsocial/google/places/_autocomplete_controller.coffee'
 require 'cbsocial/google/places/_autocomplete_directive.coffee'
+
+# Geocode
+require 'cbsocial/google/geocode/_geocode_controller.coffee'
+require 'cbsocial/google/geocode/_geocode_service.coffee'
 
 ##
 # Template

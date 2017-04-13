@@ -79,15 +79,19 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
     geocodePlace = ( place ) ->
 
         # Debug
-        # $log.info "Autocomplete - GeoCode Place", place
+        $log.info "Autocomplete - GeoCode Place", place
 
+        # Get country
+        country = $( '.googlePlacesAutocomplete' ).data( 'country' )
+
+        # GeoCoder
         geocoder = new google.maps.Geocoder()
 
         # Data
         data =
             address : place
             componentRestrictions :
-                country : 'ie'
+                country : country
 
         # Geocode
         geocoder.geocode data, ( responses ) ->
@@ -95,8 +99,8 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
             if responses and responses.length > 0
 
                 # Debug
-                # $log.info "GeocodePlace - response :", responses[ 0 ].geometry.location.lat(), responses[ 0 ].geometry.location.lng(), responses[ 0 ].formatted_address
-                # $log.info "GeocodePlace - location :", responses[ 0 ].geometry.location
+                $log.info "GeocodePlace - response :", responses[ 0 ].geometry.location.lat(), responses[ 0 ].geometry.location.lng(), responses[ 0 ].formatted_address
+                $log.info "GeocodePlace - location :", responses[ 0 ].geometry.location
 
                 # Get co-ordinates
                 $rootScope.latitude  = responses[ 0 ].geometry.location.lat()
@@ -141,29 +145,33 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
         vm.showErrorYQL       = false
         vm.showErrorNoService = false
 
-        # Debug
-        # $log.info "Autocomplete - submit", $rootScope.latitude, $rootScope.longitude, $rootScope.place
-
         # If Valid
         if isValid
+
+            # Debug
+            $log.info "Autocomplete - submit valid:", $rootScope.latitude, $rootScope.longitude, $rootScope.place
 
             if ! $rootScope.latitude
 
                 # Debug
-                # $log.info "Autocomplete - valid - no location - do lookup"
+                $log.info "Autocomplete - valid - no location - do lookup"
                 geocodePlace( $rootScope.place )
 
             # Check if modal is shown
             if ! angular.element( '#placesModal' ).hasClass 'in'
 
                 # Debug
-                # $log.info "Autocomplete - valid", angular.element( '#placesModal' )
+                $log.info "Autocomplete - no modal", angular.element( '#placesModal' )
 
                 # Open up the modal window
                 angular.element( '#placesModal' ).modal 'show'
 
         # Show blank error
         else
+
+            # Debug
+            $log.info "Autocomplete - submit error:", $rootScope.latitude, $rootScope.longitude, $rootScope.place
+
             vm.showError      = true
             vm.showErrorBlank = true
 

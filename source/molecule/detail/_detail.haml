@@ -59,16 +59,21 @@
                 - author = article.data.author ? article.data.author : t( :"meta.author" )
 
                 %span{ itemprop: "author", itemscope: true, itemptype: "http://schema.org/Person" }
-                    %a{ class: "blogDetail__author", href: author_path( author, blogName ), itemprop: "url", rel: "author" }
+
+                    -# Catch exception for no author path
+                    - begin
+                        %a{ class: "blogDetail__author", href: author_path( author, blogName ), itemprop: "url", rel: "author" }
+                            %span{ itemprop: "name" }= author
+                    - rescue
                         %span{ itemprop: "name" }= author
 
-        -# Read time
-        - unless falsey locals[ :readTime ]
+        -# -# Read time
+        -# - unless falsey locals[ :readTime ]
 
-            %li
-                -# Icon
-                = codeBlender "icon", "atom", { icon: "fa-clock-o" }
-                Read time: 03 min
+        -#     %li
+        -#         -# Icon
+        -#         = codeBlender "icon", "atom", { icon: "fa-clock-o" }
+        -#         Read time: 03 min
 
         -# Show comment
         - unless falsey locals[ :comment ]

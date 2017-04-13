@@ -18,7 +18,17 @@
 - precision = 0
 - unit      = '%'
 - threshold = locals[ :threshold ] ? locals[ :threshold ] : 1
-- tags      = blog( name ).tags
+- total     = 20
+
+-# Collect the tags
+- tagMap = blog( name ).tags.map do | tag, articles |
+    - [ tag, articles.count ] if articles.count >= threshold
+
+-# Sort the tags
+- tagMap = tagMap.compact.sort_by{ | k, v | v }.reverse[ 0...total ].shuffle
+
+-# Get the minimum, and maximum tag counts
+- min, max = tagMap.map( &:last ).minmax
 
 -# Section - Tag Cloud
 %section.tagCloud
@@ -29,17 +39,8 @@
     -# Tags
     .tagCloud__tags
 
-        -# Count the Blog Tags, if they appear more than the threshold variable - default 1
-        - tagMap = tags.map do | tag, articles |
-            - [ tag, articles.count ] if articles.count >= threshold
-
-        - tagMap = tagMap.compact
-
-        -# Get the minimum, and maximum tag counts
-        - min, max = tagMap.map( &:last ).minmax
-
         -# Get the weight for each Tag
-        - tagWeight = tagMap.map do | tag, count |
+        - tagMap.each do | tag, count |
 
             -# Logarithmic distribution
             - weight = ( Math.log( count ) - Math.log( min ) ) / ( Math.log( max ) - Math.log( min ) )

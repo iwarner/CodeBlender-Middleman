@@ -8,8 +8,8 @@
 -# @author   Ian Warner <ian.warner@drykiss.com>
 -# @category meta
 -#
--# @see      https://developers.facebook.com/docs/sharing/best-practices#images
--# @see      http://ogp.me/
+-# @see https://developers.facebook.com/docs/sharing/best-practices#images
+-# @see http://ogp.me/
 -##
 
 -# URL
@@ -35,20 +35,15 @@
 -# Should be the same as the Canonical URL
 %meta{ content: url, property: "og:url" }
 
--# App ID
-- appID = data.facebook.app.id
+-# Test id
+- if development?
+    - appID = data.facebook.app.testID
 
-- if appID
+    -# App ID
+- else
+    - appID = ( appID == "locale" ) ? t( :"facebook.app.id" ) : data.facebook.app.id
 
-    -# Test id
-    - if development?
-        - appID = data.facebook.app.testID
-
-        -# App ID
-    - else
-        - appID = ( appID == "locale" ) ? t( :"facebook.app.id" ) : appID
-
-    %meta{ content: appID, property: "fb:app_id" }
+%meta{ content: appID, property: "fb:app_id" }
 
 -# Locale
 %meta{ content: t( :"facebook.locale" ), property: "og:locale" }
