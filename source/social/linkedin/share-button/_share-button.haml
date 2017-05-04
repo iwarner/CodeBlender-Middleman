@@ -31,12 +31,15 @@
 - if locals[ :summary ]
     - summary = URI::encode string( locals[ :summary ] )
 
+-# ExtraClass
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false
+
 -# Source
 -# The url-encoded source of the content (e.g. your website or application name) 200 Optional
 - source = t( :"meta.publisher" )
 
 -# LinkedIn share
-%a.linkedin{ href: "#{ linkedInPath }&url=#{ url }&title=#{ title }&summary=#{ summary }&source=#{ source }", target: "_blank" }
+%a.linkedin{ class: extraClass, href: "#{ linkedInPath }&url=#{ url }&title=#{ title }&summary=#{ summary }&source=#{ source }", target: "_blank" }
 
     -# Icon
     = codeBlender "icon", "atom", { icon: "fa-linkedin-square fa-fw" }

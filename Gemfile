@@ -20,10 +20,6 @@ gem "middleman-deploy",        git: "https://github.com/middleman-contrib/middle
 gem "middleman-favicon-maker", git: "https://github.com/follmann/middleman-favicon-maker.git",   branch: "master"
 # gem "middleman-blog-similar", git: "https://github.com/Oreolek/middleman-blog-similar.git",    branch: "middleman-4"
 
-# DryKISS
-# gem "middleman-drykiss-google-drive", path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-drykiss-google-drive"
-# gem "middleman-seo-check",            path: "/var/www/DryKiss/codeblender.io/public/extension/middleman-seo-check"
-
 # Tools
 gem "nokogiri"
 

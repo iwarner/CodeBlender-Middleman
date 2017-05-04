@@ -20,29 +20,33 @@
 
 -# Check for Aria - requires input to be present
 - if input && input[ :aria ].present?
-    - aria = input[ :aria ]
+  - aria = input[ :aria ]
 
 -# Checkbox Class
 .checkbox.form-group{ class: extraClass, show: { errors: "{showSuccess: true}" } }
 
+  -# Variable
+  - extraClass = ( ! label.nil? && label[ :extraClass ] ) ? label[ :extraClass ] : false
+
+  -# Label - note this is an array as it contains flag for screen reader
+  %label.control-label{ class: extraClass }
+
     -# Variable
-    - extraClass = ( ! label.nil? && label[ :extraClass ] ) ? label[ :extraClass ] : false
+    - extraClass = input[ :extraClass ] ? input[ :extraClass ] : false
 
-    -# Label - note this is an array as it contains flag for screen reader
-    %label.control-label{ class: extraClass }
+    -# Input
+    %input{ aria:      aria                ? aria               : false,
+            autofocus: input[ :autofocus ] ? "autofocus"        : false,
+            class:     extraClass,
+            disabled:  input[ :disabled ]  ? "disabled"         : false,
+            id:        input[ :name ]      ? input[ :name ]     : false,
+            name:      input[ :name ]      ? input[ :name ]     : false,
+            ng:        input[ :ng ]        ? input[ :ng ]       : false,
+            required:  input[ :required ]  ? "required"         : false,
+            tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
+            type:      "checkbox",
+            value:     input[ :value ]     ? input[ :value ]    : false }
 
-        -# Input
-        %input{ aria:      aria                ? aria               : false,
-                autofocus: input[ :autofocus ] ? "autofocus"        : false,
-                disabled:  input[ :disabled ]  ? "disabled"         : false,
-                id:        input[ :name ]      ? input[ :name ]     : false,
-                name:      input[ :name ]      ? input[ :name ]     : false,
-                ng:        input[ :ng ]        ? input[ :ng ]       : false,
-                required:  input[ :required ]  ? "required"         : false,
-                tabindex:  input[ :tabindex ]  ? input[ :tabindex ] : false,
-                type:      "checkbox",
-                value:     input[ :value ]     ? input[ :value ]    : false }
-
-        -# Text
-        - if label[ :title ]
-            = string label[ :title ]
+    -# Text
+    - if label[ :title ]
+      = string label[ :title ]

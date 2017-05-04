@@ -16,16 +16,16 @@
 -# Capture the list content
 - capture = capture_html do
 
-    -# Add defaults for navigation dropdown button
-    - button[ :data ]     = { toggle: "dropdown" }
-    - button[ :dropdown ] = true
-    - button[ :href ]     = "javascript:;"
+  -# Add defaults for navigation dropdown button
+  - button[ :data ]     = { toggle: "dropdown" }
+  - button[ :dropdown ] = true
+  - button[ :href ]     = "javascript:;"
 
-    -# Button
-    = codeBlender "button", "atom", button
+  -# Button
+  = codeBlender "button", "atom", button
 
-    -# List
-    = codeBlender "list-dropdown", "atom", locals[ :list ]
+  -# List
+  = codeBlender "list-dropdown", "atom", locals[ :list ]
 
 -# Variable
 - extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false

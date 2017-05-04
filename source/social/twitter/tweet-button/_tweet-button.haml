@@ -34,6 +34,9 @@
 -# Size
 - data[ :size ] = locals[ :size ] ? locals[ :size ] : "default"
 
+-# ExtraClass
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false
+
 -# URL
 - twitterURL = "https://twitter.com/intent/tweet?url=#{ data[ :url ] }&lang=#{ data[ :lang ] }"
 
@@ -42,14 +45,14 @@
 
     -# Link To
     -# twitter-share-button
-    %a.twitter{ href: twitterURL, data: data, ng: { click: "root.twitterShare()" } }
+    %a.twitter{ class: extraClass, href: twitterURL, data: data, ng: { click: "root.twitterShare()" } }
         = codeBlender "icon", "atom", { icon: locals[ :icon ] ? locals[ :icon ] : "fa-twitter-square fa-fw fa-3x" }
 
     -# Javascript button
 - elsif locals[ :type ] == "javascript"
 
     -# Link
-    = link_to( "javascript:;", class: "twitterShareButton", "data-url": "#{ data[ :url ] }", "data-hashtag": data[ :hashtags ], "data-text": data[ :text ] ) do
+    = link_to( "javascript:;", class: "#{ extraClass } twitterShareButton", "data-url": "#{ data[ :url ] }", "data-hashtag": data[ :hashtags ], "data-text": data[ :text ] ) do
 
         -# Icon
         = codeBlender "icon", "atom", { icon: locals[ :icon ] ? locals[ :icon ] : "fa-twitter-square fa-fw fa-3x" }
@@ -59,7 +62,7 @@
 
     -# Link
     -# &text=#{ URI.encode( data[ :text ] )
-    = link_to( "https://twitter.com/intent/tweet?url=#{ URI.encode( data[ :url ] ) }" ) do
+    = link_to( "https://twitter.com/intent/tweet?url=#{ URI.encode( data[ :url ] ) }", class: extraClass ) do
 
         -# Icon
         = codeBlender "icon", "atom", { icon: locals[ :icon ] ? locals[ :icon ] : "fa-twitter-square fa-fw fa-3x" }
