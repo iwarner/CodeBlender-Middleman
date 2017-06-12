@@ -17,86 +17,86 @@
 -# Article
 %article.article{ role: "article", itemscope: true, itemtype: "http://schema.org/BlogPosting" }
 
-    -# Article header
-    %header.article__header
+  -# Article header
+  %header.article__header
 
-        -# Image process
-        - unless falsey locals[ :image ]
+    -# Image process
+    - unless falsey locals[ :image ]
 
-            -# Does an image exists in the front matter
-            - if article.data.image
+      -# Does an image exists in the front matter
+      - if article.data.image
 
-                .article__image
+        .article__image
 
-                    -# Image
-                    = codeBlender "image", "atom", { alt: article.title, extraClass: "img-responsive", src: article.data.image }
+          -# Image
+          = codeBlender "image", "atom", { alt: article.title, extraClass: "img-responsive", src: article.data.image }
 
-                    -# SVG slant
-                    <svg class="article__slant" viewBox="0 0 750 77" xmlns="http://www.w3.org/2000/svg"><path d="M0 76.017h750L469.722 47.69.238.237" fill="#fff" fill-rule="evenodd"/></svg>
+          -# SVG slant
+          <svg class="article__slant" viewBox="0 0 750 77" xmlns="http://www.w3.org/2000/svg"><path d="M0 76.017h750L469.722 47.69.238.237" fill="#fff" fill-rule="evenodd"/></svg>
 
-        -# Breadcrumb process
-        - unless falsey locals[ :breadcrumb ]
+    -# Breadcrumb process
+    - unless falsey locals[ :breadcrumb ]
 
-            -# Breadcrumb
-            = codeBlender "breadcrumb", "molecule", { extraClass: "article__breadcrumb", title: article.title }
+      -# Breadcrumb
+      = codeBlender "breadcrumb", "molecule", { extraClass: "article__breadcrumb", title: article.title }
 
-        -# Category
-        - unless falsey locals[ :category ]
+    -# Category
+    - unless falsey locals[ :category ]
 
-            - if article.data.category
+      - if article.data.category
 
-                .article__category
-                    - begin
-                        = link_to category_path( article.data.category ) do
-                            - article.data.category.upcase
-                    - rescue
-                        = article.data.category.upcase
+        .article__category
+          - begin
+            = link_to category_path( article.data.category ) do
+              - article.data.category.upcase
+          - rescue
+            = article.data.category.upcase
 
-        -# Heading - article H1
-        = codeBlender "heading", "molecule",
-          { extraClass: "article__heading heading--noMargin",
-            rel:        "bookmark",
-            small:      article.data.small   ? article.data.small   : false,
-            text:       article.data.heading ? article.data.heading : article.title,
-            itemprop:   "name headline" }
+    -# Heading - article H1
+    = codeBlender "heading", "molecule",
+      { extraClass: "article__heading heading--noMargin",
+        rel:        "bookmark",
+        small:      article.data.small   ? article.data.small   : false,
+        text:       article.data.heading ? article.data.heading : article.title,
+        itemprop:   "name headline" }
 
-        -# Article detail
-        - unless falsey locals[ :detail ]
+    -# Article detail
+    - unless falsey locals[ :detail ]
 
-            -# Date time
-            -# Author - link this
-            -# Social
-                -# Facebook
-                -# Add Pinterest, Google, LinkedIn, Twitter
-            -# Tags
-            -# Need to include the category
-            = codeBlender "detail", "molecule", { article: article, author: true, cal: true, comment: false, social: true, tags: true }
+      -# Date time
+      -# Author - link this
+      -# Social
+        -# Facebook
+        -# Add Pinterest, Google, LinkedIn, Twitter
+      -# Tags
+      -# Need to include the category
+      = codeBlender "detail", "molecule", { article: article, author: true, cal: true, comment: false, social: true, tags: true }
 
-    -# Yield
-    .article__content
-        %span{ itemprop: "text" }= article.body
+  -# Yield
+  .article__content
+    %span{ itemprop: "text" }= article.body
 
-    -# Article footer
-    %footer
+  -# Article footer
+  %footer
 
-        -# Pager check
-        - unless falsey locals[ :pager ]
+    -# Pager check
+    - unless falsey locals[ :pager ]
 
-            -# Pager variables
-            - prevPage = article.previous_article ? article.previous_article : false
-            - nextPage = article.next_article     ? article.next_article     : false
+      -# Pager variables
+      - prevPage = article.previous_article ? article.previous_article : false
+      - nextPage = article.next_article     ? article.next_article     : false
 
-            -# Pager
-            = codeBlender "pager", "molecule", { prevPage: prevPage, nextPage: nextPage }
+      -# Pager
+      = codeBlender "pager", "molecule", { prevPage: prevPage, nextPage: nextPage }
 
-        -# Disqus comment
-        - if article.data.commentDisqus
+    -# Disqus comment
+    - if article.data.commentDisqus
 
-            -# Disqus comment
-            = codeBlender "disqus-comment", "organism"
+      -# Disqus comment
+      = codeBlender "disqus-comment", "organism"
 
-        -# Facebook comment
-        - if article.data.commentFacebook
+    -# Facebook comment
+    - if article.data.commentFacebook
 
-            -# Facebook comment
-            = codeBlender "comment", "social/facebook/comment"
+      -# Facebook comment
+      = codeBlender "comment", "social/facebook/comment"

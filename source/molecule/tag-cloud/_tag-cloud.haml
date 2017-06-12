@@ -25,7 +25,10 @@
     - [ tag, articles.count ] if articles.count >= threshold
 
 -# Sort the tags
-- tagMap = tagMap.compact.sort_by{ | k, v | v }.reverse[ 0...total ].shuffle
+- tagMap = tagMap.compact.sort_by{ | k, v | v }.reverse[ 0...total ]
+
+-# Shuffling the tags means a complete re-write each time
+-# - tagMap = tagMap.compact.sort_by{ | k, v | v }.reverse[ 0...total ].shuffle
 
 -# Get the minimum, and maximum tag counts
 - min, max = tagMap.map( &:last ).minmax

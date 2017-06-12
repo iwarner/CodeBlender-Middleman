@@ -16,34 +16,34 @@
 - url = t( :url ) + current_page.url
 
 -# Og Title
-%meta{ content: configuration( "title" ), property: "og:title" }
+%meta{ content: configuration( 'title' ), property: 'og:title' }
 
 -# Og Description
-%meta{ content: configuration( "description" ), name: "description", property: "og:description" }
+%meta{ content: configuration( 'description' ), name: 'description', property: 'og:description' }
 
 -# Image
 -# Should be a full URL including domain
-%meta{ property: "og:image", content: t( :url ) + configuration( "image" ) }
+%meta{ property: 'og:image', content: t( :url ) + configuration( 'image' ) }
 
 -# Site name
-%meta{ content: configuration( "siteName" ), property: "og:site_name" }
+%meta{ content: configuration( 'siteName' ), property: 'og:site_name' }
 
 -# Type
-%meta{ property: "og:type", content: configuration( "type" ) }
+%meta{ property: 'og:type', content: configuration( 'type' ) }
 
 -# URL
 -# Should be the same as the Canonical URL
-%meta{ content: url, property: "og:url" }
+%meta{ content: url, property: 'og:url' }
 
 -# Test id
 - if development?
-    - appID = data.facebook.app.testID
+  - appID = data.facebook.app.testID
 
-    -# App ID
+  -# App ID
 - else
-    - appID = ( appID == "locale" ) ? t( :"facebook.app.id" ) : data.facebook.app.id
+  - appID = ( appID == 'locale' ) ? t( :'facebook.app.id' ) : data.facebook.app.id
 
-%meta{ content: appID, property: "fb:app_id" }
+%meta{ content: appID, property: 'fb:app_id' }
 
 -# Locale
-%meta{ content: t( :"facebook.locale" ), property: "og:locale" }
+%meta{ content: t( :'facebook.locale' ), property: 'og:locale' }

@@ -10,40 +10,40 @@
 -##
 
 -# Prepend
-- prepend = I18n.exists?( :"meta.prepend" ) ? " - #{ string( :"meta.prepend" ) }" : ""
+- prepend = I18n.exists?( :'meta.prepend' ) ? " - #{ string( :'meta.prepend' ) }" : ''
 
 -# Title
-%title= "#{ configuration( "title" ) }#{ prepend }"
+%title= "#{ configuration( 'title' ) }#{ prepend }"
 
 -# Encoding
-%meta{ charset: "utf-8" }
+%meta{ charset: 'utf-8' }
 
 -# Meta Tags for IE2
-%meta{ content: "IE=edge,chrome=1", http: { equiv: "X-UA-Compatible" } }
+%meta{ content: 'IE=edge,chrome=1', http: { equiv: 'X-UA-Compatible' } }
 
 -# Description
-%meta{ name: "description", content: configuration( "description" ) }
+%meta{ name: 'description', content: configuration( 'description' ) }
 
 -# Keywords
-%meta{ name: "keywords", content: configuration( "description" ) }
+%meta{ name: 'keywords', content: configuration( 'description' ) }
 
 -# Author
-%meta{ name: "author", content: configuration( "author" ) }
+%meta{ name: 'author', content: configuration( 'author' ) }
 
 -# Robots
-%meta{ name: "robots", content: "index,follow,archive" }
+%meta{ name: 'robots', content: 'index,follow,archive' }
 
 -# Canonical
-%meta{ rel: "canonical", href: t( :url ) + current_page.url }
+%meta{ rel: 'canonical', href: t( :url ) + current_page.url }
 
 -# CSRF Token
--# %meta{ name: "csrf-token", content: Random.new_seed }
+-# %meta{ name: 'csrf-token', content: Random.new_seed }
 
 -# Cordova CDV File
--# %meta{ content: "default-src * 'unsafe-eval' 'unsafe-inline'", http: { equiv: "Content-Security-Policy" } }
+-# %meta{ content: 'default-src * 'unsafe-eval' 'unsafe-inline'', http: { equiv: 'Content-Security-Policy' } }
 
-- if build?
-
-    %meta{ http: { equiv: "last-modified" }, content: Time.parse( Time.now.to_s ).httpdate }
-    %meta{ http: { equiv: "cache-control", content: "Private" } }
-    %meta{ http: { equiv: "Expires", content: "600" } }
+-# Produce some caching headers
+- if build? and data.config.cache
+  %meta{ http: { equiv: 'last-modified' }, content: Time.parse( Time.now.to_s ).httpdate }
+  %meta{ http: { equiv: 'cache-control', content: 'Private' } }
+  %meta{ http: { equiv: 'Expires', content: '600' } }

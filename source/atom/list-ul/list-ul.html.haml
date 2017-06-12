@@ -1,68 +1,66 @@
 ---
-
 # Meta
-description : "List UL"
-title       : "List UL"
+description : 'List UL'
+title       : 'List UL'
 
 list :
-    - text : "Lorem ipsum dolor sit amet"
-    - text : "Facilisis in pretium nisl aliquet"
+  - text : 'Lorem ipsum dolor sit amet'
+  - text : 'Facilisis in pretium nisl aliquet'
 
 list1 :
-    - text       : "Lorem ipsum dolor sit amet"
-      extraClass : "popMe"
-      status     : "active"
-      data       :
-        container      : "body"
-        content        : "This feature is not available in this survey."
-        placement      : "auto"
-        original-title : "GfK Research"
-    - text : "Drykiss SEO and developement"
-      link :
-        url    : "http://drykiss.com"
-        target : "_blank"
+  - text       : 'Lorem ipsum dolor sit amet'
+    extraClass : 'popMe'
+    status     : 'active'
+    data       :
+      container      : 'body'
+      content        : 'This feature is not available in this survey.'
+      placement      : 'auto'
+      original-title : 'GfK Research'
+  - text : 'Drykiss SEO and developement'
+    link :
+      url    : 'http://drykiss.com'
+      target : '_blank'
 
 see :
-    - - "Bootstrap List"
-      - "http://getbootstrap.com/css/#type-lists"
+  - - 'Bootstrap List'
+    - 'http://getbootstrap.com/css/#type-lists'
 
 todo :
-    - - "Need to push in another list for unordered lists also"
-    - - "Show some examples of how to use frontmatter arrays, inline arrays, data arrays"
-
+  - - 'Need to push in another list for unordered lists also'
+  - - 'Show some examples of how to use frontmatter arrays, inline arrays, data arrays'
 ---
 
 -# Unordered List
 :ruby
-    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list }}
+  code = %{codeBlender 'list-ul', 'atom', { array: current_page.data.list }}
 
 -# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Unordered List" } }
+= codeBlender 'code', 'molecule', { code: code, heading: { text: 'Unordered List' } }
 
 -# Ordered List
 :ruby
-    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, type: "ol" }}
+  code = %{codeBlender 'list-ul', 'atom', { array: current_page.data.list, type: 'ol' }}
 
 -# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Ordered List" } }
+= codeBlender 'code', 'molecule', { code: code, heading: { text: 'Ordered List' } }
 
 -# Unstyled List
 :ruby
-    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, extraClass: "list-unstyled" }}
+  code = %{codeBlender 'list-ul', 'atom', { array: current_page.data.list, extraClass: 'list-unstyled' }}
 
 -# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Unstyled List" } }
+= codeBlender 'code', 'molecule', { code: code, heading: { text: 'Unstyled List' } }
 
 -# In-line List
 :ruby
-    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list, extraClass: "list-inline" }}
+  code = %{codeBlender 'list-ul', 'atom', { array: current_page.data.list, extraClass: 'list-inline' }}
 
 -# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "In-line List" } }
+= codeBlender 'code', 'molecule', { code: code, heading: { text: 'In-line List' } }
 
 -# Inline List Linked
 :ruby
-    code = %{codeBlender "list-ul", "atom", { array: current_page.data.list1, extraClass: "list-inline" }}
+  code = %{codeBlender 'list-ul', 'atom', { array: current_page.data.list1, extraClass: 'list-inline' }}
 
 -# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Inline List Linked" } }
+= codeBlender 'code', 'molecule', { code: code, heading: { text: 'Inline List Linked' } }

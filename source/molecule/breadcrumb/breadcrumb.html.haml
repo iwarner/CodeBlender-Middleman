@@ -1,31 +1,31 @@
 ---
-
-description : "Breadcrumb to highlight a navigation path"
-title       : "Breadcrumb to highlight a navigation path"
+description : 'Breadcrumb to highlight a navigation path'
+title       : 'Breadcrumb to highlight a navigation path'
 
 # See
 see :
-    - - "Bootstrap breadcrumb"
-      - "http://getbootstrap.com/components/#breadcrumbs"
-    - - "Micro format"
-      - "https://developers.google.com/structured-data/breadcrumbs"
-    - - "Accessibility"
-      - "http://www.uvd.co.uk/blog/accessible-breadcrumbs-using-aria/"
-    - - "Usability"
-      - "http://ui-patterns.com/patterns/Breadcrumbs"
-    - - "Middleman breadcrumbs"
-      - "https://github.com/marnen/middleman-breadcrumbs"
+  - - 'Bootstrap breadcrumb'
+    - 'http://getbootstrap.com/components/#breadcrumbs'
+  - - 'Micro format'
+    - 'https://developers.google.com/structured-data/breadcrumbs'
+  - - 'Accessibility'
+    - 'http://www.uvd.co.uk/blog/accessible-breadcrumbs-using-aria/'
+  - - 'Usability'
+    - 'http://ui-patterns.com/patterns/Breadcrumbs'
+  - - 'Middleman breadcrumbs'
+    - 'https://github.com/marnen/middleman-breadcrumbs'
+  - - 'Google feature guide'
+    - 'https://developers.google.com/search/docs/data-types/breadcrumbs'
 
 # Todo
 todo :
-    - - "Complete the Aria and Micro format for this partial"
-    - - "Not working in current state - need to get the parent and child of the page perhaps from the resource"
-
+  - - 'Complete the Aria and Micro format for this partial'
+  - - 'Not working in current state - need to get the parent and child of the page perhaps from the resource'
 ---
 
 -# Default
 :ruby
-    code = %{codeBlender "breadcrumb", "molecule", { array: current_page.data.breadcrumbs, title: current_page.data.title }}
+  code = %{codeBlender 'breadcrumb', 'molecule', { array: current_page.data.breadcrumbs, title: current_page.data.title }}
 
 -# Code
-= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }
+= codeBlender 'code', 'molecule', { code: code, heading: { text: 'Default' } }

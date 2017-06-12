@@ -8,7 +8,8 @@
 -#
 -# @usage
 -# -# List
--# = codeBlender "list-ul", "atom", { array: current_page.data.list, type: "ol" }
+-# = codeBlender 'list-ul', 'atom',
+-#   { array: current_page.data.list, type: 'ol' }
 -#
 -# @param array
 -# @param extraClass
@@ -19,63 +20,75 @@
 -##
 
 -# Type UL or OL
-- if ! locals[ :type ]
-    - type = "ul"
+- if ! locals[:type]
+  - type = 'ul'
 
 -# Capture content
 - captureHTML = capture_html do
 
-    -# Loop through the list array
-    - locals[ :array ].each do | list |
+  -# Loop through the list array
+  - locals[:array].each.with_index do | list, index |
 
-        -# Active
-        - classes = list[ :active ] ? "active" : ""
+    -# Active
+    - extraClass = list[:active] ? 'active' : ''
 
-        -# Extra class
-        - classes += list[ :extraClass ] ? " #{ list[ :extraClass ] }" : ""
+    -# Extra class
+    - extraClass += list[:extraClass] ? ' #{ list[:extraClass] }' : ''
 
-        -# Status
-        - classes += list[ :status ] ? " #{ list[ :status ] }" : ""
+    -# Status
+    - extraClass += list[:status] ? ' #{ list[:status] }' : ''
 
-        -# List Item
-        %li{ class: ! classes.empty?    ? classes                        : false,
-             data:  list[ :data ]       ? list[ :data ]                  : false,
-             ng:    list[ :ng ]         ? list[ :ng ]                    : false,
-             ui:    list[ :ui ]         ? { sref: { active: "active" } } : false,
-             role:  locals[ :dropdown ] ? "presentation"                 : false }
+    -# List Item
+    %li{ class: !extraClass.empty? ? extraClass                     : false,
+         data:  list[:data]        ? list[:data]                    : false,
+         itemprop: 'itemListElement',
+         itemscope: true,
+         itemtype: 'http://schema.org/ListItem',
+         ng:    list[:ng]          ? list[:ng]                      : false,
+         ui:    list[:ui]          ? { sref: { active: 'active' } } : false,
+         role:  locals[:dropdown]  ? 'presentation'                 : false }
 
-            -# If URL is present then show a link
-            - if list[ :link ]
+      -# If URL is present then show a link
+      - if list[:link]
 
-                -# link
-                - link = list[ :link ]
+        -# link
+        - link = list[:link]
 
-                -# Link To
-                = link_to( link[ :url ]            ? localePath( link[ :url ] ) : false,
-                           data:   link[ :data ]   ? link[ :data ]   : false,
-                           ng:     link[ :ng ]     ? link[ :ng ]     : false,
-                           target: link[ :target ] ? link[ :target ] : false,
-                           title:  link[ :title ]  ? link[ :title ]  : false,
-                           ui:     list[ :ui ]     ? link[ :ui ]     : false ) do
+        -# Link To
+        = link_to( link[:url]            ? localePath( link[:url] ) : false,
+                   data:   link[:data]   ? link[:data]   : false,
+                   itemprop: 'item',
+                   itemscope: true,
+                   itemtype: 'http://schema.org/Thing',
+                   ng:     link[:ng]     ? link[:ng]     : false,
+                   target: link[:target] ? link[:target] : false,
+                   title:  link[:title]  ? link[:title]  : false,
+                   ui:     list[:ui]     ? link[:ui]     : false ) do
 
-                    -# Icon
-                    - if list[ :icon ]
-                        = codeBlender "icon", "atom", { icon: list[ :icon ] }
+          -# Icon
+          - if list[:icon]
+            = codeBlender 'icon', 'atom', { icon: list[:icon] }
 
-                    -# Text
-                    - if list[ :text ]
-                        = string list[ :text ]
+          -# Text
+          - if list[:text]
+            = string list[:text]
 
-                -# No link required
-            - else
-                = string list[ :text ]
+        -# No link required
+      - else
+        %span{ itemprop: 'name' }
+          = string list[:text]
 
--# Navbar flag
-- if locals[ :navBar ]
-    = captureHTML
+      %meta{ itemprop: 'position', content: index+1}
+
+-# Navbar flag - Does not need an opening tag
+- if locals[:navBar]
+  = captureHTML
 
 - else
+  -# Structured data
+  - itemType  = locals[:itemType] ? locals[:itemType] : false
+  - itemScope = itemType ? true : false
 
-    -# HAML tag
-    - haml_tag type, { class: locals[ :extraClass ] } do
-        = captureHTML
+  -# HAML tag
+  - haml_tag type, { class: locals[:extraClass], itemscope: itemScope, itemtype: itemType } do
+    = captureHTML

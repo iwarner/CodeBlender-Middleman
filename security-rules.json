@@ -1,56 +1,56 @@
 {
-   "rules": {
+"rules": {
 
-      ".read"  : false,
-      ".write" : false,
+".read"  : false,
+".write" : false,
 
-      "syncedValue" :
-      {
-         ".read"     : true,
-         ".write"    : true,
-         ".validate" : "newData.isString() && newData.val().length <= 100"
-      },
+"syncedValue" :
+{
+".read"     : true,
+".write"    : true,
+".validate" : "newData.isString() && newData.val().length <= 100"
+},
 
-      "messages" :
-      {
-         ".read" : true,
+"messages" :
+{
+".read" : true,
 
-         "$message" :
-         {
-            ".write"    : true,
-            ".validate" : "newData.hasChildren(['text'])",
+"$message" :
+{
+".write"    : true,
+".validate" : "newData.hasChildren(['text'])",
 
-            "text" :
-            {
-               ".validate" : "newData.isString() && newData.val().length <= 1000"
-            },
+"text" :
+{
+".validate" : "newData.isString() && newData.val().length <= 1000"
+},
 
-            "$other" :
-            {
-               ".validate" : false
-            }
-         }
-      },
+"$other" :
+{
+".validate" : false
+}
+}
+},
 
-      "users" : {
+"users" : {
 
-         "$user" : {
+"$user" : {
 
-            ".read"  : "auth.uid === $user",
-            ".write" : "auth.uid === $user && (!newData.exists() || newData.hasChildren())",
+".read"  : "auth.uid === $user",
+".write" : "auth.uid === $user && (!newData.exists() || newData.hasChildren())",
 
-            "name" : {
-               ".validate" : "newData.isString() && newData.val().length <= 2000"
-            },
+"name" : {
+".validate" : "newData.isString() && newData.val().length <= 2000"
+},
 
-            "email" : {
-               ".validate" : "newData.isString() && newData.val().length <= 2000"
-            },
+"email" : {
+".validate" : "newData.isString() && newData.val().length <= 2000"
+},
 
-            "$other" : {
-               ".validate" : false
-            }
-         }
-      }
-   }
+"$other" : {
+".validate" : false
+}
+}
+}
+ }
 }

@@ -17,13 +17,11 @@
 
 // Module
 //----------------------------------------------------------------------------//
-$module : 'breadcrumb';
+$module: 'breadcrumb';
 
 // Breadcrumb
 //----------------------------------------------------------------------------//
 .#{ $module } {
-
-    border-bottom : 1px #ddd solid;
-    border-radius : 0;
-
+  border-bottom: 1px #ddd solid;
+  border-radius: 0;
 }

@@ -18,46 +18,46 @@ angular.module 'app.directive'
 ##
 .directive 'clearBtn', [
 
-    '$parse'
+  '$parse'
 
-    ( $parse ) ->
+  ( $parse ) ->
 
-        link : ( scope, elm, attr, ngModelCtrl ) ->
+    link : ( scope, elm, attr, ngModelCtrl ) ->
 
-            # elm.wrap '<div style=\'position: relative\'></div>'
+      # elm.wrap '<div style=\'position: relative\'></div>'
 
-            btn        = '<span id=' + Math.round( Math.random() * 1000000000 ) + ' class="clear-button ng-hide fi flaticon-close"></span>'
-            angularBtn = angular.element( btn )
+      btn        = '<span id=' + Math.round( Math.random() * 1000000000 ) + ' class="clear-button ng-hide fi flaticon-close"></span>'
+      angularBtn = angular.element( btn )
 
-            elm.after angularBtn
+      elm.after angularBtn
 
-            # clear the input
-            angularBtn.on 'click', ( event ) ->
+      # clear the input
+      angularBtn.on 'click', ( event ) ->
 
-                # Set the triggers
-                elm.val( '' ).trigger( 'change' ).trigger 'keyup'
+        # Set the triggers
+        elm.val( '' ).trigger( 'change' ).trigger 'keyup'
 
-                $parse( attr.ngModel ).assign scope, ''
-                scope.$apply()
+        $parse( attr.ngModel ).assign scope, ''
+        scope.$apply()
 
-                return
+        return
 
-            # show  clear btn  on focus
-            elm.bind 'focus keyup change paste propertychange', ( blurEvent ) ->
+      # show  clear btn  on focus
+      elm.bind 'focus keyup change paste propertychange', ( blurEvent ) ->
 
-                if elm.val() and elm.val().length > 0
-                    angularBtn.removeClass 'ng-hide'
-                else
-                    angularBtn.addClass 'ng-hide'
-                return
+        if elm.val() and elm.val().length > 0
+          angularBtn.removeClass 'ng-hide'
+        else
+          angularBtn.addClass 'ng-hide'
+        return
 
-            # Remove clear btn on focus
-            elm.bind 'blur', ( blurEvent ) ->
+      # Remove clear btn on focus
+      elm.bind 'blur', ( blurEvent ) ->
 
-                if !angularBtn.is( ':hover' )
-                    angularBtn.addClass 'ng-hide'
-                return
+        if !angularBtn.is( ':hover' )
+          angularBtn.addClass 'ng-hide'
+        return
 
-            return
+      return
 
 ]

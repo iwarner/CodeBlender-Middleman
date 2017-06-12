@@ -11,10 +11,7 @@
 ##
 # Controller
 ##
-AutocompleteController = ( $http, $log, $rootScope, $window ) ->
-
-    # Debug
-    # $log.info "Autocomplete - controller"
+AutocompleteController = ( $http, $rootScope, $window ) ->
 
     # This
     vm = this
@@ -38,9 +35,6 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
     ##
     addMarker = ( position, map ) ->
 
-        # Debug
-        # $log.info "addMarker", position, map
-
         # Remove marker
         if @marker
             @marker.setMap null
@@ -60,9 +54,6 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
     ##
     handleDragEnd = ( event ) ->
 
-        # Debug
-        # $log.info "handleDragEnd", event, event.latLng.lat(), event.latLng.lng()
-
         # Save to Rootscope
         $rootScope.latitude  = event.latLng.lat()
         $rootScope.longitude = event.latLng.lng()
@@ -77,9 +68,6 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
     # https://maps.googleapis.com/maps/api/js/GeocodeService.Search?4sliffey&7sUS&8m2&1scountry&2sie&9sen-GB&key=AIzaSyAyr59mULbjJrOHIIMyd_KA9PH8EkLkEoU&callback=_xdc_._wzdz2k&token=76781
     ##
     geocodePlace = ( place ) ->
-
-        # Debug
-        $log.info "Autocomplete - GeoCode Place", place
 
         # Get country
         country = $( '.googlePlacesAutocomplete' ).data( 'country' )
@@ -97,10 +85,6 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
         geocoder.geocode data, ( responses ) ->
 
             if responses and responses.length > 0
-
-                # Debug
-                $log.info "GeocodePlace - response :", responses[ 0 ].geometry.location.lat(), responses[ 0 ].geometry.location.lng(), responses[ 0 ].formatted_address
-                $log.info "GeocodePlace - location :", responses[ 0 ].geometry.location
 
                 # Get co-ordinates
                 $rootScope.latitude  = responses[ 0 ].geometry.location.lat()
@@ -125,10 +109,6 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
                     $rootScope.map.setCenter responses[ 0 ].geometry.location
 
             else
-
-                # Debug
-                # $log.info "No address"
-
                 return "No address"
 
     ##
@@ -148,30 +128,16 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
         # If Valid
         if isValid
 
-            # Debug
-            $log.info "Autocomplete - submit valid:", $rootScope.latitude, $rootScope.longitude, $rootScope.place
-
             if ! $rootScope.latitude
-
-                # Debug
-                $log.info "Autocomplete - valid - no location - do lookup"
                 geocodePlace( $rootScope.place )
 
             # Check if modal is shown
             if ! angular.element( '#placesModal' ).hasClass 'in'
-
-                # Debug
-                $log.info "Autocomplete - no modal", angular.element( '#placesModal' )
-
                 # Open up the modal window
                 angular.element( '#placesModal' ).modal 'show'
 
         # Show blank error
         else
-
-            # Debug
-            $log.info "Autocomplete - submit error:", $rootScope.latitude, $rootScope.longitude, $rootScope.place
-
             vm.showError      = true
             vm.showErrorBlank = true
 
@@ -180,17 +146,12 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
     ##
     # Find food confirm on modal
     ##
-    vm.confirm = ->
+    vm.confirm = (url) ->
 
         # Errors
         vm.showErrorBlank     = false
         vm.showErrorYQL       = false
         vm.showErrorNoService = false
-
-        # Debug
-        # $log.info "Autocomplete - confirm"
-
-        url = angular.element( 'body' ).data( 'url' )
 
         # Set the data for the call
         data =
@@ -206,15 +167,8 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
         # Then
         .then ( ( response ) ->
 
-            # Debug
-            # $log.info "Autocomplete - status", response.statusText
-
             # URL
             if response.data.query.results.json.url
-
-                # Debug
-                # $log.info "Autocomplete controller - Success:", response.statusText
-
                 # Hide errors
                 vm.showError = false
 
@@ -223,11 +177,8 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
 
             else
 
-                # Debug
-                # $log.info "Autocomplete controller - Bad request:", response.statusText
-
                 # Close modal
-                angular.element( '#placesModal' ).modal 'hide'
+                angular.element('#placesModal').modal 'hide'
 
                 # If there is an error close the modal and display the error message
                 vm.showError          = true
@@ -235,10 +186,6 @@ AutocompleteController = ( $http, $log, $rootScope, $window ) ->
 
         # Error
         ), ( response ) ->
-
-            # Debug
-            # $log.info "Autocomplete controller - error:", response.statusText
-
             vm.showError    = true
             vm.showErrorYQL = true
             vm.errorMessage = response.data.error.description
@@ -255,7 +202,6 @@ angular
 ##
 AutocompleteController.$inject = [
     '$http'
-    '$log'
     '$rootScope'
     '$window'
 ]

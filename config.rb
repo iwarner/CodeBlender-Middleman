@@ -20,18 +20,10 @@ require "football/fixture"
 # Load football helpers
 helpers FootballHelpers
 
-# Autoprefixer
-# activate :autoprefixer, browsers: [
-#   "last 2 versions"
-# ]
-
 # Syntax
 # @see https://github.com/middleman/middleman-syntax
 # :line_numbers => true
 activate :syntax
-
-# Levenshtein distance function:
-# activate :similar # , :algorithm => :levenshtein by default.
 
 # Variables
 config[ :layout ]          = "sidebarLeft"
@@ -59,8 +51,8 @@ locales = [ :en ]
 # @see https://middlemanapp.com/advanced/localization/
 # @see http://www.rubydoc.info/github/svenfuchs/i18n/I18n
 activate :i18n do | i |
-    i.locales       = locales
-    i.mount_at_root = mount
+  i.locales       = locales
+  i.mount_at_root = mount
 end
 
 ##
@@ -68,11 +60,11 @@ end
 # ENV[ 'WEBPACK_ENV' ] ||= ( build? ? 'build' : 'development' )
 ##
 activate :external_pipeline do | i |
-    i.name                         = :webpack
-    i.command                      = build? ? './node_modules/webpack/bin/webpack.js --bail -p' : './node_modules/webpack/bin/webpack.js --watch'
-    i.source                       = ".tmp"
-    i.latency                      = 1
-    i.disable_background_execution = false
+  i.name                         = :webpack
+  i.command                      = build? ? './node_modules/webpack/bin/webpack.js --bail -p' : './node_modules/webpack/bin/webpack.js --watch'
+  i.source                       = ".tmp"
+  i.latency                      = 1
+  i.disable_background_execution = false
 end
 
 # Blog
@@ -80,45 +72,43 @@ end
 # @see https://elenichappen.svbtle.com/getting-tags-to-work-with-middlemans-blog-gem
 activate :blog do | blog |
 
-    blog.name              = "docs"
-    blog.prefix            = "docs"
-    blog.default_extension = ".md"
+  blog.name              = "docs"
+  blog.prefix            = "docs"
+  blog.default_extension = ".md"
 
-    blog.permalink         = "{category}/{title}.html"
-    blog.sources           = ":title.html"
+  blog.permalink         = "{category}/{title}.html"
+  blog.sources           = ":title.html"
 
-    blog.layout            = "articleThree"
-    blog.summary_separator = /(READMORE)/
-    blog.summary_length    = 250
+  blog.layout            = "articleThree"
+  blog.summary_separator = /(READMORE)/
+  blog.summary_length    = 250
 
-    blog.calendar_template = "template/blog-calendar/blog-calendar.html"
-    blog.year_link         = "/calendar/:year.html"
-    blog.month_link        = "/calendar/:year/:month.html"
-    blog.day_link          = "/calendar/:year/:month/:day.html"
+  blog.calendar_template = "template/blog-calendar/blog-calendar.html"
+  blog.year_link         = "/calendar/:year.html"
+  blog.month_link        = "/calendar/:year/:month.html"
+  blog.day_link          = "/calendar/:year/:month/:day.html"
 
-    blog.tag_template      = "template/blog-tag/blog-tag.html"
-    blog.taglink           = "/tag/:tag.html"
+  blog.tag_template      = "template/blog-tag/blog-tag.html"
+  blog.taglink           = "/tag/:tag.html"
 
-    blog.paginate          = true
-    blog.per_page          = 5
-    blog.page_link         = "page/{num}"
+  blog.paginate          = true
+  blog.per_page          = 5
+  blog.page_link         = "page/{num}"
 
-    # Custom collections
-    blog.custom_collections = {
+  # Custom collections
+  blog.custom_collections = {
+    # Category
+    category: {
+      link:     '/category/{category}.html',
+      template: 'template/blog-tag/blog-tag.html'
+    },
 
-        # Category
-        category: {
-            link:     '/category/{category}.html',
-            template: 'template/blog-tag/blog-tag.html'
-        },
-
-        # Author
-        author: {
-            link:     '/author/{author}.html',
-            template: 'template/blog-tag/blog-tag.html'
-        }
-
+    # Author
+    author: {
+      link:     '/author/{author}.html',
+      template: 'template/blog-tag/blog-tag.html'
     }
+  }
 
 end
 
@@ -126,113 +116,111 @@ end
 # @see https://elenichappen.svbtle.com/getting-tags-to-work-with-middlemans-blog-gem
 activate :blog do | blog |
 
-    blog.name              = "portfolio"
-    blog.prefix            = "portfolio"
-    blog.default_extension = ".haml"
+  blog.name              = "portfolio"
+  blog.prefix            = "portfolio"
+  blog.default_extension = ".haml"
 
-    blog.permalink         = "{title}.html"
-    blog.sources           = ":title.html"
+  blog.permalink         = "{title}.html"
+  blog.sources           = ":title.html"
 
-    blog.layout            = "portfolio"
-    blog.summary_separator = /(READMORE)/
-    blog.summary_length    = 250
+  blog.layout            = "portfolio"
+  blog.summary_separator = /(READMORE)/
+  blog.summary_length    = 250
 
-    blog.calendar_template = "template/blog-calendar/blog-calendar.html"
-    blog.year_link         = "/calendar/:year.html"
-    blog.month_link        = "/calendar/:year/:month.html"
-    blog.day_link          = "/calendar/:year/:month/:day.html"
+  blog.calendar_template = "template/blog-calendar/blog-calendar.html"
+  blog.year_link         = "/calendar/:year.html"
+  blog.month_link        = "/calendar/:year/:month.html"
+  blog.day_link          = "/calendar/:year/:month/:day.html"
 
-    blog.tag_template      = "template/blog-tag/blog-tag.html"
-    blog.taglink           = "/tag/:tag.html"
+  blog.tag_template      = "template/blog-tag/blog-tag.html"
+  blog.taglink           = "/tag/:tag.html"
 
-    blog.paginate          = true
-    blog.per_page          = 5
-    blog.page_link         = "page/{num}"
+  blog.paginate          = true
+  blog.per_page          = 5
+  blog.page_link         = "page/{num}"
 
-    # Custom collections
-    blog.custom_collections = {
+  # Custom collections
+  blog.custom_collections = {
 
-        # Category
-        category: {
-            link:     '/category/{category}.html',
-            template: 'template/blog-tag/blog-tag.html'
-        },
+    # Category
+    category: {
+      link:     '/category/{category}.html',
+      template: 'template/blog-tag/blog-tag.html'
+    },
 
-        # Author
-        author: {
-            link:     '/author/{author}.html',
-            template: 'template/blog-tag/blog-tag.html'
-        }
-
+    # Author
+    author: {
+      link:     '/author/{author}.html',
+      template: 'template/blog-tag/blog-tag.html'
     }
-
+  }
 end
 
 # Middleman Deploy
 # @see https://github.com/middleman-contrib/middleman-deploy
 activate :deploy do | deploy |
-    deploy.deploy_method  = :git
-    deploy.remote         = 'git@github.com:DryKISS/codeblender.net.git'
-    deploy.build_before   = false
+  deploy.deploy_method  = :git
+  deploy.remote         = 'git@github.com:DryKISS/codeblender.net.git'
+  deploy.build_before   = false
 end
 
 # Build-specific configuration
 configure :build do
 
-    # # "Ignore" JS so webpack has full control.
-    # ignore { |path| path =~ /\/(.*)\.js$/ && $1 != 'site' }
+  # # "Ignore" JS so webpack has full control.
+  # ignore { |path| path =~ /\/(.*)\.js$/ && $1 != 'site' }
 
-    # # "Ignore" JS and CSS so webpack has full control.
-    # ignore { |path| path =~ /\/(.*)\.js|css$/ && $1 != "all" && $1 != "vendor" }
+  # # "Ignore" JS and CSS so webpack has full control.
+  # ignore { |path| path =~ /\/(.*)\.js|css$/ && $1 != "all" && $1 != "vendor" }
 
-    # Asset hash
-    activate :asset_hash, :exts => %w(.js .css)
+  # Asset hash
+  # activate :asset_hash, :exts => %w(.js .css)
 
-    # GZIP Files
-    # @see https://middlemanapp.com/advanced/file_size_optimization/
-    # activate :gzip
+  # GZIP Files
+  # @see https://middlemanapp.com/advanced/file_size_optimization/
+  # activate :gzip
 
-    # Use relative URLs
-    # activate :relative_assets
+  # Use relative URLs
+  # activate :relative_assets
 
-    # For example, change the Compass output style for deployment
-    # activate :minify_css, inline: true
+  # For example, change the Compass output style for deployment
+  # activate :minify_css, inline: true
 
-    # Minimise JavaScript on build
-    # @see https://github.com/crtvhd/middleboy
-    # activate :minify_javascript
-    # activate :minify_javascript, inline: true, compressor: Uglifier.new( mangle: false, comments: :none )
+  # Minimise JavaScript on build
+  # @see https://github.com/crtvhd/middleboy
+  # activate :minify_javascript
+  # activate :minify_javascript, inline: true, compressor: Uglifier.new( mangle: false, comments: :none )
 
-    # Minimise HTML
-    # https://github.com/middleman/middleman-minify-html
-    activate :minify_html do | html |
-        html.remove_quotes = false
-    end
+  # Minimise HTML
+  # https://github.com/middleman/middleman-minify-html
+  activate :minify_html do | html |
+    html.remove_quotes = false
+  end
 
-    # Favicon
-    # @see https://github.com/follmann/middleman-favicon-maker
-    activate :favicon_maker do | f |
+  # Favicon
+  # @see https://github.com/follmann/middleman-favicon-maker
+  activate :favicon_maker do | f |
 
-        # Template
-        f.template_dir = File.join( root, 'source/assets/images/favicon' )
-        f.output_dir   = File.join( root, 'build/assets/images/favicon' )
+    # Template
+    f.template_dir = File.join( root, 'source/assets/images/favicon' )
+    f.output_dir   = File.join( root, 'build/assets/images/favicon' )
 
-        # Icon
-        f.icons = {
+    # Icon
+    f.icons = {
 
-            # High resolution icon
-            "favicon_template_hires.png" => [
-                { icon: "favicon-152x152.png" },
-                { icon: "favicon-120x120.png" },
-                { icon: "favicon-76x76.png"   },
-                { icon: "favicon-60x60.png"   },
-                { icon: "favicon-32x32.png"   },
-                { icon: "favicon-16x16.png"   },
-                { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
-            ]
-        }
+      # High resolution icon
+      "favicon_template_hires.png" => [
+        { icon: "favicon-152x152.png" },
+        { icon: "favicon-120x120.png" },
+        { icon: "favicon-76x76.png"   },
+        { icon: "favicon-60x60.png"   },
+        { icon: "favicon-32x32.png"   },
+        { icon: "favicon-16x16.png"   },
+        { icon: "favicon.ico", size: "64x64,32x32,24x24,16x16" }
+      ]
+    }
 
-    end
+  end
 
 end
 

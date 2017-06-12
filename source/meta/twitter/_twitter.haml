@@ -18,28 +18,28 @@
 
 -# Site
 -# The Twitter @username the card should be attributed to.
-%meta{ name: "twitter:site", content: twitter.account }
+%meta{ name: 'twitter:site', content: twitter.account }
 
 -# Card type
-%meta{ name: "twitter:card", content: "summary_large_image" }
+%meta{ name: 'twitter:card', content: 'summary_large_image' }
 
 -# Creator
-%meta{ name: "twitter:creator", content: twitter.account }
+%meta{ name: 'twitter:creator', content: twitter.account }
 
 -# Title (max 70 characters)
 -# A concise title for the related content.
-%meta{ name: "twitter:title", content: configuration( "title" ) }
+%meta{ name: 'twitter:title', content: configuration( 'title' ) }
 
 -# Description (maximum 200 characters)
 -# A description that concisely summarizes the content as appropriate for presentation within a Tweet.
-%meta{ name: "twitter:description", content: configuration( "description" ) }
+%meta{ name: 'twitter:description', content: configuration( 'description' ) }
 
 -# Image
 -# A URL to a unique image representing the content of the page. Images for this
 -# Card should be at least 280px in width, and at least 150px in height.
 -# Image must be less than 1MB in size.
-%meta{ name: "twitter:image", content: t( :url ) + configuration( "image" ) }
+%meta{ name: 'twitter:image', content: t( :url ) + configuration( 'image' ) }
 
 -# URL
 -# Should be the same as the Canonical URL
-%meta{ content: url, property: "twitter:domain" }
+%meta{ content: url, property: 'twitter:domain' }

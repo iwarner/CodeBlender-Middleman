@@ -8,18 +8,21 @@
 -# @see http://goo.gl/ErCZIL - Smart app banners
 -##
 
+-# Variable
+- da = data.apple
+
 -# Implementing a smart app banner on Your Website
-- if data.apple.present? and data.apple.app.id.present?
-    %meta{ name: "apple-itunes-app", content: data.apple.app.id }
+- if da.present? and da.app.id.present?
+  %meta{ name: 'apple-itunes-app', content: da.app.id }
 
 -# If content is set to yes, the web application runs in full-screen mode;
-%meta{ name: "apple-mobile-web-app-capable", content: "yes" }
+%meta{ name: 'apple-mobile-web-app-capable', content: 'yes' }
 
 -# This meta tag has no effect unless you first specify full-screen mode as described
-%meta{ name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }
+%meta{ name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' }
 
 -# Apple Title
-%meta{ name: "apple-mobile-web-app-title", content: configuration( "title" ) }
+%meta{ name: 'apple-mobile-web-app-title', content: configuration( 'title' ) }
 
 -# By default, Safari on iOS detects any string formatted like a phone number and makes it a link that calls the number
-%meta{ name: "format-detection", content: "telephone=yes" }
+%meta{ name: 'format-detection', content: 'telephone=yes' }

@@ -27,95 +27,96 @@
 -# Blog detail
 .blogDetail
 
-    %ul.blogDetail__details.list-inline
+  %ul.blogDetail__details.list-inline
 
-        -# Date
-        - unless falsey locals[ :cal ]
+    -# Date
+    - unless falsey locals[ :cal ]
 
-            %li
-                -# Icon - calendar
-                = codeBlender "icon", "atom", { icon: "fa-calendar" }
+      %li
+        -# Icon - calendar
+        = codeBlender "icon", "atom", { icon: "fa-calendar" }
 
-                - if article.data.date.instance_of?( String )
-                    - article.data.date = Time.parse( article.data.date )
+        - if article.data.date.instance_of?( String )
+          - article.data.date = Time.parse( article.data.date )
 
-                -# Time - format example : April 8, 2016
-                %time{ pubdate: true, itemprop: "datePublished", datetime: "#{ article.data.date.strftime( "%FT%T" ) }Z" }
+        -# Time - format example : April 8, 2016
+        %time{ pubdate: true, itemprop: "datePublished", datetime: "#{ article.data.date.strftime( "%FT%T" ) }Z" }
+          = article.data.date.to_date.to_s
+          ,
+          = article.data.time
 
-                    = article.data.date.to_date.to_s
-                    ,
-                    = article.data.time
+    -# Author
+    - unless falsey locals[ :author ]
 
-        -# Author
-        - unless falsey locals[ :author ]
+      %li
+        -# Icon
+        = codeBlender 'icon', 'atom', { icon: 'fa-user' }
 
-            %li
-                -# Icon
-                = codeBlender "icon", "atom", { icon: "fa-user" }
+        by
 
-                by
+        -# Author details - uses locale default if not set in frontmatter
+        - author = article.data.author ? article.data.author : t( :"meta.author" )
 
-                -# Author details - uses locale default if not set in frontmatter
-                - author = article.data.author ? article.data.author : t( :"meta.author" )
+        %span{ itemprop: "author", itemscope: true, itemptype: "http://schema.org/Person" }
 
-                %span{ itemprop: "author", itemscope: true, itemptype: "http://schema.org/Person" }
+          -# Catch exception for no author path
+          - begin
+            %a{ class: "blogDetail__author", href: author_path( author, blogName ), itemprop: "url", rel: "author" }
+              %span{ itemprop: "name" }= author
+          - rescue
+            %span{ itemprop: "name" }= author
 
-                    -# Catch exception for no author path
-                    - begin
-                        %a{ class: "blogDetail__author", href: author_path( author, blogName ), itemprop: "url", rel: "author" }
-                            %span{ itemprop: "name" }= author
-                    - rescue
-                        %span{ itemprop: "name" }= author
+    -# Read time
+    - unless falsey locals[ :readTime ]
 
-        -# -# Read time
-        -# - unless falsey locals[ :readTime ]
+      %li
+        -# Icon
+        = codeBlender "icon", "atom", { icon: "fa-clock-o" }
+        Read time:
+        = article.data.readtime
+        min
 
-        -#     %li
-        -#         -# Icon
-        -#         = codeBlender "icon", "atom", { icon: "fa-clock-o" }
-        -#         Read time: 03 min
+    -# Show comment
+    - unless falsey locals[ :comment ]
 
-        -# Show comment
-        - unless falsey locals[ :comment ]
+      %li
+        -# Icon
+        = codeBlender "icon", "atom", { icon: "fa-comment" }
 
-            %li
-                -# Icon
-                = codeBlender "icon", "atom", { icon: "fa-comment" }
+        X Comments
 
-                X Comments
+  -# Tag
+  - unless falsey locals[ :tags ]
 
-    -# Tag
-    - unless falsey locals[ :tags ]
+    - if article.data.tags( blogName )
 
-        - if article.data.tags( blogName )
+      .blogDetail__tags
 
-            .blogDetail__tags
+        -# Loop through tags
+        - article.data.tags( blogName ).each do | tag |
 
-                -# Loop through tags
-                - article.data.tags( blogName ).each do | tag |
+          -# Label
+          = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "info", content: tag, href: tag_path( tag, blogName ), itemprop: "keywords" }
 
-                    -# Label
-                    = codeBlender "label", "atom", { extraClass: "blogDetail__tag", context: "info", content: tag, href: tag_path( tag, blogName ), itemprop: "keywords" }
+  -# Social
+  - unless falsey locals[ :social ]
 
-    -# Social
-    - unless falsey locals[ :social ]
+    .blogDetail__social
 
-        .blogDetail__social
+      -# Share
+      %span.blogDetail__shareText Share this article
 
-            -# Share
-            %span.blogDetail__shareText Share this article
+      -# Facebook share
+      = codeBlender "share-button", "social/facebook/share-button", { href: url, icon: "fa-facebook-square fa-2x", type: "javascript" }
 
-            -# Facebook share
-            = codeBlender "share-button", "social/facebook/share-button", { href: url, icon: "fa-facebook-square fa-2x", type: "javascript" }
+      -# Twitter
+      = codeBlender "tweet-button", "social/twitter/tweet-button", { icon: "fa-twitter-square fa-2x", url: url, type: "link" }
 
-            -# Twitter
-            = codeBlender "tweet-button", "social/twitter/tweet-button", { icon: "fa-twitter-square fa-2x", url: url, type: "link" }
+      -# Pinterest save button
+      = codeBlender "save-button", "social/pinterest/save-button", { icon: "fa-pinterest-square fa-2x", url: url }
 
-            -# Pinterest save button
-            = codeBlender "save-button", "social/pinterest/save-button", { icon: "fa-pinterest-square fa-2x", url: url }
+      -# -# Email
+      -# = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
 
-            -# -# Email
-            -# = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do
-
-            -#     -# Icon
-            -#     = codeBlender "icon", "atom", { icon: "fa-envelope fa-2x" }
+      -#   -# Icon
+      -#   = codeBlender "icon", "atom", { icon: "fa-envelope fa-2x" }

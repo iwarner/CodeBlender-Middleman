@@ -7,18 +7,16 @@
 
 // Module
 //----------------------------------------------------------------------------//
-$module : 'googleMap';
+$module: 'googleMap';
 
 // Footer
 //----------------------------------------------------------------------------//
 .#{ $module } {
-
-    border : 1px solid #000 !important;
-
+  border: 1px solid #000 !important;
 }
 
 // Google input box
 //----------------------------------------------------------------------------//
 .pac-container {
-    z-index : 1051 !important;
+  z-index: 1051 !important;
 }
