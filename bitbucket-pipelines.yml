@@ -9,6 +9,7 @@
 # @see http://www.stevestreeting.com/2017/04/17/automated-deployment-of-hugo-blogs-with-bitbucket-pipelines--rsync/
 #
 # @todo For yarn install - I only need the ones to run the tests so just add these in for now.
+# @todo Ignore the .git directory
 ##
 
 pipelines:
@@ -24,4 +25,4 @@ pipelines:
             - rsync -clvrze 'ssh' ./ $RSYNC_API
 
             # SSH to run commands
-            - ssh drykiss@46.101.49.208 'cd /var/www/DryKiss/codeblender.io/public/;'
+            - ssh drykiss@46.101.49.208 'cd /var/www/DryKiss/codeblender.io/public/; yarn install; bundle install'
