@@ -1,16 +1,11 @@
-##
 # Image
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
 # @category helper
-##
 
-##
 # Image Helpers
-##
 module Image
 
-    ##
     # In-line SVG
     #
     # @usage
@@ -18,7 +13,6 @@ module Image
     #
     # @see https://robots.thoughtbot.com/organized-workflow-for-svg
     # @see https://gist.github.com/bitmanic/0047ef8d7eaec0bf31bb
-    ##
     def inlineSVG( filename, options = {} )
 
         root      = Middleman::Application.root
@@ -43,14 +37,11 @@ module Image
 
     end
 
-    ## 
     # Image URL
-    ##
     def imageURL( source )
         protocol + host_with_port + image_path( source )
     end
 
-    ##
     # Lorem Pixel
     # http://lorempixel.com/400/200/sports/1/Dummy-Text/
     #
@@ -58,7 +49,6 @@ module Image
     # @param size  String
     # @param text  String
     # @param theme String
-    ##
     def loremPixel( size = "200/200", text = false, theme = "nature" )
 
         img = "http://lorempixel.com/"
@@ -71,7 +61,6 @@ module Image
 
     end
 
-    ##
     # Holder Image
     #
     # @usage
@@ -89,7 +78,6 @@ module Image
     # @param theme String
     #
     # @see http://imsky.github.io/holder/
-    ##
     def holder( size = "200x200", auto = "auto", text = false, theme = "social", colors )
 
         img = 'holder.js/'

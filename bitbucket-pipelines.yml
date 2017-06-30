@@ -25,4 +25,4 @@ pipelines:
             - rsync -clvrze 'ssh' ./ $RSYNC_API
 
             # SSH to run commands
-            - ssh drykiss@46.101.49.208 'cd /var/www/DryKiss/codeblender.io/public/; yarn install; /home/drykiss/.rbenv/shims/bundle install;'
+            - ssh drykiss@46.101.49.208 'cd /var/www/DryKiss/codeblender.io/public/;'

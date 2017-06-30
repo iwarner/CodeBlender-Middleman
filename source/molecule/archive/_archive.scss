@@ -10,52 +10,55 @@
 
 // Module
 //----------------------------------------------------------------------------//
-$module : 'blogArchive';
+@import '~css/variable';
+
+// Module
+//----------------------------------------------------------------------------//
+$module: 'blogArchive';
 
 // Blog archive
 //----------------------------------------------------------------------------//
-.#{ $module } {
+.#{$module} {
 
-    margin-bottom : 30px;
+  margin-bottom: 30px;
 
-    // List
-    //------------------------------------------------------------------------//
-    &__list {
-        border-bottom : 1px solid #e5e3e3;
-        display       : table;
-        margin-bottom : 11px;
-        padding-right : 30px;
+  // List
+  //-----------00-------------------------------------------------------------//
+  &__list {
+    border-bottom: 1px solid #e5e3e3;
+    display: table;
+    margin-bottom: 11px;
+    padding-right: 30px;
 
-        &:last-child {
-            border-bottom : none;
-        }
+    &:last-child {
+      border-bottom: 0;
     }
+  }
 
-    // DT portion
-    //------------------------------------------------------------------------//
-    &__dt {
-        display      : inline;
-        margin-right : 15px;
+  // DT portion
+  //--------------------------------------------------------------------------//
+  &__dt {
+    display: inline;
+    margin-right: 15px;
 
-        a {
-            color : $brand-primary;
-        }
-
+    a {
+      color: $brand-primary;
     }
+  }
 
-    // DD portion
-    //------------------------------------------------------------------------//
-    &__dd {
-        display     : inline-table;
-        line-height : 16px;
-    }
+  // DD portion
+  //--------------------------------------------------------------------------//
+  &__dd {
+    display: inline-table;
+    line-height: 16px;
+  }
 
-    // Heading
-    //------------------------------------------------------------------------//
-    &__heading {
-        border-bottom  : 1px solid #797878;
-        color          : $brand-primary;
-        padding-bottom : 5px;
-    }
+  // Heading
+  //--------------------------------------------------------------------------//
+  &__heading {
+    border-bottom: 1px solid #797878;
+    color: $brand-primary;
+    padding-bottom: 5px;
+  }
 
 }

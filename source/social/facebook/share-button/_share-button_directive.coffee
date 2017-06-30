@@ -18,62 +18,46 @@ angular.module 'app.directive'
 # Directive
 ##
 .directive 'facebookShareButton', [
+  () ->
 
-    '$log'
+    'use strict'
 
-    ( $log ) ->
+    {
+      # Options
+      restrict : 'C'
+      scope    : true
+      replace  : true
 
-        'use strict'
+      # Link
+      link : ( scope, element, attrs, ctrl ) ->
 
-        {
-            # Options
-            restrict : 'C'
-            scope    : true
-            replace  : true
+        # Capture the click
+        angular.element( element ).on 'click', ( e ) ->
+          # FB hash
+          fbHash               = {}
+          fbHash.method        = "share"
+          fbHash.mobile_iframe = true
 
-            # Link
-            link : ( scope, element, attrs, ctrl ) ->
+          # URL - required
+          fbHash.href = attrs.url
 
-                # Debug
-                # $log.info "facebookShareButton - Scope :",   scope
-                # $log.info "facebookShareButton - Element :", element
-                # $log.info "facebookShareButton - Attrs :",   attrs
-                # $log.info "facebookShareButton - Ctrl :",    ctrl
+          # Optional
+          fbHash.hashtag = if attrs.hashtag then "#" + attrs.hashtag else undefined
+          fbHash.quote   = if attrs.quote   then attrs.quote         else undefined
 
-                # Capture the click
-                angular.element( element ).on 'click', ( e ) ->
+          # Facebook share
+          FB.ui (
 
-                    # Debug
-                    # $log.info "facebookShareButton - event :", e
+            fbHash
 
-                    # FB hash
-                    fbHash               = {}
-                    fbHash.method        = "share"
-                    fbHash.mobile_iframe = true
+           ), ( response ) ->
 
-                    # URL - required
-                    fbHash.href = attrs.url
+            if window.ga && ga.create
+              # Send Google click stat
+              ga "send", "pageview", "/facebook/click/" + fbHash.href
+              ga "send", "social",   "facebook", "facebook_click", fbHash.href
+            return
 
-                    # Optional
-                    fbHash.hashtag = if attrs.hashtag then "#" + attrs.hashtag else undefined
-                    fbHash.quote   = if attrs.quote   then attrs.quote         else undefined
-
-                    # Facebook share
-                    FB.ui (
-
-                        fbHash
-
-                     ), ( response ) ->
-
-                        if window.ga && ga.create
-
-                            # Send Google click stat
-                            ga "send", "pageview", "/facebook/click/" + fbHash.href
-                            ga "send", "social",   "facebook", "facebook_click", fbHash.href
-
-                        return
-
-                return
-        }
-
+        return
+    }
 ]

@@ -71,7 +71,7 @@
 
       %li
         -# Icon
-        = codeBlender "icon", "atom", { icon: "fa-clock-o" }
+        = codeBlender 'icon', 'atom', { icon: 'fa-clock' }
         Read time:
         = article.data.readtime
         min
@@ -107,13 +107,13 @@
       %span.blogDetail__shareText Share this article
 
       -# Facebook share
-      = codeBlender "share-button", "social/facebook/share-button", { href: url, icon: "fa-facebook-square fa-2x", type: "javascript" }
+      = codeBlender "share-button", "social/facebook/share-button", { href: url, icon: "fa-facebook-official fa-2x", type: "javascript" }
 
       -# Twitter
-      = codeBlender "tweet-button", "social/twitter/tweet-button", { icon: "fa-twitter-square fa-2x", url: url, type: "link" }
+      = codeBlender "tweet-button", "social/twitter/tweet-button", { icon: "fa-twitter-squared fa-2x", url: url, type: "link" }
 
       -# Pinterest save button
-      = codeBlender "save-button", "social/pinterest/save-button", { icon: "fa-pinterest-square fa-2x", url: url }
+      = codeBlender "save-button", "social/pinterest/save-button", { icon: "fa-pinterest-squared fa-2x", url: url }
 
       -# -# Email
       -# = link_to( "javascript:;", ng: { click: "facebook.share( 'http://drykiss.com' )" } ) do

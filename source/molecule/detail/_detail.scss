@@ -10,85 +10,89 @@
 
 // Module
 //----------------------------------------------------------------------------//
-$module : 'blogDetail';
+$module: 'blogDetail';
 
 // Blog Detail
 //----------------------------------------------------------------------------//
-.#{ $module } {
+.#{$module} {
 
-    border-top    : 1px solid #9B9B9B;
-    padding-top   : 8px;
-    margin-bottom : 20px;
+  border-top: 1px solid #9B9B9B;
+  margin-bottom: 20px;
+  padding-top: 8px;
 
-    // Details
+  // Details
+  //--------------------------------------------------------------------------//
+  &__details {
+
+    margin-bottom: 8px;
+
+    // Icons
     //------------------------------------------------------------------------//
-    &__details {
-
-        margin-bottom : 8px;
-
-        // Icons
-        //--------------------------------------------------------------------//
-        .fa {
-            color        : $gray-light;
-            margin-right : 5px;
-        }
-
-        // List
-        //--------------------------------------------------------------------//
-        li {
-            margin-right : 5px;
-        }
+    .fa {
+      color: $gray-light;
+      margin-right: 5px;
     }
 
-    // Author
+    // List
     //------------------------------------------------------------------------//
-    &__author {
-        color : $brand-primary;
-        &:hover {
-            color : #828585;
-        }
+    li {
+      margin-right: 5px;
+    }
+  }
+
+  // Author
+  //--------------------------------------------------------------------------//
+  &__author {
+    color: $brand-primary;
+
+    &:hover {
+      color: #828585;
+    }
+  }
+
+  // Tags
+  //--------------------------------------------------------------------------//
+  &__tags {
+    border-bottom: 1px solid #9B9B9B;
+    padding: 0 0 10px;
+
+    // Tag
+    //------------------------------------------------------------------------//
+    & .#{ $module }__tag {
+      border-radius: 0;
+      display: inline-block;
+      margin-bottom: 5px;
+      margin-right: 8px;
+    }
+  }
+
+  // Social
+  //--------------------------------------------------------------------------//
+  &__social {
+    border-bottom: 1px solid #9B9B9B;
+    padding: 8px 0;
+
+    span {
+      margin-right: 20px;
+      vertical-align: middle;
     }
 
-    // Tags
-    //------------------------------------------------------------------------//
-    &__tags {
-
-        border-bottom : 1px solid #9B9B9B;
-        padding       : 0 0 10px;
-
-        // Tag
-        //--------------------------------------------------------------------//
-        & .#{ $module }__tag {
-            display        : inline-block;
-            border-radius  : 0;
-            margin-bottom  : 5px;
-            margin-right   : 8px;
-        }
+    .fa {
+      font-size: 2em;
+      line-height: 1em;
     }
 
-    // Social
-    //------------------------------------------------------------------------//
-    &__social {
+    a {
+      color: $brand-primary;
+      text-decoration: none;
 
-        border-bottom : 1px solid #9B9B9B;
-        padding       : 8px 0;
-
-        span {
-            margin-right   : 20px;
-            vertical-align : middle;
-        }
-
-        a {
-            color           : $brand-primary;
-            text-decoration : none;
-            &:hover{
-                color : #E4E3E3;
-            }
-        }
-
-        & .#{ $module }__shareText {
-            color : #000;
-        }
+      &:hover {
+        color: #E4E3E3;
+      }
     }
 
+    & .#{ $module }__shareText {
+      color: #000;
+    }
+  }
 }

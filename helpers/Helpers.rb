@@ -94,7 +94,7 @@ module Helpers
   # Allows a shortcut for calling a CodeBlender partial from the symlinked
   # directories _partial/_codeBlender
   ##
-  def codeBlender( name, type, locals = false )
+  def codeBlender(name, type, locals = false)
 
     # Extra folder
     folder = ( type.include? "/" ) ? "#{ name }" : "#{ name }/#{ name }"
@@ -120,7 +120,7 @@ module Helpers
   #
   # @todo Need to delve deeper into the config of the data file at the moment one deep
   ##
-  def configuration( id, file = "config" )
+  def configuration(id, file = 'config')
 
     # Variable
     cp = current_page.data
@@ -132,13 +132,13 @@ module Helpers
 
     # Data file lookup or default
     # Need to specify the named file or will assume config
-    localData = I18n.exists?( :"#{ m }.#{ id }" ) ? :"#{ m }.#{ id }" : data[ file ][ id ] ? data[ file ][ id ] : :"meta.#{ id }"
+    localData = I18n.exists?(:"#{m}.#{id}") ? :"#{m}.#{id}" : :"meta.#{id}"
 
     # Front locale finds in the front matter or in the locale file (requires a stub)
-    frontMatter = cp[ id ] ? m[ id ] : localData
+    frontMatter = cp[id] ? m[id] : localData
 
     # Finds the ID based on the content_for output helper
-    contentFor = content_for?( :"#{ id }" ) ? yield_content( :"#{ id }" ) : frontMatter
+    contentFor = content_for?(:"#{id}") ? yield_content(:"#{id}") : frontMatter
 
     string contentFor
 

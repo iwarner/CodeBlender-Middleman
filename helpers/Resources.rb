@@ -1,4 +1,3 @@
-##
 # Helper methods to iterate through the Resources
 #
 # @usage
@@ -7,7 +6,6 @@
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
 # @category helper
-##
 module Resources
 
     ##
@@ -127,11 +125,11 @@ module Resources
     # @param extension - mixed - optional - default : md
     # @param limit     - int   - optional - default : nil
     ##
-    def byCategory( category, extension = [ "md" ], limit = nil )
+    def byCategory(category, extension = ['md'], limit = nil)
 
         # Check category is an array
-        if ! category.kind_of?( Array )
-            category = [ category ]
+        if ! category.kind_of?(Array)
+            category = [category]
         end
 
         # Create Return Array

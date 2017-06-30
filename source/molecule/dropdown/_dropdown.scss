@@ -9,36 +9,35 @@
 //----------------------------------------------------------------------------//
 .dropdown {
 
-    margin-right : 5px;
+  margin-right: 5px;
 
-    // Icon
-    //------------------------------------------------------------------------//
-    &__icon {
+  // Icon
+  //--------------------------------------------------------------------------//
+  &__icon {
 
-        &:before {
-            content     : "\F078";
-            font-family : FontAwesome;
-            line-height : initial;
-            position    : relative;
-            right       : -5px;
-        }
+    &:before {
+      content: '\f078';
+      font-family: fontawesome;
+      line-height: initial;
+      position: relative;
+      right: -5px;
     }
+  }
 }
-
 
 // Dropup
 //----------------------------------------------------------------------------//
 .dropup {
 
-    // Icon
-    //------------------------------------------------------------------------//
-    .dropdown__icon {
+  // Icon
+  //--------------------------------------------------------------------------//
+  .dropdown__icon {
 
-        &:before {
-            content     : "\f077";
-            font-family : FontAwesome;
-            margin-left : 3px;
-        }
+    &:before {
+      content: '\f077';
+      font-family: FontAwesome;
+      margin-left: 3px;
     }
+  }
 
 }
