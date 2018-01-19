@@ -1,4 +1,3 @@
-##
 # Middleman Thor file
 # Provides specific tasks in the development life cycle of a middleman project
 #
@@ -12,14 +11,10 @@
 #
 # @author Ian Warner <ian.warner@drykiss.com>
 # @see    http://whatisthor.com/
-##
 
-##
 # Middleman thor
-##
 class CodeBlender < Thor
 
-  ##
   # Middleman symbolic link set up
   # Use this on secondary projects to provide the code CodeBlender helpers
   # Do not run this on the codeblender project as it will remove the folders
@@ -30,7 +25,6 @@ class CodeBlender < Thor
   # @todo Place the path into a global variable in this script
   # @todo Need to run a check to make sure this is not on the CodeBlender project
   # @todo Need to make sure the partial folder exists - otherwise it errors
-  ##
   desc "symlink", "Symlink library elements into the project"
   def symlink
 
@@ -38,7 +32,7 @@ class CodeBlender < Thor
     system( "clear" )
 
     # Paths
-    codeblender = "/var/www/DryKiss/codeblender.io/public/"
+    codeblender = "/Users/ianwarner/DryKISS/c/codeblender.io/archive/middleman-haml/CodeBlender-Middleman/"
     directory   = Dir.pwd
     layout      = Dir.pwd + "/source/layouts/"
     partial     = Dir.pwd + "/source/partial/"

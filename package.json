@@ -54,9 +54,9 @@
     "node-bourbon": "",
     "node-sass": "",
     "resolve-url-loader": "",
-     "sass-loader": "",
-     "style-loader": "",
-     "url-loader": "",
-     "webpack": ""
+    "sass-loader": "",
+    "style-loader": "",
+    "url-loader": "",
+    "webpack": ""
   }
 }
