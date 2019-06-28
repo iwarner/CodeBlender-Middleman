@@ -1,0 +1,11 @@
+<% prepend = I18n.exists?(:'meta.prepend') ? " - #{string(:'meta.prepend')}" : '' %>
+
+<title><%= "#{configuration('title')}#{prepend}" %></title>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible", content="IE=edge,chrome=1">
+<meta name="description", content="<%= configuration('description') %>">
+<meta name="keywords", content="<%= configuration('description') %>">
+<meta name="author", content="<%= configuration('author') %>">
+<meta name="robots", content="index,follow,archive">
+<meta rel="canonical", href="<%= t(:url) + current_page.url %>">

@@ -1,0 +1,131 @@
+<%#
+Carousel
+Provides a UX tool to move between many images or media elements
+
+@usage
+-# Carousel
+= codeBlender "carousel", "molecule",
+   { array: [ { image: { extraClass: "img-responsive", src: lorem.image( '820x400', "random_color": true, text: 'Carousel 1' ) } } ] }
+
+@author Ian Warner <ian.warner@drykiss.com>
+@see http://getbootstrap.com/javascript/#carousel
+%>
+
+<%# Default ID %>
+<% if ! locals[:id] %>
+  <% id = 'myCarousel' %>
+<% end %>
+
+<%# Data %>
+<% data = locals[:data] || nil %>
+
+<%# Carousel %>
+<div class="carousel slide <%= id %>" id="<%= id %>" data="<%= data %>">
+
+  <%# Check we want indicators %>
+  <% if locals[ :indicator ] %>
+
+    <%# Indicators %>
+    <ol class="carousel-indicators">
+
+      <%# Array %>
+      <% locals[:array].each_with_index do |slide, i| %>
+
+        <%# If this is the first slide make it active %>
+        <li class="<%= i == 0 ? 'active' : false %>" data-target="<%= "." + id %>" data-slide-to="<%= i %>"></li>
+
+      <% end %>
+
+    </ol>
+
+  <% end %>
+
+  <%# Inner Content %>
+  <div class="carousel-inner" role="listbox">
+
+    <%# Array loop %>
+    <% locals[:array].each_with_index do |slide, i| %>
+
+      <%# Image %>
+      <% image = slide[:image] %>
+
+      <%# Variable %>
+      <% itemClass = image[:itemClass] || false %>
+      <% ng = { swipe: { right: "root.carouselSwipePrev($event)", left: "root.carouselSwipeNext($event)" } } %>
+      <% data = image[:data] || false %>
+
+      <%# If this is the first slide make it active %>
+      <div class="item <%= i == 0 ? "#{itemClass} active" : itemClass %>" ng="<%= ng %>" data="<%= data %>">
+
+        <%# Image - make sure there is a src %>
+        <% if image[:src] %>
+
+          <%# Default alternative text if not found %>
+          <% if ! image[:alt] %>
+            <% image[:alt] = "Carousel #{i}" %>
+          <% end %>
+
+          <%# Image %>
+          <%= partial 'partials/atom/image.erb', locals: image %>
+
+        <% end %>
+
+        <%# Caption %>
+        <% if image[:carouselCaption] %>
+
+          <%# Caption %>
+          <% caption = image[:carouselCaption] %>
+
+          <%# Caption %>
+          <div class="carousel-caption">
+
+            <%# Tag %>
+            <% caption[:tag] = caption[:tag] || 'h3' %>
+
+            <%# Heading %>
+            <%= partial 'partials/molecule/heading.erb', locals: caption %>
+
+            <%# Body %>
+            <% if caption[:body] %>
+              <p>
+                <%= caption[:body] %>
+              </p>
+            <% end %>
+
+            <%# Button %>
+            <% if caption[:button] %>
+              <%= partial 'partials/atom/button.erb', locals: caption[:button] %>
+            <% end %>
+
+          </div>
+
+        <% end %>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <div class="carousel slide <%= id %>" id="<%= id %>" data="<%= data %>">
+
+    <%# Controls %>
+    <% if locals[:control] %>
+
+      <%# Previous - left control %>
+      <% link_to(".#{id}", class: 'carousel-control left', data: { slide: 'prev' }, role: 'button', ng: { click: "root.carouselPrev($event)" } ) do %>
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      <% end %>
+
+      <%# Next - right control %>
+      <% link_to(".#{id}", class: 'carousel-control right', data: { slide: 'next' }, role: 'button', ng: { click: "root.carouselNext($event)" } ) do %>
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+</div>

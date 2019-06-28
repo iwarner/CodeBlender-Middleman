@@ -1,0 +1,102 @@
+<%#
+Panel
+
+@usage
+-# Panel
+= codeBlender "panel", "molecule", { body: "Body" }
+
+@param body
+@param bodyClass
+@param context
+@param collapse
+@param extraClass
+@param footer
+@param heading
+@param image
+@param table
+@param tools
+
+@author Ian Warner <ian.warner@drykiss.com>
+@category molecule
+%>
+
+<%# Variable %>
+<% heading = locals[:heading] %>
+
+<%# ExtraClass %>
+<% classes = locals[:extraClass] ? extraClass : '' %>
+
+<%# Context %>
+<% classes += locals[:context] ? " panel-#{ context }" : " panel-default" %>
+
+<%#  Panel %>
+<div class="panel <%= classes %>">
+
+  <%# Heading %>
+  <% if locals[:heading] %>
+
+    <%# Panel heading %>
+    <div class="panel-heading <%= heading[:extraClass] ? heading[:extraClass] : false %>">
+
+      <%# Check if tools are required %>
+      <%# This includes expanding and panel Refresh %>
+      <% if locals[:tools] %>
+
+        <%# Tools %>
+        <div class="tools">
+
+          <%# Expand %>
+          = link_to( "javascript:;", class: "toggle" ) do
+
+            -# Icon
+            = codeBlender "icon", "atom", { icon: "fa-caret-down" }
+
+        </div>
+
+      <% end %>
+
+      -# Image Check to see if Heading is an image
+      - if heading[ :image ]
+          = codeBlender "image", "atom", heading[ :image ]
+
+          -# Heading Text
+      - else
+
+          -# Default to H3 Tag unless specified
+          - if ! heading[ :tag ]
+              - heading[ :tag ] = "h3"
+
+          -# Heading
+          - heading[ :extraClass ] = "panel-title"
+          = codeBlender "heading", "molecule", heading
+
+    </div>
+
+  <% end %>
+
+  <%# Hidden %>
+  <%# -# .content{ class: locals[ :collapse ] ? "collapse" : false } %>
+
+  <%# Body %>
+  <% if locals[:body] %>
+
+    <%# Panel Body %>
+    <div class="panel-body <%= locals[ :bodyClass ] ? bodyClass : false %>">
+      <%= string locals[:body] %>
+    </div>
+
+  <% end %>
+
+  <%# Table / List %>
+  <% if locals[:table] %>
+    <%= string table %>
+  <% end %>
+
+  <%# Footer %>
+  <% if locals[:footer] %>
+    <div class="panel-footer">
+      <%= string footer %>
+    </div>
+  <% end %>
+
+</div>

@@ -1,0 +1,46 @@
+<%#
+Tag cloud
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category molecule
+%>
+
+<% name = locals[:name] || blog_controller.name %>
+
+<% sizeMin = 80 %>
+<% sizeMax = 200 %>
+<% precision = 0 %>
+<% unit = '%' %>
+<% threshold = locals[:threshold] ? locals[:threshold] : 1 %>
+<% total = 20 %>
+
+<% tagMap = blog(name).tags.map do |tag, articles| %>
+  <% [tag, articles.count] if articles.count >= threshold %>
+<% end %>
+
+<% tagMap = tagMap.compact.sort_by{|k, v| v}.reverse[0...total] %>
+
+<%# Shuffling the tags means a complete re-write each time %>
+<%# tagMap = tagMap.compact.sort_by{ | k, v | v }.reverse[ 0...total ].shuffle %>
+
+<% min, max = tagMap.map( &:last ).minmax %>
+
+<section class="tag-cloud">
+
+  <%= partial 'partials/molecule/heading.erb', locals: {extraClass: 'tag-cloud__heading', tag: 'h4', text: :'tags.title'} %>
+
+  <div class="tag-cloud__tags">
+
+    <% tagMap.each do |tag, count| %>
+      <% weight = (Math.log(count) - Math.log(min)) / (Math.log(max) - Math.log(min)) %>
+      <% size = sprintf("%.#{precision}f", sizeMin + ((sizeMax - sizeMin) * weight).to_f) %>
+
+      <% link_to(tag_path(tag, name), class: 'tag-cloud__tag label label-info', style: "font-size: #{size}#{unit}") do %>
+        <%= tag %>
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+</section>

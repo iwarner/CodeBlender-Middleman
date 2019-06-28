@@ -1,0 +1,62 @@
+<% itemType = 'http://schema.org/BreadcrumbList' %>
+<% extraClass = locals[:extraClass] ? locals[:extraClass] + ' breadcrumb' : 'breadcrumb' %>
+
+<% split = current_page.url.split '/' %>
+<% count = split.count %>
+<% array = [] %>
+<% lastBreadcrumb = '' %>
+
+<% if not split.empty? %>
+
+  <% split.each_with_index do |breadcrumb, index| %>
+
+    <% lastBreadcrumb += '/' + breadcrumb %>
+    <% text = breadcrumb.empty? ? 'Home' : breadcrumb.capitalize %>
+
+    <% if index == 0 %>
+      <% array << { icon: 'fa-home', link: {url: '/index.html'} } %>
+
+    <% elsif count -1 == index %>
+
+      <% if text.scan(/\.html/) %>
+        <% array << { active: true, text: locals[:title] } %>
+      <% else %>
+        <% array[-1][:url] = false %>
+        <% array[-1][:active] = true %>
+      <% end %>
+
+    <% else %>
+
+      <% if sitemap.find_resource_by_path(lastBreadcrumb.sub('//', '/') + '.html') %>
+
+        <% if lastBreadcrumb.sub('//', '/') + '.html' != current_page.url %>
+          <% array << { text: text, link: { url: lastBreadcrumb.sub('//', '/') + '.html' } } %>
+        <% end %>
+
+      <% end %>
+
+      <% if sitemap.find_resource_by_path( lastBreadcrumb.sub( '//', '/' ) + '/index.html' ) %>
+
+        <% if lastBreadcrumb.sub( '//', '/' ) + '/index.html' != current_page.url %>
+          <% array << { text: text, link: { url: lastBreadcrumb.sub( '//', '/' ) + '/index.html' } } %>
+        <% end %>
+
+      <% elsif res = sitemap.find_resource_by_path( lastBreadcrumb.sub( '//', '/' ) + "/#{ text.downcase }.html" ) %>
+
+        <% if lastBreadcrumb.sub( '//', '/' ) + "/#{ text.downcase }.html" != current_page.url %>
+          <% array << { text: text, link: { url: lastBreadcrumb.sub( '//', '/' ) + "/#{ text.downcase }.html" } } %>
+        <% end %>
+
+      <% end %>
+
+    <% end %>
+
+  <% end %>
+
+<% else %>
+
+  <% array << { active: true, text: 'Home' } %>
+
+<% end %>
+
+<%= partial 'partials/atom/list-ul.erb', locals: { array: array, extraClass: extraClass, itemType: itemType, type: 'ol' } %>

@@ -1,0 +1,72 @@
+// Blog Recent
+//
+// @usage
+// @import "~molecule/recent/recent";
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
+//----------------------------------------------------------------------------//
+
+// Module
+//----------------------------------------------------------------------------//
+$module: 'blog-recent';
+
+// Blog recent
+//----------------------------------------------------------------------------//
+.#{$module} {
+
+  margin-bottom: 32px;
+
+  // Heading
+  //--------------------------------------------------------------------------//
+  &__heading {
+    border-bottom: 1px solid #797878;
+    color: $brand-primary;
+    padding-bottom: 5px;
+  }
+
+  // Label
+  //--------------------------------------------------------------------------//
+  &__label {
+    font-size: 16px;
+  }
+
+  // DT portion
+  //--------------------------------------------------------------------------//
+  dt {
+    &.#{$module}__dt {
+      text-align: inherit;
+      width: inherit;
+    }
+  }
+
+  // DD portion
+  //--------------------------------------------------------------------------//
+  dd {
+    &.#{$module}__dd {
+      margin-bottom: 6px;
+      margin-left: 85px;
+    }
+  }
+
+  // Link
+  //--------------------------------------------------------------------------//
+  &__link {
+    &:hover {
+      color: #CAC7C7;
+    }
+  }
+
+  // Media queries - Mobile
+  //--------------------------------------------------------------------------//
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .dl-horizontal dt {
+      clear: left;
+      float: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+}

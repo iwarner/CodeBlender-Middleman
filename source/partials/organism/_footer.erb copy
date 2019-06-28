@@ -1,0 +1,124 @@
+-##
+-# Footer and copyright elements
+-# Configuration is driven from the locale file and data footer.yaml
+-#
+-# @usage
+-# -# Footer
+-# = codeBlender "footer", "organism"
+-#
+-# @param array  - Inject the content through the partial instead of using the locale
+-# @param center - Centre align the copyright text
+-# @param fluid  - Flag for bootstrap container, otherwise use the default in the config
+-# @param noYear - Remove the year
+-# @param sticky - Sticks the footer the bottom of the page
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category organism
+-##
+
+-# Variable
+- footer      = data.footer.footer
+- extraClass  = footer.extraClass      ? footer.extraClass      : false
+- container   = locals[ :fluid ]       ? "container-fluid"      : data.footer.container
+- footerClass = data.footer.extraClass ? data.footer.extraClass : false
+
+-# Check to see if local sticky is false
+- if ! locals[ :sticky ].nil? && ! locals[ :sticky ]
+    - footerClass = footerClass.sub 'footer--sticky', ''
+
+-# Footer section
+%footer{ role: "contentinfo", class: footerClass }
+
+  -# Footer
+  .footer{ class: extraClass }
+
+      -# Container
+      %div{ class: container }
+
+          -# Bootstrap row
+          .row.footer__row
+
+              -# Check footer YAML or locals is not blank
+              - if t "footer" or locals[ :array ]
+
+                  -# Local array takes precedent
+                  - array = locals[ :array ] ? locals[ :array ] : t( "footer" )
+
+                  -# Columns count
+                  - extraClass = "col-xs-6 col-md-#{ 12 / array.count } "
+
+                  -# Loop through the footer yaml
+                  - array.each do | entry |
+
+                      -# Section
+                      .footer__column{ class: entry[ :extraClass ] ? "#{ extraClass } #{ entry[ :extraClass ] }" : extraClass }
+
+                          -# Heading
+                          - icon = entry[ :icon ] ? entry[ :icon ] : false
+                          = codeBlender "heading", "molecule", { extraClass: "footer__heading", icon: icon, tag: "h4", text: entry[ :title ] }
+
+                          -# Footer content
+                          .footer__content
+
+                              -# If markdown
+                              - if entry[ :markdown ]
+
+                                  -# Body
+                                  :markdown
+                                      #{ entry[ :description ] }
+
+                              - else
+
+                                  -# Description
+                                  - if entry[ :description ]
+
+                                      -# Body
+                                      = string entry[ :description ]
+
+                                  -# Links
+                                  - if entry[ :links ]
+
+                                      -# List
+                                      = codeBlender "list-ul", "atom", { array: entry[ :links ], extraClass: "list-unstyled" }
+
+  -# Copyright
+  .copyright{ class: ( locals[ :center ] || data.footer.copyright.center ) ? "text-center" : false }
+
+      -# Bootstrap container
+      %div{ class: container }
+
+          -# Bootstrap row
+          .row
+
+              -# Bootstrap column
+              .col-md-12
+
+                  -# Year
+                  - if ! locals[ :noYear ]
+
+                      -# Variable
+                      - year = Time.now.strftime '%Y'
+                      %time{ datetime: year } &copy; #{ year }
+
+                  -# Text
+                  = string :"copyright.brand"
+                  = string :"copyright.rights"
+
+                  -# Show any extra links
+                  - if locals[ :link ]
+
+                      -# Horizontal list of links
+                      = codeBlender "list-ul", "atom", { array: link, extraClass: "list-inline list-unstyled" }
+
+                  -# Show drykiss developed by logo
+                  - if data.footer.drykiss || locals[ :logo ]
+
+                      -# Bootstrap column
+                      .pull-right
+
+                          Site &amp; SEO by
+
+                          -# Developed by
+                          %a{ href: "//drykiss.com", target: "_blank" }
+                              .drykissLogo
+                              DryKISS Ltd

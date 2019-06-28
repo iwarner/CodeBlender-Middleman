@@ -1,0 +1,59 @@
+<%#
+Image
+Provides icon, logo and caption if required
+
+Rules
+if we have an angular - ng-src then the src should be false
+
+@usage
+-# Image
+= codeBlender "image", "atom", { src: loremPixel() }
+
+@param caption - Image caption
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category atom
+
+@todo Add in the correct width and height tags
+<meta itemprop="url" content="https://google.com/thumbnail1.jpg">
+<meta itemprop="width" content="800">
+<meta itemprop="height" content="800">
+%>
+
+<% extraClass = 'image__img' %>
+
+<% if locals[:responsive] %>
+  <% extraClass += ' img-responsive' %>
+<% end %>
+
+<% if locals[:extraClass] %>
+  <% extraClass += " #{locals[:extraClass]}" %>
+<% end %>
+
+<% attribute = {
+  alt: locals[:alt] ? string(alt) : 'Image',
+  class: extraClass,
+  data: locals[:data] ? data : false,
+  draggable: locals[:draggable] ? draggable : false,
+  height: locals[:size] ? size[1] : false,
+  id: locals[:id] ? id : false,
+  itemprop: 'contentUrl',
+  ng: locals[:ng] ? ng : false,
+  width: locals[:size] ? size[0] : false }
+%>
+
+<figure class="image" itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+
+  <% if !locals[:src] %>
+    <%= content_tag(:img, nil, attribute) %>
+  <% else %>
+    <%= image_tag(locals[:src], attribute) %>
+  <% end %>
+
+  <% if locals[:caption] %>
+    <figcaption class="image__caption" itemprop="caption">
+      <%= caption %>
+    </figcaption>
+  <% end %>
+
+</figure>

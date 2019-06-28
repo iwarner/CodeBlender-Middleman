@@ -1,0 +1,24 @@
+<%#
+List dropdown
+%>
+
+<ul class="dropdown-menu" aria-labelledby="dropdownMenu1" role="menu">
+
+  <% locals[:array].each do |list| %>
+
+    <% extraClass = list[:active] ? 'active' : '' %>
+    <% extraClass += list[:extraClass] ? ' #{list[:extraClass]}' : '' %>
+    <% extraClass += list[:status] ? ' #{list[:status]}' : '' %>
+    <% extraClass = !extraClass.empty? ? "class=\"#{extraClass}\"" : nil %>
+
+    <li <%= extraClass %>>
+
+      <% link_to list[:link][:url] do %>
+        <%= string(list[:text]) %>
+      <% end %>
+
+    </li>
+
+  <% end %>
+
+</ul>

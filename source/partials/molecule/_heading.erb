@@ -1,0 +1,47 @@
+<%#
+Heading
+Provide a unified way to display a heading and page header element
+
+@usage
+-# Heading
+= partial 'partials/molecule/heading.erb', locals: {extraClass: '', tag: 'h1', text: ''}
+
+-# Page header
+= codeBlender "heading", "molecule", { pageHeader: true, text: "Default H1 Tag" }
+
+@param href
+@param icon
+@param pageHeader
+@param small
+@param tag
+@param text
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category molecule
+%>
+
+<% extraClass = locals[:extraClass] ? "class=\"heading #{extraClass}\"" : "class=\"#{extraClass}heading\"" %>
+<% id = locals[:id] ? "id=\"#{locals[:id]}\"" : nil %>
+<% itemprop = locals[:itemprop] ? "itemprop=\"#{locals[:itemprop]}\"" : nil %>
+<% ng = locals[:ng] ? "ng=\"#{locals[:ng]}\"" : nil %>
+<% rel = locals[:rel] ? "rel=\"#{locals[:rel]}\"" : nil %>
+
+<% tag = locals[:tag] ? locals[:tag] : 'h1' %>
+
+<<%= tag %> <%= extraClass %> <%= id %> <%= itemprop %> <%= ng %> <%= rel %>>
+
+  <% if locals[:icon] %>
+    <%= partial 'partials/atom/icon.erb', locals: {icon: locals[:icon]} %>
+  <% end %>
+
+  <% if locals[:href] %>
+    <%= link_to(string(locals[:text]), locals[:href]) %>
+  <% else %>
+    <%= string(locals[:text]) %>
+  <% end %>
+
+  <% if locals[:small] %>
+    <small><%= string(locals[:text]) %></small>
+  <% end %>
+
+</<%= tag %>>

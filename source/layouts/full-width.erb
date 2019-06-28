@@ -1,0 +1,41 @@
+<%#
+Full width
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category layout
+%>
+
+<% d = current_page.data %>
+<% dc = data.config %>
+
+<% wrap_layout :bootstrap do %>
+
+    <!-- -# Heading
+    - if dc.heading and d.heading
+        = codeBlender "heading", "molecule", { small: d.small ? d.small : false, text: d.title }
+
+    -# Detail
+    - if dc.description
+        %p= string d.description
+
+    -# Yield
+    = yield
+
+    -# Resource
+    - if dc.resources
+        .container= codeBlender "resource", "molecule"
+
+    -# Todo
+    - if dc.todo
+        .container= codeBlender "todo", "molecule"
+ -->
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <%= yield %>
+    </div>
+
+  </div>
+
+<% end %>

@@ -1,0 +1,69 @@
+<%#
+Article
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category template
+%>
+
+<% article = locals[:article] || current_article %>
+
+<article class="article" role="article" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <%# Breadcrumb %>
+    <% unless falsey locals[:breadcrumb] %>
+      <%= partial 'partials/molecule/breadcrumb.erb', locals: {extraClass: 'article__breadcrumb', title: article.title} %>
+    <% end %>
+
+  <%# Header %>
+  <header class="article__header">
+
+    <%# Image %>
+    <% unless falsey locals[:image] %>
+      <% if article.data.image %>
+        <div class="article__image">
+          <%= partial 'partials/atom/image.erb', locals: {alt: article.title, extraClass: 'img-responsive', src: article.data.image} %>
+          <svg class="article__slant" viewBox="0 0 750 77" xmlns="http://www.w3.org/2000/svg"><path d="M0 76.017h750L469.722 47.69.238.237" fill="#fff" fill-rule="evenodd"/></svg>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%# Category %>
+    <% unless falsey locals[:category] %>
+      <% if article.data.category %>
+        <div class="article__category">
+          <% begin %>
+            <%= link_to(article.data.category.upcase, category_path(article.data.category)) %>
+          <% rescue %>
+            <%= article.data.category.upcase %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%# Heading %>
+    <%= partial 'partials/molecule/heading.erb', locals: { extraClass: 'article__heading heading--noMargin', rel: 'bookmark', small: article.data.small ? article.data.small : false, text: article.data.heading ? article.data.heading : article.title, itemprop: 'name headline' } %>
+
+    <%# Detail %>
+    <% unless falsey locals[:detail] %>
+      <%= partial 'partials/molecule/detail.erb', locals: {article: article, author: true, cal: true, comment: false, social: true, tags: true} %>
+    <% end %>
+
+  </header>
+
+  <%# Content %>
+  <div class="article__content">
+    <span itemprop="text">
+      <%= article.body %>
+    </span>
+  </div>
+
+  <%# Footer %>
+  <footer>
+    <% if locals[:pager] %>
+      <% prevPage = article.article_previous || false %>
+      <% nextPage = article.article_next || false %>
+      <%= partial 'partials/molecule/pager.erb', locals: {prevPage: prevPage, nextPage: nextPage} %>
+    <% end %>
+  </footer>
+
+</article>

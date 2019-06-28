@@ -1,0 +1,64 @@
+<%#
+Navigation
+Loop through navigation in Locale file
+%>
+
+<% type = !I18n.exists?(:'navigation.type') ? 'navbar-default' : "navbar-#{t(:'navigation.type')}" %>
+
+<nav class="navbar <%= type %> navbar-fixed-top" id="navbar" role="navigation">
+
+  <div class="container">
+
+    <%# Header %>
+    <div class="navbar-header">
+
+      <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <% link_to localePath('/index.html'), {class: 'navbar-brand'} do %>
+        <span itemprop="headline" class="sr-only">Deliveroo</span>
+      <% end %>
+
+    </div>
+
+    <%# Create the collapse area - target without the # %>
+    <div class="navbar-collapse collapse" id="navbar-collapse">
+
+      <%# Loop through navigation in Locale file %>
+      <% t(:navigation).select{|k| k.to_s.match(/(right|left)/)}.each do |entry| %>
+
+        <ul class="nav navbar-nav navbar-<%= entry[0] %>">
+
+        <%# Loop through each side %>
+          <% entry[1].each do |side| %>
+
+            <%# Active navigation %>
+            <% if side[:link] %>
+              <% side[:active] = (current_page.url == side[:link][:url]) ? true : false %>
+            <% end %>
+
+            <%# Dropdown %>
+            <% if side[:dropdown] %>
+              <%= partial 'partials/molecule/dropdown-navbar', locals: {button: side[:dropdown][:button], list: {array: side[:dropdown][:items]}} %>
+
+            <%# List %>
+            <% else %>
+              <%= partial 'partials/atom/list-ul', locals: {array: [side], navBar: true, extraClass: side[:extraClass]} %>
+
+            <% end %>
+
+          <% end %>
+
+        </ul>
+
+      <% end %>
+
+    </div>
+
+  </div>
+
+</nav>

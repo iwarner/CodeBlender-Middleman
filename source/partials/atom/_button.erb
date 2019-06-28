@@ -1,0 +1,69 @@
+<%#
+Button
+%>
+
+<%# Style %>
+<% extraClass  = locals[:dropdown] ? 'dropdown-toggle' : locals[:context] ? "btn btn-#{locals[:context]}" : 'btn btn-default' %>
+<% extraClass += locals[:active] ? ' active' : '' %>
+<% extraClass += locals[:block] ? ' btn-block' : '' %>
+<% extraClass += locals[:size] ? " btn-#{locals[:size]}" : '' %>
+<% extraClass += locals[:extraClass] ? " #{locals[:extraClass]}" : '' %>
+
+<%# If Dropdown button %>
+<% if locals[:dropdown] %>
+  <% locals[:aria] = {haspopup: 'true', expanded: 'false'} %>
+<% end %>
+
+<%# Tag %>
+<% tag = locals[:href] ? 'a' : 'button' %>
+
+<%# Attributes %>
+<% attribute = {
+  aria: locals[:aria] || false,
+  class: extraClass,
+  disabled: locals[:disabled] ? 'disabled="disabled"' : false,
+  data: locals[:data] || false,
+  hidden: locals[:hidden] ? 'hidden' : false,
+  href: locals[:href] ? string(locals[:href]) : false,
+  id: locals[:id] ? id : false,
+  itemprop: locals[:itemprop] || false,
+  ng: locals[:ng] || false,
+  role: locals[:href] ? 'button' : false,
+  target: locals[:target] || false,
+  title: locals[:title] ? string(title) : false,
+  type: locals[:type] || 'button'
+  } %>
+
+<%# Content Tag %>
+<% content_tag(tag, attribute) do %>
+
+  <%# Icon prepend %>
+  <% if locals[:icon] and locals[:icon][:prepend] %>
+    <%= partial 'partials/atom/icon.erb', locals: locals[:icon][:prepend] %>
+  <% end %>
+
+  <%# Close content %>
+  <% if locals[:text] == 'close' %>
+    <span area-hidden="true">&times;</span>
+
+  <%# Text %>
+  <% elsif locals[:text] %>
+    <%= string(text) %>
+  <% end %>
+
+  <%# Icon append %>
+  <% if locals[:icon] and locals[:icon][:append] %>
+    <%= partial 'partials/atom/icon.erb', locals: locals[:icon][:append] %>
+  <% end %>
+
+  <%# Image %>
+  <% if locals[:image] %>
+    <%= partial 'partials/atom/image.erb', locals: locals[:image] %>
+  <% end %>
+
+  <%# Dropdown caret %>
+  <% if locals[:dropdown] %>
+    <span class="dropdown__icon"></span>
+  <% end %>
+
+<% end %>

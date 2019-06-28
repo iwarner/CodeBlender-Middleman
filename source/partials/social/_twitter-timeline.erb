@@ -1,0 +1,10 @@
+<%#
+Timeline
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category social
+%>
+
+<% link_to "https://twitter.com/#{locals[:href]}", {class: 'twitter-timeline', data: {height: locals[:height], 'tweet-limit': locals[:limit]}} do %>
+  Tweets
+<% end %>

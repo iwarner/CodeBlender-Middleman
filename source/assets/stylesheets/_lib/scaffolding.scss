@@ -1,4 +1,3 @@
-//
 // Scaffolding
 // Creates the CSS for the main elements of the site
 //
@@ -9,42 +8,36 @@
 // Body
 //----------------------------------------------------------------------------//
 body {
-
-    // Add Padding - required if using the fixed NavBar
-    //------------------------------------------------------------------------//
-    padding-top : 0;
-
+  // Add Padding - required if using the fixed NavBar
+  //--------------------------------------------------------------------------//
+  // padding-top: 0;
 }
 
 // Highlight
 //----------------------------------------------------------------------------//
-table.table  {
-
-    .highlight {
-        background-color : white !important;
-    }
-
+table.table {
+  .highlight {
+    background-color: white !important;
+  }
 }
 
 // Cards
 //----------------------------------------------------------------------------//
 .soccerCard {
+  border-color: rgba(0, 0, 0, .2);
+  border-style: solid;
+  border-width: 1px;
+  display: inline-block;
+  height: 15px;
+  width: 10px;
 
-    display      : inline-block;
-    width        : 10px;
-    height       : 15px;
-    border-width : 1px;
-    border-style : solid;
-    border-color : rgba( 0, 0, 0,.2 );
+  &.soccerCard--yellow {
+    background-color: yellow;
+  }
 
-    &.soccerCard--yellow {
-        background-color : yellow;
-    }
-
-    &.soccerCard--red {
-        background-color : red;
-    }
-
+  &.soccerCard--red {
+    background-color: red;
+  }
 }
 
 // Angular

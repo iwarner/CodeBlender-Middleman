@@ -1,0 +1,11 @@
+<% url = t(:url) + current_page.url %>
+<% appID = development? ? data.facebook.app.testID : (appID == 'locale') ? t(:'facebook.app.id') : data.facebook.app.id %>
+
+<meta content="<%= configuration('title') %>" property="og:title">
+<meta content="<%= configuration('description') %>" name="description" property="og:description">
+<meta content="<%= t(:url) + configuration('image') %>" property="og:image">
+<meta content="<%= configuration('siteName') %>" property="og:site_name">
+<meta content="<%= configuration('type') %>" property="og:type">
+<meta content="<%= url %>" property="og:url">
+<meta content="<%= t(:'facebook.locale') %>" property="og:locale">
+<meta content="<%= appID %>", property="fb:app_id">

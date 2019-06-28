@@ -1,0 +1,42 @@
+<%#
+Twitter tweet button
+
+Usage
+Twitter tweet button
+= codeBlender "tweet-button", "social/twitter/tweet-button"
+
+@author.  Ian Warner <ian.warner@drykiss.com>
+@category social
+%>
+
+<%
+data = {}
+data[:lang] = t(:'twitter.locale')
+data[:text] = locals[:text] || I18n.exists?(:'twitter.text') ? t(:'twitter.text') : nil
+data[:url] = locals[:url] || t(:url)
+data[:hashtags] = locals[:hashtags] || I18n.exists?(:'twitter.hashtag') ? t(:'twitter.hashtag') : nil
+data[:via] = locals[:via] || nil
+data[:size] = locals[:size] || 'default'
+extraClass = locals[:extraClass] || nil
+twitterURL = "https://twitter.com/intent/tweet?url=#{data[:url]}&lang=#{data[:lang]}"
+%>
+
+<% if !locals[:type] || locals[:type] == 'button' %>
+
+  <% link_to(twitterURL, {class: "twitter #{extraClass}", data: data, ng: {click: 'root.twitterShare()'}}) do %>
+    <%= partial 'partials/atom/icon.erb', locals: {icon: locals[:icon] || 'fa-twitter-square fa-fw fa-3x'} %>
+  <% end %>
+
+<% elsif locals[:type] == 'javascript' %>
+
+  <% link_to('javascript:;', {class: "#{extraClass} twitterShareButton", 'data-url': "#{data[:url]}", 'data-hashtag': data[:hashtags], 'data-text': data[:text]}) do %>
+    <%= partial 'partials/atom/icon.erb', locals: {icon: locals[:icon] || 'fa-twitter-square fa-fw fa-3x'} %>
+  <% end %>
+
+<% else %>
+
+  <% link_to("https://twitter.com/intent/tweet?url=#{URI.encode(data[:url])}", {class: extraClass}) do %>
+    <%= partial 'partials/atom/icon.erb', locals: {icon: locals[:icon] || 'fa-twitter-square fa-fw fa-3x'} %>
+  <% end %>
+
+<% end %>

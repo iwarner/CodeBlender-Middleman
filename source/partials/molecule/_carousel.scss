@@ -1,0 +1,71 @@
+// Carousel
+// Overrides for the Bootstrap Carousel
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
+//----------------------------------------------------------------------------//
+
+// Module
+//----------------------------------------------------------------------------//
+$module: 'carousel';
+
+// Carousel
+// ---------------------------------------------------------------------------//
+.#{$module} {
+
+  // Caption only
+  //--------------------------------------------------------------------------//
+  &__captionOnly {
+    .carousel-caption {
+      margin: 0;
+      padding: 0;
+      position: initial;
+
+      h3,
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  // Image Width
+  //--------------------------------------------------------------------------//
+  .carousel-inner .img-responsive {
+    width: 100%;
+  }
+
+  // Controls
+  //--------------------------------------------------------------------------//
+  .carousel-control {
+    // Toggles
+    .fa-chevron-left,
+    .fa-chevron-right {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      z-index: 5;
+    }
+
+    .fa-chevron-left {
+      left: 50%;
+      margin-left: -10px;
+    }
+
+    .fa-chevron-right {
+      margin-right: -10px;
+      right: 50%;
+    }
+  }
+
+  // Caption
+  //--------------------------------------------------------------------------//
+  .carousel-caption {
+    h3,
+    p {
+      background-color: rgba(210, 236, 142, .9);
+      color: #000;
+      padding: 3px;
+      text-shadow: none;
+    }
+  }
+}

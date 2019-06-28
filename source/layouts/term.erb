@@ -1,0 +1,27 @@
+<%#
+Terms layout
+%>
+
+<% wrap_layout :bootstrap do %>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-8 col-xs-12">
+        <%= partial 'modules/blog/page-strip.erb', locals: {text: 'Terms'} %>
+        <%= partial 'partials/template/article.erb', locals: {breadcrumb: false, category: false, detail: false, image: false, pager: false} %>
+      </div>
+
+      <div class="col-md-4 col-xs-12">
+        <%= partial 'modules/blog/sidebar.erb' %>
+      </div>
+
+    </div>
+
+  </div>
+
+  <%= partial 'modules/blog/app-store.erb' %>
+  <%= partial 'modules/blog/footer.erb' %>
+
+<% end %>

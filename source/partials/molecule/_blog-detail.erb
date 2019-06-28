@@ -1,0 +1,108 @@
+<%#
+Blog detail
+
+@usage
+-# Blog detail
+= codeBlender "detail", "molecule", { author: true, cal: true, comment: false, more: true, name: locals[ :name ], social: true, tags: true, current_page: article }
+
+@param author   Show the meta author and icon
+@param calendar Show the blog time and icon
+@param comment  Show the number of comments
+@param social   Show the social buttons
+@param tags     Show the tags
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category molecule
+%>
+
+<%
+blogName = locals[:name] || blog_controller.name
+url = t(:url) + current_page.url
+article = locals[:article] || current_page
+%>
+
+<div class="blog-detail">
+
+  <ul class="blog-detail__details list-inline">
+
+    <%# Date %>
+    <% unless falsey locals[:cal] %>
+      <li>
+        <%= partial 'partials/atom/icon.erb', locals: {icon: 'fa-calendar'} %>
+
+        <%# Date %>
+        <time pubdate="pubdate" itemprop="datePublished" datetime="<%= article.data.date.to_date.strftime('%FT%T') %>Z">
+          <%= article.data.date.to_date.strftime('%-d %B %Y') %>
+        </time>
+
+      </li>
+    <% end %>
+
+    <%# Author %>
+    <% unless falsey locals[:author] %>
+      <li>
+        <%= partial 'partials/atom/icon.erb', locals: {icon: 'fa-user'} %>
+        by
+
+        <% author = article.data.author || t(:'meta.author') %>
+
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <% begin %>
+            <% link_to(author_path(author, blogName), {rel: 'author', itemprop: 'url', class: 'blog-detail__author'}) do %>
+              <span itemprop="name"><%= author %></span>
+            <% end %>
+
+          <% rescue %>
+            <span itemprop="name"><%= author %></span>
+
+          <% end %>
+        </span>
+
+      </li>
+    <% end %>
+
+    <%# Read time %>
+    <% unless falsey locals[:readTime] %>
+      <li>
+        <%= partial 'partials/atom/icon.erb', locals: {icon: 'fa-clock'} %>
+        Read time:
+        <%= article.data.readtime %>
+        min
+      </li>
+    <% end %>
+
+  </ul>
+
+  <%# Tags %>
+  <% unless falsey locals[:tags] %>
+
+    <% if article.data.tags(blogName) %>
+
+      <div class="blog-detail__tags">
+        <% article.data.tags(blogName).each do |tag| %>
+          <%= partial 'partials/atom/label.erb', locals: { extraClass: 'blog-detail__tag', context: 'info', content: tag, href: tag_path(tag, blogName), itemprop: 'keywords'} %>
+        <% end %>
+      </div>
+
+    <% end %>
+
+  <% end %>
+
+  <%# Social %>
+  <% unless falsey locals[:social] %>
+
+    <div class="blog-detail__social">
+
+      <span class="blog-detail__shareText">
+        Share this article
+      </span>
+
+      <%= partial 'partials/social/facebook/share-button.erb', locals: {href: url, icon: 'fa-facebook-official fa-2x', type: 'javascript'} %>
+      <%= partial 'partials/social/twitter/tweet-button.erb', locals: {icon: 'fa-twitter-squared fa-2x', url: url, type: 'link'} %>
+      <%= partial 'partials/social/pinterest/save-button.erb', locals: {icon: 'fa-pinterest-squared fa-2x', url: url} %>
+
+    </div>
+
+  <% end %>
+
+</div>

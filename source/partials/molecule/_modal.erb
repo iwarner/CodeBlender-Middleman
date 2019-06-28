@@ -1,0 +1,76 @@
+<%#
+Modal
+
+@usage
+- body = capture_html do
+  -# Heading
+  = codeBlender "heading", "molecule", { tag: "h2", text: "Heading" }
+
+  %p
+    TEXT
+
+-# Modal
+= codeBlender "modal", "molecule", { id: "myModal", body: body }
+
+-# Button
+= codeBlender "button", "atom", { text: "Launch Modal", data: { target: "#myModal", toggle: "modal" } }
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category molecule
+%>
+
+<% size = locals[:size] || false %>
+
+<%# If ID is not defined or Blank %>
+<% if ! locals[:id] %>
+  <% id = 'myModal' %>
+<% end %>
+
+<%# Extra class %>
+<% extraClass = locals[:extraClass] || '' %>
+<% extraClass += locals[:noAnimation] ? false : ' fade' %>
+
+<%# Modal %>
+<div class="modal <%= extraClass %>" id="<%= id %>" role="dialog" tabindex="-1" aria-labelledby="<%= "#{id}Label" %>" aria-hidden="true" aria-describedby="Overlay">
+
+  <div class="modal-dialog <%= size %>" role="document">
+
+    <div class="modal-content <%= locals[:contentClass] %>" data="<%= locals[:data] || '' %>">
+
+      <% if locals[:title] %>
+        <div class="modal-header">
+
+          <%# Button %>
+          <%= partial 'partials/atom/button.erb', locals: {
+            aria: {label: 'Close'},
+            text: 'close',
+            extraClass: 'close',
+            data: {dismiss: 'modal'},
+            type: 'button'} %>
+
+          <% if locals[:title] %>
+            <%# Heading %>
+            <%= partial 'partials/molecule/heading.erb', locals: {id: "#{id}Label", extraClass: 'modal-title', tag: 'h4', text: title} %>
+          <% end %>
+
+        </div>
+      <% end %>
+
+      <% if locals[:body] %>
+        <div class="modal-body">
+          <%= body %>
+        </div>
+      <% end %>
+
+      <% if locals[:footer] %>
+        <div class="modal-footer">
+          <%= footer %>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+
+</div>
+

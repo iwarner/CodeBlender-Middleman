@@ -1,0 +1,75 @@
+<%#
+List UL
+
+@author Ian Warner <ian.warner@drykiss.com>
+@see    http://getbootstrap.com/css/#type-lists
+%>
+
+<% type = locals[:type] ? locals[:type] : 'ul' %>
+
+<% captureHTML = capture do %>
+
+  <% locals[:array].each.with_index do |list, index| %>
+
+    <% extraClass = list[:active] ? 'active' : '' %>
+    <% extraClass += list[:extraClass] ? ' #{list[:extraClass]}' : '' %>
+    <% extraClass += list[:status] ? ' #{list[:status]}' : '' %>
+    <% extraClass = !extraClass.empty? ? "class=\"#{extraClass}\"" : nil %>
+    <% role = locals[:dropdown] ? 'role="presentation"' : nil %>
+
+    <li <%= role %> <%= extraClass %> itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+
+      <% if list[:link] %>
+
+        <% link = list[:link] %>
+
+        <% options = {
+          data: link[:data] ? link[:data] : false,
+          itemprop: 'item', itemscope: true,
+          itemtype: 'http://schema.org/Thing',
+          ng: link[:ng] ? link[:ng] : false,
+          target: link[:target] ? link[:target] : false,
+          title: link[:title]  ? link[:title]  : false,
+          ui: list[:ui] ? link[:ui] : false }
+        %>
+
+        <% link_to link[:url] ? localePath(link[:url]) : false, options do %>
+
+          <% if list[:icon] %>
+              <%= partial 'partials/atom/icon.erb', locals: {icon: list[:icon]} %>
+          <% end %>
+
+          <% if list[:text] %>
+              <%= string(list[:text]) %>
+          <% end %>
+
+        <% end %>
+
+      <% else %>
+        <span itemprop="name">
+          <%= string(list[:text]) %>
+        </span>
+      <% end %>
+
+      <meta itemprop="position", content="<%= index+1 %>">
+
+    </li>
+
+  <% end %>
+
+<% end %>
+
+<% if locals[:navBar] %>
+  <%= captureHTML %>
+
+<% else %>
+
+  <% itemType = locals[:itemType] ? "itemtype=\"#{locals[:itemType]}\"" : nil %>
+  <% itemScope = itemType ? 'itemscope' : nil %>
+  <% extraClass = locals[:extraClass] ? "class=\"#{locals[:extraClass]}\"" : nil %>
+
+  <<%= type %> <%= extraClass %> <%= itemScope %> <%= itemType %>>
+    <%= captureHTML %>
+  </<%= type %>>
+
+<% end %>

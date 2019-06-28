@@ -1,0 +1,27 @@
+<%#
+Gravatar
+
+@usage
+-# Gravatar avatar
+= codeBlender "gravatar", "social/gravatar", { email: "ian.warner@drykiss.com", size: "200" }
+
+@param alt        - string - optional
+@param email      - string - required - Email address of the user's gravatar
+@param extraClass - string - optional
+@param size       - int    - optional - Size of the image - default 80px square
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category social
+%>
+
+<%# Size default %>
+<% if !locals[:size] %>
+  <% locals[:size] = 80 %>
+<% end %>
+
+<%# Avatar URL %>
+<% emailHash = Digest::MD5.hexdigest(string(locals[:email]).chomp.downcase) %>
+<% src = "https://www.gravatar.com/avatar/#{emailHash}.jpg?s=#{locals[:size]}&r=pg" %>
+
+<%# Image %>
+<%= partial 'partials/atom/image', locals: {alt: locals[:alt], extraClass: locals[:extraClass], src: src, type: 'thumbnail'} %>

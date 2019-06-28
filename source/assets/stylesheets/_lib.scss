@@ -1,19 +1,22 @@
-//
 // Lib
 //
 // @author   Ian Warner <ian.warner@drykiss.com>
 // @category style
 //----------------------------------------------------------------------------//
 
+// Module
+//----------------------------------------------------------------------------//
+@import '~css/variable';
+
 // Scaffolding
 //----------------------------------------------------------------------------//
-@import "_lib/colour";
-@import "_lib/info-window";
-@import "_lib/scaffolding";
+@import '_lib/colour';
+@import '_lib/info-window';
+@import '_lib/scaffolding';
 
-.controllerLoaded {
-    color    : red;
-    position : absolute;
-    top      : 10px;
-    right    : 15px;
+.controller-loaded {
+  color: #ff000;
+  position: absolute;
+  right: 15px;
+  top: 10px;
 }

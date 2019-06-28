@@ -1,0 +1,8 @@
+<li class="dropdown">
+  <% button[:data] = {toggle: 'dropdown' } %>
+  <% button[:dropdown] = true %>
+  <% button[:href] = 'javascript:;' %>
+
+  <%= partial 'partials/atom/button.erb', locals: button %>
+  <%= partial 'partials/atom/list-dropdown.erb', locals: locals[:list] %>
+</li>

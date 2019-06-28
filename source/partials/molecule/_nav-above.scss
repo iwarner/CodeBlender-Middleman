@@ -1,0 +1,41 @@
+// Navigation Above
+//
+// @author Ian Warner <ian.warner@drykiss.com>
+//----------------------------------------------------------------------------//
+
+// Navigation Above
+//----------------------------------------------------------------------------//
+.nav-above {
+
+  // Background
+  //------------------------------------------------------------------------//
+  background: url('/assets/images/organism/navAbove/bg.jpg') center center;
+  background-size: cover;
+
+  // Row
+  //--------------------------------------------------------------------------//
+  &__row {
+    @include make-row;
+  }
+
+  // Left Column
+  //--------------------------------------------------------------------------//
+  &__left-column{
+    @include make-md-column(4);
+  }
+
+  // Right Column
+  //--------------------------------------------------------------------------//
+  &__right-column{
+    @include make-md-column(8);
+  }
+
+}
+
+// Responsive
+//----------------------------------------------------------------------------//
+@media screen and (max-width: 1024px) {
+  .nav-above {
+    display: none;
+  }
+}

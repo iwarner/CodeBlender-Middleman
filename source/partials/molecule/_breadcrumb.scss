@@ -1,0 +1,26 @@
+// Breadcrumb
+// Bootstrap component to highlight a navigation path
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
+//----------------------------------------------------------------------------//
+
+// Bootstrap variable
+// $breadcrumb-padding-vertical   : 8px !default;
+// $breadcrumb-padding-horizontal : 15px !default;
+// $breadcrumb-bg                 : #f5f5f5 !default;
+// $breadcrumb-color              : #ccc !default;
+// $breadcrumb-active-color       : $gray-light !default;
+// $breadcrumb-separator          : "/" !default;
+//----------------------------------------------------------------------------//
+
+// Module
+//----------------------------------------------------------------------------//
+$module: 'breadcrumb';
+
+// Breadcrumb
+//----------------------------------------------------------------------------//
+.#{$module} {
+  border-bottom: 1px #ddd solid;
+  border-radius: 0;
+}

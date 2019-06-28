@@ -10,262 +10,262 @@
 # English
 en:
 
-    # Locale
-    locale         : "en"
-    localeFacebook : "en_GB"
+  # Locale
+  locale         : "en"
+  localeFacebook : "en_GB"
 
-    # Brand
-    brand : "Code Blender"
-    url   : "http://codeblender.net"
+  # Brand
+  brand : "Code Blender"
+  url   : "http://codeblender.net"
 
-    # Brand
-    brand : "Code Blender"
-    url   : "http://codeblender.net"
+  # Brand
+  brand : "Code Blender"
+  url   : "http://codeblender.net"
 
-    # Facebook
-    facebook :
-        locale : "en_GB"
+  # Facebook
+  facebook :
+      locale : "en_GB"
 
-    # Pagination
-    pagination :
-        first    : "First"
-        next     : { icon : "fa-angle-right" }
-        previous : { icon : "fa-angle-left"  }
-        last     : "Last"
+  # Pagination
+  pagination :
+      first    : "First"
+      next     : { icon : "fa-angle-right" }
+      previous : { icon : "fa-angle-left"  }
+      last     : "Last"
 
-    # Search
-    search-input :
-        button :
-            text : "Search"
-        input:
-            placeholder : "Search..."
-        label :
-            label : "Search"
+  # Search
+  search-input :
+      button :
+          text : "Search"
+      input:
+          placeholder : "Search..."
+      label :
+          label : "Search"
 
-    # Code
-    code :
-        tab :
-            - text : "Code"
-              url  : "#code"
-            - text : "Output"
-              url  : "#output"
+  # Code
+  code :
+      tab :
+          - text : "Code"
+            url  : "#code"
+          - text : "Output"
+            url  : "#output"
 
-    # MailChimp
-    mailChimp :
-        title     : "Newsletter"
-        small     : "Get our products/news earlier than others, let's get in touch."
-        button    : "Subscribe"
-        email     : "Enter your email address"
-        firstName : "First name"
-        lastName  : "Last name"
+  # MailChimp
+  mailChimp :
+      title     : "Newsletter"
+      small     : "Get our products/news earlier than others, let's get in touch."
+      button    : "Subscribe"
+      email     : "Enter your email address"
+      firstName : "First name"
+      lastName  : "Last name"
 
-    # Meta - defaults
-    meta :
-        author           : "DryKISS"
-        image            : "/assets/images/logo/facebookShare.png?v=1.00"
-        itemType         : "WebPage"
-        publisher        : "DryKISS Ltd"
-        publisherAddress : "ian.warner@drykiss.com"
-        rights           : "&copy; 2015, DryKISS Ltd. All rights reserved."
-        siteName         : "DryKISS"
-        type             : "website"
-        prepend          : "DryKISS"
+  # Meta - defaults
+  meta :
+      author           : "DryKISS"
+      image            : "/assets/images/logo/facebookShare.png?v=1.00"
+      itemType         : "WebPage"
+      publisher        : "DryKISS Ltd"
+      publisherAddress : "ian.warner@drykiss.com"
+      rights           : "&copy; 2015, DryKISS Ltd. All rights reserved."
+      siteName         : "DryKISS"
+      type             : "website"
+      prepend          : "DryKISS"
 
-    # Navigation Above
-    navAbove :
-        strapLine : "An atomic Middleman partials library"
-        title     : "Code Blender"
+  # Navigation Above
+  navAbove :
+      strapLine : "An atomic Middleman partials library"
+      title     : "Code Blender"
 
-    # Navigation
-    navigation :
+  # Navigation
+  navigation :
 
-        # Left
-        left :
+    # Left
+    right :
 
-            # Home
-            - text : "Home"
-              link : { url: "/" }
+      # Home
+      - text : "Home"
+        link : { url: "/" }
 
-            # Atom
-            - text : "Atom"
-              link : { url: "/atom/atom.html" }
+      # Atom
+      - text : "Atom"
+        link : { url: "/atom/atom.html" }
 
-            # Molecule
-            - text : "Molecule"
-              link : { url: "/molecule/molecule.html" }
+      # Molecule
+      - text : "Molecule"
+        link : { url: "/molecule/molecule.html" }
 
-            # Organism
-            - text : "Organism"
-              link : { url: "/organism/organism.html" }
+      # Organism
+      - text : "Organism"
+        link : { url: "/organism/organism.html" }
 
-            # Template
-            - text : "Template"
-              link : { url: "/template/template.html" }
+      # Template
+      - text : "Template"
+        link : { url: "/template/template.html" }
 
-            # Social
-            - dropdown :
-                button :
-                  text : "Social"
-                items    :
-                  - text : "Disqus"
-                    link : { url : "/social/disqus/disqus.html" }
-                  - text : "Facebook"
-                    link : { url : "/social/facebook/facebook.html" }
-                  - text : "Firebase"
-                    link : { url : "/social/firebase/firebase.html" }
-                  - text : "Flikr"
-                    link : { url : "/social/flikr/flikr.html" }
-                  - text : "Google"
-                    link : { url : "/social/google/google.html" }
-                  - text : "Gravatar"
-                    link : { url : "/social/gravatar/gravatar.html" }
-                  - text : "LinkedIn"
-                    link : { url : "/social/linkedin/linkedin.html" }
-                  - text : "Mailchimp"
-                    link : { url : "/social/mailchimp/mailchimp.html" }
-                  - text : "Pinterest"
-                    link : { url : "/social/pinterest/pinterest.html" }
-                  - text : "Skype"
-                    link : { url : "/social/skype/skype.html" }
-                  - text : "Treatwell"
-                    link : { url : "/social/treatwell/treatwell.html" }
-                  - text : "Twitter"
-                    link : { url : "/social/twitter/twitter.html" }
-                  - text : "YouTube"
-                    link : { url : "/social/youtube/youtube.html" }
+      # Social
+      - dropdown :
+          button :
+            text : "Social"
+          items    :
+            - text : "Disqus"
+              link : { url : "/social/disqus/disqus.html" }
+            - text : "Facebook"
+              link : { url : "/social/facebook/facebook.html" }
+            - text : "Firebase"
+              link : { url : "/social/firebase/firebase.html" }
+            - text : "Flikr"
+              link : { url : "/social/flikr/flikr.html" }
+            - text : "Google"
+              link : { url : "/social/google/google.html" }
+            - text : "Gravatar"
+              link : { url : "/social/gravatar/gravatar.html" }
+            - text : "LinkedIn"
+              link : { url : "/social/linkedin/linkedin.html" }
+            - text : "Mailchimp"
+              link : { url : "/social/mailchimp/mailchimp.html" }
+            - text : "Pinterest"
+              link : { url : "/social/pinterest/pinterest.html" }
+            - text : "Skype"
+              link : { url : "/social/skype/skype.html" }
+            - text : "Treatwell"
+              link : { url : "/social/treatwell/treatwell.html" }
+            - text : "Twitter"
+              link : { url : "/social/twitter/twitter.html" }
+            - text : "YouTube"
+              link : { url : "/social/youtube/youtube.html" }
 
-            # Football
-            - text : "Football"
-              link : { url: "/football/football.html" }
+      # Football
+      - text : "Football"
+        link : { url: "/football/football.html" }
 
-            # Media
-            - text : "Media"
-              link : { url: "/media/media.html" }
+      # Media
+      - text : "Media"
+        link : { url: "/media/media.html" }
 
-            # Mobile
-            - text : "Mobile"
-              link : { url: "/mobile/mobile.html" }
+      # Mobile
+      - text : "Mobile"
+        link : { url: "/mobile/mobile.html" }
 
-    # Home
-    home :
+  # Home
+  home :
 
-        jumbotron :
-            title       : "Code Blender"
-            description : >
-                Code Blender
+      jumbotron :
+          title       : "Code Blender"
+          description : >
+              Code Blender
 
-    archive :
-        title : "Archive"
+  archive :
+      title : "Archive"
 
-    recent :
-        title : "Recent articles"
+  recent :
+      title : "Recent articles"
 
-    tags :
-        title : "Tags"
+  tags :
+      title : "Tags"
 
-    # Style Guide
-    styleGuide :
+  # Style Guide
+  styleGuide :
 
-        jumbotron :
-            title       : "Digital Identity"
-            description : >
-                The Brand represents everything we stand for. It is the total sum of
-                many parts, including visual elements of the brand, our services and
-                products, and our stakeholders' perceptions and expectations of us.
+      jumbotron :
+          title       : "Digital Identity"
+          description : >
+              The Brand represents everything we stand for. It is the total sum of
+              many parts, including visual elements of the brand, our services and
+              products, and our stakeholders' perceptions and expectations of us.
 
-    # Portfolio
-    portfolio :
+  # Portfolio
+  portfolio :
 
-        recent :
+      recent :
 
-            heading :
-                small : "Hover over the projects for some extra details. Click for the full description."
-                text  : "Recent Work"
+          heading :
+              small : "Hover over the projects for some extra details. Click for the full description."
+              text  : "Recent Work"
 
-        heading :
-            small : "Hover over the projects for some extra details. Click for the full description."
-            text  : "Our Work"
+      heading :
+          small : "Hover over the projects for some extra details. Click for the full description."
+          text  : "Our Work"
 
-    # Prototyping
-    prototyping :
+  # Prototyping
+  prototyping :
 
-        jumbotron :
-            title       : "Prototyping"
-            description : >
-                Testing bay for components
+      jumbotron :
+          title       : "Prototyping"
+          description : >
+              Testing bay for components
 
-    # Data grid Table
-    table :
+  # Data grid Table
+  table :
 
-        client       : "Client"
-        role         : "Job title"
-        organisation : "Organisation"
-        tactic       : "Tactic code"
-        lastContact  : "Last contact"
-        buyingStage  : "Buying stage"
-        nextAction   : "Next action"
+      client       : "Client"
+      role         : "Job title"
+      organisation : "Organisation"
+      tactic       : "Tactic code"
+      lastContact  : "Last contact"
+      buyingStage  : "Buying stage"
+      nextAction   : "Next action"
 
-    # Copyright
-    copyright :
-        brand  : "Code Blender"
-        rights : "All rights reserved."
+  # Copyright
+  copyright :
+      brand  : "Code Blender"
+      rights : "All rights reserved."
 
-    # Footer
-    footer :
+  # Footer
+  footer :
 
-        # Column one
-        - title       : "About"
-          icon        : "fa-info"
-          markdown    : true
-          description : |
+      # Column one
+      - title       : "About"
+        icon        : "fa-info"
+        markdown    : true
+        description : |
 
-            **DryKISS** is a full service internet and mobile digital production
-            house. Our core services span consulting, strategy; planning;
-            development; testing and analytics. We developed CodeBlender to
-            provide a Rapid and repeatable platform for our frontend work.
+          **DryKISS** is a full service internet and mobile digital production
+          house. Our core services span consulting, strategy; planning;
+          development; testing and analytics. We developed CodeBlender to
+          provide a Rapid and repeatable platform for our frontend work.
 
-        # Column two
-        - title       : "What We Do"
-          icon        : "fa-cogs"
-          description : |
+      # Column two
+      - title       : "What We Do"
+        icon        : "fa-cogs"
+        description : |
 
-            DryKISS develops hybrid mobile apps (iOS &amp; Android); responsive
-            internet sites; administration systems and social applications.
-            Using our platform we tune for SEO, accessibility and conversion
-            from the very outset.
+          DryKISS develops hybrid mobile apps (iOS &amp; Android); responsive
+          internet sites; administration systems and social applications.
+          Using our platform we tune for SEO, accessibility and conversion
+          from the very outset.
 
-        # Column Three
-        - title       : "Social"
-          icon        : "fa-twitter"
-          extraClass  : "footer--social"
-          description : |
+      # Column Three
+      - title       : "Social"
+        icon        : "fa-twitter"
+        extraClass  : "footer--social"
+        description : |
 
-            <a href="https://www.facebook.com/DryKISSLtd" target="_blank">
-                <span class="fa fa-fw fa-facebook" title="Facebook"></span>
-            </a>
-            <a href="https://twitter.com/DryKISSLtd" target="_blank">
-                <span class="fa fa-fw fa-twitter" title="Twitter"></span>
-            </a>
-            <a href="https://google.com/DryKISSLtd" target="_blank">
-                <span class="fa fa-fw fa-google" title="Google"></span>
-            </a>
+          <a href="https://www.facebook.com/DryKISSLtd" target="_blank">
+              <span class="fa fa-fw fa-facebook" title="Facebook"></span>
+          </a>
+          <a href="https://twitter.com/DryKISSLtd" target="_blank">
+              <span class="fa fa-fw fa-twitter" title="Twitter"></span>
+          </a>
+          <a href="https://google.com/DryKISSLtd" target="_blank">
+              <span class="fa fa-fw fa-google" title="Google"></span>
+          </a>
 
-        # Column Four
-        - title       : "Contact"
-          icon        : "fa-phone"
-          description : |
+      # Column Four
+      - title       : "Contact"
+        icon        : "fa-phone"
+        description : |
 
-            <p>
-                <i class="fa fa-fw fa-map-marker"></i>
-                Colliers Wood, London, UK
-            </p>
+          <p>
+              <i class="fa fa-fw fa-map-marker"></i>
+              Colliers Wood, London, UK
+          </p>
 
-            <p>
-                <i class="fa fa-fw fa-phone"></i>
-                <a href="tel:+447780435329">+44 (0) 778 043 5329</a>
-            </p>
+          <p>
+              <i class="fa fa-fw fa-phone"></i>
+              <a href="tel:+447780435329">+44 (0) 778 043 5329</a>
+          </p>
 
-            <p>
-                <i class="fa fa-fw fa-envelope"></i>
-                <a href="mailto:info@drykiss.com">info@drykiss.com</a>
-            </p>
+          <p>
+              <i class="fa fa-fw fa-envelope"></i>
+              <a href="mailto:info@drykiss.com">info@drykiss.com</a>
+          </p>

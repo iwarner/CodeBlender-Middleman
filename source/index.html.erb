@@ -1,0 +1,148 @@
+---
+description: CodeBlender - Middleman hand crafted Bootstrap HAML partials
+layout: :full-width
+title: CodeBlender - Middleman hand crafted Bootstrap HAML partials
+
+blogName: docs
+blog: docs
+pageable: true
+per_page: 5
+
+see:
+  - - "Accessibility"
+    - "https://www.w3.org/WAI/tutorials/"
+  - - "Metronic"
+    - "http://www.keenthemes.com/preview/metronic/theme/templates/admin4/angularjs/#/dashboard.html"
+  - - "Angular Style Guide"
+    - "https://github.com/johnpapa/angular-styleguide"
+  - - "Bootstrap Cards"
+    - "http://bootcards.org/"
+  - - "Bootstrap SASS Official"
+    - "https://github.com/twbs/bootstrap-sass"
+  - - "Stardom Theme"
+    - "http://admindesigns.com/stardom/"
+  - - "Animate CSS"
+    - "http://daneden.github.io/animate.css/"
+  - - "String Augmented Reality"
+    - "http://www.poweredbystring.com/"
+  - - "Resource Space"
+    - "http://www.resourcespace.org/"
+  - - "Middleman Hacks"
+    - "https://www.discovermeteor.com/blog/three-middleman-hacks-were-using-on-this-site/"
+  - - "Middleman Help"
+    - "http://joshwlewis.com/slides/middleman/index.html#/title"
+  - - "Themes"
+    - "http://themetrust.com/themes"
+  - - "Off Canvas"
+    - "http://demo.siterepo.com/store/css/verion/verion.php"
+  - - "Scroll Example"
+    - "http://www.bootply.com/T2jYl0an06"
+
+todo:
+  - - "Look at Flikr Badges - www.flickr.com/about/goodies/"
+  - - "Create an AddThis partial in social section"
+  - - "Check out github.com/mledoze/countries - include into dropdowns etc"
+  - - "Add a variable for the theme of the syntax highlighter in the config file"
+  - - "Create a partial to display a cookie panel on the page"
+  - - "Create an editable view of the possible configuration options"
+  - - "Create and document a crossdomain.xml file - use builder also"
+  - - "Create a coming soon / maintenance layout"
+  - - "Need to put the body data tags back into the layout"
+  - - "Need to be able to change the doctype and HTML aspects from the config"
+  - - "Add the base ref to the config"
+---
+
+<% cp = current_page.data %>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <%= partial 'partials/molecule/heading.erb', locals: {extraClass: 'text-center', tag: 'h2', text: 'Middleman hand crafted Bootstrap HAML partials'} %>
+    </div>
+
+  </div>
+
+</div>
+
+.container
+
+    -# Bootstrap row
+    .row
+
+        -# Bootstrap column
+        .col-md-12
+
+            .text-center
+
+                %p
+                    CodeBlender aims to provide simple atomic site structures, that can
+                    be reused across multiple projects. Built upon the fantastic
+                    Middleman these HAML partials are created to be understood; the main
+                    reason we did not encapsulate them into a GEM. Simply symlink the
+                    partial/_library folder into the new project and include them.
+
+                %p
+                    Utilising the Bootstrap CSS framework each partial encompasses many
+                    defaults, such as accessibility, micro-formats and layout. Making
+                    this project a must when it comes to rapid prototyping of UX ideas.
+                    Still work in progress we aim to have full coverage of all Bootstrap
+                    elements and more.
+
+    -# Bootstrap row
+    .row
+
+        -# Bootstrap column
+        .col-md-4.text-center
+
+            -# Button github
+            = codeBlender "button", "atom", { href: "https://github.com/iwarner/CodeBlender-Middleman", icon: { prepend: { icon: "fa fa-github" } }, text: "Github", size: "lg" }
+
+        -# Bootstrap column
+        .col-md-4.text-center
+
+            -# Button download
+            = codeBlender "button", "atom", { href: "https://github.com/iwarner/CodeBlender-Middleman/archive/master.zip", icon: { prepend: { icon: "fa fa-download" } }, text: "Download", size: "lg" }
+
+        -# Bootstrap column
+        .col-md-4.text-center
+
+            -# Button docs
+            = codeBlender "button", "atom", { icon: { prepend: { icon: "fa fa-folder" } }, text: "Docs", size: "lg" }
+
+    -# %h2 Similar Entries
+    -# %ul
+    -#     - similar_articles.first( 5 ).each do | article |
+    -#         %li= link_to article.title, article.url
+
+    -# %hr
+
+    -# Bootstrap row
+    .row
+
+        -# Bootstrap column
+        .col-md-9.col-sm-9
+
+            -# Article list
+            = codeBlender "article-list", "template", { name: cp.blogName, page_articles: page_articles }
+
+            -# Pagination variables
+            - prevPage = prev_page ? prev_page : false
+            - nextPage = next_page ? next_page : false
+
+            -# Pagination
+            = codeBlender "pagination", "molecule", { nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages }
+
+        -# Bootstrap column
+        .col-md-3.col-sm-3
+
+            -# Archive
+            = codeBlender "archive", "molecule", { name: cp.blogName }
+
+            -# MailChimp
+            = codeBlender "mailchimp", "social/mailchimp"
+
+            -# Tag cloud
+            = codeBlender "tag-cloud", "molecule", { threshold: 2, name: cp.blogName }
+

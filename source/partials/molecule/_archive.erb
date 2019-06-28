@@ -1,0 +1,37 @@
+<% name = locals[:name] || blog_controller.name %>
+
+<section class="blog-archive">
+
+  <%= partial 'partials/molecule/heading.erb', locals: {extraClass: 'blog-archive__heading', tag: 'h4', text: :'archive.title'} %>
+
+  <% blog(name).articles.group_by {|y| y.date.year}.each do |year, articles| %>
+
+    <dl class="blog-archive__list list-unstyled">
+
+      <dt class="blog-archive__dt">
+        <% link_to(blog_year_path(year, name)) do %>
+          <%= year %>
+          <%= partial 'partials/atom/badge.erb', locals: {text: articles.count} %>
+        <% end %>
+      </dt>
+
+      <% if locals[:months] %>
+        <dd class="blog-archive__dd">
+          <% articles.group_by {|a| a.date.month}.each do |month, monthArticles| %>
+            <ul class="list-unstyled">
+              <li>
+                <% link_to(blog_month_path(year, month, name)) do %>
+                  <%= monthArticles.first.date.strftime('%b') %>
+                  <%= partial 'partials/atom/badge.erb', locals: {text: monthArticles.count} %>
+                <% end %>
+              </li>
+            </ul>
+          <% end %>
+        </dd>
+      <% end %>
+
+    </dl>
+
+  <% end %>
+
+</section>

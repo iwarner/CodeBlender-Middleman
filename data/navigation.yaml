@@ -1,58 +1,56 @@
-##
 # Navigation, Navbar configuration
 #
 # @author   Ian Warner <ian.warner@drykiss.com>
 # @category config
-##
 
 ---
 
 # Whether to show the navigation bar
-navbar : true
-id     : false
+navbar: true
+id: false
 
 # Paths to the partial to display navigation above and below
-above : "molecule/nav-above/nav-above.haml"
-below : false
+above: false
+below: false
 
 # Bootstrap container class
-container : "container"
+container: container
 
 # Brand
-brand :
+brand:
 
-    active : true
+  active: true
 
-    heading :
-        active : true
+  heading:
+    active: true
 
-    link :
-        url : "/"
+  link:
+    url: /
 
-    icon :
-        active : false
-        icon   : fa-cart
+  icon:
+    active: false
+    icon: fa-cart
 
-    logo :
-        active : false
-        alt    : false
-        width  : false
-        height : false
+  logo:
+    active: false
+    alt: false
+    width: false
+    height: false
 
-    text :
-        active : false
-        text   : "CodeBlender"
+  text:
+    active: false
+    text: CodeBlender
 
 # Navigation classes
-extraClass : "navbar-inverse navbar-static-top"
+extraClass: navbar-inverse navbar-static-top
 
 # Angular
-ng :
-    controller : false
-    show       : false
-    cloak      : false
+ng:
+  controller: false
+  show: false
+  cloak: false
 
 # Unsure
-type     : false
-uLClass  : "navbar-left"
-wrapper  : false
+type: false
+uLClass: navbar-left
+wrapper: false

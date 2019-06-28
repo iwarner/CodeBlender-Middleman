@@ -1,0 +1,9 @@
+<%#
+Badge
+%>
+
+<% extraClass = locals[:extraClass] || nil %>
+
+<span class="badge <%= extraClass %>">
+  <%= string(locals[:text]) %>
+</span>

@@ -1,0 +1,23 @@
+<%#
+Icon
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category atom
+
+@todo Use the content_tag
+%>
+
+<% extraClass = locals[:icon] ? "class=\"fa #{locals[:icon]}\"" : nil %>
+<% ng = locals[:ng] ? "ng=\"#{locals[:ng]}\"" : nil %>
+
+<% captureHTML = capture do %>
+  <span <%= extraClass %> <%= ng %>></span>
+<% end %>
+
+<% if locals[:link] %>
+  <%= link_to(captureHTML, locals[:link][:url], locals[:link][:attribute]) %>
+
+<% else %>
+  <%= captureHTML %>
+
+<% end %>

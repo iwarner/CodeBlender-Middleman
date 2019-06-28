@@ -1,0 +1,54 @@
+<%#
+Bootstrap layout
+
+Important to only load the Angular App when required to save load time
+%>
+
+<% angularApp = (current_page.data.angular and current_page.data.angular.app) ? current_page.data.angular.app : 'app' %>
+
+<!DOCTYPE html>
+<html lang="<%= locale %>" ng-app="<%= angularApp %>">
+
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <%= partial 'partials/meta/meta' %>
+    <%= stylesheet_link_tag 'all.bundle', media: 'all' %>
+  </head>
+
+  <%# Body attributes %>
+  <% attribute = {
+    'data-locale': locale,
+    'data-facebookappid': t(:'facebook.app.id'),
+    'data-facebooklocale': t(:'facebook.locale'),
+    itemscope: true,
+    itemtype: 'https://schema.org/WebPage',
+    'data-url': t(:deliverooLink),
+    'data-domain': t(:url)
+    } %>
+
+  <%# Body tag %>
+  <% content_tag(:body, attribute) do %>
+
+    <%# Navigation %>
+    <%= partial 'partials/molecule/navbar.erb' %>
+
+    <%# Yield %>
+    <%= yield %>
+
+    <%# Footer %>
+    <%= partial 'partials/organism/footer.erb' %>
+
+    <%# Extra JS %>
+    <% if content_for? :siteBody %>
+      <%= yield_content :siteBody %>
+    <% end %>
+
+    <%# Javascript %>
+    <%= javascript_include_tag 'https://platform.instagram.com/en_US/embeds.js', defer: true, async: true %>
+    <%= javascript_include_tag 'body.bundle', defer: true, async: true %>
+
+    <%# Google analytics %>
+    <%= partial 'partials/social/google-analytics' %>
+
+  <% end %>
+
+</html>

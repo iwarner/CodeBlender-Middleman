@@ -12,9 +12,9 @@ api : "AIzaSyA_g0e_o6sz7zNJpbdTtrVoBrWokt6Y7BQ"
 
 # Analytics
 analytics :
-    active : true
-    code   : "UA-49976138-4"
-    url    : "auto"
+  active : true
+  code   : "UA-49976138-4"
+  url    : "auto"
 
 # Adsense
 adsense : "ca-pub-4390370568784157"

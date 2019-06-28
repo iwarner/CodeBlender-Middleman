@@ -1,58 +1,60 @@
-//
 // Library
 //
 // @author   Ian Warner <ian.warner@drykiss.com>
 // @category style
 //----------------------------------------------------------------------------//
 
+// Module
+//----------------------------------------------------------------------------//
+@import '~css/variable';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
 // Atom
 //----------------------------------------------------------------------------//
-@import "~cbatom/image/image";
-@import "~cbatom/label/label";
-@import "~cbatom/shape/shape";
-@import "~cbatom/video/video";
+@import '~atom/scaffolding';
+@import '~atom/image';
+@import '~atom/label';
+@import '~atom/shape';
+@import '~atom/video';
 
 // Molecule
 //----------------------------------------------------------------------------//
-@import "~cbmolecule/archive/archive";
-@import "~cbmolecule/brand/brand";
-@import "~cbmolecule/breadcrumb/breadcrumb";
-@import "~cbmolecule/carousel/carousel";
-@import "~cbmolecule/code/code";
-@import "~cbmolecule/detail/detail";
-@import "~cbmolecule/dropdown/dropdown";
-@import "~cbmolecule/heading/heading";
-@import "~cbmolecule/jumbotron/jumbotron";
-@import "~cbmolecule/nav/nav";
-@import "~cbmolecule/nav-above/nav-above";
-@import "~cbmolecule/navbar/navbar";
-@import "~cbmolecule/panel/panel";
-@import "~cbmolecule/pagination/pagination";
-@import "~cbmolecule/popover/popover";
-@import "~cbmolecule/recent/recent";
-@import "~cbmolecule/subnavigation/subnavigation";
-@import "~cbmolecule/tag-cloud/tag-cloud";
-@import "~cbmolecule/top-icon/top-icon";
+@import '~molecule/archive';
+@import '~molecule/blog-detail';
+@import '~molecule/blog-recent';
+@import '~molecule/breadcrumb';
+@import '~molecule/carousel';
+@import '~molecule/code';
+@import '~molecule/dropdown';
+@import '~molecule/heading';
+@import '~molecule/jumbotron';
+@import '~molecule/nav-above';
+@import '~molecule/navbar';
+@import '~molecule/panel';
+@import '~molecule/pagination';
+@import '~molecule/popover';
+@import '~molecule/subnavigation';
+@import '~molecule/tag-cloud';
+@import '~molecule/top-icon';
 
 // Organism
 //----------------------------------------------------------------------------//
-@import "~cborganism/footer/footer";
-@import "~cborganism/header/header";
-@import "~cborganism/sidebar/sidebar";
+@import '~organism/footer';
+@import '~organism/sidebar';
 
 // Social
 //----------------------------------------------------------------------------//
-@import "~cbsocial/mailchimp/mailchimp";
-@import "~cbsocial/google/places/autocomplete";
+@import '~social/mailchimp';
+@import '~social/google-autocomplete';
 
 // Template
 //----------------------------------------------------------------------------//
-@import "~cbtemplate/article/article";
-@import "~cbtemplate/article-list/article-list";
-@import "~cbtemplate/blog-calendar/blog-calendar";
-@import "~cbtemplate/contact/contact";
-@import "~cbtemplate/portfolio/portfolio";
+@import '~template/article';
+@import '~template/article-list';
+@import '~template/contact';
+@import '~template/portfolio';
 
 // Football
 //----------------------------------------------------------------------------//
-@import "~cbfootball/table/table";
+// @import '~football/table/table';

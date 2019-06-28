@@ -1,0 +1,25 @@
+<%#
+Blank layout
+%>
+
+<% locale = I18n.locale.to_s %>
+
+<!DOCTYPE html>
+<html lang="<%= locale %>">
+
+  <head>
+    <title><%= configuration('title') %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1">
+  </head>
+
+  <body>
+
+    <%= yield %>
+
+    <%# Google analytics %>
+    <%= partial 'partials/social/google/analytics' %>
+
+  </body>
+
+</html>

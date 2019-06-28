@@ -1,0 +1,45 @@
+-##
+-# LinkedIn share button
+-#
+-# @usage
+-# -# LinkedIn share
+-# = codeBlender "share-button", "social/linkedin/share-button",
+-#   { href: "http://drykiss.com/" }
+-#
+-# @author   Ian Warner <ian.warner@drykiss.com>
+-# @category social
+-##
+
+-# Example link
+-# https://www.linkedin.com/shareArticle?mini=true&url=http://developer.linkedin.com&title=LinkedIn%20Developer%20Network
+-# &summary=My%20favorite%20developer%20program&source=LinkedIn
+
+-# LinkedIn path
+- linkedInPath = "https://www.linkedin.com/shareArticle?mini=true"
+
+-# URL
+-# The url-encoded URL of the page that you wish to share. 1024 Required
+- url = URI::encode locals[ :url ]
+
+-# Title
+-# The url-encoded title value that you wish you use. 200 Optional
+- if locals[ :title ]
+    - title = URI::encode string( locals[ :title ] )
+
+-# Summary
+-# The url-encoded description that you wish you use.  256 Optional
+- if locals[ :summary ]
+    - summary = URI::encode string( locals[ :summary ] )
+
+-# ExtraClass
+- extraClass = locals[ :extraClass ] ? locals[ :extraClass ] : false
+
+-# Source
+-# The url-encoded source of the content (e.g. your website or application name) 200 Optional
+- source = t( :"meta.publisher" )
+
+-# LinkedIn share
+%a.linkedin{ class: extraClass, href: "#{ linkedInPath }&url=#{ url }&title=#{ title }&summary=#{ summary }&source=#{ source }", target: "_blank" }
+
+    -# Icon
+    = codeBlender "icon", "atom", { icon: "fa-linkedin-square fa-fw" }

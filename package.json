@@ -8,7 +8,7 @@
   "private": true,
   "homepage": "http://codeblender.net",
   "scripts": {
-    "server": "bundle exec middleman server -p 8080",
+    "start": "NO_CONTRACTS=true bundle exec middleman server",
     "build": "bundle exec middleman build",
     "verbose": "bundle exec middleman build --verbose --clean",
     "deploy": "bundle exec middleman build && bundle exec middleman deploy"
@@ -29,7 +29,6 @@
     "angular-sanitize": "",
     "angular-ui-bootstrap": "",
     "angular-ui-grid": "",
-    "angular-ui-router": "",
     "autotrack": "",
     "bootstrap-sass": "",
     "font-awesome": "",
@@ -54,9 +53,9 @@
     "node-bourbon": "",
     "node-sass": "",
     "resolve-url-loader": "",
-     "sass-loader": "",
-     "style-loader": "",
-     "url-loader": "",
-     "webpack": ""
+    "sass-loader": "",
+    "style-loader": "",
+    "url-loader": "",
+    "webpack": ""
   }
 }

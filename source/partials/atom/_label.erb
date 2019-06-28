@@ -1,0 +1,31 @@
+<%#
+Label
+%>
+
+<% extraClass = locals[:extraClass] ? ' ' + locals[:extraClass] : '' %>
+<% extraClass += locals[:context] ? ' label-' + locals[:context] : ' label-default' %>
+<% itemprop = locals[:itemprop] ? itemprop : false %>
+
+<% captureHTML = capture_html do %>
+
+  <% if locals[ :icon ] %>
+    <%= partial 'partials/atom/icon.erb', locals: { icon: locals[:icon] } %>
+  <% end %>
+
+  <%= string(locals[:content]) %>
+
+<% end %>
+
+<% if locals[ :href ] %>
+
+  <% link_to(locals[:href], {class: "label#{extraClass}", itemprop: itemprop, title: locals[:title]}) do %>
+    <%= captureHTML %>
+  <% end %>
+
+<% else %>
+
+  <span class="label<%= extraClass %>" itemprop title="<%= locals[:title] %>">
+    <%= captureHTML %>
+  </span>
+
+<% end %>

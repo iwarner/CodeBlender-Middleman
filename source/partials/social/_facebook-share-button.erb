@@ -1,0 +1,33 @@
+<%#
+Facebook share button
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category social
+%>
+
+<%
+href = locals[:href] || t(:url)
+layout = locals[:layout] || 'icon_link'
+size = locals[:size] || 'small'
+mobile_iframe = locals[:mobile_iframe] || 'true'
+hashtag = locals[:hashtag] || I18n.exists?(:'facebook.hashtag') ? t(:'facebook.hashtag') : nil
+quote = locals[:quote] || I18n.exists?(:'facebook.quote') ? t(:'facebook.quote') : nil
+%>
+
+<% if !locals[:type] || locals[:type] == 'button' %>
+
+  <div class="fb-share-button" data-href="<%= href %>" data-layout="<%= layout %>" data-size="<%= size %>" data-mobile_iframe="<%= mobile_iframe %>"></div>
+
+<% elsif locals[:type] == 'javascript' %>
+
+  <% link_to('javascript:;', {class: 'facebookShareButton', data: {url: href, hashtag: hashtag, quote: quote}}) do %>
+    <%= partial 'partials/atom/icon.erb', locals: {icon: locals[:icon] || 'fa-facebook-official fa-fw fa-3x'} %>
+  <% end %>
+
+<% elsif locals[:type] == 'link' %>
+
+  <% link_to('https://www.facebook.com/dialog/share?mobile_iframe=true&app_id=253027968192447&display=popup&href=https://codeblender.net&redirect_uri=https://codeblender.net') do %>
+    <%= partial 'partials/atom/icon.erb', locals: {icon: locals[:icon] || 'fa-facebook-official fa-fw fa-3x'} %>
+  <% end %>
+
+<% end %>

@@ -1,0 +1,33 @@
+<%#
+Blog recent
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category molecule
+%>
+
+<%
+name = locals[:name] || blog_controller.name
+count = locals[:count] || 10
+%>
+
+<section class="blog-recent">
+
+  <%= partial 'partials/molecule/heading.erb', locals: {extraClass: 'blog-recent__heading', tag: 'h4', text: :'recent.title'} %>
+
+  <dl class="blog-recent__list dl-horizontal">
+
+    <% blog(name).articles[0...count.to_i].each do |article| %>
+
+      <dt class="blog-recent__dt">
+        <%= partial 'partials/atom/label.erb', locals: {extraClass: 'blog-recent__label', context: 'info', content: article.date.strftime('%b %e')} %>
+      </dt>
+
+      <dd class="blog-recent__dd">
+        <%= link_to(string(article.title), article, {class: 'blog-recent__link heading--truncate'}) %>
+      </dd>
+
+    <% end %>
+
+  </dl>
+
+</section>

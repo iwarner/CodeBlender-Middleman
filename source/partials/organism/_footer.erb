@@ -1,0 +1,60 @@
+<footer role="contentinfo">
+
+  <div class="footer">
+
+    <div class="container">
+
+      <div class="row footer__row">
+
+          <% columns = "col-xs-6 col-md-#{12 / t('footer').count} " %>
+
+          <% t('footer').each do |entry| %>
+
+            <div class="footer__column <%= columns %>">
+
+              <%= partial 'partials/molecule/heading.erb', locals: { extraClass: 'footer__heading', icon: entry[:icon], tag: 'h4', text: entry[:title] } %>
+
+              <div class="footer__content">
+
+                <% if entry[:description] %>
+                  <%= string entry[:description] %>
+                <% end %>
+
+                <% if entry[:links] %>
+                  <%= partial 'partials/atom/list-ul.erb', locals: { array: entry[:links], extraClass: 'list-unstyled' } %>
+                <% end %>
+
+              </div>
+
+            </div>
+
+          <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="copyright text-center">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <% year = Time.now.strftime '%Y' %>
+          <time datetime="<%= year %>">&copy;<%= year %></time>
+
+          <%= string(:'copyright.brand') %>
+          <%= string(:'copyright.rights') %>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>

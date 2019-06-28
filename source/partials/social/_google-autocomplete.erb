@@ -1,0 +1,54 @@
+<%#
+Autocomplete
+
+@usage
+= codeBlender "autocomplete", "social/google/autocomplete"
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category social
+%>
+
+<% type = locals[:type] || 'geocode' %>
+
+<%# Country - ISO 3166-1 Alpha-2 compatible country code, Defaults to Ireland %>
+<% country = locals[:country] || 'ie' %>
+
+<%# Force selection %>
+<% forceSelection = locals[:force] || 'true' %>
+
+<%# Button %>
+<% button = locals[:button] ? {append: {context: 'primary', extraClass: 'findFood__button', text: :'findFood.input.button', type: 'submit'}} : false %>
+
+<%# Find food form %>
+<form class="findFood__form" name="autocompleteForm" novalidate role="form" ng-submit="autocomplete.submit($event, autocompleteForm.$valid)">
+    <%# Input - Google Places Search Box %>
+    <%= partial 'partials/atom/input.erb', locals:
+      {button: button,
+        input: { autocomplete: false,
+                 data: {country: country, forceSelection: forceSelection, types: type},
+                 extraClass: 'googlePlacesAutocomplete',
+                 inputGroupClass: 'input-group input-group-lg',
+                 name: 'place',
+                 ng: {model: 'googlePlacesAutocompleteModel'},
+                 placeholder: :'findFood.input.placeholder',
+                 required: true,
+                 showError: false},
+        label: {title: :'findFood.input.label', extraClass: locals[:extraClass] || false}} %>
+</form>
+
+<%# Find food error %>
+<div class="findFood__error ng-cloak" ng-if="autocomplete.showError">
+
+  <p ng-if="autocomplete.showErrorBlank">
+    <%= string :'findFood.error.blank' %>
+  </p>
+
+  <p ng-if="autocomplete.showErrorNoService">
+    <%= string :'findFood.error.noService' %>
+  </p>
+
+  <p ng-if="autocomplete.showErrorYQL">
+    <%= string :'findFood.error.errorMessage' %>
+  </p>
+
+</div>

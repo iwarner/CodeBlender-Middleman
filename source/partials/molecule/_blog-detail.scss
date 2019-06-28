@@ -1,0 +1,97 @@
+// Blog Detail
+//
+// @usage
+// @import "~molecule/detail/_detail";
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
+//----------------------------------------------------------------------------//
+
+// Module
+//----------------------------------------------------------------------------//
+$module: 'blog-detail';
+
+// Blog Detail
+//----------------------------------------------------------------------------//
+.#{$module} {
+
+  border-top: 1px solid #9B9B9B;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-top: 8px;
+
+  // Details
+  //--------------------------------------------------------------------------//
+  &__details {
+    margin-bottom: 8px;
+
+    // Icons
+    //------------------------------------------------------------------------//
+    .fa {
+      color: $gray-light;
+      margin-right: 5px;
+    }
+
+    // List
+    //------------------------------------------------------------------------//
+    li {
+      margin-right: 5px;
+    }
+  }
+
+  // Author
+  //--------------------------------------------------------------------------//
+  &__author {
+    color: $brand-primary;
+
+    &:hover {
+      color: #828585;
+    }
+  }
+
+  // Tags
+  //--------------------------------------------------------------------------//
+  &__tags {
+    border-bottom: 1px solid #9B9B9B;
+    padding: 0 0 10px;
+
+    // Tag
+    //------------------------------------------------------------------------//
+    & .#{$module}__tag {
+      border-radius: 0;
+      display: inline-block;
+      margin-bottom: 5px;
+      margin-right: 8px;
+    }
+  }
+
+  // Social
+  //--------------------------------------------------------------------------//
+  &__social {
+    border-bottom: 1px solid #9B9B9B;
+    padding: 8px 0;
+
+    span {
+      margin-right: 20px;
+      vertical-align: middle;
+    }
+
+    .fa {
+      font-size: 2em;
+      line-height: 1em;
+    }
+
+    a {
+      color: $brand-primary;
+      text-decoration: none;
+
+      &:hover {
+        color: #E4E3E3;
+      }
+    }
+
+    & .#{$module}__shareText {
+      color: #000;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+<%#
+Input
+%>
+
+<% input = locals[:input] %>
+<% label = locals[:label] %>
+
+<% inputCapture = capture do %>
+
+  <% extraClass = input[:extraClass] ? "form-control #{input[:extraClass]}" : 'form-control' %>
+
+  <% attribute = {
+    autocapitalize: input[:autocapitalize] || false,
+    autocomplete: input[:autocomplete] || 'on',
+    autocorrect: input[:autocorrect] || false,
+    autofocus: input[:autofocus] ? 'autofocus' : false,
+    accept: input[:accept] || false,
+    class: extraClass,
+    clear: input[:clear] ? {btn: true} : false,
+    data: input[:data] || false,
+    disabled: input[:disabled] ? 'disabled' : false,
+    id: input[:name] || false,
+    name: input[:name] || false,
+    ng: input[:ng] || false,
+    pattern: input[:pattern] || false,
+    placeholder: input[:placeholder] ? string(input[:placeholder]) : false,
+    required: input[:required] ? 'required' : false,
+    src: input[:src] || false,
+    title: input[:title] || false,
+    type: input[:type] || 'text',
+    typeahead: input[:typeahead] || false,
+    uib: input[:uib] || false,
+    value: input[:value] || false } %>
+
+  <%= text_field_tag(input[:name], attribute) %>
+
+<% end %>
+
+<% inputGroupCapture = capture do %>
+
+  <% if locals[:icon] || locals[:button] %>
+
+    <div class="<%= input[:inputGroupClass] ? input[:inputGroupClass] : 'input-group' %>">
+
+      <% if locals[:icon] and locals[:icon][:prepend] %>
+        <%= partial 'partials/atom/icon.erb', locals: {icon: "#{locals[:icon][:prepend]} input-group-addon", ng: {hide: 'loading'}} %>
+      <% end %>
+
+      <% if locals[:button] and locals[:button][:prepend] %>
+        <span class="input-group-btn">
+          <%= partial 'partials/atom/button.erb', locals: locals[:button][:prepend] %>
+        </span>
+      <% end %>
+
+      <%= inputCapture %>
+
+      <% if locals[:icon] and locals[:icon][:append] %>
+        <%= partial 'partials/atom/icon.erb', locals: {icon: "#{locals[:icon][:append]} input-group-addon"} %>
+      <% end %>
+
+      <% if locals[:button] and locals[:button][:append] %>
+        <span class="input-group-btn">
+          <%= partial 'partials/atom/button.erb', locals: locals[:button][:append] %>
+        </span>
+      <% end %>
+
+    </div>
+
+  <% elsif locals[:feedback] %>
+    <%= inputCapture %>
+    <%= partial 'partials/atom/icon.erb', locals: {icon: 'form-control-feedback ng-hide'} %>
+
+  <% else %>
+    <%= inputCapture %>
+  <% end %>
+
+<% end %>
+
+<% completeCapture = capture do %>
+
+  <%= inputGroupCapture %>
+
+  <% if locals[:help] %>
+    <span class="help-block">
+      <%= locals[:help][:content] %>
+    </span>
+  <% end %>
+
+<% end %>
+
+<% showError = !falsey(input[:showError]) ? 'show="{errors: \'{showSuccess: true}\'}"' : nil %>
+
+<div class="form-group" <%= showError %>>
+
+  <label class="control-label <%= label[:extraClass] ? label[:extraClass] : nil %>" for="<%= input[:name] %>">
+    <%= string(label[:title]) %>
+  </label>
+
+  <% if locals[:column] %>
+    <div class="<%= locals[:column] %>">
+      <%= completeCapture %>
+    </div>
+
+  <% else %>
+    <%= completeCapture %>
+  <% end %>
+
+</div>

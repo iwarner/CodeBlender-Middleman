@@ -1,0 +1,70 @@
+<%#
+Address
+Provides a marked up address module complete with accessibility and schema
+markup in accordance with best practices.
+
+The <address> tag should NOT be used to describe a postal address, unless it
+is a part of the contact information.
+
+@usage
+-# Address
+= codeBlender "address", "atom"
+
+@param poBox
+@param street
+@param city
+@param region
+@param postCode
+@param country
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category atom
+@see      https://schema.org/PostalAddress
+@see      http://html5doctor.com/the-address-element/
+%>
+
+<div class="address" itemscope itemtype="http://schema.org/PostalAddress" itemprop="<%= locals[:itemprop] %>">
+
+  <%# Address PO box %>
+  <% if locals[:poBox] %>
+    <div class="address__poBox" itemprop="postOfficeBoxNumber">
+      <%= locals[:poBox] %>
+    </div>
+  <% end %>
+
+  <%# Address street %>
+  <% if locals[:street] %>
+    <div class="address__street" itemprop="streetAddress">
+      <%= locals[:street] %>
+    </div>
+  <% end %>
+
+  <%# Address city %>
+  <% if locals[:city] %>
+    <div class="address__city" itemprop="addressLocality">
+      <%= locals[:city] %>
+    </div>
+  <% end %>
+
+  <%# Address region %>
+  <% if locals[:region] %>
+    <div class="address__city" itemprop="addressRegion">
+      <%= locals[:region] %>
+    </div>
+  <% end %>
+
+  <%# Address postal code %>
+  <% if locals[:postCode] %>
+    <div class="address__city" itemprop="postCode">
+      <%= locals[:postCode] %>
+    </div>
+  <% end %>
+
+  <%# Address country %>
+  <% if locals[:country] %>
+    <div class="address__country" itemprop="addressCountry">
+      <%= locals[:country] %>
+    </div>
+  <% end %>
+
+</div>

@@ -4,6 +4,8 @@
 .parsed
 client_id.json
 client_secret.json
+source/blogs
+source/assets/images/blogs
 
 # Middleman #
 #############

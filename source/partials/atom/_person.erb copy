@@ -1,0 +1,61 @@
+<%#
+Person
+Provides a marked up person module complete with accessibility and schema markup
+in accordance with best practices.
+
+@usage
+-# Person
+= codeBlender "person", "atom"
+
+@param name
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category atom
+@see      https://schema.org/Person
+%>
+
+<div class="person" itemscope itemtype="http://schema.org/Person">
+
+  <%# Person name %>
+  <% if locals[:name] %>
+    <div class="person__name" itemprop="name">
+      <%= locals[:name] %>
+    </div>
+  <% end %>
+
+  <%# Person job title %>
+  <% if locals[:jobTitle] %>
+    <div class="person__name" itemprop="jobTitle">
+      <%= locals[:jobTitle] %>
+    </div>
+  <% end %>
+
+  <%# Person telephone %>
+  <% if locals[:telephone] %>
+    <div class="person__name" itemprop="telephone">
+      <%= locals[:telephone] %>
+    </div>
+  <% end %>
+
+  <%# Person email %>
+  <% if locals[:email] %>
+    <div class="person__name" itemprop="email">
+      <%= mail_to(locals[:email]) %>
+    </div>
+  <% end %>
+
+  <%# Person url %>
+  <% if locals[:url] %>
+    <div class="person__name" itemprop="url">
+      <%= mail_to(locals[:url]) %>
+    </div>
+  <% end %>
+
+  <%# Person nationality %>
+  <% if locals[:nationality] %>
+    <div class="person__name" itemprop="nationality">
+      <%= mail_to(locals[:nationality]) %>
+    </div>
+  <% end %>
+
+</div>

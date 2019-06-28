@@ -1,0 +1,21 @@
+---
+description: Address convenient way to display an address
+title: Address convenient way to display an address
+
+see:
+  - - "HTML5 Doctor"
+    - "http://html5doctor.com/the-address-element/"
+
+todo:
+  - - "Complete more examples such as in-line in a button"
+---
+
+%p
+    Address
+
+-# Address
+:ruby
+    code = %{codeBlender "address", "atom", { poBox: "PO Box 1001", street: "20 Everywhere Road", city: "London", region: "Surrey", postCode: "SW11 1AA", country: "United Kingdom" }}
+
+-# Code
+= codeBlender "code", "molecule", { code: code, heading: { text: "Default" } }

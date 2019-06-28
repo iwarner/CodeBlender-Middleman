@@ -1,0 +1,69 @@
+// NavBar
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
+//----------------------------------------------------------------------------//
+
+// Module
+//----------------------------------------------------------------------------//
+$module: 'navbar';
+
+// Navbar
+//----------------------------------------------------------------------------//
+.#{$module} {
+
+  // Link
+  //--------------------------------------------------------------------------//
+  a {
+    font-size: 15px;
+  }
+
+  // Brand
+  //--------------------------------------------------------------------------//
+  &-brand {
+    background-image: url('/assets/svg/foodscene.svg');
+    background-repeat: no-repeat;
+    background-size: 279px;
+    height: 40px;
+    margin-left: 0 !important;
+    margin-top: 9px;
+    width: 278px;
+  }
+
+  // Brand
+  //--------------------------------------------------------------------------//
+  &-inverse {
+    .#{$module}-brand {
+      background-image: url('/assets/svg/newsroom.svg');
+    }
+  }
+
+  // Flag
+  //--------------------------------------------------------------------------//
+  .flag-icon {
+    background-size: cover;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+  }
+
+  // Media query
+  //--------------------------------------------------------------------------//
+  @media(max-width: 767px) {
+    // Brand
+    //------------------------------------------------------------------------//
+    &-brand {
+
+      background-size: 235px;
+      margin-left: 15px !important;
+      margin-top: 12px;
+      padding: 10px 15px;
+      width: 235px;
+
+      .image__img {
+        height: 40px;
+      }
+    }
+  }
+
+}

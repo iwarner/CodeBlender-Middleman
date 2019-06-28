@@ -1,0 +1,47 @@
+// Video
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category organism
+//----------------------------------------------------------------------------//
+
+// Module
+//----------------------------------------------------------------------------//
+$module: 'video';
+
+// Video
+//----------------------------------------------------------------------------//
+.#{$module} {
+
+  video {
+    background-attachment: fixed;
+    background-image: url('https://peach.blender.org/wp-content/uploads/its-a-trap.png?x11217');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  // Background
+  //--------------------------------------------------------------------------//
+  &__background {
+    opacity: .6;
+  }
+
+  // Full screen video
+  //--------------------------------------------------------------------------//
+  &--fullscreen {
+    bottom: 0;
+    height: auto;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    right: 0;
+    width: auto;
+    z-index: -100;
+  }
+
+  // Fade
+  //--------------------------------------------------------------------------//
+  &--fade {
+    opacity: .5;
+  }
+}

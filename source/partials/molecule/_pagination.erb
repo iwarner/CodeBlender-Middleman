@@ -1,0 +1,99 @@
+<%#
+Pagination
+
+@usage
+-# Variables
+- prevPage = prev_page ? prev_page.url : false
+- nextPage = next_page ? next_page.url : false
+
+-# Pagination
+= codeBlender 'pagination', 'molecule', {nextPage: nextPage, prevPage: prevPage, pageNo: page_number, pages: num_pages}
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category molecule
+%>
+
+<% size = locals[:size] ? "pagination-#{locals[:size]}" : nil %>
+<% pageNo = locals[:pageNo].to_i %>
+<% totalPages = locals[:pages].to_i %>
+
+<nav class="text-center" aria-label="Page navigation">
+
+  <ul class="pagination <%= size %>">
+
+    <%# Previous page %>
+    <% if prevPage %>
+
+      <% prevText = t(:'pagination.previous').kind_of?(Hash) ? (partial 'partials/atom/icon.erb', locals: {icon: t(:'pagination.previous.icon')}) : t(:'pagination.previous') %>
+
+      <li>
+        <%= link_to prevText, prevPage.url, {aria: {label: 'Previous'}, class: 'pagination__link'} %>
+      </li>
+
+      <% p = nil %>
+      <% (1...pageNo).each do p = p ? p.metadata[:locals]['prev_page'] : prevPage end %>
+
+      <% if pageNo > 4 %>
+        <li>
+          <%= link_to 1, p && p.url, {class: 'pagination__link'} %>
+        </li>
+        <li class="disabled">
+          <%= link_to('...', nil, {class: 'pagination__link'}) %>
+        </li>
+      <% end %>
+
+    <% end %>
+
+    <%# All pages %>
+    <% (pageNo - 3..pageNo + 3).select{|i| i > 0 && i <= totalPages}.each do |i| %>
+
+      <% if i == pageNo.to_i %>
+
+        <li class="active">
+          <span class="pagination__link"><%= i %></span>
+        </li>
+
+      <% else %>
+
+        <% p = nil %>
+
+        <li>
+          <% (i...pageNo).each do p = p ? p.metadata[:locals]['prev_page'] : prevPage end %>
+          <% (pageNo...i).each do p = p ? p.metadata[:locals]['next_page'] : nextPage end %>
+          <%= link_to i, p && p.url, {class: 'pagination__link'} %>
+        </li>
+
+      <% end %>
+
+    <% end %>
+
+    <%# Next page %>
+    <% if nextPage %>
+
+      <% nextText = t(:'pagination.next').kind_of?(Hash) ? (partial 'partials/atom/icon.erb', locals: {icon: t(:'pagination.next.icon')}): t(:'pagination.next') %>
+
+      <% p = nil %>
+
+      <% (pageNo...totalPages).each do p = p ? p.metadata[:locals]['next_page'] : nextPage end %>
+
+      <% if pageNo < (totalPages - 3) %>
+
+        <li class="disabled">
+          <%= link_to('...', nil, {class: 'pagination__link'}) %>
+        </li>
+
+        <li>
+          <%= link_to(totalPages, p && p.url, {class: 'pagination__link'}) %>
+        </li>
+
+      <% end %>
+
+      <li>
+        <%= link_to(nextText, nextPage.url, {aria: {label: 'Next' }, class: 'pagination__link"'}) %>
+      </li>
+
+    <% end %>
+
+  </ul>
+
+</nav>

@@ -1,0 +1,21 @@
+// Scroll Top
+//
+// @author   Ian Warner <ian.warner@drykiss.com>
+// @category molecule
+//----------------------------------------------------------------------------//
+.scroll-top {
+  background: $link-hover-color;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  bottom: 0;
+  font-size: 24px;
+  position: fixed;
+  right: 6%;
+  z-index: 100;
+
+  a:link,
+  a:visited {
+    color: #222;
+  }
+
+}

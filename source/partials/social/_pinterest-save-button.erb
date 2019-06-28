@@ -1,0 +1,16 @@
+<%#
+Pinterest save button
+
+buttonBookmark
+buttonPin
+
+@usage
+= codeBlender "save-button", "social/pinterest/save-button"
+
+@author   Ian Warner <ian.warner@drykiss.com>
+@category social
+%>
+
+<% link_to('https://www.pinterest.com/pin/create/button/', {data:{pin:{description: 'test this out', do: 'buttonPin', custom: 'true'}}}) do %>
+  <%= partial 'partials/atom/icon.erb', locals: {icon: locals[:icon] || 'fa-pinterest-square fa-fw fa-3x'} %>
+<% end %>
