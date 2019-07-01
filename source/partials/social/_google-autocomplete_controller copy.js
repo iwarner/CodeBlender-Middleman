@@ -63,7 +63,6 @@ AutocompleteController = ( $http, $rootScope, $window ) ->
   # Takes a place name and geocodes it into a location
   #
   # @see https://developers.google.com/maps/documentation/javascript/geocoding
-  # https://maps.googleapis.com/maps/api/js/GeocodeService.Search?4sliffey&7sUS&8m2&1scountry&2sie&9sen-GB&key=AIzaSyAyr59mULbjJrOHIIMyd_KA9PH8EkLkEoU&callback=_xdc_._wzdz2k&token=76781
   ##
   geocodePlace = (place) ->
 
